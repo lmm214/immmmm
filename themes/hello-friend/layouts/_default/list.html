@@ -26,6 +26,13 @@
         {{ if $.Site.Params.ShowReadingTime }}
           <span class="post-read-time">/ {{ .ReadingTime }} 分钟</span>
         {{ end }}
+        {{ if .Params.tags }}
+        <span class="">
+          {{ range .Params.tags }}
+            #<a href="{{ (urlize (printf "tags/%s" . )) | absURL }}/">{{ . }}</a>&nbsp;
+          {{ end }}
+        </span>
+        {{ end }}
       </div>
 
       {{ if .Params.Cover }}

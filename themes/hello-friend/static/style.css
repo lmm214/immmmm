@@ -700,6 +700,8 @@ hr {
 	margin-bottom: 10px
 }
 
+.post-meta a{text-decoration: none;}
+
 @media (max-width:683px) {
 	.post-meta {
 		font-size: .85rem

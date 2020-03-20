@@ -43,7 +43,7 @@ jQuery(document).ready(function($) {
     })
     $(".post-content a[rel!=link]:has(img)").slimbox();
     //相对时间
-    $.lately({'target' : 'time span.datetime,.author-date small'});
+    $.lately({'target' : '.post-date'});
     //外链新窗口
     var parse_url = /^(?:([A-Za-z]+):)?(\/{0,3})([0-9.\-A-Za-z]+)(?::(\d+))?(?:\/([^?#]*))?(?:\?([^#]*))?(?:#(.*))?$/;
     var location_href = window.location.href.replace(parse_url,'$3');
