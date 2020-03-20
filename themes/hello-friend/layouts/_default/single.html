@@ -1,0 +1,89 @@
+{{ define "main" }}
+  {{ $isntDefault := not (or (eq (trim $.Site.Params.contentTypeName " ") "posts") (eq (trim $.Site.Params.contentTypeName " ") "")) }}
+  {{ $contentTypeName := cond $isntDefault (string $.Site.Params.contentTypeName) "posts" }}
+
+  <div class="post">
+    <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h2>
+    <div class="post-meta">
+      {{ if .Date | default nil }}
+        <span class="post-date">
+          {{ .Date.Format ($.Site.Params.DateFormatSingle | default "2006-01-02") }}
+        </span>
+
+        {{ if eq .Type $contentTypeName }}
+          {{ if $.Site.Params.LastModDisplay }}
+            {{ partial "lastmod.html" . }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+
+      {{ with .Params.Author }}<span class="post-author">— {{ $.Site.Params.WrittenBy | default "Written by" }} {{ . }}</span>{{ end }}
+      {{ if $.Site.Params.ShowReadingTime }}
+        <span class="post-read-time">/ {{ .ReadingTime }} 分钟</span>
+        {{- if .Site.Params.valine.enable -}}
+        <span> / <span class="valine-comment-count" data-xid="{{ .URL | relURL }}">0</span> 评论 / <span id="{{ .URL | relURL }}" class="leancloud_visitors" data-flag-title="{{ .Title }}"><span class="leancloud-visitors-count">0</span> 阅读</span></span>
+        {{ end }}
+      {{ end }}
+    </div>
+
+    {{ if .Params.Cover }}
+      {{ if .Params.UseRelativeCover }}
+        <img src="{{ (printf "%s%s" .Permalink .Params.Cover ) }}" class="post-cover" />
+      {{ else }}
+        <img src="{{ .Params.Cover | absURL }}" class="post-cover" />
+      {{ end }}
+    {{ end }}
+
+    <div class="post-content">
+      {{ .Content }}
+    </div>
+
+
+    {{ if .Params.tags }}
+      <span class="post-tags">
+        {{ range .Params.tags }}
+          #<a href="{{ (urlize (printf "tags/%s" . )) | absURL }}/">{{ . }}</a>&nbsp;
+        {{ end }}
+      </span>
+    {{ end }}
+
+    <div class="clear"></div>
+    
+    {{ if eq .Type $.Site.Params.contentTypeName }}
+      {{ if or .NextInSection .PrevInSection }}
+        <div class="pagination">
+          <div class="pagination__title">
+            <span class="pagination__title-h">阅读更多</span>
+            <hr />
+          </div>
+          <div class="pagination__buttons">
+            {{ if .NextInSection }}
+              <span class="button previous">
+                <a href="{{ .NextInSection.Permalink }}">
+                  <span class="button__icon">←</span>
+                  <span class="button__text">{{ .NextInSection.Title }}</span>
+                </a>
+              </span>
+            {{ end }}
+            {{ if .PrevInSection }}
+              <span class="button next">
+                <a href="{{ .PrevInSection.Permalink }}">
+                  <span class="button__text">{{ .PrevInSection.Title }}</span>
+                  <span class="button__icon">→</span>
+                </a>
+              </span>
+            {{ end }}
+          </div>
+        </div>
+      {{ end }}
+    {{ end }}
+
+
+    {{ if not (eq .Params.Comments "false") }}
+      {{ if or (eq .Type $.Site.Params.contentTypeName) (.Params.Comments) }}
+        {{ partial "comments.html" . }}
+      {{ end }}
+    {{ end }}
+
+    </div>
+{{ end }}

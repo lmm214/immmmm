@@ -1,0 +1,41 @@
+  <!-- valine -->
+  {{- if .Site.Params.valine.enable -}}
+  <div class="pagination__title">
+       <span class="pagination__title-h"><span class="valine-comment-count" data-xid="{{ .URL | relURL }}"></span> 条评论</span>
+       <hr />
+  </div>
+  <div id="comments"></div>
+  <script src="https://cdn.jsdelivr.net/gh/lmm214/lmm214.github.io@latest/media/js/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+  <script src="https://cdn.staticfile.org/valine/1.3.10/Valine.Pure.min.js"></script>
+  <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        el: '#comments' ,
+        recordIP : true,
+        appId: '{{ .Site.Params.valine.appId }}',
+        appKey: '{{ .Site.Params.valine.appKey }}',
+        placeholder: '{{ .Site.Params.valine.placeholder }}',
+        visitor: {{ .Site.Params.valine.visitor }}
+    });
+    jQuery(document).ready(function($){
+        jinrishici.load(function(result) {
+            var jrsc_plac =  result.data.content + "\n「" + result.data.origin.title + "」" + result.data.origin.dynasty + " · " + result.data.origin.author
+            document.getElementById("veditor").setAttribute("placeholder",jrsc_plac);
+        });
+        $('.vemoji-btn').text('😀');
+        $("#comments").on('click', 'span.vat',function(){
+        	$(this).parent('div.vmeta').next("div.vcontent").after($("div.vwrap"));
+        	$('textarea#veditor').focus();
+        })
+        if(window.location.hash){
+        	var checkExist = setInterval(function() {
+        		if ($(window.location.hash).length) {
+                $('html, body').animate({scrollTop: $(window.location.hash).offset().top-90}, 1000);
+                            clearInterval(checkExist);
+                        }
+                }, 100);
+        }
+    });
+  </script>
+  {{- end }}

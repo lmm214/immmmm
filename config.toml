@@ -1,0 +1,45 @@
+baseURL  =  "https://immmmm.com"
+languageCode = "zh-CN"
+defaultContentLanguage = "zh-CN"
+title  =  "木木木木木"
+theme  =  "hello-friend"
+summaryLength = 140
+hasCJKLanguage = true
+
+[permalinks]
+  posts = "/:filename/"
+
+[menu]
+  [[menu.main]]
+	name="首页"
+	url="/"
+	weight="1"
+  [[menu.main]]
+	name="关于"
+	url="/about"
+	weight="2"
+
+[params]
+  # dir name of your blog content (default is `content/posts`)
+  contentTypeName = "posts"
+  # "light" or "dark"
+  defaultTheme = "dark"
+  # if you set this to 0, only submenu trigger will be visible
+  showMenuItems = 2
+  # Enable to show reading time in minutes for posts
+  showReadingTime = true
+  logoText = "hello friend"
+
+  ReadMore = "阅读全文"
+
+[markup]
+[markup.goldmark]
+[markup.goldmark.renderer]
+  unsafe = true
+
+[params.valine]
+	enable = true
+    appId = 'm6rxiyixBDG25mYPEPapQpnR-MdYXbMMI'
+    appKey = 'WMokwNAwh9noJ4XeUjVBjsCt'
+    placeholder = '既然来了，那就留个痕迹吧~'
+    visitor = true

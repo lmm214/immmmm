@@ -1,0 +1,41 @@
+<nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    {{ if or $.Site.Params.showMenuItems (eq $.Site.Params.showMenuItems 0) }}
+      {{ range first $.Site.Params.showMenuItems $.Site.Menus.main }}
+        {{ if not .HasChildren }}
+          <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{ end }}
+      {{ end }}
+      {{ if gt (len $.Site.Menus.main) $.Site.Params.showMenuItems }}
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">
+            {{ $.Site.Params.MenuMore | default "Show more" }}
+            <span class="menu__sub-inner-more-trigger-icon">{{ partial "greater-icon.html" . }}</span>
+          </li>
+
+          <ul class="menu__sub-inner-more hidden">
+            {{ range last (sub (len $.Site.Menus.main) $.Site.Params.showMenuItems) $.Site.Menus.main }}
+              {{ if not .HasChildren }}
+                <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+              {{ end }}
+            {{ end }}
+          </ul>
+        </ul>
+      {{ end }}
+    {{ else }}
+      {{ range $.Site.Menus.main }}
+        {{ if not .HasChildren }}
+          <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    {{ range $.Site.Menus.main }}
+      {{ if not .HasChildren }}
+        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+      {{ end }}
+    {{ end }}
+  </ul>
+</nav>
