@@ -33,6 +33,18 @@ tags: [折腾]
   unsafe = true
 ```
 
+默认 rss 地址是 `index.xml`：什么鬼！下载 [list.atom.xml](https://github.com/kaushalmodi/hugo-atom-feed/blob/master/layouts/_default/list.atom.xml) 丢入自己主题的 `layouts/_default`, 并在`config.toml` 添加以下代码。
+
+```
+rssLimit = 5 # 控制输出数量，不然默认是全站
+[outputs]
+  home = ["Atom", "HTML"] # <domain>/atom.xml
+
+[outputFormats.Atom]
+  mediatype = "application/rss"
+  baseName = "atom"
+```
+
 ### 感叹
 
 不懂英文，太难了！ 😭
