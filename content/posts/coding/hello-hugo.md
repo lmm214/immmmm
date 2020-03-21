@@ -8,7 +8,13 @@ tags: [折腾]
 
 ![hugo-2](https://lmm.elizen.me/images/2020/03/hugo-2.png)
 
-主站顺利切换到 [Hugo](https://gohugo.io/) ，直接在 Github Web 端码字更新，自动部署，舒心！就待它的 Github APP 端支持编辑代码！
+主站顺利切换到 [Hugo](https://gohugo.io/) ，直接在 Github Web 端码字，
+
+![hugo-3](https://lmm.elizen.me/images/2020/03/hugo-3.png)
+
+或者本地码好拖进去，自动更新，自动部署，舒心！
+
+就待它的 Github APP 端支持编辑代码咯！
 
 <!--more-->
 
