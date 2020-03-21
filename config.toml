@@ -22,9 +22,17 @@ pygmentCodeFences = true
 	url="/"
 	weight="1"
   [[menu.main]]
-	name="关于"
-	url="/about"
+	name="阅读"
+	url="/books/"
 	weight="2"
+  [[menu.main]]
+  name="观影"
+  url="/movies/"
+  weight="3"
+  [[menu.main]]
+  name="关于"
+  url="/about/"
+  weight="4"
 
 [params]
   # dir name of your blog content (default is `content/posts`)
