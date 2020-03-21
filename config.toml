@@ -30,8 +30,8 @@ hasCJKLanguage = true
   showReadingTime = false
   logoText = "hello friend"
 
-  DateFormatList = "2006-01-02 15:04"
-  DateFormatSingle = "2006-01-02 15:04"
+  #DateFormatList = "2006-01-02 15:04"
+  #DateFormatSingle = "2006-01-02 15:04"
 
   ReadMore = "阅读全文"
 
