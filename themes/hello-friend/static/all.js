@@ -52,52 +52,6 @@ jQuery(document).ready(function($) {
         var replace_href = this_href.replace(parse_url,'$3');
         if ( this_href != replace_href && location_href != replace_href){$(this).attr('target','_blank');}
     });
-    //外链加图标
-        function urlIconlize(url) {
-        var domain,
-            _output;
-        var iconFontTag = 'iconfont';
-        var iconMap = {
-            'twitter': iconFontTag + '-twitter',
-            'wechat': iconFontTag + '-wechat',
-            'qzone': iconFontTag + '-qzone',
-            'weibo': iconFontTag + '-weibo',
-            'facebook': iconFontTag + '-facebook',
-            'github': iconFontTag + '-github',
-            'douban': iconFontTag + '-douban',
-            'google': iconFontTag + '-google',
-            'luolei': iconFontTag + '-luolei',
-            'dribble': iconFontTag + '-dribble',
-            'v2ex': iconFontTag + '-v2ex',
-            'zhihu': iconFontTag + '-zhihu',
-            'wikipedia': iconFontTag + '-wikipedia',
-            'jianshu': iconFontTag + '-jianshu',
-            'youku': iconFontTag + '-youku',
-            'youtube': iconFontTag + '-youtube'
-        }
-        for (var name in iconMap) {
-            if (typeof iconMap[name] !== 'function') {
-                var MapKey = name;
-                if (url.indexOf(MapKey) >= 0) {
-                    domain = MapKey;
-                    _output = iconMap[MapKey];
-                }
-            }
-        }
-        return _output;
-    };
-    function addIcons() {
-      $('.post-content  a:not(:has(img))').each(function(i) {
-            var _src = $(this).attr('href');
-            var tmp = document.createElement('a');
-            tmp.href = _src;
-            _selfDomain = tmp.hostname;
-            urlIconlize(_selfDomain);
-            $(this).prepend('<i class="iconfont ' + urlIconlize(_selfDomain) + '"></i>');
-
-      });
-    }
-    addIcons();
     //豆瓣图书电影条目
     $(".post-content a[href*='douban.com/subject/']").each(function () {
         var _this = $(this);
