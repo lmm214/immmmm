@@ -40,11 +40,12 @@ pygmentCodeFences = true
   # "light" or "dark"
   defaultTheme = "dark"
   # if you set this to 0, only submenu trigger will be visible
-  showMenuItems = 2
+  showMenuItems = 4
   # Enable to show reading time in minutes for posts
   showReadingTime = false
   logoText = "hello friend"
 
+  MenuMore = "更多"
   # DateFormatList = "2006-01-02 15:04"
   # DateFormatSingle = "2006-01-02 15:04"
 
