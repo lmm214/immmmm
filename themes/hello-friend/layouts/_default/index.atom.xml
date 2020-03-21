@@ -1,0 +1,120 @@
+{{ printf `<?xml version="1.0" encoding="utf-8"?>` | safeHTML }} {{/* ref: https://validator.w3.org/feed/docs/atom.html */}}
+<feed xmlns="http://www.w3.org/2005/Atom"{{ with site.LanguageCode }} xml:lang="{{ . }}"{{ end }}>
+    <generator uri="https://gohugo.io/" version="{{ hugo.Version }}">Hugo</generator>
+    {{- $title := site.Title -}}
+    {{- with .Title -}}
+        {{- if (not (eq . site.Title)) -}}
+            {{- $title = printf `%s %s %s` . (i18n "feed_title_on" | default "on") site.Title -}}
+        {{- end -}}
+    {{- end -}}
+    {{- if .IsTranslated -}}
+        {{ $title = printf "%s (%s)" $title (index site.Data.i18n.languages .Lang) }}
+    {{- end -}}
+    {{ printf `<title type="html"><![CDATA[%s]]></title>` $title | safeHTML }}
+    {{ with (or (.Param "subtitle") (.Param "tagline")) }}
+        {{ printf `<subtitle type="html"><![CDATA[%s]]></subtitle>` . | safeHTML }}
+    {{ end }}
+    {{ $output_formats := .OutputFormats }}
+    {{ range $output_formats -}}
+        {{- $rel := (or (and (eq "atom" (.Name | lower)) "self") "alternate") -}}
+        {{ with $output_formats.Get .Name }}
+            {{ printf `<link href=%q rel=%q type=%q title=%q />` .Permalink $rel .MediaType.Type .Name | safeHTML }}
+        {{- end -}}
+    {{- end }}
+    {{- range .Translations }}
+        {{ $output_formats := .OutputFormats }}
+        {{- $lang := .Lang }}
+        {{- $langstr := index site.Data.i18n.languages .Lang }}
+        {{ range $output_formats -}}
+            {{ with $output_formats.Get .Name }}
+                {{ printf `<link href=%q rel="alternate" type=%q hreflang=%q title="[%s] %s" />` .Permalink .MediaType.Type $lang $langstr .Name | safeHTML }}
+            {{- end -}}
+        {{- end }}
+    {{- end }}
+    <updated>{{ now.Format "2006-01-02T15:04:05-07:00" | safeHTML }}</updated>
+    {{ with site.Copyright }}
+        {{- $copyright := replace . "{year}" now.Year -}} {{/* In case the site.copyright uses a special string "{year}" */}}
+        {{- $copyright = replace $copyright "&copy;" "©" -}}
+        <rights>{{ $copyright | plainify }}</rights>
+    {{- end }}
+    {{ with .Param "feed" }}
+        {{/* For this to work, the $icon file should be present in the assets/ directory */}}
+        {{- $icon := .icon | default "icon.svg" -}}
+        {{- with resources.Get $icon -}}
+            <icon>{{ (. | fingerprint).Permalink }}</icon>
+        {{- end }}
+
+        {{/* For this to work, the $logo file should be present in the assets/ directory */}}
+        {{- $logo := .logo | default "logo.svg" -}}
+        {{- with resources.Get $logo -}}
+            <logo>{{ (. | fingerprint).Permalink }}</logo>
+        {{- end }}
+    {{ end }}
+    {{ with site.Author.name -}}
+        <author>
+            <name>{{ . }}</name>
+            {{ with site.Author.email }}
+                <email>{{ . }}</email>
+            {{ end -}}
+        </author>
+    {{- end }}
+    {{ with site.Params.id }}
+        <id>{{ . | plainify }}</id>
+    {{ else }}
+        <id>{{ .Permalink }}</id>
+    {{ end }}
+    {{- $limit := (cond (le site.Config.Services.RSS.Limit 0) 65536 site.Config.Services.RSS.Limit) }}
+    {{- $feed_sections := site.Params.feedSections | default site.Params.mainSections -}}
+    {{/* Range through only the pages with a Type in $feed_sections. */}}
+    {{- $pages := where .RegularPages "Type" "in" $feed_sections -}}
+    {{- if (eq .Kind "home") -}}
+        {{- $pages = where site.RegularPages "Type" "in" $feed_sections -}}
+    {{- end -}}
+    {{/* Remove the pages that have the disable_feed parameter set to true. */}}
+    {{- $pages = where $pages ".Params.disable_feed" "!=" true -}}
+    {{- range first $limit $pages }}
+        {{ $page := . }}
+        <entry>
+            {{ printf `<title type="html"><![CDATA[%s]]></title>` .Title | safeHTML }}
+            <link href="{{ .Permalink }}?utm_source=atom_feed" rel="alternate" type="text/html" />
+            {{- range .Translations }}
+                {{- $link := printf "%s?utm_source=atom_feed" .Permalink | safeHTML }}
+                {{- printf `<link href=%q rel="alternate" type="text/html" hreflang=%q />` $link .Lang | safeHTML }}
+            {{- end }}
+            {{/* rel=related: See https://validator.w3.org/feed/docs/atom.html#link */}}
+            {{- range first 5 (site.RegularPages.Related .) }}
+                <link href="{{ .Permalink }}?utm_source=atom_feed" rel="related" type="text/html" title="{{ .Title }}" />
+            {{- end }}
+            {{ with .Params.id }}
+                <id>{{ . | plainify }}</id>
+            {{ else }}
+                <id>{{ .Permalink }}</id>
+            {{ end }}
+            {{ with .Params.author -}}
+                {{- range . -}} <!-- Assuming the author front-matter to be a list -->
+                    <author>
+                        <name>{{ . }}</name>
+                    </author>
+                {{- end -}}
+            {{- end }}
+            <published>{{ .Date.Format "2006-01-02T15:04:05-07:00" | safeHTML }}</published>
+            <updated>{{ .Lastmod.Format "2006-01-02T15:04:05-07:00" | safeHTML }}</updated>
+            {{ $description1 := .Description | default "" }}
+            {{ $description := (cond (eq "" $description1) "" (printf "<blockquote>%s</blockquote>" ($description1 | markdownify))) }}
+            {{ printf `<content type="html"><![CDATA[%s%s]]></content>` $description .Content | safeHTML }}
+            {{ with site.Taxonomies }}
+                {{ range $taxo,$_ := . }} <!-- Defaults taxos: "tags", "categories" -->
+                    {{ with $page.Param $taxo }}
+                        {{ $taxo_list := . }} <!-- $taxo_list will be the tags/categories list -->
+                        {{ with site.GetPage (printf "/%s" $taxo) }}
+                            {{ $taxonomy_page := . }}
+                            {{ range $taxo_list }} <!-- Below, assuming pretty URLs -->
+                                <category scheme="{{ printf "%s%s" $taxonomy_page.Permalink (. | urlize) }}" term="{{ (. | urlize) }}" label="{{ . }}" />
+                            {{ end }}
+                        {{ end }}
+                    {{ end }}
+                {{ end }}
+            {{ end }}
+        </entry>
+    {{ end }}
+</feed>
