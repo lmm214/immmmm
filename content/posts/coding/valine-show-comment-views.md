@@ -1,5 +1,5 @@
 ---
-date: 2020-01-27 19:05
+date: 2020-01-27
 title: 'Valine 文章列表显示评论数和阅读数'
 tags: [折腾]
 published: true

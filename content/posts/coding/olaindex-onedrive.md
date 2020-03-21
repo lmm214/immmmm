@@ -1,5 +1,5 @@
 ---
-date: 2019-12-06 13:05
+date: 2019-12-06
 title: 'OLAINDEX 搭建笔记'
 tags: [折腾]
 published: true

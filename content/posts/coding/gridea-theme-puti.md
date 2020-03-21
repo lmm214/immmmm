@@ -1,6 +1,6 @@
 ---
 title: 'Gridea Theme Puti'
-date: 2019-11-26 21:28:06
+date: 2019-11-26
 tags: [折腾]
 published: true
 hideInList: false

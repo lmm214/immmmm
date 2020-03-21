@@ -1,5 +1,5 @@
 ---
-date: 2017-12-29 23:05
+date: 2017-12-29
 title: 'Bitcron 评论框的几件事'
 tags: [折腾]
 published: true

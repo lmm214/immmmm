@@ -1,11 +1,7 @@
 ---
 title: 'RSSHub 部署笔记'
-date: 2020-03-18 00:31:40
+date: 2020-03-21
 tags: [折腾]
-published: true
-hideInList: false
-feature: 
-isTop: false
 ---
 >🍰 万物皆可 RSS。
 

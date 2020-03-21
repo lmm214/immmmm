@@ -1,6 +1,6 @@
 ---
 title: '今日诗词 & Valine'
-date: 2020-01-30 16:40:00
+date: 2020-01-30
 tags: [折腾]
 published: true
 hideInList: false

@@ -1,6 +1,6 @@
 ---
 title: 'Calibre Web 搭建笔记'
-date: 2019-11-30 14:05:00
+date: 2019-11-30
 tags: [折腾]
 published: true
 hideInList: false

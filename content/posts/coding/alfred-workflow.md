@@ -1,5 +1,5 @@
 ---
-date: 2019-10-18 10:00
+date: 2019-10-18
 title: 'Alfred workflow 记录'
 tags: [折腾]
 published: true

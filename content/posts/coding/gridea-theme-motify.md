@@ -1,11 +1,7 @@
 ---
 title: 'Gridea Theme Motify'
-date: 2020-03-13 19:35:34
+date: 2020-03-13
 tags: [折腾]
-published: true
-hideInList: false
-feature: 
-isTop: false
 ---
 
 自用 N 年主题转制 Gridea 完成！

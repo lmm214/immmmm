@@ -1,5 +1,5 @@
 ---
-date: 2018-08-21 01:10
+date: 2018-08-21
 title: '微信小程序：校园云待办'
 tags: [折腾]
 published: true

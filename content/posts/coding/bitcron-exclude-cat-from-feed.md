@@ -1,5 +1,5 @@
 ---
-date: 2018-08-03 14:30
+date: 2018-08-03
 title: 'Bitcron 在 Feed 里排除某个分类'
 tags: [折腾]
 published: true

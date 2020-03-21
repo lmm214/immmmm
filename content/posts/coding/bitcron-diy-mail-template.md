@@ -1,5 +1,5 @@
 ---
-date: 2017-12-24 13:13
+date: 2017-12-24
 title: 'Bitcron 美化评论回复通知'
 tags: [折腾]
 published: true

@@ -1,11 +1,7 @@
 ---
 title: 'Hugo + Github Actions 实现自动化部署'
-date: 2020-03-19 22:55:33
+date: 2020-03-19
 tags: [折腾]
-published: true
-hideInList: false
-feature: 
-isTop: false
 ---
 不折腾点东西总觉得浑浑噩噩，折腾点东西搞得脑袋晕晕乎乎！
 

@@ -1,6 +1,6 @@
 ---
 title: '文章内显示豆瓣条目（LocalStorage 缓存版）'
-date: 2020-03-17 09:05:20
+date: 2020-03-17
 tags: [折腾]
 published: true
 hideInList: false

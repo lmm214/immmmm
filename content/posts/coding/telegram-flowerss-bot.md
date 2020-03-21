@@ -1,5 +1,5 @@
 ---
-date: 2019-12-02 15:05
+date: 2019-12-02
 title: '电报 Flowerss Bot 搭建笔记'
 tags: [折腾]
 published: true

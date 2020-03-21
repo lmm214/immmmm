@@ -1,5 +1,5 @@
 ---
-date: 2019-07-17 10:09:06
+date: 2019-07-17
 title: '矩阵良的 Bitcron 主题集'
 tags: [折腾]
 published: true

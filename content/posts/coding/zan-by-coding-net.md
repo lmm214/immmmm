@@ -1,5 +1,5 @@
 ---
-date: 2018-01-07 16:00
+date: 2018-01-07
 title: '添加文章点赞功能'
 tags: [折腾]
 published: true

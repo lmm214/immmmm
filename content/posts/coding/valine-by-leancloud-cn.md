@@ -1,5 +1,5 @@
 ---
-date: 2019-07-13 15:40
+date: 2019-07-13
 title: '基于 LeanCloud 的评论系统：Valine'
 tags: [折腾]
 published: true

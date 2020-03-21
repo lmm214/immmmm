@@ -1,5 +1,5 @@
 ---
-date: 2017-12-17 22:22
+date: 2017-12-17
 title: '给 Bitcron 评论添加 OwO 表情'
 tags: [折腾]
 published: true

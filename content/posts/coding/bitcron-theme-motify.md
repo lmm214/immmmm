@@ -1,6 +1,6 @@
 ---
 title: 'Bitcron 主题「Motify」'
-date: 2017-07-20 23:49
+date: 2017-07-20
 tags: [折腾]
 published: true
 hideInList: false

@@ -1,5 +1,5 @@
 ---
-date: 2017-08-09 16:55
+date: 2017-08-09
 title: 'Bitcron 关闭某篇文章评论'
 tags: [折腾]
 published: true

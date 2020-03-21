@@ -1,6 +1,6 @@
 ---
 title: '曲线救“静”'
-date: 2019-11-24 14:05:00
+date: 2019-11-24
 tags: [折腾]
 published: true
 hideInList: false

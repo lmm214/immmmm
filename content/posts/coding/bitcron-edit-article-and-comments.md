@@ -1,5 +1,5 @@
 ---
-date: 2017-12-16 23:23
+date: 2017-12-16
 title: '即时编辑 Bitcron 文章和评论'
 tags: [折腾]
 published: true

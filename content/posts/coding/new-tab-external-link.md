@@ -1,5 +1,5 @@
 ---
-date: 2017-07-25 16:55
+date: 2017-07-25
 title: '识别外链并新窗口打开'
 tags: [折腾]
 published: true

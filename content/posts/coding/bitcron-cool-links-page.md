@@ -1,5 +1,5 @@
 ---
-date: 2017-12-23 23:23
+date: 2017-12-23
 title: 'Bitcron 实现个性友情链接页'
 tags: [折腾]
 published: true

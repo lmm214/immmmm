@@ -1,5 +1,5 @@
 ---
-date: 2017-12-24 00:01
+date: 2017-12-24
 title: 'Bitcron 显示最后更新时间'
 tags: [折腾]
 published: true

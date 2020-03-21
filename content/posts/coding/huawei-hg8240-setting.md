@@ -1,5 +1,5 @@
 ---
-date: 2013-11-11 14:35:46
+date: 2013-11-11
 title: '华为 HG8240 光猫路由设置方法'
 tags: [折腾]
 published: true

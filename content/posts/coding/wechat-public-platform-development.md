@@ -1,6 +1,6 @@
 ---
 title: '微信公众平台开发小记'
-date: 2016-10-30 11:57
+date: 2016-10-30
 tags: [折腾]
 published: true
 hideInList: false

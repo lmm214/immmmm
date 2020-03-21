@@ -1,5 +1,5 @@
 ---
-date: 2017-10-06 23:55
+date: 2017-10-06
 title: '微信小程序：巡礼头像编辑器'
 tags: [折腾]
 published: true

@@ -1,5 +1,5 @@
 ---
-date: 2019-07-29 18:26
+date: 2019-07-29
 title: '“学笔画”折腾小记'
 tags: [折腾]
 published: true

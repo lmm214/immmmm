@@ -1,5 +1,5 @@
 ---
-date: 2018-01-01 23:05
+date: 2018-01-01
 title: 'Bitcron 文章内插入豆瓣条目'
 tags: [折腾]
 published: true

@@ -1,6 +1,6 @@
 ---
 title: '用 Typora 做了本电子书'
-date: 2019-08-05 20:00
+date: 2019-08-05
 tags: [折腾]
 published: true
 hideInList: false

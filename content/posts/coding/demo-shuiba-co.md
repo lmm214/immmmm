@@ -1,6 +1,6 @@
 ---
 title: '为八口打 Call ！！！'
-date: 2017-12-21 22:22
+date: 2017-12-21
 tags: [折腾]
 published: true
 hideInList: false

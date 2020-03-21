@@ -1,6 +1,6 @@
 ---
 title: '静态博客那些事'
-date: 2019-11-11 15:40
+date: 2019-11-11
 tags: [折腾]
 published: true
 hideInList: false

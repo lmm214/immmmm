@@ -1,11 +1,7 @@
 ---
 title: '使用 jsDelivr 加速 Gridea'
-date: 2020-03-13 16:20:49
+date: 2020-03-13
 tags: [折腾]
-published: true
-hideInList: false
-feature: 
-isTop: false
 ---
 如果有博客托管在 GitHub 的话，加载速度着实感人，使用 jsDelivr 的 CDN 大法能有效改善，操作也简单，把原网址替换一下就能搞定！
 

@@ -1,5 +1,5 @@
 ---
-date: 2017-12-18 23:23
+date: 2017-12-18
 title: 'Bitcron 文章内运行代码实例一则'
 tags: [折腾]
 published: true

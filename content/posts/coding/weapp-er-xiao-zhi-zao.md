@@ -1,5 +1,5 @@
 ---
-date: 2019-10-05 22:10
+date: 2019-10-05
 title: '微信小程序：小学数学电子教材'
 tags: [折腾]
 published: true

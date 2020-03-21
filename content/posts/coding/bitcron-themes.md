@@ -1,5 +1,5 @@
 ---
-date: 2017-07-14 14:49
+date: 2017-07-14
 title: 'Bitcron 主题集'
 tags: [折腾]
 published: true

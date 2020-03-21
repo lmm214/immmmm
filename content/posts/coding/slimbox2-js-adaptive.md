@@ -1,5 +1,5 @@
 ---
-date: 2014-04-19 13:25:00
+date: 2014-04-19
 title: 'Slimbox2.js 图片灯箱自适应'
 tags: [折腾]
 published: true

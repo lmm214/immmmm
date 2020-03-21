@@ -1,5 +1,5 @@
 ---
-date: 2017-07-26 11:49
+date: 2017-07-26
 title: '决战24点（HTML5）开发小记'
 tags: [折腾]
 published: true

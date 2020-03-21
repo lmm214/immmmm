@@ -1,5 +1,5 @@
 ---
-date: 2019-11-05 10:35:46
+date: 2019-11-05
 title: '微信小程序腾讯视频组件：weChatVideoPlay'
 tags: [折腾]
 published: true

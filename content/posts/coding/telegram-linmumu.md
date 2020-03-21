@@ -1,5 +1,5 @@
 ---
-date: 2018-08-01 00:10
+date: 2018-08-01
 title: 'Telegram 使用小记'
 tags: [折腾]
 published: true

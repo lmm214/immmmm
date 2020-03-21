@@ -1,5 +1,5 @@
 ---
-date: 2018-01-30 20:00
+date: 2018-01-30
 title: '基于 LeanCloud 实现文章点赞'
 tags: [折腾]
 published: true

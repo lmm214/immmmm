@@ -1,5 +1,5 @@
 ---
-date: 2019-08-01 17:26
+date: 2019-08-01
 title: 'Canvas 手写输入法'
 tags: [折腾]
 published: true

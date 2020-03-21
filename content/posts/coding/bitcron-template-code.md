@@ -1,6 +1,6 @@
 ---
 title: 'Bitcron 主题常用的代码片段'
-date: 2017-07-23 01:49
+date: 2017-07-23
 tags: [折腾]
 published: true
 hideInList: false

@@ -1,5 +1,5 @@
 ---
-date: 2017-12-20 23:01
+date: 2017-12-20
 title: 'Bitcron 一站搞定多主题预览'
 tags: [折腾]
 published: true

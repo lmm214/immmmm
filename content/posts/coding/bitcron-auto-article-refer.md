@@ -1,5 +1,5 @@
 ---
-date: 2017-12-18 00:01
+date: 2017-12-18
 title: 'Bitcron 文章内链自动优化显示'
 tags: [折腾]
 published: true

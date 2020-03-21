@@ -1,5 +1,5 @@
 ---
-date: 2017-12-27 23:15
+date: 2017-12-27
 title: '自动识别外链并添加图标'
 tags: [折腾]
 published: true

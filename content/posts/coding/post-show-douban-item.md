@@ -1,6 +1,6 @@
 ---
 title: '文章内显示豆瓣条目'
-date: 2020-01-25 21:31:46
+date: 2020-01-25
 tags: [折腾]
 published: true
 hideInList: false

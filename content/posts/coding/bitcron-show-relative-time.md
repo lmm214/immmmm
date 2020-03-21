@@ -1,5 +1,5 @@
 ---
-date: 2017-12-26 23:40
+date: 2017-12-26
 title: 'Bitcron 显示相对时间'
 tags: [折腾]
 published: true
