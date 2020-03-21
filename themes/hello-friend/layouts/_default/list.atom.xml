@@ -76,14 +76,14 @@
         {{ $page := . }}
         <entry>
             {{ printf `<title type="html"><![CDATA[%s]]></title>` .Title | safeHTML }}
-            <link href="{{ .Permalink }}?utm_source=atom_feed" rel="alternate" type="text/html" />
+            <link href="{{ .Permalink }}" rel="alternate" type="text/html" />
             {{- range .Translations }}
-                {{- $link := printf "%s?utm_source=atom_feed" .Permalink | safeHTML }}
+                {{- $link := printf "%s" .Permalink | safeHTML }}
                 {{- printf `<link href=%q rel="alternate" type="text/html" hreflang=%q />` $link .Lang | safeHTML }}
             {{- end }}
             {{/* rel=related: See https://validator.w3.org/feed/docs/atom.html#link */}}
             {{- range first 5 (site.RegularPages.Related .) }}
-                <link href="{{ .Permalink }}?utm_source=atom_feed" rel="related" type="text/html" title="{{ .Title }}" />
+                <link href="{{ .Permalink }}" rel="related" type="text/html" title="{{ .Title }}" />
             {{- end }}
             {{ with .Params.id }}
                 <id>{{ . | plainify }}</id>
