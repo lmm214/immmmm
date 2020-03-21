@@ -110,6 +110,7 @@ jobs:
 ### 感谢
 
 - 官方 Hugo Templates： <https://gohugo.io/templates/>
+- 中文系列教程翻译： <https://www.rectcircle.cn/series/hugo/>
 - Hugo 中文帮助文档：<https://hugo.aiaide.com/>
 
 
