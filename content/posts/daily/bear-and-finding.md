@@ -1,6 +1,6 @@
 ---
 title: '不安'
-date: 2012-10-21 19:41
+date: 2012-10-21 
 tags: [日常]
 published: true
 hideInList: false

@@ -1,6 +1,6 @@
 ---
 title: '不被信任感'
-date: 2014-06-30 08:36:31
+date: 2014-06-30 
 tags: [日常]
 published: true
 hideInList: false

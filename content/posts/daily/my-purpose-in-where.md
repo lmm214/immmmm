@@ -1,6 +1,6 @@
 ---
 title: '上班靠右，下班靠左'
-date: 2012-03-06 20:47
+date: 2012-03-06 
 tags: [日常]
 published: true
 hideInList: false

@@ -1,6 +1,6 @@
 ---
 title: '过去已过去'
-date: 2009-08-23 21:59
+date: 2009-08-23 
 tags: [日常]
 published: true
 hideInList: false

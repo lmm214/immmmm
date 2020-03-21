@@ -1,6 +1,6 @@
 ---
 title: '突然，好闷'
-date: 2010-08-11 21:57
+date: 2010-08-11 
 tags: [日常]
 published: true
 hideInList: false

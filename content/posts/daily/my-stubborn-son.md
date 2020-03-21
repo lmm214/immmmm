@@ -1,6 +1,6 @@
 ---
 title: '犟到如此地步'
-date: 2018-07-01 13:05
+date: 2018-07-01 
 tags: [日常]
 published: true
 hideInList: false

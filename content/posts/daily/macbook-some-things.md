@@ -1,6 +1,6 @@
 ---
 title: 'Macbook 二三事'
-date: 2019-09-29 17:30:00
+date: 2019-09-29 
 tags: [日常]
 published: true
 hideInList: false

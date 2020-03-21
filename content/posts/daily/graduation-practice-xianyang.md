@@ -1,6 +1,6 @@
 ---
 title: '实习，毕业'
-date: 2009-01-06 20:23
+date: 2009-01-06 
 tags: [日常]
 published: true
 hideInList: false

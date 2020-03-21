@@ -1,6 +1,6 @@
 ---
 title: '考编的这些事儿'
-date: 2011-06-26 10:52
+date: 2011-06-26 
 tags: [日常]
 published: true
 hideInList: false

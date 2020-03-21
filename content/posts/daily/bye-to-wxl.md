@@ -1,6 +1,6 @@
 ---
 title: '安。'
-date: 2012-02-15 19:10
+date: 2012-02-15 
 tags: [日常]
 published: true
 hideInList: false

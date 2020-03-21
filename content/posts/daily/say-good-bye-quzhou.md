@@ -1,6 +1,6 @@
 ---
 title: '走了，衢州'
-date: 2009-06-12 21:14
+date: 2009-06-12 
 tags: [日常]
 published: true
 hideInList: false

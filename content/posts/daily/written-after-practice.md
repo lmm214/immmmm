@@ -1,6 +1,6 @@
 ---
 title: '写在实习后'
-date: 2010-05-16 17:56
+date: 2010-05-16 
 tags: [日常]
 published: true
 hideInList: false

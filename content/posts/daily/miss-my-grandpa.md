@@ -1,6 +1,6 @@
 ---
 title: '我的爷爷'
-date: 2009-04-04 21:14
+date: 2009-04-04 
 tags: [日常]
 published: true
 hideInList: false

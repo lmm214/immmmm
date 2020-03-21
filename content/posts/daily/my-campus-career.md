@@ -1,6 +1,6 @@
 ---
 title: '我的校园生涯'
-date: 2011-05-21 22:17
+date: 2011-05-21 
 tags: [日常]
 published: true
 hideInList: false

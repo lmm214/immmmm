@@ -1,6 +1,6 @@
 ---
 title: '说说我寝室一哥们'
-date: 2009-11-22 16:40
+date: 2009-11-22 
 tags: [日常]
 published: true
 hideInList: false

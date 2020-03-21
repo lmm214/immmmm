@@ -1,6 +1,6 @@
 ---
 title: '在丽江，等一个晴天'
-date: 2013-08-01 15:11:45
+date: 2013-08-01 
 tags: [日常]
 published: true
 hideInList: false

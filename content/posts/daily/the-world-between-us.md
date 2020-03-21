@@ -1,6 +1,6 @@
 ---
 title: '我們與惡的距離'
-date: 2019-04-26 23:20
+date: 2019-04-26 
 tags: [日常]
 published: true
 hideInList: false

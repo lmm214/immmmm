@@ -1,6 +1,6 @@
 ---
 title: '入职'
-date: 2011-08-15 20:12
+date: 2011-08-15 
 tags: [日常]
 published: true
 hideInList: false

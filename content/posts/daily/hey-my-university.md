@@ -1,6 +1,6 @@
 ---
 title: '嗨，我的大学'
-date: 2008-08-26 0:54
+date: 2008-08-26
 tags: [日常]
 published: true
 hideInList: false

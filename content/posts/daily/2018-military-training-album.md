@@ -1,6 +1,6 @@
 ---
 title: '军训掠影'
-date: 2018-12-31 17:15
+date: 2018-12-31 
 tags: [日常]
 published: true
 hideInList: false

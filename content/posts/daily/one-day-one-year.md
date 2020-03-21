@@ -1,6 +1,6 @@
 ---
 title: '一年·一天'
-date: 2013-03-17 12:56
+date: 2013-03-17 
 tags: [日常]
 published: true
 hideInList: false

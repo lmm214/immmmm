@@ -1,6 +1,6 @@
 ---
 title: '跳过这几年'
-date: 2012-09-08 20:50
+date: 2012-09-08 
 tags: [日常]
 published: true
 hideInList: false

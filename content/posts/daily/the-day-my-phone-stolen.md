@@ -1,6 +1,6 @@
 ---
 title: '这一天 这一天'
-date: 2010-03-07 0:57
+date: 2010-03-07
 tags: [日常]
 published: true
 hideInList: false

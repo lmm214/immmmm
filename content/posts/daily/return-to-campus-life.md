@@ -1,6 +1,6 @@
 ---
 title: '回归校园，褪去浮华'
-date: 2009-09-23 19:19
+date: 2009-09-23 
 tags: [日常]
 published: true
 hideInList: false

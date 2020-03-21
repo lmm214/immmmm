@@ -1,6 +1,6 @@
 ---
 title: '大学，我的'
-date: 2009-07-19 20:04
+date: 2009-07-19 
 tags: [日常]
 published: true
 hideInList: false

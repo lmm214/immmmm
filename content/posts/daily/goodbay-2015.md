@@ -1,6 +1,6 @@
 ---
 title: '二〇一五，不见。'
-date: 2016-02-07 16:43:08
+date: 2016-02-07 
 tags: [日常]
 published: true
 hideInList: false

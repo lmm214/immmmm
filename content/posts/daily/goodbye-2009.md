@@ -1,6 +1,6 @@
 ---
 title: '二〇〇九，不见。'
-date: 2009-12-31 16:40
+date: 2009-12-31 
 tags: [日常]
 published: true
 hideInList: false

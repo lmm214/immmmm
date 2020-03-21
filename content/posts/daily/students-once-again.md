@@ -1,6 +1,6 @@
 ---
 title: '新生，再次'
-date: 2009-09-15 21:59
+date: 2009-09-15 
 tags: [日常]
 published: true
 hideInList: false

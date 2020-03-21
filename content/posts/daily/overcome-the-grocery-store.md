@@ -1,6 +1,6 @@
 ---
 title: '解忧杂货店'
-date: 2014-06-14 21:20:45
+date: 2014-06-14 
 tags: [日常]
 published: true
 hideInList: false

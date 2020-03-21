@@ -1,6 +1,6 @@
 ---
 title: '过程总让人不安'
-date: 2011-01-14 15:43
+date: 2011-01-14 
 tags: [日常]
 published: true
 hideInList: false

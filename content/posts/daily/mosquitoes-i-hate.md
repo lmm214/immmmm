@@ -1,6 +1,6 @@
 ---
 title: '蚊子，我恨不得咬死你！'
-date: 2010-10-24 13:30
+date: 2010-10-24 
 tags: [日常]
 published: true
 hideInList: false

@@ -1,6 +1,6 @@
 ---
 title: '写博的那点事儿'
-date: 2010-01-30 22:02
+date: 2010-01-30 
 tags: [日常]
 published: true
 hideInList: false

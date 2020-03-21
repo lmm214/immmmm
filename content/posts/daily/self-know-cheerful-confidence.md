@@ -1,6 +1,6 @@
 ---
 title: '自知，自愉，自信。'
-date: 2012-05-06 18:45
+date: 2012-05-06 
 tags: [日常]
 published: true
 hideInList: false

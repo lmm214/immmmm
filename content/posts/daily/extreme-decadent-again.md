@@ -1,6 +1,6 @@
 ---
 title: '又颓了……'
-date: 2010-11-17 22:09
+date: 2010-11-17 
 tags: [日常]
 published: true
 hideInList: false

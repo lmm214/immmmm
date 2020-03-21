@@ -1,6 +1,6 @@
 ---
 title: '绣春刀2'
-date: 2017-07-22 16:55
+date: 2017-07-22 
 tags: [日常]
 published: true
 hideInList: false
