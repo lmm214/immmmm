@@ -1419,3 +1419,64 @@ photos .photo:last-child {
 #lbPrevLink{left:0;}
 #lbNextLink{right:0;}
 
+/* breadcrumb */
+.breadcrumb {
+  padding: 8px 15px;
+  margin-bottom: 40px;
+  list-style: none;
+  background-color: #0000000f;
+  margin-left: 0px;
+  border-radius: 4px;
+}
+.breadcrumb>li {
+  display: inline-block;
+}
+.breadcrumb>li+li:before {
+  padding: 0 5px;
+  color: #ccc;
+  content: ">\00a0";
+}
+
+/* searchBoxInput */
+.menu .search-box-icon {
+    margin-top: 11px;
+}
+.searchPage{min-height:300px}
+.search-box {
+  position: relative;
+  margin-bottom: 20px;
+}
+#searchBoxInput {
+  padding: 0.5rem 2rem 0.5rem 1rem;
+  width: 16rem;
+  background:#eaeaea;
+  border-radius: 1rem;
+  outline: 0;
+  font-size: 1rem;
+  color: inherit;
+  border: 0px;
+  box-sizing: border-box;
+}
+
+.dark-theme .search-box #searchBoxInput {
+  background: #3b3d42;
+}
+
+#searchBoxButton {
+  display: inline;
+  background: none;
+  margin: 0rem;
+  border:0 none;
+  border-radius: 0;
+  padding: 0.4rem 0.6rem 0.4rem;
+}
+
+.search-box-icon {
+  color: inherit;
+  fill: currentColor;
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+#searchCount {}
+

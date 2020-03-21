@@ -1,12 +1,17 @@
 baseURL  =  "https://immmmm.com"
 languageCode = "zh-CN"
-defaultContentLanguage = "zh-CN"
+DefaultContentLanguage = "zh-CN"
 title  =  "木木木木木"
 theme  =  "hello-friend"
 summaryLength = 140
 hasCJKLanguage = true
+# 每页显示的文章数量用于分页
 paginate =  20
+# rss 输出数量
 rssLimit = 5
+# 取消默认的代码高亮
+pygmentsUseClasses = false
+pygmentCodeFences = true
 
 [permalinks]
   posts = "/:filename/"
@@ -43,8 +48,7 @@ rssLimit = 5
   unsafe = true
 
 [outputs]
-  # <domain>/atom.xml
-  home = ["Atom", "HTML"]
+  home = ["Atom", "HTML","JSON"] # <domain>/atom.xml
 
 [outputFormats.Atom]
   mediatype = "application/rss"
