@@ -5,6 +5,8 @@ title  =  "木木木木木"
 theme  =  "hello-friend"
 summaryLength = 140
 hasCJKLanguage = true
+paginate =  20
+rssLimit = 5
 
 [permalinks]
   posts = "/:filename/"
@@ -30,8 +32,8 @@ hasCJKLanguage = true
   showReadingTime = false
   logoText = "hello friend"
 
-  #DateFormatList = "2006-01-02 15:04"
-  #DateFormatSingle = "2006-01-02 15:04"
+  # DateFormatList = "2006-01-02 15:04"
+  # DateFormatSingle = "2006-01-02 15:04"
 
   ReadMore = "阅读全文"
 
@@ -39,6 +41,14 @@ hasCJKLanguage = true
 [markup.goldmark]
 [markup.goldmark.renderer]
   unsafe = true
+
+[outputs]
+  # <domain>/atom.xml
+  home = ["Atom", "HTML"]
+
+[outputFormats.Atom]
+  mediatype = "application/rss"
+  baseName = "atom"
 
 [params.valine]
 	enable = true
