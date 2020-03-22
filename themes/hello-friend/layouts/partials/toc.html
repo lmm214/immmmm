@@ -1,0 +1,34 @@
+{{/* https://gist.github.com/skyzyx/a796d66f6a124f057f3374eff0b3f99a */}}
+{{/* https://github.com/gohugoio/hugo/issues/1778 */}}
+
+{{/* ignore empty links with + */}}
+{{- $headers := findRE "<h[2-4].*?>(.|\n])+?</h[2-4]>" .Content -}}
+{{ .Scratch.Set "last_level" -1 }}
+
+{{/* at least one header to link to */}}
+{{- $has_headers := ge (len $headers) 1 -}}
+{{- if $has_headers -}}
+    {{- range $headers -}}
+        {{- $last_level := $.Scratch.Get "last_level" -}}
+        {{- $header := . -}}
+        {{- $base := ($.Page.File.LogicalName) -}}
+        {{- $anchorId := ($header | plainify | htmlUnescape | anchorize) -}}
+        {{- $href := delimit (slice $base $anchorId) "#" | string -}}
+        {{- range findRE "[2-4]" . 1 -}}
+            {{- $next_level := (int .) -}}
+            {{- if eq $last_level -1 -}}
+                <ul class="toc-h{{ . }}">
+            {{- else if gt $next_level $last_level -}}
+                {{- range seq (add $last_level 1) $next_level}}
+                    <ul class="toc-h{{ . }}">
+                {{- end -}}
+            {{- else if lt $next_level $last_level -}}
+                {{- range seq (add $next_level 1) $last_level}}
+                    </ul>
+                {{- end -}}
+            {{- end -}}
+            <li><a href="{{ relref $.Page $href }}">{{- $header | plainify | htmlUnescape -}}</a></li>
+            {{ $.Scratch.Set "last_level" $next_level }}
+        {{- end -}}
+    {{- end -}}
+{{- end -}}
