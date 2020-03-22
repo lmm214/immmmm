@@ -30,9 +30,13 @@ pygmentCodeFences = true
   url="/movies/"
   weight="3"
   [[menu.main]]
+  name="朋友"
+  url="/friends/"
+  weight="4"
+  [[menu.main]]
   name="关于"
   url="/about/"
-  weight="4"
+  weight="5"
 
 [params]
   # dir name of your blog content (default is `content/posts`)
@@ -40,7 +44,7 @@ pygmentCodeFences = true
   # "light" or "dark"
   defaultTheme = "dark"
   # if you set this to 0, only submenu trigger will be visible
-  showMenuItems = 4
+  # showMenuItems = 4
   # Enable to show reading time in minutes for posts
   showReadingTime = false
   logoText = "hello friend"
