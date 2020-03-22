@@ -1,7 +1,7 @@
 {{ define "main" }}
   {{ $isntDefault := not (or (eq (trim $.Site.Params.contentTypeName " ") "posts") (eq (trim $.Site.Params.contentTypeName " ") "")) }}
   {{ $contentTypeName := cond $isntDefault (string $.Site.Params.contentTypeName) "posts" }}
-
+  
   <div class="post">
     <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h2>
     <div class="post-meta">
@@ -16,9 +16,9 @@
           {{ end }}
         {{ end }}
       {{ end }}
-      
+
         {{- if .Site.Params.valine.enable -}}
-        <span class="post-read-time"> / <span class="valine-comment-count" data-xid="{{ .URL | relURL }}">0</span> 评论 / <span id="{{ .URL | relURL }}" class="leancloud_visitors" data-flag-title="{{ .Title }}"><span class="leancloud-visitors-count">0</span> 阅读</span></span>
+        <span> / <span class="valine-comment-count" data-xid="{{ .URL | relURL }}">0</span> 评论 / <span id="{{ .URL | relURL }}" class="leancloud_visitors" data-flag-title="{{ .Title }}"><span class="leancloud-visitors-count">0</span> 阅读</span></span>
         {{ end }}
     </div>
 
@@ -34,6 +34,9 @@
       {{ .Content }}
     </div>
 
+    {{ if .Params.toc }}
+      <div class="tocify">目录：{{- partial "toc.html" . -}}</div>
+    {{ end }}
 
     {{ if .Params.tags }}
       <span class="post-tags">
