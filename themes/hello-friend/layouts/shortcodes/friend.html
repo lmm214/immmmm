@@ -1,0 +1,7 @@
+{{ if .Get "url" }}
+<div class="archive-item links-item">
+	<img loading="lazy" class="archive-list-image" src=https://gravatar.loli.net/avatar/{{ .Get "md5" }}></img>
+	<a href={{ .Get "url" }}>{{ .Get "name" }}</a>
+	<span class="archive-item-meta">{{- if .Get "des" -}}{{- .Get "des" -}}{{- else -}}{{- .Get "url" -}}{{- end -}}</span>
+</div>
+{{ end }}
