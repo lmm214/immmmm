@@ -95,7 +95,7 @@ a.read-more,a.read-more:active,a.read-more:hover {
 	background: none;
 	box-shadow: none;
 	padding: 0;
-	margin: 20px 0;
+	margin: 20px 0 40px;
 	font-weight: 700
 }
 
@@ -676,7 +676,10 @@ hr {
 	max-width: 800px;
 	text-align: left;
 	padding: 20px;
-	margin: 20px auto
+	margin: 40px auto
+}
+.post:first-of-type{
+	margin:0 auto 40px;
 }
 
 @media (max-width:899px) {
