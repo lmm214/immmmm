@@ -1489,3 +1489,30 @@ photos .photo:last-child {
 @media only screen and (max-width:683px) {
 	.links-item{width:49%}
 }
+
+/* The Table of Contents container element */
+.tocify {
+    width: 20%;
+    max-height: 90%;
+    overflow: auto;
+    margin-left: 2%;
+    position: absolute;
+    right:2%;
+    border-radius: 6px;
+}.tocify ul, .tocify li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    line-height: 30px;
+}
+.tocify li a {
+	display: inline-block;
+    text-indent:10px;
+    font-size: 14px;
+    text-decoration: none;
+}
+.tocify ul ul li a:before {content: "- "}
+@media only screen and (max-width:683px) {
+	.tocify {display: none;}
+}
