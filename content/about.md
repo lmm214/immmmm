@@ -1,15 +1,13 @@
 ---
 title: '关于'
 date: 2020-03-14 12:41:27
-tags: [日常]
-published: true
-hideInList: true
-feature: 
-isTop: false
+layout: 'posts'
 ---
 安心唠唠嗑，聊聊家常~
 
 ### 博客程序
+
+Hugo：<https://gohugo.io/>
 
 Gridea：<https://gridea.dev/>
 
@@ -27,11 +25,9 @@ Gridea 主题：[「Motify」](https://github.com/lmm214/gridea-theme-motify)、
 
 ### 工具推荐
 
-Mac 发图「uPic」：<https://github.com/gee1k/uPic>
-
-全平台发图「PicGo」：<https://github.com/Molunerfinn/PicGo>
-
-Chrome 新标签扩展「几枝」：<https://chrome.google.com/webstore/detail/%E5%87%A0%E6%9E%9D/hfohpokminpknagcgncibpacohagppjn>
+- Mac 发图「uPic」：<https://github.com/gee1k/uPic>
+- 全平台发图「PicGo」：<https://github.com/Molunerfinn/PicGo>
+- Chrome 新标签扩展「几枝」
 
 ### 欢迎打赏
 
