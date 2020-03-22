@@ -17,15 +17,8 @@
           <span class="post-date">
             {{ .Date.Format ($.Site.Params.DateFormatList | default "2006-01-02") }}
           </span>
+        {{ end }}
 
-          {{ if $.Site.Params.LastModDisplay }}
-            {{ partial "lastmod.html" . }}
-          {{ end }}
-        {{ end }}
-        {{ with .Params.Author }}<span class="post-author">/ {{ $.Site.Params.WrittenBy | default "Written by" }} {{ . }}</span>{{ end }}
-        {{ if $.Site.Params.ShowReadingTime }}
-          <span class="post-read-time">/ {{ .ReadingTime }} 分钟</span>
-        {{ end }}
         {{ if .Params.tags }}
         <span class="">
           {{ range .Params.tags }}
@@ -35,11 +28,11 @@
         {{ end }}
       </div>
 
-      {{ if .Params.Cover }}
+      {{ if .Params.feature }}
         {{ if .Params.UseRelativeCover }}
-          <img src="{{ (printf "%s%s" .Permalink .Params.Cover ) }}" class="post-cover" />
+          <img src="{{ (printf "%s%s" .Permalink .Params.feature ) }}" class="post-cover" />
         {{ else }}
-          <img src="{{ .Params.Cover | absURL }}" class="post-cover" />
+          <img src="{{ .Params.feature | absURL }}" class="post-cover" />
         {{ end }}
       {{ end }}
 

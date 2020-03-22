@@ -22,11 +22,11 @@
         {{ end }}
     </div>
 
-    {{ if .Params.Cover }}
+    {{ if .Params.feature }}
       {{ if .Params.UseRelativeCover }}
-        <img src="{{ (printf "%s%s" .Permalink .Params.Cover ) }}" class="post-cover" />
+        <img src="{{ (printf "%s%s" .Permalink .Params.feature ) }}" class="post-cover" />
       {{ else }}
-        <img src="{{ .Params.Cover | absURL }}" class="post-cover" />
+        <img src="{{ .Params.feature | absURL }}" class="post-cover" />
       {{ end }}
     {{ end }}
 
