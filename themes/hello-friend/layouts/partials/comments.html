@@ -1,7 +1,7 @@
   <!-- valine -->
   {{- if .Site.Params.valine.enable -}}
   <div class="pagination__title">
-       <span class="pagination__title-h"><span class="valine-comment-count" data-xid="{{ .Permalink }}"></span> 条评论</span>
+       <span class="pagination__title-h"><span class="valine-comment-count" data-xid="{{ .RelPermalink }}"></span> 条评论</span>
        <hr />
   </div>
   <div id="comments"></div>
