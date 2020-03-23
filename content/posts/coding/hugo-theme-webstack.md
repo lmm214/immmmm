@@ -7,7 +7,7 @@ feature: https://lmm.elizen.me/images/2020/03/hugo-webstack.png
 
 效果预览：<https://edui.fun/>
 
-仓库下载：<https://github.com/lmm214/hugo-theme-webstack>
+仓库下载：[hugo-theme-webstack](https://github.com/lmm214/hugo-theme-webstack)
 
 <!--more-->
 
