@@ -737,7 +737,7 @@ hr {
 }
 
 .post-content {
-	margin-top: 0px
+	margin-top: 0px; word-break:break-all;
 }
 .post-content h3 {
   position: relative;
