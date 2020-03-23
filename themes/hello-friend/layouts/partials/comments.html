@@ -37,12 +37,20 @@
         placeholder: '{{ .Site.Params.valine.placeholder }}',
         visitor: {{ .Site.Params.valine.visitor }}
       });
+      function diyValine() {
+        document.querySelector("span.vemoji-btn").innerHTML = '😀';
+        jinrishici.load(function(result) {
+            var jrsc_plac =  result.data.content + "\n「" + result.data.origin.title + "」" + result.data.origin.dynasty + " · " + result.data.origin.author
+            document.getElementById("veditor").setAttribute("placeholder",jrsc_plac);
+        });
+      }
+      setTimeout(diyValine, 1000);
     }
-</script>
-<script type="text/javascript" src='https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js'></script>
-<script type="text/javascript">
+  </script>
+  <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js"></script>
+  <script type="text/javascript" src='https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js'></script>
+  <script type="text/javascript">
     jQuery(document).ready(function($){
-        $('.vemoji-btn').text('😀');
         $("#comments").on('click', 'span.vat',function(){
         	$(this).parent('div.vmeta').next("div.vcontent").after($("div.vwrap"));
         	$('textarea#veditor').focus();
