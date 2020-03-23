@@ -633,14 +633,13 @@ ol ol {
 
 .container {
 	flex-direction: column;
-	text-align: center
+	text-align: center;
+	overflow: hidden;
 }
-
 .container,.content {
 	display: flex;
 	justify-content: center
 }
-
 .content {
 	flex-direction: column;
 	flex: 1 auto;
