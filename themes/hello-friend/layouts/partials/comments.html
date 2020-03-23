@@ -35,6 +35,7 @@
         placeholder: '{{ .Site.Params.valine.placeholder }}',
         visitor: {{ .Site.Params.valine.visitor }}
       });
+    }
       jQuery(document).ready(function($){
         $('.vemoji-btn').text('😀');
         $("#comments").on('click', 'span.vat',function(){
@@ -50,6 +51,5 @@
                 }, 100);
         }
       });
-    }
   </script>
   {{- end }}
