@@ -1358,6 +1358,8 @@ textarea[id='veditor']::placeholder{color:#b3b3b3;font-size:15px;text-align:cent
 .dark-theme .v .vwrap input{background:#dcdcdc;}
 .dark-theme .v .veditor{color:#fff;}
 .dark-theme .v .vbtn{color:#dcdcdc;background:#4a4b50;}
+.dark-theme .v .vlist .vcard .vcontent.expand:before{background:linear-gradient(180deg,hsla(0,0%,100%,0),hsla(0,0%,100%,.1))}
+.dark-theme .v .vlist .vcard .vcontent.expand:after{background:hsla(0,0%,6%,.86)}
 
 photos:after{
   content: ".";
