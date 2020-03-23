@@ -1297,7 +1297,7 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 .v .vwrap input{background:transparent}
 .v .vwrap .vedit{position:relative;}
 .v .vwrap .vedit .vctrl{text-align:right;font-size:12px;margin-top:-44px;right:0;position:absolute;margin-right:-10px;}
-.v .vwrap .vedit .vctrl span{padding:10px;display:inline-block;vertical-align:middle;cursor:pointer}
+.v .vwrap .vedit .vctrl span{padding:0 10px 0 0;font-size:18px;display:inline-block;vertical-align:middle;cursor:pointer}
 .v .vwrap .vedit .vemojis{display:none;font-size:18px;text-align:justify;max-height:145px;overflow:auto;margin-bottom:10px;box-shadow:0 0 1px #f0f0f0}
 .v .vwrap .vedit .vemojis i{font-style:normal;padding:7px 0;width:38px;cursor:pointer;text-align:center;display:inline-block;vertical-align:middle}
 .v .vinput{padding:10px 15px;}
