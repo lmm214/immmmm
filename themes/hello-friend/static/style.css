@@ -1350,8 +1350,8 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 @media screen and (max-width:684px){.v .vwrap .vheader .vinput{padding:10px 5px;}.v .vlist .vcard .vimg{width:2.5rem;height:2.5rem}.v .vwrap .vmark .valert{padding-top:5.5rem}.v .vwrap .vmark .valert .vtext{padding:1rem 0}}
 @keyframes spin{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}
 @keyframes pulse{50%{background:#dcdcdc}}
-.v .vloading{position:fixed;padding:20px;top: 0;right:45px;}
-.v .vloading:before{box-sizing:border-box;content:"";position:absolute;display:inline-block;width:35px;height:35px;border:2px solid #42b983;border-top-color:transparent;border-bottom-color:transparent;border-radius:50%;animation:spin 1s infinite linear}
+.v .vloading{position:fixed;padding:20px;bottom:1rem;right:1rem;}
+.v .vloading:before{box-sizing:border-box;content:"";position:absolute;display:inline-block;width:25px;height:25px;border:2px solid #42b983;border-top-color:transparent;border-bottom-color:transparent;border-radius:50%;animation:spin 1s infinite linear}
 .v .vwrap .vedit .vctrl span.vpreview-btn,.v .vwrap .vcontrol .col.col-20,.v .vlist .vcard .vhead .vsys,.v .vh .vh .vtime{display:none;}
 textarea[id='veditor']::placeholder{color:#b3b3b3;font-size:15px;text-align:center;line-height:3rem;}
 .dark-theme .v .vwrap{border:1px solid #4a4b50;}
