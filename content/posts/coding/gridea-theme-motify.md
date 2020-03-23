@@ -6,7 +6,7 @@ tags: [折腾]
 
 自用 N 年主题转制 Gridea 完成！
 
-![Motify 20.03.13](https://lmm.elizen.me/images/2020/01/motify-2.png)
+![Motify 20.03.13](https://lmm.elizen.me/images/2020/03/motify-1.png)
 
 仓库下载：<https://github.com/lmm214/gridea-theme-motify>
 
