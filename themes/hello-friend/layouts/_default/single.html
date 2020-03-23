@@ -1,3 +1,8 @@
+{{ define "head" }}
+  {{ if .NextInSection -}}<link rel="prefetch" href="{{ .NextInSection.Permalink }}">{{- end }}
+  {{ if .PrevInSection -}}<link rel="prefetch" href="{{ .PrevInSection.Permalink }}">{{- end }}
+{{ end }}
+
 {{ define "main" }}
   {{ $isntDefault := not (or (eq (trim $.Site.Params.contentTypeName " ") "posts") (eq (trim $.Site.Params.contentTypeName " ") "")) }}
   {{ $contentTypeName := cond $isntDefault (string $.Site.Params.contentTypeName) "posts" }}
