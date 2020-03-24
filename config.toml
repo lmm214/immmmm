@@ -30,8 +30,8 @@ pygmentCodeFences = true
   url="/movies/"
   weight="3"
   [[menu.main]]
-  name="朋友"
-  url="/friends/"
+  name="归档"
+  url="/archives/"
   weight="4"
   [[menu.main]]
   name="关于"
