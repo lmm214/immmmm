@@ -1,0 +1,26 @@
+{{ define "head" }}
+  {{ if .Paginator.HasPrev -}}<link rel="prefetch" href="{{ .Paginator.Prev.URL }}">{{- end }}
+  {{ if .Paginator.HasNext -}}<link rel="prefetch" href="{{ .Paginator.Next.URL }}">{{- end }}
+{{ end }}
+
+{{ define "main" }}
+  <div class="posts archive">
+    <h1 class="post-title">{{.Title}}</h1>
+    {{- range  (where (where .Site.Pages "Type" "in" (slice "post" "posts")) "Kind" "page").GroupByDate "2006" }}
+    <div class="post archive__group-posts ">
+        {{- range .Pages.GroupByDate "2006-01" }}
+        <div class="archive__group-month">
+          <h3>{{ .Key }}</h3>
+          <div class="archive__post">
+          {{- range .Pages }}
+          <div class="archive__post-title">
+            <a href="{{.Permalink}}">{{.Title}}<span class="post-date">{{ .Date.Format ($.Site.Params.DateFormatList | default "2006-01-02") }}</span></a>
+          </div>
+          {{ end }}
+          </div>
+        </div>
+        {{- end }}
+    </div>
+    {{- end }}
+  </div><!--posts-group end-->
+{{ end }}
