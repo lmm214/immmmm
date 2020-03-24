@@ -29,9 +29,9 @@
 
     {{ if .Params.feature }}
       {{ if .Params.UseRelativeCover }}
-        <img src="{{ (printf "%s%s" .Permalink .Params.feature ) }}" class="post-cover" />
+        <img loading='lazy' src="{{ (printf "%s%s" .Permalink .Params.feature ) }}" class="post-cover" />
       {{ else }}
-        <img src="{{ .Params.feature | absURL }}" class="post-cover" />
+        <img loading='lazy' src="{{ .Params.feature | absURL }}" class="post-cover" />
       {{ end }}
     {{ end }}
 
