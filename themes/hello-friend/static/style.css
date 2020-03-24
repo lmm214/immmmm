@@ -992,6 +992,7 @@ hr {
 	align-items: flex-start;
 	padding: 10px 0
 }
+.archive__group-month h3{margin:2rem 2rem 0 0;}
 
 @media (max-width:683px) {
 	.archive__group-month {
@@ -1000,6 +1001,7 @@ hr {
 }
 
 .archive__group-month:not(:last-of-type) {
+	width: 100%;
 	border-bottom: 1px solid #dcdcdc;
 	border-bottom: 1px solid var(--light-border-color)
 }
@@ -1039,18 +1041,14 @@ hr {
 	opacity: .5
 }
 
-@media (max-width:683px) {
-	.archive__group-month-header {
-		margin: 10px 0 0
-	}
-}
-
 .archive__group-posts {
 	width: 100%
 }
 
+.archive .post{padding:0;margin:0;}
 .archive__post {
-	padding: 20px 0
+	flex-grow: 1;
+	padding:1.85rem 0 20px 0
 }
 
 .archive__post:not(:last-of-type) {
@@ -1064,12 +1062,26 @@ hr {
 }
 
 .archive__post-title {
-	margin: 5px 0
+	margin:0 0 15px;
+	overflow: hidden;
 }
 
 .archive__post-title a {
+	color: #a9a9b3;
+	color: var(--dark-color)
 	display: block;
 	text-decoration: none
+}
+.archive__post-title a span.post-date{
+	font-size: 15px;
+	float: right;
+	opacity: .8
+}
+@media (max-width:683px) {
+	.archive__group-month-header {
+		margin: 10px 0 0
+	}
+	.archive__post {width: 100%;}
 }
 
 code[class*=language-],pre[class*=language-] {
