@@ -914,7 +914,7 @@ hr {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	font-size: 1rem
+	font-size: 0.9rem
 }
 
 .footer .copyright--user {
