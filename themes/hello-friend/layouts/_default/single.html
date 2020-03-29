@@ -58,7 +58,7 @@
         <div class="pagination">
           <div class="pagination__title">
             {{ if and .File .Site.Params.EditPath}}
-              <a class="pagination__title-h" href="{{ .Site.Params.GithubRepo }}/{{ .Site.Params.EditPath }}/{{ replace .File.Path "\\" "/" }}" target="_blank" rel="noopener">阅读更多</a>
+              <a class="pagination__title-h" href="{{ .Site.Params.EditPath }}/{{ replace .File.Path "\\" "/" }}" target="_blank" rel="noopener">阅读更多</a>
             {{ else}}
               <span class="pagination__title-h">阅读更多</span>
             {{ end }}
