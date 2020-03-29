@@ -6,6 +6,12 @@
 {{ define "main" }}
   <div class="posts archive">
     <h1 class="post-title">{{.Title}}</h1>
+    <div id="all-tags">
+      {{- range $name, $taxonomy := .Site.Taxonomies.tags -}}
+      <a href="/tags/{{ $name | urlize }}">#{{ $name }}<small>({{ .Count }})</small></a>
+      {{- end -}}
+    </div>
+
     {{- range  (where (where .Site.Pages "Type" "in" (slice "post" "posts")) "Kind" "page").GroupByDate "2006" }}
     <div class="post archive__group-posts ">
         {{- range .Pages.GroupByDate "2006-01" }}
