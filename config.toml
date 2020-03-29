@@ -69,7 +69,7 @@ pygmentCodeFences = true
   baseName = "atom"
 
 [params.valine]
-	enable = true
+    enable = true
     appId = 'm6rxiyixBDG25mYPEPapQpnR-MdYXbMMI'
     appKey = 'WMokwNAwh9noJ4XeUjVBjsCt'
     placeholder = '既然来了，那就留个痕迹吧~'
