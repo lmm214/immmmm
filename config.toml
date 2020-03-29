@@ -54,6 +54,8 @@ pygmentCodeFences = true
   DateFormatSingle = "2006-01-02 15:04:05"
   ReadMore = "阅读全文"
 
+  EditPath = 'https://github.com/lmm214/immmmm/edit/master/content'
+
 [markup]
 [markup.goldmark]
 [markup.goldmark.renderer]
