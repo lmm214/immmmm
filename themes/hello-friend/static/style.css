@@ -736,6 +736,11 @@ hr {
 	text-decoration: none
 }
 
+#all-tags a{
+	font-size: 1.2rem;
+	text-decoration: none;
+	margin-right: 1rem;
+}
 .post-content {
 	margin-top: 0px; word-break:break-all;
 }
@@ -914,7 +919,7 @@ hr {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	font-size: 0.9rem
+	font-size: 1rem
 }
 
 .footer .copyright--user {
