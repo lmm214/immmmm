@@ -9,51 +9,50 @@ tags: [折腾]
 <!--more-->
 
 ### 「hugo-theme-we」
-
-![hugo-theme-we](https://lmm.elizen.me/images/2020/03/theme-we.png)
 <https://github.com/xiaomingplus/hugo-theme-we>
+{{<figure src="https://lmm.elizen.me/images/2020/03/theme-we.png" caption="hugo-theme-we">}}
+
 
 ### 「hugo-theme-nuo」
-
-![hugo-theme-nuo](https://lmm.elizen.me/images/2020/03/theme-nuo.png)
 <https://github.com/laozhu/hugo-nuo>
+{{<figure src="https://lmm.elizen.me/images/2020/03/theme-nuo.png" caption="hugo-theme-nuo">}}
+
 
 ### 「hugo-theme-hyde」
-
-![hugo-theme-hyde](https://lmm.elizen.me/images/2020/03/theme-hyde.png)
 <https://github.com/spf13/hyde>
+{{<figure src="https://lmm.elizen.me/images/2020/03/theme-hyde.png" caption="hugo-theme-hyde">}}
+
 
 ### 「hugo-theme-loveIt」
-
-![hugo-theme-loveIt](https://lmm.elizen.me/images/2020/03/theme-loveIt.png)
 <https://github.com/dillonzq/LoveIt>
+{{<figure src="https://lmm.elizen.me/images/2020/03/theme-loveIt.png" caption="hugo-theme-loveIt">}}
+
 
 ### 「hugo-theme-yinyang」
-
-![hugo-theme-yinyang](https://lmm.elizen.me/images/2020/03/theme-yinyang.png)
 <https://github.com/joway/hugo-theme-yinyang>
+{{<figure src="https://lmm.elizen.me/images/2020/03/theme-yinyang.png" caption="hugo-theme-yinyang">}}
+
 
 ### 「hugo-theme-zozo」
-
-![hugo-theme-zozo](https://lmm.elizen.me/images/2020/03/theme-zozo.png)
 <https://github.com/varkai/hugo-theme-zozo>
+{{<figure src="https://lmm.elizen.me/images/2020/03/theme-zozo.png" caption="hugo-theme-zozo">}}
+
 
 ### 「hugo-theme-meme」
-
-![hugo-theme-meme](https://lmm.elizen.me/images/2020/03/theme-meme.png)
 <https://github.com/reuixiy/hugo-theme-meme>
+{{<figure src="https://lmm.elizen.me/images/2020/03/theme-meme.png" caption="hugo-theme-meme">}}
+
 
 ### 「hugo-theme-next」
-
-![hugo-theme-next](https://lmm.elizen.me/images/2020/03/theme-next.png)
 <https://github.com/xtfly/hugo-theme-next>
+{{<figure src="https://lmm.elizen.me/images/2020/03/theme-next.png" caption="hugo-theme-next">}}
+
 
 ### 「hugo-theme-pure」
-
-![hugo-theme-pure](https://lmm.elizen.me/images/2020/03/theme-pure.png)
 <https://github.com/xiaoheiAh/hugo-theme-pure>
+{{<figure src="https://lmm.elizen.me/images/2020/03/theme-pure.png" caption="hugo-theme-pure">}}
+
 
 ### 「hugo-theme-slim」
-
-![hugo-theme-slim](https://lmm.elizen.me/images/2020/03/theme-slim.png)
 <https://github.com/zhe/hugo-theme-slim>
+{{<figure src="https://lmm.elizen.me/images/2020/03/theme-slim.png" caption="hugo-theme-slim">}}
