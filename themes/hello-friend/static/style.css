@@ -515,8 +515,9 @@ img.center,img.right {
 	margin-left: auto
 }
 
-figure {text-align: center;}
-figure figcaption {margin:1em auto;width: 25%;border-top: 1px solid #bbb;font-size: 0.8em;color: #bbb;padding: 5px;line-height: 1.8em;}
+figure {text-align: center;margin:0;}
+figure figcaption {margin:0.5rem auto 1rem;width: 25%;border-top: 1px solid #bbb;font-size:0.8em;color:#bbb;padding:5px;line-height:1.8em;}
+figure figcaption:before {content: "◎ ";}
 figure img{max-width:100%;border-radius:0;}
 
 code {
