@@ -44,7 +44,7 @@
       <div class="post-content">
         {{ .Summary }}
       </div>
-      {{ if not .Params.hideReadMore }}
+      {{ if .Truncated }}
         <div><a class="read-more button" href="{{.RelPermalink}}">{{ $.Site.Params.ReadMore | default "Read more" }} →</a></div>
       {{ end }}
     </div>
