@@ -44,7 +44,15 @@ GitHub 上新建一个 repo，并只需保留以下文件上传到 `master` ，�
 
 具体操作：
 
-- 点 <https://github.com/settings/tokens> 新建一个，并暂存；进项目 `settings/secrets` 新建标题为 `personal_token` ，内容是刚创建的 `tokens` ;
+![tokens-1](https://lmm.elizen.me/images/2020/03/tokens-1.png) 
+
+![tokens-2](https://lmm.elizen.me/images/2020/03/tokens-2.png)
+
+- 点 <https://github.com/settings/tokens> 新建一个，勾选 `repo` 和 `workflow` ,暂存；
+
+![secrets](https://lmm.elizen.me/images/2020/03/secrets.jpeg)
+
+- 进项目 `settings/secrets` 新建标题为 `personal_token` ，内容是刚创建的 `tokens` ;
 
 - 回项目，点 `Actions -- New wordflow -- Set up a workflow yourself` ，添加如下代码：
 
@@ -95,7 +103,49 @@ jobs:
           webhook_secret: ${{ secrets.WEBHOOK_SECRET }}
 ```
 
-`WEBHOOK_URL` 和 `WEBHOOK_SECRET` 是进项目 `settings/secrets` 新建添加，构建成宝塔面板的 webhook 链接，同时宝塔后台的代码去掉后缀判断。
+`WEBHOOK_URL` 和 `WEBHOOK_SECRET` 是进项目 `settings/secrets` 新建添加，构建成宝塔面板的 webhook 链接，如：
+
+`WEBHOOK_URL` 设为：`http://1.1.1.1/hook?access_key=密钥`;
+
+`WEBHOOK_SECRET` 设为 `&param=immmmm.com`;这样合并成：
+
+```
+http://1.1.1.1/hook?access_key=密钥&param=immmmm.com
+```
+
+ip 和域名需需改，同时宝塔后台的 webhooks 添加同步代码，需修改本地路径、github 项目路径，代码如下：
+
+```
+#!/bin/bash
+echo ""
+date --date='0 days ago' "+%Y-%m-%d %H:%M:%S"
+echo "Start"
+
+#修改本地路径、github 项目路径
+gitPath="/www/wwwroot/immmmm.com"
+gitHttp="https://github.com/lmm214/immmmm.git"
+
+echo "Web站点路径：$gitPath"
+if [ -d "$gitPath" ]; then
+        cd $gitPath
+        if [ ! -d ".git" ]; then
+                echo "在该目录下克隆 git"
+                git clone -b gh-pages $gitHttp gittemp
+                mv gittemp/.git .
+                rm -rf gittemp
+        fi
+        git reset --hard gh-pages
+        git pull
+        chown -R www:www $gitPath
+        echo "End"
+        exit
+else
+        echo "该项目路径不存在"
+        echo "End"
+        exit
+fi
+```
+
 
 ### 后话一点点 🤏
 
@@ -112,16 +162,3 @@ jobs:
 - 官方 Hugo Templates： <https://gohugo.io/templates/>
 - 中文系列教程翻译： <https://www.rectcircle.cn/series/hugo/>
 - Hugo 中文帮助文档：<https://hugo.aiaide.com/>
-
-
-
-
-
-
-
-
-
-
-
-
-
