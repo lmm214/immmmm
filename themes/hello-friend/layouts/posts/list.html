@@ -1,15 +1,8 @@
 {{ define "main" }}
   <div class="posts archive">
-    {{ partial "breadcrumb.html" . }}
-    
     <h1 class="post-title">{{.Title}}</h1>
-    <div id="all-tags">
-      {{- range $name, $taxonomy := .Site.Taxonomies.tags -}}
-      <a href="/tags/{{ $name | urlize }}">#{{ $name }}<small>({{ .Count }})</small></a>
-      {{- end -}}
-    </div>
 
-    {{- range  (where (where .Pages "Type" "in" (slice "post" "posts")) "Kind" "page").GroupByDate "2006" }}
+    {{- range  (where (where .Site.Pages "Type" "in" (slice "post" "posts")) "Kind" "page").GroupByDate "2006" }}
     <div class="post archive__group-posts ">
         {{- range .Pages.GroupByDate "2006-01" }}
         <div class="archive__group-month">

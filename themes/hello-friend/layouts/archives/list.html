@@ -1,10 +1,7 @@
-{{ define "head" }}
-  {{ if .Paginator.HasPrev -}}<link rel="prefetch" href="{{ .Paginator.Prev.URL }}">{{- end }}
-  {{ if .Paginator.HasNext -}}<link rel="prefetch" href="{{ .Paginator.Next.URL }}">{{- end }}
-{{ end }}
-
 {{ define "main" }}
   <div class="posts archive">
+    {{ partial "breadcrumb.html" . }}
+    
     <h1 class="post-title">{{.Title}}</h1>
     <div id="all-tags">
       {{- range $name, $taxonomy := .Site.Taxonomies.tags -}}

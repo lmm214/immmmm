@@ -95,7 +95,7 @@ a.read-more,a.read-more:active,a.read-more:hover {
 	background: none;
 	box-shadow: none;
 	padding: 0;
-	margin: 20px 0 40px;
+	margin: 20px 0 0;
 	font-weight: 700
 }
 
@@ -672,7 +672,7 @@ hr {
 	width: 100%;
 	max-width: 800px;
 	text-align: left;
-	padding: 20px;
+	padding: 20px 20px 40px;
 	margin: 40px auto
 }
 .post:first-of-type{
@@ -754,10 +754,7 @@ hr {
 	margin-top: 0px; word-break:break-all;
 }
 .post-content h3 {
-  position: relative;
-  left: 2em;
-  margin: 28px auto 18px!important;
-  letter-spacing: 2px;
+	position: relative;left: 2em;margin: 28px auto 18px!important;letter-spacing: 2px;
 }
 .post-content h3:before {
     content: "##";
@@ -843,7 +840,7 @@ hr {
 
 .pagination__buttons a {
 	text-decoration: none;
-	font-weight: 700
+	font-weight: 500
 }
 
 .button {
@@ -1357,13 +1354,13 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 .v .vlist .vcard:after{content:"";clear:both;display:block}
 .v .vlist .vcard .vimg{width:3.125rem;height:3.125rem;float:left;border-radius:50%;margin: 10px .7rem 0 0;}
 .v .vlist .vcard .vhead{margin-top:0}
-.v .vlist .vcard .vhead .vnick{position:relative;font-size:1rem;font-weight:500;margin-right:.875rem;cursor:pointer;color:#1abc9c;text-decoration:none;display:inline-block}
+.v .vlist .vcard .vhead .vnick{position:relative;font-size:1rem;margin-right:.875rem;cursor:pointer;color:#1abc9c;text-decoration:none;display:inline-block}
 .v .vlist .vcard .vh{overflow:hidden;padding-bottom:.5rem;}
 .v .vlist .vcard .vh .vtime{font-size:.75rem;margin-right:.875rem}
 .v .vlist .vcard .vh .vmeta{line-height:1;position:relative}
 .v .vlist .vcard .vh .vmeta .vat{font-size:.8125rem;color:#fe5186;cursor:pointer;float:right}
 .v .vlist .vcard:last-child .vh{border-bottom:none}
-.v .vlist .vcard .vcontent{word-wrap:break-word;word-break:break-all;text-align:justify;font-size:1rem;line-height:2;position:relative;margin-bottom:.75rem;padding-top:.625rem}
+.v .vlist .vcard .vcontent{word-wrap:break-word;word-break:break-all;text-align:justify;font-size:1rem;line-height:2;position:relative;margin-bottom:.75rem;padding-top:.625rem;}
 .v .vlist .vcard .vh .vcontent{padding-top:0}
 .v .vh .vh .vat{margin-top:-15px;}
 .v .vlist .vcard .vcontent p{margin: 0;}
@@ -1449,8 +1446,11 @@ photos .photo:last-child {
 #lbNextLink{right:0;}
 
 /* breadcrumb */
-.breadcrumb {padding: 8px 15px; margin-bottom: 40px; list-style: none; background-color: #0000000f; margin-left: 0px; border-radius: 4px; }
-.breadcrumb>li {display: inline-block; } .breadcrumb>li+li:before {padding: 0 5px; color: #ccc; content: ">\00a0"; }
+.breadcrumb {background: #fafafa;background: var(--light-header);padding: 8px 15px; margin-bottom: 40px; list-style: none; margin-left: 0px; border-radius: 4px; }
+.breadcrumb>li{display:inline-block;opacity:.7;}
+.breadcrumb>li+li:before {padding:0 5px; color: #ccc; content: ">"; }
+.breadcrumb li a{text-decoration:none;}
+.dark-theme .breadcrumb {background: #252627;background: var(--dark-header);}
 /* searchBoxInput */
 .menu .search-box-icon {margin-top: 11px; }
 .searchPage{min-height:300px}
