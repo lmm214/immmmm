@@ -3,6 +3,8 @@
     {{ partial "breadcrumb.html" . }}
     
     <h1 class="post-title">{{.Title}}</h1>
+    共计 {{ len (where .Site.RegularPages "Section" "posts") }} 篇日志
+
     <div id="all-tags">
       {{- range $name, $taxonomy := .Site.Taxonomies.tags -}}
       <a href="/tags/{{ $name | urlize }}">#{{ $name }}<small>({{ .Count }})</small></a>
