@@ -47,6 +47,9 @@ layout: 'posts'
 
 {{< friend des="If the moon smiled, she would resemble you." url="https://eas1.cn/" md5="4cc893d113dd74ceca73f9863f2c5446" name="风也温柔" >}}
 
+{{< friend des="" url="https://sosilent.top/" md5="ee5c49f4d0339f71e1a3ded340bc1b98" name="SoSilent" >}}
+
+
 ### 博客程序
 
 Hugo：<https://gohugo.io/>
