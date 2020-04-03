@@ -11,9 +11,6 @@ hasCJKLanguage = true
 paginate =  20
 # rss 输出数量
 rssLimit = 5
-# 取消默认的代码高亮
-pygmentsUseClasses = false
-pygmentCodeFences = true
 
 [permalinks]
   posts = "/:filename/"
