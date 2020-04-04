@@ -14,7 +14,9 @@ Visual Studio Code 久仰大名，但一直误认为是个臃肿大部头，毕�
 
 <!--more-->
 
-### 下载： <https://code.visualstudio.com/>
+### 下载： 
+
+<https://code.visualstudio.com/>
 
 ### 插件：
 
@@ -25,10 +27,24 @@ Visual Studio Code 久仰大名，但一直误认为是个臃肿大部头，毕�
 - Settings Sync :配置同步
 - ……
 
+### gpm 多仓库配置
+
+![vscode-2](https://lmm.elizen.me/images/2020/04/vscode-2.png)
+
+填入远程仓库链接拉取到本地。
+
+![vscode-3](https://lmm.elizen.me/images/2020/04/vscode-3.png)
+
+修改后，推送到仓库。
+
 ### 配置
 
-- 菜单 → 文件 → 自动保存，打钩
-
+- 菜单 → 文件 → 自动保存，打钩；
+- 设置根据编辑器视图宽度自动换行；
+`settings.json` ：
+```
+"editor.wrappingColumn": 0
+```
 
 ### 启用 Markdown 代码片段
 
@@ -58,6 +74,10 @@ Visual Studio Code 久仰大名，但一直误认为是个臃肿大部头，毕�
 }
 ```
 
+输入 `post` 按 Tab 快捷插入文章信息，再按 Tab 可选择标签，在 Tab 开始码字。
+
 ### 致谢
 
+- [像写代码一样写作](https://www.codingyang.com/2020/03/codeEditer.html)
 - [在 Visual Studio Code 中添加自定义的代码片段](https://blog.walterlv.com/post/add-custom-code-snippet-for-vscode.html)
+- [Visual Studio Code 中文文档](https://jeasonstudio.gitbooks.io/vscode-cn-doc/content/md/%E7%BC%96%E8%BE%91%E5%99%A8/%E5%9F%BA%E7%A1%80.html)
