@@ -39,27 +39,16 @@ Visual Studio Code 久仰大名，但一直误认为是个臃肿大部头，毕�
 
 ![vscode-3](https://lmm.elizen.me/images/2020/04/vscode-3.png)
 
-*按快捷键 `⌘ + enter`，一键推送到远程仓库。*
-
 **按快捷键 `⌘ + enter`，一键推送到远程仓库。**
-
-***按快捷键 `⌘ + enter`，一键推送到远程仓库。***
-
-### 配置 `settings.json`
-
-
-- 设置根据编辑器视图宽度自动换行；
-
-```
-"editor.wrappingColumn": 0
-```
 
 ### 常用快捷键
 
-- `control + tab`：标签切换
-- `option + shift`：列选择
-- `⌘ + D`：选中多个相同字符
-- `control + 鼠标点击` 多行编辑
+|        快捷键        |       操作       |
+| :------------------: | :--------------: |
+|   `control + tab`    |     标签切换     |
+|   `option + shift`   |      列选择      |
+|       `⌘ + D`        | 选中多个相同字符 |
+| `control + 鼠标点击` |     多行编辑     |
 
 ### Markdown All in One 快捷键
 
