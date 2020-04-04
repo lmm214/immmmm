@@ -2,6 +2,7 @@
 title: 'VS Code 初体验'
 date: '2020-04-04T20:50:00+08:00'
 tags: [折腾]
+feature: https://lmm.elizen.me/images/2020/04/vscode-0.png
 ---
 
 Visual Studio Code 久仰大名，但一直误认为是个臃肿大部头，毕竟是微软出品。 🙇
@@ -25,6 +26,7 @@ Visual Studio Code 久仰大名，但一直误认为是个臃肿大部头，毕�
 - Material Icon Theme ：文件图标
 - gpm ：多仓库管理
 - Settings Sync :配置同步
+- PicGo：图床
 - ……
 
 ### gpm 多仓库配置
@@ -35,7 +37,7 @@ Visual Studio Code 久仰大名，但一直误认为是个臃肿大部头，毕�
 
 ![vscode-3](https://lmm.elizen.me/images/2020/04/vscode-3.png)
 
-修改后，推送到仓库。
+按快捷键 `cmd+enter`，推送到远程仓库。
 
 ### 配置
 
@@ -45,6 +47,11 @@ Visual Studio Code 久仰大名，但一直误认为是个臃肿大部头，毕�
 ```
 "editor.wrappingColumn": 0
 ```
+
+### 常用快捷键
+
+- `control+tab`：标签切换
+- `option+shift`：列选择
 
 ### 启用 Markdown 代码片段
 
