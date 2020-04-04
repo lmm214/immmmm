@@ -3,6 +3,7 @@ title: '关于'
 date: 2020-03-14 12:41:27
 layout: 'posts'
 ---
+
 安心唠唠嗑，聊聊家常~
 
 ### 我的朋友
@@ -48,6 +49,8 @@ layout: 'posts'
 {{< friend des="If the moon smiled, she would resemble you." url="https://eas1.cn/" md5="4cc893d113dd74ceca73f9863f2c5446" name="风也温柔" >}}
 
 {{< friend des="" url="https://sosilent.top/" md5="ee5c49f4d0339f71e1a3ded340bc1b98" name="SoSilent" >}}
+
+{{< friend des="" url="https://imwgh.com/" md5="f27fba4d7d92056cf3db0e577761ad01" name="大大的小熊" >}}
 
 
 ### 博客程序
