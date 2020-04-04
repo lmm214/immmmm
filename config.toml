@@ -14,7 +14,6 @@ rssLimit = 5
 
 [permalinks]
   posts = "/:filename/"
-  # categories = "/categories/:slug/"
   tags = "/tags/:slug/"
 
 [menu]
