@@ -93,10 +93,19 @@ Visual Studio Code 久仰大名，但一直误认为是个臃肿大部头，毕�
         "$0"
     ],
     "description": "新文章"
+},
+"more post": {
+	"prefix": "mr",
+	"body": [
+		"<!--more-->"
+	],
+    "description": "more标签"
 }
 ```
 
-输入 `post` 按 Tab 快捷插入文章信息，再按 Tab 可选择标签，在 Tab 开始码字。
+输入 `post` 按 Tab 快捷插入文章信息，再按 Tab 可选择标签，在 Tab 开始码字；
+
+输入 `mr` ，快捷插入 `<!--more-->` 标签。
 
 ### 致谢
 
