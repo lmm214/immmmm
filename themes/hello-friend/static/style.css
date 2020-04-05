@@ -1317,7 +1317,7 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 .v .vinput{border:none;resize:none;outline:none;padding:10px 5px;max-width:100%;font-size:.775rem}
 .v input[type=checkbox],.v input[type=radio]{display:inline-block;vertical-align:middle;margin-top:-2px}
 .v .vwrap{border:1px solid #dcdcdc;border-radius:4px;margin-bottom:3rem;overflow:hidden;position:relative;padding:0 0 27px;}
-.v .vwrap input{background:transparent}
+.v .vwrap input{background:transparent;outline: none;}
 .v .vwrap .vedit{position:relative;}
 .v .vwrap .vedit .vctrl{text-align:right;font-size:12px;margin-top:-44px;right:0;position:absolute;margin-right:-10px;}
 .v .vwrap .vedit .vctrl span{padding:0 10px 0 0;font-size:18px;display:inline-block;vertical-align:middle;cursor:pointer}
