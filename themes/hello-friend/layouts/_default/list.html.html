@@ -15,7 +15,7 @@
 
   <div class="posts">
     {{ range $paginator.Pages }}
-    <div class="post on-list">
+    <div class="post on-list {{.File.Path | replaceRE ".*posts/(.*)/.*" "$1"}}">
       <h1 class="post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h1>
       <div class="post-meta">
         {{ if .Date }}

@@ -9,7 +9,7 @@
   
   
 
-  <div class="post">
+  <div class="post {{.File.Path | replaceRE ".*posts/(.*)/.*" "$1"}}">
     {{ partial "breadcrumb.html" . }}
     
     <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h2>
