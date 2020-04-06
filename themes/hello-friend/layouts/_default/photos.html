@@ -5,7 +5,7 @@
 
 <div class="page-photos">
   {{ range (readDir "./static/photos") }}
-  <time><small class="post-date">{{ .ModTime.Format "2006-01-02 15:04:05"}}</small></time>
+  <time><small class="post-date">{{ .ModTime.Format "2006-01-02 15:04:05+08:00"}}</small></time>
   <figure>
     <img src="https://cdn.jsdelivr.net/gh/lmm214/immmmm@gh-pages/photos/{{ .Name }}" alt="{{ .Name }}" />
     <figcaption>{{ .Name}}</figcaption>
