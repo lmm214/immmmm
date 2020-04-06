@@ -8,10 +8,12 @@
   {{ $contentTypeName := cond $isntDefault (string $.Site.Params.contentTypeName) "posts" }}
   
   
-
-  <div class="post {{.File.Path | replaceRE ".*posts/(.*)/.*" "$1"}}">
+  {{ $PostCate := .File.Path | replaceRE ".*posts/(.*)/.*" "$1"}}
+  <div class="post {{ $PostCate }}">
     {{ partial "breadcrumb.html" . }}
-    
+  {{ if eq $PostCate "chat"}}
+      {{ .Render "chat"}}
+  {{ else }}
     <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h2>
     <div class="post-meta">
       {{ if .Date | default nil }}
@@ -38,11 +40,11 @@
         <img loading='lazy' src="{{ .Params.feature | absURL }}" class="post-cover" />
       {{ end }}
     {{ end }}
-
+  
     <div class="post-content">
       {{ .Content }}
     </div>
-
+  
     {{ if .Params.toc }}
       <div class="tocify">目录：{{- partial "toc.html" . -}}</div>
     {{ end }}
@@ -54,7 +56,7 @@
         {{ end }}
       </span>
     {{ end }}
-
+  {{ end }}
     <div class="clear"></div>
     
     {{ if eq .Type $.Site.Params.contentTypeName }}

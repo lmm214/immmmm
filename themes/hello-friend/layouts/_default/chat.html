@@ -1,0 +1,20 @@
+      <div class="post-meta">
+        {{ if .Date }}
+          <span class="post-date">
+            {{ .Date.Format ($.Site.Params.DateFormatList | default "2006-01-02") }}
+          </span>
+        {{ end }}
+
+        {{ if .Params.tags }}
+        <span class="">
+          {{ range .Params.tags }}
+            #<a href="{{ (urlize (printf "tags/%s" . )) | absURL }}/">{{ . }}</a>&nbsp;
+          {{ end }}
+        </span>
+        {{ end }}
+      </div>
+
+      <div class="post-content">
+        <a href="{{ .Permalink }}" rel="link"><img loading="lazy" class="post-avatar avatar" src=https://gravatar.loli.net/avatar/{{ md5 "fivemu@gmail.com" }} ></a>
+        {{ .Summary }}
+      </div>

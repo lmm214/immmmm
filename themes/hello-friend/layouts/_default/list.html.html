@@ -15,7 +15,11 @@
 
   <div class="posts">
     {{ range $paginator.Pages }}
-    <div class="post on-list {{.File.Path | replaceRE ".*posts/(.*)/.*" "$1"}}">
+    {{ $PostCate := .File.Path | replaceRE ".*posts/(.*)/.*" "$1"}}
+    <div class="post on-list {{$PostCate}}">
+    {{ if eq $PostCate "chat"}}
+      {{ .Render "chat"}}
+    {{ else }}
       <h1 class="post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h1>
       <div class="post-meta">
         {{ if .Date }}
@@ -47,6 +51,7 @@
       {{ if .Truncated }}
         <div><a class="read-more button" href="{{.RelPermalink}}">{{ $.Site.Params.ReadMore | default "Read more" }} →</a></div>
       {{ end }}
+    {{ end }}
     </div>
     {{ end }}
     {{ partial "pagination.html" . }}

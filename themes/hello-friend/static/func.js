@@ -37,7 +37,7 @@ jQuery(document).ready(function($){
 
 jQuery(document).ready(function($) {
     //灯箱
-    $(".post-content img").each(function(){
+    $(".post-content img:not(.avatar)").each(function(){
       var _b = $("<a></a>").attr("href",this.src);
       $(this).wrap(_b);
     })
