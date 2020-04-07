@@ -1,7 +1,7 @@
 {{$URL := .Get "url"}}
 {{ with .Site.GetPage $URL }}
 <div class="post-preview">
-  <div class="post-preview--meta" style="width:100%;">
+  <div class="post-preview--meta" {{if .Params.feature }}style="width:100%;"{{end}}>
     <div class="post-preview--middle">
       <h4 class="post-preview--title">
         <a target="_blank" href="{{ .Permalink }}">{{ .Title }}</a>
@@ -15,5 +15,8 @@
       </section>
     </div>
   </div>
+  {{ if .Params.feature }}
+    <img rel="link" loading="lazy" class="post-preview--image avatar" src="{{ .Params.feature | absURL }}">
+  {{end}}
 </div>
 {{ end }}

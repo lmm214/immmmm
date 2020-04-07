@@ -2,6 +2,7 @@
 date: 2017-12-18
 title: 'Bitcron 文章内链自动优化显示'
 tags: [折腾]
+feature: https://lmm.elizen.me/images/2017/12/refer-1.png
 ---
 
 当我们在文章内引用了一个站内的链接，一般只是超级链接，其实，也可以为这个超级链接提供更好的表现方式。
