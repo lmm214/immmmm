@@ -13,6 +13,10 @@
     {{ partial "breadcrumb.html" . }}
   {{ if eq $PostCate "chat"}}
       {{ .Render "chat"}}
+      <div class="post-content">
+        <a href="{{ .Permalink }}" rel="link"><img loading="lazy" class="post-avatar avatar" src=https://gravatar.loli.net/avatar/{{ md5 "fivemu@gmail.com" }} ></a>
+          {{ .Content }}
+      </div>
   {{ else }}
     <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h2>
     <div class="post-meta">
