@@ -1,7 +1,21 @@
 {{$URL := .Get "url"}}
 {{ with .Site.GetPage $URL }}
+
+{{ with .Params.feature }}
+	{{ $.Scratch.Set "feature" . }}
+{{ else }}
+	{{ with findRE `!\[(.*?)\]\((.*?)\)` .RawContent }}
+		{{ range first 1 . }}
+			{{ $url := replaceRE `!\[(.*?)\]\((.*?)\)` "$2" . }}
+			{{$.Scratch.Set "feature" $url }}
+		{{ end }}
+	{{ else }}
+		{{ $.Scratch.Set "feature" false }}
+	{{ end }}
+{{ end }}
+
 <div class="post-preview">
-  <div class="post-preview--meta" {{if .Params.feature }}style="width:100%;"{{end}}>
+  <div class="post-preview--meta" style="width:100%;">
     <div class="post-preview--middle">
       <h4 class="post-preview--title">
         <a target="_blank" href="{{ .Permalink }}">{{ .Title }}</a>
@@ -11,12 +25,12 @@
       <small>{{ range .Params.tags }}#{{ . }}&nbsp;{{ end }}</small>
       {{ end }}
       <section style="max-height:96px;overflow:hidden;" class="post-preview--excerpt">
-        {{ .Summary }}
+        {{ .Summary | plainify }}
       </section>
     </div>
   </div>
-  {{ if .Params.feature }}
-    <img rel="link" loading="lazy" class="post-preview--image avatar" src="{{ .Params.feature | absURL }}">
+  {{with ($.Scratch.Get "feature")}}
+    <img rel="link" loading="lazy" class="post-preview--image avatar" src="{{ . }}">
   {{end}}
 </div>
 {{ end }}

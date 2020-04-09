@@ -2,9 +2,6 @@
 title: '三亚，也就如此'
 date: 2011-02-12 
 tags: [日常]
-published: true
-hideInList: false
-isTop: false
 ---
 
 ![sy-1][]

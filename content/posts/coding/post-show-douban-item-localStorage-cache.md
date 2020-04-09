@@ -2,10 +2,6 @@
 title: '文章内显示豆瓣条目（LocalStorage 缓存版）'
 date: 2020-03-17
 tags: [折腾]
-published: true
-hideInList: false
-feature: 
-isTop: false
 ---
 <https://movie.douban.com/subject/30206389/>
 

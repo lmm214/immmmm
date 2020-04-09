@@ -29,7 +29,7 @@ tags: [折腾]
       <small>{{ range .Params.tags }}#{{ . }}&nbsp;{{ end }}</small>
       {{ end }}
       <section style="max-height:105px;overflow:hidden;" class="post-preview--excerpt">
-        {{ .Summary }}
+        {{ .Summary | plainify}}
       </section>
     </div>
   </div>

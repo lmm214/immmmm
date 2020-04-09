@@ -75,7 +75,7 @@ Gridea 主题：[「Motify」](https://github.com/lmm214/gridea-theme-motify)、
 
 - Mac 发图「uPic」：<https://github.com/gee1k/uPic>
 - 全平台发图「PicGo」：<https://github.com/Molunerfinn/PicGo>
-- Chrome 新标签扩展「几枝」
+- Chrome 新标签扩展「几枝」、HTML5视频速度控制「Video Speed Controller」、沉浸式阅读「简悦」
 
 ### 欢迎打赏
 
