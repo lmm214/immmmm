@@ -1,6 +1,0 @@
-<figure>
-    <img src="{{ .Get "src1" | safeURL }}" width="50%"/><img src="{{ .Get "src2" | safeURL }}" width="50%" />
-    {{ if .Get "caption" }}
-      <figcaption>{{ .Get "caption" | markdownify }}</figcaption>
-    {{ end }}
-</figure>

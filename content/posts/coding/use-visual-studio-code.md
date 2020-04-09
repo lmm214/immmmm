@@ -29,6 +29,7 @@ Visual Studio Code 久仰大名，但一直误认为是个臃肿大部头，毕�
 - PicGo：图床
 - Markdown All in One：快捷 md 格式化
 - Auto Rename Tag：成对修改标签
+- favorites：钉住文件或文件夹
 - ……
 
 ### gpm 多仓库配置
