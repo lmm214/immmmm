@@ -516,7 +516,9 @@ figure {text-align: center;margin:0;}
 figure figcaption {margin:0.5rem auto 1rem;width: 25%;border-top: 1px solid #bbb;font-size:0.8em;color:#bbb;padding:5px;line-height:1.8em;}
 figure figcaption:before {content: "◎ ";}
 figure img{max-width:100%;border-radius:0;}
-
+@media (max-width:683px) {
+	figure figcaption {width: 75%;}
+}
 code {
 	font-family: Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;
 	background: #eaeaea;
