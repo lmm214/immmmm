@@ -6,7 +6,7 @@ tags: [折腾]
 
 好久好久之前（2年前），写过这功能：[《Bitcron 文章内链自动优化显示》](https://immmmm.com/bitcron-auto-article-refer/)，如下效果：
 
-{{<link url="bitcron-auto-article-refer">}}
+{{<link "bitcron-auto-article-refer">}}
 
 本文利用 Hugo 的 [Shortcodes](https://gohugo.io/extras/shortcodes/) 功能和 [.GetPage](https://gohugo.io/functions/getpage/) 函数来实现。
 
@@ -16,7 +16,7 @@ tags: [折腾]
 
 创建 `/layouts/shortcodes/link.html`：
 ```html
-{{$URL := .Get "url"}}
+{{$URL := .Get 0}}
 {{ with .Site.GetPage $URL }}
 <div class="post-preview">
   <div class="post-preview--meta" style="width:100%;">
@@ -41,14 +41,14 @@ tags: [折腾]
 
 样式 CSS 代码需自行调配，个人是复用豆瓣条目的：
 
-{{<link url="post-show-douban-item">}}
+{{<link "post-show-douban-item">}}
 
 ### 食用方式
 
 ```html
-\{\{<link url="bitcron-auto-article-refer">\}\}
+\{\{<link "bitcron-auto-article-refer">\}\}
 ```
 
 文章内去掉反斜杠 `\` 插入即可。
 
-其中 `link` 匹配短代码模板 `link.html` ，这 `url` 填的 `bitcron-auto-article-refer` 是文章 md 的文件名。
+其中 `link` 匹配短代码模板 `link.html` ，之后填的 `bitcron-auto-article-refer` 是文章 md 的文件名。
