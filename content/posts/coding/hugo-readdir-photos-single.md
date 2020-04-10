@@ -27,6 +27,8 @@ path: 2004gd
 ```
 {{ if .Params.path }}
     {{$Path := .Params.path}}
-    <photos>{{- range (readDir (printf "%s%s" "./static/images/" $Path )) -}}<img loading='lazy' src="{{(printf "https://cdn.jsdelivr.net/gh/lmm214/immmmm@gh-pages/images/%s/%s" $Path .Name ) | absURL}}" />{{- end -}}</photos>
+    {{- range (readDir (printf "%s%s" "./static/images/" $Path )) -}}<img loading='lazy' src="{{(printf "https://cdn.jsdelivr.net/gh/lmm214/immmmm@gh-pages/images/%s/%s" $Path .Name ) | absURL}}" />{{- end -}}
 {{ end }}
 ```
+
+注：代码仅实现功能，灯箱效果什么的需要自行适配主题。
