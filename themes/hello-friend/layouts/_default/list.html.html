@@ -50,11 +50,13 @@
       {{ end }}
 
       <div class="post-content">
-        {{ .Summary }}
-      </div>
       {{ if .Truncated }}
+        {{ .Summary }}
         <div><a class="read-more button" href="{{.RelPermalink}}">{{ $.Site.Params.ReadMore | default "Read more" }} →</a></div>
+      {{ else }}
+        {{ .Content }}
       {{ end }}
+      </div>
     {{ end }}
     </div>
     {{ end }}
