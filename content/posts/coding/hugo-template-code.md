@@ -58,6 +58,10 @@ title  =  "木木木木木"
 
 文章摘要：`.Summary` 文章列表会显示 `<!--more-->` 前的内容或自动截断。
 
+```
+{{ .Summary | plainify }}
+```
+
 `config.toml`配置阶段字符，默认 70 个：
 ```html
 summaryLength = 140
@@ -108,6 +112,7 @@ summaryLength = 140
 hasCJKLanguage = true
 ```
 
+
 阅读时间：`.ReadingTime`，示例：
 ```html
 约{{ .ReadingTime }}分钟读完
@@ -147,8 +152,29 @@ hasCJKLanguage = true
 ```
 {{ if .IsHome }}
 	……
-{{ else }}
-	……
+{{ end }}
+```
+
+```
+{{ if not .IsHome }}……{{ end }}
+```
+
+定义变量：
+```
+{{ $address := "123 Main St." }}
+{{ $address }}
+```
+
+定义模块，如 layouts/_default/baseof.html
+```
+{{ block "main" . }}
+{{ end }}
+```
+
+layouts/_default/list.html 
+```
+{{ define "main" }}
+  ……
 {{ end }}
 ```
 

@@ -63,7 +63,8 @@ rssLimit = 5
 
 [outputs]
   home = ["Atom", "HTML","JSON"] # <domain>/atom.xml
-
+  page = ["HTML"]
+  
 [outputFormats.Atom]
   mediatype = "application/rss"
   baseName = "atom"
