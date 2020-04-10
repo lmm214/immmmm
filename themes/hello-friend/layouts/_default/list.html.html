@@ -55,6 +55,7 @@
         <div><a class="read-more button" href="{{.RelPermalink}}">{{ $.Site.Params.ReadMore | default "Read more" }} →</a></div>
       {{ else }}
         {{ .Content }}
+        {{ .Render "path"}}
       {{ end }}
       </div>
     {{ end }}

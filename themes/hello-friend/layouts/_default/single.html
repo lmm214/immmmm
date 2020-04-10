@@ -47,6 +47,7 @@
   
     <div class="post-content">
       {{ .Content }}
+      {{ .Render "path"}}
     </div>
   
     {{ if .Params.toc }}
