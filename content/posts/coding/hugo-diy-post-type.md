@@ -21,9 +21,9 @@ content
 
 <!--more-->
 
-核心代码如下：
+### 核心代码如下：
 
-```
+```html
 {{ $PostCate := .File.Dir | replaceRE "posts/(.*)/" "$1"}}
 {{ if eq $PostCate "chat"}}
     <div class="post-meta">
@@ -40,4 +40,15 @@ content
 {{ end }}
 ```
 
+一般修改 `_default/list.html` 和 `_default/single.html`，其中 list 是放在文章列表的 `{{rang ……}}` 循环之中。
+
+```html
+{{ range 什么什么 .Pages }}
+    ……这里
+{{ end }}
+```
+
+### 随意说明
+
+`.File.Dir` 是获取当前文章的相对路径 `posts/coding/` ，`replaceRE "posts/(.*)/" "$1"` 是正则到 `coding` 子文件夹名，之后 `{{ if eq $PostCate "chat"}}` 就是判断咯 🤷‍♂️
 
