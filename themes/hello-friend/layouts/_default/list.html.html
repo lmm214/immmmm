@@ -15,11 +15,11 @@
 
   <div class="posts">
     {{ range $paginator.Pages }}
-    {{ $PostCate := .File.Path | replaceRE ".*posts/(.*)/.*" "$1"}}
+    {{ $PostCate := .File.Dir | replaceRE "posts/(.*)/" "$1"}}
     <div class="post on-list {{$PostCate}}">
     {{ if eq $PostCate "chat"}}
       {{ .Render "chat"}}
-      <div class="post-content">
+      <div class="post-content $PostCate">
         <a href="{{ .Permalink }}" rel="link"><img loading="lazy" class="post-avatar avatar" src=https://gravatar.loli.net/avatar/{{ md5 "fivemu@gmail.com" }} ></a>
           {{ .Summary }}
       </div>
@@ -49,7 +49,7 @@
         {{ end }}
       {{ end }}
 
-      <div class="post-content">
+      <div class="post-content $PostCate">
       {{ if .Truncated }}
         {{ .Summary }}
         <div><a class="read-more button" href="{{.RelPermalink}}">{{ $.Site.Params.ReadMore | default "Read more" }} →</a></div>
