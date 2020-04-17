@@ -28,6 +28,9 @@
   .timeline ul li div::before{content:'';position:absolute;top:10px;width:0;height:0;border-style:solid;left:-15px;border-width:8px 16px 8px 0;border-color:transparent #eaeaea transparent transparent;}
   .dark-theme .timeline ul li,.dark-theme .timeline ul li div{background:#3b3d42;}
   .dark-theme .timeline ul li div::before{border-color:transparent #3b3d42 transparent transparent;}
+  @media (max-width:860px) {
+	.timeline ul li div{width:calc(100vw - 100px);}
+  }
 </style>
 <link type="text/css" rel="stylesheet" href="https://at.alicdn.com/t/font_1755564_z4mhxbw13mq.css"></link>
 <script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script>
