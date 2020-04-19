@@ -19,7 +19,7 @@
                 document.body.appendChild(script);
             };
             getScript({
-                src: 'https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.Pure.min.js',
+                src: 'https://cdn.jsdelivr.net/npm/valine@1.4.4/dist/Valine.Pure.min.js',
                 onload: () => {
                     newValine();
                 }
@@ -51,10 +51,6 @@
   <script type="text/javascript" src='https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js'></script>
   <script type="text/javascript">
     jQuery(document).ready(function($){
-        $("#comments").on('click', 'span.vat',function(){
-        	$(this).parent('div.vmeta').next("div.vcontent").after($("div.vwrap"));
-        	$('textarea#veditor').focus();
-        })
         if(window.location.hash){
         	var checkExist = setInterval(function() {
         		if ($(window.location.hash).length) {
