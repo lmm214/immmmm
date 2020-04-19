@@ -1309,7 +1309,7 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 	content: attr(data-prompt)
 }
 
-/* valine 评论样式 */
+/* valine 1.4.4 评论样式 */
 .v *{box-sizing:border-box;}
 .v .cancel-reply{cursor:pointer;fill:#a9a9b3;text-align:right;position:absolute;right:12px;top:12px;margin:0;padding:0;z-index:99;}
 .v .cancel-reply:hover{fill:#4a4b50;}
