@@ -1,12 +1,12 @@
 ---
-title: "code-server"
+title: "云 VSCode 云编码"
 date: 2020-04-19T18:57:10+0800
 tags: [折腾]
 feature: https://lmm.elizen.me/images/2020/04/code-server.png
 ---
 
 
-云 VSCode 云编码，安装踩坑无数，Docker 一条部署：
+[code-server](https://github.com/cdr/code-server) 云 VSCode 云编码，安装踩坑无数，Docker 一条部署：
 
 ```
 docker run --name vscodeserver --user root -it -d -p 0.0.0.0:8080:8080 -e PASSWORD='youMiMa' -v "$PWD:/home/coder/project" codercom/code-server:latest
