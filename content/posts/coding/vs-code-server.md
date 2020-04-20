@@ -45,5 +45,10 @@ location /path/ {
 
 不懂不懂，不加 `/path/` 为啥不行呢？
 
-🤔️
+### 后续
 
+{{< figure src="https://lmm.elizen.me/images/2020/04/code-server-coding.png" caption="Coding Cloud Studio" >}}
+
+原来 Coding 的也已经是 vscode ，每天免费4小时，除了 clone github 仓库好慢好慢，其它省心省心！
+
+🤔️
