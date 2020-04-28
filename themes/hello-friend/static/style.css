@@ -1345,7 +1345,7 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 .v .vwrap .vmark .valert{padding-top:3rem}
 .v .vwrap .vmark .valert .vtext{padding:1rem 0}
 .v .vwrap .vmark .valert .vcode{width:4.6875rem;border-radius:.3125rem;padding:.5rem;background:#dedede}
-.v .vcopy,.v .vcopy a{text-align: right;font-size: 0.75rem;}
+.v .vpower,.v .vpower a{text-align: right;font-size: 0.75rem;}
 .v .vcount{display:none !important;font-size:0;padding:5px}
 .v .vinfo .vcol{font-size:.875rem;display:inline-block;width:50%;vertical-align:middle}
 .v .vinfo .vcount .vnum{font-weight:600;font-size:1.25rem}
@@ -1362,14 +1362,15 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 .v .vcards .vcard .vhead .vnick{position:relative;font-size:1rem;margin-right:.875rem;cursor:pointer;color:#1abc9c;text-decoration:none;display:inline-block}
 .v .vcards .vcard .vh{overflow:hidden;padding-bottom:.5rem;}
 .v .vcards .vcard .vh .vtime{font-size:.75rem;margin-right:.875rem}
-.v .vcards .vcard .vh .vmeta{line-height:1;position:relative}
+.v .vcards .vcard .vh .vmeta{line-height:1;position:relative;margin-bottom:14px;}
+.v .vcards .vcard .vh .vh .vmeta{margin-bottom:0;}
 .v .vcards .vcard .vh .vmeta .vat{font-size:.8125rem;color:#fe5186;cursor:pointer;float:right}
 .v .vcards .vcard:last-child .vh{border-bottom:none}
 .v .vcards .vcard .vcontent{word-wrap:break-word;word-break:break-all;text-align:justify;font-size:1rem;line-height:2;position:relative;margin-bottom:.75rem;padding-top:.625rem;}
 .v .vcards .vcard .vh .vcontent{padding-top:0}
-.v .vh .vh .vat{margin-top:-15px;}
+.v .vh .vh .vat{margin-top:-20px;}
 .v .vcards .vcard .vcontent p{margin: 0;}
-.v .vcards .vcard .vcontent frame,.v .vcards .vcard .vcontent iframe,.v .vcards .vcard .vcontent img{max-width:100%;border:none}
+.v .vcards .vcard .vcontent frame,.v .vcards .vcard .vcontent iframe,.v .vcards .vcard .vcontent img{max-width:100%;border:none;}
 .v .vcards .vcard .vcontent.expand{cursor:pointer;max-height:11.25rem;overflow:hidden}
 .v .vcards .vcard .vcontent.expand:before{display:block;content:"";position:absolute;width:100%;left:0;top:0;bottom:3.15rem;pointer-events:none;background:linear-gradient(180deg,hsla(0,0%,100%,0),hsla(0,0%,100%,.9))}
 .v .vcards .vcard .vcontent.expand:after{display:block;content:"点击展开";text-align:center;color:#828586;position:absolute;width:100%;height:3.15rem;line-height:3.15rem;left:0;bottom:0;pointer-events:none;background:hsla(0,0%,100%,.6)}
