@@ -18,6 +18,8 @@ layout: 'posts'
 
 {{< friend des="" url="https://fatesinger.com" md5="388b0c85beede5d94b978833e2a51965" name="大发贱志" >}}
 
+{{< friend des="" url="https://ttys3.net" md5="a8907e723e36cf8f37cd45636b1f0af4" name="荒野無燈" >}}
+
 {{< friend des="" url="https://zww.me" md5="9d7a1fd054cb532d3daac3b19aa70ed3" name="ZWWoOoOo" >}}
 
 {{< friend des="" url="https://sunbox.cc" md5="185fee0851b940ea7fc29006d3b76aa4" name="A哥" >}}
