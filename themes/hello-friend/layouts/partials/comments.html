@@ -31,7 +31,6 @@
     function newValine() {
       new Valine({
         el: '#comments' ,
-        recordIP : true,
         appId: '{{ .Site.Params.valine.appId }}',
         appKey: '{{ .Site.Params.valine.appKey }}',
         placeholder: '{{ .Site.Params.valine.placeholder }}',
