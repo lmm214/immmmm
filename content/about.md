@@ -14,7 +14,7 @@ layout: 'posts'
 
 {{< friend des="" url="http://xiaohudie.net" md5="62321464730fea19c80f2026aef08a53" name="小蝴蝶" >}}
 
-{{< friend des="" url="https://blog.elizen.me" md5="f65df4d87240feb1cb247857a621a48f" name="Elizen" >}}
+{{< friend des="" url="https://elizen.me" md5="f65df4d87240feb1cb247857a621a48f" name="Elizen" >}}
 
 {{< friend des="" url="https://fatesinger.com" md5="388b0c85beede5d94b978833e2a51965" name="大发贱志" >}}
 
