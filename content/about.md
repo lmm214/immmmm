@@ -54,7 +54,7 @@ layout: 'posts'
 
 {{< friend des="" url="https://imwgh.com/" md5="f27fba4d7d92056cf3db0e577761ad01" name="大大的小熊" >}}
 
-{{< friend des="" url="https://eallion.com/" md5="f27fba4d7d92056cf3db0e577761ad01" name="大大的小蜗牛" >}}
+{{< friend des="" url="https://eallion.com/" md5="c686821c00797f9390732f8fe2c82b5f" name="大大的小蜗牛" >}}
 
 ### 博客程序
 
