@@ -1,4 +1,4 @@
 ---
-title: "b言b语"
+title: "哔哔点啥"
 layout: "bb"
 ---
