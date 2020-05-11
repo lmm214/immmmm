@@ -75,3 +75,12 @@ rssLimit = 5
     appKey = 'WMokwNAwh9noJ4XeUjVBjsCt'
     placeholder = '既然来了，那就留个痕迹吧~'
     visitor = true
+
+[params.comment.disqus]
+  enable = "false"
+  proxy = "true"
+  shortname = ""
+  api =  "https://disqus.skk.moe/disqus/"
+  apikey = ""
+  admin = ""
+  adminLabel = ""
