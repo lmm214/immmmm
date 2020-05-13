@@ -49,3 +49,22 @@ jobs:
 ```
 
 3.睡一觉，等待明早8点！
+
+### 验证结果
+
+成了，但要继续验证！
+
+![auto-deploy-3](https://lmm.elizen.me/images/2020/05/auto-deploy-3.png)
+
+Github Action 早上8点定时任务出现排队等待，8:18分执行完毕，LeanCloud 应用部署启动完成。
+
+但，仍在休眠中，显示 `生产环境 休眠中`，访问后台 https://xxxxx.avosapps.us 可以打开，此刻显示 `生产环境 运行中`，完成！
+
+
+### 继续验证
+
+![auto-deploy-4](https://lmm.elizen.me/images/2020/05/auto-deploy-4.png)
+
+保留2个定时任务，按时间线： GitHub 8点定时部署  -->  LeanCloud 8点30分自动唤醒  -->  LeanCloud 9点补发邮件。
+
+等，等等，等等！
