@@ -1,34 +1,12 @@
   <!-- valine -->
   {{- if .Site.Params.valine.enable -}}
+  <script src='https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.Pure.min.js'></script>
   <div class="pagination__title">
        <span class="pagination__title-h"><span class="valine-comment-count" data-xid="{{ .RelPermalink }}"></span> 条评论</span>
        <hr />
   </div>
   <div id="comments"></div>
   <script>
-    loadComments();
-    function loadComments() {
-        if (typeof Valine === 'undefined') {
-            var getScript = (options) => {
-                var script = document.createElement('script');
-                script.defer = true;
-                script.crossOrigin = 'anonymous';
-                Object.keys(options).forEach((key) => {
-                    script[key] = options[key];
-                });
-                document.body.appendChild(script);
-            };
-            getScript({
-                src: 'https://cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.Pure.min.js',
-                onload: () => {
-                    newValine();
-                }
-            });
-        } else {
-            newValine();
-        }
-    }
-    function newValine() {
       new Valine({
         el: '#comments' ,
         appId: '{{ .Site.Params.valine.appId }}',
@@ -97,7 +75,6 @@
         });
       }
       setTimeout(diyValine, 1000);
-    }
   </script>
   <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js"></script>
   <script type="text/javascript" src='https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js'></script>
