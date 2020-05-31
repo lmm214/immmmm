@@ -1351,7 +1351,7 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 .v .vinfo .vcount .vnum{font-weight:600;font-size:1.25rem}
 .v ol,.v ul{padding:0;margin-left:1.25rem}
 .v .txt-center{text-align:center}
-.v .veditor{width:100%;min-height:7rem;font-size:.875rem;background:transparent;resize:none;transition:all .25s ease}
+.v .veditor{width:100%;min-height:7rem;font-size:.875rem;background:transparent;resize:none;}
 .v .vbtn{color: #fff;transition-duration:.4s;text-align:center;border:0;display:inline-block;background:#1abc9c;margin-bottom:0;font-weight:400;vertical-align:middle;-ms-touch-action:manipulation;touch-action:manipulation;cursor:pointer;white-space:nowrap;font-size:.875rem;height:36px;line-height:36px;user-select:none;outline:none;width:100%;border-radius:0;padding:0}
 .v .vempty{padding:1.25rem;text-align:center;}
 .v .vcards{width:100%}
