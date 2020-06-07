@@ -8,7 +8,7 @@ theme  =  "hello-friend"
 summaryLength = 140
 hasCJKLanguage = true
 # 每页显示的文章数量用于分页
-paginate =  20
+paginate =  10
 # rss 输出数量
 rssLimit = 5
 
