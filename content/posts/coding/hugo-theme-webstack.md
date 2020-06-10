@@ -1,6 +1,6 @@
 ---
 title: Hugo Theme Webstack
-date: 2020-06-10
+date: 2020-06-10T09:15:25+0800
 tags: [折腾]
 feature: https://lmm.elizen.me/images/2020/05/webstack-10.png
 ---
