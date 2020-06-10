@@ -2,7 +2,7 @@
 title: Hugo Theme Webstack
 date: 2020-06-10T09:15:25+0800
 tags: [折腾]
-feature: https://lmm.elizen.me/images/2020/05/webstack-10.png
+feature: https://lmm.elizen.me/images/2020/05/webstack-12.png
 ---
 
 新版本更新，感谢  [@ooiii](https://github.com/bolabola/stackf) 童鞋。
