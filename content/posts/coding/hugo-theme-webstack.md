@@ -5,7 +5,7 @@ tags: [折腾]
 feature: https://lmm.elizen.me/images/2020/05/webstack-12.png
 ---
 
-新版本更新，感谢  [@ooiii](https://github.com/bolabola/stackf) 童鞋。
+新版本更新，感谢 [@ooiii](https://github.com/bolabola/stackf) 改进，所有内容（导航和板块）的增删排序直接在 `links.toml` 内完成！ 👍
 
 在线预览：<https://edui.fun/>
 
@@ -52,8 +52,6 @@ hugo-webstack
 │   └── home.html //独一无二一个页面搞定
 └── theme.toml
 ```
-
-感谢 [@ooiii](https://github.com/bolabola/stackf) 改进，所有内容（导航和板块）的增删排序直接在 `links.toml` 内完成！ 👍
 
 `links.toml` 示例：
 
