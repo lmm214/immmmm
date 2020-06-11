@@ -64,7 +64,7 @@ jQuery(document).ready(function ($) {
   //外链新窗口
   var parse_url = /^(?:([A-Za-z]+):)?(\/{0,3})([0-9.\-A-Za-z]+)(?::(\d+))?(?:\/([^?#]*))?(?:\?([^#]*))?(?:#(.*))?$/;
   var location_href = window.location.href.replace(parse_url, '$3');
-  $('.post-content a:not(:has(img)),.author-name a,.links-item a').hover(function () {
+  $('.post-content a:not(:has(img)),.author-name a,.links-item a,a.read-more').hover(function () {
     var this_href = $(this).attr('href');
     var replace_href = this_href.replace(parse_url, '$3');
     if (this_href != replace_href && location_href != replace_href) { $(this).attr('target', '_blank'); }
