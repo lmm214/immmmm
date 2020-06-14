@@ -9,8 +9,8 @@ feature: https://lmm.elizen.me/images/2020/06/hyld.jpg
 
 <!--more-->
 
-{{< figure "https://lmm.elizen.me/images/2020/06/hyld-1.PNG" "https://lmm.elizen.me/images/2020/06/hyld-2.PNG">}}
+<photos>![hyld-1.PNG](https://lmm.elizen.me/images/2020/06/hyld-1.PNG)![hyld-2.PNG](https://lmm.elizen.me/images/2020/06/hyld-2.PNG)![hyld-3.PNG](https://lmm.elizen.me/images/2020/06/hyld-3.PNG)![hyld-4.PNG](https://lmm.elizen.me/images/2020/06/hyld-4.PNG)</photos>
 
-{{< figure "https://lmm.elizen.me/images/2020/06/hyld-3.PNG" "https://lmm.elizen.me/images/2020/06/hyld-4.PNG">}}
+一开始没氪，肝到2000多分，难起来，一氪，开箱开到嗨。继续肝不同英雄，刚上5000分，目前已经有点无聊……
 
-玩习惯快节奏在线对战游戏，再玩单机游戏包括 Switch 也是兴趣索然，时间宝贵，压力山大。所以，太累了，赶紧肝几盘“休息、休息”～
+但玩习惯快节奏在线对战游戏，再玩单机游戏包括 Switch 也是兴趣索然，时间宝贵，压力山大。所以，太累了，赶紧肝几盘“休息、休息”～
