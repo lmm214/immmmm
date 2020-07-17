@@ -4,7 +4,7 @@
     {{- $title := site.Title -}}
     {{- with .Title -}}
         {{- if (not (eq . site.Title)) -}}
-            {{- $title = printf `%s %s %s` . (i18n "feed_title_on" | default "on") site.Title -}}
+            {{- $title = site.Title -}}
         {{- end -}}
     {{- end -}}
     {{- if .IsTranslated -}}
