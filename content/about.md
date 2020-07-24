@@ -28,7 +28,7 @@ layout: 'posts'
 
 {{< friend des="" url="https://dearroy.com" md5="7f0462ffcbb90ae9942bc86157dead61" name="亲爱的罗伊" >}}
 
-{{< friend des="" url="https://blog.eric.ec" md5="7a3666b87e0dfb5d76fd1a0ea7779d9b" name="周良粥凉" >}}
+{{< friend des="" url="https://ericec.cn" md5="7a3666b87e0dfb5d76fd1a0ea7779d9b" name="周良粥凉" >}}
 
 {{< friend des="" url="https://axiu.me" md5="c1c19d714393cd9b8ea3a1e955db8521" name="Axiu" >}}
 
