@@ -75,3 +75,4 @@ rssLimit = 5
     appKey = 'WMokwNAwh9noJ4XeUjVBjsCt'
     placeholder = '既然来了，那就留个痕迹吧~'
     visitor = true
+    serverURLs = "https://m6rxiyix.api.lncldglobal.com"
