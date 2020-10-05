@@ -2,10 +2,10 @@
 title: "初体验 Scriptable 小挂件"
 date: 2020-10-05T18:30:49+0800
 tags: [折腾]
-feature: https://lmm.elizen.me/images/2020/10/scriptable.jpg
+feature: https://lmm.elizen.me/images/2020/10/transparent_widget-1.png
 ---
 
-图中代码来自 <https://github.com/byenow/scriptable-widget/blob/master/index.js>
+图中代码见：[mz_transparent_widget.js](https://github.com/lmm214/Transparent-Scriptable-Widget/blob/master/mz_transparent_widget.js)
 
 另外，中文化的仓库找到这两个：
 
@@ -13,6 +13,12 @@ feature: https://lmm.elizen.me/images/2020/10/scriptable.jpg
 - <https://github.com/GideonSenku/Scriptable>
 
 <!--more-->
+
+还有这个：
+
+[!scriptable](https://lmm.elizen.me/images/2020/10/scriptable.jpg)
+
+[byenow/scriptable-widget](https://github.com/byenow/scriptable-widget/blob/master/index.js)
 
 ### 折腾流程
 
@@ -27,9 +33,3 @@ feature: https://lmm.elizen.me/images/2020/10/scriptable.jpg
 三个Size放桌面依然鸡肋，且目测所有挂件都不是刚需，因为这货仅是个“延迟输出”，无功能交互。不如「快捷方式」丢桌面好使！
 
 继续期待：「Taio」
-
-### 补更
-
-![transparent_widget](https://lmm.elizen.me/images/2020/10/transparent_widget.PNG)
-
-代码见：[mz_transparent_widget.js](https://github.com/lmm214/Transparent-Scriptable-Widget/blob/master/mz_transparent_widget.js)
