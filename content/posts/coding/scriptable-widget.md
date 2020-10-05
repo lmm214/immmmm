@@ -27,3 +27,9 @@ feature: https://lmm.elizen.me/images/2020/10/scriptable.jpg
 三个Size放桌面依然鸡肋，且目测所有挂件都不是刚需，因为这货仅是个“延迟输出”，无功能交互。不如「快捷方式」丢桌面好使！
 
 继续期待：「Taio」
+
+### 补更
+
+![transparent_widget](https://lmm.elizen.me/images/2020/10/transparent_widget.PNG)
+
+代码见：[mz_transparent_widget.js](https://github.com/lmm214/Transparent-Scriptable-Widget/blob/master/mz_transparent_widget.js)
