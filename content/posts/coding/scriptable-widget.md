@@ -16,7 +16,7 @@ feature: https://lmm.elizen.me/images/2020/10/transparent_widget-1.png
 
 还有这个：
 
-[!scriptable](https://lmm.elizen.me/images/2020/10/scriptable.jpg)
+![scriptable](https://lmm.elizen.me/images/2020/10/scriptable.jpg)
 
 [byenow/scriptable-widget](https://github.com/byenow/scriptable-widget/blob/master/index.js)
 
