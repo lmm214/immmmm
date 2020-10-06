@@ -5,7 +5,7 @@ tags: [折腾]
 feature: https://lmm.elizen.me/images/2020/10/transparent-widget.JPEG
 ---
 
-全“透明”占坑图！利用自带的「快捷指令」和「Days Matter」自定义小挂件实现！
+全“透明”占坑图！
 
 ### 快捷指令：用来切图
 
@@ -23,8 +23,8 @@ feature: https://lmm.elizen.me/images/2020/10/transparent-widget.JPEG
 
 添加小组件：
 
-- 使用「Days Matter」创建小组件；
-- 使用「Scriptable」创建小组件；
+- 使用 **「Days Matter」** 创建小组件；
+- 使用 **「Scriptable」** 创建小组件；
 
 ### Scriptable 代码分享
 
