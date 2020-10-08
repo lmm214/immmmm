@@ -9,13 +9,13 @@ feature: https://lmm.elizen.me/images/2020/10/transparent-widget.JPEG
 
 ### 快捷指令：用来切图
 
+一个快捷指令搞定：「透明小组件」[(这里)](https://www.icloud.com/shortcuts/59062aac9ee241f0b14c9190b9ed09f5)
+
 其实小组件就3个size，2x2、2x4、4x4，也就是小有6个不同位置、中有3个、大有2个，相对应做了下面3个快捷指令，运行后生成对应位置的背景图片，如小的就把背景图切成6张小图，分别是：上左、上右、中左、中右、下左、下右。
 
 特别感谢 [@小悟空哥](https://sharecuts.cn/shortcut/8370) 和 [@mzeryck](https://github.com/mzeryck/Transparent-Scriptable-Widget) 分享的「快捷指令」和「Scriptable」代码。
 
 <!--more-->
-
-快捷指令：透明小组件（小）[(这里)](https://www.icloud.com/shortcuts/905ac2c54c9149fa9ac5220c63e1829d)、透明小组件（中）[(这里)](https://www.icloud.com/shortcuts/68e1c0da26fd498ca310a3fd87d2478b)、透明小组件（大）[(这里)](https://www.icloud.com/shortcuts/ec8f5137ddc445789481c604cf7396ce)
 
 ### 使用步骤：
 
