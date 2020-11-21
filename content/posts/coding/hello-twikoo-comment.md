@@ -14,7 +14,7 @@ tags: [折腾]
 
 一顿操作，主要时间花在了匹配主题的暗黑样式。效果对比：
 
-{{< figure "https://lmm.elizen.me/images/2020/11/Twikoo-1.png" "https://lmm.elizen.me/images/2020/11/Twikoo-2.png">}}
+{{< figure "https://lmm.elizen.me/images/2020/11/Twikoo-1.png" "https://lmm.elizen.me/images/2020/11/Twikoo-2.png" "Twikoo">}}
 
 相关教程：
 
