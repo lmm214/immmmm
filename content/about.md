@@ -56,6 +56,8 @@ layout: 'posts'
 
 {{< friend des="" url="https://eallion.com/" md5="c686821c00797f9390732f8fe2c82b5f" name="大大的小蜗牛" >}}
 
+{{< friend des="" url="https://novcu.com/" md5="65106752d27bc6065e29a8a8d39bdbc2" name="山卜方" >}}
+
 ### 博客程序
 
 Hugo：<https://gohugo.io/>
