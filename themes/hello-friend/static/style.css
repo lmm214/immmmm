@@ -1313,7 +1313,7 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 .dark-theme .tk-tag{background-color: #4a4b50 !important;border-color:#434a56 !important;}
 .dark-theme .tk-expand:before{background:linear-gradient(180deg,hsla(0,0%,100%,0),hsla(0,0%,100%,.1)) !important;}
 .dark-theme .tk-expand:after{background:hsla(0,0%,6%,.86)!important;}
-.dark-theme .tk-tag-gree{color: white !important;}
+.dark-theme .tk-tag-green{color: white !important;}
 .dark-theme .tk-action-icon svg{fill: #ccc !important;}
 .dark-theme .tk-action-count{color: #ccc !important;}
 .tk-extras{display: none !important;}
