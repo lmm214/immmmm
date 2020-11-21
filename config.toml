@@ -70,9 +70,12 @@ rssLimit = 5
   baseName = "atom"
 
 [params.valine]
-	enable = true
+	enable = false
     appId = 'm6rxiyixBDG25mYPEPapQpnR-MdYXbMMI'
     appKey = 'WMokwNAwh9noJ4XeUjVBjsCt'
     placeholder = '既然来了，那就留个痕迹吧~'
     visitor = true
     serverURLs = "https://m6rxiyix.api.lncldglobal.com"
+
+[params.twikoo]
+	enable = true
