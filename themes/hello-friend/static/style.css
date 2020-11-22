@@ -1317,10 +1317,9 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 .dark-theme .el-button--primary.is-disabled,.dark-theme .el-button--primary.is-disabled:active,.dark-theme .el-button--primary.is-disabled:focus,.dark-theme .el-button--primary.is-disabled:hover{color: #FFF !important;background-color: #252627 !important;border-color: #4a4b50 !important;}
 .dark-theme .el-button.tk-preview{border:none;}
 .dark-theme .tk-action-icon svg{fill: #ccc !important;}
-.dark-theme .tk-action-count{color: #ccc !important;}
+.dark-theme .tk-action-count,.dark-theme .tk-comments-title .tk-icon{color: #ccc !important;}
 .tk-extras,.tk-row.actions .tk-action-icon,.tk-preview{display: none !important;}
 .tk-content p{margin: 0;}
-
 
 photos:after{
   content: ".";
