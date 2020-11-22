@@ -20,7 +20,7 @@ tags: [折腾]
 
 ### 优化新评论邮件通知
 
-以下内容基于 0.2.2 版本,进入云函数 `twikoo -- index.js`
+以下内容基于 0.2.3 版本,进入云函数 `twikoo -- index.js`
 
 `if (config.SC_SENDKEY) return`，开启了微信通知，则停用“新评论邮件通知”。
 
@@ -36,36 +36,11 @@ async function noticeMaster (comment) {
   const SITE_NAME = config.SITE_NAME
 ```
 
-### 优化评论回复邮件通知
-
-`if (config.BLOGGER_EMAIL == parentComment.mail) return`，别人回复博主，不发邮件，只接受“新评论邮件通知”。
-
-相关位置如下：
-
-```javascript
-// 邮件回复通知
-async function noticeReply (currentComment) {
-  if (!currentComment.pid) return
-  if (!transporter) if (!await initMailer()) return
-  let parentComment = await db
-    .collection('comment')
-    .where({ _id: currentComment.pid })
-    .get()
-  parentComment = parentComment.data[0]
-  //别人回复博主，不发邮件，只接受“新评论邮件通知”
-  if (config.BLOGGER_EMAIL == parentComment.mail) return
-  const PARENT_NICK = parentComment.nick
-```
-
-### 邮件通知达成效果
-
-博主不会收到自己的评论通知，无论是新评论通知，还是回复自己评论的新邮件通知和回复邮件通知。
-
 ### 分享邮件通知模板HTMl
 
 {{< figure "https://lmm.elizen.me/images/2020/11/twikooC1.png" "https://lmm.elizen.me/images/2020/11/twikooC2.png" "评论回复通知模板">}}
 
-也是进云函数 `twikoo -- index.js` 内替换。
+建议等后续版本更新，改的话也是进云函数 `twikoo -- index.js` 内替换。
 
 // 博主通知模板
 ```html
