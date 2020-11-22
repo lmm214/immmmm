@@ -1320,6 +1320,11 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 .dark-theme .tk-action-count{color: #ccc !important;}
 .tk-extras,.tk-row.actions .tk-action-icon,.tk-preview{display: none !important;}
 .tk-content p{margin: 0;}
+.tk-admin{position:fixed !important;}
+.tk-admin-comment table col[name=el-table_1_column_1]{width:5%;}
+.tk-admin-comment table col[name=el-table_1_column_2],.tk-admin-comment table col[name=el-table_1_column_3]{width:10%;}
+.tk-admin-comment table col[name=el-table_1_column_4]{width:55%;}
+.tk-admin-comment table col[name=el-table_1_column_5]{width:15%;}
 
 photos:after{
   content: ".";
