@@ -1309,7 +1309,15 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 	content: attr(data-prompt)
 }
 
-/* 评论样式 */
+/* twikoo 评论样式 */
+.tk-extras,.tk-row.actions .tk-action-icon,.tk-preview{display: none !important;}
+.tk-content p{margin: 0;}
+.tk-expand{border-radius:0 0 5px 5px;height:80px !important;}
+.tk-admin{position:fixed !important;}
+.tk-admin-comment table col[name=el-table_1_column_1]{width:5%;}
+.tk-admin-comment table col[name=el-table_1_column_2],.tk-admin-comment table col[name=el-table_1_column_3]{width:10%;}
+.tk-admin-comment table col[name=el-table_1_column_4]{width:55%;}
+.tk-admin-comment table col[name=el-table_1_column_5]{width:15%;}
 .dark-theme .tk-tag{background-color: #4a4b50 !important;border-color:#434a56 !important;display: inline !important;padding: 2px 4px !important;}
 .dark-theme .tk-expand{background:linear-gradient(rgba(38,42,56,0),#3b3d42) !important;}
 .dark-theme .el-button,.dark-theme .el-input__inner, .dark-theme .el-textarea__inner, .dark-theme .tk-tag-green{color: silver !important;background-color: #252627 !important;border-color: #4a4b50 !important;}
@@ -1318,13 +1326,6 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 .dark-theme .el-button.tk-preview{border:none;}
 .dark-theme .tk-action-icon svg,.dark-theme .tk-comments-title .tk-icon svg{fill: #ccc !important;}
 .dark-theme .tk-action-count{color: #ccc !important;}
-.tk-extras,.tk-row.actions .tk-action-icon,.tk-preview{display: none !important;}
-.tk-content p{margin: 0;}
-.tk-admin{position:fixed !important;}
-.tk-admin-comment table col[name=el-table_1_column_1]{width:5%;}
-.tk-admin-comment table col[name=el-table_1_column_2],.tk-admin-comment table col[name=el-table_1_column_3]{width:10%;}
-.tk-admin-comment table col[name=el-table_1_column_4]{width:55%;}
-.tk-admin-comment table col[name=el-table_1_column_5]{width:15%;}
 
 photos:after{
   content: ".";
