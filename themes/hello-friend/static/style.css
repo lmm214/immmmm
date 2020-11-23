@@ -1311,9 +1311,12 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 
 /* twikoo 评论样式 */
 .tk-extras,.tk-row.actions .tk-action-icon,.tk-preview{display: none !important;}
+.tk-content span{display:inline-block;}
+.tk-replies .tk-content span:first-child{visibility:hidden;}
+.tk-replies .tk-content span:first-child a{visibility:visible !important;margin-left: -2em;}
 .tk-content p{margin: 0;}
 .tk-expand{border-radius:0 0 5px 5px;height:80px !important;}
-.tk-admin{position:fixed !important;z-index:9999;}
+.tk-admin{position:fixed !important;z-index:999;}
 .tk-admin-comment table{border:0 none;padding:0;margin:0;}
 .tk-admin-comment table col{overflow: hidden;}
 .tk-admin-comment table col[name=el-table_1_column_1],.tk-admin-comment table col[name=el-table_1_column_2],.tk-admin-comment table col[name=el-table_1_column_3]{width:10%;}
@@ -1326,6 +1329,7 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 .dark-theme .el-button.tk-preview{border:none;}
 .dark-theme .tk-action-icon svg,.dark-theme .tk-comments-title .tk-icon svg{fill: #ccc !important;}
 .dark-theme .tk-action-count{color: #ccc !important;}
+
 
 photos:after{
   content: ".";
