@@ -1311,10 +1311,12 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 
 /* twikoo 评论样式 */
 .tk-extras,.tk-row.actions .tk-action-icon,.tk-preview{display: none !important;}
+.tk-content{margin-top:0px !important;}
 .tk-content span{display:inline-block;}
+.tk-content p{margin: 0;}
+.tk-comments-container .tk-avatar{margin-top:10px;}
 .tk-replies .tk-content span:first-child{visibility:hidden;}
 .tk-replies .tk-content span:first-child a{visibility:visible !important;margin-left: -2em;}
-.tk-content p{margin: 0;}
 .tk-expand{border-radius:0 0 5px 5px;height:80px !important;}
 .tk-admin{position:fixed !important;z-index:999;}
 .tk-admin-comment table{border:0 none;padding:0;margin:0;}
