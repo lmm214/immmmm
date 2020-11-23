@@ -1310,7 +1310,7 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 }
 
 /* twikoo 评论样式 */
-.tk-extras,.tk-row.actions .tk-action-icon,.tk-preview,.tk-content p a.at{display: none !important;}
+.tk-extras,.tk-row.actions .tk-action-icon,.tk-preview,.tk-content p a.at,.tk-tag.tk-tag-green{display: none !important;}
 .tk-content{margin-top:0px !important;}
 .tk-content span{display:inline-block;}
 .tk-content p{margin: 0;}
@@ -1324,21 +1324,19 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 .tk-admin-comment table col[name=el-table_1_column_1],.tk-admin-comment table col[name=el-table_1_column_2],.tk-admin-comment table col[name=el-table_1_column_3]{width:10%;}
 .tk-admin-comment table td.el-table_1_column_4 div.cell.el-tooltip{white-space: normal !important;}
 .el-button.tk-preview{border:none;}
-.tk-tag{background-color: #4a4b50 !important;border-color:#434a56 !important;display: inline !important;padding: 2px 4px !important;color:#fff !important;}
 .el-input.is-active .el-input__inner, .el-input__inner:focus,.el-textarea__inner{border-color:#ccc !important;}
 .el-button--primary.is-disabled,.el-button--primary.is-disabled:active,.el-button--primary.is-disabled:focus,.el-button--primary.is-disabled:hover{color: #FFF !important;background-color: #252627 !important;border-color: #4a4b50 !important;}
 .tk-action-icon svg{fill: #434a56 !important;}
 .tk-comments-title .tk-icon svg{fill: #ccc !important;}
 .tk-action-count{color: #434a56 !important;}
 
-.dark-theme .tk-tag{background-color: #4a4b50 !important;border-color:#434a56 !important;display: inline !important;padding: 2px 4px !important;}
 .dark-theme .tk-expand{background:linear-gradient(rgba(38,42,56,0),#3b3d42) !important;}
-.dark-theme .el-button,.dark-theme .el-input__inner, .dark-theme .el-textarea__inner, .dark-theme .tk-tag-green{color: silver !important;background-color: #252627 !important;border-color: #4a4b50 !important;}
+.dark-theme .el-button,.dark-theme .el-input__inner, .dark-theme .el-textarea__inner{color: silver !important;background-color: #252627 !important;border-color: #4a4b50 !important;}
 .dark-theme .tk-meta-input .el-input .el-input-group__prepend{color: silver !important;background-color: #4a4b50 !important;border-color: #4a4b50 !important;}
 .dark-theme .el-button--primary.is-disabled,.dark-theme .el-button--primary.is-disabled:active,.dark-theme .el-button--primary.is-disabled:focus,.dark-theme .el-button--primary.is-disabled:hover{color: #FFF !important;background-color: #252627 !important;border-color: #4a4b50 !important;}
-.dark-theme .tk-action-icon svg,.dark-theme .tk-comments-title .tk-icon svg{fill: #ccc !important;}
+.dark-theme .tk-action-icon svg{fill: #ccc !important;}
+.dark-theme .tk-comments-title .tk-icon svg{fill: #4a4b50 !important;}
 .dark-theme .tk-action-count{color: #ccc !important;}
-
 
 photos:after{
   content: ".";
