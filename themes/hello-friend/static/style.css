@@ -1330,7 +1330,8 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 .tk-action-icon svg{fill: #434a56 !important;}
 .tk-comments-title .tk-icon svg{fill: #ccc !important;}
 .tk-action-count{color: #434a56 !important;}
-
+.el-loading-mask{background-color: #fff !important;}
+.dark-theme .el-loading-mask{background-color: #292a2d !important;}
 .dark-theme .tk-expand{background:linear-gradient(rgba(38,42,56,0),#3b3d42) !important;}
 .dark-theme .el-button,.dark-theme .el-input__inner, .dark-theme .el-textarea__inner{color: silver !important;background-color: #252627 !important;border-color: #4a4b50 !important;}
 .dark-theme .tk-meta-input .el-input .el-input-group__prepend{color: silver !important;background-color: #4a4b50 !important;border-color: #4a4b50 !important;}
@@ -1338,7 +1339,6 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 .dark-theme .tk-action-icon svg{fill: #ccc !important;}
 .dark-theme .tk-comments-title .tk-icon svg{fill: #4a4b50 !important;}
 .dark-theme .tk-action-count{color: #ccc !important;}
-
 
 photos:after{
   content: ".";
