@@ -1316,7 +1316,7 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 .tk-content p{margin: 0;}
 
 .tk-comments-container .tk-avatar{margin-top:10px;}
-.tk-replies{max-height:171px;}
+.tk-replies{max-height:171px !important;}
 .tk-replies .tk-content span:first-child{visibility:hidden;}
 .tk-replies .tk-content span:first-child a{visibility:visible !important;margin-left: -2em;}
 .tk-expand{border-radius:0 0 5px 5px;height:80px !important;}
