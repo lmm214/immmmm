@@ -1314,7 +1314,9 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 .tk-content{margin-top:0px !important;}
 .tk-content span{display:inline-block;}
 .tk-content p{margin: 0;}
+
 .tk-comments-container .tk-avatar{margin-top:10px;}
+.tk-replies{max-height:171px;}
 .tk-replies .tk-content span:first-child{visibility:hidden;}
 .tk-replies .tk-content span:first-child a{visibility:visible !important;margin-left: -2em;}
 .tk-expand{border-radius:0 0 5px 5px;height:80px !important;}
@@ -1337,6 +1339,7 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 .dark-theme .tk-action-icon svg{fill: #ccc !important;}
 .dark-theme .tk-comments-title .tk-icon svg{fill: #4a4b50 !important;}
 .dark-theme .tk-action-count{color: #ccc !important;}
+
 
 photos:after{
   content: ".";
