@@ -1,4 +1,4 @@
-{{ printf `<?xml version="1.0" encoding="utf-8"?>` | safeHTML }} {{/* ref: https://validator.w3.org/feed/docs/atom.html */}}
+{{ printf `<?xml version="1.0" encoding="utf-8"?>` | safeHTML }}
 <feed xmlns="http://www.w3.org/2005/Atom"{{ with site.LanguageCode }} xml:lang="{{ . }}"{{ end }}>
     <generator uri="https://gohugo.io/" version="{{ hugo.Version }}">Hugo</generator>
     {{- $title := site.Title -}}
@@ -6,9 +6,6 @@
         {{- if (not (eq . site.Title)) -}}
             {{- $title = site.Title -}}
         {{- end -}}
-    {{- end -}}
-    {{- if .IsTranslated -}}
-        {{ $title = printf "%s (%s)" $title (index site.Data.i18n.languages .Lang) }}
     {{- end -}}
     {{ printf `<title type="html"><![CDATA[%s]]></title>` $title | safeHTML }}
     {{ with (or (.Param "subtitle") (.Param "tagline")) }}
@@ -21,30 +18,17 @@
             {{ printf `<link href=%q rel=%q type=%q title=%q />` .Permalink $rel .MediaType.Type .Name | safeHTML }}
         {{- end -}}
     {{- end }}
-    {{- range .Translations }}
-        {{ $output_formats := .OutputFormats }}
-        {{- $lang := .Lang }}
-        {{- $langstr := index site.Data.i18n.languages .Lang }}
-        {{ range $output_formats -}}
-            {{ with $output_formats.Get .Name }}
-                {{ printf `<link href=%q rel="alternate" type=%q hreflang=%q title="[%s] %s" />` .Permalink .MediaType.Type $lang $langstr .Name | safeHTML }}
-            {{- end -}}
-        {{- end }}
-    {{- end }}
     <updated>{{ now.Format "2006-01-02T15:04:05-07:00" | safeHTML }}</updated>
     {{ with site.Copyright }}
-        {{- $copyright := replace . "{year}" now.Year -}} {{/* In case the site.copyright uses a special string "{year}" */}}
+        {{- $copyright := replace . "{year}" now.Year -}}
         {{- $copyright = replace $copyright "&copy;" "©" -}}
         <rights>{{ $copyright | plainify }}</rights>
     {{- end }}
     {{ with .Param "feed" }}
-        {{/* For this to work, the $icon file should be present in the assets/ directory */}}
         {{- $icon := .icon | default "icon.svg" -}}
         {{- with resources.Get $icon -}}
             <icon>{{ (. | fingerprint).Permalink }}</icon>
         {{- end }}
-
-        {{/* For this to work, the $logo file should be present in the assets/ directory */}}
         {{- $logo := .logo | default "logo.svg" -}}
         {{- with resources.Get $logo -}}
             <logo>{{ (. | fingerprint).Permalink }}</logo>
@@ -65,12 +49,12 @@
     {{ end }}
     {{- $limit := (cond (le site.Config.Services.RSS.Limit 0) 65536 site.Config.Services.RSS.Limit) }}
     {{- $feed_sections := site.Params.feedSections | default site.Params.mainSections -}}
-    {{/* Range through only the pages with a Type in $feed_sections. */}}
+
     {{- $pages := where .RegularPages "Type" "in" $feed_sections -}}
     {{- if (eq .Kind "home") -}}
         {{- $pages = where site.RegularPages "Type" "in" $feed_sections -}}
     {{- end -}}
-    {{/* Remove the pages that have the disable_feed parameter set to true. */}}
+
     {{- $pages = where $pages ".Params.disable_feed" "!=" true -}}
     {{- range first $limit $pages }}
         {{ $page := . }}
@@ -80,10 +64,6 @@
             {{- range .Translations }}
                 {{- $link := printf "%s" .Permalink | safeHTML }}
                 {{- printf `<link href=%q rel="alternate" type="text/html" hreflang=%q />` $link .Lang | safeHTML }}
-            {{- end }}
-            {{/* rel=related: See https://validator.w3.org/feed/docs/atom.html#link */}}
-            {{- range first 5 (site.RegularPages.Related .) }}
-                <link href="{{ .Permalink }}" rel="related" type="text/html" title="{{ .Title }}" />
             {{- end }}
             {{ with .Params.id }}
                 <id>{{ . | plainify }}</id>
