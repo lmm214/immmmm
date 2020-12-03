@@ -1320,10 +1320,6 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 .tk-replies .tk-content span:first-child a{visibility:visible !important;margin-left: -2em;}
 .tk-expand{border-radius:0 0 5px 5px;position:relative;z-index:99;margin-top:-16px;padding:0 !important;}
 .tk-admin{position:fixed !important;z-index:999;}
-.tk-admin-comment table{border:0 none;padding:0;margin:0;}
-.tk-admin-comment table col{overflow: hidden;}
-.tk-admin-comment table col[name=el-table_1_column_1],.tk-admin-comment table col[name=el-table_1_column_2],.tk-admin-comment table col[name=el-table_1_column_3]{width:10%;}
-.tk-admin-comment table td.el-table_1_column_4 div.cell.el-tooltip{white-space: normal !important;}
 .el-button.tk-preview{border:none;}
 .el-input.is-active .el-input__inner, .el-input__inner:focus,.el-textarea__inner{border-color:#ccc !important;}
 .el-button--primary.is-disabled,.el-button--primary.is-disabled:active,.el-button--primary.is-disabled:focus,.el-button--primary.is-disabled:hover{color: #FFF !important;background-color: #252627 !important;border-color: #4a4b50 !important;}
