@@ -95,6 +95,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
   function goSearch() {
+    searchCount.innerHTML = `查询中…`
     if (searchInput.value == parseLocationSearch()['q']) {
       return
     }
