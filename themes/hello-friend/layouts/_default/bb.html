@@ -10,7 +10,7 @@
         <li class="item" v-for="item in contents" v-cloak>
           <div>
             <p v-html='item.attributes.content'></p>
-            <i><time v-bind:datetime="item.attributes.time"><small>{{htmlUnescape "发布于 {{item.attributes.time}} 来自 「{{item.attributes.from}} 」"}}</small></time></i>
+            <i><time v-bind:datetime="item.attributes.time"><small>{{htmlUnescape "{{item.attributes.time}} 来自 「{{item.attributes.from}} 」"}}</small></time></i>
           </div>
         </li>
       </ul>
