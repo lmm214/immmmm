@@ -1318,7 +1318,7 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 .tk-comments-container .tk-avatar{margin-top:10px;}
 .tk-replies .tk-content span:first-child{visibility:hidden;}
 .tk-replies .tk-content span:first-child a{visibility:visible !important;margin-left: -2em;}
-.tk-expand{border-radius:0 0 5px 5px;position:relative;z-index:99;margin-top:-16px;padding:0 !important;}
+.tk-expand{border-radius:0 0 5px 5px;position:relative;z-index:99;margin-top:-10px;padding:0 !important;}
 .tk-admin{position:fixed !important;z-index:999;}
 .el-button.tk-preview{border:none;}
 .el-input.is-active .el-input__inner, .el-input__inner:focus,.el-textarea__inner{border-color:#ccc !important;}
