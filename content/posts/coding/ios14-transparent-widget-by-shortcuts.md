@@ -2,7 +2,7 @@
 title: "利用「快捷指令」创建“透明”小组件"
 date: 2020-10-06T16:27:30+0800
 tags: [折腾]
-feature: https://lmm.elizen.me/images/2020/10/transparent-widget.JPEG
+feature: https://lmm.elizen.me/images/2020/10/transparent-widget.JPEG-webp
 ---
 
 全“透明”占坑图！

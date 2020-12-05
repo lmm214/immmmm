@@ -2,7 +2,7 @@
 title: "初体验 Scriptable 小挂件"
 date: 2020-10-05T18:30:49+0800
 tags: [折腾]
-feature: https://lmm.elizen.me/images/2020/10/transparent_widget-1.png
+feature: https://lmm.elizen.me/images/2020/10/transparent_widget-1.png-webp
 ---
 
 图中代码见：[mz_transparent_widget.js](https://github.com/lmm214/Transparent-Scriptable-Widget/blob/master/mz_transparent_widget.js)

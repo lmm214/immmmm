@@ -2,7 +2,7 @@
 title: "Surface Pro 7 上手记"
 date: 2020-07-24T16:18:00+0800
 tags: [日常]
-feature: https://lmm.elizen.me/images/2020/06/surface-pro-7.jpg
+feature: https://lmm.elizen.me/images/2020/06/surface-pro-7.jpg-webp
 ---
 
 21日晚下的单，23号到的手，整机 775g ，真轻！深得“当家的”喜爱！
