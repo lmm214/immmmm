@@ -18,6 +18,8 @@ layout: 'posts'
 
 {{< friend des="" url="https://fatesinger.com" md5="388b0c85beede5d94b978833e2a51965" name="大发贱志" >}}
 
+{{< friend des="火遍南北的情侣博客" url="https://www.heson10.com" md5="fc2c9b067f65c9e2d7057ba797f7cfca" name="黑石博客" >}}
+
 {{< friend des="" url="https://ttys3.net" md5="a8907e723e36cf8f37cd45636b1f0af4" name="荒野無燈" >}}
 
 {{< friend des="" url="https://zww.me" md5="9d7a1fd054cb532d3daac3b19aa70ed3" name="ZWWoOoOo" >}}
