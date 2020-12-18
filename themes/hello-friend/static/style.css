@@ -1308,9 +1308,8 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 .command-line-prompt>span[data-prompt]:before {
 	content: attr(data-prompt)
 }
-
 /* twikoo 评论样式 */
-.tk-extras,.tk-row.actions .tk-action-icon,.tk-preview,.tk-content p a.at,.tk-tag.tk-tag-green{display: none !important;}
+.tk-extras,.tk-row.actions .tk-action-icon.__markdown,.tk-preview,.tk-content p a.at,.tk-tag.tk-tag-green{display: none !important;}
 .tk-content{margin-top:0px !important;}
 .tk-content span{display:inline-block;}
 .tk-content p{margin: 0;}
