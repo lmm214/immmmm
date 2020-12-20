@@ -1309,6 +1309,7 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 	content: attr(data-prompt)
 }
 /* twikoo 评论样式 */
+.twikoo{overflow: visible !important;}
 .tk-extras,.tk-row.actions .tk-action-icon.__markdown,.tk-preview,.tk-content p a.at,.tk-tag.tk-tag-green{display: none !important;}
 .tk-content{margin-top:0px !important;}
 .tk-content span{display:inline-block;}
@@ -1334,7 +1335,6 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 .dark-theme .tk-action-icon svg{fill: #ccc !important;}
 .dark-theme .tk-comments-title .tk-icon svg{fill: #4a4b50 !important;}
 .dark-theme .tk-action-count{color: #ccc !important;}
-
 .OwO .OwO-body {z-index: 99;}
 .OwO .OwO-body .OwO-items-emoji .OwO-item{font-size:23px !important;}
 .OwO .OwO-body .OwO-items-image .OwO-item{max-width: calc(20% - 10px) !important;}
