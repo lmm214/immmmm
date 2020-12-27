@@ -9,6 +9,12 @@ feature:
 
 基本思路：[使用 HTTP 访问云函数](https://cloud.tencent.com/document/product/876/41776) 触发 [云函数](https://cloud.tencent.com/document/product/876/46798) 插入新哔哔到 [数据库](https://cloud.tencent.com/document/product/876/19362)，搞定！
 
+### CloudBase 环境部署
+
+参考  <https://twikoo.js.org/quick-start.html> 完成环境部署。
+
+<!--more-->
+
 ### 旧数据转化
 
 把 LC 上的评论导出并进行格式转化，形成如下格式，`from` 字段是我自己后来加的。
@@ -16,12 +22,14 @@ feature:
 ```
 {"_id":"4ec5c2495fe84db1000046a47026ed51","from":"Alfred","content":"恶果之地得到各“金卡”莫名就通关+1","date":{"$date":"2020-12-27T07:38:10.844Z"}}
 ```
-<!--more-->
 
-### CloudBase 环境部署
+数据库 -- 新建集合，`talks` （当然可自定）导入json ，权限设为“所有用户可读，仅管理员可写“。
 
-参考  <https://twikoo.js.org/quick-start.html> 完成环境部署。
+### html 显示代码
 
+参考： <https://github.com/lmm214/immmmm/blob/master/themes/hello-friend/layouts/_default/bb.html>
+
+修改其中的 环境id ，匹配自己的主题样式。
 
 ### 云函数代码
 
