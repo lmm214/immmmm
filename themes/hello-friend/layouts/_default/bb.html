@@ -1,25 +1,17 @@
 {{ define "main" }}
 <div class="post">
   <h2 class="post-title">{{.Title}}</h2>
-  <div class="post-content" id="app">
-    <p v-show="count == 0">别急，加载呢……</p>
-    <div v-show="count">
-    <p >总共 b 了 {{htmlUnescape "{{count}}" }} 条</p>
+  <div class="post-content">
+    <p class="count">共b了 <span class="count-data">0</span> 条</p>
     <section class="timeline">
       <ul>
-        <li class="item" v-for="item in contents" v-cloak>
-          <div>
-            <p v-html='item.attributes.content'></p>
-            <i><time v-bind:datetime="item.attributes.time"><small>{{htmlUnescape "{{item.attributes.time}} 来自 「{{item.attributes.from}} 」"}}</small></time></i>
-          </div>
-        </li>
+        <div class="list">
+        </div>
       </ul>
     </section>
-    <div class="load-ctn">
-      <button class="load-btn" v-on:click="loadMore" v-if="contents" v-cloak>再翻翻</button>
-      <p class="tip" v-else>别急，加载呢</p>
+    <div class="load">
+      <button class="load-btn button-load">加载更多</button>
     </div>
-  </div>
   </div>
 </div>
 <style>
@@ -37,91 +29,42 @@
     .timeline ul li div{width:calc(100vw - 75px);left:30px;}
   }
 </style>
-<link type="text/css" rel="stylesheet" href="https://at.alicdn.com/t/font_1755564_z4mhxbw13mq.css"></link>
-{{ end }}
-
-{{ define "footer" }}
-{{$scratch := newScratch}}
-{{ range (where .Site.Pages "Kind" "page" )}}
-    {{$scratch.Add "total" .WordCount}}
-{{ end }}
-
-<footer class="footer">
-  <div class="footer__inner">
-    <div class="copyright">
-      <span>共 {{ len (where .Site.RegularPages "Section" "posts") }} 篇文章</span><span> {{$scratch.Get "total" }} 字</span>
-    </div>
-    {{ if $.Site.Copyright }}
-      <div class="copyright copyright--user">{{ $.Site.Copyright | safeHTML }}</div>
-    {{else}}
-      <div class="copyright">
-        <span>© {{ now.Year }} Powered by <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a> Theme by <a href="https://twitter.com/panr" target="_blank" rel="noopener">Panr</a></span>
-      </div>
-    {{end}}
-  </div>
-</footer>
-
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lmm214/immmmm@gh-pages/main.js"></script>
-<script src="https://cdn.staticfile.org/vue/2.6.11/vue.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/leancloud-storage@4.6.1/dist/av-min.js"></script>
-<script type="text/javascript">
-    var {
-        Query
-    } = AV;
-    AV.init({
-        appId:"0kPN4COlpOqXMYLoiszdPxiw-MdYXbMMI", //你的 leancloud 应用 id （设置-应用keys-AppID）
-        appKey:"nMkJOxBgtpcKDcrO694Ljnya", //你的 leancloud 应用 AppKey （设置-应用keys-AppKey）
-    });
-
-    var query = new AV.Query('content');
-
-    var app = new Vue({
-        el:'#app',
-        data:{
-            isShow: true,
-            page:0,
-            count:0,
-            contents:[]
-        },
-        methods:{
-            loadMore:function(event) { 
-              getData(++this.page);
-            }
-        }
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/TencentCloudBase/tcb-js-sdk@master/tcbjs/1.10.10/tcb.js"></script>
+<script>
+    const app = tcb.init({
+      env: 'twikoo-2g36bkuz88660f27' //这里是你的环境id
     })
-
-    function urlToLink(str) {
-        var re = /(http|ftp|https):\/\/[\w-]+(.[\w-]+)+([\w-.,@?^=%&:/~+#]*[\w-\@?^=%&/~+#])?/g;;
-
-        str = str.replace(re, function(website) {
-            return "<a href='" + website + "' target='_blank'> <i class='iconfont icon-lianjie-copy'></i>链接 </a>";
-        });
-        return str;
-    }
-
-    function getData(page = 0) {
-        query.descending('createdAt').skip(page * 20).limit(20).find().then(function(results) {
-            if (results.length == 0) {
-                alert('b 尽，待续')
-            } else {
-                let resC = results;
-                reqData = false;
-                resC.forEach((i) => {
-                    let dateTmp = new Date(i.createdAt);
-                    i.attributes.time = `${dateTmp.getFullYear()}-${(dateTmp.getMonth() + 1) < 10 ? ('0' + (dateTmp.getMonth()+1)) :dateTmp.getMonth()+1}-${(dateTmp.getDate() + 1) < 10 ? ('0' + dateTmp.getDate()) :dateTmp.getDate()} ${(dateTmp.getHours() + 1) <= 10 ? ('0' + dateTmp.getHours()) :dateTmp.getHours()}:${(dateTmp.getMinutes() + 1) <= 10 ? ('0' + dateTmp.getMinutes()) :dateTmp.getMinutes()}`;
-                    i.attributes.content = urlToLink(i.attributes.content);
-                    i.attributes.from = i.attributes.from;
-                    app.contents.push(i);
-                })
+    app.auth({
+        persistence: "session"
+    }).anonymousAuthProvider().signIn().then(() => {
+        const db = app.database()
+        const collection = db.collection('talks')
+        var count=0, per = 10,page = 1
+        collection.count(function(err,res){
+          count = res.total
+          $('.count-data').text(count)
+          getList()
+        })
+        function getList(){
+          if((page-1)*per >= count){
+            return
+          }
+          var date
+          collection.limit(per).skip((page-1)*per).orderBy('date','desc').get(function(err, res) {
+            (res.data).forEach(item => {
+            date = item.date
+            $('.list').append('<li class="item"><div><p>'+item.content+'</p><i><time class="date"><small>'+`${(date.getHours() + 1) <= 12 ? '上午' : '下午'}`+`${(date.getHours() + 1) <= 10 ? ('0' + date.getHours()) : date.getHours()}`+':'+`${(date.getMinutes() + 1) <= 10 ? ('0' + date.getMinutes()) :date.getMinutes()}`+' · '+date.getFullYear()+'年'+(`${(date.getMonth() + 1) < 10 ? ('0' + (date.getMonth()+1)) :date.getMonth()+1}`)+'月'+`${(date.getDate() + 1) < 10 ? ('0' + date.getDate()) :date.getDate()}`+'日 '+' ·「'+item.from+'」</small></time></i></div></li>')
+            });
+            if(page*per >= count){
+              $('.load').remove()
+            return
             }
-
-        }, function(error) {});
-    }
-
-    getData(0);
-
-    query.count().then(function(count) {
-        app.count = count;
-    }, function(error) {});
-</script>
+            page++
+          });
+        }
+        $('.button-load').click(function(){getList()})
+    }).catch(err => {
+        console.log(err)
+    });
+  </script>
 {{ end }}
