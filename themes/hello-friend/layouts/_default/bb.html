@@ -29,6 +29,7 @@
     .timeline ul li div{width:calc(100vw - 75px);left:30px;}
   }
 </style>
+<link type="text/css" rel="stylesheet" href="https://at.alicdn.com/t/font_1755564_z4mhxbw13mq.css"></link>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/TencentCloudBase/tcb-js-sdk@master/tcbjs/1.10.10/tcb.js"></script>
 <script>
     const app = tcb.init({
@@ -53,7 +54,8 @@
           collection.limit(per).skip((page-1)*per).orderBy('date','desc').get(function(err, res) {
             (res.data).forEach(item => {
             date = item.date
-            $('.list').append('<li class="item"><div><p>'+item.content+'</p><i><time class="date"><small>'+`${(date.getHours() + 1) <= 12 ? '上午' : '下午'}`+`${(date.getHours() + 1) <= 10 ? ('0' + date.getHours()) : date.getHours()}`+':'+`${(date.getMinutes() + 1) <= 10 ? ('0' + date.getMinutes()) :date.getMinutes()}`+' · '+date.getFullYear()+'年'+(`${(date.getMonth() + 1) < 10 ? ('0' + (date.getMonth()+1)) :date.getMonth()+1}`)+'月'+`${(date.getDate() + 1) < 10 ? ('0' + date.getDate()) :date.getDate()}`+'日 '+' ·「'+item.from+'」</small></time></i></div></li>')
+            content = urlToLink(item.content)
+            $('.list').append('<li class="item"><div><p>'+content+'</p><i><time class="date"><small>'+`${(date.getHours() + 1) <= 12 ? '上午' : '下午'}`+`${(date.getHours() + 1) <= 10 ? ('0' + date.getHours()) : date.getHours()}`+':'+`${(date.getMinutes() + 1) <= 10 ? ('0' + date.getMinutes()) :date.getMinutes()}`+' · '+date.getFullYear()+'年'+(`${(date.getMonth() + 1) < 10 ? ('0' + (date.getMonth()+1)) :date.getMonth()+1}`)+'月'+`${(date.getDate() + 1) < 10 ? ('0' + date.getDate()) :date.getDate()}`+'日 '+' ·「'+item.from+'」</small></time></i></div></li>')
             });
             if(page*per >= count){
               $('.load').remove()
@@ -66,5 +68,21 @@
     }).catch(err => {
         console.log(err)
     });
+
+    function urlToLink(str) {
+      var re =/\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|gif))\S+/g;
+      var re_forpic =/\bhttps?:\/\/.*?(\.gif|\.jpeg|\.png|\.jpg|\.bmp|\.webp)/g;
+      var re_forpic_vx =/^http:\/\/mmbiz\.qpic\.cn[^\s]*/g;
+      str =str.replace(re,function (website) {
+        return "<a href='" + website + "' target='_blank'> <i class='iconfont icon-lianjie-copy'></i>链接 </a>";
+      });
+      str =str.replace(re_forpic,function (imgurl) {
+        return "<img src='" + imgurl + "'  /> ";
+      });
+      str =str.replace(re_forpic_vx,function (imgurl) {
+        return "<img src='" + imgurl + "'  /> ";
+      });
+      return str;
+    }
   </script>
 {{ end }}
