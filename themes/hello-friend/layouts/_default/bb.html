@@ -35,7 +35,7 @@
       env: 'twikoo-2g36bkuz88660f27' //这里是你的环境id
     })
     app.auth({
-        persistence: "session"
+        persistence: "none" //避免与同实例冲突
     }).anonymousAuthProvider().signIn().then(() => {
         const db = app.database()
         const collection = db.collection('talks')
