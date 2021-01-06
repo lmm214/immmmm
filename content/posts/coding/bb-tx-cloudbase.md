@@ -37,35 +37,50 @@ feature:
 
 ```javascript
 'use strict';
-const serverkey = 'immmmm' //这里自定义 apikey
+
+const serverkey = 'xxxx' //自定义api key
 //引入模块
-const tcb = require('tcb-admin-node')
+const tcb = require("@cloudbase/node-sdk");
 //云开发初始化
-tcb.init({
-    env: 'twikoo-2g36bkuz88660f27' // 这里修改为环境id
-})
+const app = tcb.init({
+  env: "bb-bbbb" //填入自己的环境ID
+});
+
 //数据库初始化
-const db = tcb.database()
+const db = app.database()
 
 exports.main = async (event, context) => {
+    //return event
     let apikey = event.queryStringParameters.key
+    let content = ''
     if(serverkey == apikey ){
         const talksCollection = db.collection('talks')
         //提取消息内容，发送者，接受者，时间戳，消息类型，内容
         var CreateTime = Date.now(),
             Content = event.queryStringParameters.text,
             From = event.queryStringParameters.from
-        var result = await talksCollection.add({content: Content, date: new Date(CreateTime), from: From})
-        if(result.hasOwnProperty('id')){
-            Content = '发表成功'
+        if(Content == 'de'){ //内容为 de 则删除最新一条bb
+            const res = await talksCollection.where({}).orderBy("date", "desc").limit(1).get()
+            let deId = res.data[0]._id
+            const resDe = await talksCollection.doc(deId).remove();
+            if(resDe.hasOwnProperty('deleted')){
+                content = '删除成功'
+            }else{
+                content = '删除失败'
+            }
         }else{
-            Content = '发表失败'
+            var result = await talksCollection.add({content: Content, date: new Date(CreateTime), from: From})
+            if(result.hasOwnProperty('id')){
+                content = '发表成功'
+            }else{
+                content = '发表失败'
+            }
         }
     }else{
-        Content = "key不匹配"
+        content = "key不匹配"
     }
     return {
-        Content //event,
+        content
     };
 }
 ```
@@ -77,7 +92,7 @@ exports.main = async (event, context) => {
     "name": "bb",
     "version": "1.0.0",
     "main": "index.js",
-    "dependencies": {"tcb-admin-node": "^1.22.2"}
+    "dependencies": {"@cloudbase/node-sdk": "latest"}
 }
 ```
 
