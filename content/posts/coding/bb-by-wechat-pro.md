@@ -30,6 +30,12 @@ tags: [折腾]
 4.进入[环境-安全配置](https://console.cloud.tencent.com/tcb/env/safety)，将网站域名添加到“WEB安全域名”
 5.复制 `环境Id` 备用
 
+### 新建数据库
+
+![talks](https://lmm.elizen.me/images/2020/12/talks.jpg)
+
+新建数据库集合，命名 `talks`，权限设置为 “所有用户可读，仅管理员可写”。
+
 ### 云函数部署
 
 接着 [新建云函数](https://console.cloud.tencent.com/tcb/scf/index) ，函数名称 `bb` （可自定义），进入 `函数代码` 编辑节目，把以下代码丢入 `index.js`，然后确定。
