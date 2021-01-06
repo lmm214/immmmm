@@ -8,9 +8,9 @@ tags: [折腾]
 
 原是发到 LeanCloud 平台，现 2.0 是发到 **「腾讯 CloudBase」** 。目前已支持用户名绑定、解绑、发哔、删哔。
 
->/unbb - 撤销最新一条哔哔
->/nobody - 解除绑定
->/newbber KEY,HTTP访问地址 - 添加绑定
+- /unbb - 撤销最新一条哔哔
+- /nobody - 解除绑定
+- /newbber KEY,HTTP访问地址 - 添加绑定
 
 对，绑定只需要2个信息，一个自定义的 `KEY` 和 `云函数的http访问地址`
 
@@ -19,15 +19,15 @@ tags: [折腾]
 ### 腾讯 CloudBase 部署，获取环境ID
 
 1.[注册云开发CloudBase](https://curl.qcloud.com/KnnJtUom)
+
 2.进入[云开发控制台](https://console.cloud.tencent.com/tcb/)，新建环境，请按需配置环境
 
->提示
->环境名称自由填写
->推荐选择计费方式包年包月，套餐版本基础班 1，超出免费额度不会收费
->如果提示选择“应用模板”，请选择“空模板”
+>提示：环境名称自由填写，推荐选择计费方式包年包月，套餐版本基础班 1，超出免费额度不会收费，如果提示选择“应用模板”，请选择“空模板”
 
 3.进入[环境-登录授权](https://console.cloud.tencent.com/tcb/env/login)，启用“匿名登录”
+
 4.进入[环境-安全配置](https://console.cloud.tencent.com/tcb/env/safety)，将网站域名添加到“WEB安全域名”
+
 5.复制 `环境Id` 备用
 
 ### 新建数据库
@@ -122,10 +122,18 @@ https://你后台显示的.ap-shanghai.app.tcloudbase.com/bb
 
 飞起～
 
-### 说明
+### 附赠 Alfred Workflow
 
 其实公众号仅用作了转发文字内容，具体功能都是各自地方，好处是，访问以下格式链接也能用。
 
 ```html
 https://你后台显示的.ap-shanghai.app.tcloudbase.com/bb?key=云函数里设置的&from=自己发挥一个&text=哔哔的内容
 ```
+
+比如用 Alfred 的这个 [浮哔人生.alfredworkflow](https://github.com/lmm214/diybug/raw/main/%E6%B5%AE%E5%93%94%E4%BA%BA%E7%94%9F2.0.alfredworkflow)
+
+![fbrs.png](https://lmm.elizen.me/images/2020/12/fbrs.png)
+
+输入好对应的 HTTP访问地址、KEY ，输入 `b /unbb` 就能删除最新一条哔哔
+
+![unbb](https://lmm.elizen.me/images/2020/12/unbb.jpg)
