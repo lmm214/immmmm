@@ -6,9 +6,10 @@ tags: [折腾]
 
 {{< figure "https://lmm.elizen.me/images/2020/05/bbds.png" "「哔哔点啥」微信公众号 2.0" >}}
 
-原是发到 LeanCloud 平台，现 2.0 是发到 **「腾讯 CloudBase」** 。目前已支持用户名绑定、解绑、发哔、删哔。
+原是发到 LeanCloud 平台，现 2.0 是发到 **「腾讯 CloudBase」** 。目前已支持用户名绑定、解绑、发文字、**发图片**、**批量删除**。
 
 - /unbb - 撤销最新一条哔哔
+- /unbb 数字 - 撤销最新几条哔哔，如 /unbb 2
 - /nobody - 解除绑定
 - /newbber KEY,HTTP访问地址 - 添加绑定
 
@@ -61,15 +62,18 @@ exports.main = async (event, context) => {
         var CreateTime = Date.now(),
             Content = event.queryStringParameters.text,
             From = event.queryStringParameters.from
-        if(Content == '/unbb'){ //删除最新一条哔哔
-            const res = await talksCollection.where({}).orderBy("date", "desc").limit(1).get()
-            let deId = res.data[0]._id
-            const resDe = await talksCollection.doc(deId).remove();
-            if(resDe.hasOwnProperty('deleted')){
-                content = '删除成功'
-            }else{
-                content = '删除失败'
+        if(Content == '/unbb' || Content.substr(0,5) == '/unbb'){ //删除哔哔
+            let unNumb = 1
+            if(/^\/unbb[, ]([1-9]\d*)$/.test(Content)){
+                let result = Content.match(/^\/unbb[, ]([1-9]\d*)$/)
+                unNumb = result[1]
             }
+            for(var i=1;i<=unNumb;i++){
+                    const res = await talksCollection.where({}).orderBy("date", "desc").limit(1).get()
+                    let deId = res.data[0]._id
+                    const resDe = await talksCollection.doc(deId).remove();
+            }
+            content = '已删除 '+unNumb+' 条'
         }else{
             var result = await talksCollection.add({content: Content, date: new Date(CreateTime), from: From})
             if(result.hasOwnProperty('id')){
