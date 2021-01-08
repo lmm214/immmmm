@@ -8,11 +8,15 @@ tags: [折腾]
 
 原是发到 LeanCloud 平台，现 2.0 是发到 **「腾讯 CloudBase」** 。目前已支持用户名绑定、解绑、发文字、**发图片**、**批量删除**。
 
-- /list - 查询最新9条
-- /bb数字 - 删除第几条，如 /bb2
-- /unbb - 撤销最新一条
-- /unbb 数字 - 撤销最新几条，如 /unbb 2
-- /nobody - 解除绑定
+- /l - 显示最近哔哔
+- /a 文字 - 追加文字到第1条
+- /a数字 文字 - 追加文字到第几条，如 /a2 文字
+- /d - 删除第1条
+- /d数字 - 删除第几条，如 /d2
+- /e 文字- 编辑替换第1条
+- /e数字 文字 - 编辑替换第几条，如 /e2 文字
+- /f数字 - 批量删除前几条，如 /f2
+- /nobber - 解除绑定
 - /newbber KEY,HTTP访问地址 - 添加绑定
 
 对，绑定只需要2个信息，一个自定义的 `KEY` 和 `云函数的http访问地址`
@@ -56,6 +60,7 @@ const app = tcb.init({
 const db = app.database()
 
 exports.main = async (event, context) => {
+    //return event
     let apikey = event.queryStringParameters.key
     let content = ''
     if(serverkey == apikey ){
@@ -64,35 +69,64 @@ exports.main = async (event, context) => {
         var CreateTime = Date.now(),
             Content = event.queryStringParameters.text,
             From = event.queryStringParameters.from
-        if(Content == '/list'){ //查询
+        if(Content == '/l'){ //查询
             var resData = ''
             const res = await talksCollection.where({}).orderBy("date", "desc").limit(9).get().then((res) => {
                 for(var i=1;i<=res.data.length;i++){
                     console.log(res.data[i-1]);
-                    resData += '/bb'+i+' '+res.data[i-1].content+'\n'
+                    resData += '/b'+i+' '+res.data[i-1].content+'\n---------------\n'
                 }
             });
-            content = resData
-        }else if(/^\/bb([1-9])$/.test(Content)){ //删除第几条
-            let result = Content.match(/^\/bb([1-9])$/)
-            let skipBb = result[1]-1
+            content = '「最新哔哔」\n==================\n'+resData
+        }else if(Content.substr(0,2) == '/a' || Content.substr(0,2) == '/e'){ //追加到或编辑第几条
+            let Numb = 1,skipBb = 0,editCotent = ''
+            let Mode = Content.substr(0,2)
+            if(/^\/[ae]([1-9])\s+(.*)$/.test(Content)){
+                let result = Content.match(/^\/[ae]([1-9])\s+(.*)$/)
+                Numb = result[1]
+                skipBb = Numb-1
+                editCotent = result[2]
+            }else if(/^\/[ae]\s+(.*)$/.test(Content)){
+                let result = Content.match(/^\/[ae]\s+(.*)$/)
+                editCotent = result[1]
+            }
             const res = await talksCollection.where({}).orderBy("date", "desc").skip(skipBb).limit(1).get()
             let deId = res.data[0]._id
-            //console.log('deId'+deId)4
-            const resDe = await talksCollection.doc(deId).remove();
-            content = '已删除第'+result[1]+ '条'
-        }else if(Content == '/unbb' || Content.substr(0,5) == '/unbb'){ //删除哔哔
+            let deContent = res.data[0].content
+            if(Mode == '/a'){
+                talksCollection.doc(deId).update({
+                    content: deContent+''+editCotent
+                })
+                content = '已追加到第 '+Numb+ ' 条 '+deContent+''+editCotent
+            }else{
+                talksCollection.doc(deId).update({
+                    content: editCotent
+                })
+                content = '已编辑第 '+Numb+ ' 条 '+editCotent
+            }
+        }else if(Content == '/d' || Content.substr(0,2) == '/d'){ //删除第几条
             let unNumb = 1
-            if(/^\/unbb[, ]([1-9]\d*)$/.test(Content)){
-                let result = Content.match(/^\/unbb[, ]([1-9]\d*)$/)
+            if(/^\/d([1-9])$/.test(Content)){
+                let result = Content.match(/^\/d([1-9])$/)
+                unNumb = result[1]
+            }
+            let skipBb = unNumb-1
+            const res = await talksCollection.where({}).orderBy("date", "desc").skip(skipBb).limit(1).get()
+            let deId = res.data[0]._id
+            talksCollection.doc(deId).remove()
+            content = '已删除第 '+unNumb+ ' 条'
+        }else if(Content == '/f' || Content.substr(0,2) == '/f'){ //删除哔哔
+            let unNumb = 1
+            if(/^\/f([1-9])$/.test(Content)){
+                let result = Content.match(/^\/f([1-9])$/)
                 unNumb = result[1]
             }
             for(var i=1;i<=unNumb;i++){
                     const res = await talksCollection.where({}).orderBy("date", "desc").limit(1).get()
                     let deId = res.data[0]._id
-                    const resDe = await talksCollection.doc(deId).remove();
+                    await talksCollection.doc(deId).remove();
             }
-            content = '已删除 '+unNumb+' 条'
+            content = '已删除前 '+unNumb+' 条'
         }else{
             var result = await talksCollection.add({content: Content, date: new Date(CreateTime), from: From})
             if(result.hasOwnProperty('id')){
