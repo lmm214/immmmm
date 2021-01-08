@@ -8,8 +8,10 @@ tags: [折腾]
 
 原是发到 LeanCloud 平台，现 2.0 是发到 **「腾讯 CloudBase」** 。目前已支持用户名绑定、解绑、发文字、**发图片**、**批量删除**。
 
-- /unbb - 撤销最新一条哔哔
-- /unbb 数字 - 撤销最新几条哔哔，如 /unbb 2
+- /list - 查询最新9条
+- /bb数字 - 删除第几条，如 /bb2
+- /unbb - 撤销最新一条
+- /unbb 数字 - 撤销最新几条，如 /unbb 2
 - /nobody - 解除绑定
 - /newbber KEY,HTTP访问地址 - 添加绑定
 
@@ -52,8 +54,8 @@ const app = tcb.init({
 });
 //数据库初始化
 const db = app.database()
+
 exports.main = async (event, context) => {
-    //return event
     let apikey = event.queryStringParameters.key
     let content = ''
     if(serverkey == apikey ){
@@ -62,7 +64,24 @@ exports.main = async (event, context) => {
         var CreateTime = Date.now(),
             Content = event.queryStringParameters.text,
             From = event.queryStringParameters.from
-        if(Content == '/unbb' || Content.substr(0,5) == '/unbb'){ //删除哔哔
+        if(Content == '/list'){ //查询
+            var resData = ''
+            const res = await talksCollection.where({}).orderBy("date", "desc").limit(9).get().then((res) => {
+                for(var i=1;i<=res.data.length;i++){
+                    console.log(res.data[i-1]);
+                    resData += '/bb'+i+' '+res.data[i-1].content+'\n'
+                }
+            });
+            content = resData
+        }else if(/^\/bb([1-9])$/.test(Content)){ //删除第几条
+            let result = Content.match(/^\/bb([1-9])$/)
+            let skipBb = result[1]-1
+            const res = await talksCollection.where({}).orderBy("date", "desc").skip(skipBb).limit(1).get()
+            let deId = res.data[0]._id
+            //console.log('deId'+deId)4
+            const resDe = await talksCollection.doc(deId).remove();
+            content = '已删除第'+result[1]+ '条'
+        }else if(Content == '/unbb' || Content.substr(0,5) == '/unbb'){ //删除哔哔
             let unNumb = 1
             if(/^\/unbb[, ]([1-9]\d*)$/.test(Content)){
                 let result = Content.match(/^\/unbb[, ]([1-9]\d*)$/)
