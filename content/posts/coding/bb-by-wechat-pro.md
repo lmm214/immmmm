@@ -89,18 +89,9 @@ tags: [折腾]
 
 ### 手动部署：云函数部署（修改代码中的 「自定义apikey」 和 「环境ID」）
 
-接着 [新建云函数](https://console.cloud.tencent.com/tcb/scf/index) ，函数名称 `bb` （可自定义），进入 `函数代码` 编辑节目，把以下代码丢入 `index.js`，然后确定。
+接着 [新建云函数](https://console.cloud.tencent.com/tcb/scf/index) ，函数名称 `bber` （可自定义），进入 `函数代码` 编辑，复制 [index.js](https://github.com/lmm214/bber/blob/main/src/function/bber/index.js) 代码丢入 `index.js`，然后确定。
 
-完成后，点击“文件 - 新建文件”，输入 package.json，回车，复制以下代码粘贴，点击 `保存并安装依赖`。
-
-```javascript
-{
-    "name": "bb",
-    "version": "1.0.0",
-    "main": "index.js",
-    "dependencies": {"@cloudbase/node-sdk": "latest"}
-}
-```
+完成后，点击“文件 - 新建文件”，复制 [package.json](https://github.com/lmm214/bber/blob/main/src/function/bber/package.json) 代码丢入 `package.json`，点击 `保存并安装依赖`。
 
 ### 手动部署：开启 HTTP 访问服务,获取HTTP访问地址
 
@@ -111,7 +102,7 @@ tags: [折腾]
 现在可以点开看一下：
 
 ```html
-https://你后台显示的.ap-shanghai.app.tcloudbase.com/bb
+https://你后台显示的.ap-shanghai.app.tcloudbase.com/bber
 ```
 
 提示 `key不匹配`，成功！留存此链接！！！
