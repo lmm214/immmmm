@@ -17,7 +17,7 @@ tags: [折腾]
 - /e数字 文字 - 编辑替换第几条，如 /e2 文字
 - /f数字 - 批量删除前几条，如 /f2
 - /nobber - 解除绑定
-- /newbber KEY,HTTP访问地址 - 添加绑定
+- /bber KEY,HTTP访问地址 - 添加绑定
 
 对，绑定只需要2个信息，一个自定义的 `KEY` 和 `云函数的http访问地址`
 
@@ -182,7 +182,7 @@ https://你后台显示的.ap-shanghai.app.tcloudbase.com/bb
 {{< figure "https://lmm.elizen.me/images/2020/05/bbds.png" "「哔哔点啥」微信公众号 2.0" >}}
 
 ```
-/newbber YourKey,YourHTTP访问地址
+/bber YourKey,YourHTTP访问地址
 ```
 
 飞起～
