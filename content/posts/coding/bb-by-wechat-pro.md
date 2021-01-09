@@ -23,6 +23,14 @@ tags: [折腾]
 
 <!--more-->
 
+### 日常使用截图
+
+> 使用 /a 命令给图片追加个文字，真香！
+
+{{< figure "https://lmm.elizen.me/images/2020/12/bber-1.PNG" "https://lmm.elizen.me/images/2020/12/bber-2.PNG" "「哔哔点啥」操作截图-1">}}
+
+{{< figure "https://lmm.elizen.me/images/2020/12/bber-3.jpg" "https://lmm.elizen.me/images/2020/12/bber-4.jpg" "「哔哔点啥」操作截图-2">}}
+
 ### 腾讯 CloudBase 部署，获取环境ID
 
 1.[注册云开发CloudBase](https://curl.qcloud.com/KnnJtUom)
