@@ -31,7 +31,7 @@ tags: [折腾]
 
 {{< figure "https://lmm.elizen.me/images/2020/12/bber-3.jpg" "https://lmm.elizen.me/images/2020/12/bber-4.jpg" "「哔哔点啥」操作截图-2">}}
 
-### 腾讯 CloudBase 部署，获取环境ID
+### 获取环境ID
 
 1.[注册云开发CloudBase](https://curl.qcloud.com/KnnJtUom)
 
@@ -51,13 +51,13 @@ tags: [折腾]
 
 新建数据库集合，命名 `talks`，权限设置为 “所有用户可读，仅管理员可写”。
 
-### 云函数部署
+### 云函数部署（修改代码中的 「自定义apikey」 和 「环境ID」）
 
 接着 [新建云函数](https://console.cloud.tencent.com/tcb/scf/index) ，函数名称 `bb` （可自定义），进入 `函数代码` 编辑节目，把以下代码丢入 `index.js`，然后确定。
 
 ```javascript
 'use strict';
-const serverkey = 'xxxx' //自定义api key
+const serverkey = 'xxxx' //自定义apikey
 //引入模块
 const tcb = require("@cloudbase/node-sdk");
 //云开发初始化
@@ -182,7 +182,7 @@ https://你后台显示的.ap-shanghai.app.tcloudbase.com/bb
 {{< figure "https://lmm.elizen.me/images/2020/05/bbds.png" "「哔哔点啥」微信公众号 2.0" >}}
 
 ```
-/bber YourKey,YourHTTP访问地址
+/bber 云函数里自定义apikey,你的云函数HTTP访问地址
 ```
 
 飞起～
