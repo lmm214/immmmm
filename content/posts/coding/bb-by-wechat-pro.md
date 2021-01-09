@@ -31,7 +31,41 @@ tags: [折腾]
 
 {{< figure "https://lmm.elizen.me/images/2020/12/bber-3.jpg" "https://lmm.elizen.me/images/2020/12/bber-4.jpg" "「哔哔点啥」操作截图-2">}}
 
-### 获取环境ID
+### 一键部署及绑定
+
+1.点击以下按钮将 BBer 一键部署到云开发
+
+[![](https://main.qcloudimg.com/raw/67f5a389f1ac6f3b4d04c7256438e44f.svg)](https://console.cloud.tencent.com/tcb/env/index?action=CreateAndDeployCloudBaseProject&appUrl=https%3A%2F%2Fgithub.com%2Flmm214%2Fbber&branch=main)
+
+2.进入[环境-登录授权](https://console.cloud.tencent.com/tcb/env/login)，启用“匿名登录”
+
+3.进入[环境-安全配置](https://console.cloud.tencent.com/tcb/env/safety)，将博客网址添加到“WEB安全域名”
+
+4.进入[环境-HTTP访问服务](https://console.cloud.tencent.com/tcb/env/access)，复制链接备用。
+
+![bber-11](https://lmm.elizen.me/images/2020/12/bber-11.png)
+
+5.进入[云函数](https://console.cloud.tencent.com/tcb/scf/index)，修改自定义apikey `bber` 并保存备用。
+
+![bber-10](https://lmm.elizen.me/images/2020/12/bber-10.png)
+
+6.扫码进入公众号，输入命名绑定：
+
+```
+/bber bber,https://你的云函数HTTP访问地址/bber
+```
+
+>注明：一键部署虽然方便，但是仅支持按量计费环境，当然大多数（日访问量10000-）是够用的。如果您希望，当免费资源用尽时，不产生费用请使用手动部署。
+
+------
+
+### 前端部署
+
+暂时参考 [bb.html](https://github.com/lmm214/immmmm/blob/master/themes/hello-friend/layouts/_default/bb.html)
+
+------
+
+### 手动部署：获取环境ID
 
 1.[注册云开发CloudBase](https://curl.qcloud.com/KnnJtUom)
 
@@ -39,118 +73,23 @@ tags: [折腾]
 
 >提示：环境名称自由填写，推荐选择计费方式包年包月，套餐版本基础班 1，超出免费额度不会收费，如果提示选择“应用模板”，请选择“空模板”
 
+>推荐创建上海环境。如选择广州环境，需要在 twikoo.init() 时额外指定环境 region: "ap-guangzhou"
+
 3.进入[环境-登录授权](https://console.cloud.tencent.com/tcb/env/login)，启用“匿名登录”
 
 4.进入[环境-安全配置](https://console.cloud.tencent.com/tcb/env/safety)，将网站域名添加到“WEB安全域名”
 
 5.复制 `环境Id` 备用
 
-### 新建数据库
+### 手动部署：新建数据库
 
 ![talks](https://lmm.elizen.me/images/2020/12/talks.jpg)
 
 新建数据库集合，命名 `talks`，权限设置为 “所有用户可读，仅管理员可写”。
 
-### 云函数部署（修改代码中的 「自定义apikey」 和 「环境ID」）
+### 手动部署：云函数部署（修改代码中的 「自定义apikey」 和 「环境ID」）
 
 接着 [新建云函数](https://console.cloud.tencent.com/tcb/scf/index) ，函数名称 `bb` （可自定义），进入 `函数代码` 编辑节目，把以下代码丢入 `index.js`，然后确定。
-
-```javascript
-'use strict';
-const serverkey = 'xxxx' //自定义apikey
-//引入模块
-const tcb = require("@cloudbase/node-sdk");
-//云开发初始化
-const app = tcb.init({
-  env: "bb-bbbb" //填入自己的环境ID
-});
-//数据库初始化
-const db = app.database()
-
-exports.main = async (event, context) => {
-    //return event
-    let apikey = event.queryStringParameters.key
-    let content = ''
-    if(serverkey == apikey ){
-        const talksCollection = db.collection('talks')
-        //提取消息内容，发送者，接受者，时间戳，消息类型，内容
-        var CreateTime = Date.now(),
-            Content = event.queryStringParameters.text,
-            From = event.queryStringParameters.from
-        if(Content == '/l'){ //查询
-            var resData = ''
-            const res = await talksCollection.where({}).orderBy("date", "desc").limit(9).get().then((res) => {
-                for(var i=1;i<=res.data.length;i++){
-                    console.log(res.data[i-1]);
-                    resData += '/b'+i+' '+res.data[i-1].content+'\n---------------\n'
-                }
-            });
-            content = '「最新哔哔」\n==================\n'+resData
-        }else if(Content.substr(0,2) == '/a' || Content.substr(0,2) == '/e'){ //追加到或编辑第几条
-            let Numb = 1,skipBb = 0,editCotent = ''
-            let Mode = Content.substr(0,2)
-            if(/^\/[ae]([1-9])\s+(.*)$/.test(Content)){
-                let result = Content.match(/^\/[ae]([1-9])\s+(.*)$/)
-                Numb = result[1]
-                skipBb = Numb-1
-                editCotent = result[2]
-            }else if(/^\/[ae]\s+(.*)$/.test(Content)){
-                let result = Content.match(/^\/[ae]\s+(.*)$/)
-                editCotent = result[1]
-            }
-            const res = await talksCollection.where({}).orderBy("date", "desc").skip(skipBb).limit(1).get()
-            let deId = res.data[0]._id
-            let deContent = res.data[0].content
-            if(Mode == '/a'){
-                talksCollection.doc(deId).update({
-                    content: deContent+''+editCotent
-                })
-                content = '已追加到第 '+Numb+ ' 条 '+deContent+''+editCotent
-            }else{
-                talksCollection.doc(deId).update({
-                    content: editCotent
-                })
-                content = '已编辑第 '+Numb+ ' 条 '+editCotent
-            }
-        }else if(Content == '/d' || Content.substr(0,2) == '/d'){ //删除第几条
-            let unNumb = 1
-            if(/^\/d([1-9])$/.test(Content)){
-                let result = Content.match(/^\/d([1-9])$/)
-                unNumb = result[1]
-            }
-            let skipBb = unNumb-1
-            const res = await talksCollection.where({}).orderBy("date", "desc").skip(skipBb).limit(1).get()
-            let deId = res.data[0]._id
-            talksCollection.doc(deId).remove()
-            content = '已删除第 '+unNumb+ ' 条'
-        }else if(Content == '/f' || Content.substr(0,2) == '/f'){ //删除哔哔
-            let unNumb = 1
-            if(/^\/f([1-9])$/.test(Content)){
-                let result = Content.match(/^\/f([1-9])$/)
-                unNumb = result[1]
-            }
-            for(var i=1;i<=unNumb;i++){
-                    const res = await talksCollection.where({}).orderBy("date", "desc").limit(1).get()
-                    let deId = res.data[0]._id
-                    await talksCollection.doc(deId).remove();
-            }
-            content = '已删除前 '+unNumb+' 条'
-        }else{
-            var result = await talksCollection.add({content: Content, date: new Date(CreateTime), from: From})
-            if(result.hasOwnProperty('id')){
-                content = '发表成功'
-            }else{
-                content = '发表失败'
-            }
-        }
-    }else{
-        content = "key不匹配"
-    }
-    return {
-        content
-    };
-}
-```
 
 完成后，点击“文件 - 新建文件”，输入 package.json，回车，复制以下代码粘贴，点击 `保存并安装依赖`。
 
@@ -163,7 +102,7 @@ exports.main = async (event, context) => {
 }
 ```
 
-### 开启 HTTP 访问服务,获取HTTP访问地址
+### 手动部署：开启 HTTP 访问服务,获取HTTP访问地址
 
 ![bb-tx-1](https://lmm.elizen.me/images/2020/12/bb-tx-1.png)
 
@@ -182,10 +121,10 @@ https://你后台显示的.ap-shanghai.app.tcloudbase.com/bb
 {{< figure "https://lmm.elizen.me/images/2020/05/bbds.png" "「哔哔点啥」微信公众号 2.0" >}}
 
 ```
-/bber 云函数里自定义apikey,你的云函数HTTP访问地址
+/bber bber,https://你的云函数HTTP访问地址/bber
 ```
 
-飞起～
+--------
 
 ### 附赠 Alfred Workflow
 
