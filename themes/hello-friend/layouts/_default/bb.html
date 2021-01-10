@@ -39,10 +39,10 @@
       var bbClass = '.post-content'
         const db = app.database()
         const collection = db.collection('talks')
-        var count=0, per = 2,page = 1
+        var count=0, per = 9,page = 1
         collection.count(function(err,res){
           count = res.total
-          $(bbClass).append('<p class="count">共b了 <span class="count-data">'+count+'</span> 条</p>')
+          $(bbClass).append('<p class="count">共 <span class="count-data">'+count+'</span> 条</p>')
           getList()
         })
         function getList(){
