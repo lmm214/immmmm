@@ -2,28 +2,24 @@
 <div class="post">
   <h2 class="post-title">{{.Title}}</h2>
   <div class="post-content">
-    <p class="count">共b了 <span class="count-data">0</span> 条</p>
-    <section class="timeline">
-      <ul>
-        <div class="list">
-        </div>
-      </ul>
-    </section>
-    <div class="load">
-      <button class="load-btn button-load">加载更多</button>
-    </div>
   </div>
+  <div class="load"><button class="load-btn button-load">加载中……</button></div>
 </div>
 <style>
   .timeline ul {margin:0;padding-bottom:2rem;}
-  .timeline ul li {background:#eaeaea;list-style-type:none;position:relative;width:2px;margin-left:20px;padding:10px 0 50px;}
-  .timeline ul li::after {content:'';position:absolute;left:50%;top:25px;transform:translateX(-50%);width:8px;height:8px;border-radius:50%;background:inherit;}
-  .timeline ul li div {background:#eaeaea;border-radius:5px;position:relative;top:0;left:40px;width:670px;padding:8px 16px;}
-  .timeline ul li div p{margin:0;font-size: 17px;letter-spacing:2px;color: #000;}
-  .timeline ul li div::before{content:'';position:absolute;top:10px;width:0;height:0;border-style:solid;left:-15px;border-width:8px 16px 8px 0;border-color:transparent #eaeaea transparent transparent;}
+  .timeline ul li {background:#3b3d42;list-style-type:none;position:relative;width:3px;margin-left:21px;padding:10px 0 50px;}
+  .timeline ul li::after {transform: rotate(45deg);content:'';background-color: #3b3d42;display: block;position: absolute;top: 10px;left: -5px;width: 0.8em;height: 0.8em;outline: 15px solid #fff;}
+  .timeline ul li div {position:relative;top:-12px;left:4em;width:670px;padding:0px 16px 0px;}
+  .timeline ul li p.datatime{color: #fafafa;font-size: 0.75em;background-color: #3b3d42;display: inline-block;margin-bottom: 1.2em;padding: 0.25em 1em 0.2em 1em;}
+  .timeline ul li p.datacont{margin:1em 0;}
+  .timeline ul li p.datafrom{color: #aaa;font-size: 0.75em !important;
+  }
+  .timeline ul li div p{margin:0;font-size:16px;letter-spacing:1px;color: #3b3d42;}
+  button{border-radius:0;}
   .dark-theme .timeline ul li div p{color:#fafafa;}
-  .dark-theme .timeline ul li,.dark-theme .timeline ul li div{background:#3b3d42;}
-  .dark-theme .timeline ul li div::before{border-color:transparent #3b3d42 transparent transparent;}
+  .dark-theme .timeline ul li p.datafrom{color: #aaa;}
+  .dark-theme .timeline ul li{background:#3b3d42;}
+  .dark-theme .timeline ul li::after{outline: 15px solid #292a2d;}
   @media (max-width:860px) {
     .timeline ul li{margin-left:0;}
     .timeline ul li div{width:calc(100vw - 75px);left:30px;}
@@ -32,6 +28,7 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/TencentCloudBase/tcb-js-sdk@master/tcbjs/1.10.10/tcb.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/buddys/qq-wechat-emotion-parser@master/dist/qq-wechat-emotion-parser.min.js"></script>
 <script>
+
     const app = tcb.init({
       env: 'bb-f5c0f', //这里是你的环境id
       //region: "ap-guangzhou"
@@ -39,25 +36,31 @@
     app.auth({
         persistence: "none" //避免与同实例冲突
     }).anonymousAuthProvider().signIn().then(() => {
+      var bbClass = '.post-content'
         const db = app.database()
         const collection = db.collection('talks')
-        var count=0, per = 10,page = 1
+        var count=0, per = 2,page = 1
         collection.count(function(err,res){
           count = res.total
-          $('.count-data').text(count)
+          $(bbClass).append('<p class="count">共b了 <span class="count-data">'+count+'</span> 条</p>')
           getList()
         })
         function getList(){
           if((page-1)*per >= count){
             return
           }
-          var date
+          var date,resCont=''
           collection.limit(per).skip((page-1)*per).orderBy('date','desc').get(function(err, res) {
             (res.data).forEach(item => {
-            date = item.date
-            content = urlToLink(item.content)
-            $('.list').append('<li class="item"><div><p>'+content+'</p><i><time class="date"><small>'+`${(date.getHours() + 1) <= 12 ? '上午' : '下午'}`+`${(date.getHours() + 1) <= 10 ? ('0' + date.getHours()) : date.getHours()}`+':'+`${(date.getMinutes() + 1) <= 10 ? ('0' + date.getMinutes()) :date.getMinutes()}`+' · '+date.getFullYear()+'年'+(`${(date.getMonth() + 1) < 10 ? ('0' + (date.getMonth()+1)) :date.getMonth()+1}`)+'月'+`${(date.getDate() + 1) < 10 ? ('0' + date.getDate()) :date.getDate()}`+'日 '+' ·「'+item.from+'」</small></time></i></div></li>')
+              date = item.date
+              dataTime = '<p class="datatime"><i><time class="date"><small>'+`${(date.getHours() + 1) <= 12 ? '上午' : '下午'}`+`${(date.getHours() + 1) <= 10 ? ('0' + date.getHours()) : date.getHours()}`+':'+`${(date.getMinutes() + 1) <= 10 ? ('0' + date.getMinutes()) :date.getMinutes()}`+' · '+date.getFullYear()+'年'+(`${(date.getMonth() + 1) < 10 ? ('0' + (date.getMonth()+1)) :date.getMonth()+1}`)+'月'+`${(date.getDate() + 1) < 10 ? ('0' + date.getDate()) :date.getDate()}`+'日</small></time></i></p>'
+              dataCont = '<p class="datacont">'+urlToLink(item.content)+'</p>'
+              dataFrom = '<p class="datafrom"><i><small>#'+item.from+'</small></i></p>'
+              resCont += '<li class="item"><div>'+dataTime+dataCont+dataFrom+'</div></li>'
             });
+            $(bbClass).append('<section class="timeline page-'+page+'"><ul><div class="list">'+resCont+'</div></ul></section>')
+            $('button.button-load').text('加载更多')
+            $('html,body').animate({ scrollTop: $('.timeline.page-'+page).offset().top - 20 }, 800)
             if(page*per >= count){
               $('.load').remove()
             return
@@ -65,7 +68,10 @@
             page++
           });
         }
-        $('.button-load').click(function(){getList()})
+        $('button.button-load').click(function(){
+          $('button.button-load').text('加载中……')
+          getList()
+        })
     }).catch(err => {
         console.log(err)
     });
