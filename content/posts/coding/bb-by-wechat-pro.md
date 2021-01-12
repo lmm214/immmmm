@@ -74,9 +74,45 @@ tags: [折腾]
 
 ### 前端部署
 
+```html
+<div id="bber"></div>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/TencentCloudBase/tcb-js-sdk@master/tcbjs/1.10.10/tcb.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/buddys/qq-wechat-emotion-parser@master/dist/qq-wechat-emotion-parser.min.js"></script>
+<script>
+  const app = tcb.init({
+      env: 'bb-123xx', //这里是你的环境id
+      //region: "ap-guangzhou"
+  })
+</script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lmm214/bber@main/bber.js"></script>
+```
 
+```html
+<style>
+  .timeline ul {margin:0;}
+  .timeline ul li {background:#3b3d42;list-style-type:none;position:relative;width:3px;margin-left:2em;padding:0.8em 0 2em;}
+  .timeline ul li::after {transform: rotate(45deg);content:'';background-color: #3b3d42;display: block;position: absolute;top: 10px;left: -5px;width: 0.8em;height: 0.8em;outline: 15px solid #fff;}
+  .timeline ul li div {position:relative;top:-13px;left:3em;width:670px;padding:0px 16px 0px;}
+  .timeline ul li p.datatime{color: #fafafa;font-size: 0.75em;font-style: italic;background-color: #3b3d42;display: inline-block;padding:0.25em 1em 0.2em 1em;}
+  .timeline ul li p.datacont{margin:0.65em 0 0.3em;}
+  .timeline ul li p.datacont img{display:block;width:100%;}
+  .timeline ul li p.datacont img[src*="emotion"]{display:inline-block;width:auto;}
+  .timeline ul li p.datafrom{color: #aaa;font-size: 0.75em !important;font-style: italic;}
+  .timeline ul li p{margin:0;font-size:16px;letter-spacing:1px;color: #3b3d42;}
+  button{border-radius:0;}
+  .dark-theme .timeline ul li div p{color:#fafafa;}
+  .dark-theme .timeline ul li div p svg{fill:#fafafa;}
+  .dark-theme .timeline ul li p.datafrom{color: #aaa;}
+  .dark-theme .timeline ul li{background:#3b3d42;}
+  .dark-theme .timeline ul li::after{outline: 15px solid #292a2d;}
+  @media (max-width:860px) {
+    .timeline ul li{margin-left:0;}
+    .timeline ul li div{width:calc(100vw - 75px);left:30px;}
+  }
+</style>
+```
 
-暂时参考 [bb.html](https://github.com/lmm214/immmmm/blob/master/themes/hello-friend/layouts/_default/bb.html)
+具体页面参考 [bb.html](https://github.com/lmm214/immmmm/blob/master/themes/hello-friend/layouts/_default/bb.html)
 
 ------
 
