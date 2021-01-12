@@ -6,13 +6,17 @@ tags: [折腾]
 
 {{< figure "https://lmm.elizen.me/images/2020/05/bbds.png" "「哔哔点啥」微信公众号 2.0" >}}
 
-原是发到 LeanCloud 平台，现 2.0 是发到 **「腾讯 CloudBase」** 。目前已支持用户名绑定、解绑、发文字、**发图片**、**批量删除**。
+原是发到 LeanCloud 平台，现 2.0 是发到 **「腾讯 CloudBase」** 。目前已支持用户名绑定、解绑、发文字、**发图片**、追加、合并、删除、替换文字，还有显示**哔哔列表**、**哔哔搜索**！
 
 > `/l` - 显示最近哔哔
 > 
 > `/a 文字` - 追加文字到第1条
 > 
 > `/a数字 文字` - 追加文字到第几条，如 /a2 文字
+> 
+> `/c` - 合并前2条
+> 
+> `/c数字` - 合并前几条，如 /c3
 > 
 > `/d` - 删除第1条
 > 
@@ -124,17 +128,23 @@ https://你后台显示的.ap-shanghai.app.tcloudbase.com/bber
 /bber bber,https://你的云函数HTTP访问地址/bber
 ```
 
---------
-
-### 附赠 Alfred Workflow
-
-其实公众号仅用作了转发文字内容，具体功能都是各自地方，好处是，访问以下格式链接也能用。
+**其实公众号仅用作了转发文字内容**，具体功能都是各自的云函数，好处是，直接浏览器访问以下链接、第三方能发起POST工具、iOS的快捷方式等都能调用！
 
 ```html
 https://你后台显示的.ap-shanghai.app.tcloudbase.com/bb?key=云函数里设置的&from=自己发挥一个&text=哔哔的内容
 ```
 
-比如用 Alfred 的这个 [浮哔人生.alfredworkflow](https://github.com/lmm214/diybug/raw/main/%E6%B5%AE%E5%93%94%E4%BA%BA%E7%94%9F2.0.alfredworkflow)
+### 旧数据转化
+
+把 LC 上的评论导出并进行格式转化，形成如下格式，`from` 字段是我自己后来加的。
+
+```
+{"_id":"4ec5c2495fe84db1000046a47026ed51","from":"微信公众号","content":"恶果之地得到各“金卡”莫名就通关+1","date":{"$date":"2020-12-27T07:38:10.844Z"}}
+```
+
+### 附赠 Alfred Workflow
+
+[浮哔人生.alfredworkflow](https://github.com/lmm214/diybug/raw/main/%E6%B5%AE%E5%93%94%E4%BA%BA%E7%94%9F2.0.alfredworkflow)
 
 ![fbrs.png](https://lmm.elizen.me/images/2020/12/fbrs.png)
 
