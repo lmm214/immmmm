@@ -84,7 +84,7 @@ tags: [折腾]
       //region: "ap-guangzhou"
   })
 </script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lmm214/bber@main/bber.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lmm214/bber@0.0.1/bber.js"></script>
 ```
 
 ```html
@@ -140,9 +140,9 @@ tags: [折腾]
 
 ### 手动部署：云函数部署（修改代码中的 「自定义apikey」 和 「环境ID」）
 
-接着 [新建云函数](https://console.cloud.tencent.com/tcb/scf/index) ，函数名称 `bber` （可自定义），进入 `函数代码` 编辑，复制 [index.js](https://github.com/lmm214/bber/blob/main/src/function/bber/index.js) 代码丢入 `index.js`，然后确定。
+接着 [新建云函数](https://console.cloud.tencent.com/tcb/scf/index) ，函数名称 `bber` （可自定义），进入 `函数代码` 编辑，复制 [index.js](https://github.com/lmm214/bber/blob/main/bber/index.js) 代码丢入 `index.js`，然后确定。
 
-完成后，点击“文件 - 新建文件”，复制 [package.json](https://github.com/lmm214/bber/blob/main/src/function/bber/package.json) 代码丢入 `package.json`，点击 `保存并安装依赖`。
+完成后，点击“文件 - 新建文件”，复制 [package.json](https://github.com/lmm214/bber/blob/main/bber/package.json) 代码丢入 `package.json`，点击 `保存并安装依赖`。
 
 ### 手动部署：开启 HTTP 访问服务,获取HTTP访问地址
 

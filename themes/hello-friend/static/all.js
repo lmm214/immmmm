@@ -43,7 +43,7 @@ jQuery(document).ready(function ($) {
   })
   $(".post-content a[rel!=link]:has(img)").slimbox();
   //相对时间
-  $.lately({ 'target': '.post-date' });
+  Lately({ 'target': '.post-date' });
   //文章toc固定
   var nav = $(".tocify");
   if (nav.length > 0) {
