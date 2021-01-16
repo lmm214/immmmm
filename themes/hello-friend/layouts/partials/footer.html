@@ -27,3 +27,29 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lmm214/immmmm@gh-pages/alll.js"></script>
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/instant.page@latest/instantpage.min.js" type="module"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  jsonUrl = "https://6262-bb-f5c0f-1252354806.tcb.qcloud.la/json/bber.json?t="+Date.parse( new Date())
+  $.getJSON(jsonUrl,function(res){
+    console.log(res.data)
+    bberHtml = ''
+    $.each(res.data, function(i, item){
+      d = new Date(item.date)
+      date = d.getFullYear()+'/'+(d.getMonth()+1)+'/'+d.getDate() +' '+d.getHours()+':'+d.getMinutes()+':'+d.getSeconds()
+      dataTime = '<span class="datatime">'+date+'</span>'
+      //dataCont = '<p class="datacont">'+item.content+'</p>'
+      //dataFrom = item.from ? '<p class="datafrom"><small>#'+item.from+'</small></p>' : ''
+      bberHtml += '<li class="item">'+dataTime+'： <a href="https://immmmm.com/bb/">'+item.content+'</a></li>'
+    });
+    console.log(bberHtml)
+    $('#index-talk').append('<span class="index-talk-icon"><svg height="24" width="24" viewBox="0 0 20 20"><path d="M17.659,3.681H8.468c-0.211,0-0.383,0.172-0.383,0.383v2.681H2.341c-0.21,0-0.383,0.172-0.383,0.383v6.126c0,0.211,0.172,0.383,0.383,0.383h1.532v2.298c0,0.566,0.554,0.368,0.653,0.27l2.569-2.567h4.437c0.21,0,0.383-0.172,0.383-0.383v-2.681h1.013l2.546,2.567c0.242,0.249,0.652,0.065,0.652-0.27v-2.298h1.533c0.211,0,0.383-0.172,0.383-0.382V4.063C18.042,3.853,17.87,3.681,17.659,3.681 M11.148,12.87H6.937c-0.102,0-0.199,0.04-0.27,0.113l-2.028,2.025v-1.756c0-0.211-0.172-0.383-0.383-0.383H2.724V7.51h5.361v2.68c0,0.21,0.172,0.382,0.383,0.382h2.68V12.87z M17.276,9.807h-1.533c-0.211,0-0.383,0.172-0.383,0.383v1.755L13.356,9.92c-0.07-0.073-0.169-0.113-0.27-0.113H8.851v-5.36h8.425V9.807z"></path></svg></span><ul class="talk-list">'+bberHtml+'</ul>')
+    Lately({ 'target': '#index-talk .datatime' });
+  });
+  function Roll (){
+		var newFrist = $('.talk-list').children().first().clone(true);
+		$('.talk-list').append(newFrist).children().first().remove();
+	};
+	setInterval(Roll,2500);
+});
+</script>
