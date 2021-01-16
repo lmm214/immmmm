@@ -131,7 +131,6 @@ jQuery(document).ready(function ($) {
   }
 });
 
-
 $(document).ready(function(){
   if ( $("#bber-talk").length > 0 ) {
     jsonUrl = "https://6262-bb-f5c0f-1252354806.tcb.qcloud.la/json/bber.json"
