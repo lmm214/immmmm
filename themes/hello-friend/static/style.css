@@ -1435,16 +1435,19 @@ photos .photo:last-child {
 
 /* tocify */
 .tocify {width: 20%; max-height: 90%; overflow: auto; position: absolute; right:2%; border-radius: 6px;}
-.tocify ul, .tocify li {list-style: none; margin: 0; padding: 0; border: none; line-height: 30px; }
-.tocify li a {display: inline-block; text-indent:10px; font-size: 14px; text-decoration: none; }
+.tocify ul, .tocify li {list-style:none;margin:0;padding:0;border:none;line-height:30px; }
+.tocify li a {display: inline-block;text-indent:10px;font-size:14px;text-decoration:none; }
 .tocify ul ul li a:before {content: "- "}
 @media only screen and (max-width:683px) {
 	.tocify {display: none;}
 }
 
-#index-talk{display: -webkit-flex;display: flex;width: 100%;line-height: 2em;max-width: 760px;text-align: left;padding:5px 15px;margin-bottom:3em;position: relative;background-color: var(--light-header);border-radius:8px;font-size:15px;}
-.dark-theme #index-talk{background-color: var(--dark-header);}
-#index-talk svg{fill: currentColor;vertical-align: middle;display: inline;margin-right:5px;}
-.dark-theme .talk-list{color: var(--dark-color);}
+#bber-talk{display:-webkit-flex;display:flex;width:100%;line-height:2em;height:45px;max-width:760px;text-align:left;padding:5px 15px;margin-bottom:3em;position: relative;background-color: var(--light-header);border-radius:8px;font-size:15px;}
+#bber-talk svg{fill: currentColor;vertical-align: middle;display: inline;margin-right:5px;}
 .talk-list{margin: 0;max-height: 35px;overflow: hidden;}
 .talk-list li {list-style: none;margin-bottom: 10px;width: 100%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;}
+.dark-theme #bber-talk{background-color: var(--dark-header);}
+.dark-theme .talk-list{color: var(--dark-color);}
+@media only screen and (max-width:683px) {
+	#bber-talk{margin:2em 1em 1em;width:94%;}
+}

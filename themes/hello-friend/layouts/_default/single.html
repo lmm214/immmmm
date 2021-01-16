@@ -7,7 +7,6 @@
   {{ $isntDefault := not (or (eq (trim $.Site.Params.contentTypeName " ") "posts") (eq (trim $.Site.Params.contentTypeName " ") "")) }}
   {{ $contentTypeName := cond $isntDefault (string $.Site.Params.contentTypeName) "posts" }}
   
-  
   {{ $PostCate := .File.Path | replaceRE ".*posts/(.*)/.*" "$1"}}
   <div class="post {{ $PostCate }}">
     {{ partial "breadcrumb.html" . }}
