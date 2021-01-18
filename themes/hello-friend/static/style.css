@@ -1081,7 +1081,7 @@ hr {
 
 .archive__post-title a {
 	color: #a9a9b3;
-	color: var(--dark-color)
+	color: var(--dark-color);
 	display: block;
 	text-decoration: none
 }

@@ -23,10 +23,10 @@ app.auth({
           dataCont = '<p class="datacont">'+urlToLink(item.content)+'</p>'
           dataFrom = item.from ? '<p class="datafrom"><small>#'+item.from+'</small></p>' : ''
           resCont += '<li class="item"><div>'+dataTime+dataCont+dataFrom+'</div></li>'
-        });
+        }); 
         $(bbClass).append('<section class="timeline page-'+page+'"><ul><div class="list">'+resCont+'</div></ul></section>')
         $('button.button-load').text('加载更多')
-        $('html,body').animate({ scrollTop: $('.timeline.page-'+page).offset().top - 20 }, 800)
+        $('html,body').animate({ scrollTop: $('.timeline.page-'+page).offset().top - 20 }, 500)
         if(page*per >= count){
           $('.load').remove()
           return
@@ -45,15 +45,15 @@ app.auth({
 });
 function urlToLink(str) {
   var re =/\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|gif))\S+/g;
-  var re_forpic =/\bhttps?:\/\/.*?(\.gif|\.jpeg|\.png|\.jpg|\.bmp|\.webp)/g;
-  str =str.replace(re,function (website) {
-    return " <a href='" + website + "'rel='noopener' target='_blank'>↘链接↙</a> ";
-  });
+  var re_forpic =/\bhttps?:[^:<>"]*\/([^:<>"]*)(\.(jpeg)|(png)|(jpg)|(webp))/g;
   str =str.replace(re_forpic,function (imgurl) {
     return '<a href="' + imgurl + '"><img src="' + imgurl + '" /></a>';
   });
+  str =str.replace(re,function (website) {
+    return " <a href='" + website + "'rel='noopener' target='_blank'>↘链接↙</a> ";
+  });
   str = qqWechatEmotionParser(str)
-  return str;
+  return str; 
 }
 /*
  MIT License - http://www.opensource.org/licenses/mit-license.php
