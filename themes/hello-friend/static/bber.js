@@ -23,10 +23,10 @@ app.auth({
           dataCont = '<p class="datacont">'+urlToLink(item.content)+'</p>'
           dataFrom = item.from ? '<p class="datafrom"><small>#'+item.from+'</small></p>' : ''
           resCont += '<li class="item"><div>'+dataTime+dataCont+dataFrom+'</div></li>'
-        });
+        }); 
         $(bbClass).append('<section class="timeline page-'+page+'"><ul><div class="list">'+resCont+'</div></ul></section>')
         $('button.button-load').text('加载更多')
-        $('html,body').animate({ scrollTop: $('.timeline.page-'+page).offset().top - 20 }, 800)
+        $('html,body').animate({ scrollTop: $('.timeline.page-'+page).offset().top - 20 }, 500)
         if(page*per >= count){
           $('.load').remove()
           return
@@ -45,7 +45,7 @@ app.auth({
 });
 function urlToLink(str) {
   var re =/\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|gif))\S+/g;
-  var re_forpic =/(https?:[^:<>"]*\/)([^:<>"]*)(\.((jpeg)|(png)|(jpg)|(webp)))/g;
+  var re_forpic =/\bhttps?:[^:<>"]*\/([^:<>"]*)(\.(jpeg)|(png)|(jpg)|(webp))/g;
   str =str.replace(re_forpic,function (imgurl) {
     return '<a href="' + imgurl + '"><img src="' + imgurl + '" /></a>';
   });
