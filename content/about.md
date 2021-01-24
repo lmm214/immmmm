@@ -60,6 +60,8 @@ layout: 'posts'
 
 {{< friend des="" url="https://novcu.com/" md5="65106752d27bc6065e29a8a8d39bdbc2" name="山卜方" >}}
 
+{{< friend des="" url="https://www.boyhu.cn" md5="55be217893c75baf8571837197de4a3e" name="胡家小子" >}}
+
 ### 博客程序
 
 Hugo：<https://gohugo.io/>
