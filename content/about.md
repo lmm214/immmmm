@@ -62,6 +62,9 @@ layout: 'posts'
 
 {{< friend des="" url="https://www.boyhu.cn" md5="55be217893c75baf8571837197de4a3e" name="胡家小子" >}}
 
+{{< friend des="" url="https://blog.zhheo.com/" md5="62d8c76b1fd8822cd95efe0abec26b70" name="Heo" >}}
+
+
 ### 博客程序
 
 Hugo：<https://gohugo.io/>
