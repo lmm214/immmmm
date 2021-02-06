@@ -64,6 +64,7 @@ layout: 'posts'
 
 {{< friend des="" url="https://blog.zhheo.com/" md5="62d8c76b1fd8822cd95efe0abec26b70" name="Heo" >}}
 
+{{< friend des="" url="https://xwlearn.com/" md5="4463036638cb7140058a588641659fdc" name="xwlearn" >}}
 
 ### 博客程序
 
