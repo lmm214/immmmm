@@ -7,12 +7,98 @@
             <link href="https://immmmm.com/atom.xml" rel="self" type="application/rss+xml" title="atom" />
             <link href="https://immmmm.com/" rel="alternate" type="text/html" title="HTML" />
             <link href="https://immmmm.com/index.json" rel="alternate" type="application/json" title="JSON" />
-    <updated>2021-02-12T01:57:38+00:00</updated>
+    <updated>2021-02-17T08:26:57+00:00</updated>
     
     
     
     
         <id>https://immmmm.com/atom.xml</id>
+    
+        
+        <entry>
+            <title type="html"><![CDATA[《学习究竟是什么》阅读笔记]]></title>
+            <link href="https://immmmm.com/book-isbn-9787513340243/" rel="alternate" type="text/html" />
+            
+                <id>https://immmmm.com/book-isbn-9787513340243/</id>
+            
+            
+            <published>2021-02-17T10:34:21+08:00</published>
+            <updated>2021-02-17T10:34:21+08:00</updated>
+            
+            
+            <content type="html"><![CDATA[<p>看到 @Elizen 的 <a href="https://elizen.me/post/2021/02/what-is-learning/">《学习究竟是什么》笔记</a>，书和笔记都值得学习，紧跟买入纸书啃下，越读越发现之前读的《认知天性》更深入。当然，万的读起来更亲切通俗些，毕竟从语音节目整理而来。</p>
+<p><a href="https://book.douban.com/subject/30353486/">https://book.douban.com/subject/30353486/</a></p>
+<p>其实两本书都指出不少反 <strong>“学习常识”</strong> 的 <strong>“学习常识”</strong> 。比如：</p>
+<ul>
+<li>有点间隔，暂时“忘记”一下，过不久再“回忆”一下，是效率最高的学习方式。</li>
+<li>信息不等于知识，记忆不等于学习，所以记忆信息不等于学习知识。</li>
+<li>重复阅读与集中练习会让人越做越熟练，以为自己已经掌握了知识。不能用身体的勤奋来掩饰思维的懒惰。</li>
+<li>检索，也就是练习、测验，可以有效地终止遗忘。特别是权重低的小测验、随堂练习。</li>
+</ul>
+<h3 id="学习究竟是什么书摘">《学习究竟是什么》书摘</h3>
+<blockquote>
+<p>一个高水平的美式足球运动员只有1％的训练时间是用于队内比赛（一部分原因是怕受伤），其他的时间都是用于各种相关的基础训练。</p>
+</blockquote>
+<p>以赛促练，浪费大家时间。</p>
+<blockquote>
+<p>所以你一定要表扬他努力“不错啊！这次做得很好，看来你下了很大功夫！下次继续！只要你努力，什么事都能做成！”</p>
+</blockquote>
+<p>成长型思维，表扬具体的努力，而非一句“你真聪明”。</p>
+<blockquote>
+<p>不比约克夫妇的理论说，人的记忆其实有两个强度:存储强度（ storage strength）和提取强度 retrieval strength存储强度不会随时间减弱！每一次提取记忆，提取强度都会增加；而因为这个记忆在你脑子里又过了一遍，所以存储强度也增加了。如此说来，考试就是最好的复习。最重要的是:提取的时候越困难，这个提取动作对两个强度的增加值就越大。</p>
+</blockquote>
+<p>所以 词卡、闪卡、记忆卡，不是把所有的知识点一股脑儿呈现，应只显示关键词、填空或题面，如20以内加减法，7+5=（）、7+（）=12、（）+5=12</p>
+<blockquote>
+<p>有点间隔，暂时“忘记”一下，过不久再“回忆”一下，是效率最高的学习方式。</p>
+</blockquote>
+<blockquote>
+<p>一个最普遍的创造方法，就是“想法的连接”。我们最好能把一个遥远的想法跟你手里的东西连接在一起，提供一个新思路。</p>
+</blockquote>
+<p>记忆信息后寻找之间的联系才是人的价值。</p>
+<blockquote>
+<p>集中思维=思维定势，发散思维=思维惯性</p>
+</blockquote>
+<p>小孩思维发散，所以不打扰他偶尔的“心流”。大人思维集中甚至忽略客观条件的变化，以经验进行主观判断。我们需要的是长时间集中思维下的发散思维。</p>
+<blockquote>
+<p>“祝你找到自己的秘密项目。有这个项目在，你的感觉会很好。”</p>
+</blockquote>
+<p>是啊，如豆瓣电影TOP250、个人博客、折腾代码、游戏日常、追剧日常……</p>
+<blockquote>
+<p>熟悉和意外。熟悉得特别熟悉，意外得非常意外，才能让人印象深刻。</p>
+</blockquote>
+<p>这也是主题式阅读 1+1&gt;2 的原因吧，求同，留异，针对解决困惑。</p>
+<blockquote>
+<p>“课堂教学是什么呢？是没有快捷键、不允许跳跃的视频播放。”</p>
+</blockquote>
+<p>一直觉得我们把教学搞复杂了，让老师不知道怎么教才好，让学生不知道怎么学才好，所以老师照本宣科，所以学生依样画葫。</p>
+<blockquote>
+<p>过去我们都有个观念，学什么新东西，学得快就表示聪明，学得慢就是笨。而现在在心理学家看来，学习的快慢并不是一种“特性”，而与“情境”相关。有的人学这个快，学那个慢；有的人学这个慢，学那个快你并不能从一个人学习某个特定东西的快慢来判断他的能力。</p>
+</blockquote>
+<p>目前是把时间当作常量、成绩当作变量，这无法避免至少三分之一的学生无法达到教学目标。而为实现教育目的，应把成绩当作常量、时间当作变量。如加涅《教学设计原理》中提到“用田径赛作一个类比吧。假设在一个一英的赛跑中,如果枪响时比赛开始,四分钟后随着另一声枪响,比赛结束,每个人都必须停在当前位置。大约五分钟后,另一声枪响,第二场比赛开始,每个人都从上次比赛结束时的位置起跑。这种做法会更加令人吃惊。”</p>
+<blockquote>
+<p>比如我们应该让一个4岁的孩子背很多唐诗，认很多字，学习加减法吗？脑科学家的看法是6岁以前的孩子最应该做的事情是玩儿，孩子要在玩耍的过程中学会怎么跟人打交道，各个东西都是干什么用的。那么求知的你，应该相信脑科学家的意见，而不是听邻居二大妈怎么说。</p>
+</blockquote>
+<p>也不是相信各种标题党推文。</p>
+<blockquote>
+<p>思维导图——为了引导思维而画张图</p>
+</blockquote>
+<p>这个角度来说，思维导图传播价值为零。太多的导图等于多级目录。</p>]]></content>
+            
+                 
+                    
+                 
+                    
+                         
+                        
+                            
+                             
+                                <category scheme="https://immmmm.com/tags/%E8%82%B2%E4%BA%BA" term="%E8%82%B2%E4%BA%BA" label="育人" />
+                            
+                        
+                    
+                
+            
+        </entry>
     
         
         <entry>
@@ -426,101 +512,6 @@
                             
                              
                                 <category scheme="https://immmmm.com/tags/%E6%8A%98%E8%85%BE" term="%E6%8A%98%E8%85%BE" label="折腾" />
-                            
-                        
-                    
-                
-            
-        </entry>
-    
-        
-        <entry>
-            <title type="html"><![CDATA[二〇二一，你好]]></title>
-            <link href="https://immmmm.com/hi-2021/" rel="alternate" type="text/html" />
-            
-                <id>https://immmmm.com/hi-2021/</id>
-            
-            
-            <published>2021-01-02T14:22:57+08:00</published>
-            <updated>2021-01-02T14:22:57+08:00</updated>
-            
-            
-            <content type="html"><![CDATA[<p>回望，过去这一年，在如此不确定下仍能过着几乎正常的生活，万分庆幸！</p>
-<p>生命不止，折腾不息。</p>
-<h3 id="gridea">Gridea</h3>
-<p>弃用某静态托管平台，启用 <a href="https://gridea.dev/">Gridea</a> 分离出 <a href="https://i.immmmm.com/">「林小沐」</a> “晒娃”子博客。</p>
-<p>转制了几款主题： <a href="https://immmmm.com/gridea-theme-puti/">Gridea Theme Puti</a>、<a href="https://immmmm.com/gridea-theme-motify/">Gridea Theme Motify</a>、<a href="https://immmmm.com/gridea-theme-webstack/">Gridea Theme WebStack</a></p>
-<h3 id="hugo">Hugo</h3>
-<p>感谢 <a href="https://dearroy.com/">@罗伊</a> 收留这小站，借助 VS Code + Github + VPS 开启静态博客新体验！前两项实现多设备同步数据，后一项实现域名管理、站点提速。</p>
-<p>也相应折腾了些，如： <a href="https://github.com/lmm214/immmmm/tree/master/themes/hello-friend">「hello-friend」自用版</a>、<a href="https://immmmm.com/hugo-theme-webstack/">Hugo Theme Webstack</a></p>
-<h3 id="评论和哔哔">评论和哔哔</h3>
-<p>停用 Leancloud，转入腾讯云 Cloudbase，舒心多了，被流控邮件提醒烦了。</p>
-
-
-
-
-	
-		
-	
-
-
-<div class="post-preview">
-  <div class="post-preview--meta" style="width:100%;">
-    <div class="post-preview--middle">
-      <h4 class="post-preview--title">
-        <a target="_blank" href="https://immmmm.com/hello-twikoo-comment/">启用 Twikoo 评论系统</a>
-      </h4>
-      <time class="post-preview--date">2020-11-21</time>
-      
-      <small>#折腾&nbsp;</small>
-      
-      <section style="max-height:96px;overflow:hidden;" class="post-preview--excerpt">
-        感谢 @iMaeGoo 大神用爱发电，顺利启用 Twikoo 评论系统，并完美迁移 Valine 评论数据。
-下午在 @大大的小蜗牛  博客看到评论系统右下角竟然不是 Valine 哦，赫然显示这 Twikoo，啥？！
-原来是基于腾讯云开发的评论系统，换！
-
-      </section>
-    </div>
-  </div>
-  
-</div>
-
-
-
-<p>有些功能被限，总有人出来继续造轮子！再次感谢 <a href="https://www.imaegoo.com/">@iMaeGoo</a> !</p>
-<h3 id="微信小程序">微信小程序</h3>
-<p><img loading='lazy' src="https://lmm.elizen.me/images/2021/01/xcx.png" alt="xcx"  /></p>
-<p>前后边学边做将近三年，用 <a href="https://cloud.minapp.com/">知晓云</a> 作为后端和 <a href="https://github.com/weilanwl/ColorUI">ColorUI</a> 样式库，基本上已发开出自己想开发的功能，从最初每年几百的后端费用，现在累计广告收入也有 3K，大部分收入是特殊时期。当然，平常也就几毛，刚出了个开屏广告，每天又能多个几毛，月底勉强攒美式！</p>
-<p>对于折腾，不再偏执追求像素级、100% Online，适当的妥协能让自己多睡几天早觉。</p>
-<h3 id="玩物废志">玩物废志</h3>
-<p><img loading='lazy' src="https://lmm.elizen.me/images/2021/01/brawl.PNG" alt="brawl"  /></p>
-<p>年中成为 Nintendo Switch 国行勇士一员，旷野肝了200h+，荒野肝了6K多场，无数次凌晨，如知吸烟有害依然照吸不误，以此自我说明基因强大。</p>
-<h3 id="十年之约">十年之约</h3>
-<figure>
-    <img src="https://lmm.elizen.me/images/2021/01/foreverblog-1.png"/><figcaption>博客十年之约</figcaption></figure>
-
-<p>RSS聚合：<a href="http://rss.foreverblog.cn/">http://rss.foreverblog.cn/</a></p>
-<p>当初也利用 Google API 整过一个，现在坚持用 feed 订阅算是一种情怀啦！</p>
-<h3 id="阅读刷剧">阅读刷剧</h3>
-<p>工作外的八小时，带娃、看书、刷剧、刷圈……都要！让自己成为有点俗、有点雅、有点意思不单调的人。</p>
-<p>阅读上几乎都是“医学”和“教育”主题，异常赞同这句“理论的实践性解读，教学实践的理论性反思”，特别对于一线实践的我们来说，更应该体现自己的“实践智慧”，避免教学改革常见弊病，即一直在追赶潮流，最终却一无所成。</p>
-<p>感慨，挑书不误看书功。追着一本里的一串参考书目，大大降低踩坑几率。</p>
-<p><a href="https://movie.douban.com/subject/33477335/">https://movie.douban.com/subject/33477335/</a></p>
-<p><a href="https://movie.douban.com/subject/30223100/">https://movie.douban.com/subject/30223100/</a></p>
-<p><a href="https://movie.douban.com/subject/25806638/">https://movie.douban.com/subject/25806638/</a></p>
-<p>刷剧，感慨，平淡是真！</p>
-<h3 id="结语">结语</h3>
-<p>遗憾总归有的，过去的就让他过去吧，抬头是星辰大海，低头是爱与被爱。</p>]]></content>
-            
-                 
-                    
-                 
-                    
-                         
-                        
-                            
-                             
-                                <category scheme="https://immmmm.com/tags/%E6%97%A5%E5%B8%B8" term="%E6%97%A5%E5%B8%B8" label="日常" />
                             
                         
                     
