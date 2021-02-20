@@ -142,6 +142,45 @@
     
     <div class="post on-list coding">
     
+      <h1 class="post-title"><a href="https://immmmm.com/hugo-diy-post-type/">Hugo 自定义文章样式</a></h1>
+      <div class="post-meta">
+        
+          <span class="post-date">
+            2020-04-12 18:00:27
+          </span>
+        
+
+        
+        <span class="">
+          
+            #<a href="https://immmmm.com/tags/%E6%8A%98%E8%85%BE/">折腾</a>&nbsp;
+          
+        </span>
+        
+      </div>
+
+      
+
+      <div class="post-content $PostCate">
+      
+        <p>之前 WordPress 推出不同文章样式，如轻博客一样，发一句话、链接或视频有不同的显示效果。之后，用 Hexo、Bitcron 时都以文件夹形式进行文章分类，并以此为判断条件。</p>
+<p>效果见：<a href="https://immmmm.com/posts/chat/">https://immmmm.com/posts/chat/</a></p>
+<pre><code>content
+├── posts
+│   ├── chat
+│   ├── coding
+│   ├── daily
+│   ├── reading
+</code></pre><p>如 <code>chat</code> 目录内的 md 文件是以一句话的模式（头像+时间）显示，怎么实现呢？利用 Hugo 的 <a href="https://gohugo.io/variables/files/">.File.Dir</a> 和 <a href="https://gohugo.io/functions/replacere/">replaceRE</a> 正则。</p>
+        <div><a class="read-more button" href="/hugo-diy-post-type/">阅读全文 →</a></div>
+      
+      </div>
+    
+    </div>
+    
+    
+    <div class="post on-list coding">
+    
       <h1 class="post-title"><a href="https://immmmm.com/hugo-readdir-photos-single/">Hugo 显示指定文件夹内图片</a></h1>
       <div class="post-meta">
         
@@ -472,42 +511,6 @@
 {{ end }}
 </code></pre></div>
         <div><a class="read-more button" href="/hugo-template-code/">阅读全文 →</a></div>
-      
-      </div>
-    
-    </div>
-    
-    
-    <div class="post on-list coding">
-    
-      <h1 class="post-title"><a href="https://immmmm.com/hugo-add-breadcrumb/">Hugo 添加面包屑导航</a></h1>
-      <div class="post-meta">
-        
-          <span class="post-date">
-            2020-03-31 21:59:00
-          </span>
-        
-
-        
-        <span class="">
-          
-            #<a href="https://immmmm.com/tags/%E6%8A%98%E8%85%BE/">折腾</a>&nbsp;
-          
-        </span>
-        
-      </div>
-
-      
-
-      <div class="post-content $PostCate">
-      
-        <figure>
-    <img src="https://lmm.elizen.me/images/2020/03/breadcrumb-1.png" width="50%"/><img src="https://lmm.elizen.me/images/2020/03/breadcrumb-2.png" width="50%" />
-    <figcaption>黑+白，疗效好</figcaption>
-  </figure>
-<p>「不问明天，悠然浪费」，多少年前看到的一句话，一直作为博客的 Slogan ，如同“谶语”般的存在！ 😷</p>
-<p>说回正题，折腾流程如下：</p>
-        <div><a class="read-more button" href="/hugo-add-breadcrumb/">阅读全文 →</a></div>
       
       </div>
     
@@ -907,11 +910,13 @@
 
     
 
+    
+
 
 <footer class="footer">
   <div class="footer__inner">
     <div class="copyright">
-      <span>共 177 篇文章</span><span> 86059 字</span>
+      <span>共 178 篇文章</span><span> 87828 字</span>
     </div>
     
       <div class="copyright">

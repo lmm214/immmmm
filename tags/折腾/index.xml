@@ -6,10 +6,21 @@
     <description>Recent content in 折腾 on 木木木木木</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 16 Jan 2021 22:26:12 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 20 Feb 2021 22:39:08 +0800</lastBuildDate>
     
 	<atom:link href="https://immmmm.com/tags/%E6%8A%98%E8%85%BE/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hi,Bitwarden</title>
+      <link>https://immmmm.com/bt-docker-bitwarden/</link>
+      <pubDate>Sat, 20 Feb 2021 22:39:08 +0800</pubDate>
+      
+      <guid>https://immmmm.com/bt-docker-bitwarden/</guid>
+      <description>&lt;p&gt;LastPass 一直用着挺舒坦，除了一直提醒要更新，但现在要更改成免费策略，只能单客户端。终于给了自己折腾雪藏已久的 Bitwarden 一个理由！&lt;/p&gt;
+&lt;p&gt;可以直接注册个账号用，也可自己部署到服务器。选择后者，一搜索真有手把手教程，实在写得太到位，也避免丢失，转载保存！感谢！&lt;/p&gt;
+&lt;p&gt;以下内容转载自： &lt;a href=&#34;https://liubing.me/bt-docker-build-bitwarden.html&#34;&gt;https://liubing.me/bt-docker-build-bitwarden.html&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>熟悉的味道，不一样配方</title>
@@ -125,19 +136,6 @@
       
       <guid>https://immmmm.com/bb-pro/</guid>
       <description>Pro N0.1 前端支持链接、图片显示。发哔哔的时候插入图片链接或网址链接，会自动识别显示。核心代码来自 @黑石 : function urlToLink(str) { var re =/\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|gif))\S+/g; var re_forpic =/\bhttps?:\/\/.*?(\.gif|\.jpeg|\.png|\.jpg|\.bmp|\.webp)/g; str =str.replace(re,function (website) { return &amp;#34;&amp;lt;a href=&amp;#39;&amp;#34; + website + &amp;#34;&amp;#39; target=&amp;#39;_blank&amp;#39;&amp;gt; &amp;lt;i class=&amp;#39;iconfont icon-lianjie-copy&amp;#39;&amp;gt;&amp;lt;/i&amp;gt;链接 &amp;lt;/a&amp;gt;&amp;#34;; }); str =str.replace(re_forpic,function (imgurl) { return &amp;#34;&amp;lt;img src=&amp;#39;&amp;#34; + imgurl + &amp;#34;&amp;#39; /&amp;gt; &amp;#34;; }); return str; } 完整代码参考本主题 bb.html</description>
-    </item>
-    
-    <item>
-      <title>微信小程序评论开发踩坑记</title>
-      <link>https://immmmm.com/bugs-wx-minapp/</link>
-      <pubDate>Sat, 19 Dec 2020 23:48:16 +0800</pubDate>
-      
-      <guid>https://immmmm.com/bugs-wx-minapp/</guid>
-      <description>&lt;p&gt;容我吐会儿！！！🤮&lt;/p&gt;
-&lt;p&gt;冲动是魔鬼，就因看了 &lt;a href=&#34;https://www.ifanr.com/minapp/916787&#34;&gt;10 分钟教你实现一个朋友圈小程序&lt;/a&gt; ，SoGa！换下臃肿的 &lt;a href=&#34;https://github.com/yicm/NewWxComment&#34;&gt;NewWxComment&lt;/a&gt; ，直接原生知晓云纯收工评论开码！&lt;/p&gt;
-&lt;p&gt;刚干完了：评论、相对时间、评论分页、下拉加载、排序切换、点赞、回复、前端删除、订阅消息！除了提交新评论会重新拉取数据，其他前后端分别处理。最舒心的是评论回复的消息通知！&lt;/p&gt;
-&lt;h3 id=&#34;相对时间&#34;&gt;相对时间&lt;/h3&gt;
-&lt;p&gt;时间戳转 Date 及格式化，吐在不支持 &lt;code&gt;new Date()&lt;/code&gt; ，在 wxml 内调用 wxs 搞定！&lt;/p&gt;</description>
     </item>
     
   </channel>
