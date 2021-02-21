@@ -7,7 +7,7 @@
             <link href="https://immmmm.com/atom.xml" rel="self" type="application/rss+xml" title="atom" />
             <link href="https://immmmm.com/" rel="alternate" type="text/html" title="HTML" />
             <link href="https://immmmm.com/index.json" rel="alternate" type="application/json" title="JSON" />
-    <updated>2021-02-20T14:58:44+00:00</updated>
+    <updated>2021-02-21T12:29:16+00:00</updated>
     
     
     
@@ -82,8 +82,7 @@
 <p>可以到bitwarden官网自行下载：<a href="https://bitwarden.com/#download">https://bitwarden.com/#download</a></p>
 <h3 id="连接自建的服务">连接自建的服务</h3>
 <p>以CHrome的插件为例子，如果之前有安装及登录过，可以在设置中退出登录。点击左上角的设置图标，填写自建服务器的URL保存后登录即可。</p>
-<p><img loading='lazy' src="https://lmm.elizen.me/images/2021/02/bw-13.png" alt="bw-13"  /></p>
-<p><img loading='lazy' src="https://lmm.elizen.me/images/2021/02/bw-14.png" alt="bw-14"  /></p>
+<p><img loading='lazy' src="https://lmm.elizen.me/images/2021/02/bw-13.png" alt="bw-13"  /> <img loading='lazy' src="https://lmm.elizen.me/images/2021/02/bw-14.png" alt="bw-14"  /></p>
 <h3 id="结语">结语</h3>
 <p>最后就可以愉快的在浏览器和手机上愉快的使用了，顺便说句：我的密码存储我做主，再也不用害怕密码忘记的事了，也可以记录些银行卡等隐私信息，随时复制。</p>]]></content>
             
