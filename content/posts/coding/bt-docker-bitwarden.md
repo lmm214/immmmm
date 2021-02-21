@@ -103,9 +103,7 @@ docker run -d --name Bitwarden \
 
 以CHrome的插件为例子，如果之前有安装及登录过，可以在设置中退出登录。点击左上角的设置图标，填写自建服务器的URL保存后登录即可。
 
-![bw-13](https://lmm.elizen.me/images/2021/02/bw-13.png)
-
-![bw-14](https://lmm.elizen.me/images/2021/02/bw-14.png)
+![bw-13](https://lmm.elizen.me/images/2021/02/bw-13.png) ![bw-14](https://lmm.elizen.me/images/2021/02/bw-14.png)
 
 ### 结语
 最后就可以愉快的在浏览器和手机上愉快的使用了，顺便说句：我的密码存储我做主，再也不用害怕密码忘记的事了，也可以记录些银行卡等隐私信息，随时复制。
