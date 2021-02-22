@@ -42,5 +42,5 @@ jobs:
         uses: yakumioto/serverchan-action@v1
         with:
           key: ${{ secrets.sckey }}
-          text: 'immmmm.com 构建完成'
-          desp: 'immmmm.com 构建完成'
+          text: 'immmmm.com'
+          desp: '构建完成'
