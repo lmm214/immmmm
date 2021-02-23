@@ -7,12 +7,43 @@
             <link href="https://immmmm.com/atom.xml" rel="self" type="application/rss+xml" title="atom" />
             <link href="https://immmmm.com/" rel="alternate" type="text/html" title="HTML" />
             <link href="https://immmmm.com/index.json" rel="alternate" type="application/json" title="JSON" />
-    <updated>2021-02-22T13:34:35+00:00</updated>
+    <updated>2021-02-23T07:25:25+00:00</updated>
     
     
     
     
         <id>https://immmmm.com/atom.xml</id>
+    
+        
+        <entry>
+            <title type="html"><![CDATA[2021-02-23]]></title>
+            <link href="https://immmmm.com/2021-02-23/" rel="alternate" type="text/html" />
+            
+                <id>https://immmmm.com/2021-02-23/</id>
+            
+            
+            <published>2021-02-23T15:23:46+08:00</published>
+            <updated>2021-02-23T15:23:46+08:00</updated>
+            
+            
+            <content type="html"><![CDATA[<p><a href="https://sct.ftqq.com/">「Server酱」</a>、<a href="https://qmsg.zendee.cn/">「Qmsg酱」</a>、<a href="https://github.com/anhao/TgMessage">「TgMessage」</a> 一个个对接完毕，用上了评论回复提醒、博客自动化部署通知，然后呢？想了好几天，感觉也没啥信息需要主动接收的……这货还能怎么玩儿呢？</p>
+]]></content>
+            
+                 
+                    
+                 
+                    
+                         
+                        
+                            
+                             
+                                <category scheme="https://immmmm.com/tags/%E8%AF%8D%E7%A9%B7" term="%E8%AF%8D%E7%A9%B7" label="词穷" />
+                            
+                        
+                    
+                
+            
+        </entry>
     
         
         <entry>
@@ -331,95 +362,6 @@
 .<span style="color:#a6e22e">talk-list</span>{<span style="color:#66d9ef">margin</span>: <span style="color:#ae81ff">0</span>;<span style="color:#66d9ef">max-height</span>: <span style="color:#ae81ff">35</span><span style="color:#66d9ef">px</span>;<span style="color:#66d9ef">overflow</span>: <span style="color:#66d9ef">hidden</span>;}
 .<span style="color:#a6e22e">talk-list</span> <span style="color:#f92672">li</span> {<span style="color:#66d9ef">list-style</span>: <span style="color:#66d9ef">none</span>;<span style="color:#66d9ef">margin-bottom</span>: <span style="color:#ae81ff">10</span><span style="color:#66d9ef">px</span>;<span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;<span style="color:#66d9ef">white-space</span>: <span style="color:#66d9ef">nowrap</span>;<span style="color:#66d9ef">text-overflow</span>: <span style="color:#66d9ef">ellipsis</span>;<span style="color:#66d9ef">overflow</span>: <span style="color:#66d9ef">hidden</span>;}
 </code></pre></div><p>END.</p>]]></content>
-            
-                 
-                    
-                 
-                    
-                         
-                        
-                            
-                             
-                                <category scheme="https://immmmm.com/tags/%E6%8A%98%E8%85%BE" term="%E6%8A%98%E8%85%BE" label="折腾" />
-                            
-                        
-                    
-                
-            
-        </entry>
-    
-        
-        <entry>
-            <title type="html"><![CDATA[腾讯 CloudBase ，开启一键部署]]></title>
-            <link href="https://immmmm.com/tx-cloudbase-framework/" rel="alternate" type="text/html" />
-            
-                <id>https://immmmm.com/tx-cloudbase-framework/</id>
-            
-            
-            <published>2021-01-09T22:26:22+08:00</published>
-            <updated>2021-01-09T22:26:22+08:00</updated>
-            
-            
-            <content type="html"><![CDATA[<blockquote>
-<p>一键部署按钮可以让公开的 Git 项目一键部署到云开发 CloudBase 上，大大简化用户部署的门槛，方便用户快速使用和体验应用。一键部署功能支持 Github，Gitlab，Coding，Gitee 等 Git 仓库地址。</p>
-</blockquote>
-<p>利用 <a href="https://docs.cloudbase.net/framework/plugins/">CloudBase Framework</a> 把应用配置写在一个 <code>cloudbaserc.json</code> 文件中，把这个配置和相关文件上传仓库，然后生成 <a href="https://docs.cloudbase.net/framework/deploy-button.html#bu-shu-an-niu-shi-ru-he-gong-zuo-de">一键部署按钮</a> 。</p>
-<p>比如 BBer 的 Git仓库目录：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">├── bber
-│   ├── index.js
-│   └── package.json
-└── cloudbaserc.json
-</code></pre></div><p>它的一键部署链接，其实就下面这句：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">https://console.cloud.tencent.com/tcb/env/index?action=CreateAndDeployCloudBaseProject<span style="color:#960050;background-color:#1e0010">&amp;</span>appUrl=https://github.com/lmm214/bber<span style="color:#960050;background-color:#1e0010">&amp;</span>branch=main
-</code></pre></div><p>打开链接 Tcb 会根据 <code>cloudbaserc.json</code> 内的配置自动构建云函数、数据库、云存储等等内容。以 BBer 为例，能不能一键部署成功，还得<del>看脸</del>看配置文件：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
-  <span style="color:#f92672">&#34;version&#34;</span>: <span style="color:#e6db74">&#34;2.0&#34;</span>,  <span style="color:#960050;background-color:#1e0010">//一开始随后改成</span> <span style="color:#960050;background-color:#1e0010">1.0</span> <span style="color:#960050;background-color:#1e0010">悲催一整夜！</span>
-  <span style="color:#f92672">&#34;envId&#34;</span>: <span style="color:#e6db74">&#34;{{envId}}&#34;</span>,  <span style="color:#960050;background-color:#1e0010">//2.0才能用这个动态变量</span> <span style="color:#960050;background-color:#1e0010">{{envId</span>}<span style="color:#960050;background-color:#1e0010">}</span>
-  <span style="color:#e6db74">&#34;functionRootPath&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#e6db74">&#34;.&#34;</span><span style="color:#960050;background-color:#1e0010">,</span>  <span style="color:#960050;background-color:#1e0010">//根目录就一个点</span>
-  <span style="color:#e6db74">&#34;functions&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> [
-    {
-      <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;bber&#34;</span>,
-      <span style="color:#f92672">&#34;timeout&#34;</span>: <span style="color:#ae81ff">30</span>,
-      <span style="color:#f92672">&#34;runtime&#34;</span>: <span style="color:#e6db74">&#34;Nodejs10.15&#34;</span>,
-      <span style="color:#f92672">&#34;memorySize&#34;</span>: <span style="color:#ae81ff">128</span>,
-      <span style="color:#f92672">&#34;handler&#34;</span>: <span style="color:#e6db74">&#34;index.main&#34;</span>
-    }
-  ]<span style="color:#960050;background-color:#1e0010">,</span>
-  <span style="color:#e6db74">&#34;framework&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {
-    <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;bber&#34;</span>,
-    <span style="color:#f92672">&#34;plugins&#34;</span>: {
-      <span style="color:#f92672">&#34;function&#34;</span>: {  <span style="color:#960050;background-color:#1e0010">//部署云函数文件</span> <span style="color:#960050;background-color:#1e0010">index.js</span> <span style="color:#960050;background-color:#1e0010">和</span> <span style="color:#960050;background-color:#1e0010">package.json</span>
-        <span style="color:#f92672">&#34;use&#34;</span>: <span style="color:#e6db74">&#34;@cloudbase/framework-plugin-function&#34;</span>,
-        <span style="color:#f92672">&#34;inputs&#34;</span>: {
-          <span style="color:#f92672">&#34;functionRootPath&#34;</span>: <span style="color:#e6db74">&#34;.&#34;</span>,
-          <span style="color:#f92672">&#34;functions&#34;</span>: [{ <span style="color:#960050;background-color:#1e0010">//云函数名儿</span>
-              <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;bber&#34;</span>,
-              <span style="color:#f92672">&#34;timeout&#34;</span>: <span style="color:#ae81ff">30</span>,
-              <span style="color:#f92672">&#34;envVariables&#34;</span>: {},
-              <span style="color:#f92672">&#34;runtime&#34;</span>: <span style="color:#e6db74">&#34;Nodejs10.15&#34;</span>,
-              <span style="color:#f92672">&#34;memory&#34;</span>: <span style="color:#ae81ff">128</span>
-          }],
-          <span style="color:#f92672">&#34;servicePaths&#34;</span>: { <span style="color:#960050;background-color:#1e0010">//开启http访问链接</span>
-            <span style="color:#f92672">&#34;bber&#34;</span>: <span style="color:#e6db74">&#34;/bber&#34;</span>
-          }
-        }
-      },
-      <span style="color:#f92672">&#34;client&#34;</span>: {  <span style="color:#960050;background-color:#1e0010">//创建数据库集合</span>
-        <span style="color:#f92672">&#34;use&#34;</span>: <span style="color:#e6db74">&#34;@cloudbase/framework-plugin-database&#34;</span>,
-        <span style="color:#f92672">&#34;inputs&#34;</span>: {
-          <span style="color:#f92672">&#34;collections&#34;</span>: [
-            {
-              <span style="color:#f92672">&#34;collectionName&#34;</span>: <span style="color:#e6db74">&#34;talks&#34;</span>,  <span style="color:#960050;background-color:#1e0010">//集合名儿</span>
-              <span style="color:#f92672">&#34;aclTag&#34;</span>: <span style="color:#e6db74">&#34;ADMINWRITE&#34;</span>  <span style="color:#960050;background-color:#1e0010">//权限为所有人可读仅管理员可写</span>
-            }
-          ]
-        }
-      }
-    }
-  }
-<span style="color:#960050;background-color:#1e0010">}</span>
-</code></pre></div><p>更多其它插件看官方文档：<a href="https://docs.cloudbase.net/framework/plugins/">云开发 CloudBase 插件</a></p>
-<p>好了，简简单单一个配置文件一个链接，把 BBer 应用需要的手动云函数、手动数据库、手动HTTP访问链接，一键部署！</p>]]></content>
             
                  
                     

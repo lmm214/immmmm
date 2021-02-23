@@ -142,6 +142,47 @@
     
     <div class="post on-list coding">
     
+      <h1 class="post-title"><a href="https://immmmm.com/hugo-template-code/">Hugo 主题常用的代码片段</a></h1>
+      <div class="post-meta">
+        
+          <span class="post-date">
+            2020-04-01 09:46:00
+          </span>
+        
+
+        
+        <span class="">
+          
+            #<a href="https://immmmm.com/tags/%E6%8A%98%E8%85%BE/">折腾</a>&nbsp;
+          
+        </span>
+        
+      </div>
+
+      
+
+      <div class="post-content $PostCate">
+      
+        <h3 id="全站-site">全站 Site</h3>
+<p>网址：<code>.Site.BaseURL</code></p>
+<p>标题：<code>.Site.Title</code>，示例：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ $.Site.BaseURL }}&#34;</span>&gt;{{ $.Site.Title }}&lt;/<span style="color:#f92672">a</span>&gt;
+</code></pre></div><p>副标题：<code>.Site.Params.description</code></p>
+<p>关键词：<code>.Site.Params.keywords</code></p>
+<p>头部菜单：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">{{ range $.Site.Menus.main }}
+	&lt;<span style="color:#f92672">li</span>&gt;&lt;<span style="color:#f92672">a</span> <span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{{ .URL }}&#34;</span>&gt;{{ .Name }}&lt;/<span style="color:#f92672">a</span>&gt;&lt;/<span style="color:#f92672">li</span>&gt;
+{{ end }}
+</code></pre></div>
+        <div><a class="read-more button" href="/hugo-template-code/">阅读全文 →</a></div>
+      
+      </div>
+    
+    </div>
+    
+    
+    <div class="post on-list coding">
+    
       <h1 class="post-title"><a href="https://immmmm.com/hugo-add-breadcrumb/">Hugo 添加面包屑导航</a></h1>
       <div class="post-meta">
         
@@ -441,41 +482,6 @@ https://github.com/lmm214/immmmm/edit/master/content/posts/coding/hugo-themes.md
 $ docker run -d --name rsshub -p 1200:1200 diygod/rsshub
 </code></pre><p>用宝塔面板的话，放行 1200 端口。浏览器打开 http://IP:1200/ ，看到成功页面。✅</p>
         <div><a class="read-more button" href="/rsshub-docker/">阅读全文 →</a></div>
-      
-      </div>
-    
-    </div>
-    
-    
-    <div class="post on-list coding">
-    
-      <h1 class="post-title"><a href="https://immmmm.com/hugo-github-actions/">Hugo + Github Actions 实现自动化部署</a></h1>
-      <div class="post-meta">
-        
-          <span class="post-date">
-            2020-03-19 00:00:00
-          </span>
-        
-
-        
-        <span class="">
-          
-            #<a href="https://immmmm.com/tags/%E6%8A%98%E8%85%BE/">折腾</a>&nbsp;
-          
-        </span>
-        
-      </div>
-
-      
-
-      <div class="post-content $PostCate">
-      
-        <p>不折腾点东西总觉得浑浑噩噩，折腾点东西搞得脑袋晕晕乎乎！</p>
-<h3 id="折腾需求">折腾需求</h3>
-<p>为更新 <a href="https://edui.fun/">https://edui.fun/</a> 导航站能随手些，造了 <a href="https://immmmm.com/gridea-theme-webstack/">Gridea Theme WebStack</a> 。每次得源文件切换加载，但只为加几行代码，等等等；</p>
-<p>折腾一天，已实现直接在 GitHub  <code>master</code> 添加代码，<code>Github Actions </code> 自动构建 <code>Hugo</code> 静态文件到 <code>gh-pages</code> 分支，外加同步 webhook 到自己的服务器。</p>
-<p>再也不用 git 来 git 去！</p>
-        <div><a class="read-more button" href="/hugo-github-actions/">阅读全文 →</a></div>
       
       </div>
     
@@ -877,11 +883,13 @@ $ docker run -d --name rsshub -p 1200:1200 diygod/rsshub
 
     
 
+    
+
 
 <footer class="footer">
   <div class="footer__inner">
     <div class="copyright">
-      <span>共 178 篇文章</span><span> 87828 字</span>
+      <span>共 179 篇文章</span><span> 87921 字</span>
     </div>
     
       <div class="copyright">

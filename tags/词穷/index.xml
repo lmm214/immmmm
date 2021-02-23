@@ -6,10 +6,19 @@
     <description>Recent content in 词穷 on 木木木木木</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 03 Dec 2020 21:46:26 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 23 Feb 2021 15:23:46 +0800</lastBuildDate>
     
 	<atom:link href="https://immmmm.com/tags/%E8%AF%8D%E7%A9%B7/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>2021-02-23</title>
+      <link>https://immmmm.com/2021-02-23/</link>
+      <pubDate>Tue, 23 Feb 2021 15:23:46 +0800</pubDate>
+      
+      <guid>https://immmmm.com/2021-02-23/</guid>
+      <description>「Server酱」、「Qmsg酱」、「TgMessage」 一个个对接完毕，用上了评论回复提醒、博客自动化部署通知，然后呢？想了好几天，感觉也没啥信息需要主动接收的……这货还能怎么玩儿呢？</description>
+    </item>
     
     <item>
       <title>2020-12-03</title>
@@ -46,15 +55,6 @@
       <guid>https://immmmm.com/2020-04-12/</guid>
       <description>&lt;p&gt;👩🏻：今天要不要出去玩？&lt;/p&gt;
 &lt;p&gt;🐑：不要了吧，在家玩也可以。疫情期间，尽量不要出门。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>2020-04-10</title>
-      <link>https://immmmm.com/2020-04-10/</link>
-      <pubDate>Fri, 10 Apr 2020 00:35:24 +0800</pubDate>
-      
-      <guid>https://immmmm.com/2020-04-10/</guid>
-      <description>&lt;p&gt;臭小子，我，相伴一天，无争吵无游戏，明日继续。星期几？几号？几月？谁都没个准。&lt;/p&gt;</description>
     </item>
     
   </channel>
