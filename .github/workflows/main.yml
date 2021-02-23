@@ -37,3 +37,10 @@ jobs:
         env:
           webhook_url: ${{ secrets.WEBHOOK_URL }}
           webhook_secret: ${{ secrets.WEBHOOK_SECRET }}
+          
+      - name: Sending message
+        uses: yakumioto/serverchan-action@v1
+        with:
+          key: ${{ secrets.sckey }}
+          text: 'immmmm.com'
+          desp: '构建完成'
