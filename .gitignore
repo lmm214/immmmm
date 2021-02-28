@@ -1,2 +1,7 @@
 **/.DS_Store
 .favorites.json
+content/posts/.markeditor/file_manager_status.config
+content/posts/.markeditor/file_manager_width.config
+.gitignore
+content/posts/configs/sorts.json
+.gitignore
