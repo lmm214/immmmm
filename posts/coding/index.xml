@@ -6,10 +6,20 @@
     <description>Recent content in 折腾 on 木木木木木</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 20 Feb 2021 22:39:08 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 07 Mar 2021 18:30:49 +0800</lastBuildDate>
     
 	<atom:link href="https://immmmm.com/posts/coding/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Widgy 高自由度小组件</title>
+      <link>https://immmmm.com/widgy-widget/</link>
+      <pubDate>Sun, 07 Mar 2021 18:30:49 +0800</pubDate>
+      
+      <guid>https://immmmm.com/widgy-widget/</guid>
+      <description>&lt;p&gt;Widgy 官方社区：&lt;a href=&#34;https://www.reddit.com/r/widgy/&#34;&gt;https://www.reddit.com/r/widgy/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Widgy 采用多图层创建小组件，让你能想显示的信息、样式都能调用自定义修改。免费版能显示1个小组件，30大洋全解锁，舒心！逛逛改改社区下载下来的小组件，一个周末已 End ！&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Hi,Bitwarden</title>
@@ -127,15 +137,6 @@
 &lt;p&gt;&lt;code&gt;/bber KEY,HTTP访问地址&lt;/code&gt; - 添加绑定&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;对，绑定只需要2个信息，一个自定义的 &lt;code&gt;KEY&lt;/code&gt; 和 &lt;code&gt;云函数的http访问地址&lt;/code&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>哔哔 Pro</title>
-      <link>https://immmmm.com/bb-pro/</link>
-      <pubDate>Mon, 28 Dec 2020 23:39:12 +0800</pubDate>
-      
-      <guid>https://immmmm.com/bb-pro/</guid>
-      <description>Pro N0.1 前端支持链接、图片显示。发哔哔的时候插入图片链接或网址链接，会自动识别显示。核心代码来自 @黑石 : function urlToLink(str) { var re =/\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|gif))\S+/g; var re_forpic =/\bhttps?:\/\/.*?(\.gif|\.jpeg|\.png|\.jpg|\.bmp|\.webp)/g; str =str.replace(re,function (website) { return &amp;#34;&amp;lt;a href=&amp;#39;&amp;#34; + website + &amp;#34;&amp;#39; target=&amp;#39;_blank&amp;#39;&amp;gt; &amp;lt;i class=&amp;#39;iconfont icon-lianjie-copy&amp;#39;&amp;gt;&amp;lt;/i&amp;gt;链接 &amp;lt;/a&amp;gt;&amp;#34;; }); str =str.replace(re_forpic,function (imgurl) { return &amp;#34;&amp;lt;img src=&amp;#39;&amp;#34; + imgurl + &amp;#34;&amp;#39; /&amp;gt; &amp;#34;; }); return str; } 完整代码参考本主题 bb.html</description>
     </item>
     
   </channel>

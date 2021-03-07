@@ -23,7 +23,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://immmmm.com/posts/coding/" />
-<meta property="og:updated_time" content="2021-02-20T22:39:08+08:00" />
+<meta property="og:updated_time" content="2021-03-07T18:30:49+08:00" />
 
 
 <link rel="alternate" type="application/rss+xml" href="/posts/coding/index.xml" title="木木木木木" />
@@ -134,6 +134,46 @@
   <div id="bber-talk"></div>
   
   <div class="posts">
+    
+    
+    <div class="post on-list coding">
+    
+      <h1 class="post-title"><a href="https://immmmm.com/hugo-total-count/">Hugo 总文章数和总字数</a></h1>
+      <div class="post-meta">
+        
+          <span class="post-date">
+            2020-04-10 14:46:43
+          </span>
+        
+
+        
+        <span class="">
+          
+            #<a href="https://immmmm.com/tags/%E6%8A%98%E8%85%BE/">折腾</a>&nbsp;
+          
+        </span>
+        
+      </div>
+
+      
+
+      <div class="post-content $PostCate">
+      
+        <p>前者在某个大神主题中翻到，一句代码：</p>
+<pre><code>共 {{ len (where .Site.RegularPages &quot;Section&quot; &quot;posts&quot;) }} 篇文章
+</code></pre><p>总字数没有现成参数，官方手册看到 <a href="https://gohugo.io/functions/scratch/">.Scratch.Add</a> 瞎折腾完成:</p>
+<pre><code>{{$scratch := newScratch}}
+{{ range (where .Site.Pages &quot;Kind&quot; &quot;page&quot; )}}
+    {{$scratch.Add &quot;total&quot; .WordCount}}
+{{ end }}
+</code></pre><p>新建了个参数累加所有文章的 <code>.WordCount</code> 字数，一般放 footer 头几行，下面是调用代码：</p>
+<pre><code>总计 {{$scratch.Get &quot;total&quot; }} 字
+</code></pre>
+        
+      
+      </div>
+    
+    </div>
     
     
     <div class="post on-list coding">
@@ -480,42 +520,6 @@ https://github.com/lmm214/immmmm/edit/master/content/posts/coding/hugo-themes.md
       
         <p>人工 Github 搜索 “Hugo theme” 按 stars 排序，挑出以下十款。</p>
         <div><a class="read-more button" href="/hugo-themes/">阅读全文 →</a></div>
-      
-      </div>
-    
-    </div>
-    
-    
-    <div class="post on-list coding">
-    
-      <h1 class="post-title"><a href="https://immmmm.com/hugo-render-hook/">Hugo 图片懒加载</a></h1>
-      <div class="post-meta">
-        
-          <span class="post-date">
-            2020-03-24 21:28:00
-          </span>
-        
-
-        
-        <span class="">
-          
-            #<a href="https://immmmm.com/tags/%E6%8A%98%E8%85%BE/">折腾</a>&nbsp;
-          
-        </span>
-        
-      </div>
-
-      
-        
-          <img loading='lazy' src="https://lmm.elizen.me/images/2020/03/logo-lazy.jpeg" class="post-cover" />
-        
-      
-
-      <div class="post-content $PostCate">
-      
-        <p>起因，想给文章插入的 img 图片添加 <code>loading='lazy'</code>，果然有爱折腾的，看（<a href="https://lvv.me/posts/2019/12/24_hugo_render_hooks/">这里</a>），官方说明 <a href="https://gohugo.io/getting-started/configuration-markup/#render-hook-templates">#render-hook-templates</a>，Hugo v0.62+</p>
-<p>简单说能对md内的链接（link）和图像（image）自定义渲染，比如实现以上需求，只需在主题新建 <code>layouts/_default/_markup/render-image.html</code></p>
-        <div><a class="read-more button" href="/hugo-render-hook/">阅读全文 →</a></div>
       
       </div>
     
@@ -919,11 +923,13 @@ https://github.com/lmm214/immmmm/edit/master/content/posts/coding/hugo-themes.md
 
     
 
+    
+
 
 <footer class="footer">
   <div class="footer__inner">
     <div class="copyright">
-      <span>共 179 篇文章</span><span> 87920 字</span>
+      <span>共 180 篇文章</span><span> 88072 字</span>
     </div>
     
       <div class="copyright">

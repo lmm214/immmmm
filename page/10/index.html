@@ -142,6 +142,44 @@
     
     <div class="post on-list coding">
     
+      <h1 class="post-title"><a href="https://immmmm.com/valine-diy/">Valine 评论框美化及功能优化</a></h1>
+      <div class="post-meta">
+        
+          <span class="post-date">
+            2019-07-15 00:00:00
+          </span>
+        
+
+        
+        <span class="">
+          
+            #<a href="https://immmmm.com/tags/%E6%8A%98%E8%85%BE/">折腾</a>&nbsp;
+          
+        </span>
+        
+      </div>
+
+      
+
+      <div class="post-content $PostCate">
+      
+        <p>以下修改不涉及 Valine 源码的改动，防止后续官方更新还得再来一边。因此，相关 css、js 代码得放在调取 <code>valine.min.js</code> 之后。</p>
+<h3 id="评论框美化">评论框美化：</h3>
+<p><img loading='lazy' src="https://lmm.elizen.me/images/2019/07/plk.jpg" alt="评论框美化："  /></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#a6e22e">v</span> .<span style="color:#a6e22e">vwrap</span>{<span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">44</span><span style="color:#66d9ef">px</span>;}.<span style="color:#a6e22e">v</span> .<span style="color:#a6e22e">veditor</span>{<span style="color:#66d9ef">min-height</span>:<span style="color:#ae81ff">7</span><span style="color:#66d9ef">rem</span>;<span style="color:#66d9ef">resize</span>:<span style="color:#66d9ef">none</span>;}.<span style="color:#a6e22e">v</span> .<span style="color:#a6e22e">vwrap</span> .<span style="color:#a6e22e">vedit</span>{<span style="color:#66d9ef">padding-top</span>:<span style="color:#ae81ff">0</span>}.<span style="color:#a6e22e">v</span> .<span style="color:#a6e22e">vwrap</span> .<span style="color:#a6e22e">vheader</span>{<span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">80</span><span style="color:#66d9ef">%</span>;<span style="color:#66d9ef">bottom</span>:<span style="color:#ae81ff">0</span>;<span style="color:#66d9ef">position</span>: <span style="color:#66d9ef">absolute</span>;<span style="color:#66d9ef">background</span>: <span style="color:#ae81ff">#f7f7f7</span>;}.<span style="color:#a6e22e">v</span> .<span style="color:#a6e22e">vinput</span>{<span style="color:#66d9ef">padding</span>:<span style="color:#ae81ff">10</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">15</span><span style="color:#66d9ef">px</span>;}.<span style="color:#a6e22e">v</span> .<span style="color:#a6e22e">vwrap</span> .<span style="color:#a6e22e">vheader</span> .<span style="color:#a6e22e">vinput</span>{<span style="color:#66d9ef">border-bottom</span>:<span style="color:#ae81ff">0</span><span style="color:#66d9ef">px</span>}.<span style="color:#a6e22e">v</span> .<span style="color:#a6e22e">vwrap</span> .<span style="color:#a6e22e">vedit</span> .<span style="color:#a6e22e">vctrl</span>{<span style="color:#66d9ef">margin-top</span>:<span style="color:#ae81ff">-44</span><span style="color:#66d9ef">px</span>;<span style="color:#66d9ef">right</span>:<span style="color:#ae81ff">0</span>;<span style="color:#66d9ef">position</span>:<span style="color:#66d9ef">absolute</span>;<span style="color:#66d9ef">margin-right</span>:<span style="color:#ae81ff">-3</span><span style="color:#66d9ef">px</span>;}.<span style="color:#a6e22e">v</span> .<span style="color:#a6e22e">vwrap</span> .<span style="color:#a6e22e">vcontrol</span>{    <span style="color:#66d9ef">position</span>:<span style="color:#66d9ef">absolute</span>;<span style="color:#66d9ef">right</span>:<span style="color:#ae81ff">0</span>;<span style="color:#66d9ef">bottom</span>:<span style="color:#ae81ff">0</span>;<span style="color:#66d9ef">width</span>:<span style="color:#ae81ff">20</span><span style="color:#66d9ef">%</span>;<span style="color:#66d9ef">padding-top</span>:<span style="color:#ae81ff">0</span><span style="color:#66d9ef">px</span>;}.<span style="color:#a6e22e">v</span> .<span style="color:#a6e22e">vwrap</span> .<span style="color:#a6e22e">vcontrol</span> .<span style="color:#a6e22e">col</span>.<span style="color:#a6e22e">col-80</span>{<span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;}.<span style="color:#a6e22e">v</span> .<span style="color:#a6e22e">vbtn</span>.<span style="color:#a6e22e">vsubmit</span>{<span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">0</span>;<span style="color:#66d9ef">padding</span>: <span style="color:#ae81ff">0</span>;<span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#fff</span>;<span style="color:#66d9ef">line-height</span>: <span style="color:#ae81ff">44</span><span style="color:#66d9ef">px</span>;<span style="color:#66d9ef">width</span>:<span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>;<span style="color:#66d9ef">border</span>: <span style="color:#66d9ef">none</span>;<span style="color:#66d9ef">background</span>:<span style="color:#ae81ff">#1abc9c</span>;}.<span style="color:#a6e22e">v</span> .<span style="color:#a6e22e">vwrap</span> .<span style="color:#a6e22e">vedit</span> .<span style="color:#a6e22e">vctrl</span> <span style="color:#f92672">span</span>.<span style="color:#a6e22e">vpreview-btn</span><span style="color:#f92672">,</span>.<span style="color:#a6e22e">v</span> .<span style="color:#a6e22e">vwrap</span> .<span style="color:#a6e22e">vcontrol</span> .<span style="color:#a6e22e">col</span>.<span style="color:#a6e22e">col-20</span><span style="color:#f92672">,</span>.<span style="color:#a6e22e">v</span> .<span style="color:#a6e22e">vlist</span> .<span style="color:#a6e22e">vcard</span> .<span style="color:#a6e22e">vhead</span> .<span style="color:#a6e22e">vsys</span>{<span style="color:#66d9ef">display</span>:<span style="color:#66d9ef">none</span>;}
+@<span style="color:#66d9ef">media</span> <span style="color:#f92672">screen</span> <span style="color:#f92672">and</span> <span style="color:#f92672">(</span><span style="color:#f92672">max-width</span><span style="color:#f92672">:</span> <span style="color:#f92672">520px</span><span style="color:#f92672">)</span>{
+	.<span style="color:#a6e22e">v</span> .<span style="color:#a6e22e">vwrap</span> .<span style="color:#a6e22e">vheader</span> .<span style="color:#a6e22e">vinput</span>{<span style="color:#66d9ef">width</span>: <span style="color:#ae81ff">33.33</span><span style="color:#66d9ef">%</span>;<span style="color:#66d9ef">padding</span>:<span style="color:#ae81ff">10</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">5</span><span style="color:#66d9ef">px</span>;}
+}
+</code></pre></div>
+        <div><a class="read-more button" href="/valine-diy/">阅读全文 →</a></div>
+      
+      </div>
+    
+    </div>
+    
+    
+    <div class="post on-list coding">
+    
       <h1 class="post-title"><a href="https://immmmm.com/valine-by-leancloud-cn/">基于 LeanCloud 的评论系统：Valine</a></h1>
       <div class="post-meta">
         
@@ -410,31 +448,6 @@
       <div class="post-content $PostCate">
         <a href="https://immmmm.com/2018-10-18/" rel="link"><img loading="lazy" class="post-avatar avatar" src=https://gravatar.loli.net/avatar/ba83fa02fc4b2ba621514941307e21be ></a>
           Fitbit Flex2 硬需仅剩下第一时间接听电话和早起闹钟。之前偶得小米手环2，体验之后再一次勾起冲动消费欲，2的显示屏在室外等于无，转动显示时间更是：定神3秒，擦，再甩，定神3秒，看不清！比对了主流几款，最后想着要么选择 flex2 这样颜值高纤细带着无感，要么上 Apple Watch。
-      </div>
-    
-    </div>
-    
-    
-    <div class="post on-list chat">
-    
-            <div class="post-meta">
-        
-          <span class="post-date">
-            2018-10-16 00:00:00
-          </span>
-        
-
-        
-        <span class="">
-          
-            #<a href="https://immmmm.com/tags/%E8%AF%8D%E7%A9%B7/">词穷</a>&nbsp;
-          
-        </span>
-        
-      </div>
-      <div class="post-content $PostCate">
-        <a href="https://immmmm.com/2018-10-16/" rel="link"><img loading="lazy" class="post-avatar avatar" src=https://gravatar.loli.net/avatar/ba83fa02fc4b2ba621514941307e21be ></a>
-          上周？还是上上周？不断收到七牛发来的测试域名回收通知，葫芦娃七兄弟都被收得一干二净！直接导致博客图片等直接挂掉！拖到昨晚，终于在 @沐风 的强力支持下续上了命，不然连发文的、更别说发图的欲望，早已消失殆尽！
       </div>
     
     </div>
@@ -837,11 +850,13 @@
 
     
 
+    
+
 
 <footer class="footer">
   <div class="footer__inner">
     <div class="copyright">
-      <span>共 179 篇文章</span><span> 87920 字</span>
+      <span>共 180 篇文章</span><span> 88072 字</span>
     </div>
     
       <div class="copyright">
