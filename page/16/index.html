@@ -140,6 +140,42 @@
   <div class="posts">
     
     
+    <div class="post on-list coding">
+    
+      <h1 class="post-title"><a href="https://immmmm.com/huawei-hg8240-setting/">华为 HG8240 光猫路由设置方法</a></h1>
+      <div class="post-meta">
+        
+          <span class="post-date">
+            2013-11-11 00:00:00
+          </span>
+        
+
+        
+        <span class="">
+          
+            #<a href="https://immmmm.com/tags/%E6%8A%98%E8%85%BE/">折腾</a>&nbsp;
+          
+        </span>
+        
+      </div>
+
+      
+
+      <div class="post-content $PostCate">
+      
+        <p>开通了电信光纤入户，送的光猫是“华为 HG8240”，明明自带路由（可开机就自动拨号），可默认却隐藏了。高手在民间，以下方法来自网络，已试可用：</p>
+<h3>一、设置本地连接属性。</h3>
+<p>IP地址：<code>192.168.100.2</code>（从 192.168.100.2~192.168.100.254 都可以），子网掩码：<code>255.255.255.0</code>，默认网关：<code>192.168.100.1</code>，DNS空着。</p>
+<h3>二、查询 VLAN ID （portvid） 和 802.1p（PortPri）。</h3>
+<p><img loading='lazy' src="https://lmm.elizen.me/images/2013/11/huawei-1.jpg" alt="huawei-1"  /></p>
+<p>方法： <code>Win+R</code> 输入 <code>cmd</code> 回车，再输入 <code>telnet 192.168.100.1</code> 回车，等待出现“user：”输入 <code>root</code> 回车，出现“password：”输入 <code>admin</code> ，出现 ”WAP&gt;“输入 <code>get port config portid 1</code> 回车，得到端口1的 ”VLAN ID （portvid）“ 和 ”802.1p（PortPri）“值。</p>
+        <div><a class="read-more button" href="/huawei-hg8240-setting/">阅读全文 →</a></div>
+      
+      </div>
+    
+    </div>
+    
+    
     <div class="post on-list daily">
     
       <h1 class="post-title"><a href="https://immmmm.com/waiting-sunny-lijiang/">在丽江，等一个晴天</a></h1>
@@ -425,31 +461,6 @@
       <div class="post-content $PostCate">
         <a href="https://immmmm.com/2011-10-28/" rel="link"><img loading="lazy" class="post-avatar avatar" src=https://gravatar.loli.net/avatar/ba83fa02fc4b2ba621514941307e21be ></a>
           从班主任口中得知班里一女孩纸对她妈妈说：“妈妈，我们老师好帅好帅的，你要是年轻点就好了，可以嫁给他！”
-      </div>
-    
-    </div>
-    
-    
-    <div class="post on-list chat">
-    
-            <div class="post-meta">
-        
-          <span class="post-date">
-            2011-10-16 00:00:00
-          </span>
-        
-
-        
-        <span class="">
-          
-            #<a href="https://immmmm.com/tags/%E8%AF%8D%E7%A9%B7/">词穷</a>&nbsp;
-          
-        </span>
-        
-      </div>
-      <div class="post-content $PostCate">
-        <a href="https://immmmm.com/2011-10-16/" rel="link"><img loading="lazy" class="post-avatar avatar" src=https://gravatar.loli.net/avatar/ba83fa02fc4b2ba621514941307e21be ></a>
-          课堂中恍然，我怎会在此教授学生“这雪景……天上飘着……地上铺着……”，仿佛抽离身体，时间定格，另一个我不可思议地看着这幅聚焦于我的场景。
       </div>
     
     </div>
@@ -854,11 +865,13 @@
 
     
 
+    
+
 
 <footer class="footer">
   <div class="footer__inner">
     <div class="copyright">
-      <span>共 180 篇文章</span><span> 88072 字</span>
+      <span>共 181 篇文章</span><span> 88158 字</span>
     </div>
     
       <div class="copyright">

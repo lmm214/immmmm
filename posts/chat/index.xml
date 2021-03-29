@@ -6,10 +6,19 @@
     <description>Recent content in 词穷 on 木木木木木</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 23 Feb 2021 15:23:46 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 29 Mar 2021 22:30:20 +0800</lastBuildDate>
     
 	<atom:link href="https://immmmm.com/posts/chat/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>2021-03-29</title>
+      <link>https://immmmm.com/2021-03-29/</link>
+      <pubDate>Mon, 29 Mar 2021 22:30:20 +0800</pubDate>
+      
+      <guid>https://immmmm.com/2021-03-29/</guid>
+      <description>KPW2 越狱成功！（教程）Kindle &amp;lt;= 5.13.3 下载个文件访问本地HTMl搞定，还是装插件花了点时间，最实用还是「USBNetwork Hack – 无线管理 Kindle」，盖着泡面还能传书，香！</description>
+    </item>
     
     <item>
       <title>2021-02-23</title>
@@ -45,16 +54,6 @@
       
       <guid>https://immmmm.com/2020-04-19/</guid>
       <description>&lt;p&gt;闲逛发现 &lt;a href=&#34;https://github.com/xCss/Valine/releases&#34;&gt;Valine 1.4.4&lt;/a&gt; 已发布，表情改为了图片形式（win下不会再一坨坨）、评论支持楼内回复（不会一直在顶部）、也有取消回复按钮，立马跟近匹配了样式。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>2020-04-12</title>
-      <link>https://immmmm.com/2020-04-12/</link>
-      <pubDate>Sun, 12 Apr 2020 22:19:51 +0800</pubDate>
-      
-      <guid>https://immmmm.com/2020-04-12/</guid>
-      <description>&lt;p&gt;👩🏻：今天要不要出去玩？&lt;/p&gt;
-&lt;p&gt;🐑：不要了吧，在家玩也可以。疫情期间，尽量不要出门。&lt;/p&gt;</description>
     </item>
     
   </channel>
