@@ -1,6 +1,6 @@
 baseURL  =  "https://immmmm.com"
 languageCode = "zh-CN"
-DefaultContentLanguage = "zh-CN"
+# DefaultContentLanguage = "zh-CN"
 title  =  "木木木木木"
 subtitle = "不问明天，悠然浪费"
 
@@ -18,25 +18,17 @@ rssLimit = 5
 
 [menu]
   [[menu.main]]
-	name="阅读"
-	url="/books/"
-	weight="1"
-  [[menu.main]]
-  name="观影"
-  url="/movies/"
-  weight="2"
-  [[menu.main]]
   name="相册"
   url="/photos/"
-  weight="3"
+  weight="1"
   [[menu.main]]
   name="归档"
   url="/archives/"
-  weight="4"
+  weight="2"
   [[menu.main]]
   name="关于"
   url="/about/"
-  weight="5"
+  weight="3"
 
 [params]
   # dir name of your blog content (default is `content/posts`)
