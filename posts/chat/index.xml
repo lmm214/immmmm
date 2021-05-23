@@ -6,10 +6,19 @@
     <description>Recent content in 词穷 on 木木木木木</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 29 Mar 2021 22:30:20 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 23 May 2021 15:04:55 +0800</lastBuildDate>
     
 	<atom:link href="https://immmmm.com/posts/chat/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>2021-05-23</title>
+      <link>https://immmmm.com/2021-05-23/</link>
+      <pubDate>Sun, 23 May 2021 15:04:55 +0800</pubDate>
+      
+      <guid>https://immmmm.com/2021-05-23/</guid>
+      <description>越来越觉得不想说话，就算说的话也不是自己的，就算自己的话想想也过去了。本想着把有意义的事情做得有意思，可做着做着却只顾着有意思忘记了最初的意义，甚至只为切热点，乐此不疲，忘乎所以。</description>
+    </item>
     
     <item>
       <title>2021-03-29</title>
@@ -45,15 +54,6 @@
       
       <guid>https://immmmm.com/2020-10-18/</guid>
       <description>&lt;p&gt;右下智齿，取之！&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>2020-04-19</title>
-      <link>https://immmmm.com/2020-04-19/</link>
-      <pubDate>Sun, 19 Apr 2020 13:36:58 +0800</pubDate>
-      
-      <guid>https://immmmm.com/2020-04-19/</guid>
-      <description>&lt;p&gt;闲逛发现 &lt;a href=&#34;https://github.com/xCss/Valine/releases&#34;&gt;Valine 1.4.4&lt;/a&gt; 已发布，表情改为了图片形式（win下不会再一坨坨）、评论支持楼内回复（不会一直在顶部）、也有取消回复按钮，立马跟近匹配了样式。&lt;/p&gt;</description>
     </item>
     
   </channel>
