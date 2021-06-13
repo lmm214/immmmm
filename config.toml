@@ -26,9 +26,13 @@ rssLimit = 5
   url="/archives/"
   weight="2"
   [[menu.main]]
+  name="哔哔"
+  url="/bb/"
+  weight="3"
+  [[menu.main]]
   name="关于"
   url="/about/"
-  weight="3"
+  weight="4"
 
 [params]
   # dir name of your blog content (default is `content/posts`)
