@@ -310,7 +310,7 @@
 
 <pre><code>/bber bber,https://你的云函数HTTP访问地址/bber
 </code></pre><p><strong>其实公众号仅用作了转发文字内容</strong>，具体功能都是各自的云函数，好处是，直接浏览器访问以下链接、第三方能发起POST工具、iOS的快捷方式等都能调用！</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">https://你后台显示的.ap-shanghai.app.tcloudbase.com/bb?key=云函数里设置的<span style="color:#960050;background-color:#1e0010">&amp;</span>from=自己发挥一个<span style="color:#960050;background-color:#1e0010">&amp;</span>text=哔哔的内容
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">https://你后台显示的.ap-shanghai.app.tcloudbase.com/bber?key=云函数里设置的<span style="color:#960050;background-color:#1e0010">&amp;</span>from=自己发挥一个<span style="color:#960050;background-color:#1e0010">&amp;</span>text=哔哔的内容
 </code></pre></div><h3 id="旧数据转化">旧数据转化</h3>
 <p>把 LC 上的评论导出并进行格式转化，形成如下格式，<code>from</code> 字段是我自己后来加的。</p>
 <pre><code>{&quot;_id&quot;:&quot;4ec5c2495fe84db1000046a47026ed51&quot;,&quot;from&quot;:&quot;微信公众号&quot;,&quot;content&quot;:&quot;恶果之地得到各“金卡”莫名就通关+1&quot;,&quot;date&quot;:{&quot;$date&quot;:&quot;2020-12-27T07:38:10.844Z&quot;}}
@@ -325,7 +325,7 @@
 <p>1.点击 <a href="https://console.cloud.tencent.com/tcb/scf/index">bber-weixin</a> 云函数，右上角**【编辑】**，开启**【固定IP】**，留存**公网固定IP**。
 <photos><img loading='lazy' src="https://lmm.elizen.me/images/2020/12/bbwx-1.png" alt="bbwx-1"  /><img loading='lazy' src="https://lmm.elizen.me/images/2020/12/bbwx-3.png" alt="bbwx-3"  /><img loading='lazy' src="https://lmm.elizen.me/images/2020/12/bbwx-2.png" alt="bbwx-2"  /></photos></p>
 <p>2.进入<a href="https://console.cloud.tencent.com/tcb/env/access">环境-HTTP访问服务</a>，获取<code>触发路径链接</code>并留存，如以下格式：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">https://bb-f5c0f-222222.ap-shanghai.app.tcloudbase.com/bber
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">https://bb-f5c0f-222222.ap-shanghai.app.tcloudbase.com/bber-weixin
 </code></pre></div><p>3.打开 <a href="https://mp.weixin.qq.com/">微信公众平台</a>，进入开发-基本配置，获取<code>AppID</code>和<code>AppSecret</code>留存，修改<code>IP白名单</code>为上一步的公网固定IP。继续服务器配置：</p>
 <p><img loading='lazy' src="https://lmm.elizen.me/images/2020/12/bbwx-4.png" alt="bbwx-4"  /></p>
 <p>一个<code>URL</code>，即第2步留存的触发链接；</p>
@@ -827,7 +827,7 @@
 <footer class="footer">
   <div class="footer__inner">
     <div class="copyright">
-      <span>共 182 篇文章</span><span> 88251 字</span>
+      <span>共 182 篇文章</span><span> 88253 字</span>
     </div>
     
       <div class="copyright">
