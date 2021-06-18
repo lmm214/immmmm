@@ -168,7 +168,7 @@ https://你后台显示的.ap-shanghai.app.tcloudbase.com/bber
 **其实公众号仅用作了转发文字内容**，具体功能都是各自的云函数，好处是，直接浏览器访问以下链接、第三方能发起POST工具、iOS的快捷方式等都能调用！
 
 ```html
-https://你后台显示的.ap-shanghai.app.tcloudbase.com/bb?key=云函数里设置的&from=自己发挥一个&text=哔哔的内容
+https://你后台显示的.ap-shanghai.app.tcloudbase.com/bber?key=云函数里设置的&from=自己发挥一个&text=哔哔的内容
 ```
 
 ### 旧数据转化
@@ -201,7 +201,7 @@ https://你后台显示的.ap-shanghai.app.tcloudbase.com/bb?key=云函数里设
 2.进入[环境-HTTP访问服务](https://console.cloud.tencent.com/tcb/env/access)，获取`触发路径链接`并留存，如以下格式：
 
 ```html
-https://bb-f5c0f-222222.ap-shanghai.app.tcloudbase.com/bber
+https://bb-f5c0f-222222.ap-shanghai.app.tcloudbase.com/bber-weixin
 ```
 
 3.打开 [微信公众平台](https://mp.weixin.qq.com/)，进入开发-基本配置，获取`AppID`和`AppSecret`留存，修改`IP白名单`为上一步的公网固定IP。继续服务器配置：
