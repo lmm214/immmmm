@@ -14,8 +14,8 @@
   .tk-comments-count::before {content:"共 ";}
   .tk-comments-count::after {content:" 条";}
   .tk-time{color: #fafafa;font-size: 0.75em;font-style: italic;background-color: #3b3d42;display: inline-block;padding:0.25em 1em 0.2em 1em;}
-  
-  .tk-comment{margin:1em 0 !important;}
+  .tk-comment{margin:1em 0 2em !important;}
+  .tk-replies .tk-comment{margin:0.5em 0 0!important;}
   .tk-content{margin-top:0.5em !important;}
   .tk-replies{max-height:0px !important;}
   .tk-replies .tk-action{position: absolute;right:0;}
@@ -28,8 +28,9 @@
   .tk-avatar-img{border-radius: 50%;}
   .tk-replies .tk-main{font-size:12px !important;}
   .tk-row{border-bottom: 1px solid #3b3d42;}
-  .tk-replies .tk-row{border-bottom:none;}
+  .tk-replies .tk-row,.tk-submit .tk-row{border-bottom:none;}
   .dark-theme .tk-time{color: #aaa;}
+  .tk-row.actions{margin-left:0 !important;}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/twikoo@1.3.1/dist/twikoo.all.min.js"></script>
 <script>
