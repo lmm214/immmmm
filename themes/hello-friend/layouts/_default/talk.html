@@ -1,0 +1,29 @@
+{{ define "main" }}
+<div class="post">
+  <h2 class="post-title">{{.Title}}</h2>
+  <hr />
+  <div class="post-content">
+    <div id="tcomment"></div>
+  </div>
+</div>
+
+<style>
+  .tk-comments .tk-submit,.tk-comments-count span:nth-child(2),.tk-comments-container .tk-comment .tk-avatar,.tk-comments-container .tk-comment .tk-nick,.tk-comments-container .tk-replies .tk-comment .tk-time{display:none !important;}
+  .tk-comment .tk-submit,.tk-comments-container .tk-replies .tk-comment .tk-avatar{display:block !important;}
+  .tk-comments-container .tk-replies .tk-comment .tk-nick{display:inline-block !important;}
+  .tk-comments-count::before {content:"共 ";}
+  .tk-comments-count::after {content:" 条";}
+  .tk-time{color: #fafafa;font-size: 0.75em;font-style: italic;background-color: #3b3d42;display: inline-block;padding:0.25em 1em 0.2em 1em;}
+  .dark-theme .tk-time{color: #aaa;}
+  .tk-comment{margin:1em 0 !important;}
+  .tk-content{margin-top:0.5em !important;}
+  .tk-replies{max-height:0px !important;}
+  .tk-replies-expand{max-height:none !important;}
+  .tk-expand{margin-top:0;}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/twikoo@1.3.1/dist/twikoo.all.min.js"></script>
+  <script>twikoo.init({ envId: 'twikoo-2g36bkuz88660f27', el: '#tcomment' })</script>
+  <script type="text/javascript">
+    document.getElementsByTagName("tk-submit")[0].remove()
+  </script>
+{{ end }}
