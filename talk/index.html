@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     
-      <title>基于 LeanCloud 的评论系统：Valine :: 木木木木木</title>
+      <title>哔哔点啥 :: 木木木木木</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta charset="UTF-8"/>
@@ -11,27 +11,24 @@
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
 <script>if ( false || (!!window.MSInputMethodContext && !!document.documentMode)) document.write('\x3Cscript id="_iealwn_js" data-outver="11" src="https://support.dmeng.net/ie-alert-warning/latest.js">\x3C/script>'); </script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<meta name="description" content="Valine 官网： https://valine.js.org/ Valine Admin 云引擎： https://deserts.io/valine-admin-document/ 安装过程略过不表，目前还存在一个问题，通过使用： //unpkg.com/valine@1.3.6/dist/Valine.min.js 指定 1.3.6 版本解决，官方最新的 1.3.9 报错，官网自用的 1.3.10 没问题，但还没更新至 CDN。另外这个 Valine Admin 云引擎方便，顾名思义，安装完毕后可通过 LeanCloud 的二级域名管理评论，相当于给 Valine 增加了个评论管理后台。 另外，昨天绑定域名方式由原来"/>
+<meta name="description" content=""/>
 <meta name="keywords" content=""/>
 <meta name="referrer" content="same-origin">
-<link rel="canonical" href="https://immmmm.com/valine-by-leancloud-cn/" />
+<link rel="canonical" href="https://immmmm.com/talk/" />
 <link rel="stylesheet" href="/style.css">
 <link rel="stylesheet" href="https://fonts.lug.ustc.edu.cn/css?family=Noto+Serif+SC:500&display=swap" media="print" onload="this.media='all'">
 <link rel="shortcut icon" href="https://immmmm.com/favicon.ico">
 
-<meta property="og:title" content="基于 LeanCloud 的评论系统：Valine" />
-<meta property="og:description" content="Valine 官网： https://valine.js.org/ Valine Admin 云引擎： https://deserts.io/valine-admin-document/ 安装过程略过不表，目前还存在一个问题，通过使用： //unpkg.com/valine@1.3.6/dist/Valine.min.js 指定 1.3.6 版本解决，官方最新的 1.3.9 报错，官网自用的 1.3.10 没问题，但还没更新至 CDN。另外这个 Valine Admin 云引擎方便，顾名思义，安装完毕后可通过 LeanCloud 的二级域名管理评论，相当于给 Valine 增加了个评论管理后台。 另外，昨天绑定域名方式由原来" />
+<meta property="og:title" content="哔哔点啥" />
+<meta property="og:description" content="" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://immmmm.com/valine-by-leancloud-cn/" />
-<meta property="article:published_time" content="2019-07-13T00:00:00+00:00" />
-<meta property="article:modified_time" content="2019-07-13T00:00:00+00:00" />
+<meta property="og:url" content="https://immmmm.com/talk/" />
+
 
 
 
     
-  <link rel="prefetch" href="https://immmmm.com/valine-diy/">
-  <link rel="prefetch" href="https://immmmm.com/2019-06-30/">
-
+    
   </head>
   <body class="dark-theme">
     <div class="container">
@@ -116,144 +113,33 @@
 
       <div class="content">
         
-  
-  
-  
-  
-  <div class="post coding">
-    <div  class="breadcrumb">
-  
-
-  
-
-  
-
-  
-
-<li>
-  <a href="https://immmmm.com/">首页</a>
-</li>
-
-
-<li>
-  <a href="https://immmmm.com/posts/">文章</a>
-</li>
-
-
-<li>
-  <a href="https://immmmm.com/posts/coding/">折腾</a>
-</li>
-
-
-<li class="active">
-  <a href="https://immmmm.com/valine-by-leancloud-cn/">基于 LeanCloud 的评论系统：Valine</a>
-</li>
-
-</div>
-
-
-  
-    <h2 class="post-title"><a href="https://immmmm.com/valine-by-leancloud-cn/">基于 LeanCloud 的评论系统：Valine</a></h2>
-    <div class="post-meta">
-      
-        <span class="post-date">2019-07-13 00:00:00</span><span> / <span id="twikoo_visitors">0</span> 阅读</span><span> / <a href="#twikoo"><span id="twikoo_count">0 条评论</span></a></span>
-        
-          
-        
-      
-    </div>
-
-    
-  
-    <div class="post-content">
-      <p>Valine 官网： <a href="https://valine.js.org/">https://valine.js.org/</a>
-Valine Admin 云引擎： <a href="https://deserts.io/valine-admin-document/">https://deserts.io/valine-admin-document/</a></p>
-<p>安装过程略过不表，目前还存在一个问题，通过使用：</p>
-<pre><code>//unpkg.com/valine@1.3.6/dist/Valine.min.js
-</code></pre><p>指定 <code>1.3.6</code> 版本解决，官方最新的 1.3.9 报错，官网自用的 1.3.10 没问题，但还没更新至 CDN。另外这个 Valine Admin 云引擎方便，顾名思义，安装完毕后可通过 LeanCloud 的二级域名管理评论，相当于给 Valine 增加了个评论管理后台。</p>
-<p>另外，昨天绑定域名方式由原来的 CNAME 换成官方推荐的 DNS 模式，这才感受到后台是勾选了 HK 节点！之前卡到自己都不想打开自己的博客！</p>
-
-      
-    </div>
-  
-    
-
-    
-      <span class="post-tags">
-        
-          #<a href="https://immmmm.com/tags/%E6%8A%98%E8%85%BE/">折腾</a>&nbsp;
-        
-      </span>
-    
-  
-    <div class="clear"></div>
-    
-    
-      
-        <div class="pagination">
-          <div class="pagination__title">
-            
-              <a class="pagination__title-h" href="https://github.com/lmm214/immmmm/edit/master/content/posts/coding/valine-by-leancloud-cn.md" target="_blank" rel="noopener">阅读更多</a>
-            
-            <hr />
-          </div>
-          <div class="pagination__buttons">
-            
-              <span class="button previous">
-                <a href="https://immmmm.com/valine-diy/">
-                  <span class="button__icon">←</span>
-                  <span class="button__text">Valine 评论框美化及功能优化</span>
-                </a>
-              </span>
-            
-            
-              <span class="button next">
-                <a href="https://immmmm.com/2019-06-30/">
-                  <span class="button__text">2019-06-30</span>
-                  <span class="button__icon">→</span>
-                </a>
-              </span>
-            
-          </div>
-        </div>
-      
-    
-
-
-    
-        <div class="pagination__title">
-  <span class="pagination__title-h">欢迎评论</span>
+<div class="post">
+  <h2 class="post-title">哔哔点啥</h2>
   <hr />
+  <div class="post-content">
+    <div id="tcomment"></div>
+  </div>
 </div>
-  <div id="tcomment"></div>
-  <script src="https://cdn.jsdelivr.net/npm/twikoo@1.3.1/dist/twikoo.all.min.js"></script>
+
+<style>
+  .tk-comments .tk-submit,.tk-comments-count span:nth-child(2),.tk-comments-container .tk-comment .tk-avatar,.tk-comments-container .tk-comment .tk-nick,.tk-comments-container .tk-replies .tk-comment .tk-time{display:none !important;}
+  .tk-comment .tk-submit,.tk-comments-container .tk-replies .tk-comment .tk-avatar{display:block !important;}
+  .tk-comments-container .tk-replies .tk-comment .tk-nick{display:inline-block !important;}
+  .tk-comments-count::before {content:"共 ";}
+  .tk-comments-count::after {content:" 条";}
+  .tk-time{color: #fafafa;font-size: 0.75em;font-style: italic;background-color: #3b3d42;display: inline-block;padding:0.25em 1em 0.2em 1em;}
+  .dark-theme .tk-time{color: #aaa;}
+  .tk-comment{margin:1em 0 !important;}
+  .tk-content{margin-top:0.5em !important;}
+  .tk-replies{max-height:0px !important;}
+  .tk-replies-expand{max-height:none !important;}
+  .tk-expand{margin-top:0;}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/twikoo@1.3.1/dist/twikoo.all.min.js"></script>
   <script>twikoo.init({ envId: 'twikoo-2g36bkuz88660f27', el: '#tcomment' })</script>
-
-
-
-  <script type="text/javascript" src='https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js'></script>
   <script type="text/javascript">
-    jQuery(document).ready(function($){
-      var checkComments = setInterval(function() {
-        var counts = $('.tk-comments-title').find('span').first().text();
-        if (counts) {
-          $('#twikoo_count').text(counts)
-          clearInterval(checkComments);
-        }
-      }, 1000);
-      if(window.location.hash){
-        var checkExist = setInterval(function() {
-          if ($(window.location.hash).length) {
-            $('html, body').animate({scrollTop: $(window.location.hash).offset().top-90}, 1000);
-            clearInterval(checkExist);
-          }
-        }, 100);
-      }
-    });
+    document.getElementsByTagName("tk-submit")[0].remove()
   </script>
-    
-
-    </div>
 
       </div>
 
