@@ -1311,7 +1311,7 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 .twikoo{overflow: visible !important;}
 .tk-extras,.tk-row.actions .tk-action-icon.__markdown,.tk-preview,.tk-content p a.at,.tk-tag.tk-tag-green{display: none !important;}
 .tk-content{margin-top:0px !important;}
-.tk-content span{display:inline-block;}
+.tk-content span:first-child{float:left;}
 .tk-content p{margin: 0;}
 .tk-comment{margin-top: 17px !important;}
 .tk-comments-container .tk-avatar{margin-top:10px;}
