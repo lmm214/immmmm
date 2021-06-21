@@ -21,7 +21,7 @@
   .tk-replies .tk-action{position: absolute;right:0;top:20px;}
   .tk-replies.tk-replies-expand{max-height:none !important;}
   .tk-replies.tk-replies-height .tk-comment{max-height:none !important;height: auto !important;}
-  .tk-expand{margin:0;font-size:1em;font-weight:800;}
+  .tk-expand{margin:0;font-size:1em;font-weight:800;content:""}
   .tk-expand::before{content:"↘ ";}
   .tk-expand::after {content:" ↙"}
   .tk-extras{display: flex !important;}
@@ -50,19 +50,6 @@
           tk_replies[this.index].className = 'tk-replies tk-replies-expand tk-replies-height'
         }
       }
-      //var nei = document.querySelectorAll('.tk-replies'); 
-      //for (var i=0;i<tk_expand.length;i++){
-          //tk_expand[i].index=i; 
-          //tk_expand[i].onclick = function () {
-              //console.log("ok")
-              //for (var i=0;i<aa.length;i++){
-                  //aa[i].className = 'aa';
-                  //nei[i].style.display = 'none';
-              //}
-              //this.className = 'aa con';
-              //nei[this.index].style.display='block';
-          //}
-      //}
     }
   })
 </script>
