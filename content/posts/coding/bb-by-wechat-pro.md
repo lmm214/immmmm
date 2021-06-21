@@ -87,7 +87,7 @@ toc: true
       //region: "ap-guangzhou"
   })
 </script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lmm214/bber@0.0.3/bber.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lmm214/bber@0.0.5/bber.js"></script>
 ```
 
 ```html
