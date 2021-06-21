@@ -22,17 +22,25 @@ rssLimit = 5
   url="/photos/"
   weight="1"
   [[menu.main]]
-  name="归档"
-  url="/archives/"
+  name="电影"
+  url="/movies/"
   weight="2"
   [[menu.main]]
-  name="哔哔"
-  url="/bb/"
+  name="阅读"
+  url="/books/"
   weight="3"
+  [[menu.main]]
+  name="归档"
+  url="/archives/"
+  weight="4"
+  [[menu.main]]
+  name="言语"
+  url="/talk/"
+  weight="5"
   [[menu.main]]
   name="关于"
   url="/about/"
-  weight="4"
+  weight="6"
 
 [params]
   # dir name of your blog content (default is `content/posts`)
