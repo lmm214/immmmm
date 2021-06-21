@@ -26,7 +26,7 @@
   .tk-expand::after {content:" ↙"}
   .tk-extras{display: flex !important;}
   .tk-replies .tk-avatar{margin:1em 0.5rem 0 0;}
-  .tk-avatar-img{border-radius: 50%;}
+  .tk-avatar.tk-has-avatar{border-radius:50%;}
   .tk-replies .tk-main{font-size:14px !important;position:relative;}
   .tk-replies .tk-content{font-size:1em !important;}
   .tk-row{border-bottom: 1px solid #3b3d42;}
@@ -40,14 +40,13 @@
     envId: 'twikoo-2g36bkuz88660f27',
     el: '#tcomment',
     onCommentLoaded: function () {
-      console.log('评论加载完成');
       document.getElementsByClassName("tk-submit")[0].remove();
       var tk_main = document.getElementsByClassName('tk-main');
       var tk_replies = document.getElementsByClassName('tk-replies');
       for (var i=0;i<tk_main.length;i++){
         tk_main[i].index=i
         tk_main[i].onclick = function () {
-          tk_replies[this.index].className = 'tk-replies tk-replies-expand tk-replies-height'
+          tk_replies[this.index].classList.add("tk-replies-height");
         }
       }
     }
