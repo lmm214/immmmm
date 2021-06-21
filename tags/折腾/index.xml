@@ -6,10 +6,20 @@
     <description>Recent content in 折腾 on 木木木木木</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 07 Mar 2021 18:30:49 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 21 Jun 2021 17:55:51 +0800</lastBuildDate>
     
 	<atom:link href="https://immmmm.com/tags/%E6%8A%98%E8%85%BE/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>你言我语 By Twikoo</title>
+      <link>https://immmmm.com/talk-with-twikoo/</link>
+      <pubDate>Mon, 21 Jun 2021 17:55:51 +0800</pubDate>
+      
+      <guid>https://immmmm.com/talk-with-twikoo/</guid>
+      <description>&lt;p&gt;效果见： &lt;a href=&#34;https://immmmm.com/talk/&#34;&gt;https://immmmm.com/talk/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;主要做了两件事：一是前端魔改，二是后端加API。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Widgy 高自由度小组件</title>
@@ -109,34 +119,6 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;它的一键部署链接，其实就下面这句：&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;https://console.cloud.tencent.com/tcb/env/index?action=CreateAndDeployCloudBaseProject&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;amp;&lt;/span&gt;appUrl=https://github.com/lmm214/bber&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&amp;amp;&lt;/span&gt;branch=main
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
-    </item>
-    
-    <item>
-      <title>「哔哔点啥」微信公众号 2.0</title>
-      <link>https://immmmm.com/bb-by-wechat-pro/</link>
-      <pubDate>Wed, 06 Jan 2021 20:22:49 +0800</pubDate>
-      
-      <guid>https://immmmm.com/bb-by-wechat-pro/</guid>
-      <description>&lt;figure&gt;
-    &lt;img src=&#34;https://lmm.elizen.me/images/2020/05/bbds.png&#34;/&gt;&lt;figcaption&gt;「哔哔点啥」微信公众号 2.0&lt;/figcaption&gt;&lt;/figure&gt;
-
-&lt;p&gt;原是发到 LeanCloud 平台，现 2.0 是发到 &lt;strong&gt;「腾讯 CloudBase」&lt;/strong&gt; 。目前已支持用户名绑定、解绑、发文字、&lt;strong&gt;发图片&lt;/strong&gt;、追加、合并、删除、替换文字，还有显示&lt;strong&gt;哔哔列表&lt;/strong&gt;、&lt;strong&gt;哔哔搜索&lt;/strong&gt;！&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;code&gt;/l&lt;/code&gt; - 显示最近哔哔&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;/s 关键词&lt;/code&gt; - 搜索相关哔哔&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;/a 文字&lt;/code&gt; - 追加文字到第1条&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;/a数字 文字&lt;/code&gt; - 追加文字到第几条，如 /a2 文字&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;/c&lt;/code&gt; - 合并前2条&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;/c数字&lt;/code&gt; - 合并前几条，如 /c3&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;/d&lt;/code&gt; - 删除第1条&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;/d数字&lt;/code&gt; - 删除第几条，如 /d2&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;/e 文字&lt;/code&gt;- 编辑替换第1条&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;/e数字 文字&lt;/code&gt; - 编辑替换第几条，如 /e2 文字&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;/f数字&lt;/code&gt; - 批量删除前几条，如 /f2&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;/nobber&lt;/code&gt; - 解除绑定&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;/bber KEY,HTTP访问地址&lt;/code&gt; - 添加绑定&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;对，绑定只需要2个信息，一个自定义的 &lt;code&gt;KEY&lt;/code&gt; 和 &lt;code&gt;云函数的http访问地址&lt;/code&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

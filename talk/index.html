@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     
-      <title>哔哔点啥 :: 木木木木木</title>
+      <title>你言我语 :: 木木木木木</title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta charset="UTF-8"/>
@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="https://fonts.lug.ustc.edu.cn/css?family=Noto+Serif+SC:500&display=swap" media="print" onload="this.media='all'">
 <link rel="shortcut icon" href="https://immmmm.com/favicon.ico">
 
-<meta property="og:title" content="哔哔点啥" />
+<meta property="og:title" content="你言我语" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://immmmm.com/talk/" />
@@ -130,7 +130,7 @@
       <div class="content">
         
 <div class="post">
-  <h2 class="post-title">哔哔点啥</h2>
+  <h2 class="post-title">你言我语</h2>
   <div class="post-content">
     <div id="tcomment"></div>
   </div>
@@ -156,7 +156,7 @@
   .tk-expand::after {content:" ↙"}
   .tk-extras{display: flex !important;}
   .tk-replies .tk-avatar{margin:1em 0.5rem 0 0;}
-  .tk-avatar-img{border-radius: 50%;}
+  .tk-avatar.tk-has-avatar{border-radius:50%;}
   .tk-replies .tk-main{font-size:14px !important;position:relative;}
   .tk-replies .tk-content{font-size:1em !important;}
   .tk-row{border-bottom: 1px solid #3b3d42;}
@@ -170,14 +170,13 @@
     envId: 'twikoo-2g36bkuz88660f27',
     el: '#tcomment',
     onCommentLoaded: function () {
-      console.log('评论加载完成');
       document.getElementsByClassName("tk-submit")[0].remove();
       var tk_main = document.getElementsByClassName('tk-main');
       var tk_replies = document.getElementsByClassName('tk-replies');
       for (var i=0;i<tk_main.length;i++){
         tk_main[i].index=i
         tk_main[i].onclick = function () {
-          tk_replies[this.index].className = 'tk-replies tk-replies-expand tk-replies-height'
+          tk_replies[this.index].classList.add("tk-replies-height");
         }
       }
     }
@@ -567,11 +566,13 @@
 
     
 
+    
+
 
 <footer class="footer">
   <div class="footer__inner">
     <div class="copyright">
-      <span>共 182 篇文章</span><span> 88253 字</span>
+      <span>共 183 篇文章</span><span> 89091 字</span>
     </div>
     
       <div class="copyright">

@@ -23,7 +23,7 @@
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://immmmm.com/posts/coding/" />
-<meta property="og:updated_time" content="2021-03-07T18:30:49+08:00" />
+<meta property="og:updated_time" content="2021-06-21T17:55:51+08:00" />
 
 
 <link rel="alternate" type="application/rss+xml" href="/posts/coding/index.xml" title="木木木木木" />
@@ -142,6 +142,39 @@
   <div id="bber-talk"></div>
   
   <div class="posts">
+    
+    
+    <div class="post on-list coding">
+    
+      <h1 class="post-title"><a href="https://immmmm.com/hello-twikoo-comment/">启用 Twikoo 评论系统</a></h1>
+      <div class="post-meta">
+        
+          <span class="post-date">
+            2020-11-21 21:36:33
+          </span>
+        
+
+        
+        <span class="">
+          
+            #<a href="https://immmmm.com/tags/%E6%8A%98%E8%85%BE/">折腾</a>&nbsp;
+          
+        </span>
+        
+      </div>
+
+      
+
+      <div class="post-content $PostCate">
+      
+        <p>感谢 <a href="https://www.imaegoo.com/">@iMaeGoo</a> 大神用爱发电，顺利启用 Twikoo 评论系统，并完美迁移 Valine 评论数据。</p>
+<p>下午在 <a href="https://eallion.com/">@大大的小蜗牛 </a> 博客看到评论系统右下角竟然不是 Valine 哦，赫然显示这 Twikoo，啥？！</p>
+<p>原来是基于腾讯云开发的评论系统，换！</p>
+        <div><a class="read-more button" href="/hello-twikoo-comment/">阅读全文 →</a></div>
+      
+      </div>
+    
+    </div>
     
     
     <div class="post on-list coding">
@@ -469,43 +502,6 @@
 │   ├── reading
 </code></pre><p>如 <code>chat</code> 目录内的 md 文件是以一句话的模式（头像+时间）显示，怎么实现呢？利用 Hugo 的 <a href="https://gohugo.io/variables/files/">.File.Dir</a> 和 <a href="https://gohugo.io/functions/replacere/">replaceRE</a> 正则。</p>
         <div><a class="read-more button" href="/hugo-diy-post-type/">阅读全文 →</a></div>
-      
-      </div>
-    
-    </div>
-    
-    
-    <div class="post on-list coding">
-    
-      <h1 class="post-title"><a href="https://immmmm.com/hugo-readdir-photos-single/">Hugo 显示指定文件夹内图片</a></h1>
-      <div class="post-meta">
-        
-          <span class="post-date">
-            2020-04-10 20:38:16
-          </span>
-        
-
-        
-        <span class="">
-          
-            #<a href="https://immmmm.com/tags/%E6%8A%98%E8%85%BE/">折腾</a>&nbsp;
-          
-        </span>
-        
-      </div>
-
-      
-
-      <div class="post-content $PostCate">
-      
-        <p>效果见文章底部，这些图片非手动一张张插入，文章头部一句 <code>path: 2004gd</code> 搞定！</p>
-<p>直接看代码：</p>
-<pre><code>{{ if .Params.path }}
-    {{$Path := .Params.path}}
-    {{- range (readDir (printf &quot;%s%s&quot; &quot;./static/images/&quot; $Path )) -}}&lt;img loading='lazy' src=&quot;{{(printf &quot;/images/%s/%s&quot; $Path .Name ) | absURL}}&quot; /&gt;{{- end -}}
-{{ end }}
-</code></pre><p>当文章中写了 <code>path: 2004gd</code> 表示 Hugo 遍历根目录 <code>/static/images/2004gd</code> 内的图片并显示。</p>
-        <div><a class="read-more button" href="/hugo-readdir-photos-single/">阅读全文 →</a></div>
       
       </div>
     
@@ -917,11 +913,13 @@
 
     
 
+    
+
 
 <footer class="footer">
   <div class="footer__inner">
     <div class="copyright">
-      <span>共 182 篇文章</span><span> 88253 字</span>
+      <span>共 183 篇文章</span><span> 89091 字</span>
     </div>
     
       <div class="copyright">

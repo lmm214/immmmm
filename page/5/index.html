@@ -150,6 +150,46 @@
     
     <div class="post on-list coding">
     
+      <h1 class="post-title"><a href="https://immmmm.com/hugo-readdir-photos/">Hugo 添加相册页面</a></h1>
+      <div class="post-meta">
+        
+          <span class="post-date">
+            2020-04-06 20:42:02
+          </span>
+        
+
+        
+        <span class="">
+          
+            #<a href="https://immmmm.com/tags/%E6%8A%98%E8%85%BE/">折腾</a>&nbsp;
+          
+        </span>
+        
+      </div>
+
+      
+
+      <div class="post-content $PostCate">
+      
+        <p>效果见： <a href="https://immmmm.com/photos/">https://immmmm.com/photos/</a></p>
+<p>总有那么一瞬间特别特别想发一张照片，但不是以文章形式发布。</p>
+<p>实现思路是程序自动遍历指定文件夹内的图片，并展示在一个页面上。有了思路，剩下的就是看文档、看文档、看文档，此功能利用 Hugo 的 <a href="https://gohugo.io/templates/files/">readDir function</a> 函数达成。</p>
+<p>日常更新把图片丢到 <code>static/photos</code> 中即可（搭配 Github Action 自动化部署更香）：</p>
+<pre><code>static
+└── photos
+    ├── 落樱缤纷.jpeg
+    ├── 想象中的自由.jpeg
+    └── 儿时登过顶的狮子山.jpeg
+</code></pre>
+        <div><a class="read-more button" href="/hugo-readdir-photos/">阅读全文 →</a></div>
+      
+      </div>
+    
+    </div>
+    
+    
+    <div class="post on-list coding">
+    
       <h1 class="post-title"><a href="https://immmmm.com/hugo-shortcodes-article-link/">Hugo 文章内链优化显示</a></h1>
       <div class="post-meta">
         
@@ -482,31 +522,6 @@ https://github.com/lmm214/immmmm/edit/master/content/posts/coding/hugo-themes.md
 <p>简单说能对md内的链接（link）和图像（image）自定义渲染，比如实现以上需求，只需在主题新建 <code>layouts/_default/_markup/render-image.html</code></p>
         <div><a class="read-more button" href="/hugo-render-hook/">阅读全文 →</a></div>
       
-      </div>
-    
-    </div>
-    
-    
-    <div class="post on-list chat">
-    
-            <div class="post-meta">
-        
-          <span class="post-date">
-            2020-03-23 00:00:00
-          </span>
-        
-
-        
-        <span class="">
-          
-            #<a href="https://immmmm.com/tags/%E8%AF%8D%E7%A9%B7/">词穷</a>&nbsp;
-          
-        </span>
-        
-      </div>
-      <div class="post-content $PostCate">
-        <a href="https://immmmm.com/2020-03-23/" rel="link"><img loading="lazy" class="post-avatar avatar" src=https://gravatar.loli.net/avatar/ba83fa02fc4b2ba621514941307e21be ></a>
-          喜大普奔，市官宣 “全面恢复生产生活秩序” ！自家小区已解禁，商场全部正常营业，餐饮也全部支持堂食。真是 “忽如一夜春风来，千树万树梨花开。”
       </div>
     
     </div>
@@ -917,11 +932,13 @@ https://github.com/lmm214/immmmm/edit/master/content/posts/coding/hugo-themes.md
 
     
 
+    
+
 
 <footer class="footer">
   <div class="footer__inner">
     <div class="copyright">
-      <span>共 182 篇文章</span><span> 88253 字</span>
+      <span>共 183 篇文章</span><span> 89091 字</span>
     </div>
     
       <div class="copyright">
