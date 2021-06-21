@@ -44,14 +44,23 @@ app.auth({
     console.log(err)
 });
 function urlToLink(str) {
-  var re =/\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|gif))\S+/g;
+  //去除<img>标签，留 src 链接
+  var re_forimg =/\<[img|IMG].*?src=[\'|\"](https\:\/\/.*?(?:[\.jpg|\.jpeg|\.png|\.gif|\.bmp]))[\'|\"].*?[\/]?>/g;
+  str =str.replace(re_forimg,'$1');
+  //去 ![]() 标签，留图片链接
+  var re_formd = /^!\[(.*)\]\((.*)\)/g;
+  str = str.replace(re_formd,'$2');
+  //处理图片链接，添加 a 标签共添加灯箱效果
   var re_forpic =/\bhttps?:[^:<>"]*\/([^:<>"]*)(\.(jpeg)|(png)|(jpg)|(webp))/g;
   str =str.replace(re_forpic,function (imgurl) {
     return '<a href="' + imgurl + '"><img src="' + imgurl + '" /></a>';
   });
+  //处理普通链接，添加 a 标签供跳转
+  var re =/\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|gif))\S+/g;
   str =str.replace(re,function (website) {
     return " <a href='" + website + "'rel='noopener' target='_blank'>↘链接↙</a> ";
   });
+  //微信表情
   str = qqWechatEmotionParser(str)
   return str; 
 }
