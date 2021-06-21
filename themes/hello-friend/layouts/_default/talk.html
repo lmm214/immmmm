@@ -15,11 +15,12 @@
   .tk-comments-count::after {content:" 条";}
   .tk-time{color: #fafafa;font-size: 0.75em;font-style: italic;background-color: #3b3d42;display: inline-block;padding:0.25em 1em 0.2em 1em;}
   .tk-comment{margin:1em 0 4em !important;}
-  .tk-replies .tk-comment{margin:0.5em 0 0!important;}
+  .tk-replies .tk-comment{margin:0.5em 0 0!important;height:200px;}
   .tk-content{margin:1em 0 0.5em!important;}
   .tk-replies{max-height:0px !important;}
   .tk-replies .tk-action{position: absolute;right:0;top:20px;}
   .tk-replies.tk-replies-expand{max-height:none !important;}
+  .tk-replies.tk-replies-height .tk-comment{max-height:none !important;height: auto !important;}
   .tk-expand{margin:0;font-size:1em;font-weight:800;}
   .tk-expand::before{content:"↘ ";}
   .tk-expand::after {content:" ↙"}
@@ -41,6 +42,27 @@
     onCommentLoaded: function () {
       console.log('评论加载完成');
       document.getElementsByClassName("tk-submit")[0].remove();
+      var tk_main = document.getElementsByClassName('tk-main');
+      var tk_replies = document.getElementsByClassName('tk-replies');
+      for (var i=0;i<tk_main.length;i++){
+        tk_main[i].index=i
+        tk_main[i].onclick = function () {
+          tk_replies[this.index].className = 'tk-replies tk-replies-expand tk-replies-height'
+        }
+      }
+      //var nei = document.querySelectorAll('.tk-replies'); 
+      //for (var i=0;i<tk_expand.length;i++){
+          //tk_expand[i].index=i; 
+          //tk_expand[i].onclick = function () {
+              //console.log("ok")
+              //for (var i=0;i<aa.length;i++){
+                  //aa[i].className = 'aa';
+                  //nei[i].style.display = 'none';
+              //}
+              //this.className = 'aa con';
+              //nei[this.index].style.display='block';
+          //}
+      //}
     }
   })
 </script>
