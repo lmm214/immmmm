@@ -146,6 +146,10 @@ $(document).ready(function(){
       Lately({ 'target': '#bber-talk .datatime' });
     });
     function urlToLink(str) {
+      var re_forimg =/\<[img|IMG].*?src=[\'|\"](https\:\/\/.*?(?:[\.jpg|\.jpeg|\.png|\.gif|\.bmp]))[\'|\"].*?[\/]?>/g;
+      str =str.replace(re_forimg,'$1');
+      var re_formd = /^!\[(.*)\]\((.*)\)/g;
+      str = str.replace(re_formd,'$2');
       var re =/\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|gif))\S+/g;
       var re_forpic =/\bhttps?:\/\/.*?(\.gif|\.jpe?g|\.png|\.bmp|\.webp)/g;
       str =str.replace(re,function (website) {
