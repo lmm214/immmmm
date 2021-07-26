@@ -1,29 +1,29 @@
 app.auth({
     persistence: "none" //避免与同实例冲突
 }).anonymousAuthProvider().signIn().then(() => {
-    var bbClass = '#bber'
-    $(bbClass).after('<div class="load"><button class="load-btn button-load">加载中……</button></div>')
-    const db = app.database()
-    const collection = db.collection('talks')
-    var count=0, per = 9,page = 1
-    collection.count(function(err,res){
-      count = res.total
-      $(bbClass).append('<p class="count">共 <span class="count-data">'+count+'</span> 条</p>')
-      getList()
-    })
-    function getList(){
-      if((page-1)*per >= count){
-        return
-      }
-      var d,date,resCont=''
-      collection.limit(per).skip((page-1)*per).orderBy('date','desc').get(function(err, res) {
+  var bbClass = '#bber'
+  $(bbClass).after('<div class="load"><button class="load-btn button-load">加载中……</button></div>')
+  const db = app.database()
+  const collection = db.collection('talks')
+  var count=0, per = 9,page = 1
+  collection.count(function(err,res){
+    count = res.total
+    $(bbClass).append('<p class="count">共 <span class="count-data">'+count+'</span> 条</p>')
+    getList()
+  })
+  function getList(){
+    if((page-1)*per >= count){
+      return
+    }
+    var d,resCont=''
+    collection.limit(per).skip((page-1)*per).orderBy('date','desc').get().then((res) => {
         (res.data).forEach(item => {
           d = item.date,data = d.getFullYear()+'/'+(d.getMonth()+1)+'/'+d.getDate() +' '+d.getHours()+':'+d.getMinutes()+':'+d.getSeconds()
           dataTime = '<p class="datatime">'+data+'</p>'
           dataCont = '<p class="datacont">'+urlToLink(item.content)+'</p>'
           dataFrom = item.from ? '<p class="datafrom"><small>#'+item.from+'</small></p>' : ''
           resCont += '<li class="item"><div>'+dataTime+dataCont+dataFrom+'</div></li>'
-        }); 
+        });
         $(bbClass).append('<section class="timeline page-'+page+'"><ul><div class="list">'+resCont+'</div></ul></section>')
         $('button.button-load').text('加载更多')
         $('html,body').animate({ scrollTop: $('.timeline.page-'+page).offset().top - 20 }, 500)
@@ -34,14 +34,50 @@ app.auth({
         page++
         Lately({ 'target': '#bber .datatime' });
         $("#bber a[rel!=link]:has(img)").slimbox();//图片灯箱效果
+    });
+  }
+  function getSerList(ser){
+      $(bbClass).html('');
+      console.log(ser)
+      var d,resCont=''
+      collection.where({
+        content: new db.RegExp({
+          regexp: ser,
+          options: 'i'
+        })
+      }).orderBy('date','desc').get().then((res) => {
+        (res.data).forEach(item => {
+          d = item.date,data = d.getFullYear()+'/'+(d.getMonth()+1)+'/'+d.getDate() +' '+d.getHours()+':'+d.getMinutes()+':'+d.getSeconds()
+          dataTime = '<p class="datatime">'+data+'</p>'
+          dataCont = '<p class="datacont">'+urlToLink(item.content)+'</p>'
+          dataFrom = item.from ? '<p class="datafrom"><small>#'+item.from+'</small></p>' : ''
+          resCont += '<li class="item"><div>'+dataTime+dataCont+dataFrom+'</div></li>'
+        });
+        $(bbClass).append('<p class="count">共 <span class="count-data">'+res.data.length+'</span> 条</p>')
+        $(bbClass).append('<section class="timeline page-'+page+'"><ul><div class="list">'+resCont+'</div></ul></section>')
+        $('html,body').animate({ scrollTop: $('.timeline').offset().top - 20 }, 500)
+        $('.load').remove()
+        Lately({ 'target': '#bber .datatime' });
+        $("#bber a[rel!=link]:has(img)").slimbox();//图片灯箱效果
       });
+  }
+  $('.button-load').click(function(){
+    $('.button-load').text('加载中……')
+    getList()
+  })
+  $('#searchBoxInput').bind('keypress', function (event) {
+    if (event.keyCode == "13") {
+      $('.load').remove()
+      var ser = $('#searchBoxInput').val()
+      if(ser !== ''){
+        getSerList(ser)
+      }else{
+        $(bbClass).html('请输入内容');
+      }
     }
-    $('.button-load').click(function(){
-      $('.button-load').text('加载中……')
-      getList()
-    })
+  })
 }).catch(err => {
-    console.log(err)
+  console.log(err)
 });
 function urlToLink(str) {
   //去除<img>标签，留 src 链接
