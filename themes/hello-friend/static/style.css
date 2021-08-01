@@ -1351,6 +1351,7 @@ photos:after{
   line-height: 0;
   width: 0;
   height: 0;
+  clear: both;
 }
 .clear {
   clear: both;
