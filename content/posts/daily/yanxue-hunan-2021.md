@@ -5,40 +5,42 @@ tags: [日常]
 feature: https://lmm.elizen.me/images/2021/07/hnxp-34.JPG
 ---
 
-有一种夏令营叫做“研学”，简单来说就是有自己学校的老师“压阵”，学生、家长和旅行社都乐意如此。
-
 七月中旬，四位同事、五十几个学生，绿皮火车16小时、大巴1小时、中巴2小时，前一天6点集合出发，次日5点多抵达目的地：湖南省溆浦显宝山村。
+
+有一种夏令营美其名曰：研学。简单来说就是有自己学校的老师“压阵”，学生、家长和旅行社都乐意。
 
 <!--more-->
 ### D1&2
 
 ![hnxp-2](https://lmm.elizen.me/images/2021/07/hnxp-2.jpeg)
 
-第一晚几乎没合眼，第二天白天一路奔波！感慨：
-
-绿皮真是……慢！学生真是……吵！风景真是……美！招待真是……趣！
+第一晚几乎没合眼，第二天白天一路奔波！感慨：绿皮真是……慢！学生真是……吵！风景真是……美！接风真是……闹！
 
 <photos>![hnxp-3](https://lmm.elizen.me/images/2021/07/hnxp-3.JPG)![hnxp-5](https://lmm.elizen.me/images/2021/07/hnxp-5.JPG)![hnxp-6](https://lmm.elizen.me/images/2021/07/hnxp-6.JPG)![hnxp-35](https://lmm.elizen.me/images/2021/07/hnxp-35.JPG)![hnxp-7](https://lmm.elizen.me/images/2021/07/hnxp-7.JPG)![hnxp-4](https://lmm.elizen.me/images/2021/07/hnxp-4.jpeg)</photos>
+
+夜晚，裳繁星，品美酒。
 
 ### D3
 
 ![hnxp-8](https://lmm.elizen.me/images/2021/07/hnxp-8.jpeg)
 
-赶早空腹徒步翻山越岭40分钟上山：
+赶早，空腹徒步，翻山越岭40分钟到山头：
 
 {{< figure "https://lmm.elizen.me/images/2021/07/hnxp-10.JPG" "https://lmm.elizen.me/images/2021/07/hnxp-11.JPG" "采高山茶">}}
 
-**「一芽一叶」** 的标准，采采采。间隙，山头亭子3个包子、1盒牛奶、1个茶叶蛋豪华早餐下肚，转场继续采。
+**「一芽一叶」** 的标准，采采采。间隙，3个包子、1盒牛奶、1个茶叶蛋豪华早餐下肚，转场继续采采采。城里的孩子啊，不读书什么都好！
 
 ![hnxp-18](https://lmm.elizen.me/images/2021/07/hnxp-18.JPG)
 
-下午，避暑。学生室内活动，手工炒茶叶，做神仙豆腐。几位同事继续爬山采风！没有流水的“石瀑”、没有草原的“草原会场”、有全是一元钱的“棒冰”、有热火朝天建设的“酒店”……
+下午，避暑。学生室内活动，手工炒茶叶，做神仙豆腐。几位同事继续爬山采风！
 
 ![hnxp-17](https://lmm.elizen.me/images/2021/07/hnxp-17.JPG)
 
+没有流水的“石瀑”、没有草原的“草原会场”、有全是一元钱的“棒冰”、有热火朝天建设的“酒店”……
+
 <photos>![hnxp-12](https://lmm.elizen.me/images/2021/07/hnxp-12.jpeg)![hnxp-13](https://lmm.elizen.me/images/2021/07/hnxp-13.jpeg)![hnxp-14](https://lmm.elizen.me/images/2021/07/hnxp-14.JPG)![hnxp-15](https://lmm.elizen.me/images/2021/07/hnxp-15.JPG)![hnxp-16](https://lmm.elizen.me/images/2021/07/hnxp-16.JPG)</photos>
 
-晚上，洗漱洗衣物，排排坐，看露天电影。
+晚上，看露天电影，排排坐，喂蚊子。
 
 ### D4
 
