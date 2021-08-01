@@ -39,13 +39,17 @@
     envId: 'twikoo-2g36bkuz88660f27',
     el: '#tcomment',
     onCommentLoaded: function () {
-      document.getElementsByClassName("tk-submit")[0].remove();
-      var tk_main = document.getElementsByClassName('tk-main');
-      var tk_replies = document.getElementsByClassName('tk-replies');
-      for (var i=0;i<tk_main.length;i++){
-        tk_main[i].index=i
-        tk_main[i].onclick = function () {
-          tk_replies[this.index].classList.add("tk-replies-height");
+      var myLink = new RegExp(window.location.host),mySubmit = document.getElementsByClassName('tk-submit')[0]
+      if(myLink.test(JSON.parse(localStorage.twikoo).link)){
+        mySubmit.style.setProperty('display','block','important')
+      }else{
+        mySubmit.remove();
+      }
+      var tkMain = document.getElementsByClassName('tk-main'),tkReplies = document.getElementsByClassName('tk-replies');
+      for (var i=0;i<tkMain.length;i++){
+        tkMain[i].index=i
+        tkMain[i].onclick = function () {
+          tkReplies[this.index].classList.add("tk-replies-height");
         }
       }
     }
