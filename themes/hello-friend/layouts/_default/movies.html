@@ -3,12 +3,12 @@
   <h2 class="post-title">{{.Title}}</h2>
   <div class="post-content"></div>
 </div>
-<script type="text/javascript" src='https://cdn.jsdelivr.net/gh/iMuFeng/bmdb@3.4.0/dist/bmdb.min.js'></script>
+<script type="text/javascript" src='https://cdn.jsdelivr.net/combine/npm/react@17.0.2/umd/react.production.min.js,npm/react-dom@17.0.2/umd/react-dom.production.min.js,gh/iMuFeng/bmdb@3.4.1/dist/bmdb.js'></script>
 <script type="text/javascript">
     new Bmdb({
       type: 'movie',
       selector: '.post-content',
-      secret: '0bba46738324c778ad2da662837c14d2c1e5bceb22e3729febc9fd3677bdcea5',
+      secret: 'a78a512825f5ba984c0f81909c96fd1633c047a3c24a687969e6524966dfbe20',
       noMoreText: '没有更多数据了',
       limit: 30
     })

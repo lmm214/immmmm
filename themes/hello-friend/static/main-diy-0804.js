@@ -80,7 +80,7 @@ jQuery(document).ready(function ($) {
       var db_api = "https://bm.weajs.com/api/";
       if (db_type == 'movie') {
         var ls_item = 'movie' + db_id;
-        var url = db_api + "movies/" + db_id + "/";
+        var url = db_api + "movie/" + db_id + "/";
         if (localStorage.getItem(ls_item) == null || localStorage.getItem(ls_item) == 'undefined') {
           $.ajax({
             url: url,
@@ -96,7 +96,7 @@ jQuery(document).ready(function ($) {
         }
       } else if (db_type == 'book') {
         var ls_item = 'book' + db_id;
-        var url = db_api + "books/" + db_id;
+        var url = db_api + "book/" + db_id;
         if (localStorage.getItem(ls_item) == null || localStorage.getItem(ls_item) == 'undefined') {
           $.ajax({
             url: url,
