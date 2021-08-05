@@ -77,7 +77,7 @@ jQuery(document).ready(function ($) {
     if (db_reg.test(str)) {
       var db_type = str.replace(db_reg, "$1");
       var db_id = str.replace(db_reg, "$2").toString();
-      var db_api = "https://bm.weajs.com/api/";
+      var db_api = "https://api.weajs.com/v1/";
       if (db_type == 'movie') {
         var ls_item = 'movie' + db_id;
         var url = db_api + "movie/" + db_id + "/";
