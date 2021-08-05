@@ -53,3 +53,8 @@ sort file.name desc
 ### 更多折腾
 
 什么界面美化、参数配置、第三方插件调配，待续待续！
+
+### 相关参考
+
+[OBSIDIAN 的使用体验](https://pepcn.com/gtd/obsidian-de-shi-yong-ti-yan)：通俗易懂，值得细看。
+[Obsidian 插件之 Dataview](https://zhuanlan.zhihu.com/p/373623264)：很多 DataviewJS 高级代码段。
