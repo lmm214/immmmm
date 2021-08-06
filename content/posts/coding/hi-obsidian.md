@@ -71,6 +71,7 @@ sort file.name desc
 - [File Explorer Count](https://github.com/ozntel/file-explorer-note-count)：目录的文件夹增加文件数量的显示。
 - [Sliding Panes](https://github.com/deathau/sliding-panes-obsidian)：支持横向堆叠多个窗口。
 - [Ozan's Image in Editor](https://github.com/ozntel/oz-image-in-editor-obsidian)：在编辑器视图下直接查看图像、iframe 和 PDF 文件。
+- [Supercharged Links](https://github.com/mdelobelle/obsidian_supercharged_links)：美化内部链接外观。
 
 ```javascript
 //Ozan's Image in Editor 语法
@@ -109,7 +110,6 @@ Auto Rename: OFF
 ### 更多强化插件
 
 - [Editor Syntax Highlight](https://github.com/deathau/cm-editor-syntax-highlight-obsidian)：代码块的语法高亮显示。
-
 - [Recent Files](https://github.com/tgrosinger/recent-files-obsidian)：增加最近文件查看。
 - [Kanban](https://github.com/mgmeyers/obsidian-kanban)：看板插件。
 - [Calendar](https://github.com/liamcain/obsidian-calendar-plugin)：算是必备插件，让内置的日志功能飞起。
@@ -118,6 +118,14 @@ Auto Rename: OFF
 - [Media extended](https://github.com/aidenlx/media-extended)：视频预览，支持设锚点。
 - [Dataview](https://github.com/blacksmithgu/obsidian-dataview)：编辑模式下编写检索代码，预览模式下查看数据汇总。
 - [Text expand](https://github.com/mrjackphil/obsidian-text-expand)：编写检索代码，查询后把结果插入当前页面。
+- [Tag Wrangler Plugin](https://github.com/pjeby/tag-wrangler)：标签栏上重命名全库内的所有同名标签都会被自动更改。
+
+{{< figure "https://cdn.jsdelivr.net/gh/Reocin/obsidian-markdown-formatting-assistant-plugin/assets/Suggestion_Window.png" "https://cdn.jsdelivr.net/gh/Reocin/obsidian-markdown-formatting-assistant-plugin/assets/Suggestion_Window_Improved.png" "Markdown Formatting Assistant">}}
+
+- [Markdown Formatting Assistant](https://github.com/Reocin/obsidian-markdown-formatting-assistant-plugin)：增加一个面板显示各种格式、符号，点击使用，或者 `\` 反斜杠检索。
+
+{{< figure "https://pic2.zhimg.com/v2-9ef4fdce431f841fa52201e771b4cf95_b.jpg" "Obsidian Commits">}}
+- [Obsidian Commits](https://github.com/Darakah/obsidian-commits)：生成热点图和汇总数据,查看自己的笔记的标注更新情况、笔记的撰写情况。
 
 ### 剪藏扩展
 
