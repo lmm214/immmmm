@@ -1,4 +1,9 @@
-{{- if .Get 2 -}}
+{{- if .Get 3 -}}
+  <figure>
+    <img src="{{ .Get 0 | safeURL }}" width="33%"/><img src="{{ .Get 1 | safeURL }}" width="33%" /><img src="{{ .Get 2 | safeURL }}" width="33%" />
+    <figcaption>{{ .Get 3 | markdownify }}</figcaption>
+  </figure>
+{{- else if .Get 2 -}}
   <figure>
     <img src="{{ .Get 0 | safeURL }}" width="50%"/><img src="{{ .Get 1 | safeURL }}" width="50%" />
     <figcaption>{{ .Get 2 | markdownify }}</figcaption>
