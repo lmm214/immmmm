@@ -114,6 +114,8 @@ Auto Rename: OFF
 - [Kanban](https://github.com/mgmeyers/obsidian-kanban)：看板插件。
 - [Calendar](https://github.com/liamcain/obsidian-calendar-plugin)：算是必备插件，让内置的日志功能飞起。
 - [Word Splitting for Simplified Chinese in Edit Mode](https://github.com/aidenlx/cm-chs-patch)：中文分词支持，编辑模式下双击。
+- [Remember cursor position](https://github.com/derwish-pro/obsidian-remember-cursor-position)：记住光标位置
+
 - [Templater](https://github.com/SilentVoid13/Templater)：加强内置页面模板，有点高级。
 - [Media extended](https://github.com/aidenlx/media-extended)：视频预览，支持设锚点。
 - [Dataview](https://github.com/blacksmithgu/obsidian-dataview)：编辑模式下编写检索代码，预览模式下查看数据汇总。
