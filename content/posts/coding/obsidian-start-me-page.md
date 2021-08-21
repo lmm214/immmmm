@@ -2,13 +2,15 @@
 title: "给 Obsidian 来个起始页"
 date: 2021-08-21T10:30:03+0800
 tags: [折腾]
+feature: https://lmm.elizen.me/images/2021/08/obsidian-start-1.jpeg
 ---
-
-{{< figure "https://lmm.elizen.me/images/2021/08/obsidian-start-1.jpeg" "https://lmm.elizen.me/images/2021/08/obsidian-start-2.jpeg" "起始页 By Dataview" >}}
 
 为 [Dataview](https://github.com/blacksmithgu/obsidian-dataview) 插件献上鸡腿，利用其检索功能，让一切 OB 的使用情况「一目了然」！
 
 <!-- more -->
+
+{{< figure "https://lmm.elizen.me/images/2021/08/obsidian-start-1.jpeg" "https://lmm.elizen.me/images/2021/08/obsidian-start-2.jpeg" "起始页 By Dataview" >}}
+
 
 代码块复制时删除 `dataview` 前的 `-`。
 
