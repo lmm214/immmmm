@@ -23,11 +23,11 @@ feature: https://lmm.elizen.me/images/2021/08/adguardhome.png
 
 Edgo 设置-安全性-Microsoft Defender Smartscreen 关闭！
 
-好像，成了一个，但依然还有，那就拦着吧，不久多几行日志嘛！
+好像，成了一个，但依然还有，那就拦着吧，不就多几行日志嘛！
 
 ### `config.pinyin.sogou.com`
 
-要多第1还能理解，这gou？
+要说第1的那位还能理解，毕竟用着人家的产品。可，这gou？
 
 好吧，是多少年前安装过，虽然没调用它，但它的 service 永在！各种删文件禁服务，依旧。
 
