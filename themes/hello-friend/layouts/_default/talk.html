@@ -17,11 +17,13 @@
   .tk-comment{margin:1em 0 4em !important;}
   .tk-replies .tk-comment{margin:0.5em 0 0!important;height:200px;}
   .tk-content{margin:1em 0 0.5em!important;}
+  .tk-content blockquote:before{content:""}
   .tk-replies{max-height:0px !important;}
   .tk-replies .tk-action{position: absolute;right:0;top:20px;}
   .tk-replies.tk-replies-expand{max-height:none !important;}
-  .tk-replies.tk-replies-height .tk-comment{max-height:none !important;height: auto !important;}
+  .tk-replies.tk-replies-expand.tk-replies-height .tk-comment{max-height:none !important;height: auto !important;}
   .tk-expand{margin:-25px 0 0;font-size:1em;font-weight:800;float: right;width: 60px !important;}
+  .tk-expand._collapse{margin:0 0 0;}
   .tk-extras{display: flex !important;}
   .tk-replies .tk-avatar{margin:1em 0.5rem 0 0;}
   .tk-avatar.tk-has-avatar{border-radius:50%;}
@@ -33,7 +35,7 @@
   .dark-theme .tk-time{color: #aaa;}
   .tk-row.actions{margin-left:0 !important;}
 </style>
-<script src="https://cdn.jsdelivr.net/npm/twikoo@1.4.4/dist/twikoo.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/twikoo@1.4.5/dist/twikoo.all.min.js"></script>
 <script>
   twikoo.init({
     envId: 'twikoo-2g36bkuz88660f27',
