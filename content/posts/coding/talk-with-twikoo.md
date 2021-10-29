@@ -11,6 +11,8 @@ feature: https://lmm.elizen.me/images/2021/06/yanyu-3.png
 
 <!--more-->
 
+注明：以内样式、功能代码基于 **Twikoo v1.4.5** 
+
 ### 前端魔改
 
 `twikoo.js` 里的子评论是否显示 “展开” 是根据高度来判断的 `["tk-replies"].scrollHeight>200` ，这会出现当高度不到 200 时，不会显示 “展开” 这个按钮，如果单纯通过 css 直接隐藏，藏是藏了，没有“展开”给我们点击……
@@ -22,26 +24,58 @@ feature: https://lmm.elizen.me/images/2021/06/yanyu-3.png
   .tk-replies.tk-replies-height .tk-comment{max-height:none !important;height: auto !important;}
 ```
 
+完整样式代码如下，最新改动直接查看页面源码：
+
+```css
+<style>
+  .tk-comments .tk-submit,.tk-comments-count span:nth-child(2),.tk-comments-container .tk-comment .tk-avatar,.tk-comments-container .tk-comment .tk-nick,.tk-comments-container .tk-replies .tk-comment .tk-time,.tk-extra-text,.tk-replies .tk-meta,.tk-replies .tk-extra,.tk-extras .tk-extra:nth-child(2){display:none !important;}
+  .tk-comment .tk-submit,.tk-comments-container .tk-replies .tk-comment .tk-avatar{display:block !important;}
+  .tk-comments-container .tk-replies .tk-comment .tk-nick{display:inline-block !important;}
+  .tk-comments-count{font-size:15px;}
+  .tk-comments-count::before {content:"共 ";}
+  .tk-comments-count::after {content:" 条";}
+  .tk-time{color: #fafafa;font-size: 0.75em;font-style: italic;background-color: #3b3d42;display: inline-block;padding:0.25em 1em 0.2em 1em;}
+  .tk-comment{margin:1em 0 4em !important;}
+  .tk-replies .tk-comment{margin:0.5em 0 0!important;height:200px;}
+  .tk-content{margin:1em 0 0.5em!important;}
+  .tk-content blockquote:before{content:""}
+  .tk-replies{max-height:0px !important;}
+  .tk-replies .tk-action{position: absolute;right:0;top:20px;}
+  .tk-replies.tk-replies-expand{max-height:none !important;}
+  .tk-replies.tk-replies-expand.tk-replies-height .tk-comment{max-height:none !important;height: auto !important;}
+  .tk-expand{margin:-25px 0 0;font-size:1em;font-weight:800;float: right;width: 60px !important;}
+  .tk-expand._collapse{margin:0 0 0;}
+  .tk-extras{display: flex !important;}
+  .tk-replies .tk-avatar{margin:1em 0.5rem 0 0;}
+  .tk-avatar.tk-has-avatar{border-radius:50%;}
+  .tk-replies .tk-main{font-size:14px !important;position:relative;}
+  .tk-replies .tk-content{font-size:1em !important;}
+  .tk-row{border-bottom: 1px solid #3b3d42;}
+  .tk-submit{margin-bottom:3em;}
+  .tk-replies .tk-row,.tk-submit .tk-row{border-bottom:none;}
+  .dark-theme .tk-time{color: #aaa;}
+  .tk-row.actions{margin-left:0 !important;}
+</style>
+```
+
 由此也拾起最陌生的陌生人——原生 JavaScript 
 
 ```JavaScript
-<script src="https://cdn.jsdelivr.net/npm/twikoo@1.3.1/dist/twikoo.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/twikoo@1.4.5/dist/twikoo.all.min.js"></script>
 <script>
   twikoo.init({
-    envId: 'twikoo-2g36bkuz88660f27',
+    envId: 'twikoo-123456',
     el: '#tcomment',
     onCommentLoaded: function () {
-      console.log('评论加载完成');
-      //删除主评论输入框
-      document.getElementsByClassName("tk-submit")[0].remove();
-      //绑定当前 “展开” 的点击事件
-      var tk_main = document.getElementsByClassName('tk-main');
-      var tk_replies = document.getElementsByClassName('tk-replies');
-      for (var i=0;i<tk_main.length;i++){
-        tk_main[i].index=i
-        tk_main[i].onclick = function () {
-          tk_replies[this.index].classList.add("tk-replies-height");
-        }
+      var myShow = document.querySelector('.tk-comments-title > .tk-icon'),mySubmit = document.querySelector('.tk-comments > .tk-submit')
+      if(myShow !== null){
+        mySubmit.style.setProperty('display','block','important')
+      }else{
+        mySubmit.remove()
+      }
+      var tkMain = document.getElementsByClassName('tk-main'),tkReplies = document.getElementsByClassName('tk-replies');
+      for (var i=0;i<tkMain.length;i++){
+        tkMain[i].index=i;tkMain[i].onclick = function () {tkReplies[this.index].classList.add("tk-replies-height");}
       }
     }
   })
@@ -49,6 +83,8 @@ feature: https://lmm.elizen.me/images/2021/06/yanyu-3.png
 ```
 
 ### 后端API
+
+注：已停更，太复杂，兼容性差……（其实懒）
 
 思路与 「哔哔点啥」 相同，用 `key` 作为验证，传参数 `text` `from` 并调用我们的主角云函数 `twikoo` 发布主评论！
 
