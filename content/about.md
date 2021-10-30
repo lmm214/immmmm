@@ -30,7 +30,7 @@ layout: 'posts'
 
 {{< friend des="" url="https://dearroy.com" md5="7f0462ffcbb90ae9942bc86157dead61" name="亲爱的罗伊" >}}
 
-{{< friend des="" url="https://ericec.cn" md5="7a3666b87e0dfb5d76fd1a0ea7779d9b" name="周良粥凉" >}}
+{{< friend des="" url="https://imzl.com/" md5="7a3666b87e0dfb5d76fd1a0ea7779d9b" name="周良粥凉" >}}
 
 {{< friend des="" url="https://axiu.me" md5="c1c19d714393cd9b8ea3a1e955db8521" name="Axiu" >}}
 
@@ -41,8 +41,6 @@ layout: 'posts'
 {{< friend des="" url="https://qfsyj.com" md5="4ba509f9ec541ab4d316299727b3e3ab" name="秦大叔" >}}
 
 {{< friend des="" url="http://bestcherish.com" md5="338aab9b039236de24c1d8a5def2dc77" name="灰常记忆" >}}
-
-{{< friend des="" url="https://ton.tn" md5="e145d9b2c479ae74c3c6fef754324494" name="Ton" >}}
 
 {{< friend des="" url="https://fanxihui.com" md5="97a58723dbfcd9d771229974c3cca970" name="范希辉" >}}
 
