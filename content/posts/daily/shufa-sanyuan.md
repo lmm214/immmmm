@@ -6,7 +6,7 @@ tags: [日常]
 
 ![shufa](https://cdn.jsdelivr.net/gh/lmm214/images@master/logos/shufa.png)
 
-戳我打开： <https://edui.fun/shufa/>
+戳我打开： <https://edui123.com/shufa/>
 
 <!--more-->
 
