@@ -760,6 +760,7 @@ hr {
 .post-content h3,.post-content h4 {
 	position: relative;left: 2em;margin: 28px auto 18px!important;letter-spacing: 2px;
 }
+
 .post-content h3:before,.post-content h4:before {
     content: "##";
     color: #42b983;
@@ -768,7 +769,8 @@ hr {
 }
 .post-content h4 {left:2.5em;}
 .post-content h4:before {content: "###";left:-2.5em;}
-
+.post-content h4.post-preview--title{margin:0 !important;left:0;}
+.post-content h4.post-preview--title:before{content:"";left:0;}
 .post-cover {
 	border-radius: 8px;
 	margin: 40px -50px;
