@@ -33,3 +33,19 @@ Reset……reset……reset…… 好吧，那就加端口访问吧。整个折�
 ### 与题无关
 
 一早醒来，隔壁区又一确诊，真是心有戚戚焉……2022，望大家一切安好，守住身边美好！
+
+### 更多折腾
+
+#### 文章列表动态加载
+
+https://infinite-scroll.com/options.html#history
+
+`history: 'push'`
+
+#### 新增归档页
+
+参考：https://quickapp.lovejade.cn/how-to-add-archives-for-ghost-blog/
+
+### 更多教程
+
+http://www.jerrymei.cn/tag/ghost-theme/
