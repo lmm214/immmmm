@@ -766,8 +766,8 @@ hr {
     position: absolute;
     left: -2em;
 }
-.post-content h4 {left: 2.5em;}
-.post-content h4:before {content: "###";left: -2.5em;}
+.post-content h4 {left:2.5em;}
+.post-content h4:before {content: "###";left:-2.5em;}
 
 .post-cover {
 	border-radius: 8px;
