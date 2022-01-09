@@ -12,6 +12,7 @@ Github 上找到一个 PHP 版的 [calendar_api](https://github.com/zzzhxxx/cale
 1. 自动更新日期
 2. 绕过 Referer 验证
 
+<!--more-->
 顺利访问以下图片地址：
 
 > https://img.owspace.com/Public/uploads/Download/2022/0109.jpg
