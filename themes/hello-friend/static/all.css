@@ -757,18 +757,17 @@ hr {
 	margin-top: 0px; word-break:break-all;
 	min-height: 70px;
 }
-.post-content h3,.post-content h4 {
+.post-content h3,.post-content h4{
 	position: relative;left: 2em;margin: 28px auto 18px!important;letter-spacing: 2px;
 }
-
-.post-content h3:before,.post-content h4:before {
+.post-content h3:before{
     content: "##";
     color: #42b983;
     position: absolute;
     left: -2em;
 }
-.post-content h4 {left:2.5em;}
-.post-content h4:before {content: "###";left:-2.5em;}
+.post-content h4{left:2.5em;}
+.post-content h4:before {content:"###";left:-2.5em;color: #42b983;position: absolute;}
 .post-content h4.post-preview--title{margin:0 !important;left:0;}
 .post-content h4.post-preview--title:before{content:"";left:0;}
 .post-cover {
