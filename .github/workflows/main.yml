@@ -30,13 +30,6 @@ jobs:
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: ./public
           commit_message: ${{ github.event.head_commit.message }}
-      
-      # 部署到腾宝塔服务器
-      - name: Webhook
-        uses: distributhor/workflow-webhook@v1
-        env:
-          webhook_url: ${{ secrets.WEBHOOK_URL }}
-          webhook_secret: ${{ secrets.WEBHOOK_SECRET }}
           
       - name: Sending message
         uses: yakumioto/serverchan-action@v1
