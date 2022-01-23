@@ -31,10 +31,11 @@ jobs:
           PUBLISH_DIR: ./public
           commit_message: ${{ github.event.head_commit.message }}
       
-      # 部署到腾宝塔服务器
-      # - name: Webhook
-      #  uses: distributhor/workflow-webhook@v1
-      #  env:
+      # 部署到cloudflare
+      - name: Webhook
+        uses: distributhor/workflow-webhook@v1
+        env:
+         webhook_url: ${{ secrets.cloudflare_webhooks_url }}
       #    webhook_url: ${{ secrets.WEBHOOK_URL }}
       #    webhook_secret: ${{ secrets.WEBHOOK_SECRET }}
           
