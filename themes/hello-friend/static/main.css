@@ -754,7 +754,8 @@ hr {
 .post-content {
 	font-family: 'Noto Serif SC', -apple-system,BlinkMacSystemFont,Roboto,Segoe UI,Helvetica,Arial,serif;
 	font-weight: 500;
-	margin-top: 0px; word-break:break-all;
+	margin-top: 0px;
+	word-break:break-all;
 	min-height: 70px;
 }
 .post-content h3,.post-content h4{
