@@ -19,6 +19,8 @@ feature: https://lmm.elizen.me/images/2022/01/cf-1.png
 
 ![cf-2](https://lmm.elizen.me/images/2022/01/cf-2.png)
 
+部署方式 「二选一」 即可！
+
 #### 部署设置一：
 
 ![cf-3](https://lmm.elizen.me/images/2022/01/cf-3.png)
@@ -31,11 +33,20 @@ feature: https://lmm.elizen.me/images/2022/01/cf-1.png
 
 #### 部署设置二：
 
-删掉分支，让 CF 构建 Hugo ，加个环境变量指定高版本 `HUGO_VERSION` 为 `0.92.0`
+删掉 `gh-pages` 分支，删除 `.github/workflows/main.yml`， 让 CF 构建 Hugo ，这里需要加个环境变量，指定高版本 `HUGO_VERSION` 为 `0.92.0`
 
 ![cf-5](https://lmm.elizen.me/images/2022/01/cf-5.png)
 
 ![cf-4](https://lmm.elizen.me/images/2022/01/cf-4.png)
+
+#### 部署一二差别
+
+前者几乎不用动 Github 但 CF 会默认构建所有分支（gh-pages 和 marter），所以更新一次要等 3min x2 时间才构建完成。
+
+![cf-6](https://lmm.elizen.me/images/2022/01/cf-6.png)
+
+后者完全抛弃了 Github Actions + Pages ，算省下 1/500 的免费构建次数？主要是省下一个 3min 。
+
 
 ### 参考
 
