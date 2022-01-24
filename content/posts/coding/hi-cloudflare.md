@@ -19,7 +19,7 @@ feature: https://lmm.elizen.me/images/2022/01/cf-1.png
 
 ![cf-2](https://lmm.elizen.me/images/2022/01/cf-2.png)
 
-部署设置
+#### 部署设置一：
 
 ![cf-3](https://lmm.elizen.me/images/2022/01/cf-3.png)
 
@@ -27,7 +27,15 @@ feature: https://lmm.elizen.me/images/2022/01/cf-1.png
 
 同时去 Github 项目里去除 `.github/workflows/main.yml` 里推送到服务器的 webhook 钩子。
 
-这样仍然保留 Github Action ，CF 只是拉取静态文件。当然，删掉分支，让 CF 构建 Hugo 应该也是可以的，得加个环境变量指定高版本 `HUGO_VERSION` 为 `0.81.0`
+这样仍然保留 Github Action ，CF 只是拉取静态文件。
+
+#### 部署设置二：
+
+删掉分支，让 CF 构建 Hugo ，加个环境变量指定高版本 `HUGO_VERSION` 为 `0.92.0`
+
+![cf-5](https://lmm.elizen.me/images/2022/01/cf-5.png)
+
+![cf-4](https://lmm.elizen.me/images/2022/01/cf-4.png)
 
 ### 参考
 
