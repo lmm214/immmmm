@@ -8,7 +8,7 @@ tags: [折腾]
 
 全程 Web 端操作，无需本地安装 Hugo 、配置 Git 、联通 Github 等操作。
 
-整体思路：Github 放有主题的 Hugo 程序、
+<!--more-->
 
 ### Github 导入仓库
 
