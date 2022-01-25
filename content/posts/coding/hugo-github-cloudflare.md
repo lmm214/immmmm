@@ -47,3 +47,9 @@ Cloudflare Dash <https://dash.cloudflare.com/> 点导航栏 `Pages` ，点 `创�
 {{< figure "https://lmm.elizen.me/images/2022/01/cf-hugo-2.png" "Pages 创建完成">}}
 
 撒花 🎉
+
+### 然后，然后
+
+了解主题配置 <https://docs.stack.jimmycai.com/zh/configuration/> ，修改站点信息。
+
+日常发文在 `content/post` 文件夹下新增 md 文件即可。
