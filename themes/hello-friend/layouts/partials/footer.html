@@ -6,7 +6,10 @@
 <footer class="footer">
   <div class="footer__inner">
     <div class="copyright">
-      <span>共 {{ len (where .Site.RegularPages "Section" "posts") }} 篇文章</span><span> {{$scratch.Get "total" }} 字</span>
+      <span>共 {{ len (where .Site.RegularPages "Section" "posts") }} 篇文章</span><span style="border-right:1px solid;padding-right: 10px;margin-right: 10px;"> {{$scratch.Get "total" }} 字</span><span id="busuanzi_container_site_pv" style="display: inline;"><span id="busuanzi_value_site_pv">0</span> 次访问</span>
+    </div>
+    <div class="copyright">
+      
     </div>
     {{ if $.Site.Copyright }}
       <div class="copyright copyright--user">{{ $.Site.Copyright | safeHTML }}</div>
@@ -17,6 +20,9 @@
     {{end}}
   </div>
 </footer>
+
+
+<script type="text/javascript" src="/pageviews.js"></script>
 
 <script type="text/javascript" src="/main.js?t=20220124"></script>
 
