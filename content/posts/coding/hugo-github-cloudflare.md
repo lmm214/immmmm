@@ -44,7 +44,7 @@ Cloudflare Dash <https://dash.cloudflare.com/> 点导航栏 `Pages` ，点 `创�
 
 添加环境变量，指定高版本的 `HUGO_VERSION`  为  `0.92.0` 
 
-{{< figure "https://lmm.elizen.me/images/2022/01/cf-hugo-2.png" "Pages 创建完成">}}
+{{< figure "https://lmm.elizen.me/images/2022/01/cf-hugo-9.png" "Pages 创建完成">}}
 
 撒花 🎉
 
