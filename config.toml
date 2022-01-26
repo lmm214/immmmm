@@ -34,8 +34,8 @@ rssLimit = 5
   url="/archives/"
   weight="4"
   [[menu.main]]
-  name="言语"
-  url="/talk/"
+  name="友圈"
+  url="/friends/"
   weight="5"
   [[menu.main]]
   name="关于"
