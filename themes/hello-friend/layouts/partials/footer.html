@@ -8,6 +8,9 @@
     <div class="copyright">
       <span>共 {{ len (where .Site.RegularPages "Section" "posts") }} 篇文章</span><span> {{$scratch.Get "total" }} 字</span>
     </div>
+    <div class="copyright">
+      <span id="busuanzi_container_site_pv" style="display: inline;">本站总访问量 <span id="busuanzi_value_site_pv">0</span> 次</span>
+    </div>
     {{ if $.Site.Copyright }}
       <div class="copyright copyright--user">{{ $.Site.Copyright | safeHTML }}</div>
     {{else}}
@@ -17,6 +20,9 @@
     {{end}}
   </div>
 </footer>
+
+
+<script async type="text/javascript" src="/pageviews.js"></script>
 
 <script type="text/javascript" src="/main.js?t=20220124"></script>
 

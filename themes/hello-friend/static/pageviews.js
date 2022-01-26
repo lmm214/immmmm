@@ -1,0 +1,1 @@
+var viewsSlug=window.location.host,viewsUrl='https://pageviews.edui123.com/pv?slug='+viewsSlug;fetch(viewsUrl,{method:'PUT'}).then((res)=>res.json()).then(({result})=>{document.getElementById('busuanzi_value_site_pv').innerHTML=result.pv;document.getElementById('busuanzi_container_site_pv').style='display:inline'});
