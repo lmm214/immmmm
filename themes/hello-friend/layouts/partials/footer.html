@@ -8,9 +8,6 @@
     <div class="copyright">
       <span>共 {{ len (where .Site.RegularPages "Section" "posts") }} 篇文章</span><span> {{$scratch.Get "total" }} 字</span>
     </div>
-    <div class="copyright">
-      <span id="busuanzi_container_site_pv" style="display: inline;">本站总访问量 <span id="busuanzi_value_site_pv">0</span> 次</span>
-    </div>
     {{ if $.Site.Copyright }}
       <div class="copyright copyright--user">{{ $.Site.Copyright | safeHTML }}</div>
     {{else}}
@@ -21,9 +18,6 @@
   </div>
 </footer>
 
-
-<script async type="text/javascript" src="/pageviews.js"></script>
-
 <script type="text/javascript" src="/main.js?t=20220124"></script>
 
 <script type="text/javascript" src='https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js'></script>
@@ -31,17 +25,3 @@
 <script type="text/javascript" src="/waterfall.min.js"></script>
 <script type="text/javascript" src="/slimbox2.min.js"></script>
 <script type="text/javascript" src="/main-diy-0805.js"></script>
-
-<!-- 全局引入友链朋友圈配置项 -->
-<script type="text/javascript">
-  // 全局变量声明区域
-  var fdata = {
-    apiurl: 'https://friendcircle-api-fx7ykk2ye-lmm214.vercel.app/api',
-    initnumber: 20, //【可选】页面初始化展示文章数量
-    stepnumber: 10,//【可选】每次加载增加的篇数
-    //error_img: '/image/404.gif' //【可选】头像加载失败时默认显示的头像
-  }
-  //存入本地存储
-  localStorage.setItem("fdatalist",JSON.stringify(fdata))
-</script>
-<script defer src="https://cdn.jsdelivr.net/gh/Rock-Candy-Tea/hexo-friendcircle-demo@main/js/fetch.js"></script>
