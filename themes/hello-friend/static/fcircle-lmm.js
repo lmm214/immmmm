@@ -8,6 +8,7 @@ function quickSort(arr, keyword){
 // 打印友链基本信息
 function loadStatistical(sdata){
   var container = document.getElementById('fcircleContainer');
+  container.innerHTML = "";
   var messageBoard =`
   <div id="fMessageBoard">
     <div class="fUpdatedTime">
