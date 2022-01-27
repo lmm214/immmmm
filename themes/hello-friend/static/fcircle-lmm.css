@@ -2,9 +2,10 @@
 #fMessageBoard .fUpdatedTime {text-align:center;height:40px;order:1;width:100%;line-height:40px;font-size:14px;}
 #fMessageBoard .fMessageItem {order:0;width:100%;display:flex;}
 #fMessageBoard .fMessageItem .fItem {height:60px;background:transparent;display:flex;flex-direction:column;width:33%;}
-#fMessageBoard .fMessageItem .fItem .fLabel {padding:0 3%;align-self:center;text-align:center;width:100%;height:30px;}
+#fMessageBoard .fMessageItem .fItem .fLabel {font-size:18px;padding:0 3%;align-self:center;text-align:center;width:100%;height:30px;}
 #fMessageBoard .fMessageItem .fItem .fMessage {align-self:center;text-align:center;padding:0 3%;width:50%;}
-#fcircleMoreBtn {width:90%;max-width:810px;height:30px;margin:auto;border-radius:12px;font-weight:bolder;text-align:center;display:flex;flex-direction:column;justify-content:space-around;cursor:pointer;transition:0.3s;}
+#fcircleMoreBtn {width:40%;max-width:810px;height:30px;margin:auto;border-radius:12px;font-weight:bolder;text-align:center;display:flex;flex-direction:column;justify-content:space-around;cursor:pointer;transition:0.3s;}
+#fcircleMoreBtn:hover{width:60%;}
 #fcircleContainer {width:100%;max-width:900px;height:auto;margin:auto;}
 #fcircleContainer a {text-decoration:none;}
 #fcircleContainer .fArticleItem {margin:20px 1%;display:flex;color:rgba(60,60,61,0.7);border-radius:5px;font-weight:bolder;overflow:hidden;flex-direction:column;}
@@ -12,10 +13,12 @@
 #fcircleContainer .fArticleItem .fArticleAvatar .fAvatar {align-self:center;text-align:center;}
 #fcircleContainer .fArticleItem .fArticleAvatar .fAvatar img {width:22px;height:22px;border-radius:99px;}
 #fcircleContainer .fArticleItem .fArticleAvatar .fAvatar .img-alt.is-center {display:none;}
-#fcircleContainer .fArticleItem .fArticleAvatar .fArticleAuthor {font-size:14px;margin:0 0.5rem;align-self:center;text-align:center;height:40px;white-space:nowrap;overflow:hidden;}
-#fcircleMoreBtn i.fas::before {content:"↯ ↯ ↯";color:#fe5186;}
-#fcircleContainer .fArticleItem .fArticleMessage {display:flex;flex-direction:column;padding:0.5rem 1rem 0.8rem 1rem;border-radius:5px;order:0;}
-#fcircleContainer .fArticleItem .fArticleMessage a.fArticleTitle {letter-spacing:2px;font-size:18px;align-self:start;text-align:left;line-height:40px;padding:0;margin-bottom:10px;white-space:nowrap;overflow:hidden;transition:0.3s;}
+#fcircleContainer .fArticleItem .fArticleAvatar .fArticleAuthor {line-height: 35px;font-size:14px;margin:0 0.5rem;align-self:center;text-align:center;height:40px;white-space:nowrap;overflow:hidden;}
+#fcircleMoreBtn i.fas::before {content:"∞";}
+#fcircleMoreBtn i.fas:hover{color:#fe5186;}
+#fcircleContainer .fArticleItem .fArticleMessage {display:flex;flex-direction:column;padding:0.5rem 1rem 0.8rem 1rem;border-radius:5px;order:0;overflow: hidden;}
+#fcircleContainer .fArticleItem .fArticleMessage a.fArticleTitle {letter-spacing:1.5px;font-size:18px;align-self:start;text-align:left;line-height:40px;padding:0;margin-bottom:10px;transition:0.3s;}
+#fcircleContainer .fArticleItem .fArticleMessage a.fArticleTitle:hover{letter-spacing:2px;color:#fe5186 !important;}
 #fcircleContainer .fArticleItem .fArticleMessage .fArticleTime {font-size:14px;text-align:right;}
 #fcircleContainer .fArticleItem .fArticleMessage .fArticleTime .fArticleUpdated {margin-right:1rem;text-align:left;align-self:center;}
 #fcircleContainer .fArticleItem .fArticleMessage .fArticleTime .fArticleUpdated i.fas {padding-right:8px;}
@@ -23,7 +26,7 @@
 #fcircleContainer .fArticleItem .fArticleAvatar .fArticleAuthor,#fcircleContainer .fArticleItem .fArticleMessage .fArticleTime .fArticleUpdated,#fcircleContainer .fArticleItem .fArticleMessage a.fArticleTitle {color:#363636;}
 body.dark-theme #fcircleContainer .fArticleItem .fArticleAvatar .fArticleAuthor,body.dark-theme #fcircleContainer .fArticleItem .fArticleMessage .fArticleTime .fArticleUpdated,body.dark-theme #fcircleContainer .fArticleItem .fArticleMessage a.fArticleTitle {color:#a9a9b3;}
 #fcircleContainer .fArticleItem .fArticleMessage {background:#f7f9fe;}
-
+#fcircleFooter{margin: 4rem 0 2rem;text-align: center;font-size: 13px;}
 body.dark-theme #fcircleContainer .fArticleItem .fArticleMessage {background:#252627;}
 #fMessageBoard,#fcircleMoreBtn {background:#f7f9fe;color:#363636;}
 body.dark-theme #fMessageBoard,body.dark-theme #fcircleMoreBtn {background:#252627;color:#a9a9b3;}

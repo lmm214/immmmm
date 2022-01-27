@@ -42,8 +42,6 @@ layout: 'posts'
 
 {{< friend des="" url="http://bestcherish.com" md5="338aab9b039236de24c1d8a5def2dc77" name="灰常记忆" >}}
 
-{{< friend des="" url="https://fanxihui.com" md5="97a58723dbfcd9d771229974c3cca970" name="范希辉" >}}
-
 {{< friend des="记录行走和折腾之路。" url="https://aotxland.com/" md5="63900087ce5ba22f6377309fa50962d0" name="AoTxLand" >}}
 
 {{< friend des="" url="http://www.anandalue.com/" md5="6cb00a3ed13460e8317bec9745d6c8d8" name="Andalue" >}}
@@ -65,6 +63,8 @@ layout: 'posts'
 {{< friend des="" url="https://blog.zhheo.com/" md5="62d8c76b1fd8822cd95efe0abec26b70" name="Heo" >}}
 
 {{< friend des="" url="https://xwlearn.com/" md5="4463036638cb7140058a588641659fdc" name="xwlearn" >}}
+
+{{< friend des="用这生命中的每一秒，给自己一个不后悔的未来" url="https://noionion.top/" md5="d240a727ea154be465796ef2644aac16" name="贰猹的小窝" >}}
 
 ### 博客程序
 

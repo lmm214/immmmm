@@ -16,22 +16,23 @@ function loadStatistical(sdata){
     </div>
     <div class="fMessageItem">
       <div class="fActiveFriend fItem">
-        <span class="fLabel">活跃数</span>
-        <span class="fMessage">${sdata.active_num}/${sdata.friends_num}</span>
+        <span class="fLabel">订阅</span>
+        <span class="fMessage">${sdata.friends_num}</span>
       </div>
       <div class="fErrorSite fItem">
-        <span class="fLabel">冻结数</span>
-        <span class="fMessage">${sdata.error_num}/${sdata.friends_num}</span>
+        <span class="fLabel">活跃</span>
+        <span class="fMessage">${sdata.active_num}</span>
       </div>
       <div class="fArticleNum fItem">
-        <span class="fLabel">已存数</span>
-        <span class="fMessage">${sdata.article_num}/${Math.ceil(Number( sdata.article_num) / 100) * 100}</span>
+        <span class="fLabel">日志</span>
+        <span class="fMessage">${sdata.article_num}</span>
       </div>
     </div>
   </div>
   `;
   var loadMoreBtn = `
     <div id="fcircleMoreBtn" onclick="loadMoreArticle()"><i class="fas fa-angle-double-down"></i></div>
+    <div id="fcircleFooter">Powered by <a target="_blank" href="https://github.com/Rock-Candy-Tea/hexo-circle-of-friends" target="_blank">Circle Friends</a> v4.1.1</div>
   `;
   if(container){
     container.insertAdjacentHTML('beforebegin', messageBoard);
