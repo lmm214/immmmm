@@ -32,7 +32,7 @@ fetch(viewsUrl,{method:'PUT'})
 > 两行代码 搞定计数
 
 ```html
-<script async type="text/javascript" src="https://cdn.jsdelivr.net/gh/lmm214/cloudflare-pageviews-worker/pageviews.js"></script>
+<script async type="text/javascript" src="/pageviews.js"></script>
 <span id="busuanzi_container_site_pv" style="display:inline;">本站总访问量 <span id="busuanzi_value_site_pv">0</span> 次</span>
     
 ```
@@ -40,3 +40,9 @@ fetch(viewsUrl,{method:'PUT'})
 ### 后话
 
 每日 100,000 次调用限额，应该，足够了吧？
+
+### 后后话
+
+每日 10W 是调用，而 put 修改的话是 1000次/日…本地调试个主题都不够刷新的…
+
+弃！
