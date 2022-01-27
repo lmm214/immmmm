@@ -1,3 +1,5 @@
+
+var FriendCircleVersion = "4.1.1"
 // 排序算法
 function quickSort(arr, keyword){
   if(arr.length == 0){return [];}
@@ -32,7 +34,7 @@ function loadStatistical(sdata){
   `;
   var loadMoreBtn = `
     <div id="fcircleMoreBtn" onclick="loadMoreArticle()"><i class="fas fa-angle-double-down"></i></div>
-    <div id="fcircleFooter">Powered by <a target="_blank" href="https://github.com/Rock-Candy-Tea/hexo-circle-of-friends" target="_blank">Circle Friends</a> v4.1.1</div>
+    <div id="fcircleFooter">Powered by <a target="_blank" href="https://github.com/Rock-Candy-Tea/hexo-circle-of-friends" target="_blank">FriendCircle</a> ${FriendCircleVersion}</div>
   `;
   if(container){
     container.insertAdjacentHTML('beforebegin', messageBoard);
