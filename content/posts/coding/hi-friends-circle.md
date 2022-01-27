@@ -7,11 +7,9 @@ feature: https://lmm.elizen.me/images/2022/01/myf-1.png
 
 喜大普奔：<https://immmmm.com/friends/>
 
-不过，好像第一次访问要刷新下页面才能看到……
-
 后端部署见：[友链朋友圈食用说明书](https://noionion.top/47095.html) 
 
-也可直接用我部署的 API ，先部署前端，自己做了一些改动，样式给予 [@Heo](https://blog.zhheo.com/)，功能代码主要是把原来的 [fetch.js](https://cdn.jsdelivr.net/gh/Rock-Candy-Tea/hexo-friendcircle-demo@main/js/fetch.js) 和 [fcircle.js](https://cdn.jsdelivr.net/gh/Rock-Candy-Tea/hexo-friendcircle-demo@main/js/fcircle.js) 做了合并，优化了部分逻辑。
+也可直接用我部署的 API ，先部署前端，自己做了一些改动，样式给予 [@Heo](https://blog.zhheo.com/)，功能代码主要是把原来的 [fetch.js](https://cdn.jsdelivr.net/gh/Rock-Candy-Tea/hexo-friendcircle-demo@main/js/fetch.js) 和 [fcircle.js](https://cdn.jsdelivr.net/gh/Rock-Candy-Tea/hexo-friendcircle-demo@main/js/fcircle.js) 做了合并，优化了部分逻辑，搞定了 **“第一次访问要刷新下页面才能看到……”** 。
 
 <!--more-->
 
