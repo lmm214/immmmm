@@ -5,7 +5,7 @@ function quickSort(arr, keyword){
   for(var i = 1; i < arr.length; i++){if(arr[i][keyword] > selectItem[keyword]){left.push(arr[i]);}else{right.push(arr[i]);}}
   return quickSort(left, keyword).concat(selectItem, quickSort(right, keyword));
 }
-// 打印友链基本信息
+// 打印基本信息
 function loadStatistical(sdata){
   var container = document.getElementById('fcircleContainer');
   container.innerHTML = "";
