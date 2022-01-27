@@ -116,11 +116,11 @@ function initFriendCircle(){
           container.innerHTML = "";
           loadStatistical(statistical_data);
           loadArticleItem(article_sortupdated ,0,fdata.initnumber,statistical_data)
-          localStorage.setItem("statisticalList",JSON.stringify(statistical_data))
-          localStorage.setItem("updatedList",JSON.stringify(article_sortupdated))
         }else{
           console.log("API数据未更新")
         }
+        localStorage.setItem("statisticalList",JSON.stringify(statistical_data))
+        localStorage.setItem("updatedList",JSON.stringify(article_sortupdated))
       })
     }else{
       //真正的第一次访问
