@@ -1,5 +1,6 @@
 var FriendCircleVersion = "4.1.1"
 var container = document.getElementById('fcircleContainer');
+container.innerHTML = "";
 // 排序算法
 function quickSort(arr, keyword){
   if(arr.length == 0){return [];}
@@ -9,7 +10,6 @@ function quickSort(arr, keyword){
 }
 // 打印基本信息
 function loadStatistical(sdata){
-  container.innerHTML = "";
   var messageBoard =`
   <div id="fMessageBoard">
     <div class="fUpdatedTime">
