@@ -1,3 +1,6 @@
+/*
+Last Modified time : 20220128 08:08
+*/
 var FriendCircleVersion = "4.1.1"
 var container = document.getElementById('fcircleContainer');
 container.innerHTML = "";
@@ -11,7 +14,7 @@ function quickSort(arr, keyword){
 // 打印基本信息
 function loadStatistical(sdata){
   var messageBoard =`
-  <div id="fMessageBoard">
+  <div id="fMessageBoard" class="fNewDiv">
     <div class="fUpdatedTime">
       <span class="fLabel">更新于：</span><span class="fMessage">${sdata.last_updated_time}</span>
     </div>
@@ -32,8 +35,8 @@ function loadStatistical(sdata){
   </div>
   `;
   var loadMoreBtn = `
-    <div id="fcircleMoreBtn" onclick="loadMoreArticle()"><i class="fas fa-angle-double-down"></i></div>
-    <div id="fcircleFooter">Powered by <a target="_blank" href="https://github.com/Rock-Candy-Tea/hexo-circle-of-friends" target="_blank">FriendCircle</a> ${FriendCircleVersion}</div>
+    <div id="fcircleMoreBtn" class="fNewDiv" onclick="loadMoreArticle()"><i class="fas fa-angle-double-down"></i></div>
+    <div id="fcircleFooter" class="fNewDiv">Powered by <a target="_blank" href="https://github.com/Rock-Candy-Tea/hexo-circle-of-friends" target="_blank">FriendCircle</a> ${FriendCircleVersion}</div>
   `;
   if(container){
     container.insertAdjacentHTML('beforebegin', messageBoard);
@@ -105,14 +108,12 @@ function initFriendCircle(){
         var statistical_data = json.statistical_data;
         var article_data = eval(json.article_data);
         var article_sortupdated = quickSort(article_data,'updated');
-        //获取本地与API中的第一篇文章标题
-        var local_updatedList = updatedList[0].title
-        var new_updatedList = article_sortupdated[0].title
-        if(local_updatedList !== new_updatedList){
-          console.log("最新一篇文章标题不一致")
-          document.getElementById('fMessageBoard').remove()
-          document.getElementById('fcircleMoreBtn').remove()
-          document.getElementById('fcircleFooter').remove()
+        //获取本地与API中的第1、2两篇文章标题
+        var local_updatedList1 = updatedList[0].title,new_updatedList1 = article_sortupdated[0].title
+        var local_updatedList2= updatedList[1].title,new_updatedList2 = article_sortupdated[1].title
+        if(local_updatedList1 !== new_updatedList1 || local_updatedList2 !== new_updatedList2){
+          console.log("最新第1或第2篇文章标题不一致")
+          document.querySelectorAll('.fNewDiv').forEach(el => el.remove());
           container.innerHTML = "";
           loadStatistical(statistical_data);
           loadArticleItem(article_sortupdated ,0,fdata.initnumber,statistical_data)
