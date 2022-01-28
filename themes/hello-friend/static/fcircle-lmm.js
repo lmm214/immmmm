@@ -1,7 +1,20 @@
 /*
-Last Modified time : 20220128 08:08
+Last Modified time : 20220128 12:08
 */
 var FriendCircleVersion = "4.1.1"
+var fdata = {
+  apiurl: 'https://friendcircle-api-fx7ykk2ye-lmm214.vercel.app/api',
+  initnumber: 20, //【可选】页面初始化展示文章数量
+  stepnumber: 10,//【可选】每次加载增加的篇数
+  error_img: 'https://sdn.geekzu.org/avatar/57d8260dfb55501c37dde588e7c3852c' //【可选】头像加载失败时默认显示的头像
+}
+if(typeof(fdataUser) !=="undefined"){
+  for(var key in fdataUser) {
+    if(fdataUser[key]){
+      fdata[key] = fdataUser[key];
+    }
+  }
+}
 var container = document.getElementById('fcircleContainer');
 container.innerHTML = "";
 // 排序算法
