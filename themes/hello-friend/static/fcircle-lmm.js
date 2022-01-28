@@ -75,23 +75,18 @@ function loadArticleItem(datalist,start,end){
   for (var i = start;i<end;i++){
     var item = datalist[i];
     articleItem +=`
-      <div class="fArticleItem">
-      <div class="fArticleAvatar">
-        <a class="fArticlelink fAvatar" target="_blank" rel="noopener nofollow" href="${item.link}">
-          <img src="${item.avatar}" alt="avatar"  onerror="this.src='${fdata.error_img}'; this.onerror = null;">
-        </a>
-        <div class="fArticleAuthor">
-          ${item.author}
-        </div>
-      </div>
+    <div class="fArticleItem">
       <div class="fArticleMessage">
         <a class="fArticleTitle"  href="${item.link}" target="_blank" rel="noopener nofollow" data-title="${item.title}">${item.title}</a>
-        <div class="fArticleTime">
+        <div class="fArticleAvatar">
+          <a class="fArticlelink fAvatar" target="_blank" rel="noopener nofollow" href="${item.link}"><img src="${item.avatar}" alt="avatar"  onerror="this.src='${fdata.error_img}'; this.onerror = null;"></a><span class="fArticleAuthor">${item.author}</span>
+          <span class="fArticleTime">
           <span class="fArticleCreated" style="${sortNow == 'created' ? '':'display:none'}"><i class="far fa-calendar-alt">发表于</i>${item.created}</span>
           <span class="fArticleUpdated" style="${sortNow == 'updated' ? '':'display:none'}"><i class="fas fa-history">更新于</i>${item.updated}</span>
+        </span>
         </div>
       </div>
-      </div>
+    </div>
     `;
   }
   if(container){

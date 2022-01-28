@@ -8,18 +8,17 @@
 #fcircleMoreBtn:hover{width:60%;}
 #fcircleContainer {width:100%;max-width:900px;height:auto;margin:auto;}
 #fcircleContainer a {text-decoration:none;}
-#fcircleContainer .fArticleItem {margin:20px 1%;display:flex;color:rgba(60,60,61,0.7);border-radius:5px;font-weight:bolder;overflow:hidden;flex-direction:column;}
-#fcircleContainer .fArticleItem .fArticleAvatar {display:flex;flex-direction:row;padding:0 1rem 0.5rem 1rem;order:1;transform:translateY(-23px);width:40%;height:0px;}
+#fcircleContainer .fArticleItem {margin:20px 1%;color:rgba(60,60,61,0.7);border-radius:5px;font-weight:bolder;overflow:hidden;}
 #fcircleContainer .fArticleItem .fArticleAvatar .fAvatar {align-self:center;text-align:center;}
-#fcircleContainer .fArticleItem .fArticleAvatar .fAvatar img {width:22px;height:22px;border-radius:99px;}
+#fcircleContainer .fArticleItem .fArticleAvatar .fAvatar img {width:22px;height:22px;border-radius:50%;margin-bottom: -4px;}
 #fcircleContainer .fArticleItem .fArticleAvatar .fAvatar .img-alt.is-center {display:none;}
 #fcircleContainer .fArticleItem .fArticleAvatar .fArticleAuthor {line-height: 35px;font-size:14px;margin:0 0.5rem;align-self:center;text-align:center;height:40px;white-space:nowrap;overflow:hidden;}
 #fcircleMoreBtn i.fas::before {content:"∞";}
 #fcircleMoreBtn i.fas:hover{color:#fe5186;}
-#fcircleContainer .fArticleItem .fArticleMessage {display:flex;flex-direction:column;padding:0.5rem 1rem 0.8rem 1rem;border-radius:5px;order:0;overflow: hidden;}
+#fcircleContainer .fArticleItem .fArticleMessage {padding:0.5rem 1rem;border-radius:5px;overflow: hidden;}
 #fcircleContainer .fArticleItem .fArticleMessage a.fArticleTitle {width:100%;display: block;letter-spacing:1.5px;font-size:18px;align-self:start;text-align:left;line-height:40px;padding:0;margin-bottom:10px;transition:0.3s;}
 #fcircleContainer .fArticleItem .fArticleMessage a.fArticleTitle:hover{letter-spacing:2px;color:#fe5186 !important;}
-#fcircleContainer .fArticleItem .fArticleMessage .fArticleTime {font-size:14px;text-align:right;}
+#fcircleContainer .fArticleItem .fArticleMessage .fArticleTime {font-size:14px;text-align:right;float: right;}
 #fcircleContainer .fArticleItem .fArticleMessage .fArticleTime .fArticleUpdated,#fcircleContainer .fArticleItem .fArticleMessage .fArticleTime .fArticleCreated {margin-right:1rem;text-align:left;align-self:center;}
 #fcircleContainer .fArticleItem .fArticleMessage .fArticleTime .fArticleUpdated i.fas,#fcircleContainer .fArticleItem .fArticleMessage .fArticleTime .fArticleCreated i.far{padding-right:8px;}
 #fcircleContainer .fArticleItem .fArticleMessage .fArticleTime i:before {margin-right:5px;}
@@ -38,7 +37,8 @@ body.dark-theme #fMessageBoard,body.dark-theme #fcircleMoreBtn {background:#2526
   #fMessageBoard {font-size:14px;}
    #fcircleContainer .fArticleItem .fArticleMessage .fArticleTime i{display:none;}
   #fMessageBoard .fMessageItem .fItem .fLabel ,#fMessageBoard .fMessageItem .fItem .fMessage {width:50%;}
+  #fcircleContainer .fArticleItem .fArticleAvatar {width:100%;}
 }
 @media screen and (max-width:400px) {
-  #fMessageBoard{display:none;}
+  #fMessageBoard,#fcircleContainer .fArticleItem .fArticleMessage .fArticleTime .fArticleCreated,#fcircleContainer .fArticleItem .fArticleMessage .fArticleTime .fArticleUpdated{display:none;}
 }
