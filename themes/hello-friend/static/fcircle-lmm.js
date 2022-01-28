@@ -19,7 +19,13 @@ if(typeof(fdataUser) !=="undefined"){
 var container = document.getElementById('fcircleContainer');
 var createdBtn = document.getElementById('createdBtn')
 var updatedBtn = document.getElementById('updatedBtn')
-var sortNow = fdata.article_sort
+var local_sortNow = localStorage.getItem("sortNow")
+if(local_sortNow){
+  sortNow = local_sortNow
+}else{
+  var sortNow = fdata.article_sort
+  localStorage.setItem("sortNow",sortNow)
+}
 container.innerHTML = "";
 // 排序算法
 function quickSort(arr, keyword){
@@ -47,7 +53,7 @@ function loadStatistical(sdata){
       </div>
     </div>
     <div id="switchRankBtn">
-        <span id="createdBtn" onclick="createdNow()" class="${sortNow == 'created' ? 'rankByNow':''}">Created</span> | <span id="updatedBtn"  onclick="updatedNow()" class="${sortNow == 'updated' ? 'rankByNow':''}" >Updated</span>
+        <span id="createdBtn" data-sort="created" onclick="changeSort(event)" class="${sortNow == 'created' ? 'rankByNow':''}">Created</span> | <span id="updatedBtn" data-sort="updated" onclick="changeSort(event)" class="${sortNow == 'updated' ? 'rankByNow':''}" >Updated</span>
     </div>
   </div>
   `;
@@ -104,16 +110,10 @@ function loadMoreArticle(){
   }
 }
 //切换按钮
-function updatedNow(){
-  sortNow = 'updated'
-  console.log('updated'+sortNow)
-  document.querySelectorAll('.fNewDiv').forEach(el => el.remove());
-  container.innerHTML = "";
-  initFriendCircle(sortNow)
-}
-function createdNow(){
-  sortNow = 'created'
-  console.log('created'+sortNow)
+function changeSort(event){
+  console.log(event.currentTarget.dataset.sort)
+  sortNow = event.currentTarget.dataset.sort
+  localStorage.setItem("sortNow",sortNow)
   document.querySelectorAll('.fNewDiv').forEach(el => el.remove());
   container.innerHTML = "";
   initFriendCircle(sortNow)
@@ -139,7 +139,6 @@ function FetchFriendCircle(sortNow){
 }
 // 初始化方法
 function initFriendCircle(sortNow){
-  console.log(sortNow)
     var statisticalList = JSON.parse(localStorage.getItem("statisticalList"));
     var createdList = JSON.parse(localStorage.getItem("createdList"));
     var updatedList = JSON.parse(localStorage.getItem("updatedList"));
