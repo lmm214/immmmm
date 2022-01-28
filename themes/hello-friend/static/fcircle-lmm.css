@@ -30,9 +30,10 @@ body.dark-theme #fcircleContainer .fArticleItem .fArticleAvatar .fArticleAuthor,
 body.dark-theme #fcircleContainer .fArticleItem .fArticleMessage {background:#252627;}
 #fMessageBoard,#fcircleMoreBtn {background:#f7f9fe;color:#363636;}
 body.dark-theme #fMessageBoard,body.dark-theme #fcircleMoreBtn {background:#252627;color:#a9a9b3;}
-#switchRankBtn{text-align:center;margin:auto;font-size:14px;}
-#switchRankBtn span:hover{color:#fe5186;cursor:pointer;}
-#switchRankBtn .rankByNow{color:#fe5186;font-weight:800;}
+.fUpdatedswitch{padding:8px 2rem;line-height:40px;width:100%;}
+.switchRankBtn{font-size:14px;float: right;}
+.switchRankBtn span:hover{color:#fe5186;cursor:pointer;}
+.switchRankBtn .rankByNow{color:#fe5186;font-weight:800;}
 
 
 @media screen and (max-width:400px) {
