@@ -10,7 +10,7 @@
 #fcircleContainer a {text-decoration:none;}
 #fcircleContainer .fArticleItem {margin:20px 1%;color:rgba(60,60,61,0.7);border-radius:5px;font-weight:bolder;overflow:hidden;}
 #fcircleContainer .fArticleItem .fArticleAvatar .fAvatar {align-self:center;text-align:center;}
-#fcircleContainer .fArticleItem .fArticleAvatar .fAvatar img {width:22px;height:22px;border-radius:50%;margin-bottom: -4px;}
+#fcircleContainer .fArticleItem .fArticleAvatar img.fAvatar {width:22px;height:22px;border-radius:50%;margin-bottom: -4px;}
 #fcircleContainer .fArticleItem .fArticleAvatar .fAvatar .img-alt.is-center {display:none;}
 #fcircleContainer .fArticleItem .fArticleAvatar .fArticleAuthor {line-height: 35px;font-size:14px;margin:0 0.5rem;align-self:center;text-align:center;height:40px;white-space:nowrap;overflow:hidden;}
 #fcircleMoreBtn i.fas::before {content:"∞";}
