@@ -35,10 +35,9 @@ body.dark-theme #fMessageBoard,body.dark-theme #fcircleMoreBtn {background:#2526
 
 @media screen and (max-width:400px) {
   #fMessageBoard {font-size:14px;}
-   #fcircleContainer .fArticleItem .fArticleMessage .fArticleTime i{display:none;}
-  #fMessageBoard .fMessageItem .fItem .fLabel ,#fMessageBoard .fMessageItem .fItem .fMessage {width:50%;}
+  #fcircleContainer .fArticleItem .fArticleMessage .fArticleTime i{display:none;}
   #fcircleContainer .fArticleItem .fArticleAvatar {width:100%;}
 }
-@media screen and (max-width:400px) {
+@media screen and (max-width:300px) {
   #fMessageBoard,#fcircleContainer .fArticleItem .fArticleMessage .fArticleTime .fArticleCreated,#fcircleContainer .fArticleItem .fArticleMessage .fArticleTime .fArticleUpdated{display:none;}
 }
