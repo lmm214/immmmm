@@ -46,18 +46,16 @@ function loadStatistical(sdata){
         <span class="fMessage">${sdata.article_num}</span>
       </div>
     </div>
-    <div class="fUpdatedswitch">
-      <span class="switchRankBtn">
-        <span id="createdBtn" onclick="createdNow()" class="${sortNow == 'created' ? 'rankByNow':''}">Created</span> / <span id="updatedBtn"  onclick="updatedNow()" class="${sortNow == 'updated' ? 'rankByNow':''}" >Updated</span>
-      </span>
-      <span class="fUpdatedTime">
-        <span class="fLabel">更新于：</span><span class="fMessage">${sdata.last_updated_time}</span>
-      </span>
+    <div id="switchRankBtn">
+        <span id="createdBtn" onclick="createdNow()" class="${sortNow == 'created' ? 'rankByNow':''}">Created</span> | <span id="updatedBtn"  onclick="updatedNow()" class="${sortNow == 'updated' ? 'rankByNow':''}" >Updated</span>
     </div>
   </div>
   `;
   var loadMoreBtn = `
     <div id="fcircleMoreBtn" class="fNewDiv" onclick="loadMoreArticle()"><i class="fas fa-angle-double-down"></i></div>
+    <div id="fUpdatedTime"  class="fNewDiv">
+      <span class="fLabel">更新于：</span><span class="fMessage">${sdata.last_updated_time}</span>
+    </div>
     <div id="fcircleFooter" class="fNewDiv">Powered by <a target="_blank" href="https://github.com/Rock-Candy-Tea/hexo-circle-of-friends" target="_blank">FriendCircle</a> ${FriendCircleVersion}</div>
   `;
   if(container){
