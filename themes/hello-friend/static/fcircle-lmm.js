@@ -6,6 +6,7 @@ var fdata = {
   apiurl: 'https://hexo-friendcircle-api.vercel.app/api',
   initnumber: 20,
   stepnumber: 10,
+  article_sort: 'updated', //updated or created
   error_img: 'https://sdn.geekzu.org/avatar/57d8260dfb55501c37dde588e7c3852c'
 }
 if(typeof(fdataUser) !=="undefined"){
@@ -16,6 +17,9 @@ if(typeof(fdataUser) !=="undefined"){
   }
 }
 var container = document.getElementById('fcircleContainer');
+var createdBtn = document.getElementById('createdBtn')
+var updatedBtn = document.getElementById('updatedBtn')
+var sortNow = fdata.article_sort
 container.innerHTML = "";
 // 排序算法
 function quickSort(arr, keyword){
@@ -44,6 +48,9 @@ function loadStatistical(sdata){
         <span class="fLabel">日志</span>
         <span class="fMessage">${sdata.article_num}</span>
       </div>
+    </div>
+    <div id="switchRankBtn">
+      <span id="createdBtn"  onclick="createdNow()" class="${sortNow == 'created' ? 'rankByNow':''}">Created</span> / <span id="updatedBtn"  onclick="updatedNow()" class="${sortNow == 'updated' ? 'rankByNow':''}" >Updated</span>
     </div>
   </div>
   `;
@@ -74,7 +81,8 @@ function loadArticleItem(datalist,start,end){
       <div class="fArticleMessage">
         <a class="fArticleTitle"  href="${item.link}" target="_blank" rel="noopener nofollow" data-title="${item.title}">${item.title}</a>
         <div class="fArticleTime">
-          <span class="fArticleUpdated"><i class="fas fa-history">更新于</i>${item.updated}</span>
+          <span class="fArticleCreated" style="${sortNow == 'created' ? '':'display:none'}"><i class="far fa-calendar-alt">发表于</i>${item.created}</span>
+          <span class="fArticleUpdated" style="${sortNow == 'updated' ? '':'display:none'}"><i class="fas fa-history">更新于</i>${item.updated}</span>
         </div>
       </div>
       </div>
@@ -87,56 +95,93 @@ function loadArticleItem(datalist,start,end){
 // 加载更多文章
 function loadMoreArticle(){
   var currentArticle = document.getElementsByClassName('fArticleItem').length;
-  var article_sortupdated = JSON.parse(localStorage.getItem("updatedList"));
-  loadArticleItem(article_sortupdated,currentArticle,currentArticle + fdata.stepnumber)
-  
+  var createdList = JSON.parse(localStorage.getItem("createdList"));
+  var updatedList = JSON.parse(localStorage.getItem("updatedList"));
+  if(sortNow == 'updated'){
+    loadArticleItem(updatedList,currentArticle,currentArticle + fdata.stepnumber)
+  }else{
+    loadArticleItem(createdList,currentArticle,currentArticle + fdata.stepnumber)
+  }
 }
-function FetchFriendCircle(){
+//切换按钮
+function updatedNow(){
+  sortNow = 'updated'
+  console.log('updated'+sortNow)
+  document.querySelectorAll('.fNewDiv').forEach(el => el.remove());
+  container.innerHTML = "";
+  initFriendCircle(sortNow)
+}
+function createdNow(){
+  sortNow = 'created'
+  console.log('created'+sortNow)
+  document.querySelectorAll('.fNewDiv').forEach(el => el.remove());
+  container.innerHTML = "";
+  initFriendCircle(sortNow)
+}
+function FetchFriendCircle(sortNow){
     fetch(fdata.apiurl)
     .then(res => res.json())
     .then(json =>{
       var statistical_data = json.statistical_data;
       var article_data = eval(json.article_data);
+      var article_sortcreated = quickSort(article_data,'time');
       var article_sortupdated = quickSort(article_data,'updated');
       loadStatistical(statistical_data);
-      loadArticleItem(article_sortupdated ,0,fdata.initnumber,statistical_data)
+      if(sortNow == 'updated'){
+        loadArticleItem(article_sortupdated ,0,fdata.initnumber)
+      }else{
+        loadArticleItem(article_sortcreated ,0,fdata.initnumber)
+      }
       localStorage.setItem("statisticalList",JSON.stringify(statistical_data))
+      localStorage.setItem("createdList",JSON.stringify(article_sortcreated))
       localStorage.setItem("updatedList",JSON.stringify(article_sortupdated))
     })
 }
 // 初始化方法
-function initFriendCircle(){
+function initFriendCircle(sortNow){
+  console.log(sortNow)
     var statisticalList = JSON.parse(localStorage.getItem("statisticalList"));
+    var createdList = JSON.parse(localStorage.getItem("createdList"));
     var updatedList = JSON.parse(localStorage.getItem("updatedList"));
-    if(statisticalList && updatedList){
+    if(statisticalList && updatedList && createdList){
       loadStatistical(statisticalList);
-      loadArticleItem(updatedList ,0,fdata.initnumber,statisticalList)
-      console.log("本地数据")
+      if(sortNow == 'updated'){
+        loadArticleItem(updatedList ,0,fdata.initnumber)
+        console.log("updated 本地数据，更新排序")
+      }else{
+        loadArticleItem(createdList ,0,fdata.initnumber)
+        console.log("created 本地数据，发布排序")
+      }
       fetch(fdata.apiurl)
       .then(res => res.json())
       .then(json =>{
         var statistical_data = json.statistical_data;
         var article_data = eval(json.article_data);
+        var article_sortcreated = quickSort(article_data,'time');
         var article_sortupdated = quickSort(article_data,'updated');
-        //获取本地与API中的第1、2两篇文章标题
-        var local_updatedList1 = updatedList[0].title,new_updatedList1 = article_sortupdated[0].title
-        var local_updatedList2= updatedList[1].title,new_updatedList2 = article_sortupdated[1].title
-        if(local_updatedList1 !== new_updatedList1 || local_updatedList2 !== new_updatedList2){
+        var local_createdList = createdList[0].title,new_createdList = article_sortcreated[0].title
+        var local_updatedList = updatedList[0].title,new_updatedList = article_sortupdated[0].title
+        if(local_createdList !== new_createdList || local_updatedList !== new_updatedList){
           console.log("已更新")
           document.querySelectorAll('.fNewDiv').forEach(el => el.remove());
           container.innerHTML = "";
           loadStatistical(statistical_data);
-          loadArticleItem(article_sortupdated ,0,fdata.initnumber,statistical_data)
+          if(sortNow == 'updated'){
+            loadArticleItem(article_sortupdated ,0,fdata.initnumber)
+          }else{
+            loadArticleItem(article_sortcreated ,0,fdata.initnumber)
+          }
         }else{
           console.log("API数据未更新")
         }
         localStorage.setItem("statisticalList",JSON.stringify(statistical_data))
+        localStorage.setItem("createdList",JSON.stringify(article_sortcreated))
         localStorage.setItem("updatedList",JSON.stringify(article_sortupdated))
       })
     }else{
-      FetchFriendCircle()
+      FetchFriendCircle(sortNow)
       console.log("第一次加载完成")
     }
 }
 //执行初始化方法
-initFriendCircle()
+initFriendCircle(sortNow)
