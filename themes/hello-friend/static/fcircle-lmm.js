@@ -38,7 +38,7 @@ function quickSort(arr, keyword){
 function loadStatistical(sdata){
   var messageBoard =`
   <div id="fMessageBoard" class="fNewDiv">
-    <div class="fMessageItem">
+    <div class="fMessageItem" onclick="changeEgg()">
       <div class="fActiveFriend fItem">
         <span class="fLabel">订阅</span>
         <span class="fMessage">${sdata.friends_num}</span>
@@ -114,8 +114,15 @@ function changeSort(event){
   container.innerHTML = "";
   initFriendCircle(sortNow)
 }
-function FetchFriendCircle(sortNow){
-    fetch(fdata.apiurl)
+function changeEgg(){
+  document.querySelectorAll('.fNewDiv').forEach(el => el.remove());
+  container.innerHTML = "";
+  FetchFriendCircle(sortNow,true)
+}
+function FetchFriendCircle(sortNow,egg){
+  var fetchUrl = fdata.apiurl
+    if(egg){fetchUrl = 'https://hexo-friendcircle-api.vercel.app/api'}
+    fetch(fetchUrl)
     .then(res => res.json())
     .then(json =>{
       var statistical_data = json.statistical_data;
