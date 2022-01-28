@@ -20,15 +20,19 @@ feature: https://lmm.elizen.me/images/2022/01/myf-1.png
 <div id="fcircleContainer">与主机通讯中……</div>
 <!-- 加样式和功能代码 -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lmm214/immmmm/themes/hello-friend/static/fcircle-lmm.css">
-<script type="text/javascript">
-  var fdata = {
-    apiurl: 'https://friendcircle-api-fx7ykk2ye-lmm214.vercel.app/api',
-    initnumber: 20, //【可选】页面初始化展示文章数量
-    stepnumber: 10,//【可选】每次加载增加的篇数
-    error_img: 'https://sdn.geekzu.org/avatar/57d8260dfb55501c37dde588e7c3852c' //【可选】头像加载失败时默认显示的头像
-  }
-</script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lmm214/immmmm/themes/hello-friend/static/fcircle-lmm.js"></script>
 ```
+
+找个页面丢进去，就能看到默认的 API 解析的文章列表。如果部署了自己的后端，再加入以下代码：
+
+```html
+<script type="text/javascript">
+  var fdataUser = {
+    apiurl: 'https://friendcircle-api-fx7ykk2ye-lmm214.vercel.app/api'
+  }
+</script>
+```
+
+哈，又干掉一个配置项！
 
 > 致敬，用爱发电er
