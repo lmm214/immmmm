@@ -1,5 +1,5 @@
 /*
-Last Modified time : 20220128 13:08
+Last Modified time : 20220128 13:34
 */
 var FriendCircleVersion = "4.1.1"
 var fdata = {
@@ -72,9 +72,7 @@ function loadArticleItem(datalist,start,end){
         </div>
       </div>
       <div class="fArticleMessage">
-        <a class="fArticleTitle"  href="${item.link}" target="_blank" rel="noopener nofollow" data-title="${item.title}">
-          ${item.title}
-        </a>
+        <a class="fArticleTitle"  href="${item.link}" target="_blank" rel="noopener nofollow" data-title="${item.title}">${item.title}</a>
         <div class="fArticleTime">
           <span class="fArticleUpdated"><i class="fas fa-history">更新于</i>${item.updated}</span>
         </div>
