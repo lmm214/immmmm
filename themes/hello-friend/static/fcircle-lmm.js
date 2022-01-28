@@ -1,7 +1,7 @@
 /*
-Last Modified time : 20220128 13:34
+Last Modified time : 20220128 18:34 by https://immmmm.com
+基于 FriendCircle API v4.1.1 
 */
-var FriendCircleVersion = "4.1.1"
 var fdata = {
   apiurl: 'https://hexo-friendcircle-api.vercel.app/api',
   initnumber: 20,
@@ -62,7 +62,7 @@ function loadStatistical(sdata){
     <div id="fUpdatedTime"  class="fNewDiv">
       <span class="fLabel">更新于：</span><span class="fMessage">${sdata.last_updated_time}</span>
     </div>
-    <div id="fcircleFooter" class="fNewDiv">Powered by <a target="_blank" href="https://github.com/Rock-Candy-Tea/hexo-circle-of-friends" target="_blank">FriendCircle</a> ${FriendCircleVersion}</div>
+    <div id="fcircleFooter" class="fNewDiv">Powered by <a target="_blank" href="https://github.com/Rock-Candy-Tea/hexo-circle-of-friends" target="_blank">FriendCircle</a></div>
   `;
   if(container){
     container.insertAdjacentHTML('beforebegin', messageBoard);
