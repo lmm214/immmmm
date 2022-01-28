@@ -18,8 +18,8 @@
 #fcircleContainer .fArticleItem .fArticleMessage {padding:0.5rem 1rem;border-radius:5px;overflow: hidden;}
 #fcircleContainer .fArticleItem .fArticleMessage a.fArticleTitle {width:100%;display: block;letter-spacing:1.5px;font-size:18px;align-self:start;text-align:left;line-height:40px;padding:0;margin-bottom:10px;transition:0.3s;}
 #fcircleContainer .fArticleItem .fArticleMessage a.fArticleTitle:hover{letter-spacing:2px;color:#fe5186 !important;}
-#fcircleContainer .fArticleItem .fArticleMessage .fArticleTime {display:inline-block;font-size:14px;text-align:right;float: right;}
-#fcircleContainer .fArticleItem .fArticleMessage .fArticleTime .fArticleUpdated,#fcircleContainer .fArticleItem .fArticleMessage .fArticleTime .fArticleCreated {display:inline-block;margin-right:1rem;text-align:left;align-self:center;}
+#fcircleContainer .fArticleItem .fArticleMessage .fArticleTime {font-size:14px;text-align:right;float:right;}
+#fcircleContainer .fArticleItem .fArticleMessage .fArticleTime .fArticleUpdated,#fcircleContainer .fArticleItem .fArticleMessage .fArticleTime .fArticleCreated {display:inline-block;text-align:left;white-space:nowrap;}
 #fcircleContainer .fArticleItem .fArticleMessage .fArticleTime .fArticleUpdated i.fas,#fcircleContainer .fArticleItem .fArticleMessage .fArticleTime .fArticleCreated i.far{padding-right:8px;}
 #fcircleContainer .fArticleItem .fArticleMessage .fArticleTime i:before {margin-right:5px;}
 #fcircleContainer .fArticleItem .fArticleAvatar .fArticleAuthor,#fcircleContainer .fArticleItem .fArticleMessage .fArticleTime .fArticleUpdated,#fcircleContainer .fArticleItem .fArticleMessage .fArticleTime .fArticleCreated,#fcircleContainer .fArticleItem .fArticleMessage a.fArticleTitle {color:#363636;}

@@ -1,5 +1,5 @@
 /*
-Last Modified time : 20220128 18:34 by https://immmmm.com
+Last Modified time : 20220128 23:34 by https://immmmm.com
 基于 FriendCircle API v4.1.1 
 */
 var fdata = {
@@ -38,14 +38,14 @@ function quickSort(arr, keyword){
 function loadStatistical(sdata){
   var messageBoard =`
   <div id="fMessageBoard" class="fNewDiv">
-    <div class="fMessageItem" onclick="changeEgg()">
+    <div class="fMessageItem">
       <div class="fActiveFriend fItem">
         <span class="fLabel">订阅</span>
         <span class="fMessage">${sdata.friends_num}</span>
       </div>
       <div class="fErrorSite fItem">
         <span class="fLabel">活跃</span>
-        <span class="fMessage">${sdata.active_num}</span>
+        <span class="fMessage"  onclick="changeEgg()">${sdata.active_num}</span>
       </div>
       <div class="fArticleNum fItem">
         <span class="fLabel">日志</span>
