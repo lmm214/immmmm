@@ -20,6 +20,7 @@ var container = document.getElementById('fcircleContainer');
 var createdBtn = document.getElementById('createdBtn')
 var updatedBtn = document.getElementById('updatedBtn')
 var local_sortNow = localStorage.getItem("sortNow")
+var article_num = ''
 if(local_sortNow){
   sortNow = local_sortNow
 }else{
@@ -36,6 +37,7 @@ function quickSort(arr, keyword){
 }
 // 打印基本信息
 function loadStatistical(sdata){
+  article_num = sdata.article_num
   var messageBoard =`
   <div id="fMessageBoard" class="fNewDiv">
     <div class="fMessageItem">
@@ -72,7 +74,7 @@ function loadStatistical(sdata){
 // 打印友链信息和内容
 function loadArticleItem(datalist,start,end){
   var articleItem = '';
-  var articleNum = JSON.parse(localStorage.getItem("statisticalData")).article_num;
+  var articleNum = article_num;
   var endFor = end
   if(end > articleNum){endFor = articleNum}
   if(start < articleNum){
@@ -115,6 +117,10 @@ function loadMoreArticle(){
 }
 // 没有更多文章
 function loadNoArticle(){
+  localStorage.removeItem("createdList")
+  localStorage.removeItem("updatedList")
+  localStorage.removeItem("statisticalData")
+  localStorage.removeItem("sortNow")
   document.getElementById('fcircleMoreBtn').remove()
   window.scrollTo(0,document.getElementsByClassName('fMessageBoard').offsetTop)
 }
