@@ -78,7 +78,7 @@ function loadArticleItem(datalist,start,end){
     <div class="fArticleItem">
       <div class="fArticleMessage">
         <a class="fArticleTitle"  href="${item.link}" target="_blank" rel="noopener nofollow" data-title="${item.title}">${item.title}</a>
-        <div class="fArticleAvatar">
+        <div class="fArticleAvatar flink-item-icon">
           <img class="fArticlelink fAvatar avatar" src="${item.avatar}" alt="avatar" onerror="this.src='${fdata.error_img}'; this.onerror = null;">
           <a class="" target="_blank" rel="noopener nofollow" href="${item.link}"><span class="fArticleAuthor">${item.author}</span></a>
           <span class="fArticleTime">
