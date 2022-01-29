@@ -1,3 +1,14 @@
+[data-theme=light] {
+  --lmm-fontcolor: #363636;
+  --lmm-background: #f7f9fe;
+  --lmm-hover: #fe5186;
+}
+[data-theme=dark] {
+  --lmm-fontcolor: #a9a9b3;
+  --lmm-background: #252627;
+  --lmm-hover: #fe5186;
+}
+
 #fMessageBoard {font-size:16px;border-radius:8px;box-shadow:none;max-width:810px;margin:auto;overflow:hidden;display:flex;flex-direction:row;flex-wrap:wrap;padding:8px 0;}
 #fUpdatedTime {font-size:13px;text-align:right;margin:6rem 1% 0 0;}
 #fMessageBoard .fMessageItem {width:100%;display:flex;}
@@ -10,28 +21,30 @@
 #fcircleContainer a {text-decoration:none;}
 #fcircleContainer .fArticleItem {margin:20px 1%;color:rgba(60,60,61,0.7);border-radius:5px;font-weight:bolder;overflow:hidden;}
 #fcircleContainer .fArticleItem .fArticleAvatar .fAvatar {align-self:center;text-align:center;}
-#fcircleContainer .fArticleItem .fArticleAvatar img.fAvatar {width:22px;height:22px;border-radius:50%;margin-bottom: -4px;}
+#fcircleContainer .fArticleItem .fArticleAvatar img.fAvatar {display:inline-block;width:22px;height:22px;border-radius:50%;margin-bottom: -4px;}
 #fcircleContainer .fArticleItem .fArticleAvatar .fAvatar .img-alt.is-center {display:none;}
 #fcircleContainer .fArticleItem .fArticleAvatar .fArticleAuthor {line-height: 35px;font-size:14px;margin:0 0.5rem;align-self:center;text-align:center;height:40px;white-space:nowrap;overflow:hidden;}
 #fcircleMoreBtn i.fas::before {content:"∞";}
-#fcircleMoreBtn i.fas:hover{color:#fe5186;}
+#fcircleMoreBtn i.fas:hover{color:var(--lmm-hover);}
 #fcircleContainer .fArticleItem .fArticleMessage {padding:0.5rem 1rem;border-radius:5px;overflow: hidden;}
 #fcircleContainer .fArticleItem .fArticleMessage a.fArticleTitle {width:100%;display: block;letter-spacing:1.5px;font-size:18px;align-self:start;text-align:left;line-height:40px;padding:0;margin-bottom:10px;transition:0.3s;}
-#fcircleContainer .fArticleItem .fArticleMessage a.fArticleTitle:hover{letter-spacing:2px;color:#fe5186 !important;}
+#fcircleContainer .fArticleItem .fArticleMessage a.fArticleTitle:hover{letter-spacing:2px;color:var(--lmm-hover) !important;}
 #fcircleContainer .fArticleItem .fArticleMessage .fArticleTime {font-size:14px;text-align:right;float:right;}
 #fcircleContainer .fArticleItem .fArticleMessage .fArticleTime .fArticleUpdated,#fcircleContainer .fArticleItem .fArticleMessage .fArticleTime .fArticleCreated {display:inline-block;text-align:left;white-space:nowrap;}
 #fcircleContainer .fArticleItem .fArticleMessage .fArticleTime .fArticleUpdated i.fas,#fcircleContainer .fArticleItem .fArticleMessage .fArticleTime .fArticleCreated i.far{padding-right:8px;}
 #fcircleContainer .fArticleItem .fArticleMessage .fArticleTime i:before {margin-right:5px;}
-#fcircleContainer .fArticleItem .fArticleAvatar .fArticleAuthor,#fcircleContainer .fArticleItem .fArticleMessage .fArticleTime .fArticleUpdated,#fcircleContainer .fArticleItem .fArticleMessage .fArticleTime .fArticleCreated,#fcircleContainer .fArticleItem .fArticleMessage a.fArticleTitle {color:#363636;}
-body.dark-theme #fcircleContainer .fArticleItem .fArticleAvatar .fArticleAuthor,body.dark-theme #fcircleContainer .fArticleItem .fArticleMessage .fArticleTime .fArticleUpdated,body.dark-theme #fcircleContainer .fArticleItem .fArticleMessage .fArticleTime .fArticleCreated,body.dark-theme #fcircleContainer .fArticleItem .fArticleMessage a.fArticleTitle {color:#a9a9b3;}
-#fcircleContainer .fArticleItem .fArticleMessage {background:#f7f9fe;}
-#fcircleFooter{margin:0 1% 2rem 0;text-align:right;font-size:13px;}
-body.dark-theme #fcircleContainer .fArticleItem .fArticleMessage {background:#252627;}
-#fMessageBoard,#fcircleMoreBtn {background:#f7f9fe;color:#363636;}
-body.dark-theme #fMessageBoard,body.dark-theme #fcircleMoreBtn {background:#252627;color:#a9a9b3;}
+
+#fcircleContainer .fArticleItem .fArticleAvatar .fArticleAuthor,#fcircleContainer .fArticleItem .fArticleMessage .fArticleTime .fArticleUpdated,#fcircleContainer .fArticleItem .fArticleMessage .fArticleTime .fArticleCreated,#fcircleContainer .fArticleItem .fArticleMessage a.fArticleTitle {color:var(--lmm-fontcolor);}
+#fMessageBoard,#fcircleMoreBtn {background:var(--lmm-background);color:var(--lmm-fontcolor);}
+#fcircleContainer .fArticleItem .fArticleMessage {background:var(--lmm-background);}
 #switchRankBtn{font-size:14px;display:block;padding:12px 0 4px;width:100%;text-align:center;}
-#switchRankBtn span:hover{color:#fe5186;cursor:pointer;}
-#switchRankBtn .rankByNow{color:#fe5186;font-weight:800;}
+#switchRankBtn span:hover{color:var(--lmm-hover);cursor:pointer;}
+#switchRankBtn .rankByNow{color:var(--lmm-hover);font-weight:800;}
+#fcircleFooter{margin:0 1% 2rem 0;text-align:right;font-size:13px;}
+
+.dark-theme #fcircleContainer .fArticleItem .fArticleAvatar .fArticleAuthor,.dark-theme #fcircleContainer .fArticleItem .fArticleMessage .fArticleTime .fArticleUpdated,.dark-theme #fcircleContainer .fArticleItem .fArticleMessage .fArticleTime .fArticleCreated,.dark-theme #fcircleContainer .fArticleItem .fArticleMessage a.fArticleTitle {color:#a9a9b3;}
+.dark-theme #fcircleContainer .fArticleItem .fArticleMessage {background:#252627;}
+.dark-theme #fMessageBoard,.dark-theme #fcircleMoreBtn {background:#252627;color:#a9a9b3;}
 
 @media screen and (max-width:400px) {
   #fMessageBoard {font-size:14px;}
