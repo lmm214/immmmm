@@ -934,7 +934,10 @@ hr {
 	align-items: center;
 	font-size: 1rem
 }
-
+.footer .copyright-font{
+	margin-bottom: 2rem;
+	font-family: 'Noto Serif SC', -apple-system,BlinkMacSystemFont,Roboto,Segoe UI,Helvetica,Arial,serif;
+}
 .footer .copyright--user {
 	margin: auto;
 	text-align: center
