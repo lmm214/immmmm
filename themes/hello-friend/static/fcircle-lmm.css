@@ -57,6 +57,12 @@ Last Modified time : 20220129 18:34 by https://immmmm.com
 #switchRankBtn .rankByNow{color:var(--lmm-hover);font-weight:800;}
 #fcircleFooter{margin:0 1% 2rem 0;text-align:right;font-size:13px;}
 
+.dark-theme #fMessageBoard,.dark-theme #fcircleMoreBtn {background:var(--lmm-dack-background);color:var(--lmm-dark-fontcolor);}
+.dark-theme #switchRankBtn,.dark-theme .fArticleMessage .fArticleUpdated,.dark-theme .fArticleMessage .fArticleCreate,.dark-theme .fArticleMessage .fArticleFloor{color:var(--lmm-dark-floorcolor);}
+.dark-theme .fArticleAvatar .fArticleAuthor,.dark-theme .fArticleMessage a.fArticleTitle {color:var(--lmm-dark-fontcolor);}
+.dark-theme .fArticleMessage {background:var(--lmm-dack-background);}
+.dark-theme .fArticleMessage:hover .fArticleFloor,.dark-theme .fArticleMessage:hover .fArticleCreated,.dark-theme .fArticleMessage:hover .fArticleUpdated{color: var(--lmm-dark-fontcolor);}
+
 @media screen and (max-width:400px) {
   #fMessageBoard {font-size:14px;}
   #fcircleContainer .fArticleItem .fArticleMessage .fArticleTime i{display:none;}
