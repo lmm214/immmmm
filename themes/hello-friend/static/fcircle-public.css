@@ -73,7 +73,7 @@ Last Modified time : 20220130 22:34 by https://immmmm.com
 #fcircleShow .fclose{position: sticky;float: right;display: block;top:0;right:0;width:2rem;height:1.5rem;padding:1.5rem;box-sizing: content-box;color: #ffffff;font-size:1rem;}
 #fcircleShow .fclose svg {width: 100%;height: 100%;fill: var(--lmm-fontcolor);font-weight: 400;}
 
-.fcircleShow p a:hover{color:var(--lmm-hover);}
+.fcircleShow p a:hover{color:var(--lmm-hover) !important;}
 .dark-theme #fcircleShow{background-color: rgba(59, 61, 66, 0.42);}
 .dark-theme .fcircleShow{background: #292a2d;}
 .dark-theme .fcircleShow p a{color: var(--lmm-fontcolor);}
