@@ -47,6 +47,7 @@ Last Modified time : 20220129 18:34 by https://immmmm.com
 #fcircleContainer .fArticleItem .fArticleMessage .fArticleTime .fArticleUpdated i.fas,#fcircleContainer .fArticleItem .fArticleMessage .fArticleTime .fArticleCreated i.far{padding-right:8px;}
 #fcircleContainer .fArticleItem .fArticleMessage .fArticleTime i:before {margin-right:5px;}
 #switchRankBtn{font-size:14px;display:block;padding:12px 0 4px;width:100%;text-align:center;}
+#fMessageBoard .fActiveFriend .fMessage,#fMessageBoard .fErrorSite .fMessage{cursor:pointer;}
 
 #fMessageBoard,#fcircleMoreBtn {background:var(--lmm-background);color:var(--lmm-fontcolor);}
 #switchRankBtn,.fArticleMessage .fArticleUpdated,.fArticleMessage .fArticleCreated,.fArticleMessage .fArticleFloor{color:var(--lmm-floorcolor);}

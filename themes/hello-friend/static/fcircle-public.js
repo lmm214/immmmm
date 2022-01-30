@@ -5,7 +5,7 @@ Last Modified time : 20220130 15:14 by https://immmmm.com
 
 //默认数据
 var fdata = {
-  apiurl: 'https://circle-of-friends-simple.vercel.app/api',
+  apiurl: 'https://circle-of-friends-simple.vercel.app/',
   initnumber: 20,  //首次加载文章数
   stepnumber: 10,  //更多加载文章数
   article_sort: 'updated', //文章排序 updated or created
@@ -19,7 +19,7 @@ if(typeof(fdataUser) !=="undefined"){
     }
   }
 }
-var article_num = '',sortNow=''
+var article_num = '',sortNow='',friends_num=''
 var container = document.getElementById('fcircleContainer');
 var createdBtn = document.getElementById('createdBtn')
 var updatedBtn = document.getElementById('updatedBtn')
@@ -34,16 +34,17 @@ if(localSortNow){
 // 打印基本信息 fMessageBoard
 function loadStatistical(sdata){
   article_num = sdata.article_num
+  friends_num = sdata.friends_num
   var messageBoard =`
   <div id="fMessageBoard" class="fNewDiv">
     <div class="fMessageItem">
       <div class="fActiveFriend fItem">
         <span class="fLabel">订阅</span>
-        <span class="fMessage">${sdata.friends_num}</span>
+        <span class="fMessage" onclick="toFriend()">${sdata.friends_num}</span>
       </div>
       <div class="fErrorSite fItem">
         <span class="fLabel">活跃</span>
-        <span class="fMessage"  onclick="changeEgg()">${sdata.active_num}</span>
+        <span class="fMessage" onclick="changeEgg()">${sdata.active_num}</span>
       </div>
       <div class="fArticleNum fItem">
         <span class="fLabel">日志</span>
@@ -110,7 +111,7 @@ function fetchNextArticle(){
     end = articleNum
   }
   if(start <  articleNum){
-    var fetchUrl = fdata.apiurl+"?rule="+sortNow+"&start="+start+"&end="+end
+    var fetchUrl = fdata.apiurl+"api?rule="+sortNow+"&start="+start+"&end="+end
     fetch(fetchUrl)
       .then(res => res.json())
       .then(json =>{
@@ -165,7 +166,7 @@ function changeEgg(){
 }
 // 首次加载文章
 function FetchFriendCircle(sortNow,egg){
-  var fetchUrl = fdata.apiurl + "?rule="+sortNow
+  var fetchUrl = fdata.apiurl + "api?rule="+sortNow
   if(egg){fetchUrl = 'https://circle-of-friends-simple.vercel.app/api?rule='+sortNow}
   console.log(fetchUrl)
   fetch(fetchUrl)
@@ -187,6 +188,29 @@ function changeSort(event){
   document.querySelectorAll('.fNewDiv').forEach(el => el.remove());
   container.innerHTML = "";
   initFriendCircle(sortNow)
+}
+// 点击开往
+function toFriend(){
+  var friendsData = JSON.parse(localStorage.getItem(friendsData))
+  var random = getRandom(0,friends_num)
+  var fetchUrl = fdata.apiurl + "friend"
+  //if(friendsData != ''){
+    //console.log("朋友，本地数据")
+    //console.log(friendsData)
+  //}else{
+    fetch(fetchUrl)
+    .then(res => res.json())
+    .then(json =>{
+      localStorage.setItem("friendsData",JSON.stringify(json))
+      console.log(json[random])
+      window.open(json[random].link,'_blank')
+    })
+  //}
+}
+function getRandom(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min; //含最大值，含最小值
 }
 // 初始化方法，如有本地数据首先调用
 function initFriendCircle(sortNow){
