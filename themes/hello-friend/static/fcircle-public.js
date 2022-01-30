@@ -1,5 +1,5 @@
 /*
-Last Modified time : 20220130 15:14 by https://immmmm.com
+Last Modified time : 20220130 19:14 by https://immmmm.com
 基于 FriendCircle 公共库 API
 */
 
@@ -191,27 +191,19 @@ function changeSort(event){
   initFriendCircle(sortNow)
 }
 // 点击开往
+var noClick = 'ok';
 function toFriend(){
-  var friendsData = JSON.parse(localStorage.getItem(friendsData))
-  var random = getRandom(0,friends_num)
-  var fetchUrl = fdata.apiurl + "friend"
-  //if(friendsData != ''){
-    //console.log("朋友，本地数据")
-    //console.log(friendsData)
-  //}else{
+  var fetchUrl = fdata.apiurl + "randomfriend"
+  if(noClick == 'ok'){
+    noClick = 'no'
     fetch(fetchUrl)
     .then(res => res.json())
-    .then(json =>{
-      localStorage.setItem("friendsData",JSON.stringify(json))
-      console.log(json[random])
-      window.open(json[random].link,'_blank')
+    .then(data =>{
+      //console.log(data.name)
+      noClick = 'ok'
+      window.open(data.link,'_blank')
     })
-  //}
-}
-function getRandom(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min; //含最大值，含最小值
+  }
 }
 // 初始化方法，如有本地数据首先调用
 function initFriendCircle(sortNow){
