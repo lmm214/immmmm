@@ -1,14 +1,17 @@
 /*
-Last Modified time : 20220130 00:14 by https://immmmm.com
+Last Modified time : 20220130 15:14 by https://immmmm.com
 基于 FriendCircle 公共库 API
 */
+
+//默认数据
 var fdata = {
   apiurl: 'https://circle-of-friends-simple.vercel.app/api',
-  initnumber: 20,
-  stepnumber: 4,
-  article_sort: 'updated', //updated or created
+  initnumber: 20,  //首次加载文章数
+  stepnumber: 10,  //更多加载文章数
+  article_sort: 'updated', //文章排序 updated or created
   error_img: 'https://sdn.geekzu.org/avatar/57d8260dfb55501c37dde588e7c3852c'
 }
+//可通过 var fdataUser 替换默认值
 if(typeof(fdataUser) !=="undefined"){
   for(var key in fdataUser) {
     if(fdataUser[key]){
@@ -16,28 +19,19 @@ if(typeof(fdataUser) !=="undefined"){
     }
   }
 }
+var article_num = '',sortNow=''
 var container = document.getElementById('fcircleContainer');
-container.innerHTML = "";
 var createdBtn = document.getElementById('createdBtn')
 var updatedBtn = document.getElementById('updatedBtn')
-var local_sortNow = localStorage.getItem("sortNow")
-var article_num = '',sortNow=''
-if(local_sortNow){
-  sortNow = local_sortNow
+// 获取本地 排序值，实现记忆效果
+var localSortNow = localStorage.getItem("sortNow")
+if(localSortNow){
+  sortNow = localSortNow
 }else{
   sortNow = fdata.article_sort
   localStorage.setItem("sortNow",sortNow)
 }
-
-// 排序算法
-function quickSort(arr, keyword){
-  if(arr.length == 0){return [];}
-  var left = [],right = [],selectItem = arr[0];
-  for(var i = 1; i < arr.length; i++){if(arr[i][keyword] > selectItem[keyword]){left.push(arr[i]);}else{right.push(arr[i]);}}
-  return quickSort(left, keyword).concat(selectItem, quickSort(right, keyword));
-}
-
-// 打印基本信息
+// 打印基本信息 fMessageBoard
 function loadStatistical(sdata){
   article_num = sdata.article_num
   var messageBoard =`
@@ -73,8 +67,7 @@ function loadStatistical(sdata){
     container.insertAdjacentHTML('afterend', loadMoreBtn);
   }
 }
-
-// 打印友链信息和内容
+// 打印文章内容 fArticleItem
 function loadArticleItem(datalist,start,end){
   var articleItem = '';
   var articleNum = article_num;
@@ -101,16 +94,16 @@ function loadArticleItem(datalist,start,end){
       `;
     }
     container.insertAdjacentHTML('beforeend', articleItem);
+    // 预载下一页文章
     fetchNextArticle()
   }else{
+    // 文章加载到底
     document.getElementById('fcircleMoreBtn').outerHTML = `<div id="fcircleMoreBtn" class="fNewDiv" onclick="loadNoArticle()"><small>一切皆有尽头！</small></div>`
   }
 }
-
-// 加载下一页文章
+// 预载下一页文章，存为本地数据 nextArticle
 function fetchNextArticle(){
   var start = document.getElementsByClassName('fArticleItem').length
-  console.log(start)
   var end = start + fdata.stepnumber
   var articleNum = article_num;
   if(end > articleNum){
@@ -118,19 +111,18 @@ function fetchNextArticle(){
   }
   if(start <  articleNum){
     var fetchUrl = fdata.apiurl+"?rule="+sortNow+"&start="+start+"&end="+end
-    //console.log(fetchUrl)
     fetch(fetchUrl)
       .then(res => res.json())
       .then(json =>{
-        var nextArticleData = eval(json.article_data);
-        console.log("下一页文章已加载"+"?rule="+sortNow+"&start="+start+"&end="+end)
-        localStorage.setItem("nextArticle",JSON.stringify(nextArticleData))
+        var nextArticle = eval(json.article_data);
+        console.log("已预载"+"?rule="+sortNow+"&start="+start+"&end="+end)
+        localStorage.setItem("nextArticle",JSON.stringify(nextArticle))
     })
   }else if(start = articleNum){
       document.getElementById('fcircleMoreBtn').outerHTML = `<div id="fcircleMoreBtn" class="fNewDiv" onclick="loadNoArticle()"><small>一切皆有尽头！</small></div>`
   }
 }
-// 显示下一页文章
+// 显示下一页文章，从本地缓存 nextArticle 中获取
 function loadNextArticle(){
   var nextArticle = JSON.parse(localStorage.getItem("nextArticle"));
   var articleItem = ""
@@ -154,6 +146,7 @@ function loadNextArticle(){
       `;
     }
     container.insertAdjacentHTML('beforeend', articleItem);
+    // 同时预载下一页文章
     fetchNextArticle()
 }
 // 没有更多文章
@@ -165,13 +158,12 @@ function loadNoArticle(){
   document.getElementById('fcircleMoreBtn').remove()
   window.scrollTo(0,document.getElementsByClassName('fMessageBoard').offsetTop)
 }
-
 function changeEgg(){
   document.querySelectorAll('.fNewDiv').forEach(el => el.remove());
   container.innerHTML = "";
   FetchFriendCircle(sortNow,true)
 }
-//加载首页文章
+// 首次加载文章
 function FetchFriendCircle(sortNow,egg){
   var fetchUrl = fdata.apiurl + "?rule="+sortNow
   if(egg){fetchUrl = 'https://circle-of-friends-simple.vercel.app/api?rule='+sortNow}
@@ -179,7 +171,6 @@ function FetchFriendCircle(sortNow,egg){
   fetch(fetchUrl)
     .then(res => res.json())
     .then(json =>{
-      console.log(json.statistical_data)
       var statisticalData = json.statistical_data;
       var articleData = eval(json.article_data);
       loadStatistical(statisticalData);
@@ -188,61 +179,27 @@ function FetchFriendCircle(sortNow,egg){
       localStorage.setItem("articleData",JSON.stringify(articleData))
     })
 }
-//切换按钮
+// 点击切换排序
 function changeSort(event){
-  console.log(event.currentTarget.dataset.sort)
   sortNow = event.currentTarget.dataset.sort
   localStorage.setItem("sortNow",sortNow)
   document.querySelectorAll('.fNewDiv').forEach(el => el.remove());
   container.innerHTML = "";
-  //initFriendCircle(sortNow)
   FetchFriendCircle(sortNow)
 }
-// 初始化方法
+// 初始化方法，如有本地数据首先调用
 function initFriendCircle(sortNow){
-    var statisticalData = JSON.parse(localStorage.getItem("statisticalData"));
-    var createdList = JSON.parse(localStorage.getItem("createdList"));
-    var updatedList = JSON.parse(localStorage.getItem("updatedList"));
-    if(statisticalData && updatedList && createdList){
-      loadStatistical(statisticalData);
-      if(sortNow == 'updated'){
-        loadArticleItem(updatedList ,0,fdata.initnumber)
-        console.log("updated 本地数据，更新排序")
-      }else{
-        loadArticleItem(createdList ,0,fdata.initnumber)
-        console.log("created 本地数据，发布排序")
-      }
-      fetch(fdata.apiurl)
-      .then(res => res.json())
-      .then(json =>{
-        var statistical_data = json.statistical_data;
-        var article_data = eval(json.article_data);
-        var article_sortcreated = quickSort(article_data,'time');
-        var article_sortupdated = quickSort(article_data,'updated');
-        var local_createdList = createdList[0].title,new_createdList = article_sortcreated[0].title
-        var local_updatedList = updatedList[0].title,new_updatedList = article_sortupdated[0].title
-        if(local_createdList !== new_createdList || local_updatedList !== new_updatedList){
-          console.log("已更新")
-          document.querySelectorAll('.fNewDiv').forEach(el => el.remove());
-          container.innerHTML = "";
-          loadStatistical(statistical_data);
-          if(sortNow == 'updated'){
-            loadArticleItem(article_sortupdated ,0,fdata.initnumber)
-          }else{
-            loadArticleItem(article_sortcreated ,0,fdata.initnumber)
-          }
-        }else{
-          console.log("API数据未更新")
-        }
-        localStorage.setItem("statisticalData",JSON.stringify(statistical_data))
-        localStorage.setItem("createdList",JSON.stringify(article_sortcreated))
-        localStorage.setItem("updatedList",JSON.stringify(article_sortupdated))
-      })
-    }else{
-      FetchFriendCircle(sortNow)
-      console.log("第一次加载完成")
-    }
+  var statisticalData = JSON.parse(localStorage.getItem("statisticalData"));
+  var articleData = JSON.parse(localStorage.getItem("articleData"));
+  container.innerHTML = "";
+  if(statisticalData && articleData){
+    loadStatistical(statisticalData);
+    loadArticleItem(articleData ,0,fdata.initnumber)
+    console.log("本地数据加载成功")
+  }else{
+    FetchFriendCircle(sortNow)
+    console.log("第一次加载完成")
+  }
 }
-//执行初始化方法
-//initFriendCircle(sortNow)
-FetchFriendCircle(sortNow)
+// 执行初始化
+initFriendCircle(sortNow)
