@@ -175,8 +175,9 @@ function FetchFriendCircle(sortNow,egg){
       var articleData = eval(json.article_data);
       loadStatistical(statisticalData);
       loadArticleItem(articleData ,0,fdata.initnumber)
+      var articleSortData = sortNow+"ArticleData"
       localStorage.setItem("statisticalData",JSON.stringify(statisticalData))
-      localStorage.setItem("articleData",JSON.stringify(articleData))
+      localStorage.setItem(articleSortData,JSON.stringify(articleData))
     })
 }
 // 点击切换排序
@@ -185,12 +186,13 @@ function changeSort(event){
   localStorage.setItem("sortNow",sortNow)
   document.querySelectorAll('.fNewDiv').forEach(el => el.remove());
   container.innerHTML = "";
-  FetchFriendCircle(sortNow)
+  initFriendCircle(sortNow)
 }
 // 初始化方法，如有本地数据首先调用
 function initFriendCircle(sortNow){
+  var articleSortData = sortNow+"ArticleData"
   var statisticalData = JSON.parse(localStorage.getItem("statisticalData"));
-  var articleData = JSON.parse(localStorage.getItem("articleData"));
+  var articleData = JSON.parse(localStorage.getItem(articleSortData));
   container.innerHTML = "";
   if(statisticalData && articleData){
     loadStatistical(statisticalData);
