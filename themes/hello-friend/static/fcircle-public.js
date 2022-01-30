@@ -1,11 +1,11 @@
 /*
 Last Modified time : 20220130 00:14 by https://immmmm.com
-基于 FriendCircle API v4.1.2
+基于 FriendCircle 公共库 API
 */
 var fdata = {
-  apiurl: 'https://hexo-friendcircle-api.vercel.app/api',
+  apiurl: 'https://circle-of-friends-simple.vercel.app/api',
   initnumber: 20,
-  stepnumber: 10,
+  stepnumber: 4,
   article_sort: 'updated', //updated or created
   error_img: 'https://sdn.geekzu.org/avatar/57d8260dfb55501c37dde588e7c3852c'
 }
@@ -17,6 +17,7 @@ if(typeof(fdataUser) !=="undefined"){
   }
 }
 var container = document.getElementById('fcircleContainer');
+container.innerHTML = "";
 var createdBtn = document.getElementById('createdBtn')
 var updatedBtn = document.getElementById('updatedBtn')
 var local_sortNow = localStorage.getItem("sortNow")
@@ -27,7 +28,7 @@ if(local_sortNow){
   var sortNow = fdata.article_sort
   localStorage.setItem("sortNow",sortNow)
 }
-container.innerHTML = "";
+
 // 排序算法
 function quickSort(arr, keyword){
   if(arr.length == 0){return [];}
@@ -35,6 +36,7 @@ function quickSort(arr, keyword){
   for(var i = 1; i < arr.length; i++){if(arr[i][keyword] > selectItem[keyword]){left.push(arr[i]);}else{right.push(arr[i]);}}
   return quickSort(left, keyword).concat(selectItem, quickSort(right, keyword));
 }
+
 // 打印基本信息
 function loadStatistical(sdata){
   article_num = sdata.article_num
@@ -60,7 +62,7 @@ function loadStatistical(sdata){
   </div>
   `;
   var loadMoreBtn = `
-    <div id="fcircleMoreBtn" class="fNewDiv" onclick="loadMoreArticle()"><i class="fas fa-angle-double-down"></i></div>
+    <div id="fcircleMoreBtn" class="fNewDiv" onclick="loadNextArticle()"><i class="fas fa-angle-double-down"></i></div>
     <div id="fUpdatedTime"  class="fNewDiv">
       <span class="fLabel">更新于：</span><span class="fMessage">${sdata.last_updated_time}</span>
     </div>
@@ -71,6 +73,7 @@ function loadStatistical(sdata){
     container.insertAdjacentHTML('afterend', loadMoreBtn);
   }
 }
+
 // 打印友链信息和内容
 function loadArticleItem(datalist,start,end){
   var articleItem = '';
@@ -84,8 +87,8 @@ function loadArticleItem(datalist,start,end){
       <div class="fArticleItem">
       <div class="fArticleMessage">
         <a class="fArticleTitle"  href="${item.link}" target="_blank" rel="noopener nofollow" data-title="${item.title}">${item.title}</a>
-        <span class="fArticleFloor">${i+1}</span>
-        <div class="fArticleAvatar no-lightbox">
+        <span class="fArticleFloor">${item.floor}</span>
+        <div class="fArticleAvatar flink-item-icon">
           <img class="fArticlelink fAvatar avatar" src="${item.avatar}" alt="avatar" onerror="this.src='${fdata.error_img}'; this.onerror = null;">
           <a class="" target="_blank" rel="noopener nofollow" href="${item.link}"><span class="fArticleAuthor">${item.author}</span></a>
           <span class="fArticleTime">
@@ -97,24 +100,63 @@ function loadArticleItem(datalist,start,end){
       </div>
       `;
     }
-    if(container){
-      container.insertAdjacentHTML('beforeend', articleItem);
-    }
+    container.insertAdjacentHTML('beforeend', articleItem);
+    fetchNextArticle()
   }else{
     document.getElementById('fcircleMoreBtn').outerHTML = `<div id="fcircleMoreBtn" class="fNewDiv" onclick="loadNoArticle()"><small>一切皆有尽头！</small></div>`
   }
 }
-// 加载更多文章
-function loadMoreArticle(){
-  var currentArticle = document.getElementsByClassName('fArticleItem').length;
-  var createdList = JSON.parse(localStorage.getItem("createdList"));
-  var updatedList = JSON.parse(localStorage.getItem("updatedList"));
-  if(sortNow == 'updated'){
-    loadArticleItem(updatedList,currentArticle,currentArticle + fdata.stepnumber)
-  }else{
-    loadArticleItem(createdList,currentArticle,currentArticle + fdata.stepnumber)
+
+// 加载下一页文章
+function fetchNextArticle(){
+  var start = document.getElementsByClassName('fArticleItem').length
+  console.log(start)
+  var end = start + fdata.stepnumber
+  var articleNum = article_num;
+  if(end > articleNum){
+    end = articleNum
+  }
+  if(start <  articleNum){
+    var fetchUrl = fdata.apiurl+"?rule="+sortNow+"&start="+start+"&end="+end
+    //console.log(fetchUrl)
+    fetch(fetchUrl)
+      .then(res => res.json())
+      .then(json =>{
+        var nextArticleData = eval(json.article_data);
+        console.log("下一页文章已加载"+"?rule="+sortNow+"&start="+start+"&end="+end)
+        localStorage.setItem("nextArticle",JSON.stringify(nextArticleData))
+    })
+  }else if(start = articleNum){
+      document.getElementById('fcircleMoreBtn').outerHTML = `<div id="fcircleMoreBtn" class="fNewDiv" onclick="loadNoArticle()"><small>一切皆有尽头！</small></div>`
   }
 }
+// 显示下一页文章
+function loadNextArticle(){
+  var nextArticle = JSON.parse(localStorage.getItem("nextArticle"));
+  var articleItem = ""
+    for (var i = 0;i<nextArticle.length;i++){
+      var item = nextArticle[i];
+      articleItem +=`
+      <div class="fArticleItem">
+      <div class="fArticleMessage">
+        <a class="fArticleTitle"  href="${item.link}" target="_blank" rel="noopener nofollow" data-title="${item.title}">${item.title}</a>
+        <span class="fArticleFloor">${item.floor}</span>
+        <div class="fArticleAvatar flink-item-icon">
+          <img class="fArticlelink fAvatar avatar" src="${item.avatar}" alt="avatar" onerror="this.src='${fdata.error_img}'; this.onerror = null;">
+          <a class="" target="_blank" rel="noopener nofollow" href="${item.link}"><span class="fArticleAuthor">${item.author}</span></a>
+          <span class="fArticleTime">
+            <span class="fArticleCreated" style="${sortNow == 'created' ? '':'display:none'}"><i class="far fa-calendar-alt">发表于</i>${item.created}</span>
+            <span class="fArticleUpdated" style="${sortNow == 'updated' ? '':'display:none'}"><i class="fas fa-history">更新于</i>${item.updated}</span>
+          </span>
+        </div>
+      </div>
+      </div>
+      `;
+    }
+    container.insertAdjacentHTML('beforeend', articleItem);
+    fetchNextArticle()
+}
+
 // 没有更多文章
 function loadNoArticle(){
   localStorage.removeItem("createdList")
@@ -124,6 +166,7 @@ function loadNoArticle(){
   document.getElementById('fcircleMoreBtn').remove()
   window.scrollTo(0,document.getElementsByClassName('fMessageBoard').offsetTop)
 }
+
 //切换按钮
 function changeSort(event){
   console.log(event.currentTarget.dataset.sort)
@@ -133,30 +176,25 @@ function changeSort(event){
   container.innerHTML = "";
   initFriendCircle(sortNow)
 }
+
 function changeEgg(){
   document.querySelectorAll('.fNewDiv').forEach(el => el.remove());
   container.innerHTML = "";
   FetchFriendCircle(sortNow,true)
 }
+
 function FetchFriendCircle(sortNow,egg){
-  var fetchUrl = fdata.apiurl
-    if(egg){fetchUrl = 'https://hexo-friendcircle-api.vercel.app/api'}
-    fetch(fetchUrl)
+  var fetchUrl = fdata.apiurl + "?rule="+sortNow
+  if(egg){fetchUrl = 'https://circle-of-friends-simple.vercel.app/api?rule='+sortNow}
+  fetch(fetchUrl)
     .then(res => res.json())
     .then(json =>{
       var statistical_data = json.statistical_data;
-      var article_data = eval(json.article_data);
-      var article_sortcreated = quickSort(article_data,'time');
-      var article_sortupdated = quickSort(article_data,'updated');
+      var articleData = eval(json.article_data);
       loadStatistical(statistical_data);
-      if(sortNow == 'updated'){
-        loadArticleItem(article_sortupdated ,0,fdata.initnumber)
-      }else{
-        loadArticleItem(article_sortcreated ,0,fdata.initnumber)
-      }
+      loadArticleItem(articleData ,0,fdata.initnumber)
       localStorage.setItem("statisticalData",JSON.stringify(statistical_data))
-      localStorage.setItem("createdList",JSON.stringify(article_sortcreated))
-      localStorage.setItem("updatedList",JSON.stringify(article_sortupdated))
+      localStorage.setItem("articleData",JSON.stringify(articleData))
     })
 }
 // 初始化方法
@@ -205,4 +243,5 @@ function initFriendCircle(sortNow){
     }
 }
 //执行初始化方法
-initFriendCircle(sortNow)
+//initFriendCircle(sortNow)
+FetchFriendCircle()
