@@ -6,7 +6,7 @@ Last Modified time : 20220130 19:14 by https://immmmm.com
 //默认数据
 var fdata = {
   apiurl: 'https://circle-of-friends-simple.vercel.app/',
-  initnumber: 1,  //首次加载文章数
+  initnumber: 20,  //首次加载文章数
   stepnumber: 10,  //更多加载文章数
   article_sort: 'updated', //文章排序 updated or created
   error_img: 'https://sdn.geekzu.org/avatar/57d8260dfb55501c37dde588e7c3852c'
@@ -38,13 +38,13 @@ function loadStatistical(sdata){
   var messageBoard =`
   <div id="fMessageBoard" class="fNewDiv">
     <div class="fMessageItem">
-      <div class="fActiveFriend fItem">
+      <div class="fActiveFriend fItem" onclick="openToShow()">
         <span class="fLabel">订阅</span>
-        <span class="fMessage" onclick="toFriend()">${sdata.friends_num}</span>
+        <span class="fMessage">${sdata.friends_num}</span>
       </div>
-      <div class="fErrorSite fItem">
+      <div class="fErrorSite fItem" onclick="changeEgg()">
         <span class="fLabel">活跃</span>
-        <span class="fMessage" onclick="changeEgg()">${sdata.active_num}</span>
+        <span class="fMessage">${sdata.active_num}</span>
       </div>
       <div class="fArticleNum fItem">
         <span class="fLabel">日志</span>
@@ -62,22 +62,7 @@ function loadStatistical(sdata){
       <span class="fLabel">更新于：</span><span class="fMessage">${sdata.last_updated_time}</span>
     </div>
     <div id="fcircleFooter" class="fNewDiv">Powered by <a target="_blank" href="https://github.com/Rock-Candy-Tea/hexo-circle-of-friends" target="_blank">FriendCircle</a></div>
-    <div id="fcircleShow" class="fNewDiv fshow">
-      <a class="fclose"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"><path d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg></a>
-      <div class="fcircleShow">
-        <div class="fcircleShowHead">
-          <img class="fArticlelink fAvatar avatar" src="https://gravatar.loli.net/avatar/ba83fa02fc4b2ba621514941307e21be" alt="avatar" onerror="this.src='${fdata.error_img}'; this.onerror = null;">
-          <a class="" target="_blank" rel="noopener nofollow" href="123">林木木</a>
-        </div>
-        <div class="fcircleShowContent">
-            <p><a class="fArticleTitle"  href="123" target="_blank" rel="noopener nofollow" data-title="123">WordPress 5.9 移除底部 duotone svg 图标和头部预设 css</a><span>2022-01-30</span></p>
-            <p><a class="fArticleTitle"  href="123" target="_blank" rel="noopener nofollow" data-title="123">模拟农场22 v1.1.1.0 中文安装版包含4 个 DLC版本</a><span>2022-01-30</span></p>
-            <p><a class="fArticleTitle"  href="123" target="_blank" rel="noopener nofollow" data-title="123">新年小计划</a><span>2022-01-30</span></p>
-            <p><a class="fArticleTitle"  href="123" target="_blank" rel="noopener nofollow" data-title="123">你好，奥密克戎！</a><span>2022-01-30</span></p>
-            <p><a class="fArticleTitle"  href="123" target="_blank" rel="noopener nofollow" data-title="123">Spring IOC 基于注解的使用</a><span>2022-01-30</span></p>
-          </div>
-      </div>
-    </div>
+    <div id="fcircleShow" class="fNewDiv"></div>
   `;
   if(container){
     container.insertAdjacentHTML('beforebegin', messageBoard);
@@ -100,7 +85,7 @@ function loadArticleItem(datalist,start,end){
         <span class="fArticleFloor">${item.floor}</span>
         <div class="fArticleAvatar no-lightbox">
           <img class="fArticlelink fAvatar avatar" src="${item.avatar}" alt="avatar" onerror="this.src='${fdata.error_img}'; this.onerror = null;">
-          <a class="" target="_blank" rel="noopener nofollow" href="${item.link}"><span class="fArticleAuthor">${item.author}</span></a>
+          <a  onclick="openMeShow(event)" data-link="${item.link}" class="" target="_blank" rel="noopener nofollow" href="javascript:;"><span class="fArticleAuthor">${item.author}</span></a>
           <span class="fArticleTime">
             <span class="fArticleCreated" style="${sortNow == 'created' ? '':'display:none'}"><i class="far fa-calendar-alt">发表于</i>${item.created}</span>
             <span class="fArticleUpdated" style="${sortNow == 'updated' ? '':'display:none'}"><i class="fas fa-history">更新于</i>${item.updated}</span>
@@ -118,6 +103,27 @@ function loadArticleItem(datalist,start,end){
     document.getElementById('fcircleMoreBtn').outerHTML = `<div id="fcircleMoreBtn" class="fNewDiv" onclick="loadNoArticle()"><small>一切皆有尽头！</small></div>`
   }
 }
+// 打印个人卡片 fcircleShow
+function loadFcircleShow(userinfo,articledata){
+  var showHtml = `
+        <a href="javascript:;" class="fclose" onclick="closeShow()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"><path d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg></a>
+      <div class="fcircleShow">
+        <div class="fcircleShowHead">
+          <img class="fArticlelink fAvatar avatar" src="${userinfo.avatar}" alt="avatar" onerror="this.src='${fdata.error_img}'; this.onerror = null;">
+          <a class="" target="_blank" rel="noopener nofollow" href="${userinfo.link}">${userinfo.author}</a>
+        </div>
+        <div class="fcircleShowContent">
+  `
+  for (var i = 0;i<userinfo.article_num;i++){
+    var item = articledata[i];
+    showHtml += `
+      <p><a class="fArticleTitle"  href="${item.link}" target="_blank" rel="noopener nofollow" data-title="${item.title}">${item.title}</a><span>${item.created}</span></p>
+    `
+  }
+  showHtml += '</div></div>'
+  document.getElementById('fcircleShow').innerHTML = showHtml
+}
+
 // 预载下一页文章，存为本地数据 nextArticle
 function fetchNextArticle(){
   var start = document.getElementsByClassName('fArticleItem').length
@@ -208,19 +214,43 @@ function changeSort(event){
 }
 // 点击开往
 var noClick = 'ok';
-function toFriend(){
-  var fetchUrl = fdata.apiurl + "randomfriend"
+function openToShow(){
+  var fetchUrl = fdata.apiurl + "post"
   if(noClick == 'ok'){
     noClick = 'no'
-    fetch(fetchUrl)
-    .then(res => res.json())
-    .then(data =>{
-      //console.log(data.name)
-      noClick = 'ok'
-      window.open(data.link,'_blank')
-    })
+    fetchShow(fetchUrl)
   }
 }
+//post?link=https://noionion.top/
+function openMeShow(event){
+  event.preventDefault()
+  var parse_url = /^(?:([A-Za-z]+):)?(\/{0,3})([0-9.\-A-Za-z]+)(?::(\d+))?(?:\/([^?#]*))?(?:\?([^#]*))?(?:#(.*))?$/;
+  var meLink = event.currentTarget.dataset.link.replace(parse_url, '$1:$2$3')
+  console.log(meLink)
+  var fetchUrl = fdata.apiurl + "post?link="+meLink
+  if(noClick == 'ok'){
+    noClick = 'no'
+    fetchShow(fetchUrl)
+  }
+}
+// 关闭 show
+function closeShow(){
+  document.getElementById('fcircleShow').className -= 'fshow';
+}
+// fetch show
+function fetchShow(url){
+  fetch(url)
+    .then(res => res.json())
+    .then(json =>{
+      console.log(json)
+      noClick = 'ok'
+      var statisticalData = json.statistical_data;
+      var articleData = eval(json.article_data);
+      loadFcircleShow(statisticalData,articleData)
+      document.getElementById('fcircleShow').className = 'fshow';
+    })
+}
+
 // 初始化方法，如有本地数据首先调用
 function initFriendCircle(sortNow){
   var articleSortData = sortNow+"ArticleData"

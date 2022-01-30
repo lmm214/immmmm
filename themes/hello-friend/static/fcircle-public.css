@@ -1,6 +1,6 @@
 /*
-Last Modified time : 20220129 18:34 by https://immmmm.com
-基于 FriendCircle API v4.1.2
+Last Modified time : 20220130 22:34 by https://immmmm.com
+基于 FriendCircle 公共库 API
 */
 :root{
   --lmm-hover: #fe5186;
@@ -59,26 +59,26 @@ Last Modified time : 20220129 18:34 by https://immmmm.com
 #fcircleFooter{margin:0 1% 2rem 0;text-align:right;font-size:13px;}
 
 
-#fcircleShow{position: absolute;top: 0;left: 100%;width: 100%;height: 100%;overflow-y: auto;pointer-events: all;backdrop-filter: blur(5px);transition: all 0.5s ease;z-index: 999;background-color: rgba(255, 255, 255, 0.42);}
+#fcircleShow{position:fixed;top: 0;left:100%;width:100%;height:100%;overflow-y: auto;pointer-events: all;backdrop-filter: blur(5px);transition: all 0.5s ease;z-index: 999;background-color: rgba(255, 255, 255, 0.42);}
 #fcircleShow.fshow{left:0;}
-
-.fcircleShow{text-align: center;border-radius: 20px;position: absolute;width: 320px;min-height: 400px;left: 50%;top:50%;transform: translate(-50%,-50%);box-shadow: 0 12px 40px rgba(0, 0, 0, 0.093);background: var(--lmm-background);}
+.fcircleShow{text-align: center;border-radius: 20px;position: absolute;width: 320px;min-height:210px;left: 50%;top:50%;transform: translate(-50%,-50%);box-shadow: 0 12px 40px rgba(0, 0, 0, 0.093);background: var(--lmm-background);}
 .fcircleShowHead:hover img.fAvatar{transform:rotate(360deg);transition:0.8s;}
 .fcircleShow .fcircleShowHead a{color: var(--lmm-hover);display:block;text-align:center;font-weight:bold;margin-top:-5px;padding:5px 8px 5px;text-decoration: none;}
-.fcircleShow img.fAvatar{width: 80px;height: 80px;border-radius: 50%;margin: -45px auto 0;box-shadow: 0 12px 40px rgb(0 0 0 / 9%);transform:rotate(-360deg);transition:0.8s;}
+.fcircleShow img.fAvatar{background:#fff;width: 80px;height: 80px;border-radius: 50%;margin: -45px auto 0;box-shadow: 0 12px 40px rgb(0 0 0 / 9%);transform:rotate(-360deg);transition:0.8s;}
 .fcircleShow p{margin:0.3rem 5px;width:100%;position: relative;}
 .fcircleShow p a{text-decoration: none !important;display:block;text-align:left;position: relative;z-index: 2;}
 .fcircleShow p span{position: absolute;bottom:2px;right:15px;z-index: 1;font-style: italic;font-size:12px;}
 .fcircleShow p a:hover{letter-spacing:1px;transition:0.3s;}
 .fcircleShow .fcircleShowContent{padding:10px 15px 30px;border-bottom-left-radius:20px;border-bottom-right-radius:20px;background: #fff;}
-#fcircleShow .fclose{position: sticky;float: right;display: block;top:0;right:0;width:2rem;height:2rem;padding:2rem;box-sizing: content-box;color: #ffffff;font-size:1rem;}
+#fcircleShow .fclose{position: sticky;float: right;display: block;top:0;right:0;width:2rem;height:1.5rem;padding:1.5rem;box-sizing: content-box;color: #ffffff;font-size:1rem;}
+#fcircleShow .fclose svg {width: 100%;height: 100%;fill: var(--lmm-fontcolor);font-weight: 400;}
 
+.fcircleShow p a:hover{color:var(--lmm-hover);}
 .dark-theme #fcircleShow{background-color: rgba(59, 61, 66, 0.42);}
 .dark-theme .fcircleShow{background: #292a2d;}
 .dark-theme .fcircleShow p a{color: var(--lmm-fontcolor);}
-.dark-theme .fcircleShow p a:hover{color:var(--lmm-hover);}
 .dark-theme .fcircleShow .fcircleShowContent{background: #eaeaea;}
-
+.dark-theme #fcircleShow .fclose svg {fill: var(--lmm-dark-fontcolor);}
 .dark-theme #fMessageBoard,.dark-theme #fcircleMoreBtn {background:var(--lmm-dack-background);color:var(--lmm-dark-fontcolor);}
 .dark-theme #switchRankBtn,.dark-theme .fArticleMessage .fArticleUpdated,.dark-theme .fArticleMessage .fArticleCreated,.dark-theme .fArticleMessage .fArticleFloor{color:var(--lmm-dark-floorcolor);}
 .dark-theme .fArticleAvatar .fArticleAuthor,.dark-theme .fArticleMessage a.fArticleTitle {color:var(--lmm-dark-fontcolor);}
