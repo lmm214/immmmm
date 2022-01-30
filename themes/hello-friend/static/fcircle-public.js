@@ -21,11 +21,11 @@ container.innerHTML = "";
 var createdBtn = document.getElementById('createdBtn')
 var updatedBtn = document.getElementById('updatedBtn')
 var local_sortNow = localStorage.getItem("sortNow")
-var article_num = ''
+var article_num = '',sortNow=''
 if(local_sortNow){
   sortNow = local_sortNow
 }else{
-  var sortNow = fdata.article_sort
+  sortNow = fdata.article_sort
   localStorage.setItem("sortNow",sortNow)
 }
 
@@ -156,7 +156,6 @@ function loadNextArticle(){
     container.insertAdjacentHTML('beforeend', articleItem);
     fetchNextArticle()
 }
-
 // 没有更多文章
 function loadNoArticle(){
   localStorage.removeItem("createdList")
@@ -167,6 +166,28 @@ function loadNoArticle(){
   window.scrollTo(0,document.getElementsByClassName('fMessageBoard').offsetTop)
 }
 
+function changeEgg(){
+  document.querySelectorAll('.fNewDiv').forEach(el => el.remove());
+  container.innerHTML = "";
+  FetchFriendCircle(sortNow,true)
+}
+//加载首页文章
+function FetchFriendCircle(sortNow,egg){
+  var fetchUrl = fdata.apiurl + "?rule="+sortNow
+  if(egg){fetchUrl = 'https://circle-of-friends-simple.vercel.app/api?rule='+sortNow}
+  console.log(fetchUrl)
+  fetch(fetchUrl)
+    .then(res => res.json())
+    .then(json =>{
+      console.log(json.statistical_data)
+      var statisticalData = json.statistical_data;
+      var articleData = eval(json.article_data);
+      loadStatistical(statisticalData);
+      loadArticleItem(articleData ,0,fdata.initnumber)
+      localStorage.setItem("statisticalData",JSON.stringify(statisticalData))
+      localStorage.setItem("articleData",JSON.stringify(articleData))
+    })
+}
 //切换按钮
 function changeSort(event){
   console.log(event.currentTarget.dataset.sort)
@@ -174,28 +195,8 @@ function changeSort(event){
   localStorage.setItem("sortNow",sortNow)
   document.querySelectorAll('.fNewDiv').forEach(el => el.remove());
   container.innerHTML = "";
-  initFriendCircle(sortNow)
-}
-
-function changeEgg(){
-  document.querySelectorAll('.fNewDiv').forEach(el => el.remove());
-  container.innerHTML = "";
-  FetchFriendCircle(sortNow,true)
-}
-
-function FetchFriendCircle(sortNow,egg){
-  var fetchUrl = fdata.apiurl + "?rule="+sortNow
-  if(egg){fetchUrl = 'https://circle-of-friends-simple.vercel.app/api?rule='+sortNow}
-  fetch(fetchUrl)
-    .then(res => res.json())
-    .then(json =>{
-      var statistical_data = json.statistical_data;
-      var articleData = eval(json.article_data);
-      loadStatistical(statistical_data);
-      loadArticleItem(articleData ,0,fdata.initnumber)
-      localStorage.setItem("statisticalData",JSON.stringify(statistical_data))
-      localStorage.setItem("articleData",JSON.stringify(articleData))
-    })
+  //initFriendCircle(sortNow)
+  FetchFriendCircle(sortNow)
 }
 // 初始化方法
 function initFriendCircle(sortNow){
@@ -244,4 +245,4 @@ function initFriendCircle(sortNow){
 }
 //执行初始化方法
 //initFriendCircle(sortNow)
-FetchFriendCircle()
+FetchFriendCircle(sortNow)
