@@ -166,8 +166,9 @@ function changeEgg(){
 }
 // 首次加载文章
 function FetchFriendCircle(sortNow,egg){
-  var fetchUrl = fdata.apiurl + "api?rule="+sortNow
-  if(egg){fetchUrl = 'https://circle-of-friends-simple.vercel.app/api?rule='+sortNow}
+  var end = fdata.initnumber
+  var fetchUrl = fdata.apiurl + "api?rule="+sortNow+"&start=0&end="+end
+  if(egg){fetchUrl = 'https://circle-of-friends-simple.vercel.app/api?rule='+sortNow+"&start=0&end="+end}
   console.log(fetchUrl)
   fetch(fetchUrl)
     .then(res => res.json())
@@ -175,7 +176,7 @@ function FetchFriendCircle(sortNow,egg){
       var statisticalData = json.statistical_data;
       var articleData = eval(json.article_data);
       loadStatistical(statisticalData);
-      loadArticleItem(articleData ,0,fdata.initnumber)
+      loadArticleItem(articleData ,0,end)
       var articleSortData = sortNow+"ArticleData"
       localStorage.setItem("statisticalData",JSON.stringify(statisticalData))
       localStorage.setItem(articleSortData,JSON.stringify(articleData))
