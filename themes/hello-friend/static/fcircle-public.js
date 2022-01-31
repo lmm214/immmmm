@@ -221,7 +221,6 @@ function openToShow(){
     fetchShow(fetchUrl)
   }
 }
-//post?link=https://noionion.top/
 function openMeShow(event){
   event.preventDefault()
   var parse_url = /^(?:([A-Za-z]+):)?(\/{0,3})([0-9.\-A-Za-z]+)(?::(\d+))?(?:\/([^?#]*))?(?:\?([^#]*))?(?:#(.*))?$/;

@@ -1461,3 +1461,6 @@ photos .photo:last-child {
 @media only screen and (max-width:683px) {
 	#bber-talk{margin:2em 1em 1em;width:94%;}
 }
+
+.dark-theme .light-wormhole,.dark-wormhole{display: none;}
+.dark-theme .dark-wormhole{display: block;}
