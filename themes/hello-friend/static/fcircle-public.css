@@ -32,6 +32,7 @@ Last Modified time : 20220130 22:34 by https://immmmm.com
 #fcircleContainer {width:100%;max-width:900px;height:auto;margin:auto;}
 #fcircleContainer a {text-decoration:none;}
 #fcircleContainer .fArticleItem {margin:20px 1%;border-radius:5px;font-weight:bolder;overflow:hidden;}
+#fcircleContainer .fArticleAvatar{line-height:35px;}
 #fcircleContainer .fArticleItem .fArticleAvatar .fAvatar {align-self:center;text-align:center;}
 #fcircleContainer .fArticleItem .fArticleAvatar img.fAvatar {display:inline-block;width:22px;height:22px;border-radius:50%;margin-bottom: -4px;background: #fff;}
 #fcircleContainer .fArticleItem .fArticleAvatar .fAvatar .img-alt.is-center {display:none;}
@@ -40,7 +41,7 @@ Last Modified time : 20220130 22:34 by https://immmmm.com
 #fcircleMoreBtn i.fas::before {content:"∞";}
 #fcircleMoreBtn i.fas:hover{color:var(--lmm-hover);}
 #fcircleContainer .fArticleItem .fArticleMessage {position: relative;padding:0.5rem 1rem;border-radius:5px;overflow: hidden;}
-#fcircleContainer .fArticleItem .fArticleMessage a.fArticleTitle {position: relative;z-index:2;width:100%;display: block;letter-spacing:1.5px;font-size:18px;align-self:start;text-align:left;line-height:40px;padding:0;margin-bottom:10px;transition:0.3s;}
+#fcircleContainer .fArticleItem .fArticleMessage a.fArticleTitle {font-weight: 500;position: relative;z-index:2;width:100%;display: block;letter-spacing:1.5px;font-size:18px;align-self:start;text-align:left;line-height:40px;padding:0;margin-bottom:10px;transition:0.3s;}
 #fcircleContainer .fArticleItem .fArticleMessage a.fArticleTitle:hover{letter-spacing:2px;color:var(--lmm-hover) !important;}
 #fcircleContainer .fArticleItem .fArticleMessage .fArticleTime {font-size:14px;text-align:right;float:right;font-weight:400;}
 #fcircleContainer .fArticleItem .fArticleMessage .fArticleTime .fArticleUpdated,#fcircleContainer .fArticleItem .fArticleMessage .fArticleTime .fArticleCreated {display:inline-block;text-align:left;white-space:nowrap;}
