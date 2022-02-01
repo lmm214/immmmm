@@ -49,57 +49,6 @@ Last Modified time : 20220130 22:34 by https://immmmm.com
 #fcircleContainer .fArticleItem .fArticleMessage .fArticleTime i:before {margin-right:5px;}
 #switchRankBtn{font-size:14px;display:block;padding:12px 0 4px;width:100%;text-align:center;}
 
-#oneShow{margin:1rem auto;}
-.entity{
-  height: 81px;
-  margin-bottom: 1.25rem;
-}
-.entity-name{
-  margin: 0 0 .5rem;
-  font-weight: 500;
-  font-size: .8rem;
-  display: flex;
-  align-items: center;
-  padding: 0 .5rem;
-  opacity: .8;
-  width: 100%;
-  text-decoration: none;
-  color: inherit;
-}
-.entity-name-left{
-  display: flex;
-  align-items: center;
-  outline: none!important;
-  overflow: hidden;
-  flex-shrink: 1;
-  margin-right: auto;
-}
-.entity-icon{
-  margin-right: .25em;
-  flex-shrink: 0;
-}
-.entity .avatar{
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  overflow: hidden;
-}
-.entity-name-inner{
-  flex-shrink: 1;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.entity-feed-wrapper{
-  display: flex;
-  position: relative;
-    position: relative;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    overflow: hidden;
-    background: var(--lmm-dack-background);
-}
-
 #fMessageBoard,#fcircleMoreBtn {background:var(--lmm-background);color:var(--lmm-fontcolor);}
 #switchRankBtn,.fArticleMessage .fArticleUpdated,.fArticleMessage .fArticleCreated,.fArticleMessage .fArticleFloor{color:var(--lmm-floorcolor);}
 .fArticleAvatar .fArticleAuthor,.fArticleMessage a.fArticleTitle,.fArticleMessage:hover .fArticleFloor,.fArticleMessage:hover .fArticleCreated,.fArticleMessage:hover .fArticleUpdated{color:var(--lmm-fontcolor);}
@@ -110,8 +59,14 @@ Last Modified time : 20220130 22:34 by https://immmmm.com
 #fcircleFooter{margin:0 1% 2rem 0;text-align:right;font-size:13px;}
 
 
-#fcircleShow{position:fixed;top: 0;left:100%;width:100%;height:100%;overflow-y: auto;pointer-events: all;-webkit-backdrop-filter: blur(10px);backdrop-filter: blur(10px);transition: all 0.5s ease;z-index: 999;background-color: rgba(255, 255, 255, 0.42);}
-#fcircleShow.fshow{left:0;}
+
+#fcircleShow1,#fcircleShow{position:fixed;width:100%;height:100%;}
+#fcircleShow1{top: 0;left:100%;background-color: rgba(255, 255, 255, 0.42);-webkit-backdrop-filter: blur(10px);backdrop-filter: blur(10px);overflow-y:auto;pointer-events: all;transition: all 0.3s ease;z-index: 998;}
+#fcircleShow{bottom: 100%;left:0;transition: all 0.5s ease;z-index: 999;}
+
+#fcircleShow1.fshow{left:0;}
+#fcircleShow.fshow{bottom:0;}
+
 .fcircleShow{text-align: center;border-radius: 20px;position: absolute;width: 320px;min-height:170px;left: 50%;top:50%;transform: translate(-50%,-50%);box-shadow: 0 12px 40px rgba(0, 0, 0, 0.093);background: var(--lmm-background);}
 .fcircleShowHead:hover img.fAvatar{transform:rotate(360deg);transition:0.8s;}
 .fcircleShow .fcircleShowHead a{color: var(--lmm-hover);display:block;text-align:center;font-weight:bold;margin-top:-5px;padding:5px 8px 5px;text-decoration: none;}
@@ -119,16 +74,17 @@ Last Modified time : 20220130 22:34 by https://immmmm.com
 .fcircleShow p{margin:0.3rem 5px;width:100%;position: relative;}
 .fcircleShow p a{text-decoration: none !important;display:block;text-align:left;position: relative;z-index: 2;}
 .fcircleShow p span{position: absolute;bottom:2px;right:15px;z-index: 1;font-style: italic;font-size:12px;}
-.fcircleShow p a:hover{letter-spacing:1px;transition:0.3s;}
+#fcircleContainer .fcircleShow p a:hover{letter-spacing:1px;transition:0.3s;}
 .fcircleShow .fcircleShowContent{padding:10px 15px 30px;border-bottom-left-radius:20px;border-bottom-right-radius:20px;background: #fff;}
-#fcircleShow .fclose{position: sticky;float: right;display: block;top:0;right:0;width:2rem;height:1.5rem;padding:1.5rem;box-sizing: content-box;color: #ffffff;font-size:1rem;}
+#fcircleShow .fclose{position:sticky;float:right;display: block;bottom:0;right:0;width:2rem;height:1.5rem;padding:1.5rem;box-sizing: content-box;color: #ffffff;font-size:1rem;}
 #fcircleShow .fclose svg {width: 100%;height: 100%;fill: var(--lmm-fontcolor);font-weight: 400;}
 
 #randomFriend{margin: 20px 1%;border-radius: 5px;font-weight: bolder;overflow: hidden;}
 .randomFriend{position: relative;padding: 0.5rem 1rem;border-radius: 5px;overflow: hidden;background:var(--lmm-dack-background);}
 
 .fcircleShow p a:hover{color:var(--lmm-hover) !important;}
-.dark-theme #fcircleShow{background-color: rgba(59, 61, 66, 0.42);}
+.fcircleShow p span{color:var(--lmm-floorcolor)}
+.dark-theme #fcircleShow1{background-color: rgba(59, 61, 66, 0.42);}
 .dark-theme .fcircleShow{background: #292a2d;}
 .dark-theme .fcircleShow p a{color: var(--lmm-fontcolor);}
 .dark-theme .fcircleShow .fcircleShowContent{background: #eaeaea;}
@@ -137,7 +93,7 @@ Last Modified time : 20220130 22:34 by https://immmmm.com
 .dark-theme #switchRankBtn,.dark-theme .fArticleMessage .fArticleUpdated,.dark-theme .fArticleMessage .fArticleCreated,.dark-theme .fArticleMessage .fArticleFloor{color:var(--lmm-dark-floorcolor);}
 .dark-theme .fArticleAvatar .fArticleAuthor,.dark-theme .fArticleMessage a.fArticleTitle {color:var(--lmm-dark-fontcolor);}
 .dark-theme .fArticleMessage {background:var(--lmm-dack-background);}
-.dark-theme .fArticleMessage:hover .fArticleFloor,.dark-theme .fArticleMessage:hover .fArticleCreated,.dark-theme .fArticleMessage:hover .fArticleUpdated{color: var(--lmm-dark-fontcolor);}
+.dark-theme .fArticleMessage:hover .fArticleFloor,.dark-theme .fArticleMessage:hover .fArticleCreated,.dark-theme .fArticleMessage:hover .fArticleUpdated,.dark-theme .fcircleShow p span{color: var(--lmm-dark-fontcolor);}
 
 @media screen and (max-width:400px) {
   #fMessageBoard {font-size:14px;}

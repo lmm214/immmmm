@@ -55,7 +55,6 @@ function loadStatistical(sdata){
         <span id="createdBtn" data-sort="created" onclick="changeSort(event)" class="${sortNow == 'created' ? 'rankByNow':''}">Created</span> | <span id="updatedBtn" data-sort="updated" onclick="changeSort(event)" class="${sortNow == 'updated' ? 'rankByNow':''}" >Updated</span>
     </div>
   </div>
-  <div id="oneShow"></div>
   `;
   var loadMoreBtn = `
     <div id="fcircleMoreBtn" class="fNewDiv" onclick="loadNextArticle()"><i class="fas fa-angle-double-down"></i></div>
@@ -63,6 +62,7 @@ function loadStatistical(sdata){
       <span class="fLabel">更新于：</span><span class="fMessage">${sdata.last_updated_time}</span>
     </div>
     <div id="fcircleFooter" class="fNewDiv">Powered by <a target="_blank" href="https://github.com/Rock-Candy-Tea/hexo-circle-of-friends" target="_blank">FriendCircle</a></div>
+    <div id="fcircleShow1" class="fNewDiv"></div>
     <div id="fcircleShow" class="fNewDiv"></div>
   `;
   if(container){
@@ -270,14 +270,16 @@ function openMeShow(event){
 }
 // 关闭 show
 function closeShow(){
+  document.getElementById('fcircleShow1').className -= 'fshow';
   document.getElementById('fcircleShow').className -= 'fshow';
 }
 // fetch show
 function fetchShow(url){
+  document.getElementById('fcircleShow1').className = 'fshow';
   fetch(url)
     .then(res => res.json())
     .then(json =>{
-      console.log(json)
+      //console.log(json)
       noClick = 'ok'
       var statisticalData = json.statistical_data;
       var articleData = eval(json.article_data);
