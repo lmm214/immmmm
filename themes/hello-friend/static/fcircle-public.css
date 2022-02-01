@@ -61,8 +61,8 @@ Last Modified time : 20220130 22:34 by https://immmmm.com
 
 
 #fcircleShow1,#fcircleShow{position:fixed;width:100%;height:100%;}
-#fcircleShow1{top: 0;left:100%;background-color: rgba(255, 255, 255, 0.42);-webkit-backdrop-filter: blur(10px);backdrop-filter: blur(10px);overflow-y:auto;pointer-events: all;transition: all 0.3s ease;z-index: 998;}
-#fcircleShow{bottom: 100%;left:0;transition: all 0.5s ease;z-index: 999;}
+#fcircleShow1{top: 0;left:100%;background-color: rgba(255, 255, 255, 0.42);-webkit-backdrop-filter: blur(10px);backdrop-filter: blur(10px);overflow-y:auto;pointer-events: all;transition: all 0.1s ease;z-index: 998;}
+#fcircleShow{bottom: 100%;left:0;transition: all 0.3s ease;z-index: 999;}
 
 #fcircleShow1.fshow{left:0;}
 #fcircleShow.fshow{bottom:0;}
@@ -76,8 +76,8 @@ Last Modified time : 20220130 22:34 by https://immmmm.com
 .fcircleShow p span{position: absolute;bottom:2px;right:15px;z-index: 1;font-style: italic;font-size:12px;}
 #fcircleContainer .fcircleShow p a:hover{letter-spacing:1px;transition:0.3s;}
 .fcircleShow .fcircleShowContent{padding:10px 15px 30px;border-bottom-left-radius:20px;border-bottom-right-radius:20px;background: #fff;}
-#fcircleShow1 .fclose{position:sticky;float:right;display: block;bottom:0;right:0;width:2rem;height:1.5rem;padding:1.5rem;box-sizing: content-box;color: #ffffff;font-size:1rem;}
-#fcircleShow1 .fclose svg {width: 100%;height: 100%;fill: var(--lmm-fontcolor);font-weight: 400;}
+#fcircleShow .fclose{position:sticky;float:right;display: block;bottom:0;right:0;width:2rem;height:1.5rem;padding:1.5rem;box-sizing: content-box;color: #ffffff;font-size:1rem;}
+#fcircleShow .fclose svg {width: 100%;height: 100%;fill: var(--lmm-fontcolor);font-weight: 400;}
 
 #randomFriend{margin: 20px 1%;border-radius: 5px;font-weight: bolder;overflow: hidden;}
 .randomFriend{position: relative;padding: 0.5rem 1rem;border-radius: 5px;overflow: hidden;background:var(--lmm-dack-background);}

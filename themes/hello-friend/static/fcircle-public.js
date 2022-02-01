@@ -62,9 +62,7 @@ function loadStatistical(sdata){
       <span class="fLabel">更新于：</span><span class="fMessage">${sdata.last_updated_time}</span>
     </div>
     <div id="fcircleFooter" class="fNewDiv">Powered by <a target="_blank" href="https://github.com/Rock-Candy-Tea/hexo-circle-of-friends" target="_blank">FriendCircle</a></div>
-    <div id="fcircleShow1" class="fNewDiv">
-      <a href="javascript:;" class="fclose" onclick="closeShow()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"><path d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg></a>
-    </div>
+    <div id="fcircleShow1" class="fNewDiv"></div>
     <div id="fcircleShow" class="fNewDiv"></div>
   `;
   if(container){
@@ -157,7 +155,8 @@ function loadFcircleShow(userinfo,articledata){
     `
   }
   showHtml += '</div></div>'
-  document.getElementById('fcircleShow').innerHTML = showHtml
+  document.getElementById('fcircleShow').insertAdjacentHTML('beforeend', showHtml);
+  document.getElementById('fcircleShow').className = 'fshow';
 }
 
 // 预载下一页文章，存为本地数据 nextArticle
@@ -273,10 +272,15 @@ function openMeShow(event){
 function closeShow(){
   document.getElementById('fcircleShow1').className -= 'fshow';
   document.getElementById('fcircleShow').className -= 'fshow';
+  document.getElementById('fcircleShow').innerHTML = ''
 }
 // fetch show
 function fetchShow(url){
+  var closeHtml = `
+    <a href="javascript:;" class="fclose" onclick="closeShow()"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"><path d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg></a>
+  `
   document.getElementById('fcircleShow1').className = 'fshow';
+  document.getElementById('fcircleShow').insertAdjacentHTML('afterbegin', closeHtml);
   fetch(url)
     .then(res => res.json())
     .then(json =>{
@@ -285,7 +289,6 @@ function fetchShow(url){
       var statisticalData = json.statistical_data;
       var articleData = eval(json.article_data);
       loadFcircleShow(statisticalData,articleData)
-      document.getElementById('fcircleShow').className = 'fshow';
     })
 }
 
