@@ -51,11 +51,12 @@ Last Modified time : 20220130 22:34 by https://immmmm.com
 
 #oneShow{margin:1rem auto;}
 .entity{
-  height: 81px;
+  height: 80px;
   margin-bottom: 1.25rem;
 }
+.entity a{text-decoration: none;}
 .entity-name{
-  margin: 0 0 .5rem;
+  margin:0 0 .3rem;
   font-weight: 500;
   font-size: .8rem;
   display: flex;
@@ -63,7 +64,6 @@ Last Modified time : 20220130 22:34 by https://immmmm.com
   padding: 0 .5rem;
   opacity: .8;
   width: 100%;
-  text-decoration: none;
   color: inherit;
 }
 .entity-name-left{
@@ -126,6 +126,8 @@ Last Modified time : 20220130 22:34 by https://immmmm.com
 
 #randomFriend{margin: 20px 1%;border-radius: 5px;font-weight: bolder;overflow: hidden;}
 .randomFriend{position: relative;padding: 0.5rem 1rem;border-radius: 5px;overflow: hidden;background:var(--lmm-dack-background);}
+
+
 
 .fcircleShow p a:hover{color:var(--lmm-hover) !important;}
 .dark-theme #fcircleShow{background-color: rgba(59, 61, 66, 0.42);}

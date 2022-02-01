@@ -74,16 +74,16 @@ function loadStatistical(sdata){
 // 打印随机一人文章 oneShow
 function loadOneShow(one){
   var showHtml = `
-  <div class="entity">
-	<a href="/item?folder=VxtsWeJtfx7QyAiLdED9&amp;id=zqtVaVeD1BL7pXeqkuGb" class="entity-name">
+<div class="entity">
+	<a onclick="openMeShow(event)" data-link="${one.link}" target="_blank" rel="noopener nofollow" href="javascript:;" class="entity-name">
 		<div class="entity-name-left">
 			<div class="avatar entity-icon">
         <img class="fArticlelink fAvatar avatar" src="${one.avatar}" alt="avatar" onerror="this.src='${fdata.error_img}'; this.onerror = null;" width="48" height="48">
 			</div>
 			<span class="entity-name-inner">${one.author}</span>
 		</div>
-		<!---->
-		<span class="entity-date" title=""><i class="far fa-calendar-alt">发表于</i>${one.created}</span>
+    <span class="entity-date" style="${sortNow == 'created' ? '':'display:none'}"><i class="far fa-calendar-alt">发表于</i>${one.created}</span>
+    <span class="entity-date" style="${sortNow == 'updated' ? '':'display:none'}"><i class="fas fa-history">更新于</i>${one.updated}</span>
 	</a>
 	<div class="entity-feed-wrapper">
     <a class="fArticleTitle"  href="${one.link}" target="_blank" rel="noopener nofollow" data-title="${one.title}">${one.title}</a>
@@ -112,22 +112,23 @@ function loadArticleItem(datalist,start,end){
   if(end > articleNum){endFor = articleNum}
   if(start < articleNum){
     for (var i = start;i<endFor;i++){
-      var item = datalist[i];
+      var one = datalist[i];
       articleItem +=`
-      <div class="fArticleItem">
-      <div class="fArticleMessage">
-        <a class="fArticleTitle" href="${item.link}" target="_blank" rel="noopener nofollow" data-title="${item.title}">${item.title}</a>
-        <span class="fArticleFloor">${item.floor}</span>
-        <div class="fArticleAvatar no-lightbox">
-          <img class="fArticlelink fAvatar avatar" src="${item.avatar}" alt="avatar" onerror="this.src='${fdata.error_img}'; this.onerror = null;">
-          <a onclick="openMeShow(event)" data-link="${item.link}" class="" target="_blank" rel="noopener nofollow" href="javascript:;"><span class="fArticleAuthor">${item.author}</span></a>
-          <span class="fArticleTime">
-            <span class="fArticleCreated" style="${sortNow == 'created' ? '':'display:none'}"><i class="far fa-calendar-alt">发表于</i>${item.created}</span>
-            <span class="fArticleUpdated" style="${sortNow == 'updated' ? '':'display:none'}"><i class="fas fa-history">更新于</i>${item.updated}</span>
-          </span>
+    <div class="entity">
+      <a onclick="openMeShow(event)" data-link="${one.link}" target="_blank" rel="noopener nofollow" href="javascript:;" class="entity-name no-lightbox">
+        <div class="entity-name-left">
+          <div class="avatar entity-icon">
+            <img class="fArticlelink fAvatar avatar no-lightbox" src="${one.avatar}" alt="avatar" onerror="this.src='${fdata.error_img}'; this.onerror = null;" width="48" height="48">
+          </div>
+          <span class="entity-name-inner">${one.author}</span>
         </div>
+        <span class="entity-date" style="${sortNow == 'created' ? '':'display:none'}"><i class="far fa-calendar-alt">发表于</i>${one.created}</span>
+        <span class="entity-date" style="${sortNow == 'updated' ? '':'display:none'}"><i class="fas fa-history">更新于</i>${one.updated}</span>
+      </a>
+      <div class="entity-feed-wrapper">
+        <a class="fArticleTitle"  href="${one.link}" target="_blank" rel="noopener nofollow" data-title="${one.title}">${one.title}</a><span class="fArticleFloor">${one.floor}</span>
       </div>
-      </div>
+    </div>
       `;
     }
     container.insertAdjacentHTML('beforeend', articleItem);
