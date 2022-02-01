@@ -66,6 +66,13 @@ layout: 'posts'
 
 {{< friend des="用这生命中的每一秒，给自己一个不后悔的未来" url="https://noionion.top/" md5="d240a727ea154be465796ef2644aac16" name="贰猹的小窝" >}}
 
+{{< friend des="foolish fox" url="https://foolishfox.cn/" md5="808b2d2bcf421a7f3d99310c0dc3271a" name="FF" >}}
+
+{{< friend des="When nothing goes right,just go left. fox" url="https://www.yyyzyyyz.cn/" md5="026ed84c264399312ebf38af41c29d72" name="Black Flies" >}}
+
+{{< friend des="Don’t repeat yourself" url="https://gahotx.cn/" md5="19a20eaeb4babbdd8cefd7bc2d5096f3" name="Gahotx" >}}
+
+
 ### 博客程序
 
 Hugo：<https://gohugo.io/>
