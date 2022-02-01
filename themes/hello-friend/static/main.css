@@ -575,15 +575,6 @@ blockquote {
 	}
 }
 
-blockquote:before {
-	content: "\201D";
-	font-family: Georgia,serif;
-	font-size: 3.875rem;
-	position: absolute;
-	left: -40px;
-	top: -20px
-}
-
 blockquote p:first-of-type {
 	margin-top: 0
 }
