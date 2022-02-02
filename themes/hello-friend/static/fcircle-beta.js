@@ -19,7 +19,7 @@ if(typeof(fdataUser) !=="undefined"){
     }
   }
 }
-var article_num = '',sortNow='',friends_num='',eggNow='yes'
+var article_num = '',sortNow='',friends_num='',eggNow='no'
 var container = document.getElementById('fcircleContainer');
 var createdBtn = document.getElementById('createdBtn')
 var updatedBtn = document.getElementById('updatedBtn')
@@ -46,7 +46,7 @@ function loadStatistical(sdata){
         <span class="fLabel">活跃</span>
         <span class="fMessage">${sdata.active_num}</span>
       </div>
-      <div class="fArticleNum fItem">
+      <div class="fArticleNum fItem" onclick="clearLocal()">
         <span class="fLabel">日志</span>
         <span class="fMessage">${sdata.article_num}</span>
       </div>
@@ -210,12 +210,20 @@ function loadNextArticle(){
 // 没有更多文章
 function loadNoArticle(){
   var articleSortData = sortNow+"ArticleData"
-  console.log(articleSortData)
   localStorage.removeItem(articleSortData)
   localStorage.removeItem("statisticalData")
   //localStorage.removeItem("sortNow")
   document.getElementById('fcircleMoreBtn').remove()
   window.scrollTo(0,document.getElementsByClassName('fMessageBoard').offsetTop)
+}
+// 清空本地数据
+function clearLocal(){
+  localStorage.removeItem("updatedArticleData")
+  localStorage.removeItem("createdArticleData")
+  localStorage.removeItem("nextArticle")
+  localStorage.removeItem("statisticalData")
+  localStorage.removeItem("sortNow")
+  location.reload();
 }
 
 function changeEgg(){
@@ -234,7 +242,6 @@ function FetchFriendCircle(sortNow){
   }else{
     eggNow = 'yes'
   }
-  console.log(fetchUrl)
   fetch(fetchUrl)
     .then(res => res.json())
     .then(json =>{
