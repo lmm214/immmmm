@@ -23,9 +23,13 @@ feature: https://lmm.elizen.me/images/2022/01/myf-1.png
 
 <!--more-->
 
-如需尝鲜先查看 [友链朋友圈食用说明书](https://noionion.top/47095.html)  ，其中 Beta 后端部署有以下3处不同。
+默认用用到此为止，已足以。
 
-#### fork仓库地址为 <https://github.com/2X-ercha/CircleOfFriends-Simple>
+如需尝鲜独立部署，先查看 [友链朋友圈食用说明书](https://noionion.top/47095.html)  ，其中 Beta 后端部署有以下3处不同。
+
+#### fork仓库地址为
+
+<https://github.com/2X-ercha/CircleOfFriends-Simple>
 
 ![cf-beta-1](https://lmm.elizen.me/images/2022/02/cf-beta-1.png)
 
