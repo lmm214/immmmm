@@ -5,7 +5,7 @@ Last Modified time : 20220130 19:14 by https://immmmm.com
 
 //默认数据
 var fdata = {
-  apiurl: 'https://circle-of-friends-simple.vercel.app/',
+  apiurl: 'https://circle-of-friends-simple-lmm214.vercel.app/',
   initnumber: 20,  //首次加载文章数
   stepnumber: 10,  //更多加载文章数
   article_sort: 'updated', //文章排序 updated or created
@@ -19,7 +19,7 @@ if(typeof(fdataUser) !=="undefined"){
     }
   }
 }
-var article_num = '',sortNow='',friends_num=''
+var article_num = '',sortNow='',friends_num='',eggNow='yes'
 var container = document.getElementById('fcircleContainer');
 var createdBtn = document.getElementById('createdBtn')
 var updatedBtn = document.getElementById('updatedBtn')
@@ -217,16 +217,23 @@ function loadNoArticle(){
   document.getElementById('fcircleMoreBtn').remove()
   window.scrollTo(0,document.getElementsByClassName('fMessageBoard').offsetTop)
 }
+
 function changeEgg(){
   document.querySelectorAll('.fNewDiv').forEach(el => el.remove());
   container.innerHTML = "";
-  FetchFriendCircle(sortNow,true)
+  FetchFriendCircle(sortNow)
+  
 }
 // 首次加载文章
-function FetchFriendCircle(sortNow,egg){
+function FetchFriendCircle(sortNow){
   var end = fdata.initnumber
   var fetchUrl = fdata.apiurl + "api?rule="+sortNow+"&start=0&end="+end
-  if(egg){fetchUrl = 'https://circle-of-friends-simple.vercel.app/api?rule='+sortNow+"&start=0&end="+end}
+  if(eggNow == 'yes'){
+    fetchUrl = 'https://circle-of-friends-simple.vercel.app/api?rule='+sortNow+"&start=0&end="+end
+    eggNow = 'no'
+  }else{
+    eggNow = 'yes'
+  }
   console.log(fetchUrl)
   fetch(fetchUrl)
     .then(res => res.json())
