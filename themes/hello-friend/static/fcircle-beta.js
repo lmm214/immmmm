@@ -5,7 +5,7 @@ Last Modified time : 20220206 16:14 by https://immmmm.com
 
 //默认数据
 var fdata = {
-  apiurl: 'https://circle-of-friends-simple-lmm214.vercel.app/',
+  apiurl: 'https://circle-of-friends-simple.vercel.app/',
   initnumber: 20,  //首次加载文章数
   stepnumber: 10,  //更多加载文章数
   article_sort: 'updated', //文章排序 updated or created
@@ -229,21 +229,22 @@ function clearLocal(){
 function changeEgg(){
   document.querySelectorAll('.fNewDiv').forEach(el => el.remove());
   container.innerHTML = "";
-  var fetchUrl = fdata.apiurl + "all?rule="+sortNow+"&start=0&end="+end
-  if(eggNow == 'yes'){
-    fetchUrl = 'https://circle-of-friends-simple.vercel.app/all?rule='+sortNow+"&start=0&end="+end
-    eggNow = 'no'
-  }else{
+  var end = fdata.initnumber,changeUrl=''
+  if(eggNow == 'no'){
+    changeUrl = 'https://circle-of-friends-simple.vercel.app/all?rule='+sortNow+"&start=0&end="+end
     eggNow = 'yes'
+  }else{
+    eggNow = 'no'
+    changeUrl = fdata.apiurl + "all?rule="+sortNow+"&start=0&end="+end
   }
-  FetchFriendCircle(sortNow,eggNow)
+  FetchFriendCircle(sortNow,changeUrl)
 }
 // 首次加载文章
-function FetchFriendCircle(sortNow,eggNow){
+function FetchFriendCircle(sortNow,changeUrl){
   var end = fdata.initnumber
   var fetchUrl = fdata.apiurl + "all?rule="+sortNow+"&start=0&end="+end
-  if(eggNow){
-    fetchUrl = eggNow
+  if(changeUrl){
+    fetchUrl = changeUrl
   }
   console.log(fetchUrl)
   fetch(fetchUrl)
