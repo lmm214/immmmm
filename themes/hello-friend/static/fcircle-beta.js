@@ -6,7 +6,7 @@ Last Modified time : 20220206 19:14 by https://immmmm.com
 //默认数据
 var fdata = {
   apiurl: 'https://circle-of-friends-simple.vercel.app/', //默认api
-  apipublieurl: 'https://circle-of-friends-simple.vercel.app/', //临时公共库 300+ feed
+  apipublieurl: 'https://circle-of-friends-simple.vercel.app/', //公共库
   initnumber: 20,  //首次加载文章数
   stepnumber: 10,  //更多加载文章数
   article_sort: 'updated', //文章排序 updated or created
