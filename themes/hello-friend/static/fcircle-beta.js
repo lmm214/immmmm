@@ -1,5 +1,5 @@
 /*
-Last Modified time : 20220202 19:14 by https://immmmm.com
+Last Modified time : 20220206 16:14 by https://immmmm.com
 基于 FriendCircle 公共库 API
 */
 
@@ -168,7 +168,7 @@ function fetchNextArticle(){
     end = articleNum
   }
   if(start <  articleNum){
-    var fetchUrl = fdata.apiurl+"api?rule="+sortNow+"&start="+start+"&end="+end
+    var fetchUrl = fdata.apiurl+"all?rule="+sortNow+"&start="+start+"&end="+end
     fetch(fetchUrl)
       .then(res => res.json())
       .then(json =>{
@@ -229,19 +229,23 @@ function clearLocal(){
 function changeEgg(){
   document.querySelectorAll('.fNewDiv').forEach(el => el.remove());
   container.innerHTML = "";
-  FetchFriendCircle(sortNow)
-  
-}
-// 首次加载文章
-function FetchFriendCircle(sortNow){
-  var end = fdata.initnumber
-  var fetchUrl = fdata.apiurl + "api?rule="+sortNow+"&start=0&end="+end
+  var fetchUrl = fdata.apiurl + "all?rule="+sortNow+"&start=0&end="+end
   if(eggNow == 'yes'){
-    fetchUrl = 'https://circle-of-friends-simple.vercel.app/api?rule='+sortNow+"&start=0&end="+end
+    fetchUrl = 'https://circle-of-friends-simple.vercel.app/all?rule='+sortNow+"&start=0&end="+end
     eggNow = 'no'
   }else{
     eggNow = 'yes'
   }
+  FetchFriendCircle(sortNow,eggNow)
+}
+// 首次加载文章
+function FetchFriendCircle(sortNow,eggNow){
+  var end = fdata.initnumber
+  var fetchUrl = fdata.apiurl + "all?rule="+sortNow+"&start=0&end="+end
+  if(eggNow){
+    fetchUrl = eggNow
+  }
+  console.log(fetchUrl)
   fetch(fetchUrl)
     .then(res => res.json())
     .then(json =>{
