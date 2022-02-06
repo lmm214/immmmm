@@ -1,5 +1,5 @@
 /*
-Last Modified time : 20220206 22:14 by https://immmmm.com
+Last Modified time : 20220206 23:04 by https://immmmm.com
 基于 FriendCircle 公共库 API
 */
 
@@ -282,7 +282,8 @@ function changeSort(event){
 // 点击开往
 var noClick = 'ok';
 function openToShow(){
-  var fetchUrl = UrlNow+ "post"
+  var fetchUrl = localStorage.getItem("urlNow")+ "post"
+  //console.log(fetchUrl)
   if(noClick == 'ok'){
     noClick = 'no'
     fetchShow(fetchUrl)
@@ -293,7 +294,8 @@ function openMeShow(event){
   var parse_url = /^(?:([A-Za-z]+):)?(\/{0,3})([0-9.\-A-Za-z]+)(?::(\d+))?(?:\/([^?#]*))?(?:\?([^#]*))?(?:#(.*))?$/;
   var meLink = event.currentTarget.dataset.link.replace(parse_url, '$1:$2$3')
   console.log(meLink)
-  var fetchUrl = fdata.apiurl + "post?link="+meLink
+  var fetchUrl = localStorage.getItem("urlNow") + "post?link="+meLink
+  //console.log(fetchUrl)
   if(noClick == 'ok'){
     noClick = 'no'
     fetchShow(fetchUrl)
