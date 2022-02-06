@@ -1,5 +1,5 @@
 /*
-Last Modified time : 20220206 23:04 by https://immmmm.com
+Last Modified time : 20220207 00:14 by https://immmmm.com
 基于 FriendCircle 公共库 API
 */
 
@@ -173,7 +173,9 @@ function fetchNextArticle(){
     end = articleNum
   }
   if(start <  articleNum){
+    UrlNow = localStorage.getItem("urlNow")
     var fetchUrl = UrlNow+"all?rule="+sortNow+"&start="+start+"&end="+end
+    //console.log(fetchUrl)
     fetch(fetchUrl)
       .then(res => res.json())
       .then(json =>{
@@ -240,7 +242,7 @@ function changeEgg(){
   localStorage.removeItem("statisticalData")
   container.innerHTML = ""
   UrlNow = localStorage.getItem("urlNow")
-  console.log("新"+UrlNow)
+  //console.log("新"+UrlNow)
   if(UrlNow !== fdata.apipublieurl){
     changeUrl = fdata.apipublieurl
   }else{
