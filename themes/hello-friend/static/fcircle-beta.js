@@ -1,12 +1,12 @@
 /*
-Last Modified time : 20220206 19:14 by https://immmmm.com
+Last Modified time : 20220206 22:14 by https://immmmm.com
 基于 FriendCircle 公共库 API
 */
 
 //默认数据
 var fdata = {
   apiurl: 'https://circle-of-friends-simple.vercel.app/', //默认api
-  apipublieurl: 'https://circle-of-friends-simple.vercel.app/', //公共库
+  apipublieurl: 'https://hexo-circle-of-friends-lmm214.vercel.app/', //临时公共库
   initnumber: 20,  //首次加载文章数
   stepnumber: 10,  //更多加载文章数
   article_sort: 'updated', //文章排序 updated or created
@@ -228,19 +228,25 @@ function clearLocal(){
   localStorage.removeItem("nextArticle")
   localStorage.removeItem("statisticalData")
   localStorage.removeItem("sortNow")
-  localStorage.removeItem("UrlNow")
+  localStorage.removeItem("urlNow")
   location.reload();
 }
 
 function changeEgg(){
   document.querySelectorAll('.fNewDiv').forEach(el => el.remove());
+  localStorage.removeItem("updatedArticleData")
+  localStorage.removeItem("createdArticleData")
+  localStorage.removeItem("nextArticle")
+  localStorage.removeItem("statisticalData")
   container.innerHTML = ""
-  var changeUrl=""
+  UrlNow = localStorage.getItem("urlNow")
+  console.log("新"+UrlNow)
   if(UrlNow !== fdata.apipublieurl){
     changeUrl = fdata.apipublieurl
   }else{
     changeUrl = fdata.apiurl
   }
+  localStorage.setItem("urlNow",changeUrl)
   FetchFriendCircle(sortNow,changeUrl)
 }
 // 首次加载文章
@@ -248,17 +254,17 @@ function FetchFriendCircle(sortNow,changeUrl){
   var end = fdata.initnumber
   var fetchUrl = UrlNow + "all?rule="+sortNow+"&start=0&end="+end
   if(changeUrl){
-    fetchUrl = changeUrl
+    fetchUrl = changeUrl + "all?rule="+sortNow+"&start=0&end="+end
   }
-  console.log(fetchUrl)
+  //console.log(fetchUrl)
   fetch(fetchUrl)
     .then(res => res.json())
     .then(json =>{
       var statisticalData = json.statistical_data;
       var articleData = eval(json.article_data);
+      var articleSortData = sortNow+"ArticleData";
       loadStatistical(statisticalData);
       loadArticleItem(articleData ,0,end)
-      var articleSortData = sortNow+"ArticleData"
       localStorage.setItem("statisticalData",JSON.stringify(statisticalData))
       localStorage.setItem(articleSortData,JSON.stringify(articleData))
     })
@@ -269,7 +275,9 @@ function changeSort(event){
   localStorage.setItem("sortNow",sortNow)
   document.querySelectorAll('.fNewDiv').forEach(el => el.remove());
   container.innerHTML = "";
-  initFriendCircle(sortNow)
+  changeUrl = localStorage.getItem("urlNow")
+  console.log(changeUrl)
+  initFriendCircle(sortNow,changeUrl)
 }
 // 点击开往
 var noClick = 'ok';
@@ -316,18 +324,17 @@ function fetchShow(url){
 }
 
 // 初始化方法，如有本地数据首先调用
-function initFriendCircle(sortNow){
+function initFriendCircle(sortNow,changeUrl){
   var articleSortData = sortNow+"ArticleData";
   var statisticalData = JSON.parse(localStorage.getItem("statisticalData"));
   var articleData = JSON.parse(localStorage.getItem(articleSortData));
   container.innerHTML = "";
-  //fetchOneShow();
   if(statisticalData && articleData){
     loadStatistical(statisticalData);
     loadArticleItem(articleData ,0,fdata.initnumber)
     console.log("本地数据加载成功")
   }else{
-    FetchFriendCircle(sortNow)
+    FetchFriendCircle(sortNow,changeUrl)
     console.log("第一次加载完成")
   }
 }
