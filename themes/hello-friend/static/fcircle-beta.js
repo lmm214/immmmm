@@ -232,7 +232,7 @@ function changeEgg(){
   container.innerHTML = "";
   var end = fdata.initnumber,changeUrl=''
   if(eggNow == 'no'){
-    changeUrl = fdata.apipublieurl+'/all?rule='+sortNow+"&start=0&end="+end
+    changeUrl = fdata.apipublieurl+'all?rule='+sortNow+"&start=0&end="+end
     eggNow = 'yes'
   }else{
     eggNow = 'no'
