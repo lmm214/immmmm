@@ -1,5 +1,5 @@
 /*
-Last Modified time : 20220202 19:14 by https://immmmm.com
+Last Modified time : 20220208 19:14 by https://immmmm.com
 基于 FriendCircle 公共库 API
 */
 :root{
@@ -85,16 +85,15 @@ Last Modified time : 20220202 19:14 by https://immmmm.com
 
 .fcircleShow p a:hover{color:var(--lmm-hover) !important;}
 .fcircleShow p span{color:var(--lmm-floorcolor)}
-.dark-theme #fcircleShow1{background-color: rgba(59, 61, 66, 0.42);}
-.dark-theme .fcircleShow{background: #292a2d;}
-.dark-theme .fcircleShow p a{color: var(--lmm-fontcolor);}
-.dark-theme .fcircleShow .fcircleShowContent{background: #eaeaea;}
-.dark-theme #fcircleShow .fclose svg {fill: var(--lmm-dark-fontcolor);}
-.dark-theme #fMessageBoard,.dark-theme #fcircleMoreBtn {background:var(--lmm-dack-background);color:var(--lmm-dark-fontcolor);}
-.dark-theme #switchRankBtn,.dark-theme .fArticleMessage .fArticleUpdated,.dark-theme .fArticleMessage .fArticleCreated,.dark-theme .fArticleMessage .fArticleFloor{color:var(--lmm-dark-floorcolor);}
-.dark-theme .fArticleAvatar .fArticleAuthor,.dark-theme .fArticleMessage a.fArticleTitle {color:var(--lmm-dark-fontcolor);}
-.dark-theme .fArticleMessage {background:var(--lmm-dack-background);}
-.dark-theme .fArticleMessage:hover .fArticleFloor,.dark-theme .fArticleMessage:hover .fArticleCreated,.dark-theme .fArticleMessage:hover .fArticleUpdated,.dark-theme .fcircleShow p span{color: var(--lmm-dark-fontcolor);}
+.dark-theme #fcircleShow1,.theme-dark #fcircleShow1{background-color: rgba(59, 61, 66, 0.42);}
+.dark-theme .fcircleShow,.theme-dark .fcircleShow{background: #292a2d;}
+.dark-theme .fcircleShow p a,.theme-dark .fcircleShow p a{color: var(--lmm-fontcolor);}
+.dark-theme .fcircleShow .fcircleShowContent,.theme-dark .fcircleShow .fcircleShowContent{background: #eaeaea;}
+.dark-theme #fMessageBoard,.dark-theme #fcircleMoreBtn,.theme-dark #fMessageBoard,.theme-dark #fcircleMoreBtn {background:var(--lmm-dack-background);color:var(--lmm-dark-fontcolor);}
+.dark-theme #switchRankBtn,.dark-theme .fArticleMessage .fArticleUpdated,.dark-theme .fArticleMessage .fArticleCreated,.dark-theme .fArticleMessage .fArticleFloor,.theme-dark #switchRankBtn,.theme-dark .fArticleMessage .fArticleUpdated,.theme-dark .fArticleMessage .fArticleCreated,.theme-dark .fArticleMessage .fArticleFloor{color:var(--lmm-dark-floorcolor);}
+.dark-theme .fArticleAvatar .fArticleAuthor,.dark-theme .fArticleMessage a.fArticleTitle,.theme-dark .fArticleAvatar .fArticleAuthor,.theme-dark .fArticleMessage a.fArticleTitle  {color:var(--lmm-dark-fontcolor);}
+.dark-theme .fArticleMessage,.theme-dark .fArticleMessage {background:var(--lmm-dack-background);}
+.dark-theme .fArticleMessage:hover .fArticleFloor,.dark-theme .fArticleMessage:hover .fArticleCreated,.dark-theme .fArticleMessage:hover .fArticleUpdated,.dark-theme .fcircleShow p span,.theme-dark .fArticleMessage:hover .fArticleFloor,.theme-dark .fArticleMessage:hover .fArticleCreated,.theme-dark .fArticleMessage:hover .fArticleUpdated,.theme-dark .fcircleShow p span{color: var(--lmm-dark-fontcolor);}
 
 @media screen and (max-width:400px) {
   #fMessageBoard {font-size:14px;}
