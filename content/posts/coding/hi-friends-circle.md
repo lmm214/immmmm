@@ -31,15 +31,15 @@ feature: https://pic.edui.fun/images/2022/01/myf-1.png
 
 <https://github.com/2X-ercha/CircleOfFriends-Simple>
 
-![cf-beta-1](https://lmm.elizen.me/images/2022/02/cf-beta-1.png)
+![cf-beta-1](https://pic.edui.fun/images/2022/02/cf-beta-1.png)
 
 #### Vercel 直接导入新fork的仓库
 
-![cf-beta-2](https://lmm.elizen.me/images/2022/02/cf-beta-2.png)
+![cf-beta-2](https://pic.edui.fun/images/2022/02/cf-beta-2.png)
 
 #### Vercel 部署前的根目录选择为 API
 
-![cf-beta-3](https://lmm.elizen.me/images/2022/02/cf-beta-3.png)
+![cf-beta-3](https://pic.edui.fun/images/2022/02/cf-beta-3.png)
 
 ### 心路历程
 
@@ -47,11 +47,11 @@ feature: https://pic.edui.fun/images/2022/01/myf-1.png
 
 #### 点击「订阅」，随机显示博客卡片
 
-![cf-beta-5](https://lmm.elizen.me/images/2022/02/cf-beta-5.gif)
+![cf-beta-5](https://pic.edui.fun/images/2022/02/cf-beta-5.gif)
 
 #### 点击「活跃」，切换公共库和个人库
 
-![cf-beta-6](https://lmm.elizen.me/images/2022/02/cf-beta-6.gif)
+![cf-beta-6](https://pic.edui.fun/images/2022/02/cf-beta-6.gif)
 
 目前内置的公共库 feeds 列表是这个
 
@@ -73,4 +73,4 @@ feature: https://pic.edui.fun/images/2022/01/myf-1.png
 
 #### 点击文章列表的头像，随机此博客卡片
 
-![cf-beta-7](https://lmm.elizen.me/images/2022/02/cf-beta-7.gif)
+![cf-beta-7](https://pic.edui.fun/images/2022/02/cf-beta-7.gif)
