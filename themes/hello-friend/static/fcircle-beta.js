@@ -1,5 +1,5 @@
 /*
-Last Modified time : 20220207 00:14 by https://immmmm.com
+Last Modified time : 20220208 00:14 by https://immmmm.com
 基于 FriendCircle 公共库 API
 */
 
@@ -330,13 +330,41 @@ function fetchShow(url){
 // 初始化方法，如有本地数据首先调用
 function initFriendCircle(sortNow,changeUrl){
   var articleSortData = sortNow+"ArticleData";
-  var statisticalData = JSON.parse(localStorage.getItem("statisticalData"));
-  var articleData = JSON.parse(localStorage.getItem(articleSortData));
+  var localStatisticalData = JSON.parse(localStorage.getItem("statisticalData"));
+  var localArticleData = JSON.parse(localStorage.getItem(articleSortData));
   container.innerHTML = "";
-  if(statisticalData && articleData){
-    loadStatistical(statisticalData);
-    loadArticleItem(articleData ,0,fdata.initnumber)
+  if(localStatisticalData && localArticleData){
+    loadStatistical(localStatisticalData);
+    loadArticleItem(localArticleData ,0,fdata.initnumber)
     console.log("本地数据加载成功")
+    var fetchUrl = UrlNow + "all?rule="+sortNow+"&start=0&end="+fdata.initnumber
+    fetch(fetchUrl)
+    .then(res => res.json())
+    .then(json =>{
+      var statisticalData = json.statistical_data;
+      var articleData = eval(json.article_data);
+      //获取文章总数与第一篇文章标题
+      var localSnum = localStatisticalData.article_num
+      var newSnum = statisticalData.article_num
+      var localAtile = localArticleData[0].title
+      var newAtile = articleData[0].title
+      //判断文章总数或文章标题是否一致，否则热更新
+      if(localSnum !== newSnum || localAtile !== newAtile){
+        document.getElementById('fMessageBoard').remove()
+        document.getElementById('fcircleMoreBtn').remove()
+        document.getElementById('fUpdatedTime').remove()
+        document.getElementById('fcircleFooter').remove()
+        container.innerHTML = "";
+        var articleSortData = sortNow+"ArticleData";
+        loadStatistical(statisticalData);
+        loadArticleItem(articleData ,0,fdata.initnumber)
+        localStorage.setItem("statisticalData",JSON.stringify(statisticalData))
+        localStorage.setItem(articleSortData,JSON.stringify(articleData))
+        console.log("热更新完成")
+      }else{
+        console.log("API数据未更新")
+      }
+    })
   }else{
     FetchFriendCircle(sortNow,changeUrl)
     console.log("第一次加载完成")
