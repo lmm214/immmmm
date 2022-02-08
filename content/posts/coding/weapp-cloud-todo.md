@@ -9,7 +9,7 @@ isTop: false
 
 点击“点击设置团队名”，添加团队名为“吃土”，OK，欢迎来撩~
 
-![](https://lmm.elizen.me/images/2018/08/todo.jpg)
+![](https://pic.edui.fun/images/2018/08/todo.jpg)
 
 <!--more-->
 

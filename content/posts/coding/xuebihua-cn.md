@@ -9,7 +9,7 @@ isTop: false
 
 点击体验→ <https://xuebihua.cn>
 
-![xuebihua_qr](https://lmm.elizen.me/images/2019/07/xuebihua_qr.png)
+![xuebihua_qr](https://pic.edui.fun/images/2019/07/xuebihua_qr.png)
 
 刷着阮一峰的 weekly 看到了 [Hanzi Writer](https://chanind.github.io/hanzi-writer/cn/) [^hanzi-writer] 这个项目，发现笔顺的动画比较自然，还能在 svg 上手写练习，最重要的是看看 demo 好像上手比较简单，实际也如此。
 

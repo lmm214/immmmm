@@ -6,14 +6,14 @@ tags: [折腾]
 
 自用 N 年主题转制 Gridea 完成！
 
-![Motify 20.03.13](https://lmm.elizen.me/images/2020/03/motify-1.png)
+![Motify 20.03.13](https://pic.edui.fun/images/2020/03/motify-1.png)
 
 仓库下载：<https://github.com/lmm214/gridea-theme-motify>
 
 <!--more-->
 
 <figure>
-    <img src='https://lmm.elizen.me/images/2020/03/motify-11.png' alt='' width="50%"/><img src='https://lmm.elizen.me/images/2020/03/Motify.png' alt='' width="50%"/>
+    <img src='https://pic.edui.fun/images/2020/03/motify-11.png' alt='' width="50%"/><img src='https://pic.edui.fun/images/2020/03/Motify.png' alt='' width="50%"/>
   <figcaption>Motify</figcaption>
 </figure>
 
@@ -28,7 +28,7 @@ tags: [折腾]
 
 ### 提速小记
 
-![pageseed.png](https://lmm.elizen.me/images/2020/03/pageseed.png)
+![pageseed.png](https://pic.edui.fun/images/2020/03/pageseed.png)
 
 - 给 img 加上 `loading='lazy'` 开启 chrome 延迟图片加载；
 - 图片启用 webp 格式，又拍云加图片后缀 `!/format/webp` ，七牛云加 `` ；
@@ -65,6 +65,6 @@ tags: [折腾]
 ### 欢迎打赏
 
 <figure class="center">
-    <img src="https://lmm.elizen.me/wx.jpg" alt="微信打赏" />
+    <img src="https://pic.edui.fun/wx.jpg" alt="微信打赏" />
     <figcaption class="center">微信打赏</figcaption>
 </figure>

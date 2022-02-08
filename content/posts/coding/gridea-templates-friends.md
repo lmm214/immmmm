@@ -4,7 +4,7 @@ date: 2020-01-02
 tags: [折腾]
 published: true
 hideInList: false
-feature: https://lmm.elizen.me/images/2020/01/my-friends-5.jpg
+feature: https://pic.edui.fun/images/2020/01/my-friends-5.jpg
 isTop: false
 ---
 
@@ -16,7 +16,7 @@ isTop: false
 
 ### 一、添加自定义主题功能代码
 
-![友链客户端](https://lmm.elizen.me/images/2020/01/my-friends-2.png)
+![友链客户端](https://pic.edui.fun/images/2020/01/my-friends-2.png)
 
 `themes/notes/config.json`，添加以下代码：
 
@@ -89,7 +89,7 @@ isTop: false
 
 ### 三、添加样式代码
 
-![友链效果](https://lmm.elizen.me/images/2020/01/my-friends-3.png)
+![友链效果](https://pic.edui.fun/images/2020/01/my-friends-3.png)
 
 `themes/notes/assets/styles/main.less`，添加以下代码：
 

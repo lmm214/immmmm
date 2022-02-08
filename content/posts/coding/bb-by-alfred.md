@@ -4,13 +4,13 @@ date: 2020-05-01T11:15:30+0800
 tags: [折腾]
 ---
 
-![bb-1](https://lmm.elizen.me/images/2020/05/bb-1.png)
+![bb-1](https://pic.edui.fun/images/2020/05/bb-1.png)
 
 虽说 iOS 的快捷方式足够优雅，但还是想着 Mac 上也更舒坦地随意发布。VSCode 的 [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) 插件能用但没有一键直达，看到 [@xwlearn](https://xwlearn.com/howto-graciously-bb-in-mac/) 分享的 Python 代码，立马想到神器 「Alfred」！
 
 ### 插件撸起
 
-![bb-3](https://lmm.elizen.me/images/2020/05/bb-3.png)
+![bb-3](https://pic.edui.fun/images/2020/05/bb-3.png)
 
 安装依赖：
 

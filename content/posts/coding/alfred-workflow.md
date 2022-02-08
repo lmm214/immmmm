@@ -15,7 +15,7 @@ isTop: false
 
 关键字是tq，自动获取当地的天气；如果查询北京的天气，可以输入 "tq 北京"
 
-![](https://lmm.elizen.me/75UIW7.jpg)
+![](https://pic.edui.fun/75UIW7.jpg)
 
 <!--more-->
 
@@ -31,4 +31,4 @@ isTop: false
 
 输入rr，列出当前激活应用的最近文档。输入rf，列出最近访问的文件夹。输入`rd`，列出最近打开的各种文件。输入ra，列出最近打开的应用。
 
-![](https://lmm.elizen.me/n5lkSZ.jpg)
+![](https://pic.edui.fun/n5lkSZ.jpg)

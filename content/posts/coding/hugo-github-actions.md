@@ -44,13 +44,13 @@ GitHub 上新建一个 repo，并只需保留以下文件上传到 `master` ，�
 
 具体操作：
 
-![tokens-1](https://lmm.elizen.me/images/2020/03/tokens-1.png) 
+![tokens-1](https://pic.edui.fun/images/2020/03/tokens-1.png) 
 
-![tokens-2](https://lmm.elizen.me/images/2020/03/tokens-2.png)
+![tokens-2](https://pic.edui.fun/images/2020/03/tokens-2.png)
 
 - 点 <https://github.com/settings/tokens> 新建一个，勾选 `repo` 和 `workflow` ,暂存；
 
-![secrets](https://lmm.elizen.me/images/2020/03/secrets.jpeg)
+![secrets](https://pic.edui.fun/images/2020/03/secrets.jpeg)
 
 - 进项目 `settings/secrets` 新建标题为 `personal_token` ，内容是刚创建的 `tokens` ;
 

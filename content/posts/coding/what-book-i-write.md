@@ -2,7 +2,7 @@
 title: "已写完了哪本书？"
 date: 2022-01-30T23:02:01+0800
 tags: [折腾]
-feature: https://lmm.elizen.me/images/2022/01/wb-1.png
+feature: https://pic.edui.fun/images/2022/01/wb-1.png
 ---
 
 > 统计你输入了多少字，然后告诉你相当于写了本啥书，哈哈  ———— [「博客全站总字数统计」](https://www.jdeal.cn/152.html) 

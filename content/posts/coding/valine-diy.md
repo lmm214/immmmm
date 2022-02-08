@@ -11,7 +11,7 @@ isTop: false
 
 ### 评论框美化：
 
-![评论框美化：](https://lmm.elizen.me/images/2019/07/plk.jpg)
+![评论框美化：](https://pic.edui.fun/images/2019/07/plk.jpg)
 
 ```css
 .v .vwrap{padding: 0 0 44px;}.v .veditor{min-height:7rem;resize:none;}.v .vwrap .vedit{padding-top:0}.v .vwrap .vheader{width: 80%;bottom:0;position: absolute;background: #f7f7f7;}.v .vinput{padding:10px 15px;}.v .vwrap .vheader .vinput{border-bottom:0px}.v .vwrap .vedit .vctrl{margin-top:-44px;right:0;position:absolute;margin-right:-3px;}.v .vwrap .vcontrol{    position:absolute;right:0;bottom:0;width:20%;padding-top:0px;}.v .vwrap .vcontrol .col.col-80{width: 100%;}.v .vbtn.vsubmit{border-radius: 0;padding: 0;color: #fff;line-height: 44px;width:100%;border: none;background:#1abc9c;}.v .vwrap .vedit .vctrl span.vpreview-btn,.v .vwrap .vcontrol .col.col-20,.v .vlist .vcard .vhead .vsys{display:none;}
@@ -42,7 +42,7 @@ $(document).ready(function(){
 
 ### 自定义邮件回复样式
 
-![自定义邮件回复样式](https://lmm.elizen.me/images/2019/07/mail-re1.jpg)
+![自定义邮件回复样式](https://pic.edui.fun/images/2019/07/mail-re1.jpg)
 
 分享给已成功使用了 Valine Admin 的同学。
 

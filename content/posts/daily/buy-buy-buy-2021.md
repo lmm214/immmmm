@@ -12,7 +12,7 @@ tags: [日常]
 
 #### 海备思 Switch 便携底座 ¥224
 
-![bs-1](https://lmm.elizen.me/images/2022/01/bs-1.png)
+![bs-1](https://pic.edui.fun/images/2022/01/bs-1.png)
 
 可以理解为“GaN充电器”与“扩展坞（USB、HDMI）”的合体，可以把 Switch、平板、手机画面有线投屏，还能让后两者读取 USB 口的内容。重点是“娇小”的身材！
 
@@ -27,13 +27,13 @@ tags: [日常]
 
 #### 京东京造 K3-84键白光矮茶轴 ¥340
 
-![bs-2](https://lmm.elizen.me/images/2022/01/bs-2.png)
+![bs-2](https://pic.edui.fun/images/2022/01/bs-2.png)
 
 颜值真在线，声音真不轻，敲字真带感！吐槽，最右侧一列误触机率实在太高，已摘帽。真想一刀切之去之！
 
 #### 公牛收纳盒插座 GN-F2161宝可梦联名款 ¥109
 
-![bs-3](https://lmm.elizen.me/images/2022/01/bs-3.png)
+![bs-3](https://pic.edui.fun/images/2022/01/bs-3.png)
 
 电视下面设备有点多，直接排插有点丑，一个宝可梦排插搞定！
 
@@ -51,9 +51,9 @@ tags: [日常]
 
 #### 绿联 USB无线网络打印服务器
 
-![bs-4](https://lmm.elizen.me/images/2022/01/bs-4.png)
+![bs-4](https://pic.edui.fun/images/2022/01/bs-4.png)
 
-![bs-5](https://lmm.elizen.me/images/2022/01/bs-5.png)
+![bs-5](https://pic.edui.fun/images/2022/01/bs-5.png)
 
 把有线打印机摇身变为无线打印，进后台找一下办公室的 Wifi 连接即可。目测是定制版 openwrt 固件，遗憾只有1个USB口，只能接1台打印机。
 
@@ -63,7 +63,7 @@ tags: [日常]
 
 #### 公牛（BULL）20W PD快充魔方 ¥89
 
-![bs-6](https://lmm.elizen.me/images/2022/01/bs-6.png)
+![bs-6](https://pic.edui.fun/images/2022/01/bs-6.png)
 
 小方块，6个口，特别是有个 Type-C 快冲口，实用！
 
@@ -101,25 +101,25 @@ tags: [日常]
 
 #### 乐高（LEGO）典藏瓶中船92177 ¥522
 
-![bs-7](https://lmm.elizen.me/images/2022/01/bs-7.png)
+![bs-7](https://pic.edui.fun/images/2022/01/bs-7.png)
 
 真好看！
 
 #### LOZ 俐智拼装花束
 
-![bs-10](https://lmm.elizen.me/images/2022/01/bs-10.png)
+![bs-10](https://pic.edui.fun/images/2022/01/bs-10.png)
 
 比乐高的好看。
 
 #### 诗画历2022台历 果麦文化出品 ¥42
 
-![bs-8](https://lmm.elizen.me/images/2022/01/bs-8.png)
+![bs-8](https://pic.edui.fun/images/2022/01/bs-8.png)
 
 别人送了一本，自己又买了好多本送人！
 
 #### 日课2022 读库丰子恺漫画民国老课本 ¥98
 
-![bs-9](https://lmm.elizen.me/images/2022/01/bs-9.png)
+![bs-9](https://pic.edui.fun/images/2022/01/bs-9.png)
 
 给娃当日历涂鸦本用，然后留下来保存。
 

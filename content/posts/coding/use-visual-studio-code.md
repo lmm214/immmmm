@@ -2,7 +2,7 @@
 title: 'VS Code 初体验'
 date: '2020-04-04T20:50:00+08:00'
 tags: [折腾]
-feature: https://lmm.elizen.me/images/2020/04/vscode-4.png
+feature: https://pic.edui.fun/images/2020/04/vscode-4.png
 ---
 
 Visual Studio Code 久仰大名，但一直误认为是个臃肿大部头，毕竟是微软出品。 🙇
@@ -34,11 +34,11 @@ Visual Studio Code 久仰大名，但一直误认为是个臃肿大部头，毕�
 
 ### gpm 多仓库配置
 
-![vscode-2](https://lmm.elizen.me/images/2020/04/vscode-2.png)
+![vscode-2](https://pic.edui.fun/images/2020/04/vscode-2.png)
 
 填入远程仓库链接拉取到本地。
 
-![vscode-3](https://lmm.elizen.me/images/2020/04/vscode-3.png)
+![vscode-3](https://pic.edui.fun/images/2020/04/vscode-3.png)
 
 **按快捷键 `⌘ + enter`，一键推送到远程仓库。**
 
@@ -72,7 +72,7 @@ Visual Studio Code 久仰大名，但一直误认为是个臃肿大部头，毕�
 
 ### 启用 Markdown 代码片段
 
-![vscode-1](https://lmm.elizen.me/images/2020/04/vscode-1.png)
+![vscode-1](https://pic.edui.fun/images/2020/04/vscode-1.png)
 
 `settings.json` 中添加 ：
 ```json

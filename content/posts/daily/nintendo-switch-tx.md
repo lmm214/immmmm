@@ -2,7 +2,7 @@
 title: "败入国行 Nintendo Switch"
 date: 2020-06-07T21:15:54+0800
 tags: [日常]
-feature: https://lmm.elizen.me/images/2020/06/switch.jpg
+feature: https://pic.edui.fun/images/2020/06/switch.jpg
 ---
 
 山姆超市败入国行 Nintendo Switch 套装，包含主机（¥1848）+方向盘（¥99）+卡丁车（¥299）+超级马里欧（¥299）=套装（ ~~¥2545~~  --> ¥2288 ），比某东还便宜。其实默认套装只有1款卡丁车，自己手气不错，抽到老包装的有2盘游戏卡带。

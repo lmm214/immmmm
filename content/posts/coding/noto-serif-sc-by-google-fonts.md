@@ -2,7 +2,7 @@
 title: "添加 Google Fonts 思源宋体"
 date: '2020-03-30T12:24:00+08:00'
 tags: [折腾]
-feature: https://lmm.elizen.me/images/2020/03/google-fonts-1.png
+feature: https://pic.edui.fun/images/2020/03/google-fonts-1.png
 ---
 
 谷婶大法好，在线字体都支持中文咯！ 👍

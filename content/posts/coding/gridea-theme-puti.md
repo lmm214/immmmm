@@ -4,14 +4,14 @@ date: 2019-11-26
 tags: [折腾]
 published: true
 hideInList: false
-feature: https://lmm.elizen.me/images/2019/11/puti.png
+feature: https://pic.edui.fun/images/2019/11/puti.png
 isTop: false
 ---
 欢迎小伙伴 [@Elizen](https://chat.elizen.me/) 入伙，同款主题折腾分享之。
 
 <!--more-->
 
-![Puti 0.0.1](https://lmm.elizen.me/images/2019/11/puti.png)
+![Puti 0.0.1](https://pic.edui.fun/images/2019/11/puti.png)
 
 仓库下载：<https://github.com/lmm214/gridea-theme-puti>
 

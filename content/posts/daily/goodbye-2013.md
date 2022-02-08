@@ -34,7 +34,7 @@ Google Reader 关闭后，个人使用了 Feedly ，刚查看竟然还有 400+ �
 2014年1月1日，和小妮子正式完婚！
 
 <figure>
-    <img src="https://lmm.elizen.me/images/2014/01/hunli.jpg"  />
+    <img src="https://pic.edui.fun/images/2014/01/hunli.jpg"  />
     <figcaption>*★,°*:.☆\(￣▽￣)/$:*.°★* </figcaption>
 </figure>
 

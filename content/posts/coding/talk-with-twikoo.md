@@ -2,7 +2,7 @@
 title: "你言我语 By Twikoo"
 date: 2021-06-21T17:55:51+0800
 tags: [折腾]
-feature: https://lmm.elizen.me/images/2021/06/yanyu-3.png
+feature: https://pic.edui.fun/images/2021/06/yanyu-3.png
 ---
 
 效果见： <https://immmmm.com/talk/>

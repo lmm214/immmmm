@@ -12,7 +12,7 @@ tags: [折腾]
 
 想着之前是有个超级密码什么的，果然有，以下内容来自网络：
 
-![ZNHG600-1](https://lmm.elizen.me/images/2020/07/ZNHG600-1.png)
+![ZNHG600-1](https://pic.edui.fun/images/2020/07/ZNHG600-1.png)
 
 浏览器访问 http://192.168.1.1 底下 「快速装维入口」，左上角「返回登录页面」；或者直接访问 http://192.168.1.1:8080/login.cgi，开启谷歌浏览器「开发者工具--Network」，随便输入个密码，点击 `telecomStatus.cgi` 这条看到 `Enabled/telecomadmin12345678` 
 

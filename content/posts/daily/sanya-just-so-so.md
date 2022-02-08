@@ -47,16 +47,16 @@ tags: [日常]
 ![sy-7][]
 
 
-[sy-1]: https://lmm.elizen.me/images/2011/02/sy-1.jpg
-[sy-2]: https://lmm.elizen.me/images/2011/02/sy-2.jpg
-[sy-3]: https://lmm.elizen.me/images/2011/02/sy-3.jpg
-[sy-9]: https://lmm.elizen.me/images/2011/02/sy-9.jpg
-[sy-11]: https://lmm.elizen.me/images/2011/02/sy-11.jpg
-[sy-10]: https://lmm.elizen.me/images/2011/02/sy-10.jpg
-[sy-14]: https://lmm.elizen.me/images/2011/02/sy-14.jpg
-[sy-12]: https://lmm.elizen.me/images/2011/02/sy-12.jpg
-[sy-13]: https://lmm.elizen.me/images/2011/02/sy-13.jpg
-[sy-4]: https://lmm.elizen.me/images/2011/02/sy-4.jpg
-[sy-5]: https://lmm.elizen.me/images/2011/02/sy-5.jpg
-[sy-6]: https://lmm.elizen.me/images/2011/02/sy-6.jpg
-[sy-7]: https://lmm.elizen.me/images/2011/02/sy-7.jpg
+[sy-1]: https://pic.edui.fun/images/2011/02/sy-1.jpg
+[sy-2]: https://pic.edui.fun/images/2011/02/sy-2.jpg
+[sy-3]: https://pic.edui.fun/images/2011/02/sy-3.jpg
+[sy-9]: https://pic.edui.fun/images/2011/02/sy-9.jpg
+[sy-11]: https://pic.edui.fun/images/2011/02/sy-11.jpg
+[sy-10]: https://pic.edui.fun/images/2011/02/sy-10.jpg
+[sy-14]: https://pic.edui.fun/images/2011/02/sy-14.jpg
+[sy-12]: https://pic.edui.fun/images/2011/02/sy-12.jpg
+[sy-13]: https://pic.edui.fun/images/2011/02/sy-13.jpg
+[sy-4]: https://pic.edui.fun/images/2011/02/sy-4.jpg
+[sy-5]: https://pic.edui.fun/images/2011/02/sy-5.jpg
+[sy-6]: https://pic.edui.fun/images/2011/02/sy-6.jpg
+[sy-7]: https://pic.edui.fun/images/2011/02/sy-7.jpg

@@ -2,7 +2,7 @@
 title: "嘿，Cloudflare 来个站点计数！"
 date: 2022-01-26T10:08:59+0800
 tags: [折腾]
-feature: https://lmm.elizen.me/images/2022/01/cf-kv.png
+feature: https://pic.edui.fun/images/2022/01/cf-kv.png
 ---
 
 给：

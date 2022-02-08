@@ -11,29 +11,29 @@ isTop: false
 
 # 皿
 
-![效果图](https://lmm.elizen.me/images/2019/07/Screenshot1.png)
+![效果图](https://pic.edui.fun/images/2019/07/Screenshot1.png)
 
 <!--more-->
 
 # 正则
 
-![效果图](https://lmm.elizen.me/images/2019/07/bitcron-theme-canonical-02.png)
+![效果图](https://pic.edui.fun/images/2019/07/bitcron-theme-canonical-02.png)
 
 # 素
 
-![效果图](https://lmm.elizen.me/images/2019/07/bitcron-theme-plain.png)
+![效果图](https://pic.edui.fun/images/2019/07/bitcron-theme-plain.png)
 
 # 反
 
-![效果图](https://lmm.elizen.me/images/2019/07/bitcron-theme-anti.png)
+![效果图](https://pic.edui.fun/images/2019/07/bitcron-theme-anti.png)
 
 # 瓜
 
-![效果图](https://lmm.elizen.me/images/2019/07/bitcron-theme-fruit-01.png)
+![效果图](https://pic.edui.fun/images/2019/07/bitcron-theme-fruit-01.png)
 
 # 染
 
-![效果图](https://lmm.elizen.me/images/2019/07/dye-home-web.png)
+![效果图](https://pic.edui.fun/images/2019/07/dye-home-web.png)
 
 
 |  主题  |    英文名    |  属性  |                    主页                    |                    源码                    |

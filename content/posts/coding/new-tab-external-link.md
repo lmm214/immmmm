@@ -35,16 +35,16 @@ markdown 语法链接不支持设置 `target='_blank'` ，如果要就直接写 
 
 ### 测试
 
-[外链（新窗口打开）](https://lmm.elizen.me/wx.jpg) [内链（直接打开）](https://immmmm.com/new-tab-external-link)
+[外链（新窗口打开）](https://pic.edui.fun/wx.jpg) [内链（直接打开）](https://immmmm.com/new-tab-external-link)
 ```markdown
-[外链](https://lmm.elizen.me/wx.jpg)
+[外链](https://pic.edui.fun/wx.jpg)
 [内链](https://immmmm.com/new-tab-external-link)
 ```
 
-<a href="https://lmm.elizen.me/wx.jpg"><img src="https://lmm.elizen.me/wx.jpg"></a>
+<a href="https://pic.edui.fun/wx.jpg"><img src="https://pic.edui.fun/wx.jpg"></a>
 图片有链接不识别（直接打开）
 ```html
-<a href="https://lmm.elizen.me/wx.jpg"><img src="https://lmm.elizen.me/wx.jpg"></a>
+<a href="https://pic.edui.fun/wx.jpg"><img src="https://pic.edui.fun/wx.jpg"></a>
 ```
 
 ### 更新

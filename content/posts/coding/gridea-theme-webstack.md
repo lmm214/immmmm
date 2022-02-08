@@ -4,7 +4,7 @@ date: 2020-01-11
 tags: [折腾]
 published: true
 hideInList: false
-feature: https://lmm.elizen.me/images/logos/webstack-1.png
+feature: https://pic.edui.fun/images/logos/webstack-1.png
 isTop: false
 ---
 @Jackie 同学留言推荐了一个网站导航项目 [WebStackPage](https://github.com/WebStackPage/WebStackPage.github.io) ，样式不错，尝试了纯静态，不得不佩服原作者，这一大段一大段的循环代码静态手工 html ，服！之后尝试了 Laravel、Docker，失败……
@@ -15,7 +15,7 @@ isTop: false
 
 效果预览：<https://edui.fun/>
 
-![webstack-1](https://lmm.elizen.me/images/logos/webstack-1.png)
+![webstack-1](https://pic.edui.fun/images/logos/webstack-1.png)
 
 仓库下载：<https://github.com/lmm214/gridea-theme-webstack>
 
@@ -67,7 +67,7 @@ isTop: false
 ### 欢迎打赏
 
 <figure>
-    <img src="https://lmm.elizen.me/wx.jpg" alt="微信打赏" />
+    <img src="https://pic.edui.fun/wx.jpg" alt="微信打赏" />
     <figcaption>微信打赏</figcaption>
 </figure>
 

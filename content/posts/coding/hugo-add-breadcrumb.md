@@ -4,7 +4,7 @@ date: '2020-03-31T21:59:00+08:00'
 tags: [折腾]
 ---
 
-{{<figure "https://lmm.elizen.me/images/2020/03/breadcrumb-1.png" "https://lmm.elizen.me/images/2020/03/breadcrumb-2.png" "黑+白，疗效好" >}}
+{{<figure "https://pic.edui.fun/images/2020/03/breadcrumb-1.png" "https://pic.edui.fun/images/2020/03/breadcrumb-2.png" "黑+白，疗效好" >}}
 
 「不问明天，悠然浪费」，多少年前看到的一句话，一直作为博客的 Slogan ，如同“谶语”般的存在！ 😷
 

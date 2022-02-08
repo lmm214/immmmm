@@ -4,7 +4,7 @@ date: 2022-01-01T19:04:39+0800
 tags: [折腾]
 ---
 
-![ghost-1](https://lmm.elizen.me/images/2022/01/ghost-1.png)
+![ghost-1](https://pic.edui.fun/images/2022/01/ghost-1.png)
 
 群晖 Docker 里开了个 [Ghost](https://github.com/TryGhost/Ghost)，证书端口一顿猛操作发给 [Elizen](https://elizen.me/) 才发现处在内网YY许久的我。
 
@@ -19,7 +19,7 @@ Reset……reset……reset…… 好吧，那就加端口访问吧。整个折�
 
 ### Docker 镜像几个设置
 
-![ghost-2](https://lmm.elizen.me/images/2022/01/ghost-2.png) ![ghost-3](https://lmm.elizen.me/images/2022/01/ghost-3.png)
+![ghost-2](https://pic.edui.fun/images/2022/01/ghost-2.png) ![ghost-3](https://pic.edui.fun/images/2022/01/ghost-3.png)
 
 - 自定义文件内容路径 `/var/lib/ghost/content` ，方便群晖文件管理。
 - 通过增加环境变量 `url` 修改首页网址，不然默认是 `localhost:2368`

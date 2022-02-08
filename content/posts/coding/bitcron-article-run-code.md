@@ -16,7 +16,7 @@ Bitcron 文章里是可以直接运行代码的，只要把代码高亮类型设
 <!--more-->
 现在效果如下图：
 
-![我的朋友们](https://lmm.elizen.me/images/2017/12/links-1.png)
+![我的朋友们](https://pic.edui.fun/images/2017/12/links-1.png)
 
 直接在 `md` 文章里敲进代码：
 

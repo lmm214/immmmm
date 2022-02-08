@@ -9,9 +9,9 @@ isTop: false
 
 ### 调取代码：
 
-![show-douban](https://lmm.elizen.me/images/2019/06/douban_id.jpg)
+![show-douban](https://pic.edui.fun/images/2019/06/douban_id.jpg)
 
-下载解压丢至 `template` 文件夹： [template_20190618.zip](https://lmm.elizen.me/images/2019/06/template_20190618.zip)
+下载解压丢至 `template` 文件夹： [template_20190618.zip](https://pic.edui.fun/images/2019/06/template_20190618.zip)
 
 `id` 是电影或书籍页面 https://movie.douban.com/subject/26862829/ 后面的数字 `26862829`  。
 

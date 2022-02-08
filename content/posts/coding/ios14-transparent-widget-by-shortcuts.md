@@ -2,7 +2,7 @@
 title: "利用「快捷指令」创建“透明”小组件"
 date: 2020-10-06T16:27:30+0800
 tags: [折腾]
-feature: https://lmm.elizen.me/images/2020/10/transparent-widget.JPEG-webp
+feature: https://pic.edui.fun/images/2020/10/transparent-widget.JPEG-webp
 ---
 
 全“透明”占坑图！
@@ -30,7 +30,7 @@ feature: https://lmm.elizen.me/images/2020/10/transparent-widget.JPEG-webp
 
 <https://github.com/lmm214/Scriptables>
 
-![touming](https://lmm.elizen.me/images/2020/10/touming.jpg)
+![touming](https://pic.edui.fun/images/2020/10/touming.jpg)
 
 `TouMing.js` 第一次运行会要求选择背景图片，多个位置可通过 **复制、重命名** 再选择。
 

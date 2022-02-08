@@ -5,7 +5,7 @@ tags: [折腾]
 toc: true
 ---
 
-{{< figure "https://lmm.elizen.me/images/2020/05/bbds.png" "「哔哔点啥」微信公众号 2.0" >}}
+{{< figure "https://pic.edui.fun/images/2020/05/bbds.png" "「哔哔点啥」微信公众号 2.0" >}}
 
 原是发到 LeanCloud 平台，现 2.0 是发到 **「腾讯 CloudBase」** 。目前已支持用户名绑定、解绑、发文字、**发图片**、追加、合并、删除、替换文字，还有显示**哔哔列表**、**哔哔搜索**！
 
@@ -43,9 +43,9 @@ toc: true
 
 > 使用 /a 命令给图片追加个文字，真香！
 
-{{< figure "https://lmm.elizen.me/images/2020/12/bber-1.PNG" "https://lmm.elizen.me/images/2020/12/bber-2.PNG" "「哔哔点啥」操作截图-1">}}
+{{< figure "https://pic.edui.fun/images/2020/12/bber-1.PNG" "https://pic.edui.fun/images/2020/12/bber-2.PNG" "「哔哔点啥」操作截图-1">}}
 
-{{< figure "https://lmm.elizen.me/images/2020/12/bber-3.jpg" "https://lmm.elizen.me/images/2020/12/bber-4.jpg" "「哔哔点啥」操作截图-2">}}
+{{< figure "https://pic.edui.fun/images/2020/12/bber-3.jpg" "https://pic.edui.fun/images/2020/12/bber-4.jpg" "「哔哔点啥」操作截图-2">}}
 
 ### 一键部署及绑定
 
@@ -59,11 +59,11 @@ toc: true
 
 4.进入[环境-HTTP访问服务](https://console.cloud.tencent.com/tcb/env/access)，复制链接备用。
 
-![bber-11](https://lmm.elizen.me/images/2020/12/bber-11.png)
+![bber-11](https://pic.edui.fun/images/2020/12/bber-11.png)
 
 5.进入[云函数](https://console.cloud.tencent.com/tcb/scf/index)，修改自定义apikey `bber` 并保存备用。
 
-![bber-10](https://lmm.elizen.me/images/2020/12/bber-10.png)
+![bber-10](https://pic.edui.fun/images/2020/12/bber-10.png)
 
 6.扫码进入公众号，输入命名绑定：
 
@@ -135,7 +135,7 @@ toc: true
 
 5.进入[数据库](https://console.cloud.tencent.com/tcb/db/)，新建数据库集合，命名 `talks`，权限设置为 “所有用户可读，仅管理员可写”。
 
-![talks](https://lmm.elizen.me/images/2020/12/talks.jpg)
+![talks](https://pic.edui.fun/images/2020/12/talks.jpg)
 
 ### 手动部署：云函数部署
 
@@ -147,7 +147,7 @@ toc: true
 
 3.进入[环境-HTTP访问服务](https://console.cloud.tencent.com/tcb/env/access)，新建，路径与云函数名匹配。
 
-![bb-tx-1](https://lmm.elizen.me/images/2020/12/bb-tx-1.png)
+![bb-tx-1](https://pic.edui.fun/images/2020/12/bb-tx-1.png)
 
 现在点开看一下，提示 `key不匹配`，成功！
 
@@ -159,7 +159,7 @@ https://你后台显示的.ap-shanghai.app.tcloudbase.com/bber
 
 ### 扫码绑定
 
-{{< figure "https://lmm.elizen.me/images/2020/05/bbds.png" "「哔哔点啥」微信公众号 2.0" >}}
+{{< figure "https://pic.edui.fun/images/2020/05/bbds.png" "「哔哔点啥」微信公众号 2.0" >}}
 
 ```
 /bber bber,https://你的云函数HTTP访问地址/bber
@@ -183,7 +183,7 @@ https://你后台显示的.ap-shanghai.app.tcloudbase.com/bber?key=云函数里�
 
 [浮哔人生.alfredworkflow](https://github.com/lmm214/diybug/raw/main/%E6%B5%AE%E5%93%94%E4%BA%BA%E7%94%9F2.0.alfredworkflow)
 
-![fbrs.png](https://lmm.elizen.me/images/2020/12/fbrs.png)
+![fbrs.png](https://pic.edui.fun/images/2020/12/fbrs.png)
 
 输入好对应的 HTTP访问地址、KEY ，输入 `b /d` 就能删除最新一条哔哔
 
@@ -196,7 +196,7 @@ https://你后台显示的.ap-shanghai.app.tcloudbase.com/bber?key=云函数里�
 对接的微信公众号简要流程：
 
 1.点击 [bber-weixin](https://console.cloud.tencent.com/tcb/scf/index) 云函数，右上角**【编辑】**，开启**【固定IP】**，留存**公网固定IP**。
-<photos>![bbwx-1](https://lmm.elizen.me/images/2020/12/bbwx-1.png)![bbwx-3](https://lmm.elizen.me/images/2020/12/bbwx-3.png)![bbwx-2](https://lmm.elizen.me/images/2020/12/bbwx-2.png)</photos>
+<photos>![bbwx-1](https://pic.edui.fun/images/2020/12/bbwx-1.png)![bbwx-3](https://pic.edui.fun/images/2020/12/bbwx-3.png)![bbwx-2](https://pic.edui.fun/images/2020/12/bbwx-2.png)</photos>
 
 2.进入[环境-HTTP访问服务](https://console.cloud.tencent.com/tcb/env/access)，获取`触发路径链接`并留存，如以下格式：
 
@@ -206,7 +206,7 @@ https://bb-f5c0f-222222.ap-shanghai.app.tcloudbase.com/bber-weixin
 
 3.打开 [微信公众平台](https://mp.weixin.qq.com/)，进入开发-基本配置，获取`AppID`和`AppSecret`留存，修改`IP白名单`为上一步的公网固定IP。继续服务器配置：
 
-![bbwx-4](https://lmm.elizen.me/images/2020/12/bbwx-4.png)
+![bbwx-4](https://pic.edui.fun/images/2020/12/bbwx-4.png)
 
 一个`URL`，即第2步留存的触发链接；
 

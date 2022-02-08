@@ -5,7 +5,7 @@ tags: [折腾]
 ---
 <https://movie.douban.com/subject/30206389/>
 
-![douban-ls](https://lmm.elizen.me/images/2020/03/douban-ls.png)
+![douban-ls](https://pic.edui.fun/images/2020/03/douban-ls.png)
 
 具体使用说明同：<https://immmmm.com/post-show-douban-item/>
 

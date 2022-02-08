@@ -2,7 +2,7 @@
 title: "微信小程序评论开发踩坑记"
 date: 2020-12-19T23:48:16+0800
 tags: [折腾]
-feature: https://lmm.elizen.me/images/2020/12/exzz.jpg
+feature: https://pic.edui.fun/images/2020/12/exzz.jpg
 ---
 
 容我吐会儿！！！🤮

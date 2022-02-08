@@ -2,13 +2,13 @@
 date: 2017-12-18
 title: 'Bitcron 文章内链自动优化显示'
 tags: [折腾]
-feature: https://lmm.elizen.me/images/2017/12/refer-1.png
+feature: https://pic.edui.fun/images/2017/12/refer-1.png
 ---
 
 当我们在文章内引用了一个站内的链接，一般只是超级链接，其实，也可以为这个超级链接提供更好的表现方式。
 这是看起来很简单，但确实一个超赞的想法，来自于 Jimmy。效果如下(中间部分，hello 为标题):
 
-![refer 处理页面内的链接](https://lmm.elizen.me/images/2017/12/refer-1.png)
+![refer 处理页面内的链接](https://pic.edui.fun/images/2017/12/refer-1.png)
 
 <!--more-->
 

@@ -10,7 +10,7 @@ isTop: false
 
 [今日诗词](https://www.jinrishici.com/)：一个可以随机返回一句古诗词名句的接口，宅到用来做 Valine 的 placeholder 显示内容……
 
-![今日诗词 and Valine](https://lmm.elizen.me/images/2020/01/jinrishici.png)
+![今日诗词 and Valine](https://pic.edui.fun/images/2020/01/jinrishici.png)
 
 <!--more-->
 

@@ -8,7 +8,7 @@ isTop: false
 ---
 
 <figure>
-    <img src="https://lmm.elizen.me/images/2017/10/txbjq_1.jpg" width="25%" /><img src="https://lmm.elizen.me/images/2017/10/txbjq_2.png" width="25%" /><img src="https://lmm.elizen.me/images/2017/10/txbjq_3.png" width="25%" /><img src="https://lmm.elizen.me/images/2017/10/txbjq_4.png" width="25%" />
+    <img src="https://pic.edui.fun/images/2017/10/txbjq_1.jpg" width="25%" /><img src="https://pic.edui.fun/images/2017/10/txbjq_2.png" width="25%" /><img src="https://pic.edui.fun/images/2017/10/txbjq_3.png" width="25%" /><img src="https://pic.edui.fun/images/2017/10/txbjq_4.png" width="25%" />
     <figcaption>巡礼头像编辑器</figcaption>
 </figure>
 

@@ -7,7 +7,7 @@ toc: true
 
 哈喽，🐯🐶！（开机声～）
 
-![hugo-2](https://lmm.elizen.me/images/2020/03/hugo-2.png)
+![hugo-2](https://pic.edui.fun/images/2020/03/hugo-2.png)
 
 主站顺利切换到 [Hugo](https://gohugo.io/) ，直接在 Github Web 端码字，或者本地码好拖进去，自动更新，自动部署，舒心！
 

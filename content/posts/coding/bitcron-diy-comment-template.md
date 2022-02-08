@@ -8,7 +8,7 @@ isTop: false
 ---
 
 <figure>
-    <img src="https://lmm.elizen.me/images/2017/12/diy-comment-1.png" alt=""/>              <img src="https://lmm.elizen.me/images/2017/12/diy-comment-2.png" alt=""/>
+    <img src="https://pic.edui.fun/images/2017/12/diy-comment-1.png" alt=""/>              <img src="https://pic.edui.fun/images/2017/12/diy-comment-2.png" alt=""/>
     <figcaption>前后对比</figcaption>
 </figure>
 

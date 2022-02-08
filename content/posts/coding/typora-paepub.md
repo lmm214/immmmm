@@ -11,7 +11,7 @@ isTop: false
 
 第一次导出发现许久没完成，原来是文章里的图片无法顺利访问，得，看来这个插件不走秘密通道，此处我傻傻的一张张图片手动下载，其实可以利用这个功能：
 
-![pic](https://lmm.elizen.me/images/2019/07/Moaz3D.jpg)
+![pic](https://pic.edui.fun/images/2019/07/Moaz3D.jpg)
 
 网页上图片右键 `复制图片` 回编辑器直接 `Ctrl+V` 粘贴，乖乖，图片自动下载！
 
@@ -19,7 +19,7 @@ isTop: false
 
 输个冒号 emoji 表情自动联想 🤙 🤙 🤙
 
-![pic](https://lmm.elizen.me/images/2019/07/xPNH0Q.jpg)
+![pic](https://pic.edui.fun/images/2019/07/xPNH0Q.jpg)
 
 
 

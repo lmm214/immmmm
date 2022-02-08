@@ -8,7 +8,7 @@ isTop: false
 ---
 
 <figure>
-    <img src="https://lmm.elizen.me/images/2017/07/motify.jpg" alt="Bitcron 主题「Motify」" />
+    <img src="https://pic.edui.fun/images/2017/07/motify.jpg" alt="Bitcron 主题「Motify」" />
     <figcaption>Github 地址： <a href="https://github.com/lmm214/Bitcron-Theme-Motify">Motify</a> </figcaption>
 </figure>
 
@@ -60,7 +60,7 @@ width: 250
 ### 打赏支持
 
 <figure>
-    <img src="https://lmm.elizen.me/wx.jpg" alt="微信打赏" />
+    <img src="https://pic.edui.fun/wx.jpg" alt="微信打赏" />
     <figcaption>微信打赏</figcaption>
 </figure>
 

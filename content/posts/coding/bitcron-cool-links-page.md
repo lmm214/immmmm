@@ -7,7 +7,7 @@ hideInList: false
 isTop: false
 ---
 
-![我的朋友们](https://lmm.elizen.me/images/2017/12/links-1.png)
+![我的朋友们](https://pic.edui.fun/images/2017/12/links-1.png)
 
 具体效果见：[https://immmmm.com/friends](https://immmmm.com/friends)
 

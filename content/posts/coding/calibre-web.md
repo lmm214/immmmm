@@ -4,11 +4,11 @@ date: 2019-11-30
 tags: [折腾]
 published: true
 hideInList: false
-feature: https://lmm.elizen.me/images/2019/11/calibre-web.jpg
+feature: https://pic.edui.fun/images/2019/11/calibre-web.jpg
 isTop: false
 ---
 
-![折腾效果](https://lmm.elizen.me/images/2019/11/calibre-web.jpg)
+![折腾效果](https://pic.edui.fun/images/2019/11/calibre-web.jpg)
 
 ### 调配记录
 
@@ -18,7 +18,7 @@ isTop: false
 
 <!--more-->
 
-![](https://lmm.elizen.me/images/2019/11/calibre-web-1.png)
+![](https://pic.edui.fun/images/2019/11/calibre-web-1.png)
 
 2.设置--UI配置--查看配置--主题：选择dark模式。
 
@@ -26,7 +26,7 @@ isTop: false
 
 4.基于宝塔面板，绑定域名+开启SSL，以下内容参考：<https://www.floraer.com/index.php/20191027/cid=14.html>
 
-![](https://lmm.elizen.me/images/2019/12/calibre-web-3.png)
+![](https://pic.edui.fun/images/2019/12/calibre-web-3.png)
 
 新建一个网站，站点修改：申请SSL证书，设置反向代理，输入你的 `http://IP:8083`
 

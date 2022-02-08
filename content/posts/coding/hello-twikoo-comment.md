@@ -38,7 +38,7 @@ async function noticeMaster (comment) {
 
 ### 分享邮件通知模板HTMl
 
-{{< figure "https://lmm.elizen.me/images/2020/11/twikooC1.png" "https://lmm.elizen.me/images/2020/11/twikooC2.png" "评论回复通知模板">}}
+{{< figure "https://pic.edui.fun/images/2020/11/twikooC1.png" "https://pic.edui.fun/images/2020/11/twikooC2.png" "评论回复通知模板">}}
 
 建议等后续版本更新，改的话也是进云函数 `twikoo -- index.js` 内替换。
 
@@ -56,7 +56,7 @@ async function noticeMaster (comment) {
 
 主要匹配了暗黑样式和评论管理页面改为全屏，效果对比：
 
-{{< figure "https://lmm.elizen.me/images/2020/11/Twikoo-1.png" "https://lmm.elizen.me/images/2020/11/Twikoo-2.png" "Twikoo">}}
+{{< figure "https://pic.edui.fun/images/2020/11/Twikoo-1.png" "https://pic.edui.fun/images/2020/11/Twikoo-2.png" "Twikoo">}}
 
 ```css
 .dark-theme .tk-tag{background-color: #4a4b50 !important;border-color:#434a56 !important;display: inline !important;padding: 2px 4px !important;}

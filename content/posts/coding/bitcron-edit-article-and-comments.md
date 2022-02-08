@@ -19,8 +19,8 @@ https://us.bitcron.com/service/files_manager?site_id=站点ID.bitcron.com#_comme
 So，显示在文章里：
 
 <figure>
-    <img src="https://lmm.elizen.me/images/2017/12/edit-1.png" />
-    <img src="https://lmm.elizen.me/images/2017/12/edit-2.png" />
+    <img src="https://pic.edui.fun/images/2017/12/edit-1.png" />
+    <img src="https://pic.edui.fun/images/2017/12/edit-2.png" />
 </figure>
 
 那下面就码上如何把这样的链接在文章里显示：

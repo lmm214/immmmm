@@ -2,7 +2,7 @@
 title: "Hi , Cloudflare Pages"
 date: 2022-01-24T00:38:32+0800
 tags: [折腾]
-feature: https://lmm.elizen.me/images/2022/01/cf-1.png
+feature: https://pic.edui.fun/images/2022/01/cf-1.png
 ---
 
 其实 Github Actions + Pages 真的好用，可惜被关小黑屋。只能曲线，拉到自己的服务器或第三方托管平台，比如昨晚折腾的 Cloudflare Pages ，目前感觉良好。
@@ -17,13 +17,13 @@ feature: https://lmm.elizen.me/images/2022/01/cf-1.png
 
 启用也非常简便，[Cloudflare Dash](https://dash.cloudflare.com/) 导航栏 `Pages` ，点 `创建项目`，授权 Github 项目。
 
-![cf-2](https://lmm.elizen.me/images/2022/01/cf-2.png)
+![cf-2](https://pic.edui.fun/images/2022/01/cf-2.png)
 
 部署方式 「二选一」 即可！
 
 #### 部署设置一：
 
-![cf-3](https://lmm.elizen.me/images/2022/01/cf-3.png)
+![cf-3](https://pic.edui.fun/images/2022/01/cf-3.png)
 
 `生产环境` 直接选为 `gh-pages` 分支，构建命令选 `none`。
 
@@ -35,15 +35,15 @@ feature: https://lmm.elizen.me/images/2022/01/cf-1.png
 
 删掉 `gh-pages` 分支，删除 `.github/workflows/main.yml`， 让 CF 构建 Hugo ，这里需要加个环境变量，指定高版本 `HUGO_VERSION` 为 `0.92.0`
 
-![cf-5](https://lmm.elizen.me/images/2022/01/cf-5.png)
+![cf-5](https://pic.edui.fun/images/2022/01/cf-5.png)
 
-![cf-4](https://lmm.elizen.me/images/2022/01/cf-4.png)
+![cf-4](https://pic.edui.fun/images/2022/01/cf-4.png)
 
 #### 部署一二差别
 
 前者几乎不用动 Github 但 CF 会默认构建所有分支（gh-pages 和 marter），所以更新一次要等 3min x2 时间才构建完成。
 
-![cf-6](https://lmm.elizen.me/images/2022/01/cf-6.png)
+![cf-6](https://pic.edui.fun/images/2022/01/cf-6.png)
 
 后者完全抛弃了 Github Actions + Pages ，算省下 1/500 的免费构建次数？主要是省下一个 3min 。
 

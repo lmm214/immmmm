@@ -2,7 +2,7 @@
 title: "Flomo | 浮墨笔记"
 date: 2020-12-13T17:17:37+0800
 tags: [折腾]
-feature: https://lmm.elizen.me/images/2020/12/flomo.png-webp
+feature: https://pic.edui.fun/images/2020/12/flomo.png-webp
 ---
 
 上专属邀请链接：<https://flomoapp.com/register2/?Njk1NA> (能互相得到几天Pro会员)

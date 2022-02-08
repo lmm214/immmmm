@@ -2,7 +2,7 @@
 title: "Hi , Github.Dev"
 date: 2021-10-14T14:43:10+0800
 tags: [折腾]
-feature: https://lmm.elizen.me/images/2021/10/dev1.png
+feature: https://pic.edui.fun/images/2021/10/dev1.png
 ---
 
 这也太太太太方便了吧！一点即开，自动保存，配合 Actions ，完完全全是各静态博客的自带管理后台呀！

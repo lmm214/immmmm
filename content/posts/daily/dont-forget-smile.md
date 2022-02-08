@@ -2,7 +2,7 @@
 title: "你信什么"
 date: 2020-04-15T23:44:54+0800
 tags: [日常]
-feature: https://lmm.elizen.me/images/2020/04/dont-smile.jpg
+feature: https://pic.edui.fun/images/2020/04/dont-smile.jpg
 ---
 
 Don‘t ~~Forget To~~ Smile.

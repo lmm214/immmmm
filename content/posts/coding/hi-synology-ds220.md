@@ -4,7 +4,7 @@ date: 2021-09-14T21:04:39+0800
 tags: [折腾]
 ---
 
-![ds220-0](https://lmm.elizen.me/images/2021/09/ds220-0.png)
+![ds220-0](https://pic.edui.fun/images/2021/09/ds220-0.png)
 
 说真，激动着一顿操作之后，看到如上“桌面”，茫然 10000 秒！
 
@@ -27,7 +27,7 @@ tags: [折腾]
 
 #### 共享文件夹
 
-![ds220-1](https://lmm.elizen.me/images/2021/09/ds220-1.jpeg)
+![ds220-1](https://pic.edui.fun/images/2021/09/ds220-1.jpeg)
 
 套件 File Station 里只能创建子文件夹，根目录下的文件夹来这儿创建。主要做了2个盘的数据分离，充分利用盘1的SSD性能。
 
@@ -55,11 +55,11 @@ QuickConnect 当然是已启用，但也仅用来 **Connect** ，传输数据不
 
 #### 网络
 
-![ds220-3](https://lmm.elizen.me/images/2021/09/ds220-3.jpeg)
+![ds220-3](https://pic.edui.fun/images/2021/09/ds220-3.jpeg)
 
 看 `网络界面`，随机附送的2网线，插上！`新增--创建Bond`，开启双网口的链路聚合！
 
-![ds220-4](https://lmm.elizen.me/images/2021/09/ds220-4.jpeg)
+![ds220-4](https://pic.edui.fun/images/2021/09/ds220-4.jpeg)
 
 >实际体验中，我通过局域网中的2台PC，利用smb同时拷贝群晖中的电影，每一台PC都实现有线网络的满速同时下载群晖中的电影，网速叠加到210-226MB/s，链路聚合确实令网速翻了一倍！---- By [liuspy](https://zhiyou.smzdm.com/member/3990065324/)
 

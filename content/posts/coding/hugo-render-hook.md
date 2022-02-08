@@ -2,7 +2,7 @@
 title: "Hugo 图片懒加载"
 date: 2020-03-24T21:28:00+08:00
 tags: [折腾]
-feature: https://lmm.elizen.me/images/2020/03/logo-lazy.jpeg
+feature: https://pic.edui.fun/images/2020/03/logo-lazy.jpeg
 ---
 
 起因，想给文章插入的 img 图片添加 `loading='lazy'`，果然有爱折腾的，看（[这里](https://lvv.me/posts/2019/12/24_hugo_render_hooks/)），官方说明 [#render-hook-templates](https://gohugo.io/getting-started/configuration-markup/#render-hook-templates)，Hugo v0.62+

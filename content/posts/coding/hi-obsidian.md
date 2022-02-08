@@ -2,7 +2,7 @@
 title: "Hi，Obsidian"
 date: 2021-08-05T21:34:39+0800
 tags: [折腾]
-feature: https://lmm.elizen.me/images/2021/07/obsidian-1.png
+feature: https://pic.edui.fun/images/2021/07/obsidian-1.png
 ---
 
 近一周频繁看到 [Obsidian](https://obsidian.md/) 的安利，原来是出了 iOS 端，而且功能几乎全支持。看了一圈教程和官方文档，嘿，不简单！
@@ -15,7 +15,7 @@ feature: https://lmm.elizen.me/images/2021/07/obsidian-1.png
 
 ### 一键坑娃
 
-{{< figure "https://lmm.elizen.me/images/2021/08/obsidian-4.jpeg" "https://lmm.elizen.me/images/2021/08/obsidian-5.jpeg" "https://lmm.elizen.me/images/2021/08/obsidian-6.jpeg" "「快捷指令」一键坑娃">}}
+{{< figure "https://pic.edui.fun/images/2021/08/obsidian-4.jpeg" "https://pic.edui.fun/images/2021/08/obsidian-5.jpeg" "https://pic.edui.fun/images/2021/08/obsidian-6.jpeg" "「快捷指令」一键坑娃">}}
 
 两步走：先装好 [Advanced Obsidian URI](https://github.com/Vinzent03/obsidian-advanced-uri/) 插件，再在 iOS 添加上图中的快捷指令。
 
@@ -27,7 +27,7 @@ obsidian://advanced-uri?vault=&daily=true&mode=append&data=%23%E4%B9%A6%E6%B3%95
 
 ### 随查进度
 
-![obsidian-2](https://lmm.elizen.me/images/2021/08/obsidian-2.png)
+![obsidian-2](https://pic.edui.fun/images/2021/08/obsidian-2.png)
 
 坑了几次啦，还剩几次啦？打开 `坑娃.md` **预览模式**，一目了然！咋实现的呢？
 
@@ -96,7 +96,7 @@ Auto Rename: OFF
 
 调配2：给 Note Folder Autorename 的命令 `Make this note a folder note` 加个快捷键。
 
-{{< figure "https://lmm.elizen.me/images/2021/08/obsidian-7.png" "https://lmm.elizen.me/images/2021/08/obsidian-8.png" "文件式管理">}}
+{{< figure "https://pic.edui.fun/images/2021/08/obsidian-7.png" "https://pic.edui.fun/images/2021/08/obsidian-8.png" "文件式管理">}}
 
 调配3：设置--文件与链接--新附近的默认位置，`当前文件夹下的子文件夹中`。效果是复制图片，直接粘贴会把图片存到当前子文件夹中。
 

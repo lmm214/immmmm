@@ -10,7 +10,7 @@ isTop: false
 >需求点：很多教程文章会多次修改，显示文章最后的修改时间，就显得非常有必要。效果图如下：
 
 <figure>
-    <img src="https://lmm.elizen.me/images/2017/12/last-1.png" alt="" />
+    <img src="https://pic.edui.fun/images/2017/12/last-1.png" alt="" />
     <figcaption>显示最后更新时间</figcaption>
 </figure>
 

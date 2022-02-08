@@ -8,7 +8,7 @@ tags: [折腾]
 
 看到 [@熊野](https://bearye.cn/archives/488) 说可以用「微信公众号」发哔哔，还基于腾讯云函数，也能部署到 Leancloud ，立马 ~~勾搭~~ 加上微信好友。熊大神连夜折腾匹配一夜一天，远程手把手指导部署，整个过程：失败，等，失败，等等，失败，等等等等……成啦！太、太神奇！
 
-{{< figure "https://lmm.elizen.me/images/2020/05/bbds.png" "「哔哔点啥」微信公众号" >}}
+{{< figure "https://pic.edui.fun/images/2020/05/bbds.png" "「哔哔点啥」微信公众号" >}}
 
 ### 食用步骤
 

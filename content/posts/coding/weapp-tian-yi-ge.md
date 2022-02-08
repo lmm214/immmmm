@@ -9,4 +9,4 @@ isTop: false
 
 欢迎扫码体验~
 
-![](https://lmm.elizen.me/images/2018/08/tyg.jpg)
+![](https://pic.edui.fun/images/2018/08/tyg.jpg)

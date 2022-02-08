@@ -10,7 +10,7 @@ isTop: false
 之前用 WordPress 的时候，评论的邮件通知也算是个折腾点，PHP的回复样式和内容随便自己写，相比较而言 Bitcron 源码未公布，Jade 都改名 Pug，折腾测试全凭感觉。所幸，没白折腾，效果如下：
 
 <figure>
-    <img src="https://lmm.elizen.me/images/2017/12/mail-1.png" alt="" style="width:30%"/>              <img src="https://lmm.elizen.me/images/2017/12/mail-0.png" alt="" style="width:30%"/>
+    <img src="https://pic.edui.fun/images/2017/12/mail-1.png" alt="" style="width:30%"/>              <img src="https://pic.edui.fun/images/2017/12/mail-0.png" alt="" style="width:30%"/>
     <figcaption>样式对比</figcaption>
 </figure>
 

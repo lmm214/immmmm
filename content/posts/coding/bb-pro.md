@@ -2,7 +2,7 @@
 title: "哔哔 Pro"
 date: 2020-12-28T23:39:12+0800
 tags: [折腾]
-feature: https://lmm.elizen.me/images/2020/12/bbpro-5.jpeg
+feature: https://pic.edui.fun/images/2020/12/bbpro-5.jpeg
 ---
 
 ### Pro N0.1
@@ -39,10 +39,10 @@ function urlToLink(str) {
 
 iOS 快捷指令上传图片后返回链接，到哔哔输入框。
 
-<photos>![bbpro-1](https://lmm.elizen.me/images/2020/12/bbpro-1.jpeg)![bbpro-2](https://lmm.elizen.me/images/2020/12/bbpro-2.jpeg)![bbpro-3](https://lmm.elizen.me/images/2020/12/bbpro-3.png)![bbpro-4](https://lmm.elizen.me/images/2020/12/bbpro-4.png)</photos>
+<photos>![bbpro-1](https://pic.edui.fun/images/2020/12/bbpro-1.jpeg)![bbpro-2](https://pic.edui.fun/images/2020/12/bbpro-2.jpeg)![bbpro-3](https://pic.edui.fun/images/2020/12/bbpro-3.png)![bbpro-4](https://pic.edui.fun/images/2020/12/bbpro-4.png)</photos>
 
 甚至用“快捷指令调用其他指令”实现同步发哔哔和Flomo。
 
-![bbpro-5](https://lmm.elizen.me/images/2020/12/bbpro-5.jpeg)
+![bbpro-5](https://pic.edui.fun/images/2020/12/bbpro-5.jpeg)
 
 具体其他平台发布方式，改日改日再琢磨～

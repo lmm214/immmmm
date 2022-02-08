@@ -20,7 +20,7 @@ https://cdn.jsdelivr.net/gh/lmm214/immmmm/media/js/jquery.min.js
 
 ### 支持 Gridea 主题自定义
 
-![jsdelivr](https://lmm.elizen.me/images/2020/03/jsdelivr.png)
+![jsdelivr](https://pic.edui.fun/images/2020/03/jsdelivr.png)
 
 `config.json` 添加如下代码：
 

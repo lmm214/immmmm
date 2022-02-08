@@ -2,7 +2,7 @@
 title: "Adguard Home，拦的啥？"
 date: 2021-08-24T00:00:06+0800
 tags: [折腾]
-feature: https://lmm.elizen.me/images/2021/08/adguardhome.png
+feature: https://pic.edui.fun/images/2021/08/adguardhome.png
 ---
 
 看到 @张洪Heo 发的 [《AdGuardHome本地搭建教程》](https://blog.zhheo.com/p/8e295a09.html)，一试上手，值得拥有！其实其他平台安装也非常简单，具体见[官网](https://adguard.com/zh_cn/adguard-home/overview.html)。
@@ -19,7 +19,7 @@ feature: https://lmm.elizen.me/images/2021/08/adguardhome.png
 
 好吧，使用 Edgo 浏览器的关系。
 
-![adhome-1](https://lmm.elizen.me/images/2021/08/adhome-1.jpg)
+![adhome-1](https://pic.edui.fun/images/2021/08/adhome-1.jpg)
 
 Edgo 设置-安全性-Microsoft Defender Smartscreen 关闭！
 

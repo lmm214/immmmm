@@ -8,13 +8,13 @@ isTop: false
 ---
 
 <figure>
-    <img src="https://lmm.elizen.me/images/2017/12/owo-1.png" />
+    <img src="https://pic.edui.fun/images/2017/12/owo-1.png" />
     <figcaption>OwO 表情</figcaption>
 </figure>
 
 <!--more-->
 
-1.下载：[template.zip](https://lmm.elizen.me/images/2017/12/template.zip)，解压丢至主题文件夹内。
+1.下载：[template.zip](https://pic.edui.fun/images/2017/12/template.zip)，解压丢至主题文件夹内。
 
 
 2.在 `post.jade` 文件中 `+post.comments_as_html()` 下添加以下代码：

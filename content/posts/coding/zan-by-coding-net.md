@@ -35,11 +35,11 @@ $(".post-content").append("<div id='zan' class='clearfix'><div class='heart' onc
 
 如果要自建那就走以下过程，建好数据库 `good`，两个值 `id` 和 `value`，前者是网址，后者是点赞数。
 
-![coding-3.png](https://lmm.elizen.me/images/2018/01/coding-3.png)
+![coding-3.png](https://pic.edui.fun/images/2018/01/coding-3.png)
 
 不过在实现过程中，被 Coding 的 php pdo 虐得不要不要的！下图的 PHP 文件就是 动态Pages ，与 AJAX 配合即可读取和操作数据库的点赞数。
 
-![coding-2.png](https://lmm.elizen.me/images/2018/01/coding-php.png)
+![coding-2.png](https://pic.edui.fun/images/2018/01/coding-php.png)
 
 ###  参考文章
 

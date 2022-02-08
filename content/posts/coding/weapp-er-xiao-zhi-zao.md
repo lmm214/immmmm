@@ -9,7 +9,7 @@ isTop: false
 
 欢迎扫码体验~
 
-![](https://lmm.elizen.me/xxdzjc.JPG)
+![](https://pic.edui.fun/xxdzjc.JPG)
 
 <!--more-->
 

@@ -2,7 +2,7 @@
 title: Hugo Theme Webstack
 date: 2020-06-10T09:15:25+0800
 tags: [折腾]
-feature: https://lmm.elizen.me/images/2020/05/webstack-12.png
+feature: https://pic.edui.fun/images/2020/05/webstack-12.png
 ---
 
 新版本更新，感谢 [@ooiii](https://github.com/bolabola/stackf) 改进，所有内容（导航和板块）的增删排序直接在 `links.toml` 内完成！ 👍
@@ -104,7 +104,7 @@ siteName="二小智造"
 
 `list` 为主导航，`list.sub` 子导航，其中 `item` 中如果有 `siteImage` 则开启图片模式，效果如下：
 
-![webstack-11](https://lmm.elizen.me/images/2020/05/webstack-11.png)
+![webstack-11](https://pic.edui.fun/images/2020/05/webstack-11.png)
 
 ### 其他
 

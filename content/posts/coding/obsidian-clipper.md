@@ -35,7 +35,7 @@ tags: [折腾]
 
 `全文收录 = 没有收录`，其实，大部分的记录都是碎片化的，这也是，移动端的优势。
 
-{{< figure "https://lmm.elizen.me/images/2021/08/obtd-1.jpeg" "https://lmm.elizen.me/images/2021/08/obtd-2.jpeg" "https://lmm.elizen.me/images/2021/08/obtd-3.jpeg" "iOS 快捷指令" >}}
+{{< figure "https://pic.edui.fun/images/2021/08/obtd-1.jpeg" "https://pic.edui.fun/images/2021/08/obtd-2.jpeg" "https://pic.edui.fun/images/2021/08/obtd-3.jpeg" "iOS 快捷指令" >}}
 
 iOS 快捷指令（个人修改版）：[Obsidian 日志](https://www.icloud.com/shortcuts/32e561fa74864666b79d820ad1567687)
 

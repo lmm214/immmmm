@@ -24,7 +24,7 @@ tags: [折腾]
 
 在之前 [bber](https://github.com/lmm214/bber/blob/main/bber/index.js) 的 `index.js` 内添加以上代码，实现异步转存 Json 文件。
 
-![bbtalk-1](https://lmm.elizen.me/images/2020/12/bbtalk-1.png)
+![bbtalk-1](https://pic.edui.fun/images/2020/12/bbtalk-1.png)
 
 ```javascript
 //异步转存json
@@ -45,7 +45,7 @@ https://6262-bb-f5c0f-1252354806.tcb.qcloud.la/json/bber.json
 
 点击上面的 `缓存设置`，如下设置：
 
-![bbtalk-2](https://lmm.elizen.me/images/2020/12/bbtalk-2.png)
+![bbtalk-2](https://pic.edui.fun/images/2020/12/bbtalk-2.png)
 
 ### 前端调用代码
 

@@ -8,7 +8,7 @@ isTop: false
 ---
 
 <figure>
-    <img src="https://lmm.elizen.me/images/2018/01/smilie-1.png" alt=""/>
+    <img src="https://pic.edui.fun/images/2018/01/smilie-1.png" alt=""/>
     <figcaption>效果如上</figcaption>
 </figure>
 
@@ -16,7 +16,7 @@ isTop: false
 
 <!--more-->
 
-下载压缩包： [add_smilie__20180114.zip](https://lmm.elizen.me/images/2018/01/add_smilie__20180114.zip) ，直接解压丢入即可。然后，`post.jade` 加载
+下载压缩包： [add_smilie__20180114.zip](https://pic.edui.fun/images/2018/01/add_smilie__20180114.zip) ，直接解压丢入即可。然后，`post.jade` 加载
 
 ```jade
 +post.comments_as_html()
