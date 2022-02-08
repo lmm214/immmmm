@@ -1,5 +1,5 @@
 /*
-Last Modified time : 20220130 22:34 by https://immmmm.com
+Last Modified time : 20220202 19:14 by https://immmmm.com
 基于 FriendCircle 公共库 API
 */
 :root{
@@ -27,11 +27,13 @@ Last Modified time : 20220130 22:34 by https://immmmm.com
 #fMessageBoard .fMessageItem .fItem {height:60px;background:transparent;display:flex;flex-direction:column;width:33%;}
 #fMessageBoard .fMessageItem .fItem .fLabel {font-size:16px;padding:0 3%;align-self:center;text-align:center;width:100%;height:30px;}
 #fMessageBoard .fMessageItem .fItem .fMessage {align-self:center;text-align:center;padding:0 3%;width:50%;font-size:20px;}
+#fMessageBoard .fActiveFriend.fItem,#fMessageBoard .fErrorSite.fItem,#fMessageBoard .fArticleNum.fItem{cursor:pointer;}
 #fcircleMoreBtn {width:40%;max-width:810px;height:30px;margin:auto;border-radius:12px;font-weight:bolder;text-align:center;display:flex;flex-direction:column;justify-content:space-around;cursor:pointer;transition:0.3s;}
 #fcircleMoreBtn:hover{width:60%;}
 #fcircleContainer {width:100%;max-width:900px;height:auto;margin:auto;}
 #fcircleContainer a {text-decoration:none;}
-#fcircleContainer .fArticleItem {margin:20px 1%;border-radius:5px;font-weight:bolder;overflow:hidden;}
+#fcircleContainer .fArticleItem {margin:20px 1%;border-radius:5px;font-weight:bolder;overflow:hidden;transition: all ease-out .3s;}
+#fcircleContainer .fArticleItem:hover{transition:transform .3s;webkit-transform:scale(1.3);transform:scale(1.03)}
 #fcircleContainer .fArticleAvatar{line-height:35px;}
 #fcircleContainer .fArticleItem .fArticleAvatar .fAvatar {align-self:center;text-align:center;}
 #fcircleContainer .fArticleItem .fArticleAvatar img.fAvatar {display:inline-block;width:22px;height:22px;border-radius:50%;margin-bottom: -4px;background: #fff;}
@@ -76,8 +78,7 @@ Last Modified time : 20220130 22:34 by https://immmmm.com
 .fcircleShow p span{position: absolute;bottom:2px;right:15px;z-index: 1;font-style: italic;font-size:12px;}
 #fcircleContainer .fcircleShow p a:hover{letter-spacing:1px;transition:0.3s;}
 .fcircleShow .fcircleShowContent{padding:10px 15px 30px;border-bottom-left-radius:20px;border-bottom-right-radius:20px;background: #fff;}
-#fcircleShow .fclose{position:sticky;float:right;display: block;bottom:0;right:0;width:2rem;height:1.5rem;padding:1.5rem;box-sizing: content-box;color: #ffffff;font-size:1rem;}
-#fcircleShow .fclose svg {width: 100%;height: 100%;fill: var(--lmm-fontcolor);font-weight: 400;}
+#fcircleShow .fclose{position:sticky;display: block;width:100%;height:100%;}
 
 #randomFriend{margin: 20px 1%;border-radius: 5px;font-weight: bolder;overflow: hidden;}
 .randomFriend{position: relative;padding: 0.5rem 1rem;border-radius: 5px;overflow: hidden;background:var(--lmm-dack-background);}
