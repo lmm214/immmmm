@@ -4,8 +4,6 @@ date: 2020-03-14 12:41:27
 layout: 'posts'
 ---
 
-安心唠唠嗑，聊聊家常~
-
 ### 我的朋友
 
 {{< friend des="" url="https://blog.shuiba.co" md5="ec9435af3f1cd6d7fca626d649928e7a" name="水八口记" >}}
@@ -72,12 +70,13 @@ layout: 'posts'
 
 {{< friend des="Don’t repeat yourself" url="https://gahotx.cn/" md5="19a20eaeb4babbdd8cefd7bc2d5096f3" name="Gahotx" >}}
 
+{{< friend des="青石落晚巷 故人未还乡" url="https://www.nesxc.com/" md5="75dbd20a71b833f0e4e175e3f6887126" name="小N同学" >}}
+
+{{< friend des="" url="https://www.foryuanbo.com/" md5="77a4ed5175b2c4995dc55c32310949a6" name="远博" >}}
 
 ### 博客程序
 
 Hugo：<https://gohugo.io/>
-
-Gridea：<https://gridea.dev/>
 
 ### 主题分享
 
@@ -87,8 +86,7 @@ Gridea 主题：[「Motify」](https://github.com/lmm214/gridea-theme-motify)、
 
 ### 维护项目
 
-- 晒娃子博客：<https://i.immmmm.com/>
-- 教学工具导航: <https://edui.fun/>
+- 教学工具导航: <https://edui123.com/>
 - 微信小程序「二小智造」
 
 ### 工具推荐
@@ -101,6 +99,6 @@ Gridea 主题：[「Motify」](https://github.com/lmm214/gridea-theme-motify)、
 ### 欢迎打赏
 
 <figure>
-    <img src="https://lmm.elizen.me/wx.jpg" alt="微信打赏" />
+    <img src="https://pic.edui.fun/wx.jpg" alt="微信打赏" />
     <figcaption>微信打赏</figcaption>
 </figure>
