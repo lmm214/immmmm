@@ -1,6 +1,6 @@
 /*
-Last Modified time : 20220210 15:59 by https://immmmm.com
-基于 FriendCircle 公共库 API
+Last Modified time : 20220210 22:38 by https://immmmm.com
+已适配 FriendCircle 公共库和主库
 */
 
 //默认数据
@@ -70,9 +70,10 @@ function loadStatistical(sdata){
   var loadMoreBtn = `
     <div id="cf-more" class="cf-new-add" onclick="loadNextArticle()"><i class="fas fa-angle-double-down"></i></div>
     <div id="cf-footer" class="cf-new-add">
+     <span id="cf-version-up"></span>
      <span class="cf-data-lastupdated">更新于：${sdata.last_updated_time}</span>
       Powered by <a target="_blank" href="https://github.com/Rock-Candy-Tea/hexo-circle-of-friends" target="_blank">FriendCircle</a>
-      </div>
+    </div>
     <div id="cf-overlay" class="cf-new-add" onclick="closeShow()"></div>
     <div id="cf-overshow" class="cf-new-add"></div>
   `;
@@ -201,7 +202,25 @@ function clearLocal(){
   localStorage.removeItem("urlNow")
   location.reload();
 }
-
+//
+function checkVersion(){
+  var url = fdata.apiurl+"version"
+  fetch(url)
+    .then(res => res.json())
+    .then(json =>{
+      console.log(json)
+      var nowStatus = json.status,nowVersion = json.current_version,newVersion = json.latest_version
+      var versionID = document.getElementById('cf-version-up')
+      if(nowStatus == 0){
+        versionID.innerHTML = "当前版本：v"+ nowVersion
+      }else if(nowStatus == 1){
+        versionID.innerHTML = "发现新版本：v"+ nowVersion + " ↦ " + newVersion
+      }else{
+        versionID.innerHTML = "网络错误，检测失败！"
+      }
+  })
+}
+// 切换为公共全库
 function changeEgg(){
   //有自定义json或api执行切换
   if(fdata.jsonurl || fdata.apiurl ){
@@ -258,6 +277,9 @@ function changeSort(event){
   changeUrl = localStorage.getItem("urlNow")
   //console.log(changeUrl)
   initFriendCircle(sortNow,changeUrl)
+  if(fdata.apiurl){
+    checkVersion()
+  }
 }
 function openMeShow(event){
   event.preventDefault()
