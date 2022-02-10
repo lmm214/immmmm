@@ -1,15 +1,16 @@
 /*
-Last Modified time : 20220208 00:14 by https://immmmm.com
+Last Modified time : 20220210 15:14 by https://immmmm.com
 基于 FriendCircle 公共库 API
 */
 
 //默认数据
 var fdata = {
-  apiurl: 'https://circle-of-friends-simple.vercel.app/', //默认api
-  apipublieurl: 'https://hexo-circle-of-friends-lmm214.vercel.app/', //临时公共库
+  jsonurl: '',
+  apiurl: '',
+  apipublieurl: 'https://circle-of-friends-simple.vercel.app/', //默认公共库
   initnumber: 20,  //首次加载文章数
   stepnumber: 10,  //更多加载文章数
-  article_sort: 'updated', //文章排序 updated or created
+  article_sort: 'created', //文章排序 updated or created
   error_img: 'https://sdn.geekzu.org/avatar/57d8260dfb55501c37dde588e7c3852c'
 }
 //可通过 var fdataUser 替换默认值
@@ -32,7 +33,14 @@ if(localSortNow && localUrlNow){
   UrlNow = localUrlNow
 }else{
   sortNow = fdata.article_sort
-  UrlNow = fdata.apiurl
+  if(fdata.jsonurl){
+    UrlNow = fdata.apipublieurl+'postjson?jsonlink='+ fdata.jsonurl+"&"
+  }else if(fdata.apiurl){
+    UrlNow = fdata.apiurl+'all?'
+  }else{
+    UrlNow = fdata.apipublieurl+'all?'
+  }
+  console.log("当前模式："+UrlNow)
   localStorage.setItem("urlNow",UrlNow)
   localStorage.setItem("sortNow",sortNow)
 }
@@ -174,7 +182,7 @@ function fetchNextArticle(){
   }
   if(start <  articleNum){
     UrlNow = localStorage.getItem("urlNow")
-    var fetchUrl = UrlNow+"all?rule="+sortNow+"&start="+start+"&end="+end
+    var fetchUrl = UrlNow+"rule="+sortNow+"&start="+start+"&end="+end
     //console.log(fetchUrl)
     fetch(fetchUrl)
       .then(res => res.json())
@@ -243,10 +251,15 @@ function changeEgg(){
   container.innerHTML = ""
   UrlNow = localStorage.getItem("urlNow")
   //console.log("新"+UrlNow)
-  if(UrlNow !== fdata.apipublieurl){
-    changeUrl = fdata.apipublieurl
+  var UrlNowPublic = fdata.apipublieurl+'all?'
+  if(UrlNow !== UrlNowPublic){ //非完整默认公开库
+    changeUrl = fdata.apipublieurl+'all?'
   }else{
-    changeUrl = fdata.apiurl
+    if(fdata.jsonurl){
+      changeUrl = fdata.apipublieurl+'postjson?jsonlink='+ fdata.jsonurl+"&"
+    }else if(fdata.apiurl){
+      changeUrl = fdata.apiurl+'all?'
+    }
   }
   localStorage.setItem("urlNow",changeUrl)
   FetchFriendCircle(sortNow,changeUrl)
@@ -254,9 +267,9 @@ function changeEgg(){
 // 首次加载文章
 function FetchFriendCircle(sortNow,changeUrl){
   var end = fdata.initnumber
-  var fetchUrl = UrlNow + "all?rule="+sortNow+"&start=0&end="+end
+  var fetchUrl = UrlNow + "rule="+sortNow+"&start=0&end="+end
   if(changeUrl){
-    fetchUrl = changeUrl + "all?rule="+sortNow+"&start=0&end="+end
+    fetchUrl = changeUrl + "rule="+sortNow+"&start=0&end="+end
   }
   //console.log(fetchUrl)
   fetch(fetchUrl)
@@ -278,25 +291,20 @@ function changeSort(event){
   document.querySelectorAll('.fNewDiv').forEach(el => el.remove());
   container.innerHTML = "";
   changeUrl = localStorage.getItem("urlNow")
-  console.log(changeUrl)
+  //console.log(changeUrl)
   initFriendCircle(sortNow,changeUrl)
-}
-// 点击开往
-var noClick = 'ok';
-function openToShow(){
-  var fetchUrl = localStorage.getItem("urlNow")+ "post"
-  //console.log(fetchUrl)
-  if(noClick == 'ok'){
-    noClick = 'no'
-    fetchShow(fetchUrl)
-  }
 }
 function openMeShow(event){
   event.preventDefault()
   var parse_url = /^(?:([A-Za-z]+):)?(\/{0,3})([0-9.\-A-Za-z]+)(?::(\d+))?(?:\/([^?#]*))?(?:\?([^#]*))?(?:#(.*))?$/;
   var meLink = event.currentTarget.dataset.link.replace(parse_url, '$1:$2$3')
   console.log(meLink)
-  var fetchUrl = localStorage.getItem("urlNow") + "post?link="+meLink
+  var fetchUrl = ''
+  if(fdata.apiurl){
+    fetchUrl = fdata.apiurl + "post?link="+meLink
+  }else{
+    fetchUrl = fdata.apipublieurl + "post?link="+meLink
+  }
   //console.log(fetchUrl)
   if(noClick == 'ok'){
     noClick = 'no'
@@ -309,6 +317,21 @@ function closeShow(){
   document.getElementById('fcircleShow').className -= 'fshow';
   document.getElementById('fcircleShow').innerHTML = ''
 }
+// 点击开往
+var noClick = 'ok';
+function openToShow(){
+  var fetchUrl = ''
+  if(fdata.apiurl){
+    fetchUrl = fdata.apiurl + "post"
+  }else{
+    fetchUrl = fdata.apipublieurl + "post"
+  }
+  //console.log(fetchUrl)
+  if(noClick == 'ok'){
+    noClick = 'no'
+    fetchShow(fetchUrl)
+  }
+}
 // fetch show
 function fetchShow(url){
   var closeHtml = `
@@ -316,6 +339,7 @@ function fetchShow(url){
   `
   document.getElementById('fcircleShow1').className = 'fshow';
   document.getElementById('fcircleShow').insertAdjacentHTML('afterbegin', closeHtml);
+  console.log("开往"+url)
   fetch(url)
     .then(res => res.json())
     .then(json =>{
@@ -337,7 +361,7 @@ function initFriendCircle(sortNow,changeUrl){
     loadStatistical(localStatisticalData);
     loadArticleItem(localArticleData ,0,fdata.initnumber)
     console.log("本地数据加载成功")
-    var fetchUrl = UrlNow + "all?rule="+sortNow+"&start=0&end="+fdata.initnumber
+    var fetchUrl = UrlNow + "rule="+sortNow+"&start=0&end="+fdata.initnumber
     fetch(fetchUrl)
     .then(res => res.json())
     .then(json =>{
