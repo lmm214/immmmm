@@ -1,5 +1,5 @@
 /*
-Last Modified time : 20220210 15:14 by https://immmmm.com
+Last Modified time : 20220210 15:59 by https://immmmm.com
 基于 FriendCircle 公共库 API
 */
 
@@ -243,26 +243,31 @@ function clearLocal(){
 }
 
 function changeEgg(){
-  document.querySelectorAll('.fNewDiv').forEach(el => el.remove());
-  localStorage.removeItem("updatedArticleData")
-  localStorage.removeItem("createdArticleData")
-  localStorage.removeItem("nextArticle")
-  localStorage.removeItem("statisticalData")
-  container.innerHTML = ""
-  UrlNow = localStorage.getItem("urlNow")
-  //console.log("新"+UrlNow)
-  var UrlNowPublic = fdata.apipublieurl+'all?'
-  if(UrlNow !== UrlNowPublic){ //非完整默认公开库
-    changeUrl = fdata.apipublieurl+'all?'
-  }else{
-    if(fdata.jsonurl){
-      changeUrl = fdata.apipublieurl+'postjson?jsonlink='+ fdata.jsonurl+"&"
-    }else if(fdata.apiurl){
-      changeUrl = fdata.apiurl+'all?'
+  //有自定义json或api执行切换
+  if(fdata.jsonurl || fdata.apiurl ){
+    document.querySelectorAll('.fNewDiv').forEach(el => el.remove());
+    localStorage.removeItem("updatedArticleData")
+    localStorage.removeItem("createdArticleData")
+    localStorage.removeItem("nextArticle")
+    localStorage.removeItem("statisticalData")
+    container.innerHTML = ""
+    UrlNow = localStorage.getItem("urlNow")
+    //console.log("新"+UrlNow)
+    var UrlNowPublic = fdata.apipublieurl+'all?'
+    if(UrlNow !== UrlNowPublic){ //非完整默认公开库
+      changeUrl = fdata.apipublieurl+'all?'
+    }else{
+      if(fdata.jsonurl){
+        changeUrl = fdata.apipublieurl+'postjson?jsonlink='+ fdata.jsonurl+"&"
+      }else if(fdata.apiurl){
+        changeUrl = fdata.apiurl+'all?'
+      }
     }
+    localStorage.setItem("urlNow",changeUrl)
+    FetchFriendCircle(sortNow,changeUrl)
+  }else{
+    clearLocal()
   }
-  localStorage.setItem("urlNow",changeUrl)
-  FetchFriendCircle(sortNow,changeUrl)
 }
 // 首次加载文章
 function FetchFriendCircle(sortNow,changeUrl){
