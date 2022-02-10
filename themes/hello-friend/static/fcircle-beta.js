@@ -22,9 +22,7 @@ if(typeof(fdataUser) !=="undefined"){
   }
 }
 var article_num = '',sortNow='',UrlNow='',friends_num=''
-var container = document.getElementById('fcircleContainer');
-var createdBtn = document.getElementById('createdBtn')
-var updatedBtn = document.getElementById('updatedBtn')
+var container = document.getElementById('cf-container');
 // 获取本地 排序值、加载apiUrl，实现记忆效果
 var localSortNow = localStorage.getItem("sortNow")
 var localUrlNow = localStorage.getItem("urlNow")
@@ -44,80 +42,46 @@ if(localSortNow && localUrlNow){
   localStorage.setItem("urlNow",UrlNow)
   localStorage.setItem("sortNow",sortNow)
 }
-// 打印基本信息 fMessageBoard
+// 打印基本信息
 function loadStatistical(sdata){
   article_num = sdata.article_num
   friends_num = sdata.friends_num
   var messageBoard =`
-  <div id="fMessageBoard" class="fNewDiv">
-    <div class="fMessageItem">
-      <div class="fActiveFriend fItem" onclick="openToShow()">
-        <span class="fLabel">订阅</span>
-        <span class="fMessage">${sdata.friends_num}</span>
+  <div id="cf-state" class="cf-new-add">
+    <div class="cf-state-data">
+      <div class="cf-data-friends" onclick="openToShow()">
+        <span class="cf-label">订阅</span>
+        <span class="cf-message">${sdata.friends_num}</span>
       </div>
-      <div class="fErrorSite fItem" onclick="changeEgg()">
-        <span class="fLabel">活跃</span>
-        <span class="fMessage">${sdata.active_num}</span>
+      <div class="cf-data-active" onclick="changeEgg()">
+        <span class="cf-label">活跃</span>
+        <span class="cf-message">${sdata.active_num}</span>
       </div>
-      <div class="fArticleNum fItem" onclick="clearLocal()">
-        <span class="fLabel">日志</span>
-        <span class="fMessage">${sdata.article_num}</span>
+      <div class="cf-data-article" onclick="clearLocal()">
+        <span class="cf-label">日志</span>
+        <span class="cf-message">${sdata.article_num}</span>
       </div>
     </div>
-    <div id="switchRankBtn">
-        <span id="createdBtn" data-sort="created" onclick="changeSort(event)" class="${sortNow == 'created' ? 'rankByNow':''}">Created</span> | <span id="updatedBtn" data-sort="updated" onclick="changeSort(event)" class="${sortNow == 'updated' ? 'rankByNow':''}" >Updated</span>
+    <div id="cf-change">
+        <span id="cf-change-created" data-sort="created" onclick="changeSort(event)" class="${sortNow == 'created' ? 'cf-change-now':''}">Created</span> | <span id="cf-change-updated" data-sort="updated" onclick="changeSort(event)" class="${sortNow == 'updated' ? 'cf-change-now':''}" >Updated</span>
     </div>
   </div>
   `;
   var loadMoreBtn = `
-    <div id="fcircleMoreBtn" class="fNewDiv" onclick="loadNextArticle()"><i class="fas fa-angle-double-down"></i></div>
-    <div id="fUpdatedTime"  class="fNewDiv">
-      <span class="fLabel">更新于：</span><span class="fMessage">${sdata.last_updated_time}</span>
-    </div>
-    <div id="fcircleFooter" class="fNewDiv">Powered by <a target="_blank" href="https://github.com/Rock-Candy-Tea/hexo-circle-of-friends" target="_blank">FriendCircle</a></div>
-    <div id="fcircleShow1" class="fNewDiv" onclick="closeShow()"></div>
-    <div id="fcircleShow" class="fNewDiv"></div>
+    <div id="cf-more" class="cf-new-add" onclick="loadNextArticle()"><i class="fas fa-angle-double-down"></i></div>
+    <div id="cf-footer" class="cf-new-add">
+     <span class="cf-data-lastupdated">更新于：${sdata.last_updated_time}</span>
+      Powered by <a target="_blank" href="https://github.com/Rock-Candy-Tea/hexo-circle-of-friends" target="_blank">FriendCircle</a>
+      </div>
+    <div id="cf-overlay" class="cf-new-add" onclick="closeShow()"></div>
+    <div id="cf-overshow" class="cf-new-add"></div>
   `;
   if(container){
     container.insertAdjacentHTML('beforebegin', messageBoard);
     container.insertAdjacentHTML('afterend', loadMoreBtn);
   }
 }
-
-// 打印随机一人文章 oneShow
-function loadOneShow(one){
-  var showHtml = `
-  <div class="entity">
-	<a href="/item?folder=VxtsWeJtfx7QyAiLdED9&amp;id=zqtVaVeD1BL7pXeqkuGb" class="entity-name">
-		<div class="entity-name-left">
-			<div class="avatar entity-icon">
-        <img class="fArticlelink fAvatar avatar" src="${one.avatar}" alt="avatar" onerror="this.src='${fdata.error_img}'; this.onerror = null;" width="48" height="48">
-			</div>
-			<span class="entity-name-inner">${one.author}</span>
-		</div>
-		<!---->
-		<span class="entity-date" title=""><i class="far fa-calendar-alt">发表于</i>${one.created}</span>
-	</a>
-	<div class="entity-feed-wrapper">
-    <a class="fArticleTitle"  href="${one.link}" target="_blank" rel="noopener nofollow" data-title="${one.title}">${one.title}</a>
-  </div>
-</div>
-`
-  document.getElementById('oneShow').innerHTML = showHtml
-}
-// fetch show
-function fetchOneShow(){
-  var fetchUrl = UrlNow + "randompost"
-  fetch(fetchUrl)
-    .then(res => res.json())
-    .then(json =>{
-      console.log(json)
-      var oneData = json;
-      loadOneShow(oneData)
-    })
-}
-
-// 打印文章内容 fArticleItem
+// 打印文章内容 cf-article
 function loadArticleItem(datalist,start,end){
   var articleItem = '';
   var articleNum = article_num;
@@ -127,19 +91,17 @@ function loadArticleItem(datalist,start,end){
     for (var i = start;i<endFor;i++){
       var item = datalist[i];
       articleItem +=`
-      <div class="fArticleItem">
-      <div class="fArticleMessage">
-        <a class="fArticleTitle" href="${item.link}" target="_blank" rel="noopener nofollow" data-title="${item.title}">${item.title}</a>
-        <span class="fArticleFloor">${item.floor}</span>
-        <div class="fArticleAvatar no-lightbox">
-          <img class="fArticlelink fAvatar avatar" src="${item.avatar}" alt="avatar" onerror="this.src='${fdata.error_img}'; this.onerror = null;">
-          <a onclick="openMeShow(event)" data-link="${item.link}" class="" target="_blank" rel="noopener nofollow" href="javascript:;"><span class="fArticleAuthor">${item.author}</span></a>
-          <span class="fArticleTime">
-            <span class="fArticleCreated" style="${sortNow == 'created' ? '':'display:none'}"><i class="far fa-calendar-alt">发表于</i>${item.created}</span>
-            <span class="fArticleUpdated" style="${sortNow == 'updated' ? '':'display:none'}"><i class="fas fa-history">更新于</i>${item.updated}</span>
+      <div class="cf-article">
+        <a class="cf-article-title" href="${item.link}" target="_blank" rel="noopener nofollow" data-title="${item.title}">${item.title}</a>
+        <span class="cf-article-floor">${item.floor}</span>
+        <div class="cf-article-avatar no-lightbox">
+          <img class="cf-img-avatar avatar" src="${item.avatar}" alt="avatar" onerror="this.src='${fdata.error_img}'; this.onerror = null;">
+          <a onclick="openMeShow(event)" data-link="${item.link}" class="" target="_blank" rel="noopener nofollow" href="javascript:;"><span class="cf-article-author">${item.author}</span></a>
+          <span class="cf-article-time">
+            <span class="cf-time-created" style="${sortNow == 'created' ? '':'display:none'}"><i class="far fa-calendar-alt">发表于</i>${item.created}</span>
+            <span class="cf-time-updated" style="${sortNow == 'updated' ? '':'display:none'}"><i class="fas fa-history">更新于</i>${item.updated}</span>
           </span>
         </div>
-      </div>
       </div>
       `;
     }
@@ -148,33 +110,33 @@ function loadArticleItem(datalist,start,end){
     fetchNextArticle()
   }else{
     // 文章加载到底
-    document.getElementById('fcircleMoreBtn').outerHTML = `<div id="fcircleMoreBtn" class="fNewDiv" onclick="loadNoArticle()"><small>一切皆有尽头！</small></div>`
+    document.getElementById('cf-more').outerHTML = `<div id="cf-more" class="cf-new-add" onclick="loadNoArticle()"><small>一切皆有尽头！</small></div>`
   }
 }
-// 打印个人卡片 fcircleShow
+// 打印个人卡片 cf-overshow
 function loadFcircleShow(userinfo,articledata){
   var showHtml = `
-      <div class="fcircleShow">
-        <div class="fcircleShowHead">
-          <img class="fArticlelink fAvatar avatar" src="${userinfo.avatar}" alt="avatar" onerror="this.src='${fdata.error_img}'; this.onerror = null;">
+      <div class="cf-overshow">
+        <div class="cf-overshow-head">
+          <img class="cf-img-avatar avatar" src="${userinfo.avatar}" alt="avatar" onerror="this.src='${fdata.error_img}'; this.onerror = null;">
           <a class="" target="_blank" rel="noopener nofollow" href="${userinfo.link}">${userinfo.author}</a>
         </div>
-        <div class="fcircleShowContent">
+        <div class="cf-overshow-content">
   `
   for (var i = 0;i<userinfo.article_num;i++){
     var item = articledata[i];
     showHtml += `
-      <p><a class="fArticleTitle"  href="${item.link}" target="_blank" rel="noopener nofollow" data-title="${item.title}">${item.title}</a><span>${item.created}</span></p>
+      <p><a class="cf-article-title"  href="${item.link}" target="_blank" rel="noopener nofollow" data-title="${item.title}">${item.title}</a><span>${item.created}</span></p>
     `
   }
   showHtml += '</div></div>'
-  document.getElementById('fcircleShow').insertAdjacentHTML('beforeend', showHtml);
-  document.getElementById('fcircleShow').className = 'fshow';
+  document.getElementById('cf-overshow').insertAdjacentHTML('beforeend', showHtml);
+  document.getElementById('cf-overshow').className = 'cf-show-now';
 }
 
 // 预载下一页文章，存为本地数据 nextArticle
 function fetchNextArticle(){
-  var start = document.getElementsByClassName('fArticleItem').length
+  var start = document.getElementsByClassName('cf-article').length
   var end = start + fdata.stepnumber
   var articleNum = article_num;
   if(end > articleNum){
@@ -192,7 +154,7 @@ function fetchNextArticle(){
         localStorage.setItem("nextArticle",JSON.stringify(nextArticle))
     })
   }else if(start = articleNum){
-      document.getElementById('fcircleMoreBtn').outerHTML = `<div id="fcircleMoreBtn" class="fNewDiv" onclick="loadNoArticle()"><small>一切皆有尽头！</small></div>`
+      document.getElementById('cf-more').outerHTML = `<div id="cf-more" class="cf-new-add" onclick="loadNoArticle()"><small>一切皆有尽头！</small></div>`
   }
 }
 // 显示下一页文章，从本地缓存 nextArticle 中获取
@@ -202,19 +164,17 @@ function loadNextArticle(){
     for (var i = 0;i<nextArticle.length;i++){
       var item = nextArticle[i];
       articleItem +=`
-      <div class="fArticleItem">
-      <div class="fArticleMessage">
-        <a class="fArticleTitle"  href="${item.link}" target="_blank" rel="noopener nofollow" data-title="${item.title}">${item.title}</a>
-        <span class="fArticleFloor">${item.floor}</span>
-        <div class="fArticleAvatar flink-item-icon">
-          <img class="fArticlelink fAvatar avatar" src="${item.avatar}" alt="avatar" onerror="this.src='${fdata.error_img}'; this.onerror = null;">
-          <a onclick="openMeShow(event)" data-link="${item.link}" class="" target="_blank" rel="noopener nofollow" href="${item.link}"><span class="fArticleAuthor">${item.author}</span></a>
-          <span class="fArticleTime">
-            <span class="fArticleCreated" style="${sortNow == 'created' ? '':'display:none'}"><i class="far fa-calendar-alt">发表于</i>${item.created}</span>
-            <span class="fArticleUpdated" style="${sortNow == 'updated' ? '':'display:none'}"><i class="fas fa-history">更新于</i>${item.updated}</span>
+      <div class="cf-article">
+        <a class="cf-article-title" href="${item.link}" target="_blank" rel="noopener nofollow" data-title="${item.title}">${item.title}</a>
+        <span class="cf-article-floor">${item.floor}</span>
+        <div class="cf-article-avatar no-lightbox">
+          <img class="cf-img-avatar avatar" src="${item.avatar}" alt="avatar" onerror="this.src='${fdata.error_img}'; this.onerror = null;">
+          <a onclick="openMeShow(event)" data-link="${item.link}" class="" target="_blank" rel="noopener nofollow" href="javascript:;"><span class="cf-article-author">${item.author}</span></a>
+          <span class="cf-article-time">
+            <span class="cf-time-created" style="${sortNow == 'created' ? '':'display:none'}"><i class="far fa-calendar-alt">发表于</i>${item.created}</span>
+            <span class="cf-time-updated" style="${sortNow == 'updated' ? '':'display:none'}"><i class="fas fa-history">更新于</i>${item.updated}</span>
           </span>
         </div>
-      </div>
       </div>
       `;
     }
@@ -228,8 +188,8 @@ function loadNoArticle(){
   localStorage.removeItem(articleSortData)
   localStorage.removeItem("statisticalData")
   //localStorage.removeItem("sortNow")
-  document.getElementById('fcircleMoreBtn').remove()
-  window.scrollTo(0,document.getElementsByClassName('fMessageBoard').offsetTop)
+  document.getElementById('cf-more').remove()
+  window.scrollTo(0,document.getElementsByClassName('cf-state').offsetTop)
 }
 // 清空本地数据
 function clearLocal(){
@@ -245,7 +205,7 @@ function clearLocal(){
 function changeEgg(){
   //有自定义json或api执行切换
   if(fdata.jsonurl || fdata.apiurl ){
-    document.querySelectorAll('.fNewDiv').forEach(el => el.remove());
+    document.querySelectorAll('.cf-new-add').forEach(el => el.remove());
     localStorage.removeItem("updatedArticleData")
     localStorage.removeItem("createdArticleData")
     localStorage.removeItem("nextArticle")
@@ -293,7 +253,7 @@ function FetchFriendCircle(sortNow,changeUrl){
 function changeSort(event){
   sortNow = event.currentTarget.dataset.sort
   localStorage.setItem("sortNow",sortNow)
-  document.querySelectorAll('.fNewDiv').forEach(el => el.remove());
+  document.querySelectorAll('.cf-new-add').forEach(el => el.remove());
   container.innerHTML = "";
   changeUrl = localStorage.getItem("urlNow")
   //console.log(changeUrl)
@@ -318,9 +278,9 @@ function openMeShow(event){
 }
 // 关闭 show
 function closeShow(){
-  document.getElementById('fcircleShow1').className -= 'fshow';
-  document.getElementById('fcircleShow').className -= 'fshow';
-  document.getElementById('fcircleShow').innerHTML = ''
+  document.getElementById('cf-overlay').className -= 'cf-show-now';
+  document.getElementById('cf-overshow').className -= 'cf-show-now';
+  document.getElementById('cf-overshow').innerHTML = ''
 }
 // 点击开往
 var noClick = 'ok';
@@ -340,10 +300,10 @@ function openToShow(){
 // fetch show
 function fetchShow(url){
   var closeHtml = `
-    <div class="fclose" onclick="closeShow()"></div>
+    <div class="cf-overshow-close" onclick="closeShow()"></div>
   `
-  document.getElementById('fcircleShow1').className = 'fshow';
-  document.getElementById('fcircleShow').insertAdjacentHTML('afterbegin', closeHtml);
+  document.getElementById('cf-overlay').className = 'cf-show-now';
+  document.getElementById('cf-overshow').insertAdjacentHTML('afterbegin', closeHtml);
   console.log("开往"+url)
   fetch(url)
     .then(res => res.json())
@@ -379,10 +339,9 @@ function initFriendCircle(sortNow,changeUrl){
       var newAtile = articleData[0].title
       //判断文章总数或文章标题是否一致，否则热更新
       if(localSnum !== newSnum || localAtile !== newAtile){
-        document.getElementById('fMessageBoard').remove()
-        document.getElementById('fcircleMoreBtn').remove()
-        document.getElementById('fUpdatedTime').remove()
-        document.getElementById('fcircleFooter').remove()
+        document.getElementById('cf-state').remove()
+        document.getElementById('cf-more').remove()
+        document.getElementById('cf-footer').remove()
         container.innerHTML = "";
         var articleSortData = sortNow+"ArticleData";
         loadStatistical(statisticalData);
