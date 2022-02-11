@@ -1,5 +1,5 @@
 /*
-Last Modified time : 20220211 18:00 by https://immmmm.com
+Last Modified time : 20220211 98:00 by https://immmmm.com
 已适配 FriendCircle 公共库和主库
 */
 :root{
@@ -61,7 +61,7 @@ Last Modified time : 20220211 18:00 by https://immmmm.com
 .cf-overshow .cf-overshow-head a{color: var(--lmm-hover);display:block;text-align:center;font-weight:bold;margin-top:-5px;padding:5px 8px 5px;text-decoration: none;}
 .cf-overshow img.cf-img-avatar{background:#fff;width: 80px;height: 80px;border-radius: 50%;margin: -45px auto 0 !important;box-shadow: 0 12px 40px rgb(0 0 0 / 9%);transform:rotate(-360deg);transition:0.8s;}
 .cf-overshow p{margin:0.3rem 5px;width:100%;position: relative;}
-.cf-overshow p a.cf-article-title{text-decoration: none !important;display:block;text-align:left;position: relative;z-index: 2;font-size:15px;line-height: 2rem;margin-bottom: 0;letter-spacing: normal;max-height:4rem;overflow: hidden;text-overflow:ellipsis;display:-webkit-box;display:box;-webkit-line-clamp: 2; -webkit-box-orient: vertical;}
+.cf-overshow p a.cf-article-title{text-decoration: none !important;display:block;text-align:left;position: relative;z-index: 2;font-size:15px;line-height:25px;margin-bottom:15px;letter-spacing: normal;max-height:50px;overflow: hidden;text-overflow:ellipsis;display:-webkit-box;display:box;-webkit-line-clamp: 2; -webkit-box-orient: vertical;}
 .cf-overshow p span{position: absolute;bottom:-1rem;right:8px;z-index: 1;font-style: italic;font-size:12px;}
 #cf-container .cf-overshow p a:hover{letter-spacing:1px;transition:0.3s;}
 .cf-overshow .cf-overshow-content{padding:10px 15px 30px;border-bottom-left-radius:20px;border-bottom-right-radius:20px;background: #fff;}
