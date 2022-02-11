@@ -59,7 +59,7 @@ Last Modified time : 20220211 16:58 by https://immmmm.com
 .cf-overshow{text-align: center;border-radius: 20px;position: absolute;width: 320px;min-height:170px;left: 50%;top:50%;transform: translate(-50%,-50%);box-shadow: 0 12px 40px rgba(0, 0, 0, 0.093);background: var(--lmm-background);}
 .cf-overshow-head:hover img.cf-img-avatar{transform:rotate(360deg);transition:0.8s;}
 .cf-overshow .cf-overshow-head a{color: var(--lmm-hover);display:block;text-align:center;font-weight:bold;margin-top:-5px;padding:5px 8px 5px;text-decoration: none;}
-.cf-overshow img.cf-img-avatar{background:#fff;width: 80px;height: 80px;border-radius: 50%;margin: -45px auto 0;box-shadow: 0 12px 40px rgb(0 0 0 / 9%);transform:rotate(-360deg);transition:0.8s;}
+.cf-overshow img.cf-img-avatar{background:#fff;width: 80px;height: 80px;border-radius: 50%;margin: -45px auto 0 !important;box-shadow: 0 12px 40px rgb(0 0 0 / 9%);transform:rotate(-360deg);transition:0.8s;}
 .cf-overshow p{margin:0.3rem 5px;width:100%;position: relative;}
 .cf-overshow p a.cf-article-title{text-decoration: none !important;display:block;text-align:left;position: relative;z-index: 2;font-size:1rem;line-height: 2rem;margin-bottom: 0;}
 .cf-overshow p span{position: absolute;bottom:2px;right:15px;z-index: 1;font-style: italic;font-size:12px;}
