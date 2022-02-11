@@ -1,5 +1,5 @@
 /*
-Last Modified time : 20220210 23:58 by https://immmmm.com
+Last Modified time : 20220211 16:58 by https://immmmm.com
 已适配 FriendCircle 公共库和主库
 */
 :root{
@@ -39,7 +39,7 @@ Last Modified time : 20220210 23:58 by https://immmmm.com
 .cf-article {margin:20px 1%;border-radius:5px;font-weight:bolder;overflow:hidden;transition: all ease-out .3s;position: relative;padding:0.5rem 1rem;}
 .cf-article:hover{transition:transform .3s;-webkit-transform:scale(1.3);transform:scale(1.03)}
 .cf-article-avatar{line-height:35px;}
-.cf-img-avatar {align-self:center;text-align:center;display:inline-block;width:22px;height:22px;border-radius:50%;margin-bottom: -4px;background: #fff;}
+.cf-img-avatar {align-self:center;text-align:center;display:inline-block !important;width:22px;height:22px;border-radius:50%;margin:0 0 -4px !important;background: #fff;}
 .cf-article-author{line-height: 35px;font-size:14px;font-weight: 400;margin-left:5px;align-self:center;text-align:center;height:40px;white-space:nowrap;overflow:hidden;}
 .cf-article-floor{position: absolute;top: 0;right:0.5rem;font-style: italic;font-size: 3rem;line-height: 1.5rem;z-index:1;font-weight: 400;}
 .cf-article-title{font-weight: 500;position: relative;z-index:2;width:100%;display: block;letter-spacing:1.5px;font-size:18px;align-self:start;text-align:left;line-height:40px;padding:0;margin-bottom:10px;transition:0.3s;}
