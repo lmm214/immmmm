@@ -44,8 +44,6 @@ layout: 'posts'
 
 {{< friend name="AoTxLand" url="https://aotxland.com/" md5="63900087ce5ba22f6377309fa50962d0" des="记录行走和折腾之路。">}}
 
-{{< friend name="风也温柔" url="https://eas1.cn/" md5="4cc893d113dd74ceca73f9863f2c5446" des="If the moon smiled, she would resemble you." >}}
-
 {{< friend name="冰微未来" url="https://www.vwmwv.cn/" md5="4cc893d113dd74ceca73f9863f2c5446" des="">}}
 
 {{< friend name="SoSilent" url="https://sosilent.top/" md5="ee5c49f4d0339f71e1a3ded340bc1b98" des="" >}}
