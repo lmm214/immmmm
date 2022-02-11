@@ -1,4 +1,4 @@
 ---
-title: "友链朋友圈（公共版）"
+title: "友链朋友圈"
 layout: "friends"
 ---

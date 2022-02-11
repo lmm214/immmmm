@@ -1,5 +1,5 @@
 /*
-Last Modified time : 20220210 22:38 by https://immmmm.com
+Last Modified time : 20220211 15:38 by https://immmmm.com
 已适配 FriendCircle 公共库和主库
 */
 
@@ -22,7 +22,7 @@ if(typeof(fdataUser) !=="undefined"){
   }
 }
 var article_num = '',sortNow='',UrlNow='',friends_num=''
-var container = document.getElementById('cf-container');
+var container = document.getElementById('cf-container') ||  document.getElementById('fcircleContainer') ;
 // 获取本地 排序值、加载apiUrl，实现记忆效果
 var localSortNow = localStorage.getItem("sortNow")
 var localUrlNow = localStorage.getItem("urlNow")
@@ -70,7 +70,7 @@ function loadStatistical(sdata){
   var loadMoreBtn = `
     <div id="cf-more" class="cf-new-add" onclick="loadNextArticle()"><i class="fas fa-angle-double-down"></i></div>
     <div id="cf-footer" class="cf-new-add">
-     <span id="cf-version-up"></span>
+     <span id="cf-version-up" onclick="checkVersion()"></span>
      <span class="cf-data-lastupdated">更新于：${sdata.last_updated_time}</span>
       Powered by <a target="_blank" href="https://github.com/Rock-Candy-Tea/hexo-circle-of-friends" target="_blank">FriendCircle</a>
     </div>
@@ -281,6 +281,7 @@ function changeSort(event){
     checkVersion()
   }
 }
+//查询个人文章列表
 function openMeShow(event){
   event.preventDefault()
   var parse_url = /^(?:([A-Za-z]+):)?(\/{0,3})([0-9.\-A-Za-z]+)(?::(\d+))?(?:\/([^?#]*))?(?:\?([^#]*))?(?:#(.*))?$/;
@@ -319,7 +320,7 @@ function openToShow(){
     fetchShow(fetchUrl)
   }
 }
-// fetch show
+// 展示个人文章列表
 function fetchShow(url){
   var closeHtml = `
     <div class="cf-overshow-close" onclick="closeShow()"></div>
@@ -337,7 +338,6 @@ function fetchShow(url){
       loadFcircleShow(statisticalData,articleData)
     })
 }
-
 // 初始化方法，如有本地数据首先调用
 function initFriendCircle(sortNow,changeUrl){
   var articleSortData = sortNow+"ArticleData";
