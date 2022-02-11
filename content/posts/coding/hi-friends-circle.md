@@ -19,7 +19,7 @@ feature: https://cdn.edui.fun/images/2022/02/myf-12.png
 <!-- 挂载友链朋友圈的容器 -->
 <div id="cf-container">与主机通讯中……</div>
 <!-- 加样式和功能代码 -->
-<link rel="stylesheet" href="">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lmm214/immmmm/themes/hello-friend/static/fcircle-beta.css">
 <!-- 匹配自己的友链或加载后端数据
 <script type="text/javascript">
   var fdataUser = {
@@ -28,8 +28,7 @@ feature: https://cdn.edui.fun/images/2022/02/myf-12.png
   }
 </script>
 -->
-<link rel="stylesheet" href="https://immmmm.com/fcircle-beta.css">
-<script type="text/javascript" src="https://immmmm.com/fcircle-beta.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lmm214/immmmm/themes/hello-friend/static/fcircle-beta.js"></script>
 ```
 
 这样就搞定啦，默认看到的是 750+ feeds 的公共库（数据来自 [saveweb](https://github.com/saveweb/rss-list)）。
