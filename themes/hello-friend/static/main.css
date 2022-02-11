@@ -1423,15 +1423,15 @@ photos .photo:last-child {
 #searchBoxButton {display: inline; background: none; margin: 0rem; border:0 none; border-radius: 0; padding: 0.4rem 0.6rem 0.4rem; }
 .search-box-icon {color: inherit; fill: currentColor; width: 1.1rem; height: 1.1rem; }
 
-.archive-item{padding:10px 15px;font-size:14px;width:49%;box-sizing:border-box;display:inline-block;vertical-align:top;}
-.archive-item img{border-radius:8px;margin:4px 12px 0 0;float:left;width:48px;height:48px;}
-.archive-item a{line-height: 28px;}
-.archive-item-title{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display: block;}
-.archive-item-meta{font-size:13px;font-weight:200;display:block;word-break:break-all;height:25px;overflow: hidden;}
-.links-item{width:32%;margin:1em 0;}
+.links-item{padding:10px 15px;font-size:14px;width:49%;box-sizing:border-box;display:inline-block;vertical-align:top;background: #fafafa;
+    background: var(--light-header);border-radius: 4px;}
+.links-item img{border-radius:4px;float:left;width:32px;height:32px;background: #fff;}
+.links-item a{display: block;padding:0 12px;margin-left:35px;word-break: keep-all;height: 32px;overflow: hidden;}
+.links-item{width:135px;margin:0 12px 8px 0;}
 @media only screen and (max-width:683px) {
-	.links-item{width:49%}
+	.links-item{width:144px;margin:0 0 8px;}
 }
+.dark-theme .links-item{background: #252627;background: var(--dark-header);}
 
 /* tocify */
 .tocify {width: 20%; max-height: 90%; overflow: auto; position: absolute; right:2%; border-radius: 6px;}

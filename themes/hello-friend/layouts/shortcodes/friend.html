@@ -2,6 +2,5 @@
 <div class="archive-item links-item cf-friends">
 	<img loading="lazy" class="archive-list-image avatar" src="{{- if .Get "src" -}}{{- .Get "src" -}}{{- else -}}https://gravatar.loli.net/avatar/{{ .Get "md5" -}}{{- end -}}"/>
 	<a href={{ .Get "url" }}>{{ .Get "name" }}</a>
-	<span class="archive-item-meta">{{- if .Get "des" -}}{{- .Get "des" -}}{{- else -}}{{- .Get "url" -}}{{- end -}}</span>
 </div>
 {{ end }}
