@@ -1427,7 +1427,7 @@ photos .photo:last-child {
 .archive-item img{border-radius:8px;margin:4px 12px 0 0;float:left;width:48px;height:48px;}
 .archive-item a{line-height: 28px;}
 .archive-item-title{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display: block;}
-.archive-item-meta{font-size:13px;font-weight:200;display:block;word-break:break-all;}
+.archive-item-meta{font-size:13px;font-weight:200;display:block;word-break:break-all;height:25px;overflow: hidden;}
 .links-item{width:32%;margin:1em 0;}
 @media only screen and (max-width:683px) {
 	.links-item{width:49%}
