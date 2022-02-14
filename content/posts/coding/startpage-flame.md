@@ -13,4 +13,4 @@ feature: https://cdn.edui.fun/images/2022/02/flame.png
 
 推荐 [@soulteary](https://soulteary.com/2022/02/08/building-bookmark-navigation-for-homelab-with-docker.html) 做的中文化优化版本，Docker 一键部署，内存占用小到忽略不计，重点是可以直接前端编辑。比  [Edui123.com](https://edui123.com/) 采用的 [Hugo Theme Webstack](https://immmmm.com/hugo-theme-webstack/) 更灵活些。
 
-当然，缺点也有，比较是前端渲染，打开刹那还是会看到页面闪烁，再显示内容。
+当然，缺点也有，毕竟是前端渲染，打开刹那还是会看到页面闪烁，再显示内容。

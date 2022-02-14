@@ -112,7 +112,7 @@ layout: 'posts'
 
 {{< friend name="敖天羽" url="https://xsky.me/" src="https://img.codesky.me/uPic/fr2_20191011_182607-a9FlKd.png" des="">}}
 
-{{< friend name="Jdeal" url="https://www.jdeal.cn/" src="https://qn.jdeal.cn/favicon.ico" des="">}}
+{{< friend name="Jdeal" url="https://www.jdeal.cn/" src="https://favicon.yandex.net/favicon/v2/jdeal.cn?size=32" des="">}}
 
 {{< friend name="V2方圆" url="https://www.v2fy.com/" src="https://bbs.v2fy.com/user_avatar/bbs.v2fy.com/zhaoolee/120/3_2.png" des="">}}
 
@@ -120,9 +120,9 @@ layout: 'posts'
 
 {{< friend name="DIYgod" url="https://diygod.me/" src="https://cdn.jsdelivr.net/gh/DIYgod/hexo-theme-sagiri/source/images/DIYgod-avatar2.webp" des="">}}
 
-{{< friend name="Xinsenz茶話" url="https://xinsenz.com/" src="https://xinsenz.com/wp-content/themes/Berry-wordpress/build/images/favicon.png" des="">}}
+{{< friend name="Xinsenz茶話" url="https://xinsenz.com/" src="https://favicon.yandex.net/favicon/v2/xinsenz.com?size=32" des="">}}
 
-{{< friend name="浮游笔记" url="https://fffou.com/" src="https://fffou.com/favicon.ico" des="">}}
+{{< friend name="浮游笔记" url="https://fffou.com/" src="https://favicon.yandex.net/favicon/v2/fffou.com?size=32" des="">}}
 
 {{< friend name="吕小荣" url="https://mednoter.com/" src="https://mednoter.com/images/scribble.png" des="">}}
 
@@ -130,7 +130,7 @@ layout: 'posts'
 
 {{< friend name="小冰博客" url="https://zfe.space/" src="https://zfe.space/images/headimage.png" des="">}}
 
-{{< friend name="Akilarの糖果屋" url="https://akilar.top/" src="https://akilar.top/img/siteicon/favicon.png" des="">}}
+{{< friend name="Akilarの糖果屋" url="https://akilar.top/" src="https://favicon.yandex.net/favicon/v2/akilar.top?size=32" des="">}}
 
 {{< friend name="Heo" url="https://blog.zhheo.com/" src="https://blog.zhheo.com/img/avatar.png" des="">}}
 
@@ -154,7 +154,7 @@ layout: 'posts'
 
 {{< friend name="impdx的博客" url="https://www.impdx.vip/" src="https://www.impdx.vip/imgs/avatar.png" des="">}}
 
-{{< friend name="W4J1e's blog" url="https://hin.cool/" src="https://hin.cool/favicon.ico" des="">}}
+{{< friend name="W4J1e's blog" url="https://hin.cool/" src="https://favicon.yandex.net/favicon/v2/hin.cool?size=32" des="">}}
 
 {{< friend name="Gahotx" url="https://gahotx.cn/" src="https://pub.gahotx.cn/photo/cat.jpg" des="">}}
 
