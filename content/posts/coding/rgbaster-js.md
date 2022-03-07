@@ -2,8 +2,9 @@
 title: "获取图片主色脚本：Rgbaster.js"
 date: 2022-03-06T11:10:11+0800
 tags: [折腾]
-feature: https://cdn.edui.fun/images/2022/03/rgbaster-rili.png
 ---
+
+{{< figure "https://cdn.edui.fun/images/2022/03/rgbaster-rili.png" "https://cdn.edui.fun/images/2022/03/rgbaster-rili2.png" "单向历" >}}
 
 之前做了一个 [单向历](https://edui123.com/rili/) 的单页面，通过 js 请求 api 加载当天的图片。有点小矛盾，当天图片大部分是白色，个别是黑色，那背景色怎么设置都会违和。
 
