@@ -18,8 +18,8 @@ rssLimit = 5
 
 [menu]
   [[menu.main]]
-  name="相册"
-  url="/photos/"
+  name="电影"
+  url="/movies/"
   weight="1"
   [[menu.main]]
   name="哔哔"
