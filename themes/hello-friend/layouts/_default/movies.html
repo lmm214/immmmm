@@ -1,16 +1,352 @@
 {{ define "main" }}
 <div class="post">
   <h2 class="post-title">{{.Title}}</h2>
-  <div class="post-content"></div>
+<div class="post-content col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+  <meta name="referrer" content="no-referrer">
+  {{$movies := getCSV "," "data/douban/movie.csv" }}
+  {{$scratch := newScratch}}
+  {{$scratch.Add "genres" slice}}
+  {{range $idx, $movie := $movies}}
+    {{if ne $idx 0}}
+      {{$scratch.Set "genres" (union ($scratch.Get "genres") (split (index $movie 7) ","))}}
+    {{end}}
+  {{end}}
+  <div class="sc-ksluID gFnzgG">
+    <div class="sc-bdnxRM jvCTkj">
+      <a href="javascript:void 0;" class="sc-gtsrHT kEoOHR" data-search="genres" data-method="contain" data-value="">全部</a>
+      {{range $genre := $scratch.Get "genres"}}
+      <a href="javascript:void 0;" class="sc-gtsrHT dvtjjf" data-search="genres" data-method="contain" data-value="{{$genre}}">{{$genre}}</a>
+      {{end}}
+    </div>
+    <div class="sc-bdnxRM jvCTkj">
+      <a href="javascript:void 0;" class="sc-gtsrHT kEoOHR" data-search="year" data-method="equal" data-value="">全部</a>
+      {{range $year := (seq 2022 -1 2009)}}
+      <a href="javascript:void 0;" class="sc-gtsrHT dvtjjf" data-search="year" data-method="equal" data-value="{{$year}}">{{$year}}</a>
+      {{end}}
+    </div>
+    <div class="sc-bdnxRM jvCTkj">
+      <a href="javascript:void 0;" class="sc-gtsrHT kEoOHR" data-search="star" data-method="equal" data-value="">全部</a>
+      <a href="javascript:void 0;" class="sc-gtsrHT dvtjjf" data-search="star" data-method="equal" data-value="5">五星</a>
+      <a href="javascript:void 0;" class="sc-gtsrHT dvtjjf" data-search="star" data-method="equal" data-value="4">四星</a>
+      <a href="javascript:void 0;" class="sc-gtsrHT dvtjjf" data-search="star" data-method="equal" data-value="3">三星</a>
+      <a href="javascript:void 0;" class="sc-gtsrHT dvtjjf" data-search="star" data-method="equal" data-value="2">二星</a>
+      <a href="javascript:void 0;" class="sc-gtsrHT dvtjjf" data-search="star" data-method="equal" data-value="1">一星</a>
+      <a href="javascript:void 0;" class="sc-gtsrHT dvtjjf" data-search="star" data-method="equal" data-value="0">零星</a>
+    </div>
+    <div class="sc-bdnxRM jvCTkj sort-by">
+      <a href="javascript:void 0;" class="sort-by-item active" data-order="time">
+        观影时间排序
+      </a>
+      <a href="javascript:void 0;" class="sort-by-item" data-order="rating">
+        网友评分排序
+      </a>
+    </div>
+    <div class="sc-dIsUp fIuTG">
+      {{range $idx, $movie := $movies}}
+      <!--排除第一行表头-->
+      {{if ne $idx 0 }}
+      <div 
+        class="sc-gKAaRy dfdORB" 
+        data-year="{{index $movie 9}}" 
+        data-star="{{index $movie 8}}"
+        data-rating="{{index $movie 6}}"
+        data-genres="{{index $movie 7}}"  
+      >
+        <a href="{{index $movie 5}}" target="_blank">
+          <div class="sc-hKFxyN HPRth">
+            <div class="lazyload-wrapper ">
+              <img class="avatar" data-src="{{index $movie 3}}" referrer-policy="no-referrer" loading="lazy" alt="{{index $movie 1}}" width="150" height="220">
+            </div>
+          </div>
+          <div class="sc-iCoGMd kMthTr">{{index $movie 1}}</div>
+          <div class="sc-fujyAs eysHZq">
+            <span class="sc-jSFjdj jcTaHb">
+              {{range $star := (seq 0 2 8)}}
+              <svg viewBox="0 0 24 24" width="24" height="24" class="sc-dlnjwi {{if gt (index $movie 6) $star}}lhtmRw{{else}}gaztka{{end}}">
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path fill="currentColor" d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z"></path>
+              </svg>
+              {{end}}
+            </span>
+            <span class="sc-pNWdM iibjPt">{{index $movie 6}}</span>
+          </div>
+        </a>
+      </div>
+      {{end}}
+      {{end}}
+    </div>  
+  </div>
 </div>
-<script type="text/javascript" src='https://cdn.jsdelivr.net/combine/npm/react@17.0.2/umd/react.production.min.js,npm/react-dom@17.0.2/umd/react-dom.production.min.js,gh/iMuFeng/bmdb@3.4.1/dist/bmdb.js'></script>
+<style>
+  img {
+    max-width: 100%;
+    height: auto;}
+  .gFnzgG, .gFnzgG * {
+      box-sizing: border-box;
+  }
+  .fIuTG {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px -2%;
+    background: none;
+    line-height: 100%;
+  }
+  .dfdORB {
+    width: 16%;
+    margin: 0px 2% 30px;
+    padding: 0px;
+    font-size: 15px;
+  }
+  .dfdORB a {
+      text-decoration: none;
+  }
+  .kMthTr {
+      margin-top: 12px;
+      line-height: 1.3;
+  }
+  .eysHZq {
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+      margin-top: 5px;
+      min-height: 16px;
+      line-height: 1;
+  }
+  .HPRth {
+      position: relative;
+      min-height: 87px;
+      overflow: hidden;
+      color: transparent;
+      background-color: rgb(238, 238, 238);
+      transition: all 0.3s ease 0s;
+  }
+  .HPRth:hover {
+      box-shadow: rgb(48 55 66 / 30%) 0px 1rem 2.1rem;
+  }
+  .jcTaHb {
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+  }
+  .lhtmRw {
+      margin-right: 1px;
+      width: 12px;
+      height: 12px;
+      color: rgb(252, 205, 89);
+  }
+  .gaztka {
+      margin-right: 1px;
+      width: 12px;
+      height: 12px;
+      color: rgb(238, 238, 238);
+  }
+  .iibjPt {
+      margin-left: 5px;
+      color: rgb(85, 85, 85);
+      font-size: 14px;
+  }
+  .jvCTkj {
+      margin-bottom: 10px;
+       
+  }
+  .kEoOHR {
+      display: inline-block;
+      margin-right: 15px;
+      text-decoration: none;
+      font-size: 17px;
+      color: rgb(21, 126, 251);
+  }
+  .dvtjjf {
+      display: inline-block;
+      margin-right: 5px;
+      color: rgb(85, 85, 85);
+      text-decoration: none;
+      font-size: 17px;
+      padding: 0 5px;
+  }
+  .dvtjjf.active {
+    background: rgba(85, 85, 85, 0.1);
+  }
+  .hide {
+    display: none;
+  }
+  .sort-by {
+    text-align: right;
+    margin-top: -15px;
+  }
+  .sort-by-item {
+    margin-left: 10px;
+    padding: 0 5px;
+    line-height: 20px;
+  }
+  .sort-by-item.active {
+    background: rgba(85, 85, 85, 0.1);
+  }
+  .sort-by-item svg {
+    margin-right: 5px;
+  }
+
+@media(min-width: 1024px) {
+  .lg\:block {
+      display:block!important
+  }
+
+  .lg\:flex-row {
+      flex-direction: row!important
+  }
+
+  .lg\:flex-row-reverse {
+      flex-direction: row-reverse!important
+  }
+
+  .lg\:mb-0 {
+      margin-bottom: 0!important
+  }
+
+  .lg\:mr-4 {
+      margin-right: 1rem!important
+  }
+
+  .lg\:ml-4 {
+      margin-left: 1rem!important
+  }
+
+  .lg\:ml-8 {
+      margin-left: 2rem!important
+  }
+
+  .lg\:px-4 {
+      padding-left: 1rem!important;
+      padding-right: 1rem!important
+  }
+
+  .lg\:pt-12 {
+      padding-top: 3rem!important
+  }
+
+  .lg\:w-1\/2 {
+      width: 50%!important
+  }
+
+  .lg\:w-1\/3 {
+      width: 33.333333%!important
+  }
+
+  .lg\:w-2\/3 {
+      width: 66.666667%!important
+  }
+
+  .lg\:w-1\/4 {
+      width: 25%!important
+  }
+
+  .lg\:w-3\/4 {
+      width: 75%!important
+  }
+
+  .lg\:w-1\/5 {
+      width: 20%!important
+  }
+
+  .lg\:w-4\/5 {
+      width: 80%!important
+  }
+
+  .lg\:grid-cols-8 {
+      grid-template-columns: repeat(8,minmax(0,1fr))!important
+  }
+
+  .lg\:col-span-6 {
+      grid-column: span 6/span 6!important
+  }
+
+  .lg\:col-start-2 {
+      grid-column-start: 2!important
+  }
+}
+
+@media(min-width: 1280px) {
+  .xl\:mx-16 {
+      margin-left:4rem!important;
+      margin-right: 4rem!important
+  }
+
+  .xl\:px-8 {
+      padding-left: 2rem!important;
+      padding-right: 2rem!important
+  }
+
+  .xl\:px-12 {
+      padding-left: 3rem!important;
+      padding-right: 3rem!important
+  }
+
+  .xl\:w-2\/12 {
+      width: 16.666667%!important
+  }
+
+  .xl\:grid-cols-3 {
+      grid-template-columns: repeat(3,minmax(0,1fr))!important
+  }
+}
+</style>
 <script type="text/javascript">
-    new Bmdb({
-      type: 'movie',
-      selector: '.post-content',
-      secret: 'a78a512825f5ba984c0f81909c96fd1633c047a3c24a687969e6524966dfbe20',
-      noMoreText: '没有更多数据了',
-      limit: 30
-    })
+  function search(e) {
+    // 隐藏全部电影
+    document.querySelectorAll('.dfdORB').forEach(item => item.classList.add('hide'));
+    // 移除当前筛选项之前的选项
+    document.querySelector(`.dvtjjf.active[data-search="${e.target.dataset.search}"]`)?.classList.remove('active');
+    // 如果选择的是非全部选项，则高亮该选项
+    if(e.target.dataset.value) {
+      e.target.classList.add('active');
+    }
+    // 找到所有筛选项的值
+    const searchItems = document.querySelectorAll('.dvtjjf.active');
+    // 根据筛选值拼接 CSS 选择器，JSON 数据类型的需要使用 *=，其它的需要使用 ^=
+    const attributes = Array.from(searchItems, searchItem => {
+      const property = `data-${searchItem.dataset.search}`;
+      const logic = searchItem.dataset.method === 'contain' ? '*' : '^';
+      const value = searchItem.dataset.method === 'contain' ? `${searchItem.dataset.value}` : searchItem.dataset.value;
+      return `[${property}${logic}='${value}']`;
+    });
+    const selector = `.dfdORB${attributes.join('')}`;
+    // 找到目标元素对其进行展现操作
+    document.querySelectorAll(selector).forEach(item => item.classList.remove('hide'));
+  }
+  window.addEventListener('click', function(e) {
+    if(e.target.classList.contains('sc-gtsrHT')) {
+      e.preventDefault();
+      search(e);
+    }
+  });
+  function sort(e) {
+    const sortBy = e.target.dataset.order;
+    const style = document.createElement('style');
+    style.classList.add('sort-order-style');
+    document.querySelector('style.sort-order-style')?.remove();
+    document.querySelector('.sort-by-item.active')?.classList.remove('active');
+    e.target.classList.add('active');
+    if(sortBy === 'rating') {
+      const movies = Array.from(document.querySelectorAll('.dfdORB'));
+      movies.sort((movieA, movieB) => {
+        const ratingA = parseFloat(movieA.dataset.rating) || 0;
+        const ratingB = parseFloat(movieB.dataset.rating) || 0;
+        if(ratingA === ratingB) {
+          return 0;
+        }
+        return ratingA > ratingB ? -1 : 1;
+      });
+      const stylesheet = movies.map((movie, idx) => `.dfdORB[data-rating="${movie.dataset.rating}"] { order: ${idx}; }`).join('\r\n');
+      style.innerHTML = stylesheet;
+      document.body.appendChild(style);
+    }
+  }
+  window.addEventListener('click', function(e) {
+    if(e.target.classList.contains('sort-by-item')) {
+      e.preventDefault();
+      sort(e);
+    }
+  });
 </script>
+</div>
 {{ end }}
