@@ -13,14 +13,14 @@ feature: https://cdn.edui.fun/images/2022/02/flame.png
 
 推荐 [@soulteary](https://soulteary.com/) 做的中文化优化版本 [Flare](https://soulteary.com/2022/02/23/building-a-personal-bookmark-navigation-app-from-scratch-flare.html)，Docker 一键部署，内存占用小到忽略不计，重点是可以直接前端编辑。比  [Edui123.com](https://edui123.com/) 采用的 [Hugo Theme Webstack](https://immmmm.com/hugo-theme-webstack/) 更灵活些。
 
-修改 `docker-compose.yml` 内的 `0.3.2` ，再一键三连，镜像更新完毕。
+采用 `docker-compose.yml` 部署更是一键三连，镜像启用更新部署丝滑！
 
 ```
 # docker-compose.yml
 version: '3.6'
 services:
   flare:
-    image: soulteary/flare:0.3.2
+    image: soulteary/flare:latest
     restart: always
     command: flare --nologin=0
     environment:

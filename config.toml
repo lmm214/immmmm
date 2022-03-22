@@ -22,8 +22,8 @@ rssLimit = 5
   url="/movies/"
   weight="1"
   [[menu.main]]
-  name="哔哔"
-  url="/bb/"
+  name="阅读"
+  url="/books/"
   weight="2"
   [[menu.main]]
   name="归档"
