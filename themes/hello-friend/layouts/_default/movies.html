@@ -2,7 +2,6 @@
 <div class="post">
   <h2 class="post-title">{{.Title}}</h2>
 <div class="post-content col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
-  <meta name="referrer" content="no-referrer">
   {{$movies := getCSV "," "data/douban/movie.csv" }}
   {{$scratch := newScratch}}
   {{$scratch.Add "genres" slice}}
@@ -55,7 +54,7 @@
         <a href="{{index $movie 5}}" target="_blank">
           <div class="sc-hKFxyN HPRth">
             <div class="lazyload-wrapper ">
-              <img class="avatar" data-src="{{index $movie 3}}" referrer-policy="no-referrer" loading="lazy" alt="{{index $movie 1}}" width="150" height="220">
+              <img class="avatar" src="{{index $movie 3}}" referrer-policy="no-referrer" loading="lazy" alt="{{index $movie 1}}" width="150" height="220">
             </div>
           </div>
           <div class="sc-iCoGMd kMthTr">{{index $movie 1}}</div>
@@ -117,7 +116,6 @@
       min-height: 87px;
       overflow: hidden;
       color: transparent;
-      background-color: rgb(238, 238, 238);
       transition: all 0.3s ease 0s;
   }
   .HPRth:hover {
