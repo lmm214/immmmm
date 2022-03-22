@@ -22,7 +22,7 @@ jobs:
         format: csv
         dir: ./data/douban
 
-    - name: music
+    - name: book
       uses: lizheming/doumark-action@master
       with:
         id: immmmm
