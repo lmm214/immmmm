@@ -84,7 +84,7 @@
       }
     });
   </script>
-<div class="post-content lg:col-start-2 lg:col-span-6">
+<div class="lg:col-start-2 lg:col-span-6">
   {{$books := getCSV "," "data/douban/book.csv" }}
   {{$scratch := newScratch}}
   {{$scratch.Add "genres" slice}}
