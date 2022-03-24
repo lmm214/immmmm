@@ -33,7 +33,7 @@ tags: [折腾]
 <meta name="referrer" content="never">
 ```
 
-基于 jQuery 的功能代码，内置自建 API 不保证稳定：
+基于 jQuery 的功能代码，内置自建 API 不保证稳定（瞬间被502，哎……）：
 
 ```javascript
 //豆瓣图书电影条目
