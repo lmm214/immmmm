@@ -27,12 +27,6 @@ tags: [折腾]
 
 ### 相关代码
 
-`head`头部添加以下 meta
-
-```html
-<meta name="referrer" content="never">
-```
-
 基于 jQuery 的功能代码，内置自建 API 不保证稳定（瞬间被502，哎……）：
 
 ```javascript
