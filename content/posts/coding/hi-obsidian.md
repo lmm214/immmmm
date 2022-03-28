@@ -9,62 +9,9 @@ feature: https://pic.edui.fun/images/2021/07/obsidian-1.png
 
 <!--more-->
 
-折腾一天，完美实现日常「坑娃」 需求：
-
-> 随时记录各类培训，并自动更新汇总。
-
-### 一键坑娃
-
-{{< figure "https://pic.edui.fun/images/2021/08/obsidian-4.jpeg" "https://pic.edui.fun/images/2021/08/obsidian-5.jpeg" "https://pic.edui.fun/images/2021/08/obsidian-6.jpeg" "「快捷指令」一键坑娃">}}
-
-两步走：先装好 [Advanced Obsidian URI](https://github.com/Vinzent03/obsidian-advanced-uri/) 插件，再在 iOS 添加上图中的快捷指令。
-
-```javascript
-obsidian://advanced-uri?vault=&daily=true&mode=append&data=%23%E4%B9%A6%E6%B3%95
-```
-
-注：以上 URL 实现一键追加 `#书法` 到当日如 `2021-08-06.md` 中（）。其中 URL中的 `%23%E4%B9%A6%E6%B3%95` == `#书法` ，因为 `data` 需要 URL 编码（Encode），更多参数详见插件页。
-
-### 随查进度
-
-![obsidian-2](https://pic.edui.fun/images/2021/08/obsidian-2.png)
-
-坑了几次啦，还剩几次啦？打开 `坑娃.md` **预览模式**，一目了然！咋实现的呢？
-
-也是两步走：先装好 [Obsidian Dataview](https://github.com/blacksmithgu/obsidian-dataview) 插件，再来个页面如 `坑娃.md` 添加两段代码，一是统计次数，二是索引表格。
-
-```javascript
-//```dataviewjs
-let total = 20  //课时数
-let day = '2021-07-11'  //统计起始日期
-let tag = "#书法"  //统计的标签
-let folder = "9 日志"  //限定次文件夹下的标签
-let shufu = dv.pages(tag)
-	.where(
-		t => t.file.name >= day
-	)
-	.where(
-		t => t.file.folder.includes(folder)
-	)
-	.array().length
-let res = "已学 "+shufu+" 次，还剩 "+(total-shufu)+" 次"
-let resDay = "(于 "+ day +" 续费，共 "+total+"课时)"
-dv.header(1,tag)
-dv.header(2,res)
-dv.paragraph(resDay)
-//```
-```
-
-```javascript
-//```dataview  
-TABLE WITHOUT ID file.link AS "#书法",shufa AS ""  FROM #书法 AND "9 日志"
-WHERE file.day >= date(2021-07-11)
-sort file.name desc
-//```
-```
-
 ### 主题美化套餐
 
+- [Primary](https://github.com/ceciliamay/obsidianmd-theme-primary)：自用主题。
 - [Minimal Theme](https://github.com/kepano/obsidian-minimal)：主题。
 - [Minimal Theme Settings](https://github.com/kepano/obsidian-minimal-settings)：配套设置面板，可自定义字体等。
 - [Hide](https://github.com/kepano/obsidian-hider)：自定义隐藏界面UI。
@@ -139,3 +86,55 @@ Auto Rename: OFF
 - [Obsidian 相关文章索引](https://www.zhihu.com/column/c_1302994040707948544)：来自Z乎话题。
 - [Obsidian 插件之 Dataview](https://zhuanlan.zhihu.com/p/373623264)：更多高级代码解读。
 - [Obsidian 使用教學](https://medium.com/pm%E7%9A%84%E7%94%9F%E7%94%A2%E5%8A%9B%E5%B7%A5%E5%85%B7%E7%AE%B1/obsidian-%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8-%E6%8F%92%E4%BB%B6%E7%AF%87-01-%E5%A6%82%E4%BD%95%E5%9C%A8-obsidian-%E4%B8%AD%E5%BF%AB%E9%80%9F%E6%8B%86%E5%88%86%E7%AD%86%E8%A8%98-33ac54fbe4c7)：来自 Medium 全系列教程。
+
+### 坑娃套餐
+
+> 随时记录各类培训，并自动更新汇总。
+
+{{< figure "https://pic.edui.fun/images/2021/08/obsidian-4.jpeg" "https://pic.edui.fun/images/2021/08/obsidian-5.jpeg" "https://pic.edui.fun/images/2021/08/obsidian-6.jpeg" "「快捷指令」一键坑娃">}}
+
+两步走：先装好 [Advanced Obsidian URI](https://github.com/Vinzent03/obsidian-advanced-uri/) 插件，再在 iOS 添加上图中的快捷指令。
+
+```javascript
+obsidian://advanced-uri?vault=&daily=true&mode=append&data=%23%E4%B9%A6%E6%B3%95
+```
+
+注：以上 URL 实现一键追加 `#书法` 到当日如 `2021-08-06.md` 中（）。其中 URL中的 `%23%E4%B9%A6%E6%B3%95` == `#书法` ，因为 `data` 需要 URL 编码（Encode），更多参数详见插件页。
+
+### 随查进度
+
+![obsidian-2](https://pic.edui.fun/images/2021/08/obsidian-2.png)
+
+坑了几次啦，还剩几次啦？打开 `坑娃.md` **预览模式**，一目了然！咋实现的呢？
+
+也是两步走：先装好 [Obsidian Dataview](https://github.com/blacksmithgu/obsidian-dataview) 插件，再来个页面如 `坑娃.md` 添加两段代码，一是统计次数，二是索引表格。
+
+```javascript
+//```dataviewjs
+let total = 20  //课时数
+let day = '2021-07-11'  //统计起始日期
+let tag = "#书法"  //统计的标签
+let folder = "9 日志"  //限定次文件夹下的标签
+let shufu = dv.pages(tag)
+	.where(
+		t => t.file.name >= day
+	)
+	.where(
+		t => t.file.folder.includes(folder)
+	)
+	.array().length
+let res = "已学 "+shufu+" 次，还剩 "+(total-shufu)+" 次"
+let resDay = "(于 "+ day +" 续费，共 "+total+"课时)"
+dv.header(1,tag)
+dv.header(2,res)
+dv.paragraph(resDay)
+//```
+```
+
+```javascript
+//```dataview  
+TABLE WITHOUT ID file.link AS "#书法",shufa AS ""  FROM #书法 AND "9 日志"
+WHERE file.day >= date(2021-07-11)
+sort file.name desc
+//```
+```

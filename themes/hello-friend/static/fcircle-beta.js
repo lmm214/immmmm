@@ -1,5 +1,5 @@
 /*
-Last Modified time : 20220211 15:38 by https://immmmm.com
+Last Modified time : 20220326 15:38 by https://immmmm.com
 已适配 FriendCircle 公共库和主库
 */
 
@@ -289,9 +289,9 @@ function openMeShow(event){
   console.log(meLink)
   var fetchUrl = ''
   if(fdata.apiurl){
-    fetchUrl = fdata.apiurl + "post?link="+meLink
+    fetchUrl = fdata.apiurl + "post?num=5&link="+meLink
   }else{
-    fetchUrl = fdata.apipublieurl + "post?link="+meLink
+    fetchUrl = fdata.apipublieurl + "post?num=5&link="+meLink
   }
   //console.log(fetchUrl)
   if(noClick == 'ok'){
