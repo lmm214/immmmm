@@ -111,13 +111,15 @@ dv.paragraph(
 -```
 ```
 
-归档每月文章数。排除文件夹 `Template` 和 `1 看板`。
+归档每月文章数。排除文件夹 `Template` 和 `1 看板`。（更新 By @poet ）
 
 ```javascript
 -```dataview
-table WITHOUT ID rows.file[0].day.year+"年"+rows.file[0].day.month+"月" as 月份,length(rows)+"篇" as 数量
-where !contains(file.folder, "Template") and !contains(file.folder, "1 看板")
-group by file.day.month
+TABLE WITHOUT ID
+    rows.file[0].cday.year + "年 " + rows.file[0].cday.month + "月" AS "月份",length(rows) + " 篇" AS "数量"
+    where !contains(file.folder, "Template") and !contains(file.folder, "1 看板")
+	GROUP BY file.cday.year + "年 " + file.cday.month + "月" AS "Group"
+	SORT rows.file[0].cday DESC
 -```
 ```
 
