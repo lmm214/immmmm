@@ -7,7 +7,7 @@ Last Modified time : 20220326 15:38 by https://immmmm.com
 var fdata = {
   jsonurl: '',
   apiurl: '',
-  apipublieurl: 'https://circle-of-friends-simple.vercel.app/', //默认公共库
+  apipublieurl: 'https://fcircle-pub.rct.cool/', //默认公共库
   initnumber: 20,  //首次加载文章数
   stepnumber: 10,  //更多加载文章数
   article_sort: 'created', //文章排序 updated or created
