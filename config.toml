@@ -57,10 +57,14 @@ rssLimit = 5
   EditPath = 'https://github.com/lmm214/immmmm/edit/master/content'
 
 [markup]
-[markup.goldmark]
-[markup.goldmark.renderer]
-  unsafe = true
-
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 1
+    
 [outputs]
   home = ["Atom", "HTML","JSON"] # <domain>/atom.xml
   page = ["HTML"]

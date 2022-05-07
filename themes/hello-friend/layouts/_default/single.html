@@ -30,10 +30,6 @@
           {{ end }}
         {{ end }}
       {{ end }}
-
-        {{- if .Site.Params.valine.enable -}}
-        <span> / <span class="valine-comment-count" data-xid="{{ .URL | relURL }}">0</span> 评论 / <span id="{{ .URL | relURL }}" class="leancloud_visitors" data-flag-title="{{ .Title }}"><span class="leancloud-visitors-count">0</span> 阅读</span></span>
-        {{ end }}
     </div>
 
     {{ if .Params.feature }}
@@ -45,13 +41,10 @@
     {{ end }}
   
     <div class="post-content">
+      {{ if .Params.toc }}{{ .TableOfContents }}{{ end }}
       {{ .Content }}
       {{ .Render "path"}}
     </div>
-  
-    {{ if .Params.toc }}
-      <div class="tocify">目录：{{- partial "toc.html" . -}}</div>
-    {{ end }}
 
     {{ if .Params.tags }}
       <span class="post-tags">

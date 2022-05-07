@@ -1,0 +1,24 @@
+{{ define "main" }}
+
+<style type="text/css">
+  #TableOfContents {background-color: #252627;padding: .5em}
+  #TableOfContents ~ h1 {background: #252627;margin:1em 0;text-align: center;}
+  #TableOfContents,#TableOfContents~p:first-of-type{counter-reset:circled-numbers}
+  #TableOfContents>ul>li>ul>li{display:inline-block}
+  #TableOfContents>ul>li>ul>li::before,.post-content h2::before{counter-increment:circled-numbers;content:counter(circled-numbers);border-radius:50%;border:1px dashed #999;color:#333;background:#fff;display:inline-block;min-width:1.75em;line-height:1.75em;margin-right:.5em;text-align:center;font-size:.8em}
+  .post-content h2::before{vertical-align:bottom;color:#fff;border:none;background:#999}
+</style>
+
+<div class="post">
+  <h2 class="post-title">{{.Title}}</h2>
+  <div class="post-content">
+    {{ if .Params.toc }}{{ .TableOfContents }}{{ end }}
+    {{ .Content }}
+    {{ .Render "path"}}
+  </div>
+</div>
+
+<script>
+  !function(){const e=document.getElementById("TableOfContents");if(!e)return;e.querySelectorAll('a[href^="#"]').forEach((e=>{let t=e.getAttribute("href").replace(/^#/,"");const n=document.getElementById(t);if(t=t.replace(/https?.*$/,""),n&&(n.id=t),e.href="#"+t,""!==e.innerHTML)return;const r=e.nextElementSibling;r&&"A"===r.tagName&&(e.innerHTML=r.innerHTML,r.remove())}));let t,n=e.querySelector("ul");1===n.childElementCount&&(t=n.firstElementChild,"LI"===t.tagName&&(n.outerHTML=t.innerHTML))}();
+  </script>
+{{ end }}
