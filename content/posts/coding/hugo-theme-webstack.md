@@ -30,11 +30,11 @@ title = "Edui.fun"
     # 副标题
     subtitle = "让教学有点意思"
     # 横条logo
-    logo = "https://cdn.jsdelivr.net/gh/lmm214/edui@gh-pages/images/avatar.png"
+    logo = "https://fastly.jsdelivr.net/gh/lmm214/edui@gh-pages/images/avatar.png"
     # logo 图标
-    logoM = "https://cdn.jsdelivr.net/gh/lmm214/edui@gh-pages/images/eduifuns.png"
+    logoM = "https://fastly.jsdelivr.net/gh/lmm214/edui@gh-pages/images/eduifuns.png"
     # css和js文件的cdn
-    cdn = "https://cdn.jsdelivr.net/gh/lmm214/edui@gh-pages"
+    cdn = "https://fastly.jsdelivr.net/gh/lmm214/edui@gh-pages"
     # 开启今日诗词
     jinrishici = "true"
     # 开启访问量统计
@@ -67,7 +67,7 @@ css = 'icon-star'
 [[list.sub.item]]
 description="随时随地打开，开启专注力训练"
 siteLink="https://edui.fun/schulte/"
-siteLogo="https://cdn.jsdelivr.net/gh/lmm214/images/logos/schulte.png"
+siteLogo="https://fastly.jsdelivr.net/gh/lmm214/images/logos/schulte.png"
 siteName="舒尔特方格"
 
 [[list.sub]]
@@ -77,7 +77,7 @@ css = 'icon-pencil'
 [[list.sub.item]]
 description="在线生成并打印描字帖、笔顺描写贴和常用字体模板"
 siteLink="https://tool.lu/copybook/index.html"
-siteLogo="https://cdn.jsdelivr.net/gh/lmm214/images/logos/toollu.png"
+siteLogo="https://fastly.jsdelivr.net/gh/lmm214/images/logos/toollu.png"
 siteName="字帖生成器"
 
 [[list]]
@@ -87,7 +87,7 @@ css = 'icon-desktop'
 [[list.item]]
 description="一键部署新版本 Office 全家桶，免费！"
 siteLink="https://otp.landian.vip/zh-cn/"
-siteLogo="https://cdn.jsdelivr.net/gh/lmm214/images@master/logos/otp.png"
+siteLogo="https://fastly.jsdelivr.net/gh/lmm214/images@master/logos/otp.png"
 siteName="Office Tool Plus"
 
 
@@ -97,8 +97,8 @@ css = 'icon-mobile'
 
 [[list.item]]
 description="在线电子教材、必备古诗词、24点出题"
-siteImage="https://cdn.jsdelivr.net/gh/lmm214/images/logos/exzz.jpg"
-siteLogo="https://cdn.jsdelivr.net/gh/lmm214/images/logos/exzz.jpg"
+siteImage="https://fastly.jsdelivr.net/gh/lmm214/images/logos/exzz.jpg"
+siteLogo="https://fastly.jsdelivr.net/gh/lmm214/images/logos/exzz.jpg"
 siteName="二小智造"
 ```
 

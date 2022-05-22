@@ -37,7 +37,7 @@ tags: [折腾]
 - 页脚添加 <https://instant.page/> ;
 
 ```js
-<script src="//cdn.jsdelivr.net/npm/instant.page@3.0.0/instantpage.min.js" type="module"></script>
+<script src="//fastly.jsdelivr.net/npm/instant.page@3.0.0/instantpage.min.js" type="module"></script>
 ```
 
 - 首页、日志页分别添加预加载 prefetch；

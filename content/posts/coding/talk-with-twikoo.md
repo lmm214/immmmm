@@ -61,7 +61,7 @@ feature: https://pic.edui.fun/images/2021/06/yanyu-3.png
 由此也拾起最陌生的陌生人——原生 JavaScript 
 
 ```JavaScript
-<script src="https://cdn.jsdelivr.net/npm/twikoo@1.4.5/dist/twikoo.all.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/twikoo@1.4.5/dist/twikoo.all.min.js"></script>
 <script>
   twikoo.init({
     envId: 'twikoo-123456',

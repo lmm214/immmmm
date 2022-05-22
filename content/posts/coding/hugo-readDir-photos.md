@@ -46,7 +46,7 @@ layout: "photos"
 <div class="page-photos">
   {{ range (readDir "./static/photos") }}
   <figure>
-    <img src="https://cdn.jsdelivr.net/gh/lmm214/immmmm@gh-pages/photos/{{ .Name }}" alt="{{ .Name }}" />
+    <img src="https://fastly.jsdelivr.net/gh/lmm214/immmmm@gh-pages/photos/{{ .Name }}" alt="{{ .Name }}" />
     <figcaption>{{ .Name | replaceRE "(.*)[.].*" "$1"}}</figcaption>
   </figure>
   {{ end }}

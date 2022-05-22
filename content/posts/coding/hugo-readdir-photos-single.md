@@ -27,7 +27,7 @@ path: 2004gd
 ```
 {{ if .Params.path }}
     {{$Path := .Params.path}}
-    {{- range (readDir (printf "%s%s" "./static/images/" $Path )) -}}<img loading='lazy' src="{{(printf "https://cdn.jsdelivr.net/gh/lmm214/immmmm@gh-pages/images/%s/%s" $Path .Name ) | absURL}}" />{{- end -}}
+    {{- range (readDir (printf "%s%s" "./static/images/" $Path )) -}}<img loading='lazy' src="{{(printf "https://fastly.jsdelivr.net/gh/lmm214/immmmm@gh-pages/images/%s/%s" $Path .Name ) | absURL}}" />{{- end -}}
 {{ end }}
 ```
 

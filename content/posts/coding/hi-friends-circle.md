@@ -19,7 +19,7 @@ feature: https://cdn.edui.fun/images/2022/02/myf-12.png
 <!-- 挂载友链朋友圈的容器 -->
 <div id="cf-container">与主机通讯中……</div>
 <!-- 加样式和功能代码 -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lmm214/immmmm/themes/hello-friend/static/fcircle-beta.css">
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/lmm214/immmmm/themes/hello-friend/static/fcircle-beta.css">
 <!-- 匹配自己的友链或加载后端数据
 <script type="text/javascript">
   var fdataUser = {
@@ -28,7 +28,7 @@ feature: https://cdn.edui.fun/images/2022/02/myf-12.png
   }
 </script>
 -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lmm214/immmmm/themes/hello-friend/static/fcircle-beta.js"></script>
+<script type="text/javascript" src="https://fastly.jsdelivr.net/gh/lmm214/immmmm/themes/hello-friend/static/fcircle-beta.js"></script>
 ```
 
 这样就搞定啦，默认看到的是 750+ feeds 的公共库（数据来自 [saveweb](https://github.com/saveweb/rss-list)）。
@@ -75,7 +75,7 @@ feature: https://cdn.edui.fun/images/2022/02/myf-12.png
 | 林木木   | https://immmmm.com/        | 新版友链朋友圈前端方案编写者                                 |
 | Fox      | https://foolishfox.cn/     | 提供sql api与sql存储本地化方案                               |
 
-个人编写的 [fcircle-beta.js](https://cdn.jsdelivr.net/gh/lmm214/immmmm/themes/hello-friend/static/fcircle-beta.js) 源自 [fetch.js](https://cdn.jsdelivr.net/gh/Rock-Candy-Tea/hexo-friendcircle-demo@main/js/fetch.js) 和 [fcircle.js](https://cdn.jsdelivr.net/gh/Rock-Candy-Tea/hexo-friendcircle-demo@main/js/fcircle.js)，从最初的简单合并实现了“第一次打开即能显示相应内容”，之后一天天的 commit 几乎是逼着强力后端 [@贰猹](https://noionion.top/) 做了一个全新的 API，实现了很多全新的交互。
+个人编写的 [fcircle-beta.js](https://fastly.jsdelivr.net/gh/lmm214/immmmm/themes/hello-friend/static/fcircle-beta.js) 源自 [fetch.js](https://fastly.jsdelivr.net/gh/Rock-Candy-Tea/hexo-friendcircle-demo@main/js/fetch.js) 和 [fcircle.js](https://fastly.jsdelivr.net/gh/Rock-Candy-Tea/hexo-friendcircle-demo@main/js/fcircle.js)，从最初的简单合并实现了“第一次打开即能显示相应内容”，之后一天天的 commit 几乎是逼着强力后端 [@贰猹](https://noionion.top/) 做了一个全新的 API，实现了很多全新的交互。
 
 ### 前端交互说明
 
@@ -97,4 +97,4 @@ feature: https://cdn.edui.fun/images/2022/02/myf-12.png
 
 ###  CSS 样式命名说明
 
-[fcircle-beta.css](https://cdn.jsdelivr.net/gh/lmm214/immmmm/themes/hello-friend/static/fcircle-beta.css) 统一命名格式，以 `cf-` 做标识。
+[fcircle-beta.css](https://fastly.jsdelivr.net/gh/lmm214/immmmm/themes/hello-friend/static/fcircle-beta.css) 统一命名格式，以 `cf-` 做标识。

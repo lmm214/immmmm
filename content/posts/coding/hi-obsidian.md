@@ -49,7 +49,7 @@ Auto Rename: OFF
 
 ### 大纲优化套餐
 
-![obsidian-outliner-demo-gif](https://cdn.jsdelivr.net/gh/vslinko/obsidian-outliner/demo.gif)
+![obsidian-outliner-demo-gif](https://fastly.jsdelivr.net/gh/vslinko/obsidian-outliner/demo.gif)
 
 - [Outliner](https://github.com/vslinko/obsidian-outliner)：实现了大纲的快速缩进等各种效果。
 - [Zoom](https://github.com/vslinko/obsidian-zoom)：可进入节点编辑。
@@ -69,7 +69,7 @@ Auto Rename: OFF
 - [Text expand](https://github.com/mrjackphil/obsidian-text-expand)：编写检索代码，查询后把结果插入当前页面。
 - [Tag Wrangler Plugin](https://github.com/pjeby/tag-wrangler)：标签栏上重命名全库内的所有同名标签都会被自动更改。
 
-{{< figure "https://cdn.jsdelivr.net/gh/Reocin/obsidian-markdown-formatting-assistant-plugin/assets/Suggestion_Window.png" "https://cdn.jsdelivr.net/gh/Reocin/obsidian-markdown-formatting-assistant-plugin/assets/Suggestion_Window_Improved.png" "Markdown Formatting Assistant">}}
+{{< figure "https://fastly.jsdelivr.net/gh/Reocin/obsidian-markdown-formatting-assistant-plugin/assets/Suggestion_Window.png" "https://fastly.jsdelivr.net/gh/Reocin/obsidian-markdown-formatting-assistant-plugin/assets/Suggestion_Window_Improved.png" "Markdown Formatting Assistant">}}
 
 - [Markdown Formatting Assistant](https://github.com/Reocin/obsidian-markdown-formatting-assistant-plugin)：增加一个面板显示各种格式、符号，点击使用，或者 `\` 反斜杠检索。
 

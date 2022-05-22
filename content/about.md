@@ -118,7 +118,7 @@ layout: 'posts'
 
 {{< friend name="失眠海峡" url="https://blog.imalan.cn/" src="https://blog.imalan.cn/logo.jpg" des="">}}
 
-{{< friend name="DIYgod" url="https://diygod.me/" src="https://cdn.jsdelivr.net/gh/DIYgod/hexo-theme-sagiri/source/images/DIYgod-avatar2.webp" des="">}}
+{{< friend name="DIYgod" url="https://diygod.me/" src="https://fastly.jsdelivr.net/gh/DIYgod/hexo-theme-sagiri/source/images/DIYgod-avatar2.webp" des="">}}
 
 {{< friend name="Xinsenz茶話" url="https://xinsenz.com/" src="https://favicon.yandex.net/favicon/v2/xinsenz.com?size=32" des="">}}
 
@@ -138,7 +138,7 @@ layout: 'posts'
 
 {{< friend name="羿潇贤鱼の窝" url="https://blog.raxianch.moe/" src="https://q1.qlogo.cn/g?b=qq&nk=1025212779&s=5" des="">}}
 
-{{< friend name="Black Flies" url="https://www.yyyzyyyz.cn/" src="https://cdn.jsdelivr.net/gh/hiltay/imgcdn/img/202111191951780.JPG" des="">}}
+{{< friend name="Black Flies" url="https://www.yyyzyyyz.cn/" src="https://fastly.jsdelivr.net/gh/hiltay/imgcdn/img/202111191951780.JPG" des="">}}
 
 {{< friend name="小孙同学" url="https://sunguoqi.com/" src="https://sunguoqi.com/images/avatar.jpg" des="">}}
 
@@ -180,7 +180,7 @@ layout: 'posts'
 
 {{< friend name="怡红公子" url="https://imnerd.org/" md5="32f210c5e3cd76fdf677981974274dfd" des="">}}
 
-{{< friend name="小康博客" url="https://www.antmoe.com/" src="https://cdn.jsdelivr.net/npm/kang-static@latest/avatar.jpg" des="">}}
+{{< friend name="小康博客" url="https://www.antmoe.com/" src="https://fastly.jsdelivr.net/npm/kang-static@latest/avatar.jpg" des="">}}
 
 {{< friend des="" url="https://www.foryuanbo.com/" md5="77a4ed5175b2c4995dc55c32310949a6" name="远博" >}}
 

@@ -4,7 +4,7 @@ date: 2021-10-16T21:02:16+0800
 tags: [日常]
 ---
 
-![shufa](https://cdn.jsdelivr.net/gh/lmm214/images@master/logos/shufa.png)
+![shufa](https://fastly.jsdelivr.net/gh/lmm214/images@master/logos/shufa.png)
 
 戳我打开： <https://edui123.com/shufa/>
 

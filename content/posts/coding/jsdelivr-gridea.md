@@ -12,7 +12,7 @@ https://lmm214.github.io/immmmm/media/js/jquery.min.js
 改为：
 
 ```js
-https://cdn.jsdelivr.net/gh/lmm214/immmmm/media/js/jquery.min.js
+https://fastly.jsdelivr.net/gh/lmm214/immmmm/media/js/jquery.min.js
 ```
 其中 `lmm214` 和 `immmmm` 分别为 GitHub 的用户名和仓库名，之后的 `/media/js/jquery.min.js` 为静态文件地址。
 
@@ -39,7 +39,7 @@ https://cdn.jsdelivr.net/gh/lmm214/immmmm/media/js/jquery.min.js
 
 ```js
 <% if ( site.customConfig.jsdelivr == true) { %>
-<script src="https://cdn.jsdelivr.net/gh/<%= site.customConfig.username %>/<%= site.customConfig.repository %>/media/js/jquery.min.js"></script>
+<script src="https://fastly.jsdelivr.net/gh/<%= site.customConfig.username %>/<%= site.customConfig.repository %>/media/js/jquery.min.js"></script>
 <% } else{ %>
 <script src="<%= themeConfig.domain %>/media/js/jquery.min.js"></script>
 <% }; %>

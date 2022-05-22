@@ -80,14 +80,14 @@ toc: true
 ```html
 <div id="bber"></div>
 <script src="https://imgcache.qq.com/qcloud/cloudbase-js-sdk/1.4.0/cloudbase.full.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/buddys/qq-wechat-emotion-parser@master/dist/qq-wechat-emotion-parser.min.js"></script>
+<script src="https://fastly.jsdelivr.net/gh/buddys/qq-wechat-emotion-parser@master/dist/qq-wechat-emotion-parser.min.js"></script>
 <script>
   const app = tcb.init({
       env: 'bb-123xx', //这里是你的环境id
       //region: "ap-guangzhou"
   })
 </script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/lmm214/bber@0.0.5/bber.js"></script>
+<script type="text/javascript" src="https://fastly.jsdelivr.net/gh/lmm214/bber@0.0.5/bber.js"></script>
 ```
 
 ```html

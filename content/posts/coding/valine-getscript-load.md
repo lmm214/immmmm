@@ -9,8 +9,8 @@ tags: [折腾]
 在需要加载的一串 JS 里，找来找去，Valine 这货最强大 💪
 
 ```html
-47.5KB --> https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js
-75KB   --> https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js
+47.5KB --> https://fastly.jsdelivr.net/npm/leancloud-storage/dist/av-min.js
+75KB   --> https://fastly.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js
 6.4KB  --> https://js.fundebug.cn/fundebug.1.9.0.min.js
 ```
 
@@ -35,7 +35,7 @@ function loadComments() {
       document.body.appendChild(script);
     };
     getScript({
-      src: 'https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js',
+      src: 'https://fastly.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js',
       onload: () => {
         newValine();
       }
