@@ -743,7 +743,7 @@ hr {
 	}
 }
 .post-content {
-	font-family: 'Noto Serif SC', -apple-system,BlinkMacSystemFont,Roboto,Segoe UI,Helvetica,Arial,serif;
+	font-family: source-han-serif-sc, -apple-system,BlinkMacSystemFont,Roboto,Segoe UI,Helvetica,Arial,serif;
 	font-weight: 500;
 	margin-top: 0px;
 	word-break:break-all;
@@ -927,7 +927,7 @@ hr {
 }
 .footer .copyright-font{
 	margin-bottom: 2rem;
-	font-family: 'Noto Serif SC', -apple-system,BlinkMacSystemFont,Roboto,Segoe UI,Helvetica,Arial,serif;
+	font-family:  source-han-serif-sc, -apple-system,BlinkMacSystemFont,Roboto,Segoe UI,Helvetica,Arial,serif;
 }
 .footer .copyright--user {
 	margin: auto;
