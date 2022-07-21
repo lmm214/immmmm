@@ -51,7 +51,7 @@ QuickConnect 当然是已启用，但也仅用来 **Connect** ，传输数据不
 
 > Audio 8801 || Download 8001 || File 7001 || Note 9351 || Drive 10003 || Photos 5443 || Video 9008 || VMM 14641
 
-这里，记得，路由器里添加对应的端口转发！！！
+这里，记得，**路由器里添加对应的端口转发**！！！
 
 #### 网络
 
@@ -101,12 +101,11 @@ Audio Station 添加 QQ 歌词插件
 
 ### 社群套件
 
-套件中心--右上角设置--套件来源--新增：
+![ds220-11](https://cdn.edui.fun/images/2022/07/ds220-11.jpg)
 
-`http://packages.synocommunity.com/`
+套件中心--右上角设置--套件来源--新增，套件中心左侧多了个 「社群」。
 
-套件中心左侧，多了个 「社群」。随手安装个 ffmpeg，再按个 Jellyfin （默认端口是 8096），其添加文件夹路径格式是： `/volume2/Video`，好像也没什么用。
-
-### 套件推荐
-
-- 《群晖NAS高级服务 - 使用阿里云盘打造免费 WebDAV 服务》: <https://www.ioiox.com/archives/142.html>
+```
+http://packages.synocommunity.com/
+https://spk7.imnks.com/
+```
