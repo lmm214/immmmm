@@ -164,7 +164,7 @@ layout: 'posts'
 
 {{< friend name="iMaeGoo’s Blog" url="https://www.imaegoo.com/" src="https://cravatar.cn/avatar/05bb2aa29c9da6ef65fabd321135e7b6?s=200" des="">}}
 
-{{< friend name="TNXG's Blog" url="https://tnxg.loyunet.cn/" src="https://tnxg.loyunet.cn/assets/images/favicon.png" des="">}}
+{{< friend name="天翔的博客" url="https://tnxg.loyunet.cn" src="https://q1.qlogo.cn/g?b=qq&nk=2271225249&s=640" des="">}}
 
 {{< friend name="多米诺的blog" url="https://blog.dominoh.com/" src="https://bu.dusays.com/2021/12/21/4f20cbfa55e12.png" des="">}}
 
