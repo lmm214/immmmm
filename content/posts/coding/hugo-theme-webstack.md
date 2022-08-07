@@ -1,17 +1,19 @@
 ---
 title: Hugo Theme Webstack
-date: 2020-06-10T09:15:25+0800
+date: 2022-08-07T19:15:25+0800
 tags: [折腾]
-feature: https://pic.edui.fun/images/2020/05/webstack-12.png
+feature: https://cdn.edui.fun/images/2022/08/webstack.png
 ---
 
-新版本更新，感谢 [@ooiii](https://github.com/bolabola/stackf) 改进，所有内容（导航和板块）的增删排序直接在 `links.toml` 内完成！ 👍
-
-在线预览：<https://edui.fun/>
+在线预览：<https://edui123.com/>
 
 仓库下载：<https://github.com/lmm214/hugo-theme-webstack>
 
+2022-08-07 版本更新：增加 「最近使用」 板块，如上图，利用本地 localStorage 实现，显示用户最近 8 次点击项目。
+
 <!--more-->
+
+2020-06-10 版本更新：感谢 [@ooiii](https://github.com/bolabola/stackf) 改进，所有内容（导航和板块）的增删排序直接在 `links.toml` 内完成！ 👍
 
 ### 配置说明
 
