@@ -35,7 +35,7 @@ jQuery(document).ready(function ($) {
     }
   }
   //灯箱
-  $(".post-content img:not(.avatar)").each(function () {
+  $(".post-content img:not(.avatar,.tk-avatar-img)").each(function () {
     var _b = $("<a></a>").attr("href", this.src);
     $(this).wrap(_b);
   })
@@ -62,7 +62,7 @@ jQuery(document).ready(function ($) {
   //外链新窗口
   var parse_url = /^(?:([A-Za-z]+):)?(\/{0,3})([0-9.\-A-Za-z]+)(?::(\d+))?(?:\/([^?#]*))?(?:\?([^#]*))?(?:#(.*))?$/;
   var location_href = window.location.href.replace(parse_url, '$3');
-  $('.post-content a:not(:has(img),a.read-more,#twikoo),.author-name a,.links-item a').hover(function () {
+  $('.post-content a:not(:has(img),a.read-more,.tk-action-link,.tk-admin-close),.author-name a,.links-item a').hover(function () {
     var this_href = $(this).attr('href');
     var replace_href = this_href.replace(parse_url, '$3');
     if (this_href != replace_href && location_href != replace_href) { $(this).attr('target', '_blank'); }
