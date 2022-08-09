@@ -41,8 +41,10 @@
     envId: 'https://p.edui.fun/',
     el: '#tcomment',
     onCommentLoaded: function () {
-      var myShow = document.querySelector('.tk-comments-title > .tk-icon'),mySubmit = document.querySelector('.tk-comments > .tk-submit')
-      if(myShow !== null){mySubmit.style.setProperty('display','block','important')}else{mySubmit.remove()}
+      var myShow = document.getElementsByClassName('tk-icon'),mySubmit = document.querySelector('.tk-submit')
+      var myLength= 1;
+      for (i = 0; i < myShow.length;i++) {myLength += myLength + i};
+      if(myLength > 1){mySubmit.style.setProperty('display','block','important')}else{mySubmit.remove()}
       var tkMain = document.getElementsByClassName('tk-main'),tkReplies = document.getElementsByClassName('tk-replies');
       for (var i=0;i<tkMain.length;i++){
         tkMain[i].index=i;tkMain[i].onclick = function () {tkReplies[this.index].classList.add("tk-replies-height");}
