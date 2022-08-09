@@ -1,30 +1,45 @@
 ---
 title: "你言我语 By Twikoo"
-date: 2021-06-21T17:55:51+0800
+date: 2022-08-10T00:33:51+0800
 tags: [折腾]
 feature: https://pic.edui.fun/images/2021/06/yanyu-3.png
 ---
 
 效果见： <https://immmmm.com/talk/>
 
-主要做了两件事：一是前端魔改，二是后端加API。
+主要做了两件事：一是前端魔改，二是首页调用（替代原 bber）。
 
 <!--more-->
 
-注明：以内样式、功能代码基于 **Twikoo v1.4.5** 
+注明：以下样式、功能代码基于 **Twikoo v1.6.4** 
 
 ### 前端魔改
 
-`twikoo.js` 里的子评论是否显示 “展开” 是根据高度来判断的 `["tk-replies"].scrollHeight>200` ，这会出现当高度不到 200 时，不会显示 “展开” 这个按钮，如果单纯通过 css 直接隐藏，藏是藏了，没有“展开”给我们点击……
+> “管理面板”按钮同步隐藏输入框。先到twikoo配置里填写“暗号”，暗号匹配前端才会显示。
 
-换思路，先直接都给 200 高度，把“展开”骗出来！点击之后，再它个 `class="tk-replies-height"` 恢复其对应的子评论高度。
+所以，用 JavaScript 判断是否有那个管理 ⚙️ 图标（有2个 tk-icon 表示是管理员登录状态），则显示默认的评论框，反之移除。
 
-```css
-  .tk-replies .tk-comment{margin:0.5em 0 0!important;height:200px;}
-  .tk-replies.tk-replies-height .tk-comment{max-height:none !important;height: auto !important;}
+```JavaScript
+<script src="https://fastly.jsdelivr.net/npm/twikoo@1.6.4/dist/twikoo.all.min.js"></script>
+<script>
+  twikoo.init({
+    envId: 'https://xxxxxx.com',
+    el: '#tcomment',
+    onCommentLoaded: function () {
+      var myShow = document.getElementsByClassName('tk-icon'),mySubmit = document.querySelector('.tk-submit')
+      var myLength= 1;
+      for (i = 0; i < myShow.length;i++) {myLength += myLength + i};
+      if(myLength > 1){mySubmit.style.setProperty('display','block','important')}else{mySubmit.remove()}
+      var tkMain = document.getElementsByClassName('tk-main'),tkReplies = document.getElementsByClassName('tk-replies');
+      for (var i=0;i<tkMain.length;i++){
+        tkMain[i].index=i;tkMain[i].onclick = function () {tkReplies[this.index].classList.add("tk-replies-height");}
+      }
+    }
+  })
+</script>
 ```
 
-完整样式代码如下，最新改动直接查看页面源码：
+同时，精简显示内容。完整样式代码如下，最新改动直接查看页面源码：
 
 ```css
 <style>
@@ -43,7 +58,7 @@ feature: https://pic.edui.fun/images/2021/06/yanyu-3.png
   .tk-replies .tk-action{position: absolute;right:0;top:20px;}
   .tk-replies.tk-replies-expand{max-height:none !important;}
   .tk-replies.tk-replies-expand.tk-replies-height .tk-comment{max-height:none !important;height: auto !important;}
-  .tk-expand{margin:-25px 0 0;font-size:1em;font-weight:800;float: right;width: 60px !important;}
+  .tk-expand{margin:-25px 0 0;font-size:1em;font-weight:600;float: right;width:80px !important;}
   .tk-expand._collapse{margin:0 0 0;}
   .tk-extras{display: flex !important;}
   .tk-replies .tk-avatar{margin:1em 0.5rem 0 0;}
@@ -58,118 +73,26 @@ feature: https://pic.edui.fun/images/2021/06/yanyu-3.png
 </style>
 ```
 
-由此也拾起最陌生的陌生人——原生 JavaScript 
+### 首页调用
+
+ctb 的羊毛已撸玩完！索性直接调用 Twikoo 的 [最新评论 API](https://twikoo.js.org/api.html#get-recent-comments) 再在前端 JavaScript 指定 `url` 页面和 `nick` 昵称，实现首页轮播内容的过滤。
+
+代码判断如下，完整版可直接在博客首页查看页面源码。
 
 ```JavaScript
-<script src="https://fastly.jsdelivr.net/npm/twikoo@1.4.5/dist/twikoo.all.min.js"></script>
-<script>
-  twikoo.init({
-    envId: 'twikoo-123456',
-    el: '#tcomment',
-    onCommentLoaded: function () {
-      var myShow = document.querySelector('.tk-comments-title > .tk-icon'),mySubmit = document.querySelector('.tk-comments > .tk-submit')
-      if(myShow !== null){
-        mySubmit.style.setProperty('display','block','important')
-      }else{
-        mySubmit.remove()
-      }
-      var tkMain = document.getElementsByClassName('tk-main'),tkReplies = document.getElementsByClassName('tk-replies');
-      for (var i=0;i<tkMain.length;i++){
-        tkMain[i].index=i;tkMain[i].onclick = function () {tkReplies[this.index].classList.add("tk-replies-height");}
-      }
-    }
-  })
-</script>
+  twikoo.getRecentComments({
+    ……
+  }).then(function (res) {
+    var bberHtml = ''
+      $.each(res, function(i, item){
+        if(item.url == '/talk/' && item.nick == '林木木'){ //只留下 url 为 talk，昵称为 林木木 的评论
+          dataTime = '<span class="datatime">'+item.relativeTime+'</span>'
+          bberHtml += '<li class="item item-'+(i+1)+'">'+dataTime+'： <a href="https://immmmm.com/talk/">'+urlToLink(item.commentText.substring(0,200))+'</a></li>'
+        }
+      });
+    ……
 ```
 
-### 后端API
+### 后话
 
-注：已停更，太复杂，兼容性差……（其实懒）
-
-思路与 「哔哔点啥」 相同，用 `key` 作为验证，传参数 `text` `from` 并调用我们的主角云函数 `twikoo` 发布主评论！
-
-先部署 「talk-twikoo」云函数 <https://github.com/lmm214/talk-twikoo>
-
-再在云函数 `twikoo` 中添加下面两段代码，第一段是三行代码，加了一个 `TAlK_COMMENT_SUBMIT` 事件。
-
-```JavaScript
-      case 'GET_RECENT_COMMENTS': // >= 0.2.7
-        res = await getRecentComments(event)
-        break
-      //加入下面三行
-      case 'TAlK_COMMENT_SUBMIT':
-        res = await talkCommentSubmit(event.talkcontext,event.talkfrom)
-        break
-      default:
-```
-
-第二段直接加在最后，功能函数里是对不同 `from` 设置不同的 UA。
-
-```JavaScript
-//加入功能函数
-async function talkCommentSubmit (talkcontext,talkfrom) {
-  const res = {}
-  let talkUA = ''
-  if(talkfrom == '微信公众号'){
-      talkUA = 'Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; Touch; LCTE; rv:11.0)'
-  }else if(talkfrom == 'request'){
-      talkUA = 'Mozilla/5.0 (X11; Linux i686; rv:21.0) Gecko/20100101 Firefox/21.0'
-  }else{
-      talkUA = 'Mozilla/5.0 (iPhone; CPU iPhone OS 15 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Mobile/11B554a'
-  }
-  const data = await talkParse(talkcontext,talkUA)
-  const comment = await save(data)
-  res.id = comment.id
-  return res
-}
-// 将评论转为数据库存储格式
-async function talkParse(talkcontext,talkUA) {
-  const timestamp = Date.now()
-  const commentDo = {
-    uid: 'b4dc894b82284197bd4316d707936ea2', //comment数据库里有
-    nick: '林木木',
-    mail: 'mm@xx.com',
-    mailMd5: 'ba83fa02fc4b2ba621514941307e21be', //comment数据库里有
-    link: '',
-    ua: talkUA,
-    ip: '',
-    master: true,
-    url: '/talk/', //页面路径
-    href: 'https://immmmm.com/talk/', //页面路径
-    comment: talkcontext,
-    isSpam: false,
-    created: timestamp,
-    updated: timestamp
-  }
-  return commentDo
-}
-```
-
-### 正则更新
-
-[bber.js](https://github.com/lmm214/bber/blob/main/bber.js) 内更新正则代码，匹配多种图片标签识别。
-
-```JavaScript
-function urlToLink(str) {
-  //去除<img>标签，留 src 链接
-  var re_forimg =/\<[img|IMG].*?src=[\'|\"](https\:\/\/.*?(?:[\.jpg|\.jpeg|\.png|\.gif|\.bmp]))[\'|\"].*?[\/]?>/g;
-  str =str.replace(re_forimg,'$1');
-  //去 ![]() 标签，留图片链接
-  var re_formd = /^!\[(.*)\]\((.*)\)/g;
-  str = str.replace(re_formd,'$2');
-  //处理图片链接，添加 a 标签共添加灯箱效果
-  var re_forpic =/\bhttps?:[^:<>"]*\/([^:<>"]*)(\.(jpeg)|(png)|(jpg)|(webp))/g;
-  str =str.replace(re_forpic,function (imgurl) {
-    return '<a href="' + imgurl + '"><img src="' + imgurl + '" /></a>';
-  });
-  //处理普通链接，添加 a 标签供跳转
-  var re =/\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|gif))\S+/g;
-  str =str.replace(re,function (website) {
-    return " <a href='" + website + "'rel='noopener' target='_blank'>↘链接↙</a> ";
-  });
-  //微信表情
-  str = qqWechatEmotionParser(str)
-  return str; 
-}
-```
-
+有个说话的地，真好！

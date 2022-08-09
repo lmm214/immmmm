@@ -66,7 +66,6 @@
     pageSize: 20, // 获取多少条，默认：10，最大：100
     includeReply: false // 是否包括最新回复，默认：false
   }).then(function (res) {
-    console.log(res);
     var bberHtml = ''
       $.each(res, function(i, item){
         if(item.url == '/talk/' && item.nick == '林木木'){ //只留下 url 为 talk，昵称为 林木木 的评论
@@ -79,7 +78,6 @@
   }).catch(function (err) {
     console.error(err);
   });
-
   function urlToLink(str) {
     var re_forimg =/\<[img|IMG].*?src=[\'|\"](https\:\/\/.*?(?:[\.jpg|\.jpeg|\.png|\.gif|\.bmp]))[\'|\"].*?[\/]?>/g;
     str =str.replace(re_forimg,'$1');
