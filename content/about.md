@@ -184,7 +184,7 @@ layout: 'posts'
 
 {{< friend des="" url="https://www.foryuanbo.com/" md5="77a4ed5175b2c4995dc55c32310949a6" name="远博" >}}
 
-{{< friend des="" url="https://blog.leonus.cn/" src="https://q1.qlogo.cn/g?b=qq&nk=553344777&s=5" name="Leonus" >}}
+{{< friend des="博观而约取，厚积而薄发。" url="https://bore.vip" md5="8Q3uG0YAJ6PlAjWMuMafzw" name="Bore's Notes" >}}
 
 ### 博客程序
 
