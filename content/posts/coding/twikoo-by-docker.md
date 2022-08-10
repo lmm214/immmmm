@@ -1,5 +1,5 @@
 ---
-title: "宝塔下 Docker 部署 Twikoo 评论系统"
+title: "宝塔 Docker 部署 Twikoo 评论系统"
 date: 2022-08-10T17:12:47+0800
 tags: [折腾]
 ---
