@@ -184,6 +184,8 @@ layout: 'posts'
 
 {{< friend des="" url="https://www.foryuanbo.com/" md5="77a4ed5175b2c4995dc55c32310949a6" name="远博" >}}
 
+{{< friend des="" url="https://blog.leonus.cn/" src="https://q1.qlogo.cn/g?b=qq&nk=553344777&s=5" name="Leonus" >}}
+
 ### 博客程序
 
 Hugo：<https://gohugo.io/>
