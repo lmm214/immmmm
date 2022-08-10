@@ -97,3 +97,16 @@
 {{end}}
 
 <script type="text/javascript" src="/main-diy-0809-1.js"></script>
+<script>
+  function randomPost() {
+    fetch('/sitemap.xml').then(res => res.text()).then(str => (new window.DOMParser()).parseFromString(str, "text/xml")).then(data => {
+        let ls = data.querySelectorAll('url loc');
+        let locationHref,locSplit;
+        do {
+            locationHref = ls[Math.floor(Math.random() * ls.length)].innerHTML
+            locSplit = locationHref.split('/')[3] || ''
+        } while (locSplit == '' || locSplit == 'tags' || locSplit == 'posts'); 
+        location.href = locationHref
+    })
+}
+</script>
