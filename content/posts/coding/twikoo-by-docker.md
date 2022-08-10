@@ -18,13 +18,13 @@ tags: [折腾]
 
 进入网站目录，点击终端丢入下句命令，以此，**在这个目录里拉起镜像** 。好处是相关的评论数据都会在此路径下的 `data` 文件夹里，如果拉起多个 docker ，那就搞定了数据隔离。
 
+<!--more-->
+
 ```
 docker run -e TWIKOO_THROTTLE=1000 -p 8765:8080 -v ${PWD}/data:/app/data -d imaegoo/twikoo
 ```
 
 其中 `TWIKOO_THROTTLE=1000` 是把 IP 请求限流增加到 1000，`8765` 是自定义了端口，这两点不改也OK。
-
-<!--more-->
 
 访问绑定的子域名，见以下信息则部署成功：
 
