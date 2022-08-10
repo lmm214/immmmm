@@ -2,41 +2,55 @@
 <div class="post">
   <h2 class="post-title">{{.Title}}</h2>
   <div class="post-content">
-    <div id="bber"></div>
+    <div id="tcomment"></div>
   </div>
 </div>
-<div class="search-box">
-  <input type="text" id="searchBoxInput" placeholder="搜点回忆……">
-</div>
+
 <style>
-  .timeline ul {margin:0;}
-  .timeline ul li {background:#3b3d42;list-style-type:none;position:relative;width:3px;margin-left:2em;padding:0.8em 0 2em;}
-  .timeline ul li::after {transform: rotate(45deg);content:'';background-color: #3b3d42;display: block;position: absolute;top: 10px;left: -5px;width: 0.8em;height: 0.8em;outline: 15px solid #fff;}
-  .timeline ul li div {position:relative;top:-13px;left:3em;width:670px;padding:0px 16px 0px;}
-  .timeline ul li p.datatime{color: #fafafa;font-size: 0.75em;font-style: italic;background-color: #3b3d42;display: inline-block;padding:0.25em 1em 0.2em 1em;}
-  .timeline ul li p.datacont{white-space: pre-wrap;margin:0.65em 0 0.3em;}
-  .timeline ul li p.datacont img{display:block;max-height:340px !important;}
-  .timeline ul li p.datacont img[src*="emotion"]{display:inline-block;width:auto;}
-  .timeline ul li p.datafrom{color: #aaa;font-size: 0.75em !important;font-style: italic;}
-  .timeline ul li p{margin:0;font-size:16px;letter-spacing:1px;color: #3b3d42;}
-  button{border-radius:0;}
-  .dark-theme .timeline ul li div p{color:#fafafa;}
-  .dark-theme .timeline ul li div p svg{fill:#fafafa;}
-  .dark-theme .timeline ul li p.datafrom{color: #aaa;}
-  .dark-theme .timeline ul li{background:#3b3d42;}
-  .dark-theme .timeline ul li::after{outline: 15px solid #292a2d;}
-  @media (max-width:860px) {
-    .timeline ul li{margin-left:0;}
-    .timeline ul li div{width:calc(100vw - 75px);left:30px;}
-  }
+  .tk-comments .tk-submit,.tk-comments-count span:nth-child(2),.tk-comments-container .tk-comment .tk-avatar,.tk-comments-container .tk-comment .tk-nick,.tk-comments-container .tk-replies .tk-comment .tk-time,.tk-extra-text,.tk-replies .tk-meta,.tk-replies .tk-extra,.tk-extras .tk-extra:nth-child(2){display:none !important;}
+  .tk-comment .tk-submit,.tk-comments-container .tk-replies .tk-comment .tk-avatar{display:block !important;}
+  .tk-comments-container .tk-replies .tk-comment .tk-nick{display:inline-block !important;}
+  .tk-comments-count{font-size:15px;}
+  .tk-comments-count::before {content:"共 ";}
+  .tk-comments-count::after {content:" 条";}
+  .tk-time{color: #fafafa;font-size: 0.75em;font-style: italic;background-color: #3b3d42;display: inline-block;padding:0.25em 1em 0.2em 1em;}
+  .tk-comment{margin:1em 0 4em !important;}
+  .tk-replies .tk-comment{margin:0.5em 0 0!important;height:200px;}
+  .tk-content{margin:1em 0 0.5em!important;}
+  .tk-content blockquote:before{content:""}
+  .tk-replies{max-height:0px !important;}
+  .tk-replies .tk-action{position: absolute;right:0;top:20px;}
+  .tk-replies.tk-replies-expand{max-height:none !important;}
+  .tk-replies.tk-replies-expand.tk-replies-height .tk-comment{max-height:none !important;height: auto !important;}
+  .tk-expand{margin:-25px 0 0;font-size:1em;font-weight:600;float:right;width:80px !important;}
+  .tk-expand._collapse{margin:0 0 0;}
+  .tk-extras{display: flex !important;}
+  .tk-replies .tk-avatar{margin:1em 0.5rem 0 0;}
+  .tk-avatar.tk-has-avatar{border-radius:50%;}
+  .tk-replies .tk-main{font-size:14px !important;position:relative;}
+  .tk-replies .tk-content{font-size:1em !important;}
+  .tk-row{border-bottom: 1px solid #3b3d42;}
+  .tk-submit{margin-bottom:3em;}
+  .tk-replies .tk-row,.tk-submit .tk-row{border-bottom:none;}
+  .dark-theme .tk-time{color: #aaa;}
+  .tk-row.actions{margin-left:0 !important;}
+  .tk-submit .tk-avatar,.tk-submit .tk-meta-input{display: none;}
+  .tk-comments-container .tk-submit .tk-avatar,.tk-comments-container .tk-submit .tk-meta-input{display:block;}
 </style>
-<script src="https://imgcache.qq.com/qcloud/cloudbase-js-sdk/1.4.0/cloudbase.full.js"></script>
-<script src="https://fastly.jsdelivr.net/gh/buddys/qq-wechat-emotion-parser@master/dist/qq-wechat-emotion-parser.min.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/twikoo@1.6.5/dist/twikoo.min.js"></script>
 <script>
-  const app = cloudbase.init({
-    env: "bb-f5c0f", //这里是你的环境id
-    //region: "ap-guangzhou"
+  twikoo.init({
+    envId: 'https://p.edui.fun/',
+    el: '#tcomment',
+    onCommentLoaded: function () {
+      var mySubmit = document.querySelector('.tk-submit')
+      var myLength = document.querySelector('.tk-comments-title').childNodes.length
+      if(myLength > 2){mySubmit.style.setProperty('display','block','important')}else{mySubmit.remove()}
+      var tkMain = document.getElementsByClassName('tk-main'),tkReplies = document.getElementsByClassName('tk-replies');
+      for (var i=0;i<tkMain.length;i++){
+        tkMain[i].index=i;tkMain[i].onclick = function () {tkReplies[this.index].classList.add("tk-replies-height");}
+      }
+    }
   })
 </script>
-<script type="text/javascript" src="https://fastly.jsdelivr.net/gh/lmm214/bber@0.0.6/bber.js"></script>
 {{ end }}
