@@ -49,7 +49,11 @@ tags: [折腾]
 </script>
 ```
 
-照官方操作上面这样写就OK了，可啪啪打脸！是因为自己是一串图片链接，img + img + img ……，所以 DOM 的查询、包裹、替换……还有，图片没加载，高度没有，还得加个判断并 setTimeout 等待一下。
+照官方操作上面这样写就OK了，可啪啪打脸！
+
+因为自己是一串图片链接，img + img + img ……，所以 DOM 的查询、包裹、替换……
+
+还有，图片没加载，高度没有，还得加个判断并 setTimeout 等待一下。
 
 ```JavaScript
   //相册瀑布流
@@ -83,14 +87,15 @@ tags: [折腾]
       if (isLoad) {clearTimeout(t_img);callback();} else {isLoad = true;t_img = setTimeout(function () { isImgLoad(callback);}, 200);}
     }
   }
-</script>
-```   
+```
 
 ### 文章内解析豆瓣条目
 
 {{<link "post-show-douban-item">}}
 
 这货肝了一下午，DOM 查询、替换、插入看了好久手册……
+
+但，折腾得够尽兴！
 
 ```JavaScript
   //文章内显示豆瓣条目 https://immmmm.com/post-show-douban-item/
