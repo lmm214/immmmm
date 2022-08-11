@@ -88,7 +88,7 @@ tags: [折腾]
 
 ### 文章内解析豆瓣条目
 
-{{<link 'post-show-douban-item' >}}
+{{<link "post-show-douban-item">}}
 
 这货肝了一下午，DOM 查询、替换、插入看了好久手册……
 
