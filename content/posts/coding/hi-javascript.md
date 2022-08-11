@@ -1,7 +1,55 @@
-  //相对时间
-  window.Lately && Lately.init({ target: '.post-date' });
-  //图片灯箱
-  window.ViewImage && ViewImage.init('.post-content img:not(.avatar,.tk-avatar-img)')
+---
+title: "Hi，原生 JavaScript"
+date: 2022-08-11T23:44:34+0800
+tags: [折腾]
+---
+
+> 移除 jQuery 依赖
+
+很早就想干这个事，可懒，懒得查看各手册语法，毕竟，累。这几天借被迫私有部署评论系统，再次重拾折腾博客的劲，肝，就一个字！
+
+过程，掠过不表。记录一下替换的几个「原生 JavaScript」插件。
+
+### 相对时间
+
+[Lately.js](https://tokinx.github.io/lately/index-zh.html) ：原生 JavaScript，仅 800 字节！却简单、好用的 Timeago 插件
+
+```html
+<script src="//tokinx.github.io/lately/lately.min.js"></script>
+<script>
+    window.Lately && Lately.init({ target: '.post-date' });
+</script>
+```
+
+### 图片灯箱
+
+[ViewImage.js](https://tokinx.github.io/ViewImage/) ：Gzip后仅 2kb，小巧卓越的原生JavaScript灯箱插件
+
+```html
+<script src="//tokinx.github.io/ViewImage/view-image.min.js"></script>
+<script>
+    window.ViewImage && ViewImage.init('.post-content img:not(.avatar,.tk-avatar-img)')
+</script>
+```
+
+### 图片瀑布流
+
+[Waterfall.js](https://raphamorim.io/waterfall.js/) ：1KB，无需任何依赖关系即可工作。
+
+```html
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waterfall.js/1.0.2/waterfall.min.js"></>
+<script>
+    var photos = document.querySelector('photos') || '';
+    if (photos) {waterfall(photos);}
+    window.addEventListener('resize', function () {
+      waterfall(photos);
+    });
+</script>
+```
+
+照官方操作上面这样写就OK了，可啪啪打脸！是因为自己是一串图片链接，img + img + img ……，所以 DOM 的查询、包裹、替换……还有，图片没加载，高度没有，还得加个判断并 setTimeout 等待一下。
+
+```JavaScript
   //相册瀑布流
   var photosAll = document.getElementsByTagName('photos') || '';
   if(photosAll){
@@ -33,20 +81,18 @@
       if (isLoad) {clearTimeout(t_img);callback();} else {isLoad = true;t_img = setTimeout(function () { isImgLoad(callback);}, 200);}
     }
   }
-  //随机日志
-  function randomPost() {
-    fetch('/sitemap.xml').then(res => res.text()).then(str => (new window.DOMParser()).parseFromString(str, "text/xml")).then(data => {
-        let ls = data.querySelectorAll('url loc');
-        let locationHref,locSplit;
-        do {
-            locationHref = ls[Math.floor(Math.random() * ls.length)].innerHTML
-            locSplit = locationHref.split('/')[3] || ''
-        } while (locSplit == '' || locSplit == 'tags' || locSplit == 'posts'); 
-        location.href = locationHref
-    })
-  }
+</script>
+```   
+
+### 文章内解析豆瓣条目
+
+{{<link 'post-show-douban-item' >}}
+
+这货肝了一下午，DOM 查询、替换、插入看了好久手册……
+
+```JavaScript
   //文章内显示豆瓣条目 https://immmmm.com/post-show-douban-item/
-  var dbAPI = "https://douban.edui.fun/";
+  var dbAPI = "https://douban.edui.fun/";  //自建 API ，何时挂不晓得。
   var dbA = document.querySelectorAll(".post-content a[href*='douban.com/subject/']") || '';
   if(dbA){
     for(var i=0;i < dbA.length;i++){
@@ -100,3 +146,8 @@
     _this.parentNode.replaceChild(db_div, _this);
     db_div.innerHTML = db_html
   }
+```
+
+### 一个小结
+
+把首页的 bber 调用去掉了，没找到好用的滚动插件，也没现成的 json 调取方案。毕竟现在直接拿 Twikoo 的最新评论还是不舒坦！
