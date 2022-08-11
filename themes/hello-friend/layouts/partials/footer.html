@@ -150,55 +150,13 @@
     db_div.innerHTML = db_html
   }
   function bookShow(_this, this_item) {
-    console.log(_this)
     var storage = localStorage.getItem(this_item);
     var data = JSON.parse(storage);
     var str = _this.href;
     var db_star = Math.ceil(data.rating.average);
-    console.log(_this)
     var db_html = "<div class='post-preview'><div class='post-preview--meta'><div class='post-preview--middle'><h4 class='post-preview--title'><a target='_blank' href='" + str + "'>《" + data.title + "》</a></h4><div class='rating'><div class='rating-star allstar" + db_star + "'></div><div class='rating-average'>" + data.rating.average + "</div></div><time class='post-preview--date'>作者：" + data.author + " </time><section style='max-height:75px;overflow:hidden;' class='post-preview--excerpt'>" + data.summary.replace(/\s*/g, "") + "</section></div></div><img referrer-policy='no-referrer' loading='lazy' class='post-preview--image' src=" + data.images.medium + "></div>"
     var db_div = document.createElement("div");
     _this.parentNode.replaceChild(db_div, _this);
     db_div.innerHTML = db_html
   }
 </script>
-
-{{ if $.IsHome }}
-<script type="text/javascript" src='https://fastly.jsdelivr.net/npm/jquery@3/dist/jquery.min.js'></script>
-<script type="text/javascript" src="/jquery.vticker.js"></script>
-<script src="https://fastly.jsdelivr.net/npm/twikoo@1.6.5/dist/twikoo.min.js"></script>
-<script>
-  twikoo.getRecentComments({
-    envId: 'https://p.edui.fun/',
-    pageSize: 20, // 获取多少条，默认：10，最大：100
-    includeReply: false // 是否包括最新回复，默认：false
-  }).then(function (res) {
-    var bberHtml = ''
-      $.each(res, function(i, item){
-        if(item.url == '/talk/' && item.nick == '林木木'){ //只留下 url 为 talk，昵称为 林木木 的评论
-          dataTime = '<span class="datatime">'+item.relativeTime+'</span>'
-          bberHtml += '<li class="item item-'+(i+1)+'">'+dataTime+'： <a href="https://immmmm.com/talk/">'+urlToLink(item.commentText.substring(0,200))+'</a></li>'
-        }
-      });
-      $('#bber-talk').append('<span class="index-talk-icon"><svg viewBox="0 0 1024 1024" width="21" height="21"><path d="M184.32 891.667692c-12.603077 0-25.206154-2.363077-37.809231-7.876923-37.021538-14.966154-59.864615-49.624615-59.864615-89.009231v-275.692307c0-212.676923 173.292308-385.969231 385.969231-385.969231h78.76923c212.676923 0 385.969231 173.292308 385.969231 385.969231 0 169.353846-137.846154 307.2-307.2 307.2H289.083077l-37.021539 37.021538c-18.904615 18.116923-43.323077 28.356923-67.741538 28.356923zM472.615385 195.347692c-178.018462 0-322.953846 144.935385-322.953847 322.953846v275.692308c0 21.267692 15.753846 29.144615 20.48 31.507692 4.726154 2.363077 22.055385 7.876923 37.021539-7.08923l46.473846-46.473846c6.301538-6.301538 14.178462-9.452308 22.055385-9.452308h354.461538c134.695385 0 244.184615-109.489231 244.184616-244.184616 0-178.018462-144.935385-322.953846-322.953847-322.953846H472.615385z"></path><path d="M321.378462 512m-59.076924 0a59.076923 59.076923 0 1 0 118.153847 0 59.076923 59.076923 0 1 0-118.153847 0Z"></path><path d="M518.301538 512m-59.076923 0a59.076923 59.076923 0 1 0 118.153847 0 59.076923 59.076923 0 1 0-118.153847 0Z"></path><path d="M715.224615 512m-59.076923 0a59.076923 59.076923 0 1 0 118.153846 0 59.076923 59.076923 0 1 0-118.153846 0Z"></path></svg></span><div class="talk-wrap"><ul class="talk-list">'+bberHtml+'</ul></div>')
-      $('.talk-wrap').vTicker({pause: 2600});
-  }).catch(function (err) {
-    console.error(err);
-  });
-  function urlToLink(str) {
-    var re_forimg =/\<[img|IMG].*?src=[\'|\"](https\:\/\/.*?(?:[\.jpg|\.jpeg|\.png|\.gif|\.bmp]))[\'|\"].*?[\/]?>/g;
-    str =str.replace(re_forimg,'$1');
-    var re_formd = /^!\[(.*)\]\((.*)\)/g;
-    str = str.replace(re_formd,'$2');
-    var re =/\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|gif))\S+/g;
-    var re_forpic =/\bhttps?:\/\/.*?(\.gif|\.jpe?g|\.png|\.bmp|\.webp)/g;
-    str =str.replace(re,function (website) {
-      return '<svg viewBox="0 0 1025 1024" width="21" height="21"><path d="M333.06186 733.061768c-58.347896 52.210106-97.040127 49.051159-136.467091 9.492188l-45.156456-48.462758c-39.427988-39.541575-39.427988-103.667058 0-143.226029l193.260585-193.848986c39.426965-39.558971 103.355973-39.558971 142.78396 0l35.679617 35.794228c30.457686 30.555923 37.398772 75.762521 20.801768 112.997564l86.286202 66.040089c59.149145-59.33027 59.149145-155.517983 0-214.830857L523.162476 249.600755c-59.133795-59.33027-155.010423-59.33027-214.160591 0L44.350342 515.071965c-59.133795 59.313897-59.133795 155.50161 0 214.830857l107.08797 107.415428c59.133795 59.313897 155.026796 59.313897 214.176964 0l102.161774-105.647155-72.980151-70.034053L333.06186 733.061768zM987.196021 285.394982 880.1234 177.979554c-59.149145-59.33027-155.026796-59.33027-214.176964 0 0 0 4.223185-1.064238-57.988716 61.343113l71.113641 68.167542 31.604812-34.877345c39.427988-39.541575 103.356996-39.541575 142.78396 0l35.69599 35.8106c39.427988 39.541575 39.427988 103.667058 0 143.226029L714.818517 632.847345c-39.427988 39.541575-103.340623 39.541575-142.768611 0l-29.395494-48.462758c-61.883419-46.25344-42.865273-57.317427-37.611619-88.544639L426.548044 418.130076c-59.150168 59.33027-59.150168 155.517983 0 214.830857l107.072621 107.432825c59.149145 59.312874 155.026796 59.312874 214.176964 0l239.398392-240.166895C1071.582967 402.924769 987.196021 285.394982 987.196021 285.394982z"></path></svg>';
-    });
-    str =str.replace(re_forpic,function (imgurl) {
-      return '<svg viewBox="0 0 1024 1024" width="21" height="21"><path d="M821.6 120.93333333H195.4c-74.1 0-134.2 60.1-134.2 134.2v492c0 74.1 60.1 134.2 134.2 134.2h626.2c74.1 0 134.2-60.1 134.2-134.2v-492c0-74.1-60.1-134.2-134.2-134.2zM251.3 255.13333333c30.9 0 55.9 25 55.9 55.9s-25 55.9-55.9 55.9-55.9-25-55.9-55.9 25-55.9 55.9-55.9z m614.6 559.1H153.3c-37.3 0-58.2-43.1-35.1-72.4L302.1 508.33333333c17.9-22.7 52.4-22.7 70.3 0l76.5 97.2 148.6-260c17.2-30.1 60.5-30.1 77.7 0L904.8 747.33333333c17 29.8-4.5 66.9-38.9 66.9z"></path></svg>';
-    });
-    return str;
-  }
-</script>
-{{end}}
