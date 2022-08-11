@@ -9,6 +9,9 @@
     {{ end }}
   </head>
   <body class="{{ if ne $.Site.Params.defaultTheme "light" -}} dark-theme {{- end -}}">
+    <script>
+      var getTheme = localStorage.getItem("theme") || '';if(getTheme == 'dark'){document.body.classList.add("dark-theme")}else if(getTheme == 'light'){document.body.classList.remove("dark-theme")}
+    </script>
     <div class="container">
       {{ partial "header.html" . }}
 
