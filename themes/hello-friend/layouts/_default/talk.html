@@ -85,9 +85,10 @@ body{background: #2f2f2f;color: #f5f5f5;font-family: source-han-serif-sc, -apple
       el: '#tcomment',
       path: '/talk/',
       onCommentLoaded: function () {
-        var mySubmit = document.querySelector('.tk-submit')
-        var myLength = document.querySelector('.tk-comments-title').childNodes.length
-        if(myLength > 2){mySubmit.style.setProperty('display','block','important')}else{mySubmit.remove()}
+        var myShow = document.getElementsByClassName('tk-icon'),mySubmit = document.querySelector('.tk-submit')
+        var myLength= 1;
+        for (i = 0; i < myShow.length;i++) {myLength += myLength + i};
+        if(myLength > 1){mySubmit.style.setProperty('display','block','important')}else{mySubmit.remove}
         var tkMain = document.getElementsByClassName('tk-main'),tkReplies = document.getElementsByClassName('tk-replies');
         for (var i=0;i<tkMain.length;i++){
           tkMain[i].index=i;tkMain[i].onclick = function () {tkReplies[this.index].classList.add("tk-replies-height");}
