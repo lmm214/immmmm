@@ -114,6 +114,7 @@ twikoo.init({
 
 查询手册后，采用 Template 来实现。
 
+```html
 <script>
   window.$docsify = {
     name: '',
@@ -132,6 +133,7 @@ twikoo.init({
     },
   }
 </script>
+```
 
 这样，只需在 md 中写一行搞定！优雅！
 
