@@ -29,7 +29,7 @@ feature: https://pic.edui.fun/images/2021/06/yanyu-3.png
       var myShow = document.getElementsByClassName('tk-icon'),mySubmit = document.querySelector('.tk-submit')
       var myLength= 1;
       for (i = 0; i < myShow.length;i++) {myLength += myLength + i};
-      if(myLength > 1){mySubmit.style.setProperty('display','block','important')}else{mySubmit.remove()}
+      if(myLength > 1){mySubmit.style.setProperty('display','block','important')}else{mySubmit.remove}
       var tkMain = document.getElementsByClassName('tk-main'),tkReplies = document.getElementsByClassName('tk-replies');
       for (var i=0;i<tkMain.length;i++){
         tkMain[i].index=i;tkMain[i].onclick = function () {tkReplies[this.index].classList.add("tk-replies-height");}
