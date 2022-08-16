@@ -186,6 +186,9 @@ layout: 'posts'
 
 {{< friend des="" url="https://blog.leonus.cn/" src="https://q1.qlogo.cn/g?b=qq&nk=553344777&s=5" name="Leonus" >}}
 
+{{< friend des="" url="https://dusays.com/" md5="28b57baa4e8f13fe4292ccb2de267e30" name="Teacher Du" >}}
+
+
 ### 博客程序
 
 Hugo：<https://gohugo.io/>
