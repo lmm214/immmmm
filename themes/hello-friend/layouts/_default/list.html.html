@@ -13,8 +13,7 @@
   {{ end }}
   {{ $paginator := .Paginate (where $PageContext.RegularPages "Type" $contentTypeName) }}
 
-
-  
+  {{ partial "talks.html" . }}
   <div class="posts">
     {{ range $paginator.Pages }}
     {{ $PostCate := .File.Dir | replaceRE "posts/(.*)/" "$1"}}

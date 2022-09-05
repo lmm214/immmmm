@@ -1440,17 +1440,5 @@ photos .photo:last-child {
 	.tocify {display: none;}
 }
 
-#bber-talk{display:-webkit-flex;display:flex;width:100%;line-height:35px;height:45px;max-width:760px;text-align:left;padding:5px 15px;margin:20px 0;position: relative;background-color: var(--light-header);border-radius:8px;font-size:15px;}
-#bber-talk svg{fill: currentColor;vertical-align: middle;display: inline;margin-right:5px;margin-top: -4px;}
-.talk-wrap{width:100%;}
-.talk-list{margin: 0;height: 35px;}
-.talk-list li {list-style:none;margin-bottom:10px;width: 100%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;zoom: 1;}
-.talk-list li a{text-decoration:none;}
-.dark-theme #bber-talk{background-color: var(--dark-header);}
-.dark-theme .talk-list{color: var(--dark-color);}
-@media only screen and (max-width:683px) {
-	#bber-talk{margin:2em 1em 1em;width:94%;}
-}
-
 .dark-theme .light-wormhole,.dark-wormhole{display: none;}
 .dark-theme .dark-wormhole{display: block;}
