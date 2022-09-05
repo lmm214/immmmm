@@ -13,10 +13,17 @@ feature: https://cdn.edui.fun/images/2022/09/memos.jpg
 
 <!--more-->
 
+### 折腾记录
+
 甚至还能把它做后端，直接调用 API 再进行前端渲染 <https://www.life97.top/Dynamics.html> 
 
 具体折腾先看页面源码吧～
 
-相关文章推荐：
+### 使用心得
 
-开源 Memos 在群晖上部署：<https://life97.top/synology-memos.html>
+- #tag 后面必须有个空格才能创建tag
+
+### 文章推荐：
+
+- 使用 iOS 快捷指令录入笔记：<https://github.com/usememos/memos/discussions/52>
+- 开源 Memos 在群晖上部署：<https://life97.top/synology-memos.html>
