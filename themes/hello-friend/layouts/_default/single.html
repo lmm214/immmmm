@@ -22,7 +22,7 @@
       {{ if .Date | default nil }}
         <span class="post-date">{{ .Date.Format ($.Site.Params.DateFormatSingle | default "2006-01-02") }}</span>
         {{- if .Site.Params.twikoo.enable -}}
-          <span> / <span id="twikoo_visitors">0</span> 阅读</span>
+          <span> / <span class="waline-pageview-count">0</span> 阅读</span><span> / <a href="#waline"><span class="waline-comment-count">0 </span>条评论</a></span>
         {{- end }}
         {{ if eq .Type $contentTypeName }}
           {{ if $.Site.Params.LastModDisplay }}

@@ -11,9 +11,10 @@
         const params = new URLSearchParams(location.search.slice(1));
         const waline = Waline.init({
           el: '#waline',
-          path: params.get('path') || '/',
-          lang: params.get('lng'),
-          serverURL: location.protocol + '//' + location.host + location.pathname.replace(/\/+$/, '')
+          dark: 'body[class="dark-theme"]',
+          serverURL: 'https://wa.edui.fun',
+          comment: true, // 评论数统计
+          pageview: true, // 浏览量统计
         });
   </script>
 {{- end }}
