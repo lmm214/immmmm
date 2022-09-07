@@ -4,7 +4,16 @@
   <span class="pagination__title-h">欢迎评论</span>
   <hr />
 </div>
-  <div id="tcomment"></div>
-  <script src="https://fastly.jsdelivr.net/npm/twikoo@1.6.7/dist/twikoo.min.js"></script>
-  <script>twikoo.init({ envId: 'https://tk.edui.fun/', el: '#tcomment' })</script>
+  <div id="waline"></div>
+  <script type="text/javascript" src="/waline271.js"></script>
+  <link href='/waline271.css' rel='stylesheet' />
+  <script>
+        const params = new URLSearchParams(location.search.slice(1));
+        const waline = Waline.init({
+          el: '#waline',
+          path: params.get('path') || '/',
+          lang: params.get('lng'),
+          serverURL: location.protocol + '//' + location.host + location.pathname.replace(/\/+$/, '')
+        });
+  </script>
 {{- end }}
