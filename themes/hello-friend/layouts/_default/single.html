@@ -13,7 +13,7 @@
   {{ if eq $PostCate "chat"}}
       {{ .Render "chat"}}
       <div class="post-content">
-        <a href="{{ .Permalink }}" rel="link"><img loading="lazy" class="post-avatar avatar" src=https://gravatar.loli.net/avatar/{{ md5 "fivemu@gmail.com" }} ></a>
+        <a href="{{ .Permalink }}" rel="link"><img loading="lazy" class="post-avatar avatar" src="https://gravatar.loli.net/avatar/ba83fa02fc4b2ba621514941307e21be"></a>
           {{ .Content }}
       </div>
   {{ else }}
@@ -22,7 +22,7 @@
       {{ if .Date | default nil }}
         <span class="post-date">{{ .Date.Format ($.Site.Params.DateFormatSingle | default "2006-01-02") }}</span>
         {{- if .Site.Params.twikoo.enable -}}
-          <span> / <span id="twikoo_visitors">0</span> 阅读</span>
+          <span> / <span id="umami_visitors">0</span> 阅读</span>
         {{- end }}
         {{ if eq .Type $contentTypeName }}
           {{ if $.Site.Params.LastModDisplay }}
@@ -31,7 +31,6 @@
         {{ end }}
       {{ end }}
     </div>
-
     {{ if .Params.feature }}
       {{ if .Params.UseRelativeCover }}
         <img loading='lazy' src="{{ (printf "%s%s" .Permalink .Params.feature ) }}" class="post-cover" />
@@ -95,4 +94,20 @@
     {{ end }}
 
     </div>
+    
+    <script>
+      let uUrl = "https://u.edui.fun"
+      let uShare = "eyJhbGciOiJIUzI1NiJ9.eyJ3ZWJzaXRlX2lkIjoxLCJpYXQiOjE2NjQyOTA1NTB9.0tUfusY_1bRQ1rjv6U8U18layFFnw8z_QiisVv64Pgo"
+      let uApi = uUrl+"/api/website/1/metrics?type=url&start_at=1664121600000&end_at=1664294399999"
+      fetch(uApi,{
+        headers: {'x-umami-share-token': uShare}
+      }).then(response => response.json() ).then(data => {
+        var queryDate = data.filter(function(fp){
+          return fp.x === window.location.pathname;
+        })
+        if(queryDate){
+          document.querySelector('#umami_visitors').innerHTML = queryDate[0].y;
+        }
+      })
+    </script>
 {{ end }}
