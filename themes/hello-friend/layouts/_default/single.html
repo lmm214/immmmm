@@ -94,20 +94,20 @@
     {{ end }}
 
     </div>
-    
-    <script>
-      let uUrl = "https://u.edui.fun"
-      let uShare = "eyJhbGciOiJIUzI1NiJ9.eyJ3ZWJzaXRlX2lkIjoxLCJpYXQiOjE2NjQyOTA1NTB9.0tUfusY_1bRQ1rjv6U8U18layFFnw8z_QiisVv64Pgo"
-      let uApi = uUrl+"/api/website/1/metrics?type=url&start_at=1664121600000&end_at=1664294399999"
-      fetch(uApi,{
-        headers: {'x-umami-share-token': uShare}
-      }).then(response => response.json() ).then(data => {
-        var queryDate = data.filter(function(fp){
-          return fp.x === window.location.pathname;
-        })
-        if(queryDate){
-          document.querySelector('#umami_visitors').innerHTML = queryDate[0].y;
-        }
-      })
-    </script>
+
+<script>
+let uUrl = "https://u.edui.fun"
+let uShare = "eyJhbGciOiJIUzI1NiJ9.eyJ3ZWJzaXRlX2lkIjoxLCJpYXQiOjE2NjQyOTA1NT0tUfusY_1bRQ1rjv6U8U18layFFnw8z_QiisVv64Pgo"
+let uApi = uUrl+"/api/website/1/metrics?type=url&start_at=1664121600000&end_at=1664294399999"
+fetch(uApi,{
+  headers: {'x-umami-share-token': uShare}
+}).then(response => response.json() ).then(data => {
+  var queryDate = data.filter(function(fp){
+    return fp.x === window.location.pathname;
+  })
+  if(queryDate){
+    document.querySelector('#umami_visitors').innerHTML = queryDate[0].y;
+  }
+})
+</script>
 {{ end }}
