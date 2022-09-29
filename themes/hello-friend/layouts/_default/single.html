@@ -22,7 +22,7 @@
       {{ if .Date | default nil }}
         <span class="post-date">{{ .Date.Format ($.Site.Params.DateFormatSingle | default "2006-01-02") }}</span>
         {{- if .Site.Params.twikoo.enable -}}
-          <span> / <span id="umami_visitors">0</span> 阅读</span>
+          <span> / <span id="twikoo_visitors">0</span> 阅读</span>
         {{- end }}
         {{ if eq .Type $contentTypeName }}
           {{ if $.Site.Params.LastModDisplay }}
@@ -94,24 +94,4 @@
     {{ end }}
 
     </div>
-
-<script>
-      let uUrl = "https://u.edui.fun"
-      let uShare = "Bearer eyJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiUEJFUzItSFMyNTYrQTEyOEtXIiwicDJjIjoyNTc3LCJwMnMiOiI5V2Npb09pM3lUQnBuRW5RZllVbE9nIn0.iZ8wqTe7rTJ-ateNrRV_WNfYlV7aOlDu8opO0UIVBe9RRzb1ZXChHQ.UcmnjKx2KQynFfj0gsmvPQ.yjfSYyS9tkhoIUdBtxVVoyx-xRfL9M7W_kH46PNioL8izMRlelW3nIjT_U-sz32s24yq0LQZ26PgyqYOuWwNm8N_NSVXzKXdojL5sd31yqS1hQALdzueZ7XUwEaklya1Jx1oB2PkPh3xtj8G01Dz-QN-V6YY6oopzUtptTGPQEcZbK7X8pnQGFFF4xOq2PJU9ofR6viC1VxBFGNB1v9apQ.hv7-DjjWkkRE4Hf9RqrBpg"
-      let uApi = uUrl+"/api/website/1/metrics?type=url&start_at=1664121600000&end_at=1664294399999"
-      fetch(uApi,{
-        headers: {
-          "Accept": "application/json",
-          "Authorization": uShare
-          //'x-umami-share-token': uShare
-        }
-      }).then(response => response.json() ).then(data => {
-        var queryDate = data.filter(function(fp){
-          return fp.x === window.location.pathname;
-        })
-        if(queryDate){
-          document.querySelector('#umami_visitors').innerHTML = queryDate[0].y;
-        }
-      })
-</script>
 {{ end }}
