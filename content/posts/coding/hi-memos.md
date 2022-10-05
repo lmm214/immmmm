@@ -9,13 +9,48 @@ feature: https://cdn.edui.fun/images/2022/09/memos.jpg
 
 官网：<https://usememos.com/>
 
-可以说是支持 Docker 自部署的 flomo 。目前已折腾自部署及 API 调用最新 10条 memos 在博客首页轮播显示。
+可以说是支持 Docker 自部署的 flomo 。
 
 <!--more-->
 
+### 部署及更新代码
+
+推荐使用 `docker-compose.yml` 部署，方便制定数据储存位置及更新版本，其中使用 `${PWD}` 指定路径为当前文件夹。
+
+```
+version: "3.0"
+services:
+  memos:
+    image: neosmemo/memos:latest
+    container_name: memos
+    volumes:
+      - ${PWD}/.memos/:/var/opt/memos
+    ports:
+      - 5230:5230
+```
+
+![memos-1](https://cdn.edui.fun/images/2022/10/memos-1.jpg)
+
+宝塔为例：新建网站，新建 yml，开终端，丢代码。版本更新也是 **三行代码** 搞定，一行一行丢哦：
+
+```
+docker-compose pull
+docker-compose down
+docker-compose up -d
+```
+
+### 使用心得
+
+- #tag 后面必须有个空格才能创建tag
+
+### 文章推荐：
+
+- 使用 iOS 快捷指令录入笔记：<https://github.com/usememos/memos/discussions/52>
+- 开源 Memos 在群晖上部署：<https://life97.top/synology-memos.html>
+
 ### 折腾记录
 
-甚至还能把它做后端，直接调用 API 再进行前端渲染 <https://www.life97.top/Dynamics.html> 
+API 调用最新 10条 memos 在博客首页轮播显示。甚至还能把它做后端，直接调用 API 再进行前端渲染 <https://www.life97.top/Dynamics.html> 
 
 具体折腾先看页面源码吧～
 
@@ -65,12 +100,3 @@ setInterval(function() {
 },1000)
 </script>
 ```
-
-### 使用心得
-
-- #tag 后面必须有个空格才能创建tag
-
-### 文章推荐：
-
-- 使用 iOS 快捷指令录入笔记：<https://github.com/usememos/memos/discussions/52>
-- 开源 Memos 在群晖上部署：<https://life97.top/synology-memos.html>
