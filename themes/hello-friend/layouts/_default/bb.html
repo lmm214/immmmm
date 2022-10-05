@@ -46,7 +46,7 @@ fetch(bbUrl).then(res => res.json()).then( resdata =>{
 });
 function getList(){
   var bbUrl = memos+"api/memo?creatorId=101&rowStatus=NORMAL&limit="+limit+"&offset="+offset;
-  console.log(limit+"条/页------现第"+page+"页-----偏移"+offset)
+  console.log(limit+"条/页------现第"+page+"页--————---偏移"+offset)
   if((page-1)*limit >= count){
     return
   }
