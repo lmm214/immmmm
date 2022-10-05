@@ -26,7 +26,6 @@
 var bbUrl = "https://me.edui.fun/api/memo?creatorId=101&limit=10"
 fetch(bbUrl).then(res => res.json()).then( resdata =>{
     var result = '',resultAll="",data = resdata.data
-    console.log(data)
     for(var i=0;i < data.length;i++){
         var bbTime = dayjs.unix(data[i].createdTs).fromNow()
         var bbCont = data[i].content
