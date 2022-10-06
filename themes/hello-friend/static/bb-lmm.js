@@ -82,7 +82,7 @@ function getList(){
             imgUrl += '<img class="img" src="'+memos+'o/r/'+resourceList[j].id+'/'+resourceList[j].filename+'"/>'
           }
           if(restype !== 'image'){
-            resUrl += '<a target="_blank" rel="noreferrer" href="'+memos+'o/r/'+resourceList[j].id+'/'+resourceList[j].filename+'">'+resourceList[j].filename+'</a>'
+            resUrl += '<p class="datasource"><a target="_blank" rel="noreferrer" href="'+memos+'o/r/'+resourceList[j].id+'/'+resourceList[j].filename+'">'+resourceList[j].filename+'</a></p>'
           }
         }
         bbContREG += imgUrl
