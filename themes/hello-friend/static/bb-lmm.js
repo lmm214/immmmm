@@ -79,7 +79,7 @@ function updateHTMl(data){
   const INLINE_CODE_REG = /`([\S ]+?)`/g;
   const PLAIN_TEXT_REG = /([\S ]+)/g
   for(var i=0;i < data.length;i++){
-      var bbTime = '<p class="datatime">'+new Date(data[i].createdTs * 1000).toLocaleString()+'</p>'
+      var bbTime = '<p class="datatime">'+new Date(data[i].createdTs * 1000).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })+'</p>'
       var bbContREG = data[i].content
         .replace(CODE_BLOCK_REG, "<pre lang='$1'>\n$2</pre>$3")
         .replace(TODO_LIST_REG, "<p><span class='todo-block todo' data-value='TODO'></span>$1</p>$2")
