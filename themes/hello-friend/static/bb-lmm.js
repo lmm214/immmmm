@@ -1,7 +1,6 @@
 /*
-Last Modified time : 20221006 19:20 by https://immmmm.com
+Last Modified time : 20221007 00:06 by https://immmmm.com
 */
-
 var bbMemo = {
     memos: 'https://demo.usememos.com/',
     limit: '10',
@@ -15,30 +14,54 @@ if(typeof(bbMemos) !=="undefined"){
       }
     }
 }
-
 var limit = bbMemo.limit
 var memos = bbMemo.memos
-var count=0,page = 1;
-var bbUrl = memos+"api/memo?creatorId="+bbMemo.creatorId+"&rowStatus=NORMAL";
+var page = 1,offset = 0,nextLength = 0,nextDom='';
 var bbDom = document.querySelector(bbMemo.domId);
 var load = '<div class="load"><button class="load-btn button-load">加载中……</button></div>'
 bbDom.insertAdjacentHTML('afterend', load);
-//发起一次 fetch，缓存为本地 localStorage，进行分页调用。
-fetch(bbUrl).then(res => res.json()).then( resdata =>{
-  count = resdata.data.length
-  localStorage.setItem('bber_memos', JSON.stringify(resdata.data));
-  var bbBefore = '<p class="count">共 <span class="count-data">'+count+'</span> 条</p>'
-  bbDom.insertAdjacentHTML('beforebegin', bbBefore);
-  getList()
+//首次加载数据
+getFirstList()
+function getFirstList(){
+  var bbUrl = memos+"api/memo?creatorId="+bbMemo.creatorId+"&rowStatus=NORMAL&limit="+limit;
+  fetch(bbUrl).then(res => res.json()).then( resdata =>{
+    updateHTMl(resdata.data)
+    var nowLength = resdata.data.length
+    if(nowLength < limit){ //返回数据条数小于 limit 则直接移除“加载更多”按钮，中断预加载
+      document.querySelector("button.button-load").remove()
+      return
+    }
+    page++
+    offset = limit*(page-1)
+    getNextList()
+  });
+}
+//预加载下一页数据
+function getNextList(){
+  var bbUrl = memos+"api/memo?creatorId="+bbMemo.creatorId+"&rowStatus=NORMAL&limit="+limit+"&offset="+offset;
+  fetch(bbUrl).then(res => res.json()).then( resdata =>{
+    nextDom = resdata.data
+    nextLength = nextDom.length
+    page++
+    offset = limit*(page-1)
+    if(nextLength < 1){ //返回数据条数为 0 ，隐藏
+      document.querySelector("button.button-load").remove()
+      return
+    }
+  })
+}
+var btn = document.querySelector("button.button-load");
+btn.addEventListener("click", function () {
+  btn.textContent= '加载中……';
+  updateHTMl(nextDom)
+  if(nextLength < limit){ //返回数据条数小于限制条数，隐藏
+    document.querySelector("button.button-load").remove()
+    return
+  }
+  getNextList()
 });
-function getList(){
-  var begin = limit*(page-1)
-  var end = parseInt(begin)+parseInt(limit)
-  var dataAll = JSON.parse(localStorage.getItem('bber_memos'))
-  console.log(end)
-  var dataNow = dataAll.slice(begin,end)
-  console.log(dataNow)
-  if((page-1)*limit >= count){return}
+// 插入 html 
+function updateHTMl(data){
   var result="",resultAll="";
   const CODE_BLOCK_REG = /```(\S*?)\s([\s\S]*?)```(\n?)/g;
   const TODO_LIST_REG = /- \[ \] ([\S ]+)(\n?)/g;
@@ -55,9 +78,9 @@ function getList(){
   const PLAIN_LINK_REG = /(https?:\/\/[ ]+)/g;
   const INLINE_CODE_REG = /`([\S ]+?)`/g;
   const PLAIN_TEXT_REG = /([\S ]+)/g
-  for(var i=0;i < dataNow.length;i++){
-      var bbTime = '<p class="datatime">'+new Date(dataNow[i].createdTs * 1000).toLocaleString()+'</p>'
-      var bbContREG = dataNow[i].content
+  for(var i=0;i < data.length;i++){
+      var bbTime = '<p class="datatime">'+new Date(data[i].createdTs * 1000).toLocaleString()+'</p>'
+      var bbContREG = data[i].content
         .replace(CODE_BLOCK_REG, "<pre lang='$1'>\n$2</pre>$3")
         .replace(TODO_LIST_REG, "<p><span class='todo-block todo' data-value='TODO'></span>$1</p>$2")
         .replace(DONE_LIST_REG, "<p><span class='todo-block done' data-value='DONE'>✓</span>$1</p>$2")
@@ -73,8 +96,8 @@ function getList(){
         .replace(TAG_REG, "<span class='tag-span'>#$1</span> ")
         .replace(PLAIN_TEXT_REG, "$1")
       //解析内置资源文件
-      if(dataNow[i].resourceList.length > 0){
-        var resourceList = dataNow[i].resourceList;
+      if(data[i].resourceList.length > 0){
+        var resourceList = data[i].resourceList;
         var imgUrl='',resUrl='';
         for(var j=0;j < resourceList.length;j++){
           var restype = resourceList[j].type.slice(0,5)
@@ -100,14 +123,4 @@ function getList(){
   window.ViewImage && ViewImage.init('.datacont img')
   //相对时间
   window.Lately && Lately.init({ target: '.datatime' });
-  if(page*limit >= count){
-    document.querySelector("button.button-load").remove()
-    return
-  }
-  page++
 }
-var btn = document.querySelector("button.button-load");
-btn.addEventListener("click", function () {
-  btn.textContent= '加载中……';
-  getList()
-});
