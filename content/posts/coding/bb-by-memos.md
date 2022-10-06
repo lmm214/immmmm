@@ -13,13 +13,20 @@ feature: https://cdn.edui.fun/images/2022/10/bb-by-memos.jpg
 
 <!--more-->
 
-现在，有了这货 Memos <https://usememos.com/> ，终于舒坦！
+现在，有了这货 Memos <https://usememos.com/> ，完美的平替，不，高替！
 
 - 首页头部 API 调用 json 轮播；
 - iOS 快捷发碎碎念；
 - 单页分页显示；
 
+### 更多围观地址
+
+1900： <https://1900.live/memos/>
+life97： <https://life97.top/Dynamics.html>
+
 ### 单页部署代码
+
+已做 js 文件调用处理，找个页面丢入以下 html + js + css 即可。当然，得先部署个 [Memos](https://immmmm.com/hi-memos/)，或者，找个好朋友开个 id 也可以。
 
 ```html
 <div id="bber"></div>
