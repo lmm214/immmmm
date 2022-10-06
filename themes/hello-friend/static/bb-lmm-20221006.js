@@ -1,5 +1,5 @@
 /*
-Last Modified time : 20221006 11:20 by https://immmmm.com
+Last Modified time : 20221006 17:20 by https://immmmm.com
 */
 
 var bbMemo = {
@@ -70,9 +70,10 @@ function getList(){
         .replace(PLAIN_TEXT_REG, "$1")
       //解析内置资源上传的图片
       if(dataNow[i].resourceList.length > 0){
-        var imgList = dataNow[i].resourceList,imgUrl="";
-        for(var i=0;i < imgList.length;i++){
-            imgUrl += '<img class="img" src="'+memos+'o/r/'+imgList[i].id+'/'+imgList[i].filename+'"/>'
+        var imgList = dataNow[i].resourceList;
+        var imgUrl='';
+        for(var j=0;j < imgList.length;j++){
+            imgUrl += '<img class="img" src="'+memos+'o/r/'+imgList[j].id+'/'+imgList[j].filename+'"/>'
         }
         bbContREG += imgUrl
       }
