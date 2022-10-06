@@ -6,6 +6,7 @@ var bbMemo = {
     memos: 'https://demo.usememos.com/',
     limit: '10',
     creatorId: '101',
+    domId: '#bber',
 }
 if(typeof(bbMemos) !=="undefined"){
     for(var key in bbMemos) {
@@ -14,13 +15,12 @@ if(typeof(bbMemos) !=="undefined"){
       }
     }
 }
-var memos = bbMemo.memos
+
 var limit = bbMemo.limit
-var creatorId = bbMemo.creatorId
-//以下内容无须修改
+var memos = bbMemo.memos
 var count=0,page = 1,begin = limit*(page-1);
-var bbUrl = memos+"api/memo?creatorId="+creatorId+"&rowStatus=NORMAL";
-var bbDom = document.querySelector('#bber');
+var bbUrl = memos+"api/memo?creatorId="+bbMemo.creatorId+"&rowStatus=NORMAL";
+var bbDom = document.querySelector(bbMemo.domId);
 var load = '<div class="load"><button class="load-btn button-load">加载中……</button></div>'
 bbDom.insertAdjacentHTML('afterend', load);
 //发起一次 fetch，缓存为本地 localStorage，进行分页调用。

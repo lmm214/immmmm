@@ -19,10 +19,46 @@ feature: https://cdn.edui.fun/images/2022/10/bb-by-memos.jpg
 - iOS 快捷发碎碎念；
 - 单页分页显示；
 
-具体代码见：
+### 单页部署代码
 
-```
-view-source:https://immmmm.com/bb/
+```html
+<div id="bber"></div>
+<script type="text/javascript">
+  var bbMemos = {
+    memos : 'https://me.edui.fun/',//修改为自己的 apiurl，末尾有 / 斜杠
+    limit : '',//默认每次显示 10条 
+    creatorId:'' ,//默认为 101用户 https://demo.usememos.com/u/101
+    domId: '',//默认为 <div id="bber"></div>
+  }
+</script>
+<script src="https://fastly.jsdelivr.net/gh/lmm214/immmmm/themes/hello-friend/static/bb-lmm-20221006.js"></script>
+<script src="https://fastly.jsdelivr.net/gh/Tokinx/ViewImage/view-image.min.js"></script>
+<script src="https://fastly.jsdelivr.net/gh/Tokinx/Lately/lately.min.js"></script>
 ```
 
-待完成：前端图片、链接正则过滤。
+样式代码供参考：
+
+```css
+#bber{margin-top:1em;}
+.timeline ul {margin:0;}
+.timeline ul li {background:#3b3d42;list-style-type:none;position:relative;width:3px;margin-left:1em;padding:0.8em 0 2em;}
+.timeline ul li::after {transform: rotate(45deg);content:'';background-color: #3b3d42;display: block;position: absolute;top: 10px;left: -5px;width: 0.8em;height: 0.8em;outline:15px solid #fff;}
+.timeline ul li div {position:relative;top:-13px;left:1em;width:670px;padding:0px 16px 0px;}
+.timeline ul li p.datatime{color: #fafafa;font-size: 0.75em;font-style: italic;background-color: #3b3d42;display: inline-block;padding:0.25em 1em 0.2em 1em;}
+.timeline ul li p.datacont{white-space: pre-wrap;margin:0.65em 0 0.3em;}
+.timeline ul li p.datacont img{display:block;max-height:340px !important;}
+.timeline ul li p.datacont img[src*="emotion"]{display:inline-block;width:auto;}
+.timeline ul li p.datafrom{color: #aaa;font-size: 0.75em !important;font-style: italic;}
+.timeline ul li p{margin:0;font-size:16px;letter-spacing:1px;color: #3b3d42;}
+.timeline ul li p.datacont .img{cursor: pointer;border:1px solid #3b3d42;max-width:20rem;margin:6px 0 6px 0;}
+button{border-radius:0;}
+.dark-theme .timeline ul li div p{color:#fafafa;}
+.dark-theme .timeline ul li div p svg{fill:#fafafa;}
+.dark-theme .timeline ul li p.datafrom{color: #aaa;}
+.dark-theme .timeline ul li{background:#3b3d42;}
+.dark-theme .timeline ul li::after{outline: 15px solid #2f2f2f;}
+@media (max-width:860px) {
+  .timeline ul li{margin-left:0;}
+  .timeline ul li div{width:calc(100vw - 75px);left:30px;}
+}
+```
