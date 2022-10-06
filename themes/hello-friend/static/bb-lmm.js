@@ -18,7 +18,7 @@ if(typeof(bbMemos) !=="undefined"){
 
 var limit = bbMemo.limit
 var memos = bbMemo.memos
-var count=0,page = 1,begin = limit*(page-1);
+var count=0,page = 1;
 var bbUrl = memos+"api/memo?creatorId="+bbMemo.creatorId+"&rowStatus=NORMAL";
 var bbDom = document.querySelector(bbMemo.domId);
 var load = '<div class="load"><button class="load-btn button-load">加载中……</button></div>'
@@ -32,8 +32,12 @@ fetch(bbUrl).then(res => res.json()).then( resdata =>{
   getList()
 });
 function getList(){
+  var begin = limit*(page-1)
+  var end = parseInt(begin)+parseInt(limit)
   var dataAll = JSON.parse(localStorage.getItem('bber_memos'))
-  var dataNow = dataAll.slice(begin,begin+limit)
+  console.log(end)
+  var dataNow = dataAll.slice(begin,end)
+  console.log(dataNow)
   if((page-1)*limit >= count){return}
   var result="",resultAll="";
   const CODE_BLOCK_REG = /```(\S*?)\s([\s\S]*?)```(\n?)/g;
@@ -92,16 +96,15 @@ function getList(){
   resultAll = bbBefore + result + bbAfter
   bbDom.insertAdjacentHTML('beforeend', resultAll);
   document.querySelector('button.button-load').textContent= '加载更多';
+  //图片灯箱
+  window.ViewImage && ViewImage.init('.datacont img')
+  //相对时间
+  window.Lately && Lately.init({ target: '.datatime' });
   if(page*limit >= count){
     document.querySelector("button.button-load").remove()
     return
   }
   page++
-  begin = limit*(page-1)
-  //图片灯箱
-  window.ViewImage && ViewImage.init('.datacont img')
-  //相对时间
-  window.Lately && Lately.init({ target: '.datatime' });
 }
 var btn = document.querySelector("button.button-load");
 btn.addEventListener("click", function () {
