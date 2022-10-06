@@ -39,7 +39,7 @@ life97： <https://life97.top/Dynamics.html>
     domId: '',//默认为 <div id="bber"></div>
   }
 </script>
-<script src="https://fastly.jsdelivr.net/gh/lmm214/immmmm/themes/hello-friend/static/bb-lmm-20221006-2.js"></script>
+<script src="https://immmmm.com/bb-lmm.js"></script>
 <script src="https://fastly.jsdelivr.net/gh/Tokinx/ViewImage/view-image.min.js"></script>
 <script src="https://fastly.jsdelivr.net/gh/Tokinx/Lately/lately.min.js"></script>
 ```
