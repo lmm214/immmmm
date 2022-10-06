@@ -1445,7 +1445,7 @@ photos .photo:last-child {
 
 #bber-talk{display:-webkit-flex;display:flex;width:100%;line-height:35px;height:45px;max-width:760px;text-align:left;padding:5px 15px;margin:20px 0;position: relative;background-color: var(--light-header);border-radius:8px;font-size:15px;overflow:hidden;}
 #bber-talk svg{fill: currentColor;vertical-align: middle;display: inline;margin-right:5px;margin-top: -4px;}
-.talk-wrap{width:100%;}
+.talk-wrap{width:96%;}
 .talk-list{margin: 0;height: 35px;}
 .talk-list li {list-style:none;margin-bottom:10px;width: 100%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;zoom: 1;}
 .talk-list li .datetime{margin-right:2px;}
