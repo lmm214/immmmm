@@ -1,0 +1,126 @@
+{{ define "main" }}
+<div class="post">
+  <h2 class="post-title">{{.Title}}</h2>
+  <div class="post-content">
+    <div id="bber"></div>
+    <style>
+      #bber{margin-top:1em;}
+      .timeline ul {margin:0;}
+      .timeline ul li {background:#3b3d42;list-style-type:none;position:relative;width:3px;margin-left:1em;padding:0.8em 0 2em;}
+      .timeline ul li::after {transform: rotate(45deg);content:'';background-color: #3b3d42;display: block;position: absolute;top: 10px;left: -5px;width: 0.8em;height: 0.8em;outline:15px solid #fff;}
+      .timeline ul li div {position:relative;top:-13px;left:1em;width:670px;padding:0px 16px 0px;}
+      .timeline ul li p.datatime{color: #fafafa;font-size: 0.75em;font-style: italic;background-color: #3b3d42;display: inline-block;padding:0.25em 1em 0.2em 1em;}
+      .timeline ul li p.datacont{white-space: pre-wrap;margin:0.65em 0 0.3em;}
+      .timeline ul li p.datacont img{display:block;max-height:340px !important;}
+      .timeline ul li p.datacont img[src*="emotion"]{display:inline-block;width:auto;}
+      .timeline ul li p.datafrom{color: #aaa;font-size: 0.75em !important;font-style: italic;}
+      .timeline ul li p{margin:0;font-size:16px;letter-spacing:1px;color: #3b3d42;}
+      .timeline ul li p.datacont .img{border:1px solid #3b3d42;max-width:20rem;}
+      button{border-radius:0;}
+      .dark-theme .timeline ul li div p{color:#fafafa;}
+      .dark-theme .timeline ul li div p svg{fill:#fafafa;}
+      .dark-theme .timeline ul li p.datafrom{color: #aaa;}
+      .dark-theme .timeline ul li{background:#3b3d42;}
+      .dark-theme .timeline ul li::after{outline: 15px solid #2f2f2f;}
+      @media (max-width:860px) {
+        .timeline ul li{margin-left:0;}
+        .timeline ul li div{width:calc(100vw - 75px);left:30px;}
+      }
+    </style>
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.5/dayjs.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.5/locale/zh-cn.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.5/plugin/relativeTime.js"></script>
+<script>dayjs.locale('zh-cn');dayjs.extend(window.dayjs_plugin_relativeTime)</script>
+<script>
+var memos = "https://me.edui.fun/";
+var limit = 10;
+var count=0,page = 1,offset = limit*(page-1);
+var bbUrl = memos+"api/memo?creatorId=101&rowStatus=NORMAL";
+var bbDom = document.querySelector('#bber');
+var load = '<div class="load"><button class="load-btn button-load">加载中……</button></div>'
+bbDom.insertAdjacentHTML('afterend', load);
+
+fetch(bbUrl).then(res => res.json()).then( resdata =>{
+  count = resdata.data.length
+  var bbBefore = '<p class="count">共 <span class="count-data">'+count+'</span> 条</p>'
+  bbDom.insertAdjacentHTML('beforebegin', bbBefore);
+  getList()
+});
+
+function getList(){
+  var bbUrl = memos+"api/memo?creatorId=101&rowStatus=NORMAL&limit="+limit+"&offset="+offset;
+  console.log(limit+"条/页------现第"+page+"页--————---偏移"+offset)
+  if((page-1)*limit >= count){
+    return
+  }
+  fetch(bbUrl).then(res => res.json()).then( resdata =>{
+      var result = '',resultAll="",data = resdata.data;
+      const CODE_BLOCK_REG = /```(\S*?)\s([\s\S]*?)```(\n?)/g;
+      const TODO_LIST_REG = /- \[ \] ([\S ]+)(\n?)/g;
+      const DONE_LIST_REG = /- \[x\] ([\S ]+)(\n?)/g;
+      const ORDERED_LIST_REG = /(\d+)\. ([\S ]+)(\n?)/g;
+      const UNORDERED_LIST_REG = /[*-] ([\S ]+)(\n?)/g;
+      const PARAGRAPH_REG = /([\S ]*)(\n?)/g;
+      const TAG_REG = /#([^\s#]+?) /g;
+      const IMAGE_REG = /!\[.*?\]\((.+?)\)/g;
+      const LINK_REG = /\[(.*?)\]\((.+?)\)/g;
+      const MARK_REG = /@\[([\S ]+?)\]\((\S+?)\)/g;
+      const BOLD_REG = /\*\*([\S ]+)\*\*/g;
+      const EMPHASIS_REG = /\*([\S ]+)\*/g;
+      const PLAIN_LINK_REG = /(https?:\/\/[ ]+)/g;
+      const INLINE_CODE_REG = /`([\S ]+?)`/g;
+      const PLAIN_TEXT_REG = /([\S ]+)/g;
+
+      for(var i=0;i < data.length;i++){
+          var bbTime = '<p class="datatime">'+dayjs.unix(data[i].createdTs).fromNow()+'</p>'
+          var bbContREG = data[i].content
+            .replace(CODE_BLOCK_REG, "<pre lang='$1'>\n$2</pre>$3")
+            .replace(TODO_LIST_REG, "<p><span class='todo-block todo' data-value='TODO'></span>$1</p>$2")
+            .replace(DONE_LIST_REG, "<p><span class='todo-block done' data-value='DONE'>✓</span>$1</p>$2")
+            .replace(ORDERED_LIST_REG, "<p><span class='ol-block'>$1.</span>$2</p>$3")
+            .replace(UNORDERED_LIST_REG, "<p><span class='ul-block'>•</span>$1</p>$2")
+            //.replace(PARAGRAPH_REG, "<p>$1</p>$2")
+            .replace(IMAGE_REG, "<img class='img' src='$1' />")
+            .replace(MARK_REG, "<span class='memo-link-text' data-value='$2'>$1</span>")
+            .replace(BOLD_REG, "<strong>$1</strong>")
+            .replace(EMPHASIS_REG, "<em>$1</em>")
+            .replace(LINK_REG, "<a class='link' target='_blank' rel='noreferrer' href='$2'>$1</a>")
+            .replace(INLINE_CODE_REG, "<code>$1</code>")
+            .replace(PLAIN_LINK_REG, "<a class='link' target='_blank' rel='noreferrer' href='$1'>$1</a>")
+            .replace(TAG_REG, "<span class='tag-span'>#$1</span> ")
+            .replace(PLAIN_TEXT_REG, "$1")
+          //console.log(bbContREG)
+          //console.log(data[i].resourceList)
+          if(data[i].resourceList.length > 0){
+            
+          }
+          var bbCont = '<p class="datacont">'+bbContREG+'</p>'
+          result += '<li class="item"><div>'+bbTime+bbCont+'</div></li>'
+      }
+      var bbBefore = '<section class="timeline"><ul><div class="list">'
+      var bbAfter = '</div></ul></section>'
+      resultAll = bbBefore + result + bbAfter
+      bbDom.insertAdjacentHTML('beforeend', resultAll);
+      document.querySelector('button.button-load').textContent= '加载更多';
+      if(page*limit >= count){
+        document.querySelector("button.button-load").remove()
+        return
+      }
+      page++
+      offset = limit*(page-1)
+      //图片灯箱
+      window.ViewImage && ViewImage.init('.datacont img')
+  });
+}
+var btn = document.querySelector("button.button-load");
+btn.addEventListener("click", function () {
+  btn.textContent= '加载中……';
+  getList()
+});
+</script>
+{{ end }}
+
+{{ define "footer" }}
+<script type="text/javascript" src="/view-image.js"></script>
+<script type="text/javascript" src="/theme-main-1.js"></script>
+{{ end }}
