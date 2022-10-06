@@ -22,6 +22,7 @@ feature: https://cdn.edui.fun/images/2022/10/bb-by-memos.jpg
 ### 更多围观地址
 
 1900： <https://1900.live/memos/>
+
 life97： <https://life97.top/Dynamics.html>
 
 ### 单页部署代码
@@ -38,7 +39,7 @@ life97： <https://life97.top/Dynamics.html>
     domId: '',//默认为 <div id="bber"></div>
   }
 </script>
-<script src="https://fastly.jsdelivr.net/gh/lmm214/immmmm/themes/hello-friend/static/bb-lmm-20221006.js"></script>
+<script src="https://fastly.jsdelivr.net/gh/lmm214/immmmm/themes/hello-friend/static/bb-lmm-20221006-2.js"></script>
 <script src="https://fastly.jsdelivr.net/gh/Tokinx/ViewImage/view-image.min.js"></script>
 <script src="https://fastly.jsdelivr.net/gh/Tokinx/Lately/lately.min.js"></script>
 ```
