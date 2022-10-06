@@ -68,14 +68,21 @@ function getList(){
         .replace(PLAIN_LINK_REG, "<a class='link' target='_blank' rel='noreferrer' href='$1'>$1</a>")
         .replace(TAG_REG, "<span class='tag-span'>#$1</span> ")
         .replace(PLAIN_TEXT_REG, "$1")
-      //解析内置资源上传的图片
+      //解析内置资源文件
       if(dataNow[i].resourceList.length > 0){
-        var imgList = dataNow[i].resourceList;
-        var imgUrl='';
-        for(var j=0;j < imgList.length;j++){
-            imgUrl += '<img class="img" src="'+memos+'o/r/'+imgList[j].id+'/'+imgList[j].filename+'"/>'
+        var resourceList = dataNow[i].resourceList;
+        var imgUrl='',resUrl='';
+        for(var j=0;j < resourceList.length;j++){
+          var restype = resourceList[j].type.slice(0,5)
+          if(restype == 'image'){
+            imgUrl += '<img class="img" src="'+memos+'o/r/'+resourceList[j].id+'/'+resourceList[j].filename+'"/>'
+          }
+          if(restype !== 'image'){
+            resUrl += '<a target="_blank" rel="noreferrer" href="'+memos+'o/r/'+resourceList[j].id+'/'+resourceList[j].filename+'">'+resourceList[j].filename+'</a>'
+          }
         }
         bbContREG += imgUrl
+        bbContREG += resUrl
       }
       var bbCont = '<p class="datacont">'+bbContREG+'</p>'
       result += '<li class="item"><div>'+bbTime+bbCont+'</div></li>'
