@@ -4,7 +4,7 @@
   <div class="post-content">
     <div id="bber"></div>
 <style>
-#bber{margin-top:2em;background: #2f2f2f;}
+#bber{margin-top:2em;}
 #bber pre{color: #fff;}
 .timeline ul {margin:0;}
 .timeline ul li {background:#3b3d42;list-style-type:none;position:relative;width:3px;margin-left:1em;padding:0.8em 0 2em;}
@@ -27,8 +27,37 @@
 }
 .datacont .tag-span{color: #42b983;}
 .datasource a{font-size: 0.8rem;}
-.datacont .img{cursor: pointer;border:1px solid #3b3d42;border-radius: 0.5rem;margin: 0.7rem 0.5rem 0.7rem 0;}
-.datacont img.square{width:80px;height:80px;object-fit: cover;}
+.datacont .img{cursor:pointer;border:1px solid #3b3d42;}
+.datacont .img.square{height:180px;width:180px;object-fit: cover;}
+.resimg {
+  display: flex;
+  flex-wrap: wrap;
+}
+.resimgBox {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 2%;
+}
+/* 2/3 */
+.resimgBox img:nth-child(1):nth-last-child(2),
+.resimgBox img:nth-child(2):nth-last-child(1),
+.resimgBox img:nth-child(1):nth-last-child(3),
+.resimgBox img:nth-child(2):nth-last-child(2),
+.resimgBox img:nth-child(3):nth-last-child(1) {
+  width: 32%;
+}
+/* 4 */
+.resimgBox img:nth-child(1):nth-last-child(4),
+.resimgBox img:nth-child(2):nth-last-child(3),
+.resimgBox img:nth-child(3):nth-last-child(2),
+.resimgBox img:nth-child(4):nth-last-child(1) {
+  width: 49%;
+}
+/*  5张以上图片  */
+.resimgBox img:nth-child(1):nth-last-child(n + 5),
+.resimgBox img:nth-child(1):nth-last-child(n + 5)~img {
+  width: 32%;
+}
 </style>
 
 <script type="text/javascript">

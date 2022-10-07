@@ -44,7 +44,7 @@ life97： <https://life97.top/Dynamics.html>
 <script src="https://fastly.jsdelivr.net/gh/Tokinx/Lately/lately.min.js"></script>
 ```
 
-样式代码供参考：
+样式代码供参考，最新见页面源码：
 
 ```css
 #bber{margin-top:1em;}

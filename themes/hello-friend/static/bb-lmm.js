@@ -1,5 +1,5 @@
 /*
-Last Modified time : 20221007 09:50 by https://immmmm.com
+Last Modified time : 20221007 18:50 by https://immmmm.com
 */
 var bbMemo = {
     memos: 'https://demo.usememos.com/',
@@ -87,7 +87,7 @@ function updateHTMl(data){
         .replace(DONE_LIST_REG, "<p><span class='todo-block done' data-value='DONE'>✓</span>$1</p>$2")
         .replace(ORDERED_LIST_REG, "<p><span class='ol-block'>$1.</span>$2</p>$3")
         .replace(UNORDERED_LIST_REG, "<p><span class='ul-block'>•</span>$1</p>$2")
-        //.replace(PARAGRAPH_REG, "<p>$1</p>$2")
+        .replace(PARAGRAPH_REG, "<p>$1</p>$2")
         .replace(IMAGE_OLD_REG, "<img class='img old square' src='"+memos+"$1' />")
         .replace(IMAGE_REG, "<img class='img square' src='$1' />")
         .replace(MARK_REG, "<span class='memo-link-text' data-value='$2'>$1</span>")
@@ -98,7 +98,7 @@ function updateHTMl(data){
         .replace(PLAIN_LINK_REG, "<a class='link' target='_blank' rel='noreferrer' href='$1'>$1</a> ")
         .replace(TAG_REG, "<span class='tag-span'>#$1</span> ")
         .replace(PLAIN_TEXT_REG, "$1")
-        console.log(bbContREG)
+      console.log(bbContREG)
       //解析内置资源文件
       if(data[i].resourceList && data[i].resourceList.length > 0){
         var resourceList = data[i].resourceList;
@@ -106,14 +106,18 @@ function updateHTMl(data){
         for(var j=0;j < resourceList.length;j++){
           var restype = resourceList[j].type.slice(0,5)
           if(restype == 'image'){
-            imgUrl += '<img class="img square" src="'+memos+'o/r/'+resourceList[j].id+'/'+resourceList[j].filename+'"/>'
+            imgUrl += '<img class="img" src="'+memos+'o/r/'+resourceList[j].id+'/'+resourceList[j].filename+'"/>'
           }
           if(restype !== 'image'){
             resUrl += '<a target="_blank" rel="noreferrer" href="'+memos+'o/r/'+resourceList[j].id+'/'+resourceList[j].filename+'">'+resourceList[j].filename+'</a>'
           }
         }
-        bbContREG += '<p class="datasource">'+imgUrl+'</p>'
-        bbContREG += '<p class="datasource">'+resUrl+'</p>'
+        if(imgUrl){
+          bbContREG += '<div class="resimg"><div class="resimgBox">'+imgUrl+'</div></div>'
+        }
+        if(resUrl){
+          bbContREG += '<p class="datasource">'+resUrl+'</p>'
+        }
       }
       result += "<li class='item'><div class='itemdiv'><p class='datatime'>"+new Date(data[i].createdTs * 1000).toLocaleString()+"</p><div class='datacont'>"+bbContREG+"</div></div></li>"
   }// end for
