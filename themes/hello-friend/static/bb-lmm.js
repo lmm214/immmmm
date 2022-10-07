@@ -63,12 +63,12 @@ btn.addEventListener("click", function () {
 // 插入 html 
 function updateHTMl(data){
   var result="",resultAll="";
-  const CODE_BLOCK_REG = /```(\S*?)\s([\s\S]*?)```(\n?)/g;
+  const CODE_BLOCK_REG = /^```(\S*?)\s([\s\S]*?)```(\n?)/g;
   const TODO_LIST_REG = /- \[ \] ([\S ]+)(\n?)/g;
   const DONE_LIST_REG = /- \[x\] ([\S ]+)(\n?)/g;
   const ORDERED_LIST_REG = /(\d+)\. ([\S ]+)(\n?)/g;
   const UNORDERED_LIST_REG = /[*-] ([\S ]+)(\n?)/g;
-  const PARAGRAPH_REG = /([\S ]*)(\n?)/g;
+  const PARAGRAPH_REG = /^([\S ]*)(\n?)/mg;
   const TAG_REG = /#([^\s#]+?) /g;
   const IMAGE_OLD_REG = /!\[.*?\]\(\/([a-z]\/[a-z]\/.+?)\)/g;
   const IMAGE_REG = /!\[.*?\]\((.+?)\)/g;
@@ -78,7 +78,7 @@ function updateHTMl(data){
   const EMPHASIS_REG = /\*([\S ]+)\*/g;
   const PLAIN_LINK_REG = /((ht|f)tps?:\/\/[\w\-]+\.[\w\-]+[\w\-\.,@?^=%&:\/~\+#]*[\w\-\@?^=%&\/~\+#]) /g;
   const INLINE_CODE_REG = /`([\S ]+?)`/g;
-  const PLAIN_TEXT_REG = /([\S ]+)/g
+  const PLAIN_TEXT_REG = /([\S ]+)/g;
   for(var i=0;i < data.length;i++){
       console.log(data[i].content)
       var bbContREG = data[i].content
@@ -87,8 +87,9 @@ function updateHTMl(data){
         .replace(DONE_LIST_REG, "<p><span class='todo-block done' data-value='DONE'>✓</span>$1</p>$2")
         .replace(ORDERED_LIST_REG, "<p><span class='ol-block'>$1.</span>$2</p>$3")
         .replace(UNORDERED_LIST_REG, "<p><span class='ul-block'>•</span>$1</p>$2")
-        .replace(IMAGE_OLD_REG, "<img class='img old' src='"+memos+"$1' />")
-        .replace(IMAGE_REG, "<img class='img' src='$1' />")
+        //.replace(PARAGRAPH_REG, "<p>$1</p>$2")
+        .replace(IMAGE_OLD_REG, "<img class='img old square' src='"+memos+"$1' />")
+        .replace(IMAGE_REG, "<img class='img square' src='$1' />")
         .replace(MARK_REG, "<span class='memo-link-text' data-value='$2'>$1</span>")
         .replace(BOLD_REG, "<strong>$1</strong>")
         .replace(EMPHASIS_REG, "<em>$1</em>")
@@ -105,14 +106,14 @@ function updateHTMl(data){
         for(var j=0;j < resourceList.length;j++){
           var restype = resourceList[j].type.slice(0,5)
           if(restype == 'image'){
-            imgUrl += '<img class="img" src="'+memos+'o/r/'+resourceList[j].id+'/'+resourceList[j].filename+'"/>'
+            imgUrl += '<img class="img square" src="'+memos+'o/r/'+resourceList[j].id+'/'+resourceList[j].filename+'"/>'
           }
           if(restype !== 'image'){
-            resUrl += '<p class="datasource"><a target="_blank" rel="noreferrer" href="'+memos+'o/r/'+resourceList[j].id+'/'+resourceList[j].filename+'">'+resourceList[j].filename+'</a></p>'
+            resUrl += '<a target="_blank" rel="noreferrer" href="'+memos+'o/r/'+resourceList[j].id+'/'+resourceList[j].filename+'">'+resourceList[j].filename+'</a>'
           }
         }
-        bbContREG += imgUrl
-        bbContREG += resUrl
+        bbContREG += '<p class="datasource">'+imgUrl+'</p>'
+        bbContREG += '<p class="datasource">'+resUrl+'</p>'
       }
       result += "<li class='item'><div class='itemdiv'><p class='datatime'>"+new Date(data[i].createdTs * 1000).toLocaleString()+"</p><div class='datacont'>"+bbContREG+"</div></div></li>"
   }// end for
