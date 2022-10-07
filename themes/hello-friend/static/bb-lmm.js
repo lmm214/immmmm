@@ -100,7 +100,7 @@ function updateHTMl(data){
       //解析内置资源文件
       if(data[i].resourceList && data[i].resourceList.length > 0){
         var resourceList = data[i].resourceList;
-        console.log(resourceList)
+        //console.log(resourceList)
         var imgUrl='',resUrl='';
         for(var j=0;j < resourceList.length;j++){
           var restype = resourceList[j].type.slice(0,5)
