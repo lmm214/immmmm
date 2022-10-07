@@ -80,7 +80,7 @@ function updateHTMl(data){
   const INLINE_CODE_REG = /`([\S ]+?)`/g;
   const PLAIN_TEXT_REG = /([\S ]+)/g;
   for(var i=0;i < data.length;i++){
-      console.log(data[i].content)
+      //console.log(data[i].content)
       var bbContREG = data[i].content
         .replace(CODE_BLOCK_REG, "<pre lang='$1'>\n$2</pre>$3")
         .replace(TODO_LIST_REG, "<p><span class='todo-block todo' data-value='TODO'></span>$1</p>$2")
@@ -98,22 +98,27 @@ function updateHTMl(data){
         .replace(PLAIN_LINK_REG, "<a class='link' target='_blank' rel='noreferrer' href='$1'>$1</a> ")
         .replace(TAG_REG, "<span class='tag-span'>#$1</span> ")
         .replace(PLAIN_TEXT_REG, "$1")
-      console.log(bbContREG)
+      //console.log(bbContREG)
       //解析内置资源文件
       if(data[i].resourceList && data[i].resourceList.length > 0){
         var resourceList = data[i].resourceList;
-        var imgUrl='',resUrl='';
+        var imgUrl='',resUrl='',resImgLength = 0;
         for(var j=0;j < resourceList.length;j++){
-          var restype = resourceList[j].type.slice(0,5)
+          var restype = resourceList[j].type.slice(0,5);
           if(restype == 'image'){
-            imgUrl += '<img class="img" src="'+memos+'o/r/'+resourceList[j].id+'/'+resourceList[j].filename+'"/>'
+            console.log(resourceList[j])
+            imgUrl += '<figure class="gallery-thumbnail"><img class="img thumbnail-image" src="'+memos+'o/r/'+resourceList[j].id+'/'+resourceList[j].filename+'"/></figure>'
+            resImgLength = resImgLength + 1 
           }
           if(restype !== 'image'){
             resUrl += '<a target="_blank" rel="noreferrer" href="'+memos+'o/r/'+resourceList[j].id+'/'+resourceList[j].filename+'">'+resourceList[j].filename+'</a>'
           }
         }
+        console.log(resImgLength)
         if(imgUrl){
-          bbContREG += '<div class="resimg"><div class="resimgBox">'+imgUrl+'</div></div>'
+          var resImgGrid = ""
+          if(resImgLength !== 1){var resImgGrid = "grid grid-"+resImgLength}
+          bbContREG += '<div class="resimg '+resImgGrid+'">'+imgUrl+'</div></div>'
         }
         if(resUrl){
           bbContREG += '<p class="datasource">'+resUrl+'</p>'

@@ -4,7 +4,7 @@
   <div class="post-content">
     <div id="bber"></div>
 <style>
-#bber{margin-top:2em;}
+#bber{margin-top:2em;width:580px;}
 #bber pre{color: #fff;}
 .timeline ul {margin:0;}
 .timeline ul li {background:#3b3d42;list-style-type:none;position:relative;width:3px;margin-left:1em;padding:0.8em 0 2em;}
@@ -29,34 +29,38 @@
 .datasource a{font-size: 0.8rem;}
 .datacont .img{cursor:pointer;border:1px solid #3b3d42;}
 .datacont .img.square{height:180px;width:180px;object-fit: cover;}
-.resimg {
-  display: flex;
-  flex-wrap: wrap;
+.resimg.grid{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows:auto;
+    gap: 4px;
+    width: calc(100%*2 / 3);
+    box-sizing: border-box;
+    margin: 4px 0 0;
 }
-.resimgBox {
+.resimg.grid-4{
+  grid-template-columns: repeat(2, 1fr);
+  width: calc(80% * 2 / 3);
+}
+.resimg.grid figure.gallery-thumbnail {
   position: relative;
-  overflow: hidden;
-  margin-bottom: 2%;
+  width: 100%;
+  height: 0;
+  padding-top: 100%;
+  cursor: zoom-in;
 }
-/* 2/3 */
-.resimgBox img:nth-child(1):nth-last-child(2),
-.resimgBox img:nth-child(2):nth-last-child(1),
-.resimgBox img:nth-child(1):nth-last-child(3),
-.resimgBox img:nth-child(2):nth-last-child(2),
-.resimgBox img:nth-child(3):nth-last-child(1) {
-  width: 32%;
+.resimg.grid figure, figcaption {
+  margin: 0 !important;
 }
-/* 4 */
-.resimgBox img:nth-child(1):nth-last-child(4),
-.resimgBox img:nth-child(2):nth-last-child(3),
-.resimgBox img:nth-child(3):nth-last-child(2),
-.resimgBox img:nth-child(4):nth-last-child(1) {
-  width: 49%;
-}
-/*  5张以上图片  */
-.resimgBox img:nth-child(1):nth-last-child(n + 5),
-.resimgBox img:nth-child(1):nth-last-child(n + 5)~img {
-  width: 32%;
+.resimg.grid figure.gallery-thumbnail > img.thumbnail-image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
 }
 </style>
 
