@@ -44,29 +44,8 @@ life97： <https://life97.top/Dynamics.html>
 <script src="https://fastly.jsdelivr.net/gh/Tokinx/Lately/lately.min.js"></script>
 ```
 
-样式代码供参考，最新见页面源码：
+样式代码详见源码。
 
-```css
-#bber{margin-top:1em;}
-.timeline ul {margin:0;}
-.timeline ul li {background:#3b3d42;list-style-type:none;position:relative;width:3px;margin-left:1em;padding:0.8em 0 2em;}
-.timeline ul li::after {transform: rotate(45deg);content:'';background-color: #3b3d42;display: block;position: absolute;top: 10px;left: -5px;width: 0.8em;height: 0.8em;outline:15px solid #fff;}
-.timeline ul li div {position:relative;top:-13px;left:1em;width:670px;padding:0px 16px 0px;}
-.timeline ul li p.datatime{color: #fafafa;font-size: 0.75em;font-style: italic;background-color: #3b3d42;display: inline-block;padding:0.25em 1em 0.2em 1em;}
-.timeline ul li p.datacont{white-space: pre-wrap;margin:0.65em 0 0.3em;}
-.timeline ul li p.datacont img{display:block;max-height:340px !important;}
-.timeline ul li p.datacont img[src*="emotion"]{display:inline-block;width:auto;}
-.timeline ul li p.datafrom{color: #aaa;font-size: 0.75em !important;font-style: italic;}
-.timeline ul li p{margin:0;font-size:16px;letter-spacing:1px;color: #3b3d42;}
-.timeline ul li p.datacont .img{cursor: pointer;border:1px solid #3b3d42;max-width:20rem;margin:6px 0 6px 0;}
-button{border-radius:0;}
-.dark-theme .timeline ul li div p{color:#fafafa;}
-.dark-theme .timeline ul li div p svg{fill:#fafafa;}
-.dark-theme .timeline ul li p.datafrom{color: #aaa;}
-.dark-theme .timeline ul li{background:#3b3d42;}
-.dark-theme .timeline ul li::after{outline: 15px solid #2f2f2f;}
-@media (max-width:860px) {
-  .timeline ul li{margin-left:0;}
-  .timeline ul li div{width:calc(100vw - 75px);left:30px;}
-}
-```
+### 图片预览
+
+{{< figure "https://cdn.edui.fun/images/2022/10/iShot_2022-10-07_20.41.41.png" "https://cdn.edui.fun/images/2022/10/iShot_2022-10-07_20.42.12.png" "内置图片上传排版">}}
