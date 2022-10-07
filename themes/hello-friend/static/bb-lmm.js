@@ -70,7 +70,7 @@ function updateHTMl(data){
   const UNORDERED_LIST_REG = /[*-] ([\S ]+)(\n?)/g;
   const PARAGRAPH_REG = /([\S ]*)(\n?)/g;
   const TAG_REG = /#([^\s#]+?) /g;
-  const IMAGE_OLD_REG = /!\[.*?\]\((\/o\/r\/.+?)\)/g;
+  const IMAGE_OLD_REG = /!\[.*?\]\(\/(o\/r\/.+?)\)/g;
   const IMAGE_REG = /!\[.*?\]\((.+?)\)/g;
   const LINK_REG = /\[(.*?)\]\((.+?)\)/g;
   const MARK_REG = /@\[([\S ]+?)\]\((\S+?)\)/g;
@@ -87,7 +87,7 @@ function updateHTMl(data){
         .replace(DONE_LIST_REG, "<p><span class='todo-block done' data-value='DONE'>✓</span>$1</p>$2")
         .replace(ORDERED_LIST_REG, "<p><span class='ol-block'>$1.</span>$2</p>$3")
         .replace(UNORDERED_LIST_REG, "<p><span class='ul-block'>•</span>$1</p>$2")
-        .replace(IMAGE_OLD_REG, "<img class='img' src='"+memos+"$1' />")
+        .replace(IMAGE_OLD_REG, "<img class='img old' src='"+memos+"$1' />")
         .replace(IMAGE_REG, "<img class='img' src='$1' />")
         .replace(MARK_REG, "<span class='memo-link-text' data-value='$2'>$1</span>")
         .replace(BOLD_REG, "<strong>$1</strong>")
