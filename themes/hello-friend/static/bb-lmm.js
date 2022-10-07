@@ -68,7 +68,7 @@ function updateHTMl(data){
   const DONE_LIST_REG = /- \[x\] ([\S ]+)(\n?)/g;
   const ORDERED_LIST_REG = /(\d+)\. ([\S ]+)(\n?)/g;
   const UNORDERED_LIST_REG = /[*-] ([\S ]+)(\n?)/g;
-  const PARAGRAPH_REG = /^([\S ]*)(\n?)/mg;
+  const PARAGRAPH_REG = /^([\S ]*)(\n?)/g;
   const TAG_REG = /#([^\s#]+?) /g;
   const IMAGE_OLD_REG = /!\[.*?\]\(\/([a-z]\/[a-z]\/.+?)\)/g;
   const IMAGE_REG = /!\[.*?\]\((.+?)\)/g;
@@ -82,6 +82,8 @@ function updateHTMl(data){
   for(var i=0;i < data.length;i++){
       //console.log(data[i].content)
       var bbContREG = data[i].content
+        .replace(/([\u4e00-\u9fa5])([A-Za-z0-9?.,;[\]]+)/g, "$1 $2")
+        .replace(/([A-Za-z0-9?.,;[\]]+)([\u4e00-\u9fa5])/g, "$1 $2")
         .replace(CODE_BLOCK_REG, "<pre lang='$1'>\n$2</pre>$3")
         .replace(TODO_LIST_REG, "<p><span class='todo-block todo' data-value='TODO'></span>$1</p>$2")
         .replace(DONE_LIST_REG, "<p><span class='todo-block done' data-value='DONE'>✓</span>$1</p>$2")
@@ -106,7 +108,6 @@ function updateHTMl(data){
         for(var j=0;j < resourceList.length;j++){
           var restype = resourceList[j].type.slice(0,5);
           if(restype == 'image'){
-            console.log(resourceList[j])
             imgUrl += '<figure class="gallery-thumbnail"><img class="img thumbnail-image" src="'+memos+'o/r/'+resourceList[j].id+'/'+resourceList[j].filename+'"/></figure>'
             resImgLength = resImgLength + 1 
           }
@@ -114,7 +115,6 @@ function updateHTMl(data){
             resUrl += '<a target="_blank" rel="noreferrer" href="'+memos+'o/r/'+resourceList[j].id+'/'+resourceList[j].filename+'">'+resourceList[j].filename+'</a>'
           }
         }
-        console.log(resImgLength)
         if(imgUrl){
           var resImgGrid = ""
           if(resImgLength !== 1){var resImgGrid = "grid grid-"+resImgLength}
