@@ -4,27 +4,27 @@
   <div class="post-content">
     <div id="bber"></div>
 <style>
-#bber{margin-top:2em;}
+#bber{margin-top:2em;background: #2f2f2f;}
 #bber pre{color: #fff;}
 .timeline ul {margin:0;}
 .timeline ul li {background:#3b3d42;list-style-type:none;position:relative;width:3px;margin-left:1em;padding:0.8em 0 2em;}
 .timeline ul li::after {transform: rotate(45deg);content:'';background-color: #3b3d42;display: block;position: absolute;top: 10px;left: -5px;width: 0.8em;height: 0.8em;outline:15px solid #fff;}
-.timeline ul li div {position:relative;top:-13px;left:1em;width:670px;padding:0px 16px 0px;}
-.timeline ul li p.datatime{color: #fafafa;font-size: 0.75em;font-style: italic;background-color: #3b3d42;display: inline-block;padding:0.25em 1em 0.2em 1em;}
-.timeline ul li p.datacont{white-space: pre-wrap;margin:0.65em 0 0.3em;}
-.timeline ul li p.datacont img{display:block;max-height:340px !important;}
-.timeline ul li p.datacont img[src*="emotion"]{display:inline-block;width:auto;}
-.timeline ul li p.datafrom{color: #aaa;font-size: 0.75em !important;font-style: italic;}
+.timeline ul li .itemdiv {position:relative;top:-13px;left:1em;width:670px;padding:0px 16px 0px;}
+.timeline ul li .datatime,.load button{color: #fafafa;font-size: 0.75em;font-style: italic;background-color: #3b3d42;display: inline-block;padding:4px 12px;}
+.timeline ul li .datacont{margin:0.65em 0 0.3em;}
+.timeline ul li .datacont img{display:block;max-height:340px !important;}
+.timeline ul li .datacont img[src*="emotion"]{display:inline-block;width:auto;}
+.timeline ul li .datafrom{color: #aaa;font-size: 0.75em !important;font-style: italic;}
 .timeline ul li p{margin:0;font-size:16px;letter-spacing:1px;color: #3b3d42;}
-button{border-radius:0;}
-.dark-theme .timeline ul li div p{color:#fafafa;}
-.dark-theme .timeline ul li div p svg{fill:#fafafa;}
-.dark-theme .timeline ul li p.datafrom{color: #aaa;}
+.load button{border-radius:0;border:0;padding:10px 22px;}
+.dark-theme .timeline ul li .itemdiv p{color:#fafafa;}
+.dark-theme .timeline ul li .itemdiv p svg{fill:#fafafa;}
+.dark-theme .timeline ul li .datafrom{color: #aaa;}
 .dark-theme .timeline ul li{background:#3b3d42;}
 .dark-theme .timeline ul li::after{outline: 15px solid #2f2f2f;}
 @media (max-width:860px) {
   .timeline ul li{margin-left:0;}
-  .timeline ul li div{width:calc(100vw - 75px);left:30px;}
+  .timeline ul li .itemdiv{width:calc(100vw - 75px);left:20px;}
 }
 .datacont .tag-span{color: #42b983;}
 .datasource a{font-size: 0.8rem;}
