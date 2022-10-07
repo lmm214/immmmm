@@ -34,9 +34,13 @@ rssLimit = 5
   url="/friends/"
   weight="4"
   [[menu.main]]
+  name="导航"
+  url="https://edui123.com/"
+  weight="5"
+  [[menu.main]]
   name="关于"
   url="/about/"
-  weight="5"
+  weight="6"
 
 [params]
   # dir name of your blog content (default is `content/posts`)
