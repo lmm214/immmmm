@@ -81,7 +81,7 @@ function updateHTMl(data){
   const PLAIN_TEXT_REG = /([\S ]+)/g
   for(var i=0;i < data.length;i++){
       var bbTime = '<p class="datatime">'+new Date(data[i].createdTs * 1000).toLocaleString()+'</p>'
-      console.log(data[i].content)
+      //console.log(data[i].content)
       var bbContREG = data[i].content
         .replace(CODE_BLOCK_REG, "<pre lang='$1'>\n$2</pre>$3")
         .replace(TODO_LIST_REG, "<p><span class='todo-block todo' data-value='TODO'></span>$1</p>$2")
@@ -98,7 +98,7 @@ function updateHTMl(data){
         .replace(PLAIN_LINK_REG, "<a class='link' target='_blank' rel='noreferrer' href='$1'>$1</a> ")
         .replace(TAG_REG, "<span class='tag-span'>#$1</span> ")
         .replace(PLAIN_TEXT_REG, "$1")
-        console.log(bbContREG)
+        //console.log(bbContREG)
       //解析内置资源文件
       if(data[i].resourceList && data[i].resourceList.length > 0){
         var resourceList = data[i].resourceList;
