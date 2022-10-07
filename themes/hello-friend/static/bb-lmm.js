@@ -1,5 +1,5 @@
 /*
-Last Modified time : 20221007 00:06 by https://immmmm.com
+Last Modified time : 20221007 09:06 by https://immmmm.com
 */
 var bbMemo = {
     memos: 'https://demo.usememos.com/',
@@ -70,6 +70,7 @@ function updateHTMl(data){
   const UNORDERED_LIST_REG = /[*-] ([\S ]+)(\n?)/g;
   const PARAGRAPH_REG = /([\S ]*)(\n?)/g;
   const TAG_REG = /#([^\s#]+?) /g;
+  const IMAGE_OLD_REG = /!\[.*?\]\((\/o\/r\/.+?)\)/g;
   const IMAGE_REG = /!\[.*?\]\((.+?)\)/g;
   const LINK_REG = /\[(.*?)\]\((.+?)\)/g;
   const MARK_REG = /@\[([\S ]+?)\]\((\S+?)\)/g;
@@ -79,13 +80,14 @@ function updateHTMl(data){
   const INLINE_CODE_REG = /`([\S ]+?)`/g;
   const PLAIN_TEXT_REG = /([\S ]+)/g
   for(var i=0;i < data.length;i++){
-      var bbTime = '<p class="datatime">'+new Date(data[i].createdTs * 1000).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })+'</p>'
+      var bbTime = '<p class="datatime">'+new Date(data[i].createdTs * 1000).toLocaleString()+'</p>'
       var bbContREG = data[i].content
         .replace(CODE_BLOCK_REG, "<pre lang='$1'>\n$2</pre>$3")
         .replace(TODO_LIST_REG, "<p><span class='todo-block todo' data-value='TODO'></span>$1</p>$2")
         .replace(DONE_LIST_REG, "<p><span class='todo-block done' data-value='DONE'>✓</span>$1</p>$2")
         .replace(ORDERED_LIST_REG, "<p><span class='ol-block'>$1.</span>$2</p>$3")
         .replace(UNORDERED_LIST_REG, "<p><span class='ul-block'>•</span>$1</p>$2")
+        .replace(IMAGE_OLD_REG, "<img class='img' src='"+memos+"$1' />")
         .replace(IMAGE_REG, "<img class='img' src='$1' />")
         .replace(MARK_REG, "<span class='memo-link-text' data-value='$2'>$1</span>")
         .replace(BOLD_REG, "<strong>$1</strong>")
