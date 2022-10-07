@@ -1,5 +1,5 @@
 /*
-Last Modified time : 20221007 09:06 by https://immmmm.com
+Last Modified time : 20221007 09:50 by https://immmmm.com
 */
 var bbMemo = {
     memos: 'https://demo.usememos.com/',
@@ -70,7 +70,7 @@ function updateHTMl(data){
   const UNORDERED_LIST_REG = /[*-] ([\S ]+)(\n?)/g;
   const PARAGRAPH_REG = /([\S ]*)(\n?)/g;
   const TAG_REG = /#([^\s#]+?) /g;
-  const IMAGE_OLD_REG = /!\[.*?\]\(\/(o\/r\/.+?)\)/g;
+  const IMAGE_OLD_REG = /!\[.*?\]\(\/([a-z]\/[a-z]\/.+?)\)/g;
   const IMAGE_REG = /!\[.*?\]\((.+?)\)/g;
   const LINK_REG = /\[(.*?)\]\((.+?)\)/g;
   const MARK_REG = /@\[([\S ]+?)\]\((\S+?)\)/g;
@@ -98,8 +98,9 @@ function updateHTMl(data){
         .replace(TAG_REG, "<span class='tag-span'>#$1</span> ")
         .replace(PLAIN_TEXT_REG, "$1")
       //解析内置资源文件
-      if(data[i].resourceList.length > 0){
+      if(data[i].resourceList && data[i].resourceList.length > 0){
         var resourceList = data[i].resourceList;
+        console.log(resourceList)
         var imgUrl='',resUrl='';
         for(var j=0;j < resourceList.length;j++){
           var restype = resourceList[j].type.slice(0,5)
