@@ -2,7 +2,7 @@
 title: "哔哔点啥 By Memos"
 date: 2022-10-05T22:46:43+0800
 tags: [折腾]
-feature: https://cdn.edui.fun/images/2022/10/bb-by-memos.jpg
+feature: https://cdn.edui.fun/images/2022/10/immmmm-com-bb.webp
 ---
 
 在线围观：<https://immmmm.com/bb/>
@@ -21,9 +21,13 @@ feature: https://cdn.edui.fun/images/2022/10/bb-by-memos.jpg
 
 ### 更多围观地址
 
-1900： <https://1900.live/memos/>
+{{< figure "https://cdn.edui.fun/images/2022/10/elizen-me-bb.jpg.webp" "<a target='_blank' href='https://elizen.me/bb/'>elizen</a>">}}
 
-life97： <https://life97.top/Dynamics.html>
+{{< figure "https://cdn.edui.fun/images/2022/10/chenyyds-com-bb.webp" "<a target='_blank' href='https://chenyyds.com/bb'>老陳网志</a>">}}
+
+{{< figure "https://cdn.edui.fun/images/2022/10/life97-top-dynamics.png.webp" "<a target='_blank' href='https://life97.top/Dynamics.html'>life97</a>">}}
+
+1900： <https://1900.live/memos/>
 
 ### 单页部署代码
 
@@ -44,7 +48,11 @@ life97： <https://life97.top/Dynamics.html>
 <script src="https://fastly.jsdelivr.net/gh/Tokinx/Lately/lately.min.js"></script>
 ```
 
-样式代码详见源码。
+样式代码还在持续更新中，所以详见源码。
+
+```
+view-source:https://immmmm.com/bb/
+```
 
 ### 图片预览
 
