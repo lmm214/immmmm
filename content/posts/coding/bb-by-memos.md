@@ -19,16 +19,6 @@ feature: https://cdn.edui.fun/images/2022/10/immmmm-com-bb.webp
 - iOS 快捷发碎碎念；
 - 单页分页显示；
 
-### 更多围观地址
-
-{{< figure "https://cdn.edui.fun/images/2022/10/elizen-me-bb.jpg.webp" "<a target='_blank' href='https://elizen.me/bb/'>elizen</a>">}}
-
-{{< figure "https://cdn.edui.fun/images/2022/10/chenyyds-com-bb.webp" "<a target='_blank' href='https://chenyyds.com/bb'>老陳网志</a>">}}
-
-{{< figure "https://cdn.edui.fun/images/2022/10/life97-top-dynamics.png.webp" "<a target='_blank' href='https://life97.top/Dynamics.html'>life97</a>">}}
-
-1900： <https://1900.live/memos/>
-
 ### 单页部署代码
 
 已做 js 文件调用处理，找个页面丢入以下 html + js + css 即可。当然，得先部署个 [Memos](https://immmmm.com/hi-memos/)，或者，找个好朋友开个 id 也可以。
@@ -54,6 +44,19 @@ feature: https://cdn.edui.fun/images/2022/10/immmmm-com-bb.webp
 view-source:https://immmmm.com/bb/
 ```
 
+
+### 更多围观地址
+
+{{< figure "https://cdn.edui.fun/images/2022/10/elizen-me-bb.jpg.webp" "<a target='_blank' href='https://elizen.me/bb/'>elizen</a>">}}
+
+{{< figure "https://cdn.edui.fun/images/2022/10/chenyyds-com-bb.webp" "<a target='_blank' href='https://chenyyds.com/bb'>老陳网志</a>">}}
+
+{{< figure "https://cdn.edui.fun/images/2022/10/life97-top-dynamics.png.webp" "<a target='_blank' href='https://life97.top/Dynamics.html'>life97</a>">}}
+
+1900： <https://1900.live/memos/>
+
+
 ### 图片预览
 
 {{< figure "https://cdn.edui.fun/images/2022/10/iShot_2022-10-07_20.41.41.png" "https://cdn.edui.fun/images/2022/10/iShot_2022-10-07_20.42.12.png" "内置图片上传排版">}}
+
