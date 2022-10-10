@@ -27,7 +27,7 @@ feature: https://cdn.edui.fun/images/2022/10/immmmm-com-bb.webp
 <div id="bber"></div>
 <script type="text/javascript">
   var bbMemos = {
-    memos : 'https://me.edui.fun/',//修改为自己的 apiurl，末尾有 / 斜杠
+    memos : 'https://me.edui.fun/',//修改为自己部署 Memos 的网址，末尾有 / 斜杠
     limit : '',//默认每次显示 10条 
     creatorId:'' ,//默认为 101用户 https://demo.usememos.com/u/101
     domId: '',//默认为 <div id="bber"></div>
@@ -54,7 +54,6 @@ view-source:https://immmmm.com/bb/
 {{< figure "https://cdn.edui.fun/images/2022/10/life97-top-dynamics.png.webp" "<a target='_blank' href='https://life97.top/Dynamics.html'>life97</a>">}}
 
 1900： <https://1900.live/memos/>
-
 
 ### 图片预览
 
