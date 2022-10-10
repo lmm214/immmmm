@@ -1,65 +1,55 @@
 /*
-Last Modified time : 20221009 23:32 by https://immmmm.com
+Last Modified time : 20221010 23:32 by https://immmmm.com
 */
-var bbMemo = {
-    memos: 'https://demo.usememos.com/',
-    limit: '10',
-    creatorId: '101',
-    domId: '#bber',
-}
-if(typeof(bbMemos) !=="undefined"){
-    for(var key in bbMemos) {
-      if(bbMemos[key]){
-        bbMemo[key] = bbMemos[key];
+
+var bbDom = document.querySelector('#bbser');
+const urls = [
+  "https://bb.elizen.me/",
+  "https://me.edui.fun/",
+  "https://me.chenplus.com/",
+  "https://memos.life97.top/"
+]
+
+let bbsDatas = [],bbsData = {}
+const fetchBBser = async () => {
+  const results = await Promise.allSettled(urls.map(
+    url => fetch(url+"api/memo?creatorId=101&rowStatus=NORMAL&limit=2")
+    .then(response => response.json())
+    .then(resdata => resdata.data)
+  )).then(results=> {
+    console.log(results)
+    for(var i=0;i < results.length;i++){
+      var status = results[i].status
+      if(status == "fulfilled"){
+        var resultsRes = results[i].value
+        for(var j=0;j < resultsRes.length;j++){
+          var resValue = resultsRes[j]
+          var mailMd5 = md5(resValue.creator.email)
+          bbsData = {
+            updatedTs: resValue.updatedTs,
+            creator: resValue.creator.name,
+            mailmd5: mailMd5,
+            content: resValue.content,
+            resourceList: resValue.resourceList,
+            url:urls[i]
+          }
+          bbsDatas.push(bbsData)
+        }
       }
     }
-}
-var limit = bbMemo.limit
-var memos = bbMemo.memos
-var page = 1,offset = 0,nextLength = 0,nextDom='';
-var bbDom = document.querySelector(bbMemo.domId);
-var load = '<div class="load"><button class="load-btn button-load">加载中……</button></div>'
-if(bbDom){
-  bbDom.insertAdjacentHTML('afterend', load);
-  getFirstList() //首次加载数据
-  var btn = document.querySelector("button.button-load");
-  btn.addEventListener("click", function () {
-  btn.textContent= '加载中……';
-  updateHTMl(nextDom)
-  if(nextLength < limit){ //返回数据条数小于限制条数，隐藏
-    document.querySelector("button.button-load").remove()
-    return
-  }
-    getNextList()
-  });
-}
-function getFirstList(){
-  var bbUrl = memos+"api/memo?creatorId="+bbMemo.creatorId+"&rowStatus=NORMAL&limit="+limit;
-  fetch(bbUrl).then(res => res.json()).then( resdata =>{
-    updateHTMl(resdata.data)
-    var nowLength = resdata.data.length
-    if(nowLength < limit){ //返回数据条数小于 limit 则直接移除“加载更多”按钮，中断预加载
-      document.querySelector("button.button-load").remove()
-      return
-    }
-    page++
-    offset = limit*(page-1)
-    getNextList()
-  });
-}
-//预加载下一页数据
-function getNextList(){
-  var bbUrl = memos+"api/memo?creatorId="+bbMemo.creatorId+"&rowStatus=NORMAL&limit="+limit+"&offset="+offset;
-  fetch(bbUrl).then(res => res.json()).then( resdata =>{
-    nextDom = resdata.data
-    nextLength = nextDom.length
-    page++
-    offset = limit*(page-1)
-    if(nextLength < 1){ //返回数据条数为 0 ，隐藏
-      document.querySelector("button.button-load").remove()
-      return
-    }
+    bbsDatas.sort(compare("updatedTs"));
+    console.log(bbsDatas)
+    updateHTMl(bbsDatas)
   })
+}
+fetchBBser()
+
+function compare(p){ //这是比较函数
+  return function(m,n){
+      var a = m[p];
+      var b = n[p];
+      return b - a; //升序
+  }
 }
 // 插入 html 
 function updateHTMl(data){
@@ -86,6 +76,7 @@ function updateHTMl(data){
 
   for(var i=0;i < data.length;i++){
       console.log(data[i].content)
+      var memos = data[i].url
       var bbContREG = data[i].content
         .replace(/([\u4e00-\u9fa5])([A-Za-z0-9?.,;[\]]+)/g, "$1 $2")
         .replace(/([A-Za-z0-9?.,;[\]]+)([\u4e00-\u9fa5])/g, "$1 $2")
@@ -128,18 +119,18 @@ function updateHTMl(data){
           bbContREG += '<div class="resimg '+resImgGrid+'">'+imgUrl+'</div></div>'
         }
         if(resUrl){
-          bbContREG += '<p class="datasource">'+resUrl+'</p>'
+          bbContREG += '<p class="datasource g-right">'+resUrl+'</p>'
         }
       }
-      result += "<li class='item'><div class='itemdiv'><p class='datatime'>"+new Date(data[i].createdTs * 1000).toLocaleString()+"</p><div class='datacont'>"+bbContREG+"</div></div></li>"
+      //result += "<li class='item'><div class='itemdiv'><span>""</span><span class='datatime'>"+new Date(data[i].updatedTs * 1000).toLocaleString()+"</span><div class='datacont'>"+bbContREG+"</div></div></li>"
+      result += '<article class="g-clear-both"><div class="bb-avatar g-left"><img src="https://cravatar.cn/avatar/'+data[i].mailmd5+'" loading="lazy" draggable="false" alt="" class="g-alias-imgblock"></div><div class="bb-main g-right"><header class="bb-header g-clear-both"><div class="bb-title g-left g-txt-ellipsis g-user-select">'+data[i].creator+'</div></header><section class="bb-content g-inline-justify g-user-select">'+bbContREG+'</section><footer class="bb-footer g-clear-both"><div class="bb-info g-left g-txt-ellipsis"><span clsss="bb-date">'+new Date(data[i].updatedTs * 1000).toLocaleString()+'</span></div></footer></article>'
   }// end for
-  var bbBefore = "<section class='timeline'><ul class='list'>"
-  var bbAfter = "</ul></section>"
-  resultAll = bbBefore + result + bbAfter
-  bbDom.insertAdjacentHTML('beforeend', resultAll);
-  document.querySelector('button.button-load').textContent= '加载更多';
+  //var bbBefore = "<section class='timeline'><ul class='list'>"
+  //var bbAfter = "</ul></section>"
+  //resultAll = bbBefore + result + bbAfter
+  bbDom.insertAdjacentHTML('beforeend', result);
   //图片灯箱
-  window.ViewImage && ViewImage.init('.datacont img')
+  window.ViewImage && ViewImage.init('.bb-content img')
   //相对时间
-  window.Lately && Lately.init({ target: '.datatime' });
+  window.Lately && Lately.init({ target: '.bb-date' });
 }
