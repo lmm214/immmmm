@@ -2,18 +2,18 @@
 Last Modified time : 20221010 23:32 by https://immmmm.com
 */
 
-var bbDom = document.querySelector('#bbser');
+var bbDom = document.querySelector('#bbs');
 const urls = [
-  "https://bb.elizen.me/",
+  "https://demo.usememos.com/",
   "https://me.edui.fun/",
+  "https://bb.elizen.me/",
   "https://me.chenplus.com/",
   "https://memos.life97.top/"
 ]
-
 let bbsDatas = [],bbsData = {}
 const fetchBBser = async () => {
   const results = await Promise.allSettled(urls.map(
-    url => fetch(url+"api/memo?creatorId=101&rowStatus=NORMAL&limit=2")
+    url => fetch(url+"api/memo?creatorId=101&rowStatus=NORMAL&limit=5")
     .then(response => response.json())
     .then(resdata => resdata.data)
   )).then(results=> {
@@ -119,18 +119,17 @@ function updateHTMl(data){
           bbContREG += '<div class="resimg '+resImgGrid+'">'+imgUrl+'</div></div>'
         }
         if(resUrl){
-          bbContREG += '<p class="datasource g-right">'+resUrl+'</p>'
+          bbContREG += '<div class="resour">'+resUrl+'</div>'
         }
       }
-      //result += "<li class='item'><div class='itemdiv'><span>""</span><span class='datatime'>"+new Date(data[i].updatedTs * 1000).toLocaleString()+"</span><div class='datacont'>"+bbContREG+"</div></div></li>"
-      result += '<article class="g-clear-both"><div class="bb-avatar g-left"><img src="https://cravatar.cn/avatar/'+data[i].mailmd5+'" loading="lazy" draggable="false" alt="" class="g-alias-imgblock"></div><div class="bb-main g-right"><header class="bb-header g-clear-both"><div class="bb-title g-left g-txt-ellipsis g-user-select">'+data[i].creator+'</div></header><section class="bb-content g-inline-justify g-user-select">'+bbContREG+'</section><footer class="bb-footer g-clear-both"><div class="bb-info g-left g-txt-ellipsis"><span clsss="bb-date">'+new Date(data[i].updatedTs * 1000).toLocaleString()+'</span></div></footer></article>'
+      result += '<li class=""><div class="bbs-avatar"><img src="https://cravatar.cn/avatar/'+data[i].mailmd5+'" alt=""><a href="'+data[i].url+'" target="_blank" rel="noopener noreferrer" class="bbs-creator">'+data[i].creator+'</a><span class="bbs-dot">·</span><span class="bbs-date">'+new Date(data[i].updatedTs * 1000).toLocaleString()+'</span></div><div class="bbs-content"><div class="bbs-text">'+bbContREG+'</div></div></li>'
   }// end for
-  //var bbBefore = "<section class='timeline'><ul class='list'>"
-  //var bbAfter = "</ul></section>"
-  //resultAll = bbBefore + result + bbAfter
-  bbDom.insertAdjacentHTML('beforeend', result);
+  var bbBefore = "<section class='bbs-timeline'><ul class='list'>"
+  var bbAfter = "</ul></section>"
+  resultAll = bbBefore + result + bbAfter
+  bbDom.insertAdjacentHTML('beforeend', resultAll);
   //图片灯箱
   window.ViewImage && ViewImage.init('.bb-content img')
   //相对时间
-  window.Lately && Lately.init({ target: '.bb-date' });
+  window.Lately && Lately.init({ target: '.bbs-date' });
 }

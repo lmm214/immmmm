@@ -1,102 +1,24 @@
 {{ define "main" }}
-<div class="post">
-  <h2 class="post-title">{{.Title}}</h2>
-  <div class="post-content">
-    <div id="bbser"></div>
+<div class="post" style="max-width:1000px">
+  <h2 class="post-title" style="margin:0 auto;text-align: center;">{{.Title}}</h2>
+  <div id="bbs"></div>
 
 <style>
+.bbs-timeline{padding:2rem 0;}
+.bbs-timeline ul {margin:0;}
+.bbs-timeline ul li{list-style-type:none;position:relative;}
+.bbs-timeline{min-width:420px;max-width:1200px;margin:0 auto;}
+.bbs-avatar{position: relative;}
+.bbs-avatar img{width:34px;height:34px;border-radius:50%;margin-right:1rem;color: #c0c4cc;}
+.bbs-creator,.bbs-date,.bbs-dot{position:relative;top:-10px;}
+.bbs-dot{font-weight: 800;margin:0 .5rem;}
+.bbs-content {margin-bottom: 3rem;}
+.bbs-text,.resour{background: #4a4b50;border-radius: 8px;font-size: 1em;padding:10px 14px;position: relative;}
+.resour{font-size: 0.9rem;margin-top: 2px;padding: 5px 14px;}
+.bbs-text blockquote{font-family: KaiTi,STKaiti,STFangsong;margin:0 0 0 1rem;padding:.25rem 2rem;}
+.bbs-text p{min-height: 24px;margin:0;}
+.tag-span{color: #42b983;}
 
-.g-left {
-    display: inline;
-    float: left;
-}
-.g-right {
-  display: inline;
-  float: right;
-}
-.timeline pre{color: #fff;}
-.timeline ul {margin:0;}
-article{
-  padding: 15px;list-style-type:none;position:relative;
-}
-article > div.bb-avatar {
-  width: 36px;
-  height: 36px;
-  margin: 0 14px 0 0;
-}
-article > div.bb-avatar > img {
-  border-radius: 5px;
-}
-.g-alias-imgblock {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 50% 50%;
-}
-article > div.bb-main {
-  width: calc(100% - 50px);
-  border-bottom: 1px solid #323232;
-}
-.g-clear-both::after {
-  display: block;
-  clear: both;
-  content: '';
-}
-article > div.bb-main > header.bb-header {
-  height: 22px;
-  padding: 2px 0 6px;
-}
-article > div.bb-main > section.bb-content {
-  padding: 0 0 14px;
-  font-size:14px;
-  line-height: 22px;
-  word-break: break-all;
-}
-article > div.bb-main > footer.bb-footer {
-  height: 20px;
-  padding: 0 0 14px;
-}
-article > div.bb-main > footer.bb-footer > div.bb-info {
-  width: calc(100% - 50px);
-  height: 20px;
-  color: #6c6c6c;
-  font-size: 12px;
-  line-height: 20px;
-}
-article > div.bb-main > section.bb-content {
-  padding: 0 0 14px;
-  font-size: 24px;
-  line-height: 24px;
-  word-break: break-all;
-}
-article > div.bb-main > header.bb-header > div.bb-title {
-  max-width: 50%;
-  height: 20px;
-  color: #7d90a9;
-  font-size: 20px;
-  line-height: 20px;
-  font-weight: 500;
-}
-
-
-
-
-@media (max-width:683px) {
-
-}
-.bb-content p{min-height: 24px;}
-.bb-content blockquote{font-family: KaiTi,STKaiti,STFangsong;margin:0 0 0 1rem;}
-.bb-content .tag-span{color: #42b983;}
-.datasource a{
-  color:#fafafa;
-  background: #3b3d42;
-  padding: 2px 8px;
-  margin: 0 6px 0 0;
-  border-radius: 5px;
-  font-size: .9rem;
-  font-weight: 400;
-}
 .bb-content .img{cursor:pointer;border:1px solid #3b3d42;}
 .bb-content .img.square{height:180px;width:180px;object-fit:cover;}
 .resimg.grid{
@@ -151,11 +73,10 @@ article > div.bb-main > header.bb-header > div.bb-title {
 //# sourceMappingURL=md5.min.js.map
 </script>
 <script src="/bbs-lmm.js"></script>
-
-
-
 <script src="https://fastly.jsdelivr.net/gh/Tokinx/ViewImage/view-image.min.js"></script>
 <script src="https://fastly.jsdelivr.net/gh/Tokinx/Lately/lately.min.js"></script>
+
+
 {{ end }}
 
 {{ define "footer" }}
