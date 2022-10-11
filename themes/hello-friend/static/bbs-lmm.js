@@ -3,6 +3,7 @@ Last Modified time : 20221010 23:32 by https://immmmm.com
 */
 
 var bbDom = document.querySelector('#bbs');
+bbDom.innerHTML = '<div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/></svg></div>'
 const urls = [
   "https://demo.usememos.com/",
   "https://me.edui.fun/",
@@ -10,14 +11,16 @@ const urls = [
   "https://me.chenplus.com/",
   "https://memos.life97.top/"
 ]
+
 let bbsDatas = [],bbsData = {}
 const fetchBBser = async () => {
   const results = await Promise.allSettled(urls.map(
-    url => fetch(url+"api/memo?creatorId=101&rowStatus=NORMAL&limit=5")
+    url => fetch(url+"api/memo/all?rowStatus=NORMAL&limit=5")
     .then(response => response.json())
     .then(resdata => resdata.data)
   )).then(results=> {
-    console.log(results)
+    //console.log(results)
+    bbDom.innerHTML = ''
     for(var i=0;i < results.length;i++){
       var status = results[i].status
       if(status == "fulfilled"){
@@ -38,7 +41,7 @@ const fetchBBser = async () => {
       }
     }
     bbsDatas.sort(compare("updatedTs"));
-    console.log(bbsDatas)
+    //console.log(bbsDatas)
     updateHTMl(bbsDatas)
   })
 }
@@ -75,7 +78,7 @@ function updateHTMl(data){
   const MARK_IMG_REG = /^(.*)(\n\!\[)/;
 
   for(var i=0;i < data.length;i++){
-      console.log(data[i].content)
+      //console.log(data[i].content)
       var memos = data[i].url
       var bbContREG = data[i].content
         .replace(/([\u4e00-\u9fa5])([A-Za-z0-9?.,;[\]]+)/g, "$1 $2")
@@ -98,7 +101,7 @@ function updateHTMl(data){
         .replace(PLAIN_LINK_REG, "<a class='link' target='_blank' rel='noreferrer' href='$1'>$1</a> ")
         .replace(TAG_REG, "<span class='tag-span'>#$1</span> ")
         .replace(PLAIN_TEXT_REG, "$1")
-      console.log(bbContREG)
+      //console.log(bbContREG)
       //解析内置资源文件
       if(data[i].resourceList && data[i].resourceList.length > 0){
         var resourceList = data[i].resourceList;

@@ -13,11 +13,28 @@
 .bbs-creator,.bbs-date,.bbs-dot{position:relative;top:-10px;}
 .bbs-dot{font-weight: 800;margin:0 .5rem;}
 .bbs-content {margin-bottom: 3rem;}
-.bbs-text,.resour{background: #4a4b50;border-radius: 8px;font-size: 1em;padding:10px 14px;position: relative;}
+.bbs-text,.resour{background: #eaeaea;border-radius: 8px;font-size: 1em;padding:10px 14px;position: relative;}
 .resour{font-size: 0.9rem;margin-top: 2px;padding: 5px 14px;}
 .bbs-text blockquote{font-family: KaiTi,STKaiti,STFangsong;margin:0 0 0 1rem;padding:.25rem 2rem;}
 .bbs-text p{min-height: 24px;margin:0;}
 .tag-span{color: #42b983;}
+
+.dark-theme .bbs-text,.dark-theme .resour{background:#4a4b50;}
+.dark-theme .bbs-text p{color:#fafafa;}
+
+.loader {position: relative;margin:3rem auto;width: 100px;}
+.loader::before {content: '';display: block;padding-top: 100%;}
+.circular {animation: rotate 2s linear infinite;height: 100%;transform-origin: center center;width: 100%;position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;}
+.path {stroke-dasharray: 1, 200;stroke-dashoffset: 0;animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;stroke-linecap: round;}
+@keyframes rotate {100% {transform: rotate(360deg);}}
+@keyframes dash {
+  0% {stroke-dasharray: 1, 200;stroke-dashoffset: 0;}
+  50% {stroke-dasharray: 89, 200;stroke-dashoffset: -35px;}
+  100% {stroke-dasharray: 89, 200;stroke-dashoffset: -124px;}
+}
+@keyframes color {
+  100%,0% {stroke: #d62d20;}40% {stroke: #0057e7;}66% {stroke: #008744;}80%,90% {stroke: #ffa700;}
+}
 
 .bb-content .img{cursor:pointer;border:1px solid #3b3d42;}
 .bb-content .img.square{height:180px;width:180px;object-fit:cover;}
