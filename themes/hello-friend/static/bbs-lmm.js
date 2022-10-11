@@ -9,7 +9,8 @@ const urls = [
   "https://me.edui.fun/",
   "https://bb.elizen.me/",
   "https://me.chenplus.com/",
-  "https://memos.life97.top/"
+  "https://memos.life97.top/",
+  "https://memos.1900.live/"
 ]
 
 let bbsDatas = [],bbsData = {}
