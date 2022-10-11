@@ -5,6 +5,8 @@ tags: [折腾]
 feature: https://cdn.edui.fun/images/2022/10/bbs-1.png
 ---
 
+围观链接： <https://immmmm.com/bbs/>
+
 免去一个个 Memos 网址点开，直接 Fetch 汇总最新 memo 并排序渲染。 
 
 <!--more-->

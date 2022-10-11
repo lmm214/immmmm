@@ -10,13 +10,14 @@ const urls = [
   "https://bb.elizen.me/",
   "https://me.chenplus.com/",
   "https://memos.life97.top/",
-  "https://memos.1900.live/"
+  "https://memos.1900.live/",
+  "https://memos.j8.ee/"
 ]
 
-let bbsDatas = [],bbsData = {}
+let bbsDatas = [],bbsData = {},limit = 3
 const fetchBBser = async () => {
   const results = await Promise.allSettled(urls.map(
-    url => fetch(url+"api/memo/all?rowStatus=NORMAL&limit=5")
+    url => fetch(url+"api/memo/all?rowStatus=NORMAL&limit="+limit)
     .then(response => response.json())
     .then(resdata => resdata.data)
   )).then(results=> {
