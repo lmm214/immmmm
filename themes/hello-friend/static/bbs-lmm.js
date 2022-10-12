@@ -68,6 +68,7 @@ function updateHTMl(data){
   const IMAGE_OLD_REG = /!\[.*?\]\(\/([a-z]\/[a-z]\/.+?)\)/g;
   const IMAGE_REG = /!\[.*?\]\((.+?)\)/g;
   const LINK_REG = /\[(.*?)\]\((.+?)\)/g;
+  const LINK_BILIBILI_REG = /\[(.*?)\]\((.+?)\)/g;
   const MARK_REG = /@\[([\S ]+?)\]\((\S+?)\)/g;
   const BOLD_REG = /\*\*([\S ]+)\*\*/g;
   const EMPHASIS_REG = /\*([\S ]+)\*/g;
@@ -113,7 +114,7 @@ function updateHTMl(data){
             imgUrl += '<figure class="gallery-thumbnail"><img class="img thumbnail-image" src="'+memos+'o/r/'+resourceList[j].id+'/'+resourceList[j].filename+'"/></figure>'
             resImgLength = resImgLength + 1 
           }
-          if(restype !== 'image'){
+          if(restype !== 'image' && restype !== 'video'){
             resUrl += '<a target="_blank" rel="noreferrer" href="'+memos+'o/r/'+resourceList[j].id+'/'+resourceList[j].filename+'">'+resourceList[j].filename+'</a>'
           }
         }
