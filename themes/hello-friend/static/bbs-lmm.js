@@ -5,7 +5,6 @@ Last Modified time : 20221010 23:32 by https://immmmm.com
 var bbDom = document.querySelector('#bbs');
 bbDom.innerHTML = '<div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/></svg></div>'
 const urls = [
-  "https://demo.usememos.com/",
   "https://me.edui.fun/",
   "https://bb.elizen.me/",
   "https://me.chenplus.com/",
