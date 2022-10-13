@@ -64,7 +64,7 @@ function getNextList(){
 // 插入 html 
 function updateHTMl(data){
   var result="",resultAll="";
-  const CODE_BLOCK_REG = /```(\S*?)\s([\s\S]*?)```(\n?)/g;
+  const CODE_BLOCK_REG = /<p>```<\/p>(\S*?)\s([\s\S]*?)<p>```<\/p>(\n?)/g;
   const TODO_LIST_REG = /- \[ \] ([\S ]+)(\n?)/g;
   const DONE_LIST_REG = /- \[x\] ([\S ]+)(\n?)/g;
   const ORDERED_LIST_REG = /(\d+)\. ([\S ]+)(\n?)/g;
@@ -97,6 +97,7 @@ function updateHTMl(data){
         .replace(QUOTE_REG, "<blockquote>$1</blockquote>")
         .replace(PARAGRAPH_REG, "<p>$1</p>$2")
         .replace(MARK_IMG_REG, "<p>$1</p>$2")
+        .replace(CODE_BLOCK_REG, "<pre lang='$1'>\n$2</pre>$3")
         .replace(IMAGE_OLD_REG, "<img class='img old square' src='"+memos+"$1' />")
         .replace(IMAGE_REG, "<img class='img square' src='$1' />")
         .replace(MARK_REG, "<span class='memo-link-text' data-value='$2'>$1</span>")
