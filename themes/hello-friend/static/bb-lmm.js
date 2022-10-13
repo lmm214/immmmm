@@ -85,7 +85,7 @@ function updateHTMl(data){
   const MARK_IMG_REG = /^(.*)(\n\!\[)/;
 
   for(var i=0;i < data.length;i++){
-      console.log(data[i].content)
+      //console.log(data[i].content)
       var bbContREG = data[i].content
         .replace(/([\u4e00-\u9fa5])([A-Za-z0-9?.,;[\]]+)/g, "$1 $2")
         .replace(/([A-Za-z0-9?.,;[\]]+)([\u4e00-\u9fa5])/g, "$1 $2")
@@ -108,7 +108,7 @@ function updateHTMl(data){
         .replace(PLAIN_LINK_REG, "<a class='link' target='_blank' rel='noreferrer' href='$1'>$1</a> ")
         .replace(TAG_REG, "<span class='tag-span'>#$1</span> ")
         .replace(PLAIN_TEXT_REG, "$1")
-      console.log(bbContREG)
+      //console.log(bbContREG)
       //解析内置资源文件
       if(data[i].resourceList && data[i].resourceList.length > 0){
         var resourceList = data[i].resourceList;

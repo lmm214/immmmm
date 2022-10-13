@@ -7,6 +7,7 @@ bbDom.innerHTML = '<div class="loader"><svg class="circular" viewBox="25 25 50 5
 const urls = [
   "https://me.edui.fun/",
   "https://bb.elizen.me/",
+  "https://qzone.boyhu.cn/",
   "https://me.chenplus.com/",
   "https://memos.life97.top/",
   "https://memos.1900.live/",
