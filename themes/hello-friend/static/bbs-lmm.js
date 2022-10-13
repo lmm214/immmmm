@@ -12,7 +12,8 @@ const urls = [
   "https://memos.life97.top/",
   "https://memos.1900.live/",
   "https://memos.j8.ee/",
-  "https://memos.m1s.one/"
+  "https://memos.m1s.one/",
+  "https://memos.eallion.com/"
 ]
 
 let bbsDatas = [],bbsData = {},limit = 3
