@@ -12,15 +12,23 @@ const urls = [
   "https://memos.life97.top/",
   "https://memos.1900.live/",
   "https://memos.j8.ee/",
-  //"https://memos.m1s.one/"
+  "https://memos.m1s.one/"
 ]
 
 let bbsDatas = [],bbsData = {},limit = 3
+const withTimeout = (millis, promise) => {
+  const timeout = new Promise((resolve, reject) =>
+      setTimeout( () => reject(`Timed out after ms.`),millis));
+  return Promise.race([
+      promise,
+      timeout
+  ]);
+};
 const fetchBBser = async () => {
   const results = await Promise.allSettled(urls.map(
-    url => fetch(url+"api/memo/all?rowStatus=NORMAL&limit="+limit)
+    url => withTimeout(1000,fetch(url+"api/memo/all?rowStatus=NORMAL&limit="+limit)
     .then(response => response.json())
-    .then(resdata => resdata.data)
+    .then(resdata => resdata.data))
   )).then(results=> {
     //console.log(results)
     bbDom.innerHTML = ''
