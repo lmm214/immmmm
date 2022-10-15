@@ -5,17 +5,52 @@ Last Modified time : 20221010 23:32 by https://immmmm.com
 var bbDom = document.querySelector('#bbs');
 bbDom.innerHTML = '<div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/></svg></div>'
 const urls = [
-  "https://me.edui.fun/",
-  "https://bb.elizen.me/",
-  "https://qzone.boyhu.cn/",
-  "https://me.chenplus.com/",
-  "https://memos.life97.top/",
-  "https://memos.1900.live/",
-  "https://memos.j8.ee/",
-  "https://memos.m1s.one/"
+  {host:"https://me.edui.fun/",creatorId:"101",md5:"ba83fa02fc4b2ba621514941307e21be"},
+  {host:"https://me.edui.fun/",creatorId:"102",md5:"8faeaa1b58a25c03be347b5a7fb5b42a"},
+  {host:"https://bb.elizen.me/",creatorId:"101",md5:"f65df4d87240feb1cb247857a621a48f"},
+  {host:"https://qzone.boyhu.cn/",creatorId:"101",md5:"55be217893c75baf8571837197de4a3e"},
+  {host:"https://me.chenplus.com/",creatorId:"101",md5:"d1ed9c15ba6d0cb18464118c6288a8ff"},
+  {host:"https://memos.life97.top/",creatorId:"101",md5:"d41d8cd98f00b204e9800998ecf8427e"},
+  {host:"https://memos.1900.live/",creatorId:"101",md5:"cc38267b10cc25dfc62209f8ca34589e"},
 ]
+allUrls()
+function allUrls(){
+  var myHtml = ''
+  for(var i=0;i < urls.length;i++){
+    myHtml += '<div class="bbs-urls" onclick="urlsNow(this)" data-host="'+urls[i].host+'" data-creatorId="'+urls[i].creatorId+'"><img src="https://cravatar.cn/avatar/'+urls[i].md5+'" alt=""></div>'
+  }
+  myHtml = '<div id="bbs-urls">'+myHtml+'</div>'
+  bbDom.insertAdjacentHTML('beforebegin', myHtml);
+}
+function urlsNow(e){
+  bbDom.innerHTML = '<div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/></svg></div>'
+  var host = e.getAttribute("data-host")
+  var creId = e.getAttribute("data-creatorId")
+  var bbUrl = host+"api/memo?creatorId="+creId+"&rowStatus=NORMAL&limit=10"
+  console.log(bbUrl)
+  fetch(bbUrl).then(res => res.json()).then( resdata =>{
+    //console.log(resdata)
+    bbDom.innerHTML = ''
+    bbsDatas.length = 0
+        for(var j=0;j < resdata.data.length;j++){
+          var resValue = resdata.data[j]
+          var mailMd5 = md5(resValue.creator.email)
+          bbsData = {
+            updatedTs: resValue.updatedTs,
+            creatorId:resValue.creatorId,
+            creator: resValue.creator.name,
+            mailmd5: mailMd5,
+            content: resValue.content,
+            resourceList: resValue.resourceList,
+            url:host
+          }
+          bbsDatas.push(bbsData)
+    }
+    updateHTMl(bbsDatas)
+  });
+}
 
-let bbsDatas = [],bbsData = {},limit = 3
+let bbsDatas = [],bbsData = {},limit = 5
 const withTimeout = (millis, promise) => {
   const timeout = new Promise((resolve, reject) =>
       setTimeout( () => reject(`Timed out after ms.`),millis));
@@ -26,9 +61,8 @@ const withTimeout = (millis, promise) => {
 };
 const fetchBBser = async () => {
   const results = await Promise.allSettled(urls.map(
-    url => withTimeout(1000,fetch(url+"api/memo/all?rowStatus=NORMAL&limit="+limit)
-    .then(response => response.json())
-    .then(resdata => resdata.data))
+   // url => withTimeout(2000,fetch(url+"api/memo/all?rowStatus=NORMAL&limit=1").then(response => response.json()).then(resdata => resdata.data))
+   url => fetch(url.host+"api/memo?creatorId="+url.creatorId+"&rowStatus=NORMAL&limit="+limit).then(response => response.json()).then(resdata => resdata.data)
   )).then(results=> {
     //console.log(results)
     bbDom.innerHTML = ''
@@ -41,11 +75,12 @@ const fetchBBser = async () => {
           var mailMd5 = md5(resValue.creator.email)
           bbsData = {
             updatedTs: resValue.updatedTs,
+            creatorId:resValue.creatorId,
             creator: resValue.creator.name,
             mailmd5: mailMd5,
             content: resValue.content,
             resourceList: resValue.resourceList,
-            url:urls[i]
+            url:urls[i].host
           }
           bbsDatas.push(bbsData)
         }
@@ -65,6 +100,11 @@ function compare(p){ //这是比较函数
       return b - a; //升序
   }
 }
+function uniqueFunc(arr){
+  const res = new Map();
+  return arr.filter((item) => !res.has(item.creator) && res.set(item.creator, 1));
+}
+
 // 插入 html 
 function updateHTMl(data){
   var result="",resultAll="";
@@ -144,7 +184,7 @@ function updateHTMl(data){
   resultAll = bbBefore + result + bbAfter
   bbDom.insertAdjacentHTML('beforeend', resultAll);
   //图片灯箱
-  window.ViewImage && ViewImage.init('.bb-content img')
+  window.ViewImage && ViewImage.init('.bbs-content img')
   //相对时间
   window.Lately && Lately.init({ target: '.bbs-date' });
 }
