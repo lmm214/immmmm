@@ -50,7 +50,7 @@ function urlsNow(e){
   });
 }
 
-let bbsDatas = [],bbsData = {},limit = 5
+let bbsDatas = [],bbsData = {},limit = 3
 const withTimeout = (millis, promise) => {
   const timeout = new Promise((resolve, reject) =>
       setTimeout( () => reject(`Timed out after ms.`),millis));
