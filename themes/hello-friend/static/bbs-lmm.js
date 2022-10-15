@@ -8,6 +8,7 @@ const urls = [
   {host:"https://me.edui.fun/",creatorId:"101",md5:"ba83fa02fc4b2ba621514941307e21be"},
   {host:"https://me.edui.fun/",creatorId:"102",md5:"8faeaa1b58a25c03be347b5a7fb5b42a"},
   {host:"https://bb.elizen.me/",creatorId:"101",md5:"f65df4d87240feb1cb247857a621a48f"},
+  {host:"https://memos.eallion.com/",creatorId:"101",md5:"171e4c30959e8c077a6c58b958624b31"},
   {host:"https://qzone.boyhu.cn/",creatorId:"101",md5:"55be217893c75baf8571837197de4a3e"},
   {host:"https://me.chenplus.com/",creatorId:"101",md5:"d1ed9c15ba6d0cb18464118c6288a8ff"},
   {host:"https://memos.life97.top/",creatorId:"101",md5:"d41d8cd98f00b204e9800998ecf8427e"},
