@@ -61,8 +61,9 @@ const withTimeout = (millis, promise) => {
 };
 const fetchBBser = async () => {
   const results = await Promise.allSettled(urls.map(
-   // url => withTimeout(2000,fetch(url+"api/memo/all?rowStatus=NORMAL&limit=1").then(response => response.json()).then(resdata => resdata.data))
-   url => fetch(url.host+"api/memo?creatorId="+url.creatorId+"&rowStatus=NORMAL&limit="+limit).then(response => response.json()).then(resdata => resdata.data)
+    //限时
+    url => withTimeout(2000,fetch(url.host+"api/memo?creatorId="+url.creatorId+"&rowStatus=NORMAL&limit="+limit).then(response => response.json()).then(resdata => resdata.data))
+    //url => fetch(url.host+"api/memo?creatorId="+url.creatorId+"&rowStatus=NORMAL&limit="+limit).then(response => response.json()).then(resdata => resdata.data)
   )).then(results=> {
     //console.log(results)
     bbDom.innerHTML = ''
