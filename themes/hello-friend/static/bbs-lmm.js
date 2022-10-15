@@ -17,7 +17,7 @@ allUrls()
 function allUrls(){
   var myHtml = ''
   for(var i=0;i < urls.length;i++){
-    myHtml += '<div class="bbs-urls" onclick="urlsNow(this)" data-host="'+urls[i].host+'" data-creatorId="'+urls[i].creatorId+'"><img src="https://cravatar.cn/avatar/'+urls[i].md5+'" alt=""></div>'
+    myHtml += '<div class="bbs-urls" onclick="urlsNow(this)" data-host="'+urls[i].host+'" data-creatorId="'+urls[i].creatorId+'" data-md5="'+urls[i].md5+'"><img src="https://cravatar.cn/avatar/'+urls[i].md5+'" alt=""></div>'
   }
   myHtml = '<div id="bbs-urls">'+myHtml+'</div>'
   bbDom.insertAdjacentHTML('beforebegin', myHtml);
@@ -26,20 +26,19 @@ function urlsNow(e){
   bbDom.innerHTML = '<div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/></svg></div>'
   var host = e.getAttribute("data-host")
   var creId = e.getAttribute("data-creatorId")
+  var md5 = e.getAttribute("data-md5")
   var bbUrl = host+"api/memo?creatorId="+creId+"&rowStatus=NORMAL&limit=10"
-  console.log(bbUrl)
   fetch(bbUrl).then(res => res.json()).then( resdata =>{
     //console.log(resdata)
     bbDom.innerHTML = ''
     bbsDatas.length = 0
         for(var j=0;j < resdata.data.length;j++){
           var resValue = resdata.data[j]
-          var mailMd5 = md5(resValue.creator.email)
           bbsData = {
             updatedTs: resValue.updatedTs,
             creatorId:resValue.creatorId,
             creator: resValue.creator.name,
-            mailmd5: mailMd5,
+            mailmd5: md5,
             content: resValue.content,
             resourceList: resValue.resourceList,
             url:host
@@ -73,12 +72,11 @@ const fetchBBser = async () => {
         var resultsRes = results[i].value
         for(var j=0;j < resultsRes.length;j++){
           var resValue = resultsRes[j]
-          var mailMd5 = md5(resValue.creator.email)
           bbsData = {
             updatedTs: resValue.updatedTs,
             creatorId:resValue.creatorId,
             creator: resValue.creator.name,
-            mailmd5: mailMd5,
+            mailmd5: urls[i].md5,
             content: resValue.content,
             resourceList: resValue.resourceList,
             url:urls[i].host
