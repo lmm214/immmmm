@@ -30,8 +30,8 @@ rssLimit = 5
   url="/archives/"
   weight="3"
   [[menu.main]]
-  name="友圈"
-  url="/friends/"
+  name="哔哔"
+  url="/bbs/"
   weight="4"
   [[menu.main]]
   name="导航"
