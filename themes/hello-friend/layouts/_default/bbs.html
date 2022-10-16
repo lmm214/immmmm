@@ -100,7 +100,7 @@
 
 {{ define "footer" }}
 <script type="text/javascript" src="/theme-main-1.js"></script>
-<script></script>
+<script>
 //随机日志
 function randomPost() {
   fetch('/sitemap.xml').then(res => res.text()).then(str => (new window.DOMParser()).parseFromString(str, "text/xml")).then(data => {
