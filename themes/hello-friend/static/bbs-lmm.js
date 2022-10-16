@@ -234,7 +234,7 @@ function updateHTMl(data){
           bbContREG += '<div class="resour">'+resUrl+'</div>'
         }
       }
-      result += '<li class=""><div class="bbs-avatar"><img src="https://cravatar.cn/avatar/'+data[i].mailmd5+'" alt=""><a href="'+data[i].url+'" target="_blank" rel="noopener noreferrer" class="bbs-creator">'+data[i].creator+'</a><span class="bbs-dot">·</span><span class="bbs-date">'+new Date(data[i].updatedTs * 1000).toLocaleString()+'</span></div><div class="bbs-content"><div class="bbs-text">'+bbContREG+'</div></div></li>'
+      result += '<li class=""><div class="bbs-avatar"><img src="https://cravatar.cn/avatar/'+data[i].mailmd5+'" alt=""><a href="'+data[i].url+'u/'+data[i].creatorId+'" target="_blank" rel="noopener noreferrer" class="bbs-creator">'+data[i].creator+'</a><span class="bbs-dot">·</span><span class="bbs-date">'+new Date(data[i].updatedTs * 1000).toLocaleString()+'</span></div><div class="bbs-content"><div class="bbs-text">'+bbContREG+'</div></div></li>'
   }// end for
   var bbBefore = "<section class='bbs-timeline'><ul class='list'>"
   var bbAfter = "</ul></section>"
