@@ -55,6 +55,8 @@ API 调用最新 10条 memos 在博客首页轮播显示。具体折腾看页面
 
 #### 浏览器扩展
 
+<https://chrome.google.com/webstore/detail/memos-bber/cbhjebjfccgchgbmfbobjmebjjckgofe/>
+
 {{<link "chrome-extensions-memos-bber">}}
 
 #### 单页前端渲染

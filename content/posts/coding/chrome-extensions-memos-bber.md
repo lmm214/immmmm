@@ -8,9 +8,11 @@ tags: [折腾]
 
 > Chrome/Edgo 浏览器插件，基于  iSpeak-bber 修改，原作者为 [DreamyTZK](https://www.antmoe.com/)。
 
-项目地址： <https://github.com/lmm214/memos-bber>
+Chrome 应用商店： <https://chrome.google.com/webstore/detail/memos-bber/cbhjebjfccgchgbmfbobjmebjjckgofe/>
 
 <!--more-->
+
+项目地址： <https://github.com/lmm214/memos-bber>
 
 ### 使用说明
 
