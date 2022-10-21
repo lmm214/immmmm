@@ -31,12 +31,16 @@ services:
 
 ![memos-1](https://cdn.edui.fun/images/2022/10/memos-1.jpg)
 
-宝塔为例：新建网站，新建 yml，开终端，丢代码。版本更新也是 **三行代码** 搞定，一行一行丢哦：
+宝塔为例：新建网站，新建 yml，开终端，丢代码。
 
 ```
-docker-compose pull
-docker-compose down
 docker-compose up -d
+```
+
+版本更新也是 **一行代码** 搞定：
+
+```
+docker-compose down && docker image rm neosmemo/memos:latest && docker-compose up -d
 ```
 
 当然，也可以官方的一句拉起 Docker。之后更新需要先去 docker 管理器里删除镜像，再输入下句拉起服务。

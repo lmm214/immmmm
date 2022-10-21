@@ -1,5 +1,5 @@
 /*
-Last Modified time : 20221009 23:32 by https://immmmm.com
+Last Modified time : 20221021 21:32 by https://immmmm.com
 */
 var bbMemo = {
     memos: 'https://demo.usememos.com/',
@@ -18,7 +18,7 @@ var limit = bbMemo.limit
 var memos = bbMemo.memos
 var page = 1,offset = 0,nextLength = 0,nextDom='';
 var bbDom = document.querySelector(bbMemo.domId);
-var load = '<div class="load"><button class="load-btn button-load">加载中……</button></div>'
+var load = '<div class="bb-load"><button class="load-btn button-load">加载中……</button></div>'
 if(bbDom){
   bbDom.insertAdjacentHTML('afterend', load);
   getFirstList() //首次加载数据
@@ -132,9 +132,9 @@ function updateHTMl(data){
           bbContREG += '<p class="datasource">'+resUrl+'</p>'
         }
       }
-      result += "<li class='item'><div class='itemdiv'><p class='datatime'>"+new Date(data[i].createdTs * 1000).toLocaleString()+"</p><div class='datacont'>"+bbContREG+"</div></div></li>"
+      result += "<li class='bb-list-li'><div class='bb-div'><div class='datatime'>"+new Date(data[i].createdTs * 1000).toLocaleString()+"</div><div class='datacont'>"+bbContREG+"</div></div></li>"
   }// end for
-  var bbBefore = "<section class='timeline'><ul class='list'>"
+  var bbBefore = "<section class='bb-timeline'><ul class='bb-list-ul'>"
   var bbAfter = "</ul></section>"
   resultAll = bbBefore + result + bbAfter
   bbDom.insertAdjacentHTML('beforeend', resultAll);
