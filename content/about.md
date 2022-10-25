@@ -188,6 +188,8 @@ layout: 'posts'
 
 {{< friend des="" url="https://dusays.com/" md5="28b57baa4e8f13fe4292ccb2de267e30" name="Teacher Du" >}}
 
+{{< friend des="" url="https://chenyyds.com/" md5="d1ed9c15ba6d0cb18464118c6288a8ff" name="老陳网志" >}}
+
 
 ### 博客程序
 
