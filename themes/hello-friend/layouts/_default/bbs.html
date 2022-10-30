@@ -47,7 +47,10 @@
 
 .bbs-content p > img{cursor:pointer;border:1px solid #3b3d42;}
 .bbs-content p:has(img.img){display: inline-block;}
-.bbs-content p> img.square{height:180px;width:180px;object-fit:cover;}
+.bbs-text p > img {display: block;}
+.bbs-text p > img:first-child:nth-last-child(n+2),.bbs-text p > img:first-child:nth-last-child(n+2) ~ img {display: inline-block;}
+
+.bbs-content p > img.square{height:180px;width:180px;object-fit:cover;}
 .resimg.grid{
     display: grid;
     grid-template-columns: repeat(3,1fr);
