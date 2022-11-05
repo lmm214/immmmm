@@ -9,7 +9,6 @@ const urls = [
   {host:"https://me.chenplus.com/",creatorId:"101",md5:"d1ed9c15ba6d0cb18464118c6288a8ff"},
   {host:"https://memos.life97.top/",creatorId:"101",md5:"d41d8cd98f00b204e9800998ecf8427e"},
   {host:"https://memos.1900.live/",creatorId:"101",md5:"cc38267b10cc25dfc62209f8ca34589e"},
-  {host:"https://memos.m1s.one/",creatorId:"101",md5:"c0a3e4fce8d8ae0651fd0b1ed717d186"},
 ]
 
 var bbDom = document.querySelector('#bbs');
