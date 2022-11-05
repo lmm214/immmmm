@@ -29,8 +29,6 @@ tags: [日常]
 
 冬奥会，恍如昨天。安装几个第三方 TV APP ，挂载上 aliyun 盘 TV，够打。
 
-<!--more-->
-
 ### Switch 
 
 #### Switch 国行 Pro 手柄 ¥349
