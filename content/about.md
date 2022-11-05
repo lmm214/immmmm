@@ -190,6 +190,8 @@ layout: 'posts'
 
 {{< friend des="" url="https://chenyyds.com/" md5="d1ed9c15ba6d0cb18464118c6288a8ff" name="老陳网志" >}}
 
+{{< friend des="" url="https://seersu.me" md5="84b712148a63b44dd97ede997bc3efa5" name="SeerSu" >}}
+
 
 ### 博客程序
 
