@@ -2,23 +2,44 @@
 <div class="post">
   <h2 class="post-title">{{.Title}}</h2>
   <div class="post-content">
-    <!-- 挂载友链朋友圈的容器 -->
-    <div id="cf-container">与主机通讯中……</div>
+    <div id="hexo-circle-of-friends-root"></div>
   </div>
 </div>
-<link rel="stylesheet" href="/fcircle-beta.css">
-<script type="text/javascript" src='https://fastly.jsdelivr.net/npm/jquery@3/dist/jquery.min.js'></script>
-<script type="text/javascript">
-  var fdataUser = {
-    //jsonurl: 'https://cdn.edui.fun/lmm.json',  //【推荐】json 匹配模式
-    apiurl: 'https://cf.immmmm.com/',  //自部署api
-  }
+
+<script>
+    let UserConfig = {
+        // 填写你的api地址
+        private_api_url: 'https://cf.immmmm.com/',
+        // 点击加载更多时，一次最多加载几篇文章，默认10
+        page_turning_number: 10,
+        // 头像加载失败时，默认头像地址
+        error_img: 'https://sdn.geekzu.org/avatar/57d8260dfb55501c37dde588e7c3852c',
+        // 进入页面时第一次的排序规则
+        sort_rule: 'created'
+    }
 </script>
-<script type="text/javascript" src="/fcircle-beta.js"></script>
+
+<script type="text/javascript" src="https://npm.elemecdn.com/fcircle-theme-yyyz@1.0.5/dist/app.min.js"></script>
+<script type="text/javascript" src="https://npm.elemecdn.com/fcircle-theme-yyyz@1.0.5/dist/bundle.js"></script>
 
 <style>.post:first-of-type{margin:0;padding-bottom: 0;}.content{margin-bottom: 0;}</style>
 {{ end }}
 
+
 {{ define "footer" }}
 <script type="text/javascript" src="/theme-main-1.js"></script>
+<script>
+//随机日志
+function randomPost() {
+  fetch('/sitemap.xml').then(res => res.text()).then(str => (new window.DOMParser()).parseFromString(str, "text/xml")).then(data => {
+      let ls = data.querySelectorAll('url loc');
+      let locationHref,locSplit;
+      do {
+          locationHref = ls[Math.floor(Math.random() * ls.length)].innerHTML
+          locSplit = locationHref.split('/')[3] || ''
+      } while (locSplit == '' || locSplit == 'tags' || locSplit == 'posts'); 
+      location.href = locationHref
+  })
+}
+</script>
 {{ end }}
