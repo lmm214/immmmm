@@ -202,7 +202,7 @@ function updateHTMl(data){
   const INLINE_CODE_REG = /`([\S ]+?)`/g;
   const PLAIN_TEXT_REG = /([\S ]+)/g;
 
-  const QUOTE_REG = /> ([\S ]+)/mg;
+  const QUOTE_REG = /^>\s+(.+)(\n?)/mg;
   const MARK_IMG_REG = /^(.*)(\n\!\[)/;
 
   for(var i=0;i < data.length;i++){
