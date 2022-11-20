@@ -1,5 +1,5 @@
 /*
-Last Modified time : 20221016 21:32 by https://immmmm.com
+Last Modified time : 20221120 21:32 by https://immmmm.com
 */
 const urls = [
   {host:"https://me.edui.fun/",creatorId:"101",md5:"ba83fa02fc4b2ba621514941307e21be"},
@@ -184,18 +184,23 @@ function uniqueFunc(arr){
 // 插入 html 
 function updateHTMl(data){
   var result="",resultAll="";
-  const TAG_REG = /#([^\s#]+?) /g;
+  
   marked.setOptions({
     breaks: true,
     smartypants: true,
     langPrefix: 'language-'
   });
-
+  const TAG_REG = /#([^\s#]+?) /g;
+  const Bilibili_REG = /<a href="https:\/\/www.bilibili.com\/video\/BV([a-z|A-Z|0-9]{10})\/">.*<\/a>/g;
+  
   for(var i=0;i < data.length;i++){
-      //console.log(data[i].content)
+      console.log(data[i].content)
       var memos = data[i].url
-      var bbContREG = data[i].content.replace(TAG_REG, "<span class='tag-span'>#$1</span> ")
+      var bbContREG = data[i].content
+        .replace(TAG_REG, "<span class='tag-span'>#$1</span> ")
+        
       bbContREG = marked.parse(bbContREG)
+      .replace(Bilibili_REG, "<div style='position:relative;padding-bottom:55%;width:100%;height:0'><iframe src='//player.bilibili.com/player.html?bvid=$1&as_wide=1&high_quality=1&danmaku=0' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true' style='position:absolute;height:100%;width:100%;'></iframe></div>")
       //console.log(bbContREG)
       //解析内置资源文件
       if(data[i].resourceList && data[i].resourceList.length > 0){
