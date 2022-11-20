@@ -33,7 +33,8 @@ feature: https://cdn.edui.fun/images/2022/10/immmmm-com-bb.webp
     domId: '',//默认为 <div id="bber"></div>
   }
 </script>
-<script src="https://immmmm.com/bb-lmm.js"></script>
+<script src="https://immmmm.com/bb-lmm-mk.js"></script>
+<script src="https://fastly.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script src="https://fastly.jsdelivr.net/gh/Tokinx/ViewImage/view-image.min.js"></script>
 <script src="https://fastly.jsdelivr.net/gh/Tokinx/Lately/lately.min.js"></script>
 ```
