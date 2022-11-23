@@ -201,7 +201,7 @@ function updateHTMl(data){
         .replace(TAG_REG, "<span class='tag-span'>#$1</span> ")
         
       bbContREG = marked.parse(bbContREG)
-      .replace(Bilibili_REG, "<div style='position:relative;padding-bottom:55%;width:100%;height:0'><iframe src='//player.bilibili.com/player.html?bvid=$1&as_wide=1&high_quality=1&danmaku=0' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true' style='position:absolute;height:100%;width:100%;'></iframe></div>")
+      .replace(Bilibili_REG, "<div class='video-wrapper'><iframe src='//player.bilibili.com/player.html?bvid=$1&as_wide=1&high_quality=1&danmaku=0' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true' style='position:absolute;height:100%;width:100%;'></iframe></div>")
 
       //console.log(bbContREG)
       //解析内置资源文件
