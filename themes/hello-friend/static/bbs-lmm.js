@@ -75,7 +75,7 @@ function urlsNow(e){
             bbsData = {
               updatedTs: resValue.updatedTs,
               creatorId:resValue.creatorId,
-              creator: resValue.creator.name,
+              creator: resValue.creator.nickname || resValue.creator.name,
               mailmd5: md5Now,
               content: resValue.content,
               resourceList: resValue.resourceList,
@@ -116,7 +116,7 @@ function getNextList(){
       nextData = {
         updatedTs: resValue.updatedTs,
         creatorId:resValue.creatorId,
-        creator: resValue.creator.name,
+        creator: resValue.creator.nickname || resValue.creator.name,
         mailmd5: md5Now,
         content: resValue.content,
         resourceList: resValue.resourceList,
@@ -152,7 +152,7 @@ const fetchBBser = async () => {
           bbsData = {
             updatedTs: resValue.updatedTs,
             creatorId:resValue.creatorId,
-            creator: resValue.creator.name,
+            creator: resValue.creator.nickname || resValue.creator.name,
             mailmd5: urls[i].md5,
             content: resValue.content,
             resourceList: resValue.resourceList,
