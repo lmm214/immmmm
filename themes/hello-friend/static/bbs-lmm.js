@@ -254,10 +254,10 @@ function updateHTMl(data){
   window.Lately && Lately.init({ target: '.bbs-date' });
 }
 
- //文章内显示豆瓣条目 https://immmmm.com/post-show-douban-item/
- function fetchDB(){
+//文章内显示豆瓣条目 https://immmmm.com/post-show-douban-item/
+function fetchDB(){
   var dbAPI = "https://douban.edui.fun/";
-  var dbA = document.querySelectorAll(".bbs-timeline a[href*='douban.com/subject/']") || '';
+  var dbA = document.querySelectorAll(".bbs-timeline a[href*='douban.com/subject/']:not([rel='noreferrer'])") || '';
   if(dbA){
     for(var i=0;i < dbA.length;i++){
       _this = dbA[i]
@@ -299,7 +299,7 @@ function movieShow(fetch_href, fetch_item){
   var storage = localStorage.getItem(fetch_item);
   var data = JSON.parse(storage);
   var db_star = Math.ceil(data.rating);
-  var db_html = "<div class='post-preview'><div class='post-preview--meta'><div class='post-preview--middle'><h4 class='post-preview--title'><a target='_blank' href='" + fetch_href + "'>《" + data.name + "》</a></h4><div class='rating'><div class='rating-star allstar" + db_star + "'></div><div class='rating-average'>" + data.rating + "</div></div><time class='post-preview--date'>导演：" + data.director + " / 类型：" + data.genre + " / " + data.year + "</time><section style='max-height:75px;overflow:hidden;' class='post-preview--excerpt'>" + data.intro.replace(/\s*/g, "") + "</section></div></div><img referrer-policy='no-referrer' loading='lazy' class='post-preview--image' src=" + data.img + "></div>"
+  var db_html = "<div class='post-preview'><div class='post-preview--meta'><div class='post-preview--middle'><h4 class='post-preview--title'><a target='_blank' rel='noreferrer' href='" + fetch_href + "'>《" + data.name + "》</a></h4><div class='rating'><div class='rating-star allstar" + db_star + "'></div><div class='rating-average'>" + data.rating + "</div></div><time class='post-preview--date'>导演：" + data.director + " / 类型：" + data.genre + " / " + data.year + "</time><section style='max-height:75px;overflow:hidden;' class='post-preview--excerpt'>" + data.intro.replace(/\s*/g, "") + "</section></div></div><img referrer-policy='no-referrer' loading='lazy' class='post-preview--image' src=" + data.img + "></div>"
   var db_div = document.createElement("div");
   var qs_href = ".bbs-timeline a[href='"+ fetch_href +"']"
   var qs_dom = document.querySelector(qs_href)
@@ -310,7 +310,7 @@ function bookShow(fetch_href, fetch_item) {
   var storage = localStorage.getItem(fetch_item);
   var data = JSON.parse(storage);
   var db_star = Math.ceil(data.rating.average);
-  var db_html = "<div class='post-preview'><div class='post-preview--meta'><div class='post-preview--middle'><h4 class='post-preview--title'><a target='_blank' href='" + fetch_href + "'>《" + data.title + "》</a></h4><div class='rating'><div class='rating-star allstar" + db_star + "'></div><div class='rating-average'>" + data.rating.average + "</div></div><time class='post-preview--date'>作者：" + data.author + " </time><section style='max-height:75px;overflow:hidden;' class='post-preview--excerpt'>" + data.summary.replace(/\s*/g, "") + "</section></div></div><img referrer-policy='no-referrer' loading='lazy' class='post-preview--image' src=" + data.images.medium + "></div>"
+  var db_html = "<div class='post-preview'><div class='post-preview--meta'><div class='post-preview--middle'><h4 class='post-preview--title'><a target='_blank' rel='noreferrer' href='" + fetch_href + "'>《" + data.title + "》</a></h4><div class='rating'><div class='rating-star allstar" + db_star + "'></div><div class='rating-average'>" + data.rating.average + "</div></div><time class='post-preview--date'>作者：" + data.author + " </time><section style='max-height:75px;overflow:hidden;' class='post-preview--excerpt'>" + data.summary.replace(/\s*/g, "") + "</section></div></div><img referrer-policy='no-referrer' loading='lazy' class='post-preview--image' src=" + data.images.medium + "></div>"
   var db_div = document.createElement("div");
   var qs_href = ".bbs-timeline a[href='"+ fetch_href +"']"
   var qs_dom = document.querySelector(qs_href)
