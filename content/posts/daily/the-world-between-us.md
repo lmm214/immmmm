@@ -2,10 +2,7 @@
 title: '我們與惡的距離'
 date: 2019-04-26 
 tags: [日常]
-published: true
-hideInList: false
 feature: https://pic.edui.fun/images/2019/04/p2554647276.jpg
-isTop: false
 ---
 
 <figure>
