@@ -76,6 +76,6 @@ tags: [日常]
 
 ### 一月
 
-{{< figure "https://cdn.edui.fun/images/2022/12/hi22-01.JPG" "爱在冬季" >}}
+{{< figure "https://cdn.edui.fun/images/2022/12/hi22-01-1.JPG" "爱在冬季" >}}
 
 古铜来福，平安喜乐。
