@@ -40,9 +40,9 @@ tags: [日常]
 
 ### 七月
 
-{{< figure "https://cdn.edui.fun/images/2022/07/sed-6.JPG" "https://cdn.edui.fun/images/2022/12/hi22-07-2.JPG" "盛夏之旅">}}
+{{< figure "https://cdn.edui.fun/images/2022/12/hi22-07-2.JPG" "盛夏之旅">}}
 
-终于救了公主，结果公主让我回档。带娃安吉疗休养，虽热有小哥哥小姐姐相伴，最开心不过如此。
+带娃安吉疗休养，虽热但有小哥哥小姐姐相伴，最开心不过如此。
 
 ### 六月
 
@@ -52,7 +52,7 @@ tags: [日常]
 
 ### 五月
 
-{{< figure "https://cdn.edui.fun/images/2022/12/hi22-05.JPG)" "铁板游" >}}
+{{< figure "https://cdn.edui.fun/images/2022/12/hi22-05.JPG" "铁板游" >}}
 
 五一就地5日游。节前得知又中奖，坦然好吃好喝再打包几大袋物资，自投“防范区”。结果，节后，解封。
 
