@@ -17,7 +17,7 @@ tags: [折腾]
 
 <!--more-->
 
-硬件环境：群晖 220+、腾讯轻量云服务器、华为路由器；
+硬件环境：群晖 220+、腾讯轻量云服务器、路由器拨号；
 
 实现效果：群晖 docker 拉起内部服务后，服务器绑定一个子域名即可外网访问服务。
 
@@ -132,3 +132,9 @@ custom_domains = nas.ioiox.com    # 填写你的域名
 如服务出现样式显示问题，则把配置文件下面那段缓存代码删了。
 
 最后，重载/重启 Nginx 服务，搞定！
+
+### 致谢及推荐
+
+IOIOX：<https://www.ioiox.com/>
+
+《卸载腾讯云对服务器的监控》：<https://www.prkblog.cn/p/uninstall-tencent-cloud-monitor.html>
