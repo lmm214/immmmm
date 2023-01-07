@@ -1408,7 +1408,7 @@ photos .photo:last-child {
 
 /* breadcrumb */
 .breadcrumb {background: #fafafa;background: var(--light-header);padding: 8px 15px; margin-bottom: 40px; list-style: none; margin-left: 0px; border-radius: 4px;font-size: 1rem;display:flex;flex: auto;}
-.breadcrumb>li{display:inline-block;opacity:.7;}
+.breadcrumb>li{display:inline-block;opacity:.7;flex: auto;}
 .breadcrumb>li+li:before {padding:0 5px; color: #ccc; content: ">"; }
 .breadcrumb li a{text-decoration:none;}
 .dark .breadcrumb {background: #252627;background: var(--dark-header);}
