@@ -430,8 +430,8 @@ html {
 body {
 	margin: 0;
 	padding: 0;
-	font-family: -apple-system,BlinkMacSystemFont,Roboto,Segoe UI,Helvetica,Arial,sans-serif;
-	font-size: 1rem;
+	font-family: "LXGW WenKai",-apple-system,BlinkMacSystemFont,Roboto,Segoe UI,Helvetica,Arial,sans-serif;
+	font-size: 1.1rem;
 	font-weight: 400;
 	line-height: 2.2;
 	background-color: #fff;
@@ -743,7 +743,7 @@ hr {
 	}
 }
 .post-content {
-	font-family: source-han-serif-sc, -apple-system,BlinkMacSystemFont,Roboto,Segoe UI,Helvetica,Arial,serif;
+	font-family: "LXGW WenKai", -apple-system,BlinkMacSystemFont,Roboto,Segoe UI,Helvetica,Arial,serif;
 	font-weight: 500;
 	margin-top: 0px;
 	word-break:break-all;
@@ -927,7 +927,7 @@ hr {
 }
 .footer .copyright-font{
 	margin-bottom: 2rem;
-	font-family:  source-han-serif-sc, -apple-system,BlinkMacSystemFont,Roboto,Segoe UI,Helvetica,Arial,serif;
+	font-family:  "LXGW WenKai", -apple-system,BlinkMacSystemFont,Roboto,Segoe UI,Helvetica,Arial,serif;
 }
 .footer .copyright--user {
 	margin: auto;
