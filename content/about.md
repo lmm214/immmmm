@@ -192,6 +192,9 @@ layout: 'posts'
 
 {{< friend des="" url="https://seersu.me" md5="84b712148a63b44dd97ede997bc3efa5" name="SeerSu" >}}
 
+{{< friend des="" url="https://www.domon.cn/" src="https://www.domon.cn/content/images/size/w150/2020/06/xavatar_shiba-3.jpg.pagespeed.ic.3PcXeGZpNB.webp" name="SeerSu" >}}
+
+
 
 ### 博客程序
 
