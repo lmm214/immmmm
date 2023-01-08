@@ -5,19 +5,37 @@ tags: [折腾]
 feature: https://pic.edui.fun/images/2023/01/pake-wr-2.png
 ---
 
-利用 [Pake](https://github.com/tw93/Pake) 给 「微信读书」 加上了 「霞鹜文楷」在线字体，以及覆盖了亮色主题背景色为淡米色。
+利用 [Pake](https://github.com/tw93/Pake) 给 「微信读书」 网页版打包成了 App。
+
+> - 加上了 「霞鹜文楷」在线字体；
+> 
+> - 增加内容宽度；
+> 
+> - 覆盖了亮色主题背景色为淡米色；
+>
+> - 隐藏右侧控制按钮，只保留字体大小按钮；
+> 
+> - 隐藏底部工具栏，鼠标移动至底部显示。
 
 下载地址：<https://github.com/lmm214/Pake/releases>
 
 <!--more-->
 
-![pake-wr-1](https://pic.edui.fun/images/2023/01/pake-wr-1.png)
+![pake-wr-3](https://pic.edui.fun/images/2023/01/pake-wr-3.png)
+
+![pake-wr-4](https://pic.edui.fun/images/2023/01/pake-wr-4.png)
 
 ### 编译记录
 
-Pake 官方教程 [GitHub Actions 在线编译多系统版本](https://github.com/tw93/Pake/wiki/GitHub-Actions-%E5%9C%A8%E7%BA%BF%E7%BC%96%E8%AF%91%E5%A4%9A%E7%B3%BB%E7%BB%9F%E7%89%88%E6%9C%AC) ，Fork 项目，启用 Actions ，修改 app.csv （留下一个或自己新写一个，再新上传图标），进 Releases 打 tag（版本号必须以大写 V 开头），然后等待 20 分钟左右，到 release 页面下载即可！
+Pake 官方教程 [GitHub Actions 在线编译多系统版本](https://github.com/tw93/Pake/wiki/GitHub-Actions-%E5%9C%A8%E7%BA%BF%E7%BC%96%E8%AF%91%E5%A4%9A%E7%B3%BB%E7%BB%9F%E7%89%88%E6%9C%AC) ：
 
-备1：上传图标推荐用 <https://icon-icons.com/zh/> ，生成 .icns、.ico、.png图标；上传 .icns 文件至/src-tauri/icons目录下（必须，打包mac应用）；上传.ico 和.png 文件至 /src-tauri/png目录下（打包windows/linux是需要的）。
+- Fork 项目
+- 启用 Actions
+- 修改 app.csv （留下一个）
+- 进 Releases 打 tag（版本号必须以大写 V 开头）
+- 然后等待 20 分钟左右，到 release 页面下载即可！
+
+备1：自己新写一个需新上传图标，上传图标推荐用 <https://icon-icons.com/zh/> ，生成 .icns、.ico、.png图标；上传 .icns 文件至/src-tauri/icons目录下（必须，打包mac应用）；上传.ico 和.png 文件至 /src-tauri/png目录下（打包windows/linux是需要的）。
 
 备2：[Pake 的高级用法](https://github.com/tw93/Pake/wiki/Pake-%E7%9A%84%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95)
 
