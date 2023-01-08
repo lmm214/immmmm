@@ -39,6 +39,14 @@ Pake 官方教程 [GitHub Actions 在线编译多系统版本](https://github.co
     *{font-family: "LXGW WenKai Screen" !important;}    
 //去除 body 滚动条
     body::-webkit-scrollbar{width:0px;height:0px;}
+//修改文本两侧边距
+    .readerChapterContent {
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+//字体控制默认透明显示
+    .readerControls_fontSize{opacity:0.3 !important;}
+    .readerControls_fontSize:hover{opacity:1 !important;}
 //修改亮色主题背景颜色及阴影
     .wr_whiteTheme .app_content{box-shadow: 0 8px 32px rgba(0,25,104,.1) !important ;}
     .wr_whiteTheme .app_content.shelf_container{box-shadow: none !important;}
@@ -55,10 +63,32 @@ Pake 官方教程 [GitHub Actions 在线编译多系统版本](https://github.co
     .wr_whiteTheme .recommend_preview_item{
       background-color: #f9f3e8 !important;
     }
-//修改顶栏高度及隐藏头像
-    .readerTopBar{height:3rem;opacity:0.95;}
-    .readerTopBar_right{display:none !important;}
-    .readerTopBar .addShelfItem{padding-right:100px;}
+//隐藏控制条，底部 hover 显示
+    .readerMemberCardTips,
+    .readerTopBar,
+    .readerControls_item,
+    .navBarOffset {
+        display: none !important;
+    }
+    .readerBottomBar {
+        transform: none;
+        display: flex !important;
+        opacity: 0 !important;
+        transition: opacity 400ms ease-out !important;
+    }
+    .readerBottomBar:hover {
+        display: flex !important;
+        opacity: 1 !important;
+    }
+    .readerBottomSettingPanel {
+        display: block;
+        top: 88% !important;
+        height: 7% !important;
+    }
 ```
 
 然后 `src-tauri/tauri.conf.json` 里改了下版本号，打 tag 等待完工！ 🤷‍♂️
+
+### 感谢
+
+微信读书(weread)网页版优化：<https://userstyles.world/style/2089/weread>
