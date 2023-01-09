@@ -2,14 +2,14 @@
 Last Modified time : 20221120 21:32 by https://immmmm.com
 */
 const urls = [
-  {host:"https://me.edui.fun/",creatorId:"101",imgsrc:"https://cravatar.cn/avatar/ba83fa02fc4b2ba621514941307e21be"},
-  {host:"https://bb.elizen.me/",creatorId:"101",imgsrc:"https://cravatar.cn/avatar/f65df4d87240feb1cb247857a621a48f"},
-  {host:"https://memos.eallion.com/",creatorId:"101",imgsrc:"https://cravatar.cn/avatar/171e4c30959e8c077a6c58b958624b31"},
-  {host:"https://qzone.boyhu.cn/",creatorId:"101",imgsrc:"https://cravatar.cn/avatar/55be217893c75baf8571837197de4a3e"},
+  {host:"https://me.edui.fun/",creatorId:"101",imgsrc:"https://gravatar.loli.net/avatar/ba83fa02fc4b2ba621514941307e21be"},
+  {host:"https://bb.elizen.me/",creatorId:"101",imgsrc:"https://gravatar.loli.net/avatar/f65df4d87240feb1cb247857a621a48f"},
+  {host:"https://memos.eallion.com/",creatorId:"101",imgsrc:"https://gravatar.loli.net/avatar/171e4c30959e8c077a6c58b958624b31"},
+  {host:"https://qzone.boyhu.cn/",creatorId:"101",imgsrc:"https://gravatar.loli.net/avatar/55be217893c75baf8571837197de4a3e"},
   {host:"https://me.chenplus.com/",creatorId:"101",imgsrc:"https://chenyyds.com/avatar.png"},
-  {host:"https://memos.life97.top/",creatorId:"101",imgsrc:"https://cravatar.cn/avatar/d41d8cd98f00b204e9800998ecf8427e"},
-  {host:"https://memos.1900.live/",creatorId:"101",imgsrc:"https://cravatar.cn/avatar/cc38267b10cc25dfc62209f8ca34589e"},
-  {host:"https://bb.seersu.top/",creatorId:"101",imgsrc:"https://cravatar.cn/avatar/84b712148a63b44dd97ede997bc3efa5"},
+  {host:"https://memos.life97.top/",creatorId:"101",imgsrc:"https://gravatar.loli.net/avatar/d41d8cd98f00b204e9800998ecf8427e"},
+  {host:"https://memos.1900.live/",creatorId:"101",imgsrc:"https://gravatar.loli.net/avatar/cc38267b10cc25dfc62209f8ca34589e"},
+  {host:"https://bb.seersu.top/",creatorId:"101",imgsrc:"https://gravatar.loli.net/avatar/84b712148a63b44dd97ede997bc3efa5"},
   {host:"https://memos.icebear.tech/",creatorId:"1",imgsrc:"https://www.domon.cn/content/images/size/w150/2020/06/xavatar_shiba-3.jpg.pagespeed.ic.3PcXeGZpNB.webp"},
   {host:"https://memo.wananaiko.com/",creatorId:"1",imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=7AFd0gic7wVsNg2ToQrQU2w&s=140&t=1583250600"},
 ]
