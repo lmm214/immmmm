@@ -194,6 +194,7 @@ layout: 'posts'
 
 {{< friend des="" url="https://www.domon.cn/" src="https://www.domon.cn/content/images/size/w150/2020/06/xavatar_shiba-3.jpg.pagespeed.ic.3PcXeGZpNB.webp" name="SeerSu" >}}
 
+{{< friend des="" url="https://easyf12.top/" src="https://img.easyf12.top/images/2022/10/15/634a8b4186889.webp" name="一蓑烟雨" >}}
 
 
 ### 博客程序
