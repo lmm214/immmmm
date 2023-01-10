@@ -15,6 +15,12 @@ feature: https://pic.edui.fun/images/2023/01/wenkai-1.png
 <link rel="stylesheet" href="https://npm.elemecdn.com/lxgw-wenkai-screen-webfont/style.css" media="print" onload="this.media='all'">
 ```
 
+或 @一蓑烟雨 分享的 staticfile CDN 
+
+```
+<link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.6.0/lxgwwenkaiscreen.css" media="print" onload="this.media='all'">
+```
+
 ```
 body {
   /* Screen version */
