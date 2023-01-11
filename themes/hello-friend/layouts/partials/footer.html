@@ -65,6 +65,7 @@
 
 {{ if .IsHome }}
   <script>
+document.addEventListener("DOMContentLoaded", () => {
   var bbUrl = "https://me.edui.fun/api/memo?creatorId=101&rowStatus=NORMAL&limit=10"
   fetch(bbUrl).then(res => res.json()).then( resdata =>{
       var result = '',resultAll="",data = resdata.data
@@ -88,5 +89,6 @@
         n.appendChild(e[0])
       },1000)
   },1000)
+});
   </script>
 {{ end }}
