@@ -5,7 +5,7 @@ tags: [折腾]
 feature: https://pic.edui.fun/images/2023/01/memos-bing.png
 ---
 
-旧文重发。实现以下两个功能：
+旧文换新颜。新实现以下功能：
 
 > 调用 Bing 每日背景；
 > 
