@@ -34,7 +34,7 @@ rssLimit = 5
   url="/bbs/"
   weight="4"
   [[menu.main]]
-  name="友链"
+  name="友圈"
   url="/friends/"
   weight="5"
   [[menu.main]]

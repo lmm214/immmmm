@@ -196,7 +196,7 @@ layout: 'posts'
 
 {{< friend des="" url="https://easyf12.top/" src="https://img.easyf12.top/images/2022/10/15/634a8b4186889.webp" name="一蓑烟雨" >}}
 
-{{< friend des="" url="" md5="11e15a8d264f1110f822ef2c55eeb965" name="wananaiko" >}}
+{{< friend des="" url="https://wananaiko.design/" md5="11e15a8d264f1110f822ef2c55eeb965" name="wananaiko" >}}
 
 ### 博客程序
 
