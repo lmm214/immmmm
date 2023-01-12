@@ -19,9 +19,8 @@ feature: https://pic.edui.fun/images/2023/01/memos-bing.png
 
 ```css
 body{font-family: "LXGW WenKai Screen", sans-serif !important;}
-.page-wrapper{background-image:url('https://bing.immmmm.com/img/bing?region=zh-CN&type=image');width:100%;height:100vh;background-position:center;background-size:cover;background-attachment: fixed;}.page-container{background-color:rgba(244 244 245 / 30%) !important;}.page-container>.memos-wrapper,.page-container>.sidebar-wrapper{background-color:rgba(244 244 245 / 60%) !important;}.dark .page-container{background-color:rgba(39 39 42 / 30%) !important;}.dark .page-container>.memos-wrapper,.dark .page-container>.sidebar-wrapper{background-color:rgba(39 39 42 / 60%) !important;}
-.resource-wrapper>.images-wrapper.row{display:grid;grid-template-rows:auto;gap:4px;grid-template-columns:repeat(3,1fr);}
-.resource-wrapper>.images-wrapper.row>.memo-resource>img{border-radius:4px;height:180px !important;width:180px !important;object-fit: cover;}
+.page-wrapper{background-image:url('https://bing.immmmm.com/img/bing?region=zh-CN&type=image');width:100%;height:100vh;background-position:center;background-size:cover;background-attachment: fixed;}.page-container{background-color:rgba(244 244 245 / 30%) !important;}.page-container>.memos-wrapper,.page-container>.sidebar-wrapper,.page-header{background-color:rgba(244 244 245 / 60%) !important;}.dark .page-container{background-color:rgba(39 39 42 / 30%) !important;}.dark .page-container>.memos-wrapper,.dark .page-container>.sidebar-wrapper,.dark .page-header{background-color:rgba(39 39 42 / 60%) !important;}.page-header{margin-bottom: 0 !important;}.memos-editor-wrapper{background-color: transparent !important;}
+.resource-wrapper>.images-wrapper.row{display:grid;grid-template-rows:auto;gap:4px;grid-template-columns:repeat(3,1fr);}.resource-wrapper>.images-wrapper.row>.memo-resource>img{border-radius:4px;height:180px !important;width:180px !important;object-fit: cover;}
 ```
 
 ```javascript
