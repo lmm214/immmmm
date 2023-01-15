@@ -23,7 +23,7 @@ feature: https://pic.edui.fun/images/2023/01/100mb.png
 
 好吧，挪！
 
-![1000mb](https://pic.edui.fun/images/2023/01/1000mb.jpg)
+![1000mb-1](https://pic.edui.fun/images/2023/01/1000mb-1.png)
 
 不说了，预祝大家：新年快乐，大展宏“兔”！
 
