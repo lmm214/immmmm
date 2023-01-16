@@ -1,14 +1,52 @@
 {{ define "main" }}
-<div class="post" style="padding:10px;margin:0 auto 20px;border:none;">
-  <h2 class="post-title">{{.Title}}</h2>
-</div>
-
 <div class="page-photos">
-  {{ range (readDir "./static/photos") }}
-  <figure>
-    <img loading='lazy' src="/photos/{{ .Name }}" alt="{{ .Name }}" />
-    <figcaption>{{ .Name | replaceRE "(.*)[.].*" "$1"}}</figcaption>
-  </figure>
+  {{ range (sort (readDir "./static/photos") "ModTime" "desc")}}
+  <div class="page-photo">
+    <img class="photo-img" loading='lazy' src="/photos/{{ .Name }}" alt="{{ .Name }}" />
+    <span class="photo-title">{{ .Name | replaceRE "(.*)[.].*" "$1"}}</span><span class="photo-time">{{ .ModTime.Format ("2006-01-02") }}</span>
+  </div>
   {{ end }}
 </div>
+{{ end }}
+
+{{ define "footer" }}
+<script type="text/javascript" src="/waterfall.min.js"></script>
+<script type="text/javascript" src="/imgStatus.min.js"></script>
+<script>
+imgStatus.watch('.photo-img', function(imgs) {
+  if(imgs.isDone()){
+    waterfall('.page-photos');
+    let pagePhoto = document.querySelectorAll('.page-photo');
+    for(var i=0;i < pagePhoto.length;i++){pagePhoto[i].className += " visible"};
+  }
+});
+window.addEventListener('resize', function () {
+  waterfall('.page-photos');
+});
+</script>
+
+<script type="text/javascript" src="/view-image.js"></script>
+<script type="text/javascript" src="/lately.min.js"></script>
+<script>
+//相对时间
+window.Lately && Lately.init({ target: '.photo-time'});
+//图片灯箱
+window.ViewImage && ViewImage.init('.page-photo img')
+</script>
+
+<script type="text/javascript" src="/theme-main-1.js"></script>
+<script>
+//随机日志
+function randomPost() {
+  fetch('/sitemap.xml').then(res => res.text()).then(str => (new window.DOMParser()).parseFromString(str, "text/xml")).then(data => {
+      let ls = data.querySelectorAll('url loc');
+      let locationHref,locSplit;
+      do {
+          locationHref = ls[Math.floor(Math.random() * ls.length)].innerHTML
+          locSplit = locationHref.split('/')[3] || ''
+      } while (locSplit == '' || locSplit == 'tags' || locSplit == 'posts'); 
+      location.href = locationHref
+  })
+}
+</script>
 {{ end }}
