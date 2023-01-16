@@ -1395,10 +1395,11 @@ photos .photo:last-child {
 .page-photo span.photo-title{position:absolute;bottom:4px;left:4px;}
 .page-photo span.photo-time{position:absolute;top:4px;left:4px;font-size:0.8rem;}
 @media screen and (max-width: 860px) {
+	.page-photo span.photo-time{display: none;}
+	.page-photo{width:50%;}
 }
 @media (max-width: 683px){
 	.page-photos{margin-top:4px;}
-	.page-photo{width:50%;}
 }
 @keyframes fadeIn{
 	0% {opacity: 0;}
