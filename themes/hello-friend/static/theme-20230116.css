@@ -1389,7 +1389,7 @@ photos .photo:last-child {
 
 .page-photos{width:100%;margin-top:-46px;}
 .page-photo{width:33.3%;position: relative;visibility: hidden;}
-.page-photo.visible{visibility: visible;animation: fadeIn 3s;}
+.page-photo.visible{visibility: visible;animation: fadeIn 2s;}
 .page-photo img{display: block;width:100%;border-radius:0;padding:4px;}
 .page-photo span.photo-title,.page-photo span.photo-time{background: rgba(0, 0, 0, 0.3);padding:0px 8px;font-size:0.9rem;color: #fff;}
 .page-photo span.photo-title{position:absolute;bottom:4px;left:4px;}
