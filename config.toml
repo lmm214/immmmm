@@ -26,25 +26,29 @@ rssLimit = 5
   url="/books/"
   weight="2"
   [[menu.main]]
-  name="归档"
-  url="/archives/"
+  name="相册"
+  url="/photos/"
   weight="3"
-  [[menu.main]]
-  name="哔哔"
-  url="/bbs/"
-  weight="4"
-  [[menu.main]]
-  name="友圈"
-  url="/friends/"
-  weight="5"
   [[menu.main]]
   name="导航"
   url="https://edui123.com/"
+  weight="4"
+  [[menu.main]]
+  name="哔哔"
+  url="/bbs/"
+  weight="5"
+  [[menu.main]]
+  name="友圈"
+  url="/friends/"
   weight="6"
+  [[menu.main]]
+  name="归档"
+  url="/archives/"
+  weight="7"
   [[menu.main]]
   name="关于"
   url="/about/"
-  weight="7"
+  weight="8"
 
 [params]
   # dir name of your blog content (default is `content/posts`)
@@ -52,7 +56,7 @@ rssLimit = 5
   # "light" or "dark"
   defaultTheme = "dark"
   # if you set this to 0, only submenu trigger will be visible
-  # showMenuItems = 4
+  showMenuItems = 4
   # Enable to show reading time in minutes for posts
   showReadingTime = false
   logoText = "hello friend"
