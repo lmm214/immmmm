@@ -1,9 +1,9 @@
 {{ define "main" }}
 <div class="page-photos">
-  {{ range (sort (readDir "./static/photos") "ModTime" "desc")}}
+  {{ range (sort (readDir "./static/photos") "Name" "desc")}}
   <div class="page-photo">
     <img class="photo-img" loading='lazy' src="/photos/{{ .Name }}" alt="{{ .Name }}" />
-    <span class="photo-title">{{ .Name | replaceRE "(.*)[.].*" "$1"}}</span><span class="photo-time">{{ .ModTime.Format ("2006-01-02") }}</span>
+    <span class="photo-title">{{ .Name | replaceRE "^[0-9 -]+(.*)[.].*" "$1"}}</span><span class="photo-time">{{ .Name | replaceRE "^([0-9-]+).*[.].*" "$1" }}</span>
   </div>
   {{ end }}
 </div>
