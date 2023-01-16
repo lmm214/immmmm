@@ -2,7 +2,7 @@
 <div class="page-photos">
   {{ range (sort (readDir "./static/photos") "Name" "desc")}}
   <div class="page-photo">
-    <img class="photo-img" loading='lazy' src="/photos/{{ .Name }}" alt="{{ .Name }}" />
+    <img class="photo-img" loading='lazy' decoding="async" src="/photos/{{ .Name }}" alt="{{ .Name }}" />
     <span class="photo-title">{{ .Name | replaceRE "^[0-9 -]+(.*)[.].*" "$1"}}</span><span class="photo-time">{{ .Name | replaceRE "^([0-9-]+).*[.].*" "$1" }}</span>
   </div>
   {{ end }}
