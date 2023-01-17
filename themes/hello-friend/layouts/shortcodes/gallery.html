@@ -4,8 +4,9 @@
 <div class="gallery-photos">
   {{- range (sort $files "Name" "desc") -}}
     {{- if ( .Name | findRE "\\.(gif|jpg|jpeg|tiff|png|bmp|webp|avif|jxl)") }}
+    {{- $linkURL := print $baseURL "/" ($.Get 0) "/" .Name | absURL }}
     <div class="gallery-photo">
-      <img class="photo-img" loading='lazy' decoding="async" src="{{ $baseURL }}photos/{{ .Name }}" alt="{{ .Name }}" />
+      <img class="photo-img" loading='lazy' decoding="async" src="{{  $linkURL  }}" alt="{{ .Name }}" />
       <span class="photo-title">{{ .Name | replaceRE "^[0-9 -]+(.*)[.].*" "$1"}}</span>
     </div>
     {{- end }}
