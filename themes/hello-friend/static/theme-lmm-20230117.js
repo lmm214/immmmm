@@ -25,7 +25,7 @@
       if(imgs.isDone()){
         for(var i=0;i < galleryPhotos.length;i++){
           waterfall(galleryPhotos[i]);
-          let pagePhoto = document.querySelectorAll('.gallery-photo');
+          let pagePhoto = galleryPhotos[i].querySelectorAll('.gallery-photo');
           for(var j=0;j < pagePhoto.length;j++){pagePhoto[j].className += " visible"};
         }
       }
