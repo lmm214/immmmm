@@ -114,8 +114,8 @@ window.ViewImage && ViewImage.init('.page-photo img')
 短代码文章内插入指定文件夹内图片。
 
 ```
-\{\{< gallery "photos">\}\}
+\{\{< gallery "images/2004gd">\}\}
 ```
 
 
-{{< gallery "photos">}}
+{{< gallery "images/2004gd">}}

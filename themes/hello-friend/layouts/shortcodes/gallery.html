@@ -2,12 +2,12 @@
 {{- with (.Get 0) -}}
 {{- $files := readDir (print "/static/" .) }}
 <div class="gallery-photos">
-  {{- range (sort $files "Name" "desc") -}}
+  {{- range (sort $files "Name" "asc") -}}
     {{- if ( .Name | findRE "\\.(gif|jpg|jpeg|tiff|png|bmp|webp|avif|jxl)") }}
     {{- $linkURL := print $baseURL "/" ($.Get 0) "/" .Name | absURL }}
     <div class="gallery-photo">
       <img class="photo-img" loading='lazy' decoding="async" src="{{  $linkURL  }}" alt="{{ .Name }}" />
-      <span class="photo-title">{{ .Name | replaceRE "^[0-9 -]+(.*)[.].*" "$1"}}</span>
+      <span class="photo-title">{{ .Name | replaceRE "\\..*" ""}}</span>
     </div>
     {{- end }}
   {{- end }}
