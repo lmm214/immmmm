@@ -5,27 +5,130 @@ tags: [折腾]
 feature: 
 ---
 
-[waterfall.js](https://github.com/raphamorim/waterfall.js) : 1KB 原生 JavaScript 搞定图片瀑布流。
+前两篇实现的图片瀑布流利用的是 [「waterfall.js」](https://github.com/raphamorim/waterfall.js) （1KB 原生 JavaScript 搞定图片瀑布流）和 [「imgStatus」](https://github.com/raphamorim/imgStatus) （855bytes 原生 JavaScript 判断多图加载情况）。
 
-[imgStatus](https://github.com/raphamorim/imgStatus) ：855bytes 原生 JavaScript 判断多图加载情况。
+不过，还是需要自己调校下，主要搞定：
 
-昨晚折腾不尽兴，继续！
+- 支持图片 CDN 外链识别。
+- 支持多 Gallery 显示。
 
 <!--more-->
 
-个人插图习惯是 CDN 外链，而前两篇都是丢 Hugo 站点内的。
+### CDN 外链识别
 
-{{<link "hugo-readdir-photos">}}
+效果如下：
 
-{{<link "hugo-shortcodes-gallery">}}
+<gallery>![](https://cn.bing.com/th?id=OHR.SessileOaks_EN-US1487454928_768x1280.jpg)![](https://cn.bing.com/th?id=OHR.SessileOaks_EN-US1487454928_1280x768.jpg)![](https://cn.bing.com/th?id=OHR.InscriptionWall_EN-US1392173431_1280x768.jpg)![](https://cn.bing.com/th?id=OHR.DonkeyFeast_EN-US1153850805_1280x768.jpg)![](https://cn.bing.com/th?id=OHR.RumeliHisari_EN-US4800002879_1280x768.jpg)![](https://cn.bing.com/th?id=OHR.Umschreibung_EN-US4693850900_768x1280.jpg)![](https://cn.bing.com/th?id=OHR.HummockIce_EN-US4606231645_768x1280.jpg)![](https://cn.bing.com/th?id=OHR.BisonWindCave_EN-US4537340482_1280x768.jpg)![](https://cn.bing.com/th?id=OHR.Breckenridge_EN-US4460042968_1280x768.jpg)</gallery>
 
-折腾一番，看如下效果：
+插图格式：
 
-<gallery>![](https://camo.githubusercontent.com/de309197ee25ec3eceb97b6fc2d888d9f26e58896dcd6f0d2fba7a31dc265fcd/68747470733a2f2f636e2e62696e672e636f6d2f74683f69643d4f48522e496e736372697074696f6e57616c6c5f454e2d5553313339323137333433315f5548442e6a706726773d31303030)![](https://camo.githubusercontent.com/bd84e0fd240cf53b8836de3a780b033afc444667f61599dc3a161e840b0b6827/68747470733a2f2f636e2e62696e672e636f6d2f74683f69643d4f48522e5475726b755f454e2d5553313235383831343730335f5548442e6a7067267069643d687026773d33383426683d3231362672733d3126633d34)![](https://immmmm.com/images/2004gd/gd-01.jpeg)![](https://camo.githubusercontent.com/0fd6f6671b9fed4594c65e3e17b2451b562c8096bae72a885d62555a881b0d19/68747470733a2f2f636e2e62696e672e636f6d2f74683f69643d4f48522e556d73636872656962756e675f454e2d5553343639333835303930305f5548442e6a7067267069643d687026773d33383426683d3231362672733d3126633d34)![](https://immmmm.com/images/2004gd/gd-01.jpeg)![](https://camo.githubusercontent.com/d5bdbc462a6ea50863c7d13cd95ab8b669ee839e608a2edd04100d361b151411/68747470733a2f2f636e2e62696e672e636f6d2f74683f69643d4f48522e4849495353465f454e2d5553343138323834353934375f5548442e6a7067267069643d687026773d33383426683d3231362672733d3126633d34)</gallery>
+```
+<gallery>
+    <img src="https://xxxxx.jpg">
+    <img src="https://xxxxx.jpg">
+    <img src="https://xxxxx.jpg">
+</gallery>
+```
 
-
-插入代码：
+若插入  markdown 图片格式，则需要调整为 `同一行、一行、一行` 啊！（避免后端转译出别的 p 标签啥的。）
 
 ```
 <gallery>![](https://xxxxx.jpg)![](https://xxxx)</gallery>
 ```
+
+### 主题集成流程
+
+#### 加 CSS
+
+```css
+.gallery-photos{width:100%;}
+.gallery-photo{width:24.9%;position: relative;visibility: hidden;overflow: hidden;}
+.gallery-photo.visible{visibility: visible;animation: fadeIn 2s;}
+.gallery-photo img{display: block;width:100%;border-radius:0;padding:4px;animation: fadeIn 1s;cursor: pointer;transition: all .4s ease-in-out;}
+.gallery-photo span.photo-title,.gallery-photo span.photo-time{background: rgba(0, 0, 0, 0.3);padding:0px 8px;font-size:0.9rem;color: #fff;display:none;animation: fadeIn 1s;}
+.gallery-photo span.photo-title{position:absolute;bottom:4px;left:4px;}
+.gallery-photo span.photo-time{position:absolute;top:4px;left:4px;font-size:0.8rem;}
+.gallery-photo:hover span.photo-title{display:block;}
+.gallery-photo:hover img{transform: scale(1.1);}
+@media screen and (max-width: 1800px) {
+	.gallery-photo{width:33.3%;}
+}
+@media screen and (max-width: 860px) {
+	.gallery-photo{width:49.9%;}
+}
+@keyframes fadeIn{
+	0% {opacity: 0;}
+   100% {opacity: 1;}
+}
+```
+
+#### 加调用功能代码
+
+照理说下面这段就可以实现瀑布流的排版：
+
+```html
+<script src="//fastly.jsdelivr.net/gh/raphamorim/waterfall.js/waterfall.min.js"></script>
+<script src="//fastly.jsdelivr.net/gh/raphamorim/imgStatus/imgStatus.min.js"></script>
+<script>
+imgStatus.watch('.gallery-photo img', function(imgs) {
+    if (imgs.isDone()){
+        waterfall('.gallery-photos');
+    }
+});
+</script>
+```
+
+对应 HTML 结构：
+
+```html
+<div class="gallery-photos">
+    <div class="gallery-photo"><img src=""></div>
+    <div class="gallery-photo"><img src=""></div>
+    <div class="gallery-photo"><img src=""></div>
+</div>
+```
+
+可现实是不满意滴，以下调用代码多了判断、循环，外链、内链、淡入统统都要！
+
+```javascript
+  //外链 gallery 标签相册瀑布流
+  var photosAll = document.getElementsByTagName('gallery') || '';
+  if(photosAll){
+    for(var i=0;i < photosAll.length;i++){
+      photosAll[i].innerHTML = '<div class="gallery-photos">'+photosAll[i].innerHTML+'</div>'
+      var photosIMG = photosAll[i].getElementsByTagName('img')
+      for(var j=0;j < photosIMG.length;j++){
+        wrap(photosIMG[j], document.createElement('div'));
+      }
+    }
+  }
+  function wrap(el, wrapper) {
+    wrapper.className = "gallery-photo";
+    el.parentNode.insertBefore(wrapper, el);
+    wrapper.appendChild(el);
+  }
+  //相册瀑布流
+  let galleryPhotos = document.querySelectorAll('.gallery-photos') || ''
+  if(galleryPhotos){
+    imgStatus.watch('.gallery-photo img', function(imgs) {
+      if(imgs.isDone()){
+        for(var i=0;i < galleryPhotos.length;i++){
+          waterfall(galleryPhotos[i]);
+          let pagePhoto = document.querySelectorAll('.gallery-photo');
+          for(var j=0;j < pagePhoto.length;j++){pagePhoto[j].className += " visible"};
+        }
+      }
+    });
+    window.addEventListener('resize', function () {
+      for(var i=0;i < galleryPhotos.length;i++){
+        waterfall(galleryPhotos[i]);
+      }
+    });
+  }
+```
+
+这下彻底舒心咯！
+
+最后，再来一个相册：
+
+<gallery>![](https://immmmm.com/images/2004gd/gd-01.jpeg)![](https://immmmm.com/images/2004gd/gd-02.jpeg)![](https://immmmm.com/images/2004gd/gd-03.jpeg)![](https://immmmm.com/images/2004gd/gd-01.jpeg)![](https://immmmm.com/images/2004gd/gd-04.jpeg)![](https://immmmm.com/images/2004gd/gd-01.jpeg)![](https://immmmm.com/images/2004gd/gd-05.jpeg)![](https://immmmm.com/images/2004gd/gd-03.jpeg)</gallery>
