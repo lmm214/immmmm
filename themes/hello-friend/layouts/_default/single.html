@@ -13,7 +13,7 @@
   {{ if eq $PostCate "chat"}}
       {{ .Render "chat"}}
       <div class="post-content">
-        <a href="{{ .Permalink }}" rel="link"><img loading="lazy" class="post-avatar avatar" src="https://gravatar.loli.net/avatar/ba83fa02fc4b2ba621514941307e21be"></a>
+        <a href="{{ .Permalink }}" rel="link"><img loading="lazy" decoding="async" class="post-avatar avatar" src="https://gravatar.loli.net/avatar/ba83fa02fc4b2ba621514941307e21be"></a>
           {{ .Content }}
       </div>
   {{ else }}
@@ -33,9 +33,9 @@
     </div>
     {{ if .Params.feature }}
       {{ if .Params.UseRelativeCover }}
-        <img loading='lazy' src="{{ (printf "%s%s" .Permalink .Params.feature ) }}" class="post-cover" />
+        <img loading='lazy' decoding="async" src="{{ (printf "%s%s" .Permalink .Params.feature ) }}" class="post-cover" />
       {{ else }}
-        <img loading='lazy' src="{{ .Params.feature | absURL }}" class="post-cover" />
+        <img loading='lazy' decoding="async" src="{{ .Params.feature | absURL }}" class="post-cover" />
       {{ end }}
     {{ end }}
   

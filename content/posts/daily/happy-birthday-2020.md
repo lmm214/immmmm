@@ -5,16 +5,10 @@ tags: [日常]
 published: true
 hideInList: false
 feature: https://pic.edui.fun/images/2020/02/mh-3.jpeg
-isTop: false
 ---
-
-<figure>
-    <img src="https://pic.edui.fun/images/logos/birthday-1.JPG" width="50%"/>
-    <figcaption>庆生</figcaption>
-</figure>
 
 生，活着，当下异常值得庆祝！祝，自己生日快乐！祝，家人平安健康！
 
 <!--more-->
 
-<photos>![mh-7](https://pic.edui.fun/images/2020/02/mh-7.jpeg)![mh-6](https://pic.edui.fun/images/2020/02/mh-6.jpeg)![mh-5](https://pic.edui.fun/images/2020/02/mh-5.jpeg)![mh-4](https://pic.edui.fun/images/2020/02/mh-4.jpeg)![mh-3](https://pic.edui.fun/images/2020/02/mh-3.jpeg)![mh-2](https://pic.edui.fun/images/2020/02/mh-2.jpeg)![mh-1](https://pic.edui.fun/images/2020/02/mh-1.jpeg)</photos>
+<gallery>![mh-7](https://pic.edui.fun/images/2020/02/mh-7.jpeg)![mh-6](https://pic.edui.fun/images/2020/02/mh-6.jpeg)![mh-5](https://pic.edui.fun/images/2020/02/mh-5.jpeg)![mh-4](https://pic.edui.fun/images/2020/02/mh-4.jpeg)![mh-2](https://pic.edui.fun/images/2020/02/mh-2.jpeg)![mh-1](https://pic.edui.fun/images/2020/02/mh-1.jpeg)</gallery>

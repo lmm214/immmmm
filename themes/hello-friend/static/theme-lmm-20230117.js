@@ -2,10 +2,11 @@
   window.Lately && Lately.init({ target: '.post-date,.datetime,.datatime,.photo-time'});
   //图片灯箱
   window.ViewImage && ViewImage.init('.post-content img:not(.avatar,.tk-avatar-img)')
-  //相册瀑布流
-  var photosAll = document.getElementsByTagName('photos') || '';
+  //外链 gallery 标签相册瀑布流
+  var photosAll = document.getElementsByTagName('gallery') || '';
   if(photosAll){
     for(var i=0;i < photosAll.length;i++){
+      photosAll[i].innerHTML = '<div class="gallery-photos">'+photosAll[i].innerHTML+'</div>'
       var photosIMG = photosAll[i].getElementsByTagName('img')
       for(var j=0;j < photosIMG.length;j++){
         wrap(photosIMG[j], document.createElement('div'));
@@ -13,25 +14,27 @@
     }
   }
   function wrap(el, wrapper) {
-    wrapper.className = "photo";
+    wrapper.className = "gallery-photo";
     el.parentNode.insertBefore(wrapper, el);
     wrapper.appendChild(el);
   }
-  isImgLoad(function () {
-    var photos = document.querySelector('photos') || '';
-    if (photos) {waterfall(photos);}
-    window.addEventListener('resize', function () {
-      waterfall(photos);
+  //相册瀑布流
+  let galleryPhotos = document.querySelectorAll('.gallery-photos') || ''
+  if(galleryPhotos){
+    imgStatus.watch('.gallery-photo img', function(imgs) {
+      if(imgs.isDone()){
+        for(var i=0;i < galleryPhotos.length;i++){
+          waterfall(galleryPhotos[i]);
+          let pagePhoto = document.querySelectorAll('.gallery-photo');
+          for(var j=0;j < pagePhoto.length;j++){pagePhoto[j].className += " visible"};
+        }
+      }
     });
-  });
-  var t_img,isLoad = true;
-  function isImgLoad(callback) {
-    var photos = document.querySelector('photos') || '';
-    if (photos) {
-      var imgHeight = document.querySelector('photos img').height
-      if (imgHeight === 0) {isLoad = false;return false;}
-      if (isLoad) {clearTimeout(t_img);callback();} else {isLoad = true;t_img = setTimeout(function () { isImgLoad(callback);}, 200);}
-    }
+    window.addEventListener('resize', function () {
+      for(var i=0;i < galleryPhotos.length;i++){
+        waterfall(galleryPhotos[i]);
+      }
+    });
   }
   //随机日志
   function randomPost() {

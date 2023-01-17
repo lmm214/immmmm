@@ -46,9 +46,13 @@ rssLimit = 5
   url="/archives/"
   weight="7"
   [[menu.main]]
+  name="订阅"
+  url="/atom.xml"
+  weight="8"
+  [[menu.main]]
   name="关于"
   url="/about/"
-  weight="8"
+  weight="9"
 
 [params]
   # dir name of your blog content (default is `content/posts`)

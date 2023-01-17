@@ -56,23 +56,12 @@
 <script type="text/javascript" src="/waterfall.min.js"></script>
 <script type="text/javascript" src="/imgStatus.min.js"></script>
 <script type="text/javascript" src="/view-image.js"></script>
-<script type="text/javascript" src="/theme-lmm-20221005.js"></script>
+<script type="text/javascript" src="/theme-lmm-20230117.js"></script>
 <script type="text/javascript" src="/pangu.min.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     pangu.autoSpacingPage();
   });
-
-imgStatus.watch('.photo-img', function(imgs) {
-  if(imgs.isDone()){
-    waterfall('.gallery-photos');
-    let pagePhoto = document.querySelectorAll('.gallery-photo');
-    for(var i=0;i < pagePhoto.length;i++){pagePhoto[i].className += " visible"};
-  }
-});
-window.addEventListener('resize', function () {
-  waterfall('.gallery-photos');
-});
 </script>
 
 {{ if .IsHome }}

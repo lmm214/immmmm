@@ -1,0 +1,31 @@
+---
+title: "图片瀑布流折腾记"
+date: 2023-01-17T15:49:21+0800
+tags: [折腾]
+feature: 
+---
+
+[waterfall.js](https://github.com/raphamorim/waterfall.js) : 1KB 原生 JavaScript 搞定图片瀑布流。
+
+[imgStatus](https://github.com/raphamorim/imgStatus) ：855bytes 原生 JavaScript 判断多图加载情况。
+
+昨晚折腾不尽兴，继续！
+
+<!--more-->
+
+个人插图习惯是 CDN 外链，而前两篇都是丢 Hugo 站点内的。
+
+{{<link "hugo-readdir-photos">}}
+
+{{<link "hugo-shortcodes-gallery">}}
+
+折腾一番，看如下效果：
+
+<gallery>![](https://camo.githubusercontent.com/de309197ee25ec3eceb97b6fc2d888d9f26e58896dcd6f0d2fba7a31dc265fcd/68747470733a2f2f636e2e62696e672e636f6d2f74683f69643d4f48522e496e736372697074696f6e57616c6c5f454e2d5553313339323137333433315f5548442e6a706726773d31303030)![](https://camo.githubusercontent.com/bd84e0fd240cf53b8836de3a780b033afc444667f61599dc3a161e840b0b6827/68747470733a2f2f636e2e62696e672e636f6d2f74683f69643d4f48522e5475726b755f454e2d5553313235383831343730335f5548442e6a7067267069643d687026773d33383426683d3231362672733d3126633d34)![](https://immmmm.com/images/2004gd/gd-01.jpeg)![](https://camo.githubusercontent.com/0fd6f6671b9fed4594c65e3e17b2451b562c8096bae72a885d62555a881b0d19/68747470733a2f2f636e2e62696e672e636f6d2f74683f69643d4f48522e556d73636872656962756e675f454e2d5553343639333835303930305f5548442e6a7067267069643d687026773d33383426683d3231362672733d3126633d34)![](https://immmmm.com/images/2004gd/gd-01.jpeg)![](https://camo.githubusercontent.com/d5bdbc462a6ea50863c7d13cd95ab8b669ee839e608a2edd04100d361b151411/68747470733a2f2f636e2e62696e672e636f6d2f74683f69643d4f48522e4849495353465f454e2d5553343138323834353934375f5548442e6a7067267069643d687026773d33383426683d3231362672733d3126633d34)</gallery>
+
+
+插入代码：
+
+```
+<gallery>![](https://xxxxx.jpg)![](https://xxxx)</gallery>
+```
