@@ -78,7 +78,7 @@ window.ViewImage && ViewImage.init('.page-photo img')
 
 4.样式参考：
 ```css
-.page-photos{width:100%;margin-top:-46px;}
+.page-photos{width:100%;}
 .page-photo{width:24.9%;position: relative;visibility: hidden;}
 .page-photo.visible{visibility: visible;animation: fadeIn 2s;}
 .page-photo img{display: block;width:100%;border-radius:0;padding:4px;}
@@ -93,7 +93,6 @@ window.ViewImage && ViewImage.init('.page-photo img')
 }
 @media (max-width: 683px){
 	.photo-time{display: none;}
-	.page-photos{margin-top:4px;}
 }
 @keyframes fadeIn{
 	0% {opacity: 0;}
@@ -108,3 +107,15 @@ window.ViewImage && ViewImage.init('.page-photo img')
 文件名前手动添加日期！
 
 同时加了瀑布流排版和相对时间。
+
+
+### 更新预告
+
+短代码文章内插入指定文件夹内图片。
+
+```
+\{\{< gallery "photos">\}\}
+```
+
+
+{{< gallery "photos">}}

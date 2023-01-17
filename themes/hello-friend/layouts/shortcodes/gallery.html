@@ -1,0 +1,14 @@
+{{ $baseURL := .Site.BaseURL }}
+{{- with (.Get 0) -}}
+{{- $files := readDir (print "/static/" .) }}
+<div class="gallery-photos">
+  {{- range (sort $files "Name" "desc") -}}
+    {{- if ( .Name | findRE "\\.(gif|jpg|jpeg|tiff|png|bmp|webp|avif|jxl)") }}
+    <div class="gallery-photo">
+      <img class="photo-img" loading='lazy' decoding="async" src="{{ $baseURL }}photos/{{ .Name }}" alt="{{ .Name }}" />
+      <span class="photo-title">{{ .Name | replaceRE "^[0-9 -]+(.*)[.].*" "$1"}}</span>
+    </div>
+    {{- end }}
+  {{- end }}
+</div>
+{{- end }}

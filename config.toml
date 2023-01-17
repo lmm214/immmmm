@@ -27,7 +27,7 @@ rssLimit = 5
   weight="2"
   [[menu.main]]
   name="相册"
-  url="/photos/"
+  url="/gallery/"
   weight="3"
   [[menu.main]]
   name="导航"
