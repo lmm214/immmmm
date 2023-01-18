@@ -20,7 +20,11 @@ tags: [折腾]
 
 ### 主题集成
 
-在主题目录内新建 `layouts/shortcodes/gallery.html` 内代码如下：
+单文件版下载(右键另存为)：<https://me.edui.fun/o/r/164/gallery.html>
+
+接着丢入 Hugo 主题目录 `layouts/shortcodes/gallery.html` 。
+
+具体代码如下，建议还是把 css 和 js 集合到自己主题里。
 
 ```
 {{ $baseURL := .Site.BaseURL }}
@@ -45,6 +49,7 @@ tags: [折腾]
 css 参考：
 
 ```
+<style>
 .gallery-photos{width:100%;}
 .gallery-photo{width:24.9%;position: relative;visibility: hidden;overflow: hidden;}
 .gallery-photo.visible{visibility: visible;animation: fadeIn 2s;}
@@ -67,28 +72,38 @@ css 参考：
 	0% {opacity: 0;}
    100% {opacity: 1;}
 }
+</style>
 ```
 
 js 参考：
 
 ```
-<script type="text/javascript" src="/waterfall.min.js"></script>
-<script type="text/javascript" src="/imgStatus.min.js"></script>
-<script type="text/javascript" src="/view-image.js"></script>
+<script type="text/javascript" src="//fastly.jsdelivr.net/gh/raphamorim/waterfall.js/waterfall.min.js"></script>
+<script type="text/javascript" src="//fastly.jsdelivr.net/gh/raphamorim/imgStatus/imgStatus.min.js"></script>
 <script>
 //相册瀑布流
-imgStatus.watch('.photo-img', function(imgs) {
-  if(imgs.isDone()){
-    waterfall('.gallery-photos');
-    let pagePhoto = document.querySelectorAll('.gallery-photo');
-    for(var i=0;i < pagePhoto.length;i++){pagePhoto[i].className += " visible"};
-  }
-});
-window.addEventListener('resize', function () {
-  waterfall('.gallery-photos');
-});
+let galleryPhotos = document.querySelectorAll('.gallery-photos') || ''
+if(galleryPhotos){
+  imgStatus.watch('.gallery-photo img', function(imgs) {
+    if(imgs.isDone()){
+      for(var i=0;i < galleryPhotos.length;i++){
+        waterfall(galleryPhotos[i]);
+        let pagePhoto = galleryPhotos[i].querySelectorAll('.gallery-photo');
+        for(var j=0;j < pagePhoto.length;j++){pagePhoto[j].className += " visible"};
+      }
+    }
+  });
+  window.addEventListener('resize', function () {
+    for(var i=0;i < galleryPhotos.length;i++){
+      waterfall(galleryPhotos[i]);
+    }
+  });
+}
+</script>
 //图片灯箱
-window.ViewImage && ViewImage.init('.page-photo img')
+<script type="text/javascript" src="//fastly.jsdelivr.net/gh/Tokinx/ViewImage/view-image.min.js"></script>
+<script>
+  window.ViewImage && ViewImage.init('.gallery-photo img')
 </script>
 ```
 
