@@ -397,7 +397,7 @@ a.read-more,a.read-more:active,a.read-more:hover {
 
 .menu__inner .menu__sub-inner-more li {
 	margin-left: 0;
-	padding: 10px;
+	padding: 0px 12px;
 	white-space: nowrap
 }
 

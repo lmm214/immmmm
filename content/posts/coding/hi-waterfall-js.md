@@ -128,7 +128,3 @@ imgStatus.watch('.gallery-photo img', function(imgs) {
 ```
 
 这下彻底舒心咯！
-
-最后，再来一个相册：
-
-<gallery>![](https://immmmm.com/images/2004gd/gd-01.jpeg)![](https://immmmm.com/images/2004gd/gd-02.jpeg)![](https://immmmm.com/images/2004gd/gd-03.jpeg)![](https://immmmm.com/images/2004gd/gd-01.jpeg)![](https://immmmm.com/images/2004gd/gd-04.jpeg)![](https://immmmm.com/images/2004gd/gd-01.jpeg)![](https://immmmm.com/images/2004gd/gd-05.jpeg)![](https://immmmm.com/images/2004gd/gd-03.jpeg)</gallery>
