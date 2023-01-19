@@ -47,16 +47,19 @@ changeFont()
 ![memo-random](https://pic.edui.fun/images/2023/01/memo-random.png)
 
 ```javascript
-let creatorId = '101' //修改为自己的用户 id
 function randomMemo(){
-    var bbUrl1 = window.location.origin+"/api/memo/amount?userId="+creatorId;
-    fetch(bbUrl1).then(res1 => res1.json()).then( resdata1 =>{
-        let randomNum = Math.floor(Math.random() * ( resdata1.data + 1))
-        var bbUrl2 = window.location.origin+"/api/memo?rowStatus=NORMAL&limit=1&offset="+randomNum;
-        fetch(bbUrl2).then(res2 => res2.json()).then( resdata2 =>{
-          window.location.href =  window.location.origin+"/m/"+resdata2.data[0].id;
+  var bbUrl1 = window.location.origin+"/api/user/me";
+  fetch(bbUrl1).then(res1 => res1.json()).then( resdata1 =>{
+    var creatorId = resdata1.data.id
+    var bbUrl2 = window.location.origin+"/api/memo/amount?userId="+creatorId;
+    fetch(bbUrl2).then(res2 => res2.json()).then( resdata2 =>{
+        let randomNum = Math.floor(Math.random() * ( resdata2.data + 2))
+        var bbUrl3 = window.location.origin+"/api/memo?rowStatus=NORMAL&limit=1&offset="+randomNum;
+        fetch(bbUrl3).then(res3 => res3.json()).then( resdata3 =>{
+          window.location.href =  window.location.origin+"/m/"+resdata3.data[0].id;
         })
     })
+  })
 }
 setTimeout(function() { 
     document.querySelector("button.btn.action-btn").insertAdjacentHTML('afterend', '<button onclick="randomMemo()" class="btn action-btn"><span class="icon">⛳️</span> 随机</button>');
