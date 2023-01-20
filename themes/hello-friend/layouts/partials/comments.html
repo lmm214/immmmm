@@ -1,5 +1,6 @@
 <!-- twikoo -->
-{{- if .Site.Params.twikoo.enable -}}
+{{- if .Site.Params.twikoo.enable}}
+{{- if not .Site.IsServer }}
 <div class="pagination__title">
   <span class="pagination__title-h">欢迎评论</span>
   <hr />
@@ -7,4 +8,5 @@
   <div id="tcomment"></div>
   <script src="/twikoo168.js"></script>
   <script>twikoo.init({ envId: 'https://tk.edui.fun/', el: '#tcomment' })</script>
+  {{- end }}
 {{- end }}
