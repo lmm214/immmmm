@@ -96,7 +96,7 @@
   <div class="sc-ksluID gFnzgG">
     <div class="sc-bdnxRM">
       <a href="javascript:void 0;" class="sc-gtsrHT kEoOHR" data-search="year" data-method="equal" data-value="">全部</a>
-      {{range $year := (seq 2022 -1 2009)}}
+      {{range $year := (seq 2023 -1 2011)}}
       <a href="javascript:void 0;" class="sc-gtsrHT dvtjjf" data-search="year" data-method="equal" data-value="{{$year}}">{{$year}}</a>
       {{end}}
     </div>
@@ -120,25 +120,25 @@
         class="sc-gKAaRy dfdORB" 
         data-year="{{index $book 11}}" 
         data-star="{{index $book 8}}"
-        data-rating="{{index $book 7}}"
+        data-rating="{{index $book 6}}"
       >
-        <a rel="link" href="{{index $book 6}}" target="_blank">
+        <a rel="link" href="{{index $book 5}}" target="_blank">
           <div class="sc-hKFxyN HPRth">
             <div class="lazyload-wrapper ">
-              <img class="avatar" src="{{index $book 4}}" referrer-policy="no-referrer" loading="lazy" alt="{{index $book 1}}" width="150" height="220">
+              <img class="avatar" src="{{index $book 3}}" referrer-policy="no-referrer" loading="lazy" alt="{{index $book 1}}" width="150" height="220">
             </div>
           </div>
           <div class="sc-iCoGMd kMthTr">{{index $book 1}}</div>
           <div class="sc-fujyAs eysHZq">
             <span class="sc-jSFjdj jcTaHb">
               {{range $star := (seq 0 2 8)}}
-              <svg viewBox="0 0 24 24" width="24" height="24" class="sc-dlnjwi {{if gt (index $book 7) $star}}lhtmRw{{else}}gaztka{{end}}">
+              <svg viewBox="0 0 24 24" width="24" height="24" class="sc-dlnjwi {{if gt (index $book 6) $star}}lhtmRw{{else}}gaztka{{end}}">
                 <path fill="none" d="M0 0h24v24H0z"></path>
                 <path fill="currentColor" d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z"></path>
               </svg>
               {{end}}
             </span>
-            <span class="sc-pNWdM iibjPt">{{index $book 7}}</span>
+            <span class="sc-pNWdM iibjPt">{{index $book 6}}</span>
           </div>
         </a>
       </div>
