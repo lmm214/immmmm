@@ -53,10 +53,10 @@ layout: "photos"
   {{ end }}
 </div>
 {{ end }}
-<script type="text/javascript" src="/waterfall.min.js"></script>
-<script type="text/javascript" src="/imgStatus.min.js"></script>
-<script type="text/javascript" src="/view-image.js"></script>
-<script type="text/javascript" src="/lately.min.js"></script>
+<script src="https://immmmm.com/waterfall.min.js"></script>
+<script src="https://immmmm.com/imgStatus.min.js"></script>
+<script src="https://immmmm.com//view-image.js"></script>
+<script src="https://immmmm.com//lately.min.js"></script>
 <script>
 imgStatus.watch('.photo-img', function(imgs) {
   if(imgs.isDone()){

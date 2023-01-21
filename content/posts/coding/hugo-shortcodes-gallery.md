@@ -78,8 +78,8 @@ css 参考：
 js 参考：
 
 ```
-<script type="text/javascript" src="//fastly.jsdelivr.net/gh/raphamorim/waterfall.js/waterfall.min.js"></script>
-<script type="text/javascript" src="//fastly.jsdelivr.net/gh/raphamorim/imgStatus/imgStatus.min.js"></script>
+<script src="https://immmmm.com/waterfall.min.js"></script>
+<script src="https://immmmm.com/imgStatus.min.js"></script>
 <script>
 //相册瀑布流
 let galleryPhotos = document.querySelectorAll('.gallery-photos') || ''

@@ -26,20 +26,20 @@ rssLimit = 5
   url="/books/"
   weight="2"
   [[menu.main]]
-  name="相册"
-  url="/gallery/"
-  weight="3"
-  [[menu.main]]
-  name="导航"
-  url="https://edui123.com/"
-  weight="4"
-  [[menu.main]]
   name="哔哔"
   url="/bbs/"
-  weight="5"
+  weight="3"
   [[menu.main]]
   name="友圈"
   url="/friends/"
+  weight="4"
+  [[menu.main]]
+  name="相册"
+  url="/gallery/"
+  weight="5"
+  [[menu.main]]
+  name="导航"
+  url="https://edui123.com/"
   weight="6"
   [[menu.main]]
   name="归档"
