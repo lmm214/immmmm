@@ -64,33 +64,10 @@ feature:
 
 #### 加调用功能代码
 
-照理说下面这段就可以实现瀑布流的排版：
-
 ```html
 <script src="//fastly.jsdelivr.net/gh/raphamorim/waterfall.js/waterfall.min.js"></script>
 <script src="//fastly.jsdelivr.net/gh/raphamorim/imgStatus/imgStatus.min.js"></script>
 <script>
-imgStatus.watch('.gallery-photo img', function(imgs) {
-    if (imgs.isDone()){
-        waterfall('.gallery-photos');
-    }
-});
-</script>
-```
-
-对应 HTML 结构：
-
-```html
-<div class="gallery-photos">
-    <div class="gallery-photo"><img src=""></div>
-    <div class="gallery-photo"><img src=""></div>
-    <div class="gallery-photo"><img src=""></div>
-</div>
-```
-
-可现实是不满意滴，以下调用代码多了判断、循环，外链、内链、淡入统统都要！
-
-```javascript
   //外链 gallery 标签相册瀑布流
   var photosAll = document.getElementsByTagName('gallery') || '';
   if(photosAll){
@@ -125,6 +102,31 @@ imgStatus.watch('.gallery-photo img', function(imgs) {
       }
     });
   }
+</script>
 ```
 
-这下彻底舒心咯！
+搞定！调用代码比官方的多了判断、循环，外链、内链、淡入统统都要！这下彻底舒心咯！
+
+#### 补充说明
+
+官方调用代码：
+
+```JavaScript
+<script>
+imgStatus.watch('.gallery-photo img', function(imgs) {
+    if (imgs.isDone()){
+        waterfall('.gallery-photos');
+    }
+});
+</script>
+```
+
+对应以下 HTML 结构和已知图片宽度。
+
+```html
+<div class="gallery-photos">
+    <div class="gallery-photo"><img src=""></div>
+    <div class="gallery-photo"><img src=""></div>
+    <div class="gallery-photo"><img src=""></div>
+</div>
+```
