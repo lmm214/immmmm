@@ -65,8 +65,8 @@ feature:
 #### 加调用功能代码
 
 ```html
-<script src="//fastly.jsdelivr.net/gh/raphamorim/waterfall.js/waterfall.min.js"></script>
-<script src="//fastly.jsdelivr.net/gh/raphamorim/imgStatus/imgStatus.min.js"></script>
+<script src="https://immmmm.com/waterfall.min.js"></script>
+<script src="https://immmmm.com/imgStatus.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   //外链 gallery 标签相册瀑布流
