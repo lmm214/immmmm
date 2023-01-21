@@ -40,7 +40,7 @@ docker-compose up -d
 版本更新也是 **一行代码** 搞定：
 
 ```
-docker-compose down && docker image rm neosmemo/memos:latest && docker-compose up -d
+docker-compose pull && docker-compose up -d --force-recreate
 ```
 
 当然，也可以官方的一句拉起 Docker。之后更新需要先去 docker 管理器里删除镜像，再输入下句拉起服务。
