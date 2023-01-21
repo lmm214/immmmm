@@ -14,3 +14,13 @@ feature: https://cdn.edui.fun/images/2022/03/doumark.png
 个人相关代码如下： [.github/workflows/douban.yml](https://github.com/lmm214/immmmm/blob/master/.github/workflows/douban.yml)、[hello-friend/layouts/_default/movies.html](https://github.com/lmm214/immmmm/blob/master/themes/hello-friend/layouts/_default/movies.html)、[hello-friend/layouts/_default/books.html](https://github.com/lmm214/immmmm/blob/master/themes/hello-friend/layouts/_default/books.html)。
 
 折腾不息，生命不止。赶在明天前，码字发了先！
+
+### 20230112 更新
+
+三个文件都有变化：
+
+![douban-ac-1](https://pic.edui.fun/images/2023/01/douban-ac-1.png!webp)
+
+![douban-ac-2](https://pic.edui.fun/images/2023/01/douban-ac-2.png!webp)
+
+![douban-ac-3](https://pic.edui.fun/images/2023/01/douban-ac-3.png!webp)
