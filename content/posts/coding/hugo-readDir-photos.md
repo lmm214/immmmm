@@ -55,8 +55,8 @@ layout: "photos"
 {{ end }}
 <script src="https://immmmm.com/waterfall.min.js"></script>
 <script src="https://immmmm.com/imgStatus.min.js"></script>
-<script src="https://immmmm.com//view-image.js"></script>
-<script src="https://immmmm.com//lately.min.js"></script>
+<script src="https://immmmm.com/view-image.js"></script>
+<script src="https://immmmm.com/lately.min.js"></script>
 <script>
 imgStatus.watch('.photo-img', function(imgs) {
   if(imgs.isDone()){

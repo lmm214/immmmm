@@ -20,9 +20,7 @@ tags: [折腾]
 
 ### 主题集成
 
-单文件版下载(右键另存为)：<https://me.edui.fun/o/r/164/gallery.html>
-
-接着丢入 Hugo 主题目录 `layouts/shortcodes/gallery.html` 。
+创建 `gallery.html` 丢入，Hugo 主题目录 `layouts/shortcodes/gallery.html` 。
 
 具体代码如下，建议还是把 css 和 js 集合到自己主题里。
 
