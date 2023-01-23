@@ -2,9 +2,6 @@
 title: '推荐几本值得父母阅读的育儿书'
 date: 2018-04-14 
 tags: [育人]
-published: true
-hideInList: false
-isTop: false
 ---
 
 {{< douban "https://book.douban.com/subject/30185326/">}}
