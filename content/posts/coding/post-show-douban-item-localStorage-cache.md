@@ -3,7 +3,8 @@ title: '文章内显示豆瓣条目（LocalStorage 缓存版）'
 date: 2020-03-17
 tags: [折腾]
 ---
-<https://movie.douban.com/subject/30206389/>
+
+{{< douban "https://movie.douban.com/subject/30206389/">}}
 
 ![douban-ls](https://pic.edui.fun/images/2020/03/douban-ls.png)
 

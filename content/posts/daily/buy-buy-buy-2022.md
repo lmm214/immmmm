@@ -63,6 +63,6 @@ tags: [日常]
 
 ### 纸书
 
-<https://book.douban.com/subject/25912076/>
+{{< douban "https://book.douban.com/subject/25912076/">}}
 
 相比 198四，这本最接地气。

@@ -12,4 +12,4 @@ feature: https://pic.edui.fun/images/2019/04/p2554647276.jpg
 
 <!--more-->
 
-<https://movie.douban.com/subject/30181230/>
+{{< douban "https://movie.douban.com/subject/30181230/">}}

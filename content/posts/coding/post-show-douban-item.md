@@ -10,9 +10,9 @@ tags: [折腾]
 
 ### 效果如下
 
-<https://movie.douban.com/subject/34953719/>
+{{< douban "https://movie.douban.com/subject/34953719/">}}
 
-<https://book.douban.com/subject/35254632/>
+{{< douban "https://book.douban.com/subject/35254632/">}}
 
 <!--more-->
 

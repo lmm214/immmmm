@@ -131,10 +131,10 @@ tags: [日常]
 
 当下电子书随手可得，仍然买了不少纸质书。
 
-<https://book.douban.com/subject/35143790/>
+{{< douban "https://book.douban.com/subject/35143790/">}}
 
-<https://book.douban.com/subject/35254632/>
+{{< douban "https://book.douban.com/subject/35254632/">}}
 
-<https://book.douban.com/subject/35349438/>
+{{< douban "https://book.douban.com/subject/35349438/">}}
 
-<https://book.douban.com/subject/35390838/>
+{{< douban "https://book.douban.com/subject/35390838/">}}

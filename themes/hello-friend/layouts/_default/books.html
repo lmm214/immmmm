@@ -4,10 +4,10 @@
   <style>
     .gFnzgG,.gFnzgG *{box-sizing:border-box}
     .fIuTG{display:flex;flex-wrap:wrap;margin:0 -2%;background:0 0;line-height:100%}
-    .dfdORB{width:16%;margin:0 2% 30px;padding:0;font-size:15px}
+    .dfdORB{width:21%;margin:0 2% 30px;padding:0;font-size:15px}
     .dfdORB a{text-decoration:none}
-    .kMthTr{margin-top:12px;line-height:1.3;max-height:2.6rem;overflow:hidden}
-    .eysHZq{display:flex;-webkit-box-align:center;align-items:center;margin-top:5px;min-height:16px;line-height:1}
+    .kMthTr{margin-top:5px;line-height:1.3;max-height:2.6rem;overflow:hidden}
+    .eysHZq{display:flex;-webkit-box-align:center;align-items:center;margin-top:12px;min-height:16px;line-height:1}
     .HPRth{position:relative;min-height:87px;overflow:hidden;color:transparent}
     .HPRth:hover{box-shadow:rgb(48 55 66 / 30%) 0 1rem 2.1rem}
     .jcTaHb{display:flex;-webkit-box-align:center;align-items:center}
@@ -96,7 +96,7 @@
   <div class="sc-ksluID gFnzgG">
     <div class="sc-bdnxRM">
       <a href="javascript:void 0;" class="sc-gtsrHT kEoOHR" data-search="year" data-method="equal" data-value="">全部</a>
-      {{range $year := (seq 2023 -1 2011)}}
+      {{range $year := (seq now.Year -1 2011)}}
       <a href="javascript:void 0;" class="sc-gtsrHT dvtjjf" data-search="year" data-method="equal" data-value="{{$year}}">{{$year}}</a>
       {{end}}
     </div>
@@ -122,13 +122,11 @@
         data-star="{{index $book 8}}"
         data-rating="{{index $book 6}}"
       >
-        <a rel="link" href="{{index $book 5}}" target="_blank">
           <div class="sc-hKFxyN HPRth">
             <div class="lazyload-wrapper ">
-              <img class="avatar" src="{{index $book 3}}" referrer-policy="no-referrer" loading="lazy" alt="{{index $book 1}}" width="150" height="220">
+              <img class="avatar" src="{{index $book 3}}" referrer-policy="no-referrer" loading="lazy" alt="{{index $book 1}}"  title="{{index $book 9}}" width="150" height="220">
             </div>
           </div>
-          <div class="sc-iCoGMd kMthTr">{{index $book 1}}</div>
           <div class="sc-fujyAs eysHZq">
             <span class="sc-jSFjdj jcTaHb">
               {{range $star := (seq 0 2 8)}}
@@ -140,7 +138,8 @@
             </span>
             <span class="sc-pNWdM iibjPt">{{index $book 6}}</span>
           </div>
-        </a>
+          <div class="sc-iCoGMd kMthTr"><a rel="link" href="{{index $book 5}}" target="_blank">{{index $book 1}}</a></div>
+        
       </div>
       {{end}}
       {{end}}
@@ -150,6 +149,8 @@
 
 </div>
 {{ end }}
+
+
 
 {{ define "footer" }}
 <script type="text/javascript" src="/theme-main-1.js"></script>
