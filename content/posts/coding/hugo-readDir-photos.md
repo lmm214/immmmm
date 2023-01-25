@@ -42,16 +42,17 @@ layout: "photos"
 3.`layouts/_default/photos.html`
 ```html
 {{ define "main" }}
-<div class="page-photos">
+<div class="gallery-photos page">
   {{ range (sort (readDir "./static/photos") "Name" "desc")}}
-    {{ if (findRE "^[0-9 -]+(.*)[.].*" .Name) }}
-    <div class="page-photo">
+    {{ if ( .Name | findRE "\\.(gif|jpg|jpeg|tiff|png|bmp|webp|avif|jxl)") }}
+    <div class="gallery-photo">
       <img class="photo-img" loading='lazy' decoding="async" src="/photos/{{ .Name }}" alt="{{ .Name }}" />
       <span class="photo-title">{{ .Name | replaceRE "^[0-9 -]+(.*)[.].*" "$1"}}</span><span class="photo-time">{{ .Name | replaceRE "^([0-9-]+).*[.].*" "$1" }}</span>
     </div>
     {{ end }}
   {{ end }}
 </div>
+
 <style>
 .gallery-photos{width:100%;}
 .gallery-photo{width:24.9%;position: relative;visibility: hidden;overflow: hidden;}
@@ -78,23 +79,25 @@ layout: "photos"
 </style>
 <script src="https://immmmm.com/waterfall.min.js"></script>
 <script src="https://immmmm.com/imgStatus.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    imgStatus.watch('.photo-img', function(imgs) {
+      if(imgs.isDone()){
+        waterfall('.gallery-photos');
+        let pagePhoto = document.querySelectorAll('.gallery-photo');
+        for(var i=0;i < pagePhoto.length;i++){pagePhoto[i].className += " visible"};
+      }
+    });
+    window.addEventListener('resize', function () {
+      waterfall('.gallery-photos');
+    });
+});
+</script>
 <script src="https://immmmm.com/view-image.js"></script>
 <script src="https://immmmm.com/lately.min.js"></script>
 <script>
-imgStatus.watch('.photo-img', function(imgs) {
-  if(imgs.isDone()){
-    waterfall('.page-photos');
-    let pagePhoto = document.querySelectorAll('.page-photo');
-    for(var i=0;i < pagePhoto.length;i++){pagePhoto[i].className += " visible"};
-  }
-});
-window.addEventListener('resize', function () {
-  waterfall('.page-photos');
-});
-//相对时间
-window.Lately && Lately.init({ target: '.photo-time'});
-//图片灯箱
-window.ViewImage && ViewImage.init('.page-photo img')
+  window.Lately && Lately.init({ target: '.photo-time'});
+  window.ViewImage && ViewImage.init('.gallery-photo img')
 </script>
 {{ end }}
 ```
