@@ -78,18 +78,20 @@ window.ViewImage && ViewImage.init('.page-photo img')
 
 4.样式参考：
 ```css
-.page-photos{width:100%;}
-.page-photo{width:24.9%;position: relative;visibility: hidden;}
-.page-photo.visible{visibility: visible;animation: fadeIn 2s;}
-.page-photo img{display: block;width:100%;border-radius:0;padding:4px;}
-.page-photo span.photo-title,.page-photo span.photo-time{background: rgba(0, 0, 0, 0.3);padding:0px 8px;font-size:0.9rem;color: #fff;}
-.page-photo span.photo-title{position:absolute;bottom:4px;left:4px;}
-.page-photo span.photo-time{position:absolute;top:4px;left:4px;font-size:0.8rem;}
+.gallery-photos{width:100%;}
+.gallery-photo{width:24.9%;position: relative;visibility: hidden;overflow: hidden;}
+.gallery-photo.visible{visibility: visible;animation: fadeIn 2s;}
+.gallery-photo img{display: block;width:100%;border-radius:0;padding:4px;animation: fadeIn 1s;cursor: pointer;transition: all .4s ease-in-out;}
+.gallery-photo span.photo-title,.gallery-photo span.photo-time{background: rgba(0, 0, 0, 0.3);padding:0px 8px;font-size:0.9rem;color: #fff;display:none;animation: fadeIn 1s;}
+.gallery-photo span.photo-title{position:absolute;bottom:4px;left:4px;}
+.gallery-photo span.photo-time{position:absolute;top:4px;left:4px;font-size:0.8rem;}
+.gallery-photo:hover span.photo-title{display:block;}
+.gallery-photo:hover img{transform: scale(1.1);}
 @media screen and (max-width: 1280px) {
-	.page-photo{width:33.3%;}
+	.gallery-photo{width:33.3%;}
 }
 @media screen and (max-width: 860px) {
-	.page-photo{width:49.9%;}
+	.gallery-photo{width:49.9%;}
 }
 @media (max-width: 683px){
 	.photo-time{display: none;}
