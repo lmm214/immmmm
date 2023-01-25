@@ -52,32 +52,7 @@ layout: "photos"
     {{ end }}
   {{ end }}
 </div>
-{{ end }}
-<script src="https://immmmm.com/waterfall.min.js"></script>
-<script src="https://immmmm.com/imgStatus.min.js"></script>
-<script src="https://immmmm.com/view-image.js"></script>
-<script src="https://immmmm.com/lately.min.js"></script>
-<script>
-imgStatus.watch('.photo-img', function(imgs) {
-  if(imgs.isDone()){
-    waterfall('.page-photos');
-    let pagePhoto = document.querySelectorAll('.page-photo');
-    for(var i=0;i < pagePhoto.length;i++){pagePhoto[i].className += " visible"};
-  }
-});
-window.addEventListener('resize', function () {
-  waterfall('.page-photos');
-});
-//相对时间
-window.Lately && Lately.init({ target: '.photo-time'});
-//图片灯箱
-window.ViewImage && ViewImage.init('.page-photo img')
-</script>
-```
-
-
-4.样式参考：
-```css
+<style>
 .gallery-photos{width:100%;}
 .gallery-photo{width:24.9%;position: relative;visibility: hidden;overflow: hidden;}
 .gallery-photo.visible{visibility: visible;animation: fadeIn 2s;}
@@ -100,6 +75,28 @@ window.ViewImage && ViewImage.init('.page-photo img')
 	0% {opacity: 0;}
    100% {opacity: 1;}
 }
+</style>
+<script src="https://immmmm.com/waterfall.min.js"></script>
+<script src="https://immmmm.com/imgStatus.min.js"></script>
+<script src="https://immmmm.com/view-image.js"></script>
+<script src="https://immmmm.com/lately.min.js"></script>
+<script>
+imgStatus.watch('.photo-img', function(imgs) {
+  if(imgs.isDone()){
+    waterfall('.page-photos');
+    let pagePhoto = document.querySelectorAll('.page-photo');
+    for(var i=0;i < pagePhoto.length;i++){pagePhoto[i].className += " visible"};
+  }
+});
+window.addEventListener('resize', function () {
+  waterfall('.page-photos');
+});
+//相对时间
+window.Lately && Lately.init({ target: '.photo-time'});
+//图片灯箱
+window.ViewImage && ViewImage.init('.page-photo img')
+</script>
+{{ end }}
 ```
 
 ### 搞定：不了了之
