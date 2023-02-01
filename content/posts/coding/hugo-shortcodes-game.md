@@ -2,7 +2,6 @@
 title: "Hugo 游戏卡片短代码"
 date: 2023-02-01T09:51:09+0800
 tags: [折腾]
-feature: 
 ---
 
 {{< game "https://www.yystv.cn/g/36">}}
