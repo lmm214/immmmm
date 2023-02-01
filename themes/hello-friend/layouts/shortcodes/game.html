@@ -1,0 +1,29 @@
+{{ $dbUrl := "https://gameinfo-api.onrender.com/" }}
+{{ $dbID := replaceRE `.*yystv.cn/g/([0-9]+)` "$1" (.Get 0) }}
+{{ $db := getJSON $dbUrl "yys/v1/" $dbID }} {{ $score := div (int $db.score) 10.0 }}
+{{if $db}}
+<div class="post-preview game movie">
+    <img referrer-policy="no-referrer" loading="lazy" class="post-preview--image" src="{{ $db.cover }}" />
+    <div class="post-preview--meta">
+        <div class="post-preview--middle">
+            <h4 class="post-preview--title"><a target="_blank" href="{{ .Get 0 }}">{{ $db.name }}</a></h4>
+            <div class="rating">
+                <div class="rating-star allstar{{math.Round $score }}"></div>
+                <div class="rating-average">{{ $score }}</div>
+                <div class="release-time"></div>
+            </div>
+            <time class="post-preview--date">
+                发售时间: {{ $db.releasetime }} / 产商： {{ range $production_key, $production := $db.production }} {{ if eq $production_key 0 }} {{ $production.name }} {{ else }} / {{ $production.name }} {{ end }} {{ end }}
+                <span class="post-preview--tags">
+                    {{ range $tags := $db.tags }}
+                    <span class="post-preview--tag">{{ $tags.name }}</span>
+                    {{ end }}
+                </span>
+            </time>
+            <section style="max-height: 75px; overflow: hidden" class="post-preview--excerpt">{{ $db.brief | plainify }}</section>
+        </div>
+    </div>
+</div>
+{{else}}
+    <p style="text-align: center;"><small>远程获取内容失败，请检查 API 有效性。</small></p>
+{{end}}

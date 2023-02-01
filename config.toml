@@ -12,6 +12,8 @@ paginate =  10
 # rss 输出数量
 rssLimit = 5
 
+ignoreErrors = ["error-remote-getjson"]
+
 [permalinks]
   posts = "/:filename/"
   tags = "/tags/:slug/"
@@ -91,3 +93,4 @@ rssLimit = 5
 
 [params.twikoo]
 	enable = true
+

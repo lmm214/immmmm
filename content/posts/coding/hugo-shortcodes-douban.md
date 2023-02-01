@@ -23,7 +23,7 @@ tags: [折腾]
 \{\{< douban "https://movie.douban.com/subject/35267208/">\}\}
 ```
 
-相关 css 见这里 [theme-20230116.css](https://github.com/lmm214/immmmm/blob/master/themes/hello-friend/static/theme-20230123.css) ，搜索 `post-preview`。
+相关 css 见这里 [theme-20230123.css](https://github.com/lmm214/immmmm/blob/master/themes/hello-friend/static/theme-20230123.css) ，搜索 `post-preview`。
 
 ### 说明
 
