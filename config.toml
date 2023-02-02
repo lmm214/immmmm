@@ -29,7 +29,7 @@ ignoreErrors = ["error-remote-getjson"]
   weight="4"
   [[menu.main]]
   name="相册"
-  url="/gallery/"
+  url="/album/"
   weight="5"
   [[menu.main]]
   name="导航"
