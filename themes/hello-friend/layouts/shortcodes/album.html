@@ -52,6 +52,8 @@ document.addEventListener("DOMContentLoaded", () => {
         window.addEventListener('resize', function () {
           waterfall('.gallery-photos');
         });
+        //图片灯箱
+        window.ViewImage && ViewImage.init('.gallery-photo img')
         //相对时间
         window.Lately && Lately.init({ target: '.photo-time'});
     });
