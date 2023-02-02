@@ -1394,7 +1394,7 @@ photos .photo:last-child {
 .gallery-photo span.photo-title,.gallery-photo span.photo-time{background: rgba(0, 0, 0, 0.3);padding:0px 8px;font-size:0.9rem;color: #fff;display:none;animation: fadeIn 1s;}
 .gallery-photo span.photo-title{position:absolute;bottom:4px;left:4px;}
 .gallery-photo span.photo-time{position:absolute;top:4px;left:4px;font-size:0.8rem;}
-.gallery-photo:hover span.photo-title{display:block;}
+.gallery-photo:hover span.photo-title,.gallery-photo:hover span.photo-time{display:block !important;}
 .gallery-photo:hover img{transform: scale(1.1);}
 .page .gallery-photo span.photo-time,.page .gallery-photo span.photo-title{display: block;}
 @media screen and (max-width: 1800px) {
