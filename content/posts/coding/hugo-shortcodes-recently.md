@@ -40,3 +40,25 @@ feature: https://pic.edui.fun/images/2023/01/hugo-re-1.png!webp
 #### 指定 8 条
 
 {{< books 8>}}
+
+
+### 增 Memos 短代码调用
+
+#### 效果演示
+
+{{< memos >}}
+
+#### 主题集成
+
+- 把 [memos.html](https://github.com/lmm214/immmmm/blob/master/themes/hello-friend/layouts/shortcodes/memos.html) 另存为 html 修改第 5 行 `bbUrl` 网址和参数：
+
+```
+var bbUrl = "https://me.edui.fun/api/memo?creatorId=101&rowStatus=NORMAL&limit=5"
+```
+
+- 之后丢入主题 `/layouts/shortcodes/` 内；
+- 调用代码如下：
+
+```
+\{\{< memos >\}\}
+```

@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
       for(var i=0;i < data.length;i++){
           var bbTime = new Date(data[i].createdTs * 1000).toLocaleString()
           var bbCont = data[i].content
-          var newbbCont = bbCont.replace(/(https?:[^:<>"]*\/)([^:<>"]*)(\.((png!thumbnail)|(png)|(jpg)|(webp)|(jpeg)|(gif))(!blogimg)?)/g,' 🌅 ').replace(/\bhttps?:\/\/(?!\S+(?:jpe?g|png|bmp|gif|webp|jfif|gif))\S+/g,' 🔗 ')
+          var newbbCont = bbCont.replace(/!\[.*?\]\((.*?)\)/g,' <a href="$1" target="_blank">🌅</a> ').replace(/\[(.*?)\]\((.*?)\)/g,' <a href="$2" target="_blank">$1 🔗</a> ')
           result += `<li class="item"><span class="datetime">${bbTime}</span>： <a href="/bb/">${newbbCont}</a></li>`;
       }
       var bbDom = document.querySelector('#bber-talk');
