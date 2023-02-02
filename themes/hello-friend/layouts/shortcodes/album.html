@@ -3,12 +3,28 @@
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     var memoUrl = "https://me.edui.fun/"
-    var galleryUrl = memoUrl+"api/memo?creatorId=101&limit=5&tag=相册"
+    var galleryUrl = memoUrl+"api/memo?creatorId=101&rowStatus=NORMAL&limit=5&tag=相册"
     fetch(galleryUrl).then(res => res.json()).then( resdata =>{
         console.log(resdata)
         var result = '',resultAll="",data = resdata.data
         for(var i=0;i < data.length;i++){
             var galleryTitle = data[i].content.replace("#相册 ",'')
+            var imgs = galleryTitle.match(/\!\[(.*?)\s*(.*?)\]\((.*?)\)/g)
+            //解析 content 内 md 格式图片
+            if(imgs){
+              imgs.forEach(item => {
+                let img = item.match(/(?<=\()(.*)(?=\))/g)[0],
+                    time, title, tmp = item.match(/(?<=\[)(.*)(?=\])/g)[0];
+                if (tmp.indexOf(' ') != -1) {
+                    time = tmp.split(' ')[0];
+                    title = tmp.split(' ')[1];
+                } else title = tmp
+                result += `<div class="gallery-photo"><img class="photo-img" loading='lazy' decoding="async" src="${img}"></a>`;
+                title ? result += `<span class="photo-title">${title}</span>` : '';
+                time ? result += `<span class="photo-time">${time}</span>` : '';
+                result += `</div>`;
+              });
+            }
             //解析内置资源文件
             if(data[i].resourceList && data[i].resourceList.length > 0){
               var resourceList = data[i].resourceList;

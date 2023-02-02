@@ -69,7 +69,7 @@ var bbUrl = "https://me.edui.fun/api/memo?creatorId=101&rowStatus=NORMAL&limit=5
 
 此想法原创为 @Leonus 同学：[《基于memos的动态相册》](https://blog.leonus.cn/2023/photos.html)
 
-仔细查阅发现调取是带 `#相册` 标签的 Memos 内容，并正则匹配内容中的 md 格式图片，再前端解析。个人换了一个实现思路，先看效果。
+仔细查阅发现调取是带 `#相册` 标签的 Memos 内容，并正则匹配内容中的 md 格式图片，再前端解析。个人兼容了一下使用 Memos 内置资源库上传的图片显示。
 
 #### 效果演示
 
@@ -91,7 +91,21 @@ var galleryUrl = memoUrl+"api/memo?creatorId=101&limit=5&tag=相册"
 \{\{< album >\}\}
 ```
 
-#### 相册动态更新
+#### 相册动态更新一
+
+![leonus_2023-01-29_20-03-25](https://pic.edui.fun/images/2023/01/leonus_2023-01-29_20-03-25.png!webp)
+
+图片外链以 `日期+空格+标题` 命名方式前端会显示。
+
+```
+#相册 
+![2023-01-29 ](https://cn.bing.com/th?id=OHR.SessileOaks_EN-US1487454928_768x1280.jpg)
+![Bing](https://cn.bing.com/th?id=OHR.Umschreibung_EN-US4693850900_768x1280.jpg)
+![2023-01-29 Bing](https://cn.bing.com/th?id=OHR.InscriptionWall_EN-US1392173431_1280x768.jpg)
+![](https://cn.bing.com/th?id=OHR.DonkeyFeast_EN-US1153850805_1280x768.jpg)
+```
+
+#### 相册动态更新二
 
 ![album](https://pic.edui.fun/images/2023/01/album.png)
 
