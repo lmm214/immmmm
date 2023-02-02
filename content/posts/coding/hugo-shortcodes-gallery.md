@@ -79,7 +79,7 @@ js 参考：
 <script src="https://immmmm.com/waterfall.min.js"></script>
 <script src="https://immmmm.com/imgStatus.min.js"></script>
 <script>
-//相册瀑布流
+document.addEventListener('DOMContentLoaded', () => {
 let galleryPhotos = document.querySelectorAll('.gallery-photos') || ''
 if(galleryPhotos){
   imgStatus.watch('.gallery-photo img', function(imgs) {
@@ -97,9 +97,10 @@ if(galleryPhotos){
     }
   });
 }
+});
 </script>
 //图片灯箱
-<script type="text/javascript" src="//fastly.jsdelivr.net/gh/Tokinx/ViewImage/view-image.min.js"></script>
+<script type="text/javascript" src="https://immmmm.com/view-image.js"></script>
 <script>
   window.ViewImage && ViewImage.init('.gallery-photo img')
 </script>

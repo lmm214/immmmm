@@ -20,14 +20,6 @@ ignoreErrors = ["error-remote-getjson"]
 
 [menu]
   [[menu.main]]
-  name="电影"
-  url="/movies/"
-  weight="1"
-  [[menu.main]]
-  name="阅读"
-  url="/books/"
-  weight="2"
-  [[menu.main]]
   name="哔哔"
   url="/bbs/"
   weight="3"

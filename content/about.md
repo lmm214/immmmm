@@ -4,6 +4,36 @@ date: 2020-03-14 12:41:27
 layout: 'posts'
 ---
 
+### 近期观影 <small>[🔗](/movies)</small>
+
+{{< movies >}}
+
+### 近期阅读 <small>[🔗](/books)</small>
+
+{{< books >}}
+
+### 博客程序
+
+- Hugo：<https://gohugo.io/>
+- 本站源码：<https://github.com/lmm214/immmmm>
+
+### 主题分享
+
+Gridea 主题：[「Motify」](https://github.com/lmm214/gridea-theme-motify)、[「Webstack」](https://github.com/lmm214/gridea-theme-webstack)、[「Breek」](https://github.com/lmm214/gridea-theme-breek)、[「Puti」](https://github.com/lmm214/gridea-theme-puti)
+
+<!--more-->
+
+### 维护项目
+
+- 教学工具导航: <https://edui123.com/>
+
+### 工具推荐
+
+- Mac 发图「uPic」：<https://github.com/gee1k/uPic>
+- 全平台发图「PicGo」：<https://github.com/Molunerfinn/PicGo>
+- 云存储管理客户端 「qiniuClient」: <https://github.com/willnewii/qiniuClient>
+- Chrome 新标签扩展「几枝」、HTML5视频速度控制「Video Speed Controller」、沉浸式阅读「简悦」
+
 ### 我的朋友
 
 {{< friend des="" url="https://blog.shuiba.co" md5="ec9435af3f1cd6d7fca626d649928e7a" name="水八口记" >}}
@@ -197,28 +227,6 @@ layout: 'posts'
 {{< friend des="" url="https://easyf12.top/" src="https://img.easyf12.top/images/2022/10/15/634a8b4186889.webp" name="一蓑烟雨" >}}
 
 {{< friend des="" url="https://wananaiko.design/" md5="11e15a8d264f1110f822ef2c55eeb965" name="wananaiko" >}}
-
-### 博客程序
-
-Hugo：<https://gohugo.io/>
-
-### 主题分享
-
-Gridea 主题：[「Motify」](https://github.com/lmm214/gridea-theme-motify)、[「Webstack」](https://github.com/lmm214/gridea-theme-webstack)、[「Breek」](https://github.com/lmm214/gridea-theme-breek)、[「Puti」](https://github.com/lmm214/gridea-theme-puti)
-
-<!--more-->
-
-### 维护项目
-
-- 教学工具导航: <https://edui123.com/>
-- 微信小程序「二小智造」
-
-### 工具推荐
-
-- Mac 发图「uPic」：<https://github.com/gee1k/uPic>
-- 全平台发图「PicGo」：<https://github.com/Molunerfinn/PicGo>
-- 云存储管理客户端 「qiniuClient」: <https://github.com/willnewii/qiniuClient>
-- Chrome 新标签扩展「几枝」、HTML5视频速度控制「Video Speed Controller」、沉浸式阅读「简悦」
 
 ### 欢迎打赏
 

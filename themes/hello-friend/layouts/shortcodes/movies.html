@@ -1,0 +1,32 @@
+{{$movies := getCSV "," "data/douban/movie.csv" }}
+{{$numb := 5}}
+{{ if .Get 0 }}
+    {{$numb = add (.Get 0) 1}}
+{{end}}
+<div class="sc-ksluID gFnzgG">
+    <div class="sc-dIsUp fIuTG">
+        {{range $idx, $movie := first $numb $movies}}
+        {{if ne $idx 0 }}
+            <div class="sc-gKAaRy dfdORB">
+                <div class="sc-hKFxyN HPRth">
+                    <div class="lazyload-wrapper ">
+                        <img class="avatar" src="{{index $movie 3}}" referrer-policy="no-referrer" loading="lazy" alt="{{index $movie 1}}"  title="{{index $movie 9}}" width="150" height="220">
+                    </div>
+                </div>
+            <div class="sc-fujyAs eysHZq">
+              <span class="sc-jSFjdj jcTaHb">
+                {{range $star := (seq 0 2 8)}}
+                <svg viewBox="0 0 24 24" width="24" height="24" class="sc-dlnjwi {{if gt (index $movie 6) $star}}lhtmRw{{else}}gaztka{{end}}">
+                  <path fill="none" d="M0 0h24v24H0z"></path>
+                  <path fill="currentColor" d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z"></path>
+                </svg>
+                {{end}}
+              </span>
+              <span class="sc-pNWdM iibjPt">{{index $movie 6}}</span>
+            </div>
+            <div class="sc-iCoGMd kMthTr"><a rel="link" href="{{index $movie 5}}" target="_blank">{{index $movie 1}}</a></div>
+        </div>
+        {{end}}
+        {{end}}
+    </div>
+</div>
