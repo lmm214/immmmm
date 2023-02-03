@@ -77,11 +77,12 @@ var bbUrl = "https://me.edui.fun/api/memo?creatorId=101&rowStatus=NORMAL&limit=5
 
 #### 主题集成
 
-- 把 [album.html](https://github.com/lmm214/immmmm/blob/master/themes/hello-friend/layouts/shortcodes/album.html) 另存为 html 修改第 5、6 行 `memoUrl` 网址和 `galleryUrl` 内的参数：
+- 把 [album.html](https://github.com/lmm214/immmmm/blob/master/themes/hello-friend/layouts/shortcodes/album.html) 另存为 html 修改第 5、6、7 行 `limit` `memoUrl` 网址和 `creatorId` 参数：
 
 ```
+let limit = 8
 var memoUrl = "https://me.edui.fun/"
-var galleryUrl = memoUrl+"api/memo?creatorId=101&limit=5&tag=相册"
+var creatorId = 101
 ```
 
 - 之后丢入主题 `/layouts/shortcodes/` 内；
@@ -91,7 +92,7 @@ var galleryUrl = memoUrl+"api/memo?creatorId=101&limit=5&tag=相册"
 \{\{< album >\}\}
 ```
 
-#### 相册动态更新一
+#### 相册动态更新方式一
 
 ![leonus_2023-01-29_20-03-25](https://pic.edui.fun/images/2023/01/leonus_2023-01-29_20-03-25.png!webp)
 
@@ -105,7 +106,7 @@ var galleryUrl = memoUrl+"api/memo?creatorId=101&limit=5&tag=相册"
 ![](https://cn.bing.com/th?id=OHR.DonkeyFeast_EN-US1153850805_1280x768.jpg)
 ```
 
-#### 相册动态更新二
+#### 相册动态更新方式二
 
 ![album](https://pic.edui.fun/images/2023/01/album.png)
 

@@ -2,8 +2,11 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
+    let limit = 8
     var memoUrl = "https://me.edui.fun/"
-    var galleryUrl = memoUrl+"api/memo?creatorId=101&rowStatus=NORMAL&limit=5&tag=相册"
+    var creatorId = 101
+    var galleryUrl = memoUrl+"api/memo?creatorId="+creatorId+"&rowStatus=NORMAL&limit="+limit+"&tag=相册"
+    let nowNum = 1;
     fetch(galleryUrl).then(res => res.json()).then( resdata =>{
         var result = '',resultAll="",data = resdata.data
         for(var i=0;i < data.length;i++){
@@ -12,16 +15,19 @@ document.addEventListener("DOMContentLoaded", () => {
             //解析 content 内 md 格式图片
             if(imgs){
               imgs.forEach(item => {
-                let img = item.replace(/!\[.*?\]\((.*?)\)/g,'$1'),
-                    time, title, tmp = item.replace(/!\[(.*?)\]\(.*?\)/g,'$1');
-                if (tmp.indexOf(' ') != -1) {
-                    time = tmp.split(' ')[0];
-                    title = tmp.split(' ')[1];
-                } else title = tmp
-                result += `<div class="gallery-photo"><img class="photo-img" loading='lazy' decoding="async" src="${img}"></a>`;
-                title ? result += `<span class="photo-title">${title}</span>` : '';
-                time ? result += `<span class="photo-time">${time}</span>` : '';
-                result += `</div>`;
+                if(nowNum < limit ){
+                  nowNum ++
+                  let img = item.replace(/!\[.*?\]\((.*?)\)/g,'$1'),
+                      time, title, tmp = item.replace(/!\[(.*?)\]\(.*?\)/g,'$1');
+                  if (tmp.indexOf(' ') != -1) {
+                      time = tmp.split(' ')[0];
+                      title = tmp.split(' ')[1];
+                  } else title = tmp
+                  result += `<div class="memos-photo"><img class="photo-img" loading='lazy' decoding="async" src="${img}"></a>`;
+                  title ? result += `<span class="photo-title">${title}</span>` : '';
+                  time ? result += `<span class="photo-time">${time}</span>` : '';
+                  result += `</div>`;
+                }
               });
             }
             //解析内置资源文件
@@ -30,30 +36,19 @@ document.addEventListener("DOMContentLoaded", () => {
               for(var j=0;j < resourceList.length;j++){
                 var galleryTime = new Date(resourceList[j].createdTs * 1000).toLocaleString()
                 var restype = resourceList[j].type.slice(0,5);
-                if(restype == 'image'){
-                    result += '<div class="gallery-photo"><img class="photo-img" loading="lazy" decoding="async" src="'+memoUrl+'o/r/'+resourceList[j].id+'/'+resourceList[j].filename+'"/><span class="photo-title">'+galleryTitle+'</span><span class="photo-time">'+galleryTime+'</span></div>'
+                if(restype == 'image' && nowNum <= limit ){
+                    nowNum ++
+                    result += '<div class="memos-photo"><img class="photo-img" loading="lazy" decoding="async" src="'+memoUrl+'o/r/'+resourceList[j].id+'/'+resourceList[j].filename+'"/><span class="photo-title">'+galleryTitle+'</span><span class="photo-time">'+galleryTime+'</span></div>'
+                  
                 }
               }
             }
         }
         var galleryDom = document.querySelector('#album');
-        var galleryBefore = `<div class="gallery-photos">`
+        var galleryBefore = `<div class="memos-photo-wrapper">`
         var galleryAfter = `</div>`
         resultAll = galleryBefore + result + galleryAfter
         galleryDom.innerHTML = resultAll
-        //相册排版
-        imgStatus.watch('.photo-img', function(imgs) {
-          if(imgs.isDone()){
-            waterfall('.gallery-photos');
-            let pagePhoto = document.querySelectorAll('.gallery-photo');
-            for(var i=0;i < pagePhoto.length;i++){pagePhoto[i].className += " visible"};
-          }
-        });
-        window.addEventListener('resize', function () {
-          waterfall('.gallery-photos');
-        });
-        //图片灯箱
-        window.ViewImage && ViewImage.init('.gallery-photo img')
         //相对时间
         window.Lately && Lately.init({ target: '.photo-time'});
     });
@@ -61,30 +56,52 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 
 <style>
-  .gallery-photos{width:100%;}
-  .gallery-photo{width:24.9%;position: relative;visibility: hidden;overflow: hidden;}
-  .gallery-photo.visible{visibility: visible;animation: fadeIn 2s;}
-  .gallery-photo img{display: block;width:100%;border-radius:0;padding:4px;animation: fadeIn 1s;cursor: pointer;transition: all .4s ease-in-out;}
-  .gallery-photo span.photo-title,.gallery-photo span.photo-time{background: rgba(0, 0, 0, 0.3);padding:0px 8px;font-size:0.9rem;color: #fff;display:none;animation: fadeIn 1s;}
-  .gallery-photo span.photo-title{position:absolute;bottom:4px;left:4px;}
-  .gallery-photo span.photo-time{position:absolute;top:4px;left:4px;font-size:0.8rem;}
-  .gallery-photo:hover span.photo-title,.gallery-photo:hover span.photo-time{display:block !important;}
-  .gallery-photo:hover img{transform: scale(1.1);}
-  .page .gallery-photo span.photo-time,.page .gallery-photo span.photo-title{display: block;}
-  @media screen and (max-width: 1800px) {
-    .gallery-photo{width:33.3%;}
-    .page .gallery-photo{width:24.9%;}
+.memos-photo-wrapper {
+  grid-template-columns: repeat(4,minmax(0,1fr));
+  margin-top: .5rem;
+  display: grid;
+   width: 100%;
+  gap: .5rem;
+}
+.memos-photo{
+  position: relative;
+  overflow: hidden;
+  border-radius: .25rem;
+  height: 194px;
+}
+.memos-photo>img {
+  min-height: 100%;
+  width: auto;
+  min-width: 100%;
+  cursor: pointer;
+  -o-object-fit: cover;
+  object-fit: cover;
+  height: auto;
+  animation: fadeIn 1s;
+  transition: all .4s ease-in-out;
+}
+.memos-photo span.photo-title,.memos-photo span.photo-time{background: rgba(0, 0, 0, 0.3);padding:0px 8px;font-size:0.9rem;color: #fff;display:none;animation: fadeIn 1s;}
+.memos-photo span.photo-title{position:absolute;bottom:4px;left:4px;}
+.memos-photo span.photo-time{position:absolute;top:4px;left:4px;font-size:0.8rem;}
+.memos-photo:hover span.photo-title,.memos-photo:hover span.photo-time{display:block !important;}
+@keyframes fadeIn{
+	0% {opacity: 0;}
+   100% {opacity: 1;}
+}
+@media screen and (min-width: 520px) and (max-width: 899px) {
+  .images-wrapper {
+    grid-template-columns: repeat(3,minmax(0,1fr));
   }
-  @media screen and (max-width: 860px) {
-    .gallery-photo{width:49.9%;}
-    .page .gallery-photo{width:33.3%;}
+  .memos-photo{
+    height: 201px;
   }
-  @media (max-width: 683px){
-    .page .gallery-photo span.photo-time{display: none;}
-    .page .gallery-photo{width:49.9%;}
+}
+@media only screen and (max-width: 520px) {
+  .images-wrapper {
+    grid-template-columns: repeat(2,minmax(0,1fr));
   }
-  @keyframes fadeIn{
-    0% {opacity: 0;}
-     100% {opacity: 1;}
+  .memos-photo{
+    height: 171px;
   }
+}
 </style>
