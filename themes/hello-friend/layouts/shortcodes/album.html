@@ -88,16 +88,16 @@ document.addEventListener("DOMContentLoaded", () => {
 	0% {opacity: 0;}
    100% {opacity: 1;}
 }
-@media screen and (min-width: 520px) and (max-width: 899px) {
-  .images-wrapper {
+@media screen and (min-width:480px) and (max-width: 899px) {
+  .memos-photo-wrapper{
     grid-template-columns: repeat(3,minmax(0,1fr));
   }
   .memos-photo{
     height: 201px;
   }
 }
-@media only screen and (max-width: 520px) {
-  .images-wrapper {
+@media only screen and (max-width: 479px) {
+  .memos-photo-wrapper{
     grid-template-columns: repeat(2,minmax(0,1fr));
   }
   .memos-photo{
