@@ -28,17 +28,13 @@ ignoreErrors = ["error-remote-getjson"]
   url="/friends/"
   weight="4"
   [[menu.main]]
-  name="相册"
-  url="/album/"
+  name="归档"
+  url="/archives/"
   weight="5"
   [[menu.main]]
   name="导航"
   url="https://edui123.com/"
   weight="6"
-  [[menu.main]]
-  name="归档"
-  url="/archives/"
-  weight="7"
   [[menu.main]]
   name="订阅"
   url="/atom.xml"

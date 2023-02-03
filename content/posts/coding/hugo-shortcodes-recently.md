@@ -44,7 +44,7 @@ feature: https://pic.edui.fun/images/2023/01/hugo-re-1.png!webp
 
 ## 基于 Memos Docker
 
-### 增 Memos 短代码调用
+### 近期 Memos
 
 #### 效果演示
 
@@ -59,13 +59,13 @@ var bbUrl = "https://me.edui.fun/api/memo?creatorId=101&rowStatus=NORMAL&limit=5
 ```
 
 - 之后丢入主题 `/layouts/shortcodes/` 内；
-- 调用代码如下：
+- 调用短代码如下：
 
 ```
 \{\{< memos >\}\}
 ```
 
-### 增 Memos 动态相册
+### 近期光影
 
 此想法原创为 @Leonus 同学：[《基于memos的动态相册》](https://blog.leonus.cn/2023/photos.html)
 
@@ -86,7 +86,7 @@ var creatorId = 101
 ```
 
 - 之后丢入主题 `/layouts/shortcodes/` 内；
-- 调用代码如下：
+- 调用短代码如下：
 
 ```
 \{\{< album >\}\}

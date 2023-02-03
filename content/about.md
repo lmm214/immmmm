@@ -12,6 +12,10 @@ layout: 'posts'
 
 {{< books >}}
 
+### 近期光影 <small>[🔗](/album)</small>
+
+{{< album >}}
+
 ### 博客程序
 
 - Hugo：<https://gohugo.io/>
