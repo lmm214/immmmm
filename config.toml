@@ -36,10 +36,6 @@ ignoreErrors = ["error-remote-getjson"]
   url="https://edui123.com/"
   weight="6"
   [[menu.main]]
-  name="订阅"
-  url="/atom.xml"
-  weight="8"
-  [[menu.main]]
   name="关于"
   url="/about/"
   weight="9"
@@ -50,7 +46,7 @@ ignoreErrors = ["error-remote-getjson"]
   # "light" or "dark"
   defaultTheme = "dark"
   # if you set this to 0, only submenu trigger will be visible
-  showMenuItems = 4
+  showMenuItems = 5
   # Enable to show reading time in minutes for posts
   showReadingTime = false
   logoText = "hello friend"
