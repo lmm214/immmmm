@@ -1,11 +1,10 @@
 ---
-title: "Hugo 「近期」短代码"
+title: "Hugo 「近期」短代码（基于 Doumark Actions）"
 date: 2023-02-02T13:07:42+0800
 tags: [折腾]
 feature: https://pic.edui.fun/images/2023/01/hugo-re-1.png!webp
 ---
 
-## 基于 doumark-action
 
 观影和阅读记录页面，无论用什么博客程序，总会想办法找 API 造轮子来实现。目前使用的是 [Douban sync for GitHub Actions](https://github.com/lizheming/doumark-action) 方法，它会自动把“豆瓣观影/阅读/音乐记录同步”存为本地文件，安逸！
 
