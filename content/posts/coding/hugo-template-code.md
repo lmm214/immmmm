@@ -49,6 +49,12 @@ title  =  "木木木木木"
 	<a href="/tags/{{ $name | urlize }}">#{{ $name }}<small>({{ .Count }})</small></a>
 {{- end -}}
 ```
+
+全站标签数：
+```
+{{ len .Site.Taxonomies.tags.ByCount }}
+```
+
 全站文章数：
 ```html
 共 {{ len (where .Site.RegularPages "Section" "posts") }} 篇日志
