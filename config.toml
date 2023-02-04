@@ -22,23 +22,23 @@ ignoreErrors = ["error-remote-getjson"]
   [[menu.main]]
   name="哔哔"
   url="/bbs/"
-  weight="3"
+  weight="1"
   [[menu.main]]
   name="友圈"
   url="/friends/"
-  weight="4"
+  weight="2"
   [[menu.main]]
   name="归档"
   url="/archives/"
-  weight="5"
+  weight="3"
   [[menu.main]]
   name="导航"
   url="https://edui123.com/"
-  weight="6"
+  weight="4"
   [[menu.main]]
   name="关于"
   url="/about/"
-  weight="9"
+  weight="5"
 
 [params]
   # dir name of your blog content (default is `content/posts`)

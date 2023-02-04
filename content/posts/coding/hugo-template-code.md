@@ -60,6 +60,11 @@ title  =  "木木木木木"
 共 {{ len (where .Site.RegularPages "Section" "posts") }} 篇日志
 ```
 
+全站最近更改时间：
+```
+{{ time.Format "2006-01-02 03:04:05" .Site.LastChange }}
+```
+
 ### 文章列表 List
 
 文章摘要：`.Summary` 文章列表会显示 `<!--more-->` 前的内容或自动截断。
