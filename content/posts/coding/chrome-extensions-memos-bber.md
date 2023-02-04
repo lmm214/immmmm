@@ -1,31 +1,43 @@
 ---
-title: "Memos 浏览器扩展分享"
-date: 2022-10-09T23:34:22+0800
+title: "Memos 单页及浏览器扩展"
+date: 2023-02-04T22:24:22+0800
 tags: [折腾]
+feature: https://pic.edui.fun/images/2023/01/iShot_2023-02-04_22.25.39.png!webp
 ---
 
-{{< figure "https://cdn.edui.fun/images/2022/10/extensions-1.gif" "Memos BBer">}}
+单页版 Memos ： <https://edui123.com/memos/>
 
-> Chrome/Edgo 浏览器插件，基于  iSpeak-bber 修改，原作者为 [DreamyTZK](https://www.antmoe.com/)。
+Pake 打包应用：[Memos_1.0.0_x64.dmg](https://github.com/lmm214/Pake/raw/master/Memos_1.0.0_x64.dmg)
 
-Chrome 应用商店： <https://chrome.google.com/webstore/detail/memos-bber/cbhjebjfccgchgbmfbobjmebjjckgofe/>
+Chrome 浏览器插件应用商店： <https://chrome.google.com/webstore/detail/memos-bber/cbhjebjfccgchgbmfbobjmebjjckgofe/>
 
 <!--more-->
+
+> Chrome/Edgo 浏览器插件，基于  iSpeak-bber 修改，原作者为 [DreamyTZK](https://www.antmoe.com/)。
 
 项目地址： <https://github.com/lmm214/memos-bber>
 
 ### 使用说明
 
-#### 1.手动安装扩展
-
-下载后把扩展文件夹放在不会误删的路径，然后打开浏览器“扩展管理 ---- 开发人员模式 ---- 加载解压缩的扩展”。后续更新替换文件后，手动点击“重新加载”即可。
-
-![extensions-2](https://cdn.edui.fun/images/2022/10/extensions-2.jpg)
-
-#### 2.获取 Open API 并填入扩展
+#### 1.获取 Open API 并填入扩展
 
 ![extensions-3](https://cdn.edui.fun/images/2022/10/extensions-3.jpg)
 
 ![extensions-4](https://cdn.edui.fun/images/2022/10/extensions-4.jpg)
 
-#### 3.愉快的「记下」吧～
+#### 2.按钮简要说明
+
+![memos-11](https://pic.edui.fun/images/2023/01/memos-11.png!webp)
+
+- 获取标签列表，点击即可快捷插入标签
+- 快捷输入待办字符串
+- 上传图片资源
+- 分享当前浏览页面
+- 设置 Memos 可见范围
+- 随机展示一条 Memos
+
+#### 3.小彩蛋一枚
+
+![memos-12](https://pic.edui.fun/images/2023/01/memos-12.png!webp)
+
+- 标签列表展开、输入框有标签，此时点击随机按钮。
