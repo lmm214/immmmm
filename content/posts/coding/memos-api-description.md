@@ -36,29 +36,7 @@ https://me.edui.fun/api/memo/amount?userId=102
 
 <!--more-->
 
-或使用个人的 `openId` 替代 `userId`  也可以。
-
-```
-https://demo.usememos.com/api/memo/amount?openId=33AA158E1AC4E3FDACD8BFCEBE6421C9
-```
-
-结果：
-
-{{< getdata "https://demo.usememos.com/api/memo/amount?openId=33AA158E1AC4E3FDACD8BFCEBE6421C9" >}}
-
 > 有了总条数，前端可以自行做分页加载处理。
-
-### 标签列表
-
-路径：`api/tag`
-
-```
-https://demo.usememos.com/api/tag
-```
-
-结果：
-
-{{< getdata "https://demo.usememos.com/api/tag" >}}
 
 ### 时间戳列表
 
@@ -108,16 +86,18 @@ https://me.edui.fun/o/r/167/iShot_2023-01-22_16.22.45.png
 
 路径： `/memo` 或 `/memo/all`
 
+前者需要指定参数 `creatorId`
+
 #### 总列表
 
 ```
-https://demo.usememos.com/api/memo
+https://demo.usememos.com/api/memo?creatorId=101
 https://demo.usememos.com/api/memo/all
 ```
 
 结果：
 
-{{< getdata "https://demo.usememos.com/api/memo" >}}
+{{< getdata "https://demo.usememos.com/api/memo?creatorId=101" >}}
 {{< getdata "https://demo.usememos.com/api/memo/all" >}}
 
 
@@ -126,13 +106,13 @@ https://demo.usememos.com/api/memo/all
 参数：`tag`
 
 ```
-https://me.edui.fun/api/memo?tag=相册
+https://me.edui.fun/api/memo?creatorId=101&tag=相册
 https://me.edui.fun/api/memo/all?tag=相册
 ```
 
 结果：
 
-{{< getdata "https://me.edui.fun/api/memo?tag=相册" >}}
+{{< getdata "https://me.edui.fun/api/memo?creatorId=101&tag=相册" >}}
 {{< getdata "https://me.edui.fun/api/memo/all?tag=相册" >}}
 
 #### 指定条数
@@ -140,7 +120,7 @@ https://me.edui.fun/api/memo/all?tag=相册
 参数：`limit`
 
 ```
-https://me.edui.fun/api/memo?tag=相册&limit=1
+https://me.edui.fun/api/memo?creatorId=101&tag=相册&limit=1
 https://me.edui.fun/api/memo/all?tag=相册&limit=1
 ```
 
@@ -153,29 +133,11 @@ https://me.edui.fun/api/memo/all?tag=相册&limit=1
 参数：`offset`
 
 ```
-https://me.edui.fun/api/memo?tag=相册&limit=1&offset=2
+https://me.edui.fun/api/memo?creatorId=101&tag=相册&limit=1&offset=2
 https://me.edui.fun/api/memo/all?tag=相册&limit=1&offset=2
 ```
 
-结果：
-
-{{< getdata "https://me.edui.fun/api/memo?tag=相册&limit=1&offset=2" >}}
-
 > 利用 `limit=1` 、 `offset` 和总条数之间随机数，可实现调取随机一条 Memos 。
-
-#### 指定用户
-
-参数：`creatorId`
-
-```
-https://me.edui.fun/api/memo?tag=相册&limit=1&offset=2&creatorId=101
-```
-
-结果：
-
-{{< getdata "https://me.edui.fun/api/memo?tag=相册&limit=1&offset=2&creatorId=101" >}}
-
-> 路径 `all` 下参数 `creatorId` 无效。
 
 #### 调取部分 Memos
 
@@ -188,9 +150,55 @@ https://me.edui.fun/api/memo?creatorId=101&rowStatus=NORMAL
 加上 `rowStatus=NORMAL` 不用调取在归档里的 Memos 。
 
 
-#### 调取不公开 Memos
+### Open API
+
+参数：`openId`
 
 ```
-https://me.edui.fun/api/memo?openId=xxxxxx
-https://me.edui.fun/api/memo?openId=xxxxxx&rowStatus=NORMAL&tag=%E6%97%A5%E5%AD%90
+https://demo.usememos.com/api/memo?openId=4D878AD599A6CCACD52C56753A36C4C7
 ```
+
+> 此参数拥有最高权限，get、post 都可以。get 到的内容包括仅自己可见的内容。
+
+#### 个人 Memos 总数
+
+```
+https://demo.usememos.com/api/memo/amount?openId=4D878AD599A6CCACD52C56753A36C4C7
+```
+
+结果：
+
+{{< getdata "https://demo.usememos.com/api/memo/amount?openId=4D878AD599A6CCACD52C56753A36C4C7" >}}
+
+### 个人标签列表
+
+路径：`api/tag`
+
+```
+https://demo.usememos.com/api/tag?openId=4D878AD599A6CCACD52C56753A36C4C7
+```
+
+结果：
+
+{{< getdata "https://demo.usememos.com/api/tag?openId=4D878AD599A6CCACD52C56753A36C4C7" >}}
+
+#### 发 Memos
+
+```
+POST https://demo.usememos.com/api/memo?openId=4D878AD599A6CCACD52C56753A36C4C7
+Content-type: application/json
+{
+  "content": "Hello #memos from https://demo.usememos.com",
+  "visibility": "PUBLIC",
+  "resourceIdList" : []
+}
+```
+
+参数：`content`
+
+参数：`visibility`
+- 值 `PUBLIC`（公开） `PRIVATE`（仅自己） `PROTECTED`（登录可见）
+
+参数：`resourceIdList`
+- 值是数组，上传图片之后的 resourceId。
+
