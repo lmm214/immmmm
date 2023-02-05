@@ -566,7 +566,7 @@ blockquote {
 	border-left: 2px solid;
 	margin: 40px;
 	padding: 10px 20px;
-	font-family: KaiTi,STKaiti,STFangsong !important;
+	font-family: KaiTi,STKaiti,PingFang SC,STFangsong !important;
 }
 
 @media (max-width:683px) {
