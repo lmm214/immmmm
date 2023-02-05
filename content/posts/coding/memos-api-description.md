@@ -56,28 +56,6 @@ https://me.edui.fun/api/memo/stats?creatorId=101
 
 > 做个格子图？
 
-### 内置资源列表
-
-路径：`api/resource`
-
-```
-https://me.edui.fun/api/resource
-```
-
-结果：
-
-{{< getdata "https://me.edui.fun/api/resource" >}}
-
-#### 资源链接格式
-
-网址+`o/r/`+`resourceId/`+`filename`，如：
-
-```
-https://me.edui.fun/o/r/167/iShot_2023-01-22_16.22.45.png
-```
-
-> 做个资源外链清单？
-
 ### RSS 输出接口
 
 路径：`/u/:id/rss.xml`
@@ -126,7 +104,7 @@ https://me.edui.fun/api/memo/all?tag=相册&limit=1
 
 结果：
 
-{{< getdata "https://me.edui.fun/api/memo?tag=相册&limit=1" >}}
+{{< getdata "https://me.edui.fun/api/memo?creatorId=101&tag=相册&limit=1" >}}
 
 #### 指定偏移
 
@@ -181,6 +159,29 @@ https://demo.usememos.com/api/tag?openId=4D878AD599A6CCACD52C56753A36C4C7
 结果：
 
 {{< getdata "https://demo.usememos.com/api/tag?openId=4D878AD599A6CCACD52C56753A36C4C7" >}}
+
+
+### 内置资源列表
+
+路径：`api/resource`
+
+```
+https://demo.usememos.com/api/resource?openId=4D878AD599A6CCACD52C56753A36C4C7
+```
+
+结果：
+
+{{< getdata "https://demo.usememos.com/api/resource?openId=4D878AD599A6CCACD52C56753A36C4C7" >}}
+
+#### 资源链接格式
+
+网址+`o/r/`+`resourceId/`+`filename`，如：
+
+```
+https://me.edui.fun/o/r/167/iShot_2023-01-22_16.22.45.png
+```
+
+> 做个资源外链清单？
 
 #### 发 Memos
 
