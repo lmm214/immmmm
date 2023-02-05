@@ -82,7 +82,7 @@ function meNums(){
   var bbUrl = memos+"api/memo/amount?creatorId="+bbMemo.creatorId
   fetch(bbUrl).then(res => res.json()).then( resdata =>{
     if(resdata.data){
-      var allnums = '<div id="bb-footer"><p class="bb-allnums">共 '+resdata.data+' 条</p><p class="bb-allpub"><a href="https://immmmm.com/bbs/" target="_blank">Memos Public</p></div>'
+      var allnums = '<div id="bb-footer"><p class="bb-allnums">共 '+resdata.data+' 条</p><p class="bb-allpub"><a href="https://immmmm.com/bbs/" target="_blank">Memos Public</a></p></div>'
       bbLoad.insertAdjacentHTML('afterend', allnums);
     }
   })
