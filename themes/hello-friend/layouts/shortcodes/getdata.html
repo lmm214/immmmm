@@ -1,0 +1,6 @@
+{{ $dataJ := getJSON (.Get 0) }}
+{{if $dataJ}}
+    <pre style="max-height:15rem;overflow-x:scroll;overflow-wrap: anywhere;white-space: break-spaces;padding:10px;"><code>{{ jsonify $dataJ}}</code></pre>
+{{else}}
+    <p style="text-align: center;"><small>远程获取内容失败，请检查 API 有效性。</small></p>
+{{end}}
