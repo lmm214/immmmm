@@ -73,12 +73,6 @@ https://demo.usememos.com/api/memo?creatorId=101
 https://demo.usememos.com/api/memo/all
 ```
 
-结果：
-
-{{< getdata "https://demo.usememos.com/api/memo?creatorId=101" >}}
-{{< getdata "https://demo.usememos.com/api/memo/all" >}}
-
-
 #### 指定标签
 
 参数：`tag`
@@ -144,10 +138,6 @@ https://demo.usememos.com/api/memo?openId=4D878AD599A6CCACD52C56753A36C4C7
 https://demo.usememos.com/api/memo/amount?openId=4D878AD599A6CCACD52C56753A36C4C7
 ```
 
-结果：
-
-{{< getdata "https://demo.usememos.com/api/memo/amount?openId=4D878AD599A6CCACD52C56753A36C4C7" >}}
-
 ### 个人标签列表
 
 路径：`api/tag`
@@ -156,11 +146,6 @@ https://demo.usememos.com/api/memo/amount?openId=4D878AD599A6CCACD52C56753A36C4C
 https://demo.usememos.com/api/tag?openId=4D878AD599A6CCACD52C56753A36C4C7
 ```
 
-结果：
-
-{{< getdata "https://demo.usememos.com/api/tag?openId=4D878AD599A6CCACD52C56753A36C4C7" >}}
-
-
 ### 内置资源列表
 
 路径：`api/resource`
@@ -168,10 +153,6 @@ https://demo.usememos.com/api/tag?openId=4D878AD599A6CCACD52C56753A36C4C7
 ```
 https://demo.usememos.com/api/resource?openId=4D878AD599A6CCACD52C56753A36C4C7
 ```
-
-结果：
-
-{{< getdata "https://demo.usememos.com/api/resource?openId=4D878AD599A6CCACD52C56753A36C4C7" >}}
 
 #### 资源链接格式
 

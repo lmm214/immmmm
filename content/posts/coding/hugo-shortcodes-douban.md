@@ -12,6 +12,10 @@ tags: [折腾]
 
 <!--more-->
 
+### 豆瓣书影音同步 GitHub Action
+
+教程：<https://imnerd.org/doumark.html>
+
 ### Hugo 主题集成
 
 把 [douban.html](https://github.com/lmm214/immmmm/blob/master/themes/hello-friend/layouts/shortcodes/douban.html) 另存为 html 之后丢入主题 `/layouts/shortcodes/` 内。

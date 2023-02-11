@@ -5,7 +5,7 @@ tags: [日常]
 feature: https://cdn.edui.fun/images/2022/07/sed-6.JPG
 ---
 
-{{< game "https://www.yystv.cn/g/36">}}
+
 
 两年前开打，断断续续，磨磨唧唧，没什么动力救公主。今天，触动，这个世界不会好了！愿，都健康的活着！
 

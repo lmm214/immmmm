@@ -1,21 +1,21 @@
-{{ $dbUrl :=  "https://douban.edui.fun/" }}
-{{ $dbType := replaceRE `https://(movie|book).douban.com/subject/.*` "$1" (.Get 0) }}
-{{ $dbID := replaceRE `.*douban.com/subject/([0-9]+)/.*` "$1" (.Get 0) }}
+{{ $dbUrl := .Get 0 }}
+{{ $dbType := replaceRE `https://(movie|book).douban.com/subject/.*` "$1" $dbUrl }}
+{{ $dbID := replaceRE `.*douban.com/subject/([0-9]+)/.*` "$1" $dbUrl }}
 
 {{ if eq $dbType "book" }}
-    {{ $db := getJSON $dbUrl "v2/book/id/" $dbID }}
-    {{if $db}}
-        <div class="post-preview book"><div class="post-preview--meta"><div class="post-preview--middle"><h4 class="post-preview--title"><a target="_blank" href="{{ .Get 0 }}">《{{ replaceRE `《(.*)》` "$1" $db.title}}》</a></h4><div class="rating"><div class="rating-star allstar{{math.Round $db.rating.average }}"></div><div class="rating-average">{{ $db.rating.average }}</div></div><time class="post-preview--date">作者：{{index $db.author 0 }} / {{ $db.publisher }} / {{ $db.pubdate }}</time><section style="max-height:75px;overflow:hidden;" class="post-preview--excerpt">{{ $db.summary | plainify }}</section></div></div><img referrer-policy="no-referrer" loading="lazy" class="post-preview--image" src="{{ $db.images.large }}"></div>
-    {{else}}
-        <p style="text-align: center;"><small>远程获取内容失败，请检查 API 有效性。</small></p>
+    {{$books := getCSV "," "data/douban/book.csv" }}
+    {{range $idx, $book := $books}}
+        {{if eq (index $book 5) $dbUrl }}
+            <div class="post-preview book"><div class="post-preview--meta"><div class="post-preview--middle"><h4 class="post-preview--title"><a target="_blank" href="{{index $book 5}}">《{{ index $book 1 }}》</a></h4><div class="rating"><div class="rating-star allstar{{math.Round (index $book 6)}}"></div><div class="rating-average">{{ index $book 6 }}</div></div><time class="post-preview--date">出版时间：{{ index $book 4 }} {{if index $book 9 }}/ 个人评语：{{ index $book 9 }}{{end}}</time><p style="max-height:75px;overflow:hidden;margin:0;" class="post-preview--excerpt">{{ index $book 2 | plainify }}</section></div></div><img referrer-policy="no-referrer" loading="lazy" class="post-preview--image" src="{{ index $book 3 }}"></div>
+        {{end}}
     {{end}}
 {{ end }}
 
 {{ if eq $dbType "movie" }}
-    {{ $db := getJSON $dbUrl "movies/" $dbID }}
-    {{if $db}}
-        <div class="post-preview movie"><img referrer-policy="no-referrer" loading="lazy" class="post-preview--image" src="{{ $db.img }}"><div class="post-preview--meta"><div class="post-preview--middle"><h4 class="post-preview--title"><a target="_blank" href="{{ .Get 0 }}">{{ $db.name }}</a></h4><div class="rating"><div class="rating-star allstar{{math.Round $db.rating }}"></div><div class="rating-average">{{ $db.rating }}</div></div><time class="post-preview--date">导演：{{ $db.director }} / 片长：{{ $db.duration }} / 类型：{{ $db.genre }} / {{ $db.year }}</time><section style="max-height:75px;overflow:hidden;" class="post-preview--excerpt">{{ $db.intro | plainify }}</section></div></div></div>
-    {{else}}
-        <p style="text-align: center;"><small>远程获取内容失败，请检查 API 有效性。</small></p>
+    {{$movies := getCSV "," "data/douban/movie.csv" }}
+    {{range $idx, $movie := $movies}}
+        {{if eq (index $movie 5) $dbUrl }}
+            <div class="post-preview movie"><img referrer-policy="no-referrer" loading="lazy" class="post-preview--image" src="{{ index $movie 3 }}"><div class="post-preview--meta"><div class="post-preview--middle"><h4 class="post-preview--title"><a target="_blank" href="{{index $movie 5}}">《{{ index $movie 1 }}》</a></h4><div class="rating"><div class="rating-star allstar{{math.Round (index $movie 6)}}"></div><div class="rating-average">{{ index $movie 6 }}</div></div><time class="post-preview--date">上映时间：{{ index $movie 4 }} / 影片类型：{{ index $movie 7 }}</time><p style="max-height:75px;overflow:hidden;margin:0;" class="post-preview--excerpt">个人打星：{{ index $movie 8 }}<br/>个人评语：{{ index $movie 9 }}</section></div></div></div>
+        {{end}}
     {{end}}
 {{ end }}
