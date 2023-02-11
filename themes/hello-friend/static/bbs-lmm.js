@@ -14,6 +14,7 @@ const urls = [
   {host:"https://bb.seersu.top/",creatorId:"101",imgsrc:"https://cdn.sep.cc/avatar/84b712148a63b44dd97ede997bc3efa5"},
   {host:"https://memos.icebear.tech/",creatorId:"1",imgsrc:"https://www.domon.cn/content/images/size/w150/2020/06/xavatar_shiba-3.jpg.pagespeed.ic.3PcXeGZpNB.webp"},
   {host:"https://memo.wananaiko.com/",creatorId:"1",imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=7AFd0gic7wVsNg2ToQrQU2w&s=140&t=1583250600"},
+  {host:"https://memos.skyue.com/",creatorId:"1",imgsrc:"https://cdn.sep.cc/avatar/c3fb4bb4d5101284ddd672fb722cdd7d"}
 ]
 
 var bbDom = document.querySelector('#bbs');
