@@ -32,8 +32,8 @@
       document.querySelector('.sort-by-item.active')?.classList.remove('active');
       e.target.classList.add('active');
       if(sortBy === 'rating') {
-        const movies = Array.from(document.querySelectorAll('.dfdORB'));
-        movies.sort((movieA, movieB) => {
+        const items = Array.from(document.querySelectorAll('.dfdORB'));
+        items.sort((movieA, movieB) => {
           const ratingA = parseFloat(movieA.dataset.rating) || 0;
           const ratingB = parseFloat(movieB.dataset.rating) || 0;
           if(ratingA === ratingB) {
@@ -41,7 +41,7 @@
           }
           return ratingA > ratingB ? -1 : 1;
         });
-        const stylesheet = movies.map((movie, idx) => `.dfdORB[data-rating="${movie.dataset.rating}"] { order: ${idx}; }`).join('\r\n');
+        const stylesheet = items.map((movie, idx) => `.dfdORB[data-rating="${movie.dataset.rating}"] { order: ${idx}; }`).join('\r\n');
         style.innerHTML = stylesheet;
         document.body.appendChild(style);
       }
@@ -54,21 +54,8 @@
     });
   </script>
 <div class="lg:col-start-2 lg:col-span-6">
-  {{$movies := getCSV "," "data/douban/movie.csv" }}
-  {{$scratch := newScratch}}
-  {{$scratch.Add "genres" slice}}
-  {{range $idx, $movie := $movies}}
-    {{if ne $idx 0}}
-      {{$scratch.Set "genres" (union ($scratch.Get "genres") (split (index $movie 7) ","))}}
-    {{end}}
-  {{end}}
+  {{$movies := getJSON "data/douban/movie.json" }}
   <div class="sc-ksluID gFnzgG">
-    <div class="sc-bdnxRM">
-      <a href="javascript:void 0;" class="sc-gtsrHT kEoOHR" data-search="genres" data-method="contain" data-value="">全部</a>
-      {{range $genre := $scratch.Get "genres"}}
-      <a href="javascript:void 0;" class="sc-gtsrHT dvtjjf" data-search="genres" data-method="contain" data-value="{{$genre}}">{{$genre}}</a>
-      {{end}}
-    </div>
     <div class="sc-bdnxRM">
       <a href="javascript:void 0;" class="sc-gtsrHT kEoOHR" data-search="year" data-method="equal" data-value="">全部</a>
       {{range $year := (seq now.Year -1 2012)}}
@@ -89,39 +76,30 @@
       <a href="javascript:void 0;" class="sort-by-item" data-order="rating">评分排序</a>
     </div>
     <div class="sc-dIsUp fIuTG">
-      {{range $idx, $movie := $movies}}
-      {{if ne $idx 0 }}
+      {{range $movie := $movies}}
       <div 
         class="sc-gKAaRy dfdORB" 
-        data-year="{{index $movie 11}}" 
-        data-star="{{index $movie 8}}"
-        data-rating="{{index $movie 6}}"
-        data-genres="{{index $movie 7}}"  
+        data-year="{{$movie.subject.year}}" 
+        data-star="{{$movie.subject.rating.star_count }}"
+        data-rating="{{$movie.subject.rating.value }}"
       >
           <div class="sc-hKFxyN HPRth">
-            <div class="lazyload-wrapper ">
-              <img class="avatar" decoding="async" src="{{index $movie 3}}" referrer-policy="no-referrer" loading="lazy" alt="{{index $movie 1}}" title="{{index $movie 9}}" width="150" height="220">
+            <div class="lazyload-wrapper">
+              <img class="avatar" src="{{ $movie.subject.cover_url }}" referrer-policy="no-referrer" loading="lazy" alt="{{ $movie.comment }}"  title="{{ $movie.subject.title }}" width="150" height="220">
             </div>
           </div>
           <div class="sc-fujyAs eysHZq">
-            <span class="sc-jSFjdj jcTaHb">
+              <span class="sc-jSFjdj jcTaHb">
               {{range $star := (seq 0 2 8)}}
-              <svg viewBox="0 0 24 24" width="24" height="24" class="sc-dlnjwi {{if gt (index $movie 6) $star}}lhtmRw{{else}}gaztka{{end}}">
-                <path fill="none" d="M0 0h24v24H0z"></path>
-                <path fill="currentColor" d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z"></path>
-              </svg>
+                  <svg viewBox="0 0 24 24" width="24" height="24" class="sc-dlnjwi {{if gt ($movie.subject.rating.value) $star}}lhtmRw{{else}}gaztka{{end}}"><path fill="none" d="M0 0h24v24H0z"></path><path fill="currentColor" d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z"></path></svg>
               {{end}}
-            </span>
-            <span class="sc-pNWdM iibjPt">{{index $movie 6}}</span>
+              </span>
+              <span class="sc-pNWdM iibjPt">{{ $movie.subject.rating.value }}</span>
           </div>
-          <div class="sc-iCoGMd kMthTr">
-            <a rel="link" href="{{index $movie 5}}" target="_blank" title="{{index $movie 9}}">{{index $movie 1}}</a>
-          </div>
-        
+          <div class="sc-iCoGMd kMthTr"><a rel="link" href="{{ $movie.subject.url }}" target="_blank">{{ $movie.subject.title }}</a></div>
       </div>
       {{end}}
-      {{end}}
-    </div>  
+    </div>
   </div>
 </div>
 
