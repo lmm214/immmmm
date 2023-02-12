@@ -1,0 +1,98 @@
+{{ define "main" }}
+<div class="post">
+  <h2 class="post-title">{{.Title}}</h2>
+  <script type="text/javascript">
+    function search(e) {
+      document.querySelectorAll('.dfdORB').forEach(item => item.classList.add('hide'));
+      document.querySelector(`.dvtjjf.active[data-search="${e.target.dataset.search}"]`)?.classList.remove('active');
+      if(e.target.dataset.value) {
+        e.target.classList.add('active');
+      }
+      const searchItems = document.querySelectorAll('.dvtjjf.active');
+      const attributes = Array.from(searchItems, searchItem => {
+        const property = `data-${searchItem.dataset.search}`;
+        const logic = searchItem.dataset.method === 'contain' ? '*' : '^';
+        const value = searchItem.dataset.method === 'contain' ? `${searchItem.dataset.value}` : searchItem.dataset.value;
+        return `[${property}${logic}='${value}']`;
+      });
+      const selector = `.dfdORB${attributes.join('')}`;
+      document.querySelectorAll(selector).forEach(item => item.classList.remove('hide'));
+    }
+    window.addEventListener('click', function(e) {
+      if(e.target.classList.contains('sc-gtsrHT')) {
+        e.preventDefault();
+        search(e);
+      }
+    });
+    function sort(e) {
+      const sortBy = e.target.dataset.order;
+      const style = document.createElement('style');
+      style.classList.add('sort-order-style');
+      document.querySelector('style.sort-order-style')?.remove();
+      document.querySelector('.sort-by-item.active')?.classList.remove('active');
+      e.target.classList.add('active');
+      if(sortBy === 'rating') {
+        const items = Array.from(document.querySelectorAll('.dfdORB'));
+        items.sort((movieA, movieB) => {
+          const ratingA = parseFloat(movieA.dataset.rating) || 0;
+          const ratingB = parseFloat(movieB.dataset.rating) || 0;
+          if(ratingA === ratingB) {
+            return 0;
+          }
+          return ratingA > ratingB ? -1 : 1;
+        });
+        const stylesheet = items.map((movie, idx) => `.dfdORB[data-rating="${movie.dataset.rating}"] { order: ${idx}; }`).join('\r\n');
+        style.innerHTML = stylesheet;
+        document.body.appendChild(style);
+      }
+    }
+    window.addEventListener('click', function(e) {
+      if(e.target.classList.contains('sort-by-item')) {
+        e.preventDefault();
+        sort(e);
+      }
+    });
+  </script>
+<div class="lg:col-start-2 lg:col-span-6">
+  {{$items := getJSON "data/douban/book.json" }}
+  <div class="sc-ksluID gFnzgG">
+    <div class="jvCTkj sort-by">
+      <a href="javascript:void 0;" class="sort-by-item active" data-order="time">时间排序</a>
+      <a href="javascript:void 0;" class="sort-by-item" data-order="rating">评分排序</a>
+    </div>
+    <div class="sc-dIsUp fIuTG">
+      {{range $item := $items}}
+      <div 
+        class="sc-gKAaRy dfdORB" 
+        data-year="{{$item.subject.year}}" 
+        data-star="{{with $item.subject.rating }}{{.star_count }}{{end}}"
+        data-rating="{{with $item.subject.rating }}{{.value}}{{end}}"
+      >
+          <div class="sc-hKFxyN HPRth">
+            <div class="lazyload-wrapper">
+              <img class="avatar" src="{{ $item.subject.cover_url }}" referrer-policy="no-referrer" decoding="async" loading="lazy" alt="{{ $item.comment }}"  title="{{ $item.subject.title }}" width="150" height="220">
+            </div>
+          </div>
+          <div class="sc-fujyAs eysHZq">
+            {{with $item.subject.rating }}
+              <span class="sc-jSFjdj jcTaHb">
+              {{range $star := (seq 0 2 8)}}
+                  <svg viewBox="0 0 24 24" width="24" height="24" class="sc-dlnjwi {{if gt ($item.subject.rating.value) $star}}lhtmRw{{else}}gaztka{{end}}"><path fill="none" d="M0 0h24v24H0z"></path><path fill="currentColor" d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z"></path></svg>
+              {{end}}
+              </span>
+              <span class="sc-pNWdM iibjPt">{{ $item.subject.rating.value }}</span>
+            {{end}}
+          </div>
+          <div class="sc-iCoGMd kMthTr"><a rel="link" href="{{ $item.subject.url }}" target="_blank">{{ $item.subject.title }}</a></div>
+      </div>
+      {{end}}
+    </div>
+  </div>
+</div>
+
+</div>
+{{ end }}
+
+{{ define "footer" }}
+<script type="text/javascript" src="/theme-main-1.js"></script>
+{{ end }}
