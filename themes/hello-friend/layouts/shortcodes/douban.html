@@ -3,16 +3,17 @@
 {{ $dbID := replaceRE `.*douban.com/subject/([0-9]+)/.*` "$1" $dbUrl }}
 
 {{ if eq $dbType "book" }}
-    {{$items := getJSON "data/douban/book.json" }}
+    {{$items := getCSV "," "data/douban/book.csv" }}
     {{range $item := $items}}
-    {{if eq $item.subject.url $dbUrl }}
+    {{if eq (index $item 5) $dbUrl }}
+        {{ $rating := float (index $item 6) }}
         <div class="doulist-item">
             <div class="doulist-subject">
-                <div class="doulist-post"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="{{ $item.subject.cover_url }}"></div>
+                <div class="doulist-post"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="{{ index $item 3 }}"></div>
                 <div class="doulist-content">
-                    <div class="doulist-title"><a href="{{ $item.subject.url }}" class="cute" target="_blank" rel="external nofollow">{{ $item.subject.title }}</a></div>
-                    <div class="rating"><span class="allstardark"><span class="allstarlight" style="width:{{mul 10 $item.subject.rating.value }}%"></span></span><span class="rating_nums"> {{ $item.subject.rating.value }} </span></div>
-                    <div class="abstract">{{ $item.subject.card_subtitle }}</div>
+                    <div class="doulist-title"><a href="{{ index $item 5 }}" class="cute" target="_blank" rel="external nofollow">{{ index $item 1 }}</a></div>
+                    <div class="rating"><span class="allstardark"><span class="allstarlight" style="width:{{mul 10 $rating }}%"></span></span><span class="rating_nums">{{$rating}}</span></div>
+                    <div class="abstract">{{ index $item 12 }}</div>
                 </div>
             </div>
         </div>
@@ -21,16 +22,17 @@
 {{ end }}
 
 {{ if eq $dbType "movie" }}
-    {{$items := getJSON "data/douban/movie.json" }}
+    {{$items := getCSV "," "data/douban/movie.csv" }}
     {{range $item := $items}}
-    {{if eq $item.subject.url $dbUrl }}
+    {{if eq (index $item 5) $dbUrl }}
+        {{ $rating := float (index $item 6)}}
         <div class="doulist-item">
             <div class="doulist-subject">
-                <div class="doulist-post"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="{{ $item.subject.pic.normal }}"></div>
+                <div class="doulist-post"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="{{ index $item 3 }}"></div>
                 <div class="doulist-content">
-                    <div class="doulist-title"><a href="{{ $item.subject.url }}" class="cute" target="_blank" rel="external nofollow">{{ $item.subject.title }}</a></div>
-                    <div class="rating"><span class="allstardark"><span class="allstarlight" style="width:{{mul 10 $item.subject.rating.value }}%"></span></span><span class="rating_nums"> {{ $item.subject.rating.value }} </span></div>
-                    <div class="abstract">{{ $item.subject.card_subtitle }}</div>
+                    <div class="doulist-title"><a href="{{ index $item 5 }}" class="cute" target="_blank" rel="external nofollow">{{ index $item 1 }}</a></div>
+                    <div class="rating"><span class="allstardark"><span class="allstarlight" style="width:{{mul  10 $rating }}%"></span></span><span class="rating_nums">{{$rating}}</span></div>
+                    <div class="abstract">{{ index $item 12 }}</div>
                 </div>
             </div>
         </div>

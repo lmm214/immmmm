@@ -33,15 +33,15 @@
       e.target.classList.add('active');
       if(sortBy === 'rating') {
         const items = Array.from(document.querySelectorAll('.dfdORB'));
-        items.sort((movieA, movieB) => {
-          const ratingA = parseFloat(movieA.dataset.rating) || 0;
-          const ratingB = parseFloat(movieB.dataset.rating) || 0;
+        items.sort((itemA, itemB) => {
+          const ratingA = parseFloat(itemA.dataset.rating) || 0;
+          const ratingB = parseFloat(itemB.dataset.rating) || 0;
           if(ratingA === ratingB) {
             return 0;
           }
           return ratingA > ratingB ? -1 : 1;
         });
-        const stylesheet = items.map((movie, idx) => `.dfdORB[data-rating="${movie.dataset.rating}"] { order: ${idx}; }`).join('\r\n');
+        const stylesheet = items.map((item, idx) => `.dfdORB[data-rating="${item.dataset.rating}"] { order: ${idx}; }`).join('\r\n');
         style.innerHTML = stylesheet;
         document.body.appendChild(style);
       }
@@ -54,37 +54,51 @@
     });
   </script>
 <div class="lg:col-start-2 lg:col-span-6">
-  {{$items := getJSON "data/douban/book.json" }}
+  {{$items := getCSV "," "data/douban/book.csv" }}
   <div class="sc-ksluID gFnzgG">
+    <div class="sc-bdnxRM">
+      <a href="javascript:void 0;" class="sc-gtsrHT kEoOHR" data-search="year" data-method="equal" data-value="">全部</a>
+      {{range $year := (seq now.Year -1 2012)}}
+      <a href="javascript:void 0;" class="sc-gtsrHT dvtjjf" data-search="year" data-method="equal" data-value="{{$year}}">{{$year}}</a>
+      {{end}}
+    </div>
+    <div class="sc-bdnxRM">
+      <a href="javascript:void 0;" class="sc-gtsrHT kEoOHR" data-search="star" data-method="equal" data-value="">全部</a>
+      <a href="javascript:void 0;" class="sc-gtsrHT dvtjjf" data-search="star" data-method="equal" data-value="5">五星</a>
+      <a href="javascript:void 0;" class="sc-gtsrHT dvtjjf" data-search="star" data-method="equal" data-value="4">四星</a>
+      <a href="javascript:void 0;" class="sc-gtsrHT dvtjjf" data-search="star" data-method="equal" data-value="3">三星</a>
+      <a href="javascript:void 0;" class="sc-gtsrHT dvtjjf" data-search="star" data-method="equal" data-value="2">二星</a>
+      <a href="javascript:void 0;" class="sc-gtsrHT dvtjjf" data-search="star" data-method="equal" data-value="1">一星</a>
+      <a href="javascript:void 0;" class="sc-gtsrHT dvtjjf" data-search="star" data-method="equal" data-value="0">零星</a>
+    </div>
     <div class="jvCTkj sort-by">
       <a href="javascript:void 0;" class="sort-by-item active" data-order="time">时间排序</a>
       <a href="javascript:void 0;" class="sort-by-item" data-order="rating">评分排序</a>
     </div>
     <div class="sc-dIsUp fIuTG">
-      {{range $item := $items}}
+      {{range $idx,$item := $items}}
+      {{if ne $idx 0}}
+        {{$rating := 0}}
+        {{if index $item 6 }}
+          {{ $rating = float (index $item 6) }}
+        {{end}}
       <div 
         class="sc-gKAaRy dfdORB" 
-        data-year="{{$item.subject.year}}" 
-        data-star="{{with $item.subject.rating }}{{.star_count }}{{end}}"
-        data-rating="{{with $item.subject.rating }}{{.value}}{{end}}"
+        data-year="{{index $item 11}}" 
+        data-star="{{index $item 8}}"
+        data-rating="{{$rating}}"
       >
           <div class="sc-hKFxyN HPRth">
             <div class="lazyload-wrapper">
-              <img class="avatar" src="{{ $item.subject.cover_url }}" referrer-policy="no-referrer" decoding="async" loading="lazy" alt="{{ $item.comment }}"  title="{{ $item.subject.title }}" width="150" height="220">
+              <img class="avatar" src="{{ index $item 3 }}" referrer-policy="no-referrer" decoding="async" loading="lazy" alt="{{ index $item 9 }}"  title="{{ index $item 1 }}" width="150" height="220">
             </div>
           </div>
           <div class="sc-fujyAs eysHZq">
-            {{with $item.subject.rating }}
-              <span class="sc-jSFjdj jcTaHb">
-              {{range $star := (seq 0 2 8)}}
-                  <svg viewBox="0 0 24 24" width="24" height="24" class="sc-dlnjwi {{if gt ($item.subject.rating.value) $star}}lhtmRw{{else}}gaztka{{end}}"><path fill="none" d="M0 0h24v24H0z"></path><path fill="currentColor" d="M12 18.26l-7.053 3.948 1.575-7.928L.587 8.792l8.027-.952L12 .5l3.386 7.34 8.027.952-5.935 5.488 1.575 7.928z"></path></svg>
-              {{end}}
-              </span>
-              <span class="sc-pNWdM iibjPt">{{ $item.subject.rating.value }}</span>
-            {{end}}
+            <div class="rating"><span class="allstardark"><span class="allstarlight" style="width:{{mul  10 $rating }}%"></span></span><span class="rating_nums">{{$rating}}</span></div>
           </div>
-          <div class="sc-iCoGMd kMthTr"><a rel="link" href="{{ $item.subject.url }}" target="_blank">{{ $item.subject.title }}</a></div>
+          <div class="sc-iCoGMd kMthTr"><a rel="link" href="{{ index $item 5 }}" target="_blank">{{ index $item 1 }}</a></div>
       </div>
+      {{end}}
       {{end}}
     </div>
   </div>
