@@ -4,7 +4,8 @@
   <div id="hexo-circle-of-friends-root"></div>
 </div>
 <style>
-  .dark #cf-overlay{background-color:rgba(59,61,66,.42)}.dark .cf-overshow{background:#292a2d}.dark .cf-overshow p a{color:var(--lmm-fontcolor)}.dark .cf-overshow .cf-overshow-content,.dark .cf-overshow .cf-overshow-content-tail{background:#eaeaea}.dark #cf-more,.dark #cf-state{background:var(--lmm-dack-background);color:var(--lmm-dark-fontcolor)}.dark #cf-change,.dark .cf-article-floor,.dark .cf-time-created,.dark .cf-time-updated{color:var(--lmm-dark-floorcolor)}.dark .cf-article-author,.dark .cf-article a.cf-article-title{color:var(--lmm-dark-fontcolor)}.dark .cf-article{background:var(--lmm-dack-background)}.dark .cf-article:hover .cf-article-floor,.dark .cf-article:hover .cf-time-created,.dark .cf-article:hover .cf-time-updated,.dark .cf-overshow p span{color:var(--lmm-dark-fontcolor)}
+  .dark #cf-overlay,.dark .is-light{background-color:rgba(59,61,66,.42)}.dark .cf-overshow{background:#292a2d}.dark .cf-overshow p a{color:var(--lmm-fontcolor)}.dark .cf-overshow .cf-overshow-content,.dark .cf-overshow .cf-overshow-content-tail{background:#eaeaea}.dark #cf-more,.dark #cf-state{background:var(--lmm-dack-background);color:var(--lmm-dark-fontcolor)}.dark #cf-change,.dark .cf-article-floor,.dark .cf-time-created,.dark .cf-time-updated{color:var(--lmm-dark-floorcolor)}.dark .cf-article-author,.dark .cf-article a.cf-article-title{color:var(--lmm-dark-fontcolor)}.dark .cf-article{background:var(--lmm-dack-background)}.dark .cf-article:hover .cf-article-floor,.dark .cf-article:hover .cf-time-created,.dark .cf-article:hover .cf-time-updated,.dark .cf-overshow p span{color:var(--lmm-dark-fontcolor)}.dark .is-light{border: #292a2d;}
+  .dark .is-light .el-popper__arrow:before{display: none;}
 </style>
 {{ end }}
 
@@ -19,11 +20,12 @@
       // 头像加载失败时，默认头像地址
       error_img: 'https://sdn.geekzu.org/avatar/57d8260dfb55501c37dde588e7c3852c',
       // 进入页面时第一次的排序规则
-      sort_rule: 'created'
+      sort_rule: 'created',
+      // 本地文章缓存数据过期时间（天）
+      expire_days: 1,
   }
 </script>
-<script type="text/javascript" src="https://npm.elemecdn.com/fcircle-theme-yyyz@1.0.5/dist/app.min.js"></script>
-<script type="text/javascript" src="https://npm.elemecdn.com/fcircle-theme-yyyz@1.0.5/dist/bundle.js"></script>
+<script type="text/javascript" src="https://npm.elemecdn.com/fcircle-theme-yyyz@1.0.12/dist/fcircle.min.js"></script>
 
 <script type="text/javascript" src="/theme-main-1.js"></script>
 <script>
