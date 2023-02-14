@@ -27,12 +27,8 @@ tags: [折腾]
 \{\{< douban "https://movie.douban.com/subject/35267208/">\}\}
 ```
 
-相关 css 见这里 [theme-20230123.css](https://github.com/lmm214/immmmm/blob/master/themes/hello-friend/static/theme-20230123.css) ，搜索 `post-preview`。
+相关 css 见这里 [theme.css](https://github.com/lmm214/immmmm/blob/master/themes/hello-friend/static/theme-20230214.css) ，搜索 `db-card`。
 
 ### 说明
 
-{{< link "post-show-douban-item">}}
-
-之前一直采用的是前端 JavaScript 匹配豆瓣链接，再通过 API 获取数据插入 Dom。
-
-现在使用 Hugo 的 `getJSON` 函数，后端直接输出 HTML。不再会向 JavaScript 一样，总得等一下、闪一下。
+2023-02-14 更新：之前分享的 API 镜像已挂，爬不起来的那种。目前采用本地解析豆瓣 csv 数据。
