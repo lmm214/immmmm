@@ -1,4 +1,5 @@
 {{ define "main" }}
+<h2><a href="{{ .Permalink }}" rel="link">{{.Title}}</a></h2>
 <div id="tcomment"></div>
 <script src="/twikoo168.js"></script>
 <script>
@@ -9,9 +10,14 @@
       setTimeout(function() {
         let tk_icon = document.getElementsByClassName("tk-icon")[1];
         tk_icon ? tk_icon.click() : undefined;
-       },700)
+       },500)
     }
   })
+  setTimeout(function() {changeFavicon()},100)
+  function changeFavicon() { 
+    var link = document.head.querySelector("link[rel='shortcut icon']");
+    link.href = "/twikoo.png"
+  };
 </script>
 <style>
   .tk-admin {position: fixed !important;z-index: 999;}
