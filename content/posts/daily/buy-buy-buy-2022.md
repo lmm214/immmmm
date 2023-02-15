@@ -10,7 +10,7 @@ tags: [日常]
 
 #### Eimio M15BT 便携显示器 ¥1117
 
-![TinySnap-2022-11-01-23.03.26](https://cdn.edui.fun/images/2022/11/TinySnap-2022-11-01-23.03.26.png)
+![TinySnap-2022-11-01-23.03.26](https://r2.immmmm.com/2022/11/TinySnap-2022-11-01-23.03.26.png)
 
 看中其内置 1W 毫安电池，可以 Type-C 一线连，摆脱电源、扩展坞，官宣30亮度能顶200分钟。心想着，露营时再也不用对着 Switch 那嘿哟哟的 暗黑3地牢 眯眼睛，美滋滋。
 
@@ -21,7 +21,7 @@ tags: [日常]
 
 #### 倍思 65W充电宝20000毫安 ¥229
 
-![TinySnap-2022-11-01-23.06.49](https://cdn.edui.fun/images/2022/11/TinySnap-2022-11-01-23.06.49.png)
+![TinySnap-2022-11-01-23.06.49](https://r2.immmmm.com/2022/11/TinySnap-2022-11-01-23.06.49.png)
 
 围绕露营时的电子设备准备，充电宝也得有高功率快充。
 
@@ -41,13 +41,13 @@ tags: [日常]
 
 #### vidalido 维达利多六角帐篷双野餐垫套装 ¥845
 
-![TinySnap-2022-11-01-23.01.48](https://cdn.edui.fun/images/2022/11/TinySnap-2022-11-01-23.01.48.png)
+![TinySnap-2022-11-01-23.01.48](https://r2.immmmm.com/2022/11/TinySnap-2022-11-01-23.01.48.png)
 
 一眼还以为是维多利亚也出帐篷啦，哦，是：维——达——利——多。颜值不错，现场开箱几分钟撑起，惬意。
 
 #### CAMELCROWN户外折叠椅子 A1W3GT103 ¥176*2
 
-![TinySnap-2022-11-01-23.04.45](https://cdn.edui.fun/images/2022/11/TinySnap-2022-11-01-23.04.45.png)
+![TinySnap-2022-11-01-23.04.45](https://r2.immmmm.com/2022/11/TinySnap-2022-11-01-23.04.45.png)
 
 高背，抱腰，品牌里的算物美价廉。
 
@@ -57,7 +57,7 @@ tags: [日常]
 
 #### 乐高(LEGO)积木 10311 兰花 ¥347
 
-![TinySnap-2022-11-01-23.10.53](https://cdn.edui.fun/images/2022/11/TinySnap-2022-11-01-23.10.53.png)
+![TinySnap-2022-11-01-23.10.53](https://r2.immmmm.com/2022/11/TinySnap-2022-11-01-23.10.53.png)
 
 一直觉着乐高的积木花都很“吃藕”。目前，兰花，除外。
 

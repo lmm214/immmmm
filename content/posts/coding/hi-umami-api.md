@@ -2,7 +2,7 @@
 title: "前端调用 Umami API 数据"
 date: 2022-09-26T18:55:43+0800
 tags: [折腾]
-feature: https://cdn.edui.fun/images/2022/09/umami-1.jpg
+feature: https://r2.immmmm.com/2022/09/umami-1.jpg
 ---
 
 [Umani](https://umami.is/) 一个高颜值可自部署的统计应用。
@@ -11,7 +11,7 @@ feature: https://cdn.edui.fun/images/2022/09/umami-1.jpg
 
 <!--more-->
 
-![umami-2](https://cdn.edui.fun/images/2022/09/umami-2.jpg)
+![umami-2](https://r2.immmmm.com/2022/09/umami-2.jpg)
 
 看着基本的统计数据都有。不错不错！但，能直接 API 前端调用统计数据不？可以的，接口见官网： <https://umami.is/docs/api>
 
@@ -23,11 +23,11 @@ feature: https://cdn.edui.fun/images/2022/09/umami-1.jpg
 
 1. 进 umami 后台获取「共享链接」，如 <https://u.edui.fun/share/rMnNVR9W/immmmm>
 
-![umami-3](https://cdn.edui.fun/images/2022/09/umami-3.jpg)
+![umami-3](https://r2.immmmm.com/2022/09/umami-3.jpg)
 
 2. 浏览器隐身模式下访问，开启开发者工具，刷新页面，网络里获取到公开的访客 `token`，如：`eyJhb。。。。。x4`
 
-![umami-4](https://cdn.edui.fun/images/2022/09/umami-4.jpg)
+![umami-4](https://r2.immmmm.com/2022/09/umami-4.jpg)
 
 3. 部署服务器上开启允许跨域，我的是宝塔 nginx，加入 `x-umami-share-token`。
 

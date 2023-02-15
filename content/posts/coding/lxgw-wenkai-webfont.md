@@ -2,7 +2,7 @@
 title: "启用「霞鹜文楷」在线字体"
 date: 2023-01-07T14:35:18+0800
 tags: [折腾]
-feature: https://pic.edui.fun/images/2023/01/wenkai-1.png
+feature: https://r2.immmmm.com/2023/01/wenkai-1.png
 ---
 
 项目地址：<https://github.com/chawyehsu/lxgw-wenkai-webfont>

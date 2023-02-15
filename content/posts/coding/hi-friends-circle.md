@@ -2,7 +2,7 @@
 title: "Hi，My Friends（Public Beta）"
 date: 2022-02-11T15:12:46+0800
 tags: [折腾]
-feature: https://cdn.edui.fun/images/2022/02/myf-12.png
+feature: https://r2.immmmm.com/2022/02/myf-12.png
 ---
 
 >你是否经常烦恼于友链过多但没有时间浏览？那么友链朋友圈将解决这一痛点。你可以随时获取友链网站的更新内容，并了解友链的活跃情况 。 —— [「友链朋友圈」](https://hexo-circle-of-friends-doc.vercel.app/)
@@ -81,15 +81,15 @@ feature: https://cdn.edui.fun/images/2022/02/myf-12.png
 
 #### 点击「订阅」，随机显示博客卡片
 
-![cf-beta-5](https://pic.edui.fun/images/2022/02/cf-beta-5.gif)
+![cf-beta-5](https://r2.immmmm.com/2022/02/cf-beta-5.gif)
 
 #### 点击「活跃」，切换公共库和个人库
 
-![cf-beta-6](https://pic.edui.fun/images/2022/02/cf-beta-6.gif)
+![cf-beta-6](https://r2.immmmm.com/2022/02/cf-beta-6.gif)
 
 #### 点击头像，随机此博客卡片
 
-![cf-beta-7](https://pic.edui.fun/images/2022/02/cf-beta-7.gif)
+![cf-beta-7](https://r2.immmmm.com/2022/02/cf-beta-7.gif)
 
 #### 点击「日志」，清空本地缓存数据。
 

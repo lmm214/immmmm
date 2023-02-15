@@ -2,7 +2,7 @@
 title: Hugo Theme Webstack
 date: 2022-08-07T19:15:25+0800
 tags: [折腾]
-feature: https://cdn.edui.fun/images/2022/08/webstack.png
+feature: https://r2.immmmm.com/2022/08/webstack.png
 ---
 
 在线预览：<https://edui123.com/>

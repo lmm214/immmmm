@@ -2,7 +2,7 @@
 title: "Cloudflared 两步打通内外服务"
 date: 2022-07-21T09:49:22+0800
 tags: [折腾]
-feature: https://cdn.edui.fun/images/2022/07/cfd-1.jpeg
+feature: https://r2.immmmm.com/2022/07/cfd-1.jpeg
 ---
 
 群晖套件中心发现第三方 [矿神](https://imnks.com/1780.html) 更新了个应用 [「Cloudflared」](https://github.com/cloudflare/cloudflared) （基于 Cloudflare Tunnel ），一试，这，方便得太过分！

@@ -2,7 +2,7 @@
 title: "精致截图扩展推荐：TinySnap"
 date: 2022-10-16T15:49:48+0800
 tags: [折腾]
-feature: https://cdn.edui.fun/images/2022/10/TinySnap-2022-10-16-15.54.04.png.webp
+feature: https://r2.immmmm.com/2022/10/TinySnap-2022-10-16-15.54.04.png.webp
 ---
 
 官方链接： <https://tinysnap.app/zh-cn/>

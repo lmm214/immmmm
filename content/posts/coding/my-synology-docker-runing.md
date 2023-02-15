@@ -2,7 +2,7 @@
 title: "群晖 Docker 使用记录"
 date: 2023-01-03T19:44:04+0800
 tags: [折腾]
-feature: https://cdn.edui.fun/images/2023/01/ds-docker-2.png
+feature: https://r2.immmmm.com/2023/01/ds-docker-2.png
 ---
 
 {{< link hi-synology-ds220 >}}
@@ -17,7 +17,7 @@ feature: https://cdn.edui.fun/images/2023/01/ds-docker-2.png
 
 ### Talebook
 
-![ds-docker-5](https://cdn.edui.fun/images/2023/01/ds-docker-5.jpg)
+![ds-docker-5](https://r2.immmmm.com/2023/01/ds-docker-5.jpg)
 
 > 基于 Calibre 简单的个人图书管理系统，各方面都比 calibre-web 好用。
 
@@ -29,7 +29,7 @@ feature: https://cdn.edui.fun/images/2023/01/ds-docker-2.png
 
 ### qinglong
 
-![ds-docker-3](https://cdn.edui.fun/images/2023/01/ds-docker-3.png)
+![ds-docker-3](https://r2.immmmm.com/2023/01/ds-docker-3.png)
 
 > 攒豆豆，抵 NAS 电费。
 
@@ -57,7 +57,7 @@ Bitwarden 自部署镜像。云服务啊，主密码啊，一拖敞亮……
 
 ### Ghost
 
-![ds-docker-6](https://cdn.edui.fun/images/2023/01/ds-docker-6.jpg)
+![ds-docker-6](https://r2.immmmm.com/2023/01/ds-docker-6.jpg)
 
 > 又一个博客程序。
 
@@ -71,7 +71,7 @@ Bitwarden 自部署镜像。云服务啊，主密码啊，一拖敞亮……
 
 【注册表】搜索镜像，确认点击下载；【容器】选择运行中的镜像，点关闭，再点操作“重置”；稍等一会儿，重启即可。
 
-![ds-docker-4](https://cdn.edui.fun/images/2023/01/ds-docker-4.png)
+![ds-docker-4](https://r2.immmmm.com/2023/01/ds-docker-4.png)
 
 注意：重置数据而不丢失的数据的前提是 **已把容器的存储映射到 NAS 指定文件夹中** ！！！
 

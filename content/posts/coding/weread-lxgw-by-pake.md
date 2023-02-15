@@ -2,7 +2,7 @@
 title: "Pake x 微信读书 x 霞鹜文楷"
 date: 2023-01-08T16:04:08+0800
 tags: [折腾]
-feature: https://pic.edui.fun/images/2023/01/pake-wr-2.png
+feature: https://r2.immmmm.com/2023/01/pake-wr-2.png
 ---
 
 利用 [Pake](https://github.com/tw93/Pake) 给 「微信读书」 网页版打包成了 App。
@@ -21,9 +21,9 @@ feature: https://pic.edui.fun/images/2023/01/pake-wr-2.png
 
 <!--more-->
 
-![pake-wr-3](https://pic.edui.fun/images/2023/01/pake-wr-3.png)
+![pake-wr-3](https://r2.immmmm.com/2023/01/pake-wr-3.png)
 
-![pake-wr-4](https://pic.edui.fun/images/2023/01/pake-wr-4.png)
+![pake-wr-4](https://r2.immmmm.com/2023/01/pake-wr-4.png)
 
 ### 编译记录
 

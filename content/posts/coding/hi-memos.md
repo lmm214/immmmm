@@ -2,7 +2,7 @@
 title: "Hi，Memos"
 date: 2022-09-05T23:14:52+0800
 tags: [折腾]
-feature: https://cdn.edui.fun/images/2022/09/memos.jpg
+feature: https://r2.immmmm.com/2022/09/memos.jpg
 ---
 
 > An open source, self-hosted knowledge base that works with a SQLite db file.
@@ -29,7 +29,7 @@ services:
       - 5230:5230
 ```
 
-![memos-1](https://cdn.edui.fun/images/2022/10/memos-1.jpg)
+![memos-1](https://r2.immmmm.com/2022/10/memos-1.jpg)
 
 宝塔为例：新建网站，新建 yml，开终端，丢代码。
 

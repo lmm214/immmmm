@@ -2,7 +2,7 @@
 title: "「电影 / 阅读」页面，顶！"
 date: 2022-03-22T23:32:16+0800
 tags: [折腾]
-feature: https://cdn.edui.fun/images/2022/03/doumark.png
+feature: https://r2.immmmm.com/2022/03/doumark.png
 ---
 
 来自于 [@怡红公子](https://imnerd.org/doumark.html) 的自制轮子：[doumark-action](https://github.com/lizheming/doumark-action) ，豆瓣书影音同步 GitHub Action。
@@ -19,8 +19,8 @@ feature: https://cdn.edui.fun/images/2022/03/doumark.png
 
 三个文件都有变化：
 
-![douban-ac-1](https://pic.edui.fun/images/2023/01/douban-ac-1.png!webp)
+![douban-ac-1](https://r2.immmmm.com/2023/01/douban-ac-1.png!webp)
 
-![douban-ac-2](https://pic.edui.fun/images/2023/01/douban-ac-2.png!webp)
+![douban-ac-2](https://r2.immmmm.com/2023/01/douban-ac-2.png!webp)
 
-![douban-ac-3](https://pic.edui.fun/images/2023/01/douban-ac-3.png!webp)
+![douban-ac-3](https://r2.immmmm.com/2023/01/douban-ac-3.png!webp)

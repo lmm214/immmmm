@@ -39,7 +39,7 @@ vi /usr/local/frp/frps.ini
 
 按 `i` 进入编辑模式 `frps.ini`，移动光标修改配置：
 
-![frp-1](https://pic.edui.fun/images/2023/01/frp-1.jpg)
+![frp-1](https://r2.immmmm.com/2023/01/frp-1.jpg)
 
 如果是用宝塔和腾讯服务器的话，记得允许这些端口。其中 `vhost_https_port` 是 https 的穿透端口，`dashboard_port` 是面板访问端口；`token` 是之后客户端验证需要。
 
@@ -67,15 +67,15 @@ wget https://github.ioiox.com/stilleshan/frps/raw/branch/master/frps_linux_unins
 
 个人采用的是第一种 Docker 安装。
 
-![frp-2](https://pic.edui.fun/images/2023/01/frp-2.jpg)
+![frp-2](https://r2.immmmm.com/2023/01/frp-2.jpg)
 
 注册表搜索 `stilleshan/frpc` 下载完成之后，配置 `frpc.ini` 文件。
 
-![frp-3](https://pic.edui.fun/images/2023/01/frp-3.jpg)
+![frp-3](https://r2.immmmm.com/2023/01/frp-3.jpg)
 
 配置参考：
 
-![frp-4](https://pic.edui.fun/images/2023/01/frp-4.jpg)
+![frp-4](https://r2.immmmm.com/2023/01/frp-4.jpg)
 
 ```
 [common]
@@ -92,17 +92,17 @@ custom_domains = nas.ioiox.com    # 填写你的域名
 
 启动镜像，勾选使用高权限执行容器；高级设置，添加文件指定到你  frpc.ini 所在的位置。勾选使用与Docker Host相同的网络。完成。
 
-![frp-6](https://pic.edui.fun/images/2023/01/frp-6.jpg)
+![frp-6](https://r2.immmmm.com/2023/01/frp-6.jpg)
 
 ### 群晖内网穿透
 
 利用路由器的端口转发和群晖自带反代功能，方便多服务穿透，做以下设置：
 
-![frp-7](https://pic.edui.fun/images/2023/01/frp-7.jpg)
+![frp-7](https://r2.immmmm.com/2023/01/frp-7.jpg)
 
 路由器直接转发所有 443 到群晖，然后群晖反代如下设置： 
 
-![frp-5](https://pic.edui.fun/images/2023/01/frp-5.jpg)
+![frp-5](https://r2.immmmm.com/2023/01/frp-5.jpg)
 
 这样，本地 docker 20010 端口跑的 talebook 服务就顺利穿出去啦～
 
@@ -110,11 +110,11 @@ custom_domains = nas.ioiox.com    # 填写你的域名
 
 直接加了一个 `*` 泛解析，方便绑定子域名解析。
 
-![frp-9](https://pic.edui.fun/images/2023/01/frp-9.jpg)
+![frp-9](https://r2.immmmm.com/2023/01/frp-9.jpg)
 
 若宝塔面板：新建网站，添加域名，申请 SSL 证书，修改配置文件。
 
-![frp-8](https://pic.edui.fun/images/2023/01/frp-8.jpg)
+![frp-8](https://r2.immmmm.com/2023/01/frp-8.jpg)
 
 ```
     #frp

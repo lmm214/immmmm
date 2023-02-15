@@ -101,7 +101,7 @@ Audio Station 添加 QQ 歌词插件
 
 ### 社群套件
 
-![ds220-11](https://cdn.edui.fun/images/2022/07/ds220-11.jpg)
+![ds220-11](https://r2.immmmm.com/2022/07/ds220-11.jpg)
 
 套件中心--右上角设置--套件来源--新增，套件中心左侧多了个 「社群」。
 

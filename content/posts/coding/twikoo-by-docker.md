@@ -14,7 +14,7 @@ tags: [折腾]
 
 （宝塔的软件商店 “Docker 管理器” 装一下，方便后续可视化管理。）
 
-![twk-1](https://cdn.edui.fun/images/2022/08/twk-1.jpg)
+![twk-1](https://r2.immmmm.com/2022/08/twk-1.jpg)
 
 进入网站目录，点击终端丢入下句命令，以此，**在这个目录里拉起镜像** 。好处是相关的评论数据都会在此路径下的 `data` 文件夹里，如果拉起多个 docker ，那就搞定了数据隔离。
 
@@ -36,7 +36,7 @@ docker run -e TWIKOO_THROTTLE=1000 -p 8765:8080 -v ${PWD}/data:/app/data -d imae
 
 1.Docker 管理器，直接删除容器
 
-![twk-2](https://cdn.edui.fun/images/2022/08/twk-2.jpg)
+![twk-2](https://r2.immmmm.com/2022/08/twk-2.jpg)
 
 2.终端拉取最新镜像
 

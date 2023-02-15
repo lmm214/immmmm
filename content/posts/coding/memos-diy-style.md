@@ -2,7 +2,7 @@
 title: "Memos 自定义代码片段"
 date: 2023-01-12T00:03:00+0800
 tags: [折腾]
-feature: https://pic.edui.fun/images/2023/01/memos-bing.png
+feature: https://r2.immmmm.com/2023/01/memos-bing.png
 ---
 
 旧文换新颜。新实现以下功能：
@@ -17,7 +17,7 @@ feature: https://pic.edui.fun/images/2023/01/memos-bing.png
 
 <!--more-->
 
-![memos-css](https://pic.edui.fun/images/2023/01/memos-css.png)
+![memos-css](https://r2.immmmm.com/2023/01/memos-css.png)
 
 ### 调用 Bing 每日背景
 
@@ -44,7 +44,7 @@ changeFont()
 
 ### 随机 Memos 回顾
 
-![memo-random](https://pic.edui.fun/images/2023/01/memo-random.png)
+![memo-random](https://r2.immmmm.com/2023/01/memo-random.png)
 
 ```javascript
 function randomMemo(){
@@ -68,7 +68,7 @@ setTimeout(function() {
 
 ### 设置 Favicon 图标为 emoji
 
-![memos-emoji](https://pic.edui.fun/images/2023/01/memos-emoji.png)
+![memos-emoji](https://r2.immmmm.com/2023/01/memos-emoji.png)
 
 ```
 function changeFavicon() { 

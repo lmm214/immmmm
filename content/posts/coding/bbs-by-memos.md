@@ -2,7 +2,7 @@
 title: "哔哔广场，欢迎围观"
 date: 2022-10-11T22:56:57+0800
 tags: [折腾]
-feature: https://cdn.edui.fun/images/2022/10/bbs-1.png
+feature: https://r2.immmmm.com/2022/10/bbs-1.png
 ---
 
 围观链接： <https://immmmm.com/bbs/>

@@ -2,7 +2,7 @@
 title: "Hi，Docsify"
 date: 2022-08-14T14:48:32+0800
 tags: [折腾]
-feature: https://cdn.edui.fun/images/2022/08/edui123.jpg
+feature: https://r2.immmmm.com/2022/08/edui123.jpg
 ---
 
 > [Docsify](https://docsify.js.org/#/zh-cn/) 快速生成文档网站，无需后端构建，即可渲染 markdown 文件。
@@ -125,7 +125,7 @@ twikoo.init({
         props: ['grade','pages','paged'],
         template: `<ul class="ebook" view-image>
           <li v-for="(n, index) in paged-pages+1" :key="index">
-            <img :src="'https://cdn.edui.fun/images/'+grade+'/'+(n+pages-1)+'.webp'" >
+            <img :src="'https://r2.immmmm.com/'+grade+'/'+(n+pages-1)+'.webp'" >
             <span><small>第 {{n+pages-1}} 页</small></span>
           </li>
         </ul>`

@@ -2,7 +2,7 @@
 title: "Hugo 添加相册页面"
 date: 2023-01-16T20:42:02+0800
 tags: [折腾]
-feature: https://pic.edui.fun/images/2023/01/hugo-photos-1.png!webp
+feature: https://r2.immmmm.com/2023/01/hugo-photos-1.png!webp
 ---
 
 旧文更新，效果见： <https://immmmm.com/photos/>

@@ -2,7 +2,7 @@
 title: "Memos 单页及浏览器扩展"
 date: 2023-02-04T22:24:22+0800
 tags: [折腾]
-feature: https://pic.edui.fun/images/2023/01/iShot_2023-02-04_22.25.39.png!webp
+feature: https://r2.immmmm.com/2023/01/iShot_2023-02-04_22.25.39.png!webp
 ---
 
 单页版 Memos ： <https://edui123.com/memos/>
@@ -21,13 +21,13 @@ Chrome 浏览器插件应用商店： <https://chrome.google.com/webstore/detail
 
 #### 1.获取 Open API 并填入扩展
 
-![extensions-3](https://cdn.edui.fun/images/2022/10/extensions-3.jpg)
+![extensions-3](https://r2.immmmm.com/2022/10/extensions-3.jpg)
 
-![extensions-4](https://cdn.edui.fun/images/2022/10/extensions-4.jpg)
+![extensions-4](https://r2.immmmm.com/2022/10/extensions-4.jpg)
 
 #### 2.按钮简要说明
 
-![memos-11](https://pic.edui.fun/images/2023/01/memos-11.png!webp)
+![memos-11](https://r2.immmmm.com/2023/01/memos-11.png!webp)
 
 - 获取标签列表，点击即可快捷插入标签
 - 快捷输入待办字符串
@@ -38,6 +38,6 @@ Chrome 浏览器插件应用商店： <https://chrome.google.com/webstore/detail
 
 #### 3.小彩蛋一枚
 
-![memos-12](https://pic.edui.fun/images/2023/01/memos-12.png!webp)
+![memos-12](https://r2.immmmm.com/2023/01/memos-12.png!webp)
 
 - 标签列表展开、输入框有标签，此时点击随机按钮。

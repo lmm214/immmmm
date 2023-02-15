@@ -2,7 +2,7 @@
 title: "Hi，Check 酱"
 date: 2022-08-19T20:33:06+0800
 tags: [折腾]
-feature: https://cdn.edui.fun/images/2022/08/checkchan.png
+feature: https://r2.immmmm.com/2022/08/checkchan.png
 ---
 
 > 一个通用网页内容监控工具，可以监测网页内容变化，并发送异动到指定IM。

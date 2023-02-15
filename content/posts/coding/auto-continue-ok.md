@@ -26,7 +26,7 @@ tags: [折腾]
 
 实现效果：当弹出“点击继续”按钮时，自动点击！（并让视频从头开始播放，这样1个视频就能一直看。）
 
-![atuo-1](https://cdn.edui.fun/images/2022/07/atuo-1.jpg)
+![atuo-1](https://r2.immmmm.com/2022/07/atuo-1.jpg)
 
 ```JavaScript
 function Click(){

@@ -2,7 +2,7 @@
 title: "真·千兆"
 date: 2023-01-15T13:47:48+0800
 tags: [日常]
-feature: https://pic.edui.fun/images/2023/01/100mb.png
+feature: https://r2.immmmm.com/2023/01/100mb.png
 ---
 
 接电信客服说免费提速千兆三个月，这不重启光猫、路由，诧异得看到网口赫然写着 100Mb ！
@@ -23,7 +23,7 @@ feature: https://pic.edui.fun/images/2023/01/100mb.png
 
 好吧，挪！
 
-![1000mb-1](https://pic.edui.fun/images/2023/01/1000mb-1.png)
+![1000mb-1](https://r2.immmmm.com/2023/01/1000mb-1.png)
 
 不说了，预祝大家：新年快乐，大展宏“兔”！
 

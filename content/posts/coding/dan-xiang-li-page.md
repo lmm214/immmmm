@@ -2,7 +2,7 @@
 title: "自制「单向历」网页版"
 date: 2022-01-09T21:38:56+0800
 tags: [折腾]
-feature: https://pic.edui.fun/images/2022/01/dxl.png
+feature: https://r2.immmmm.com/2022/01/dxl.png
 ---
 
 在线体验：<https://edui123.com/rili/>

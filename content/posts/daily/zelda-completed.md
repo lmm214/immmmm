@@ -2,7 +2,7 @@
 title: "塞尔达，一周目达成"
 date: 2022-07-08T21:21:17+0800
 tags: [日常]
-feature: https://cdn.edui.fun/images/2022/07/sed-6.JPG
+feature: https://r2.immmmm.com/2022/07/sed-6.JPG
 ---
 
 
@@ -11,16 +11,16 @@ feature: https://cdn.edui.fun/images/2022/07/sed-6.JPG
 
 <!--more-->
 
-![sed-1](https://cdn.edui.fun/images/2022/07/sed-1.JPG)
+![sed-1](https://r2.immmmm.com/2022/07/sed-1.JPG)
 
-![sed-2](https://cdn.edui.fun/images/2022/07/sed-2.JPG)
+![sed-2](https://r2.immmmm.com/2022/07/sed-2.JPG)
 
-![sed-3](https://cdn.edui.fun/images/2022/07/sed-3.JPG)
+![sed-3](https://r2.immmmm.com/2022/07/sed-3.JPG)
 
-![sed-4](https://cdn.edui.fun/images/2022/07/sed-4.JPG)
+![sed-4](https://r2.immmmm.com/2022/07/sed-4.JPG)
 
-![sed-5](https://cdn.edui.fun/images/2022/07/sed-5.JPG)
+![sed-5](https://r2.immmmm.com/2022/07/sed-5.JPG)
 
-![sed-7](https://cdn.edui.fun/images/2022/07/sed-7.JPG)
+![sed-7](https://r2.immmmm.com/2022/07/sed-7.JPG)
 
-![sed-8](https://cdn.edui.fun/images/2022/07/sed-8.JPG)
+![sed-8](https://r2.immmmm.com/2022/07/sed-8.JPG)

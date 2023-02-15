@@ -2,7 +2,7 @@
 title: "书签导航应用：Flare "
 date: 2022-02-26T16:11:24+0800
 tags: [折腾]
-feature: https://cdn.edui.fun/images/2022/02/flame.png
+feature: https://r2.immmmm.com/2022/02/flame.png
 ---
 
 >Flame 是服务器的自托管起始页。使用内置编辑器轻松管理您的应用程序和书签。 —— [Flame](https://github.com/pawelmalak/flame)
