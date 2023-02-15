@@ -1,0 +1,39 @@
+{{ define "main" }}
+<div id="tcomment"></div>
+<script src="/twikoo168.js"></script>
+<script>
+  twikoo.init({
+    envId: 'https://tk.edui.fun/', el: '#tcomment',
+    onCommentLoaded: function () {
+      console.log('评论加载完成');
+      setTimeout(function() {
+        let tk_icon = document.getElementsByClassName("tk-icon")[1];
+        tk_icon ? tk_icon.click() : undefined;
+       },700)
+    }
+  })
+</script>
+<style>
+  .tk-admin {position: fixed !important;z-index: 999;}
+  .tk-content p{text-align: left;}
+</style>
+{{ end }}
+
+
+{{ define "footer" }}
+<script type="text/javascript" src="/theme-main-1.js"></script>
+<script>
+//随机日志
+function randomPost() {
+  fetch('/sitemap.xml').then(res => res.text()).then(str => (new window.DOMParser()).parseFromString(str, "text/xml")).then(data => {
+      let ls = data.querySelectorAll('url loc');
+      let locationHref,locSplit;
+      do {
+          locationHref = ls[Math.floor(Math.random() * ls.length)].innerHTML
+          locSplit = locationHref.split('/')[3] || ''
+      } while (locSplit == '' || locSplit == 'tags' || locSplit == 'posts'); 
+      location.href = locationHref
+  })
+}
+</script>
+{{ end }}

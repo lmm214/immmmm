@@ -1310,7 +1310,7 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 .tk-extras,.tk-row.actions .tk-action-icon.__markdown,.tk-preview,.tk-content p a.at,.tk-tag.tk-tag-green{display: none !important;}
 .tk-content{margin-top:0px !important;}
 .tk-content span:first-child{float:left;}
-.tk-content p{margin: 0;}
+.tk-content p{margin: 0;text-align: left;}
 .tk-comment{margin-top: 17px !important;}
 .tk-comments-container .tk-avatar{margin-top:10px;}
 .tk-replies .tk-content span:first-child{visibility:hidden;}
