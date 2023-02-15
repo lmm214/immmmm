@@ -19,8 +19,8 @@ feature: https://r2.immmmm.com/2022/03/doumark.png
 
 三个文件都有变化：
 
-![douban-ac-1](https://r2.immmmm.com/2023/01/douban-ac-1.png!webp)
+![douban-ac-1](https://r2.immmmm.com/2023/01/douban-ac-1.png)
 
-![douban-ac-2](https://r2.immmmm.com/2023/01/douban-ac-2.png!webp)
+![douban-ac-2](https://r2.immmmm.com/2023/01/douban-ac-2.png)
 
-![douban-ac-3](https://r2.immmmm.com/2023/01/douban-ac-3.png!webp)
+![douban-ac-3](https://r2.immmmm.com/2023/01/douban-ac-3.png)

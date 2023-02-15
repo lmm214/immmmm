@@ -2,7 +2,7 @@
 title: "Hugo 「近期」短代码（基于 Doumark Actions）"
 date: 2023-02-02T13:07:42+0800
 tags: [折腾]
-feature: https://r2.immmmm.com/2023/01/hugo-re-1.png!webp
+feature: https://r2.immmmm.com/2023/01/hugo-re-1.png
 ---
 
 

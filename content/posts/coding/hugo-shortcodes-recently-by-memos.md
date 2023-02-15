@@ -2,7 +2,7 @@
 title: "Hugo 「近期」短代码（基于 Memos Docker）"
 date: 2023-02-03T11:07:42+0800
 tags: [折腾]
-feature: https://r2.immmmm.com/2023/01/guang.png!webp
+feature: https://r2.immmmm.com/2023/01/guang.png
 ---
 
 ### 近期光影
@@ -36,7 +36,7 @@ var creatorId = 101
 
 #### 相册动态更新方式一
 
-![leonus_2023-01-29_20-03-25](https://r2.immmmm.com/2023/01/leonus_2023-01-29_20-03-25.png!webp)
+![leonus_2023-01-29_20-03-25](https://r2.immmmm.com/2023/01/leonus_2023-01-29_20-03-25.png)
 
 图片外链以 `日期+空格+标题` 命名方式前端会显示。
 

@@ -2,7 +2,7 @@
 title: "浪在 BlogFinder 里"
 date: 2023-01-24T22:13:19+0800
 tags: [日常]
-feature: https://r2.immmmm.com/2023/01/blogfinder.png!webp
+feature: https://r2.immmmm.com/2023/01/blogfinder.png
 ---
 
 主页地址：<https://bf.zzxworld.com/>
