@@ -81,7 +81,7 @@ function urlsNow(e){
             bbsData = {
               updatedTs: resValue.updatedTs,
               creatorId:resValue.creatorId,
-              creator: resValue.creator.nickname || resValue.creator.username || resValue.creator.name,
+              creator: resValue.creatorName || resValue.creator.nickname || resValue.creator.name,
               imgsrc: imgsrcNow,
               content: resValue.content,
               resourceList: resValue.resourceList,
@@ -224,12 +224,20 @@ function updateHTMl(data){
         var imgUrl='',resUrl='',resImgLength = 0;
         for(var j=0;j < resourceList.length;j++){
           var restype = resourceList[j].type.slice(0,5);
+          var resexlink = resourceList[j].externalLink
+          var resLink = ''
+          if(resexlink){
+            resLink = resexlink
+          }else{
+            resLink = memos+'o/r/'+resourceList[j].id+'/'+resourceList[j].filename
+memos+'o/r/'+resourceList[j].id+'/'+resourceList[j].filename
+          }
           if(restype == 'image'){
-            imgUrl += '<figure class="gallery-thumbnail"><img class="img thumbnail-image" src="'+memos+'o/r/'+resourceList[j].id+'/'+resourceList[j].filename+'"/></figure>'
+            imgUrl += '<figure class="gallery-thumbnail"><img class="img thumbnail-image" src="'+resLink+'"/></figure>'
             resImgLength = resImgLength + 1 
           }
-          if(restype !== 'image' && restype !== 'video'){
-            resUrl += '<a target="_blank" rel="noreferrer" href="'+memos+'o/r/'+resourceList[j].id+'/'+resourceList[j].filename+'">'+resourceList[j].filename+'</a>'
+          if(restype !== 'image'){
+            resUrl += '<a target="_blank" rel="noreferrer" href="'+resLink+'">'+resourceList[j].filename+'</a>'
           }
         }
         if(imgUrl){
