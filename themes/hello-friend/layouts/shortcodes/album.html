@@ -37,10 +37,16 @@ document.addEventListener("DOMContentLoaded", () => {
               for(var j=0;j < resourceList.length;j++){
                 var galleryTime = new Date(resourceList[j].createdTs * 1000).toLocaleString()
                 var restype = resourceList[j].type.slice(0,5);
+                var resexlink = resourceList[j].externalLink
+                var resLink = ''
+                if(resexlink){
+                  resLink = resexlink
+                }else{
+                  resLink = memoUrl+'o/r/'+resourceList[j].id+'/'+resourceList[j].filename
+                }
                 if(restype == 'image' && nowNum <= limit ){
                     nowNum ++
-                    result += '<div class="memos-photo"><img class="photo-img" loading="lazy" decoding="async" src="'+memoUrl+'o/r/'+resourceList[j].id+'/'+resourceList[j].filename+'"/><span class="photo-title">'+galleryTitle+'</span><span class="photo-time">'+galleryTime+'</span></div>'
-                  
+                    result += '<div class="memos-photo"><img class="photo-img" loading="lazy" decoding="async" src="'+resLink+'"/><span class="photo-title">'+galleryTitle+'</span><span class="photo-time">'+galleryTime+'</span></div>'
                 }
               }
             }
