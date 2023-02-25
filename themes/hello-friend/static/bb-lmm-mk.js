@@ -128,7 +128,6 @@ function updateHTMl(data){
             resLink = resexlink
           }else{
             resLink = memos+'o/r/'+resourceList[j].id+'/'+resourceList[j].filename
-memos+'o/r/'+resourceList[j].id+'/'+resourceList[j].filename
           }
           if(restype == 'image'){
             imgUrl += '<figure class="gallery-thumbnail"><img class="img thumbnail-image" src="'+resLink+'"/></figure>'
