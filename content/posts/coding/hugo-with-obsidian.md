@@ -16,7 +16,7 @@ feature: https://r2.immmmm.com/2023/02/TinySnap-2023-02-27-23.41.05.png
 
 <!--more-->
 
-继儿尝试 ob 是否可以直接 git push，看到这篇文章：[《Hugo 博客写作最佳实践》](https://blog.zhangyingwei.com/posts/2022m4d11h19m42s28/) 
+继儿尝试 ob 是否可以直接 git push，看到这篇文章：[《Hugo 博客写作最佳实践》](https://blog.zhangyingwei.com/posts/2022m4d11h19m42s28/)
 
 一试，完美！
 
@@ -24,12 +24,14 @@ feature: https://r2.immmmm.com/2023/02/TinySnap-2023-02-27-23.41.05.png
 
 ![iShot_2023-02-27_23.48.16.png](https://r2.immmmm.com/2023/02/iShot_2023-02-27_23.48.16.png)
 
-搜索安装 picgo-plugin-s3。
+使用 picgo-plugin-s3 插件，其中自定义节点 `https://xxxx.r2.cloudflarestorage.com` 无斜杠无桶名，自定义域名也是无斜杠。
+
+另外 R2 里得允许公开访问。
 
 ### Ob 插件
 
 - [Obsidian Git](https://github.com/denolehov/obsidian-git) 直接用 ob 打开 vscode 拉取到本地的仓库，记得在 `.gitignore` 中添加 `.obsidian` 避免把 ob 配置文件上传到仓库。
-- [Obsidian Image Auto Upload Plugin](https://github.com/renmu123/obsidian-image-auto-upload-plugin/blob/master/readme-zh.md)  配合 PicGo Server 拖入、粘贴、快捷键随心插图
+- [Obsidian Image Auto Upload Plugin](https://github.com/renmu123/obsidian-image-auto-upload-plugin/blob/master/readme-zh.md) 配合 PicGo Server 拖入、粘贴、快捷键随心插图
 - [Templater Obsidian Plugin](https://github.com/SilentVoid13/Templater) 预设新建日志模板。
 
 ```
@@ -37,7 +39,7 @@ feature: https://r2.immmmm.com/2023/02/TinySnap-2023-02-27-23.41.05.png
 title: "<% tp.file.cursor() %>"
 date: <% tp.date.now("YYYY-MM-DDTHH:mm:ssZZ") %>
 tags: [折腾]
-feature: 
+feature:
 ---
 ```
 
@@ -46,17 +48,3 @@ feature:
 ![image.png](https://r2.immmmm.com/2023/02/20230227235558.png)
 
 搞定！
-
-
-
-
-
-
-
-
-
-
-
-
-
-
