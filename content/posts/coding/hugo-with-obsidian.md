@@ -34,6 +34,11 @@ feature: https://r2.immmmm.com/2023/02/TinySnap-2023-02-27-23.41.05.png
 - [Obsidian Image Auto Upload Plugin](https://github.com/renmu123/obsidian-image-auto-upload-plugin/blob/master/readme-zh.md) 配合 PicGo Server 拖入、粘贴、快捷键随心插图
 - [Templater Obsidian Plugin](https://github.com/SilentVoid13/Templater) 预设新建日志模板。
 
+Templater 插件中打开 Enable Folder Templates，实现指定文件夹内创建的文件调用对应模板。
+
+![iShot_2023-02-28_23.14.36.png](https://r2.immmmm.com/2023/02/iShot_2023-02-28_23.14.36.png)
+
+
 ```
 ---
 title: "<% tp.file.cursor() %>"
@@ -42,6 +47,7 @@ tags: [折腾]
 feature:
 ---
 ```
+
 
 ### 发布提交
 
