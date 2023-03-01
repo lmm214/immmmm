@@ -7,7 +7,7 @@ feature: https://r2.immmmm.com/2022/10/immmmm-com-bb.webp
 
 在线围观：<https://immmmm.com/bb/>
 
-「哔哔点啥」“溯源”一下，可能是少数派的 [「b言b语」](https://sspai.com/post/60024) ，由于 LeanCloud 的拉胯，自己搞定了腾讯 CloudBase 和 [微信公众号2.0 ](https://immmmm.com/bb-by-wechat-pro/) ，但 TCB 好好的羊毛不给薅了，哎。
+「哔哔点啥」“溯源”一下，可能是少数派的 [「b 言 b 语」](https://sspai.com/post/60024) ，由于 LeanCloud 的拉胯，自己搞定了腾讯 CloudBase 和 [微信公众号 2.0 ](https://immmmm.com/bb-by-wechat-pro/) ，但 TCB 好好的羊毛不给薅了，哎。
 
 之后，自己用 Twikoo 评论系统魔改了一下样式，搞了一个 [「你言我语 By Twikoo」](https://immmmm.com/talk/) ，单页用用还行。但，没有 API 调用不方便，随手发碎碎念也不香。
 
@@ -25,26 +25,21 @@ feature: https://r2.immmmm.com/2022/10/immmmm-com-bb.webp
 
 ```html
 <div id="bber"></div>
+<script src="https://fastly.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://fastly.jsdelivr.net/gh/Tokinx/ViewImage/view-image.min.js"></script>
+<script src="https://fastly.jsdelivr.net/gh/Tokinx/Lately/lately.min.js"></script>
 <script type="text/javascript">
   var bbMemos = {
     memos : 'https://me.edui.fun/',//修改为自己部署 Memos 的网址，末尾有 / 斜杠
-    limit : '',//默认每次显示 10条 
-    creatorId:'' ,//默认为 101用户 https://demo.usememos.com/u/101
+    limit : '',//默认每次显示 10条
+    creatorId:'' ,//早期默认为 101 用户，新安装是 1； https://demo.usememos.com/u/101
     domId: '',//默认为 <div id="bber"></div>
   }
 </script>
 <script src="https://immmmm.com/bb-lmm-mk.js"></script>
-<script src="https://fastly.jsdelivr.net/npm/marked/marked.min.js"></script>
-<script src="https://fastly.jsdelivr.net/gh/Tokinx/ViewImage/view-image.min.js"></script>
-<script src="https://fastly.jsdelivr.net/gh/Tokinx/Lately/lately.min.js"></script>
 ```
 
-样式代码还在持续更新中，所以详见源码。
-
-```
-view-source:https://immmmm.com/bb/
-```
-
+样式代码已内置在 `bb-lmm-mk.js` 中。
 
 ### 更多围观地址
 
@@ -59,4 +54,3 @@ view-source:https://immmmm.com/bb/
 ### 图片预览
 
 {{< figure "https://r2.immmmm.com/2022/10/iShot_2022-10-07_20.41.41.png" "https://r2.immmmm.com/2022/10/iShot_2022-10-07_20.42.12.png" "内置图片上传排版">}}
-
