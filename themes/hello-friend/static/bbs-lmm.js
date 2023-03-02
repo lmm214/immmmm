@@ -1,5 +1,5 @@
 /*
-Last Modified time : 20221120 21:32 by https://immmmm.com
+Last Modified time : 20230302 21:32 by https://immmmm.com
 */
 const urls = [
   {host:"https://me.edui.fun/",creatorId:"101",imgsrc:"https://cdn.sep.cc/avatar/ba83fa02fc4b2ba621514941307e21be"},
@@ -124,7 +124,7 @@ function getNextList(){
       nextData = {
         updatedTs: resValue.updatedTs,
         creatorId:resValue.creatorId,
-        creator: resValue.creator.nickname || resValue.creator.name,
+        creator: resValue.creatorName || resValue.creator.nickname || resValue.creator.name,
         imgsrc: imgsrcNow,
         content: resValue.content,
         resourceList: resValue.resourceList,
