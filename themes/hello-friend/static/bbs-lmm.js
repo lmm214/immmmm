@@ -257,7 +257,6 @@ function updateHTMl(data){
   var bbAfter = "</ul></section>"
   resultAll = bbBefore + result + bbAfter
   bbDom.insertAdjacentHTML('beforeend', resultAll);
-  fetchDB()
   var btn = document.querySelector('button.button-load')
   if(btn){
     btn.textContent= '加载更多';
@@ -266,68 +265,4 @@ function updateHTMl(data){
   window.ViewImage && ViewImage.init('.bbs-content img')
   //相对时间
   window.Lately && Lately.init({ target: '.bbs-date' });
-}
-
-//文章内显示豆瓣条目 https://immmmm.com/post-show-douban-item/
-function fetchDB(){
-  var dbAPI = "https://douban.edui.fun/";
-  var dbA = document.querySelectorAll(".bbs-timeline a[href*='douban.com/subject/']:not([rel='noreferrer'])") || '';
-  if(dbA){
-    for(var i=0;i < dbA.length;i++){
-      _this = dbA[i]
-      var dbHref = _this.href
-      var db_reg = /^https\:\/\/(movie|book)\.douban\.com\/subject\/([0-9]+)\/?/;
-      var db_type = dbHref.replace(db_reg, "$1");
-      var db_id = dbHref.replace(db_reg, "$2").toString();
-        if (db_type == 'movie') {
-          var this_item = 'movie' + db_id;
-          var url = dbAPI + "movies/" + db_id ;
-          if (localStorage.getItem(this_item) == null || localStorage.getItem(this_item) == 'undefined') {
-            fetch(url).then(res => res.json()).then( data =>{
-              let fetch_item = 'movies' + data.sid;
-              let fetch_href = "https://movie.douban.com/subject/"+data.sid+"/"
-              localStorage.setItem(fetch_item, JSON.stringify(data));
-              movieShow(fetch_href, fetch_item)
-            });
-          } else {
-            movieShow(dbHref, this_item)
-          }
-        }else if (db_type == 'book') {
-          var this_item = 'book' + db_id;
-          var url = dbAPI + "v2/book/id/" + db_id;
-          if (localStorage.getItem(this_item) == null || localStorage.getItem(this_item) == 'undefined') {
-            fetch(url).then(res => res.json()).then( data =>{
-              let fetch_item = 'book' + data.id;
-              let fetch_href = "https://book.douban.com/subject/"+data.id+"/"
-              localStorage.setItem(fetch_item, JSON.stringify(data));
-              bookShow(fetch_href, fetch_item)
-            });
-          } else {
-            bookShow(dbHref, this_item)
-          }
-        }
-    }// for end
-  }
-}
-function movieShow(fetch_href, fetch_item){
-  var storage = localStorage.getItem(fetch_item);
-  var data = JSON.parse(storage);
-  var db_star = Math.ceil(data.rating);
-  var db_html = "<div class='post-preview'><div class='post-preview--meta'><div class='post-preview--middle'><h4 class='post-preview--title'><a target='_blank' rel='noreferrer' href='" + fetch_href + "'>《" + data.name + "》</a></h4><div class='rating'><div class='rating-star allstar" + db_star + "'></div><div class='rating-average'>" + data.rating + "</div></div><time class='post-preview--date'>导演：" + data.director + " / 类型：" + data.genre + " / " + data.year + "</time><section style='max-height:75px;overflow:hidden;' class='post-preview--excerpt'>" + data.intro.replace(/\s*/g, "") + "</section></div></div><img referrer-policy='no-referrer' loading='lazy' class='post-preview--image' src=" + data.img + "></div>"
-  var db_div = document.createElement("div");
-  var qs_href = ".bbs-timeline a[href='"+ fetch_href +"']"
-  var qs_dom = document.querySelector(qs_href)
-  qs_dom.parentNode.replaceChild(db_div, qs_dom);
-  db_div.innerHTML = db_html
-}
-function bookShow(fetch_href, fetch_item) {
-  var storage = localStorage.getItem(fetch_item);
-  var data = JSON.parse(storage);
-  var db_star = Math.ceil(data.rating.average);
-  var db_html = "<div class='post-preview'><div class='post-preview--meta'><div class='post-preview--middle'><h4 class='post-preview--title'><a target='_blank' rel='noreferrer' href='" + fetch_href + "'>《" + data.title + "》</a></h4><div class='rating'><div class='rating-star allstar" + db_star + "'></div><div class='rating-average'>" + data.rating.average + "</div></div><time class='post-preview--date'>作者：" + data.author + " </time><section style='max-height:75px;overflow:hidden;' class='post-preview--excerpt'>" + data.summary.replace(/\s*/g, "") + "</section></div></div><img referrer-policy='no-referrer' loading='lazy' class='post-preview--image' src=" + data.images.medium + "></div>"
-  var db_div = document.createElement("div");
-  var qs_href = ".bbs-timeline a[href='"+ fetch_href +"']"
-  var qs_dom = document.querySelector(qs_href)
-  qs_dom.parentNode.replaceChild(db_div, qs_dom);
-  db_div.innerHTML = db_html
 }
