@@ -3,6 +3,7 @@ Last Modified time : 20230302 21:32 by https://immmmm.com
 */
 const urls = [
   {host:"https://me.edui.fun/",creatorId:"101",imgsrc:"https://cdn.sep.cc/avatar/ba83fa02fc4b2ba621514941307e21be"},
+  {host:"https://bb.elizen.me/",creatorId:"101",imgsrc:"https://cdn.sep.cc/avatar/f65df4d87240feb1cb247857a621a48f"},
   {host:"https://memos.eallion.com/",creatorId:"101",imgsrc:"https://cdn.sep.cc/avatar/171e4c30959e8c077a6c58b958624b31"},
   {host:"https://isay.live/",creatorId:"101",imgsrc:"https://cdn.sep.cc/avatar/f0e33f4d097fe2e9fd74b9b129e7a655"},
   {host:"https://memos.noionion.cn/",creatorId:"1",imgsrc:"https://cdn.sep.cc/avatar/d240a727ea154be465796ef2644aac16"},
