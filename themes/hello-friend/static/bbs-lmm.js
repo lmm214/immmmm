@@ -14,7 +14,7 @@ const urls = [
   {host:"https://memo.wananaiko.com/",creatorId:"1",imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=7AFd0gic7wVsNg2ToQrQU2w&s=140&t=1583250600"},
   {host:"https://memos.skyue.com/",creatorId:"1",imgsrc:"https://cdn.sep.cc/avatar/c3fb4bb4d5101284ddd672fb722cdd7d"},
   {host:"https://memos.koobai.com/",creatorId:"1",imgsrc:"https://cdn.sep.cc/avatar/3b3d336a7d389b7ae8531cbe177ae9b7"},
-  {host:"https://dusays-memos.itisn.cyou/",creatorId:"1",imgsrc:"https://cdn.sep.cc/avatar/28b57baa4e8f13fe4292ccb2de267e30"},
+  {host:"https://s.dusays.com/",creatorId:"1",imgsrc:"https://cdn.sep.cc/avatar/28b57baa4e8f13fe4292ccb2de267e30"},
   {host:"https://api.mm.xlap.top/",creatorId:"1",imgsrc:"https://cdn.sep.cc/avatar/9855359e235402ea030ccd7aad041164"},
   {host:"https://memos.vlieo.com/",creatorId:"1",imgsrc:"https://cdn.sep.cc/avatar/d36125dcbca7fde4200fd76f6aa1fbe9"},
   {host:"https://flomo.010316.xyz/",creatorId:"1",imgsrc:"https://cdn.sep.cc/avatar/81f9378195d84e8ff73aad9ded2b9808"},
