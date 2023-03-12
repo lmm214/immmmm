@@ -18,8 +18,7 @@ const urls = [
   {host:"https://api.mm.xlap.top/",creatorId:"1",imgsrc:"https://cdn.sep.cc/avatar/9855359e235402ea030ccd7aad041164"},
   {host:"https://memos.vlieo.com/",creatorId:"1",imgsrc:"https://cdn.sep.cc/avatar/d36125dcbca7fde4200fd76f6aa1fbe9"},
   {host:"https://flomo.010316.xyz/",creatorId:"1",imgsrc:"https://cdn.sep.cc/avatar/81f9378195d84e8ff73aad9ded2b9808"},
-  {host:"https://memos.wiki-power.com/",creatorId:"1",imgsrc:"https://cdn.sep.cc/avatar/44218020ee434de43516c19f05c71593"},
-  {host:"https://memos.itisn.cyou/",creatorId:"1",imgsrc:"https://img.cdn.nesxc.com/favicon.ico"}
+  {host:"https://memos.wiki-power.com/",creatorId:"1",imgsrc:"https://cdn.sep.cc/avatar/44218020ee434de43516c19f05c71593"}
 ]
 
 var bbDom = document.querySelector('#bbs');
