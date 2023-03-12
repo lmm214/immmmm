@@ -29,3 +29,9 @@ iPhone「快捷指令」： [ChatGPT-Siri](https://github.com/Yue-Yang/ChatGPT-S
 ### 感叹再三
 
 > 技术不会取代人类，就算会，也是被会技术的人取代的！
+
+### 更多推荐
+
+[Hello from Learning Prompt](https://learningprompt.wiki/) 一份教你如何更好使好地使用 ChatGPT 和其他 AI 产品的免费中文教程。
+
+[AMA - Google Play 上的应用](https://play.google.com/store/apps/details?id=com.bytemyth.ama&pli=1) 可以看作是 opencat 的安卓版。
