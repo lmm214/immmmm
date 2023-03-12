@@ -1,14 +1,14 @@
 ---
 title: "嘿，聊一下"
-date: 2023-03-13T22:29:58+0800
+date: 2023-03-12T11:29:58+0800
 tags: [日常]
 ---
 
-看着 [Awesome ChatGPT API](https://github.com/reorx/awesome-chatgpt-api/blob/master/README.cn.md) 列表里 ChatGPT 的工具和应用，如春日繁花、一夜怒放，自己也玩得乐此不疲。
+看着 [Awesome ChatGPT API](https://github.com/reorx/awesome-chatgpt-api/blob/master/README.cn.md) 列表里 ChatGPT 的工具和应用，如春日繁花、一夜怒放，玩得不亦乐乎。
 
-### C 位，Respect
+### C 位 Respect
 
-ChatGPT Shortcut ：<https://newzone.top/chatgpt/>
+「ChatGPT Shortcut」：<https://newzone.top/chatgpt/>
 
 魔法需要「咒语」来唤醒，「咒语」质量直接影响 ChatGPT 功力发挥，是“三言两语”、“啰里八嗦”、“一本正经胡说白道”，或是“结构清晰”、“逻辑准确”、“指哪打哪”。
 
@@ -16,26 +16,15 @@ ChatGPT Shortcut ：<https://newzone.top/chatgpt/>
 
 <!--more-->
 
-### 用爱发电，开箱即用
+### 个人使用
 
-https://chat.theb.ai/
+Web 端：<https://chat.theb.ai/> 国内直连相对最稳定、回复最快的一个。
 
-用下来，相对最稳定、回复最快的国内直连网站。
+iOS & macOS 客户端：[OpenCat](https://apps.apple.com/app/opencat/id6445999201) 允许自设代理和Key、允许添加预设，优秀客户端的标配！
 
-### 个人使用，择优推荐
+iPhone「快捷指令」： [ChatGPT-Siri](https://github.com/Yue-Yang/ChatGPT-Siri)  设置语音或双击背面唤起，让 Siri 变身 AI 聊天助手。
 
-
-
-mac openai
-
-
-[ChatGPT-Siri](https://github.com/Yue-Yang/ChatGPT-Siri) 
-
-iPhone 通过 Siri 启动「快捷指令」连接 ChatGPT API，让 Siri 变身 AI 聊天助手。
-
-代理部署教程：
-- [ChatGPT API 代理](https://github.com/noobnooc/noobnooc/discussions/9) 使用 Cloudflare Workers 部署。
-- [imyuanx/chatgpt-proxy](https://github.com/imyuanx/chatgpt-proxy) 可以部署在 Zeabur 和 Vercel 的 OpenAI API 的代理。
+代理部署：[使用 Cloudflare Workers 部署](https://github.com/noobnooc/noobnooc/discussions/9) 、[在 Zeabur 和 Vercel 部署](https://github.com/imyuanx/chatgpt-proxy) 。
 
 ### 感叹再三
 
