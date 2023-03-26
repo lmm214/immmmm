@@ -1,6 +1,18 @@
 /*
-Last Modified time : 20230302 21:32 by https://immmmm.com
+Last Modified time : 20230326 21:32 by https://immmmm.com
 */
+if (typeof Lately === 'undefined') {
+  const script = document.createElement('script');
+  script.src = 'https://fastly.jsdelivr.net/gh/Tokinx/Lately/lately.min.js';
+  script.onload = () => {
+    Lately.init({ target: '.bbs-date' });
+  };
+  document.head.appendChild(script);
+} else {
+  Lately.init({ target: '.bbs-date' });
+}
+
+
 const urls = [
   {host:"https://me.edui.fun/",creatorId:"101",imgsrc:"https://cdn.sep.cc/avatar/ba83fa02fc4b2ba621514941307e21be"},
   {host:"https://bb.elizen.me/",creatorId:"101",imgsrc:"https://cdn.sep.cc/avatar/f65df4d87240feb1cb247857a621a48f"},
@@ -45,7 +57,7 @@ function allUrls(){
 function nextFetch(){
   document.querySelector("button.button-load").textContent= '加载中……';
   updateHTMl(nextDatas)
-  if(nextLength < 10){ //返回数据条数小于限制条数，隐藏
+  if(nextLength < 10){
     document.querySelector("button.button-load").remove()
     return
   }
@@ -103,7 +115,6 @@ function urlsNow(e){
       }
       page++
       offset = 10*(page-1)
-      //console.log(offset)
       getNextList()
     });
   }
@@ -111,13 +122,12 @@ function urlsNow(e){
 //预加载下一页数据
 function getNextList(){
   var bbUrl = bbUrlNow+"&offset="+offset;
-  //console.log(bbUrl)
   fetch(bbUrl).then(res => res.json()).then( resdata =>{
     nextDom = resdata.data
     nextLength = nextDom.length
     page++
     offset = 10*(page-1)
-    if(nextLength < 1){ //返回数据条数为 0 ，隐藏
+    if(nextLength < 1){
       document.querySelector("button.button-load").remove()
       return
     }
@@ -152,7 +162,6 @@ const fetchBBser = async () => {
     url => withTimeout(2000,fetch(url.host+"api/memo?creatorId="+url.creatorId+"&rowStatus=NORMAL&limit="+limit).then(response => response.json()).then(resdata => resdata.data))
     //url => fetch(url.host+"api/memo?creatorId="+url.creatorId+"&rowStatus=NORMAL&limit="+limit).then(response => response.json()).then(resdata => resdata.data)
   )).then(results=> {
-    //console.log(results)
     bbDom.innerHTML = ''
     for(var i=0;i < results.length;i++){
       var status = results[i].status
@@ -174,25 +183,25 @@ const fetchBBser = async () => {
       }
     }
     bbsDatas.sort(compare("updatedTs"));
-    //console.log(bbsDatas)
     updateHTMl(bbsDatas)
   })
 }
 fetchBBser()
 
-function compare(p){ //这是比较函数
+function compare(p){
   return function(m,n){
       var a = m[p];
       var b = n[p];
-      return b - a; //升序
+      return b - a;
   }
 }
+
 function uniqueFunc(arr){
   const res = new Map();
   return arr.filter((item) => !res.has(item.creator) && res.set(item.creator, 1));
 }
 
-// 插入 html 
+
 function updateHTMl(data){
   var result="",resultAll="";
   const TAG_REG = /#([^\s#]+?) /g
@@ -221,8 +230,7 @@ function updateHTMl(data){
         .replace(QQVIDEO_REG, "<div class='video-wrapper'><iframe src='//v.qq.com/iframe/player.html?vid=$1' allowFullScreen='true' frameborder='no'></iframe></div>")
         .replace(YOUKU_REG, "<div class='video-wrapper'><iframe src='https://player.youku.com/embed/$1' frameborder=0 'allowfullscreen'></iframe></div>")
         .replace(YOUTUBE_REG, "<div class='video-wrapper'><iframe src='https://www.youtube.com/embed/$1' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen title='YouTube Video'></iframe></div>")
-        
-      //console.log(bbContREG)
+      
       //解析内置资源文件
       if(data[i].resourceList && data[i].resourceList.length > 0){
         var resourceList = data[i].resourceList;
@@ -255,6 +263,7 @@ function updateHTMl(data){
       }
       result += '<li class=""><div class="bbs-avatar"><img src="'+data[i].imgsrc+'" alt=""><a href="'+data[i].url+'u/'+data[i].creatorId+'" target="_blank" rel="noopener noreferrer" class="bbs-creator">'+data[i].creator+'</a><span class="bbs-dot">·</span><span class="bbs-date">'+new Date(data[i].updatedTs * 1000).toLocaleString()+'</span></div><div class="bbs-content"><div class="bbs-text">'+bbContREG+'</div></div></li>'
   }// end for
+  
   var bbBefore = "<section class='bbs-timeline'><ul class='list'>"
   var bbAfter = "</ul></section>"
   resultAll = bbBefore + result + bbAfter
