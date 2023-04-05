@@ -116,11 +116,12 @@ function updateHTMl(data){
         for(var j=0;j < resourceList.length;j++){
           var restype = resourceList[j].type.slice(0,5)
           var resexlink = resourceList[j].externalLink
-          var resLink = ''
+          var resLink = '',fileId=''
           if(resexlink){
             resLink = resexlink
           }else{
-            resLink = memos+'o/r/'+resourceList[j].id+'/'+resourceList[j].filename
+            fileId = resourceList[j].publicId || resourceList[j].filename
+            resLink = memos+'o/r/'+resourceList[j].id+'/'+fileId
           }
           if(restype == 'image'){
             imgUrl += '<figure class="gallery-thumbnail"><img class="img thumbnail-image" src="'+resLink+'"/></figure>'
