@@ -2,64 +2,67 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-    let limit = 8
-    var memoUrl = "https://me.edui.fun/"
-    //var creatorId = 101
-    //var galleryUrl = memoUrl+"api/memo?creatorId="+creatorId+"&rowStatus=NORMAL&limit="+limit+"&tag=相册"
-    var galleryUrl = memoUrl+"api/memo/all?rowStatus=NORMAL&limit="+limit+"&tag=相册"
-    let nowNum = 1;
-    fetch(galleryUrl).then(res => res.json()).then( resdata =>{
-        var result = '',resultAll="",data = resdata.data
-        for(var i=0;i < data.length;i++){
-            var galleryTitle = data[i].content.replace("#相册 ",'')
-            var imgs = galleryTitle.match(/\!\[(.*?)\s*(.*?)\]\((.*?)\)/g)
-            //解析 content 内 md 格式图片
-            if(imgs){
-              imgs.forEach(item => {
-                if(nowNum < limit ){
+  memoAlbum()
+});
+function memoAlbum(numb){
+  let limit = numb || 8;
+  var memoUrl = "https://me.edui.fun/"
+  //var creatorId = 101
+  //var galleryUrl = memoUrl+"api/memo?creatorId="+creatorId+"&rowStatus=NORMAL&limit="+limit+"&tag=相册"
+  var galleryUrl = memoUrl+"api/memo/all?rowStatus=NORMAL&limit="+limit+"&tag=相册"
+  let nowNum = 1;
+  fetch(galleryUrl).then(res => res.json()).then( resdata =>{
+      var result = '',resultAll="",data = resdata.data
+      for(var i=0;i < data.length;i++){
+          var galleryTitle = data[i].content.replace("#相册 ",'')
+          var imgs = galleryTitle.match(/\!\[(.*?)\s*(.*?)\]\((.*?)\)/g)
+          //解析 content 内 md 格式图片
+          if(imgs){
+            imgs.forEach(item => {
+              if(nowNum < limit ){
+                nowNum ++
+                let img = item.replace(/!\[.*?\]\((.*?)\)/g,'$1'),
+                    time, title, tmp = item.replace(/!\[(.*?)\]\(.*?\)/g,'$1');
+                if (tmp.indexOf(' ') != -1) {
+                    time = tmp.split(' ')[0];
+                    title = tmp.split(' ')[1];
+                } else title = tmp
+                result += `<div class="memos-photo"><img class="photo-img" loading='lazy' decoding="async" src="${img}"></a>`;
+                title ? result += `<span class="photo-title">${title}</span>` : '';
+                time ? result += `<span class="photo-time">${time}</span>` : '';
+                result += `</div>`;
+              }
+            });
+          }
+          //解析内置资源文件
+          if(data[i].resourceList && data[i].resourceList.length > 0){
+            var resourceList = data[i].resourceList;
+            for(var j=0;j < resourceList.length;j++){
+              var galleryTime = new Date(resourceList[j].createdTs * 1000).toLocaleString()
+              var restype = resourceList[j].type.slice(0,5);
+              var resexlink = resourceList[j].externalLink
+              var resLink = ''
+              if(resexlink){
+                resLink = resexlink
+              }else{
+                resLink = memoUrl+'o/r/'+resourceList[j].id+'/'+resourceList[j].filename
+              }
+              if(restype == 'image' && nowNum <= limit ){
                   nowNum ++
-                  let img = item.replace(/!\[.*?\]\((.*?)\)/g,'$1'),
-                      time, title, tmp = item.replace(/!\[(.*?)\]\(.*?\)/g,'$1');
-                  if (tmp.indexOf(' ') != -1) {
-                      time = tmp.split(' ')[0];
-                      title = tmp.split(' ')[1];
-                  } else title = tmp
-                  result += `<div class="memos-photo"><img class="photo-img" loading='lazy' decoding="async" src="${img}"></a>`;
-                  title ? result += `<span class="photo-title">${title}</span>` : '';
-                  time ? result += `<span class="photo-time">${time}</span>` : '';
-                  result += `</div>`;
-                }
-              });
-            }
-            //解析内置资源文件
-            if(data[i].resourceList && data[i].resourceList.length > 0){
-              var resourceList = data[i].resourceList;
-              for(var j=0;j < resourceList.length;j++){
-                var galleryTime = new Date(resourceList[j].createdTs * 1000).toLocaleString()
-                var restype = resourceList[j].type.slice(0,5);
-                var resexlink = resourceList[j].externalLink
-                var resLink = ''
-                if(resexlink){
-                  resLink = resexlink
-                }else{
-                  resLink = memoUrl+'o/r/'+resourceList[j].id+'/'+resourceList[j].filename
-                }
-                if(restype == 'image' && nowNum <= limit ){
-                    nowNum ++
-                    result += '<div class="memos-photo"><img class="photo-img" loading="lazy" decoding="async" src="'+resLink+'"/><span class="photo-title">'+galleryTitle+'</span><span class="photo-time">'+galleryTime+'</span></div>'
-                }
+                  result += '<div class="memos-photo"><img class="photo-img" loading="lazy" decoding="async" src="'+resLink+'"/><span class="photo-title">'+galleryTitle+'</span><span class="photo-time">'+galleryTime+'</span></div>'
               }
             }
-        }
-        var galleryDom = document.querySelector('#album');
-        var galleryBefore = `<div class="memos-photo-wrapper">`
-        var galleryAfter = `</div>`
-        resultAll = galleryBefore + result + galleryAfter
-        galleryDom.innerHTML = resultAll
-        //相对时间
-        window.Lately && Lately.init({ target: '.photo-time'});
-    });
-});
+          }
+      }
+      var galleryDom = document.querySelector('#album');
+      var galleryBefore = `<div class="memos-photo-wrapper">`
+      var galleryAfter = `</div>`
+      resultAll = galleryBefore + result + galleryAfter
+      galleryDom.innerHTML = resultAll
+      //相对时间
+      window.Lately && Lately.init({ target: '.photo-time'});
+  });
+}
 </script>
 
 <style>
