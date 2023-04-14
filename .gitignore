@@ -3,3 +3,4 @@
 .gitignore
 public
 .obsidian
+node_modules
