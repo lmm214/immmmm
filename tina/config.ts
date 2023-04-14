@@ -5,11 +5,11 @@ const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "main";
 
 export default defineConfig({
   branch,
-  clientId: ${{ secrets.tina_clientId }}, // Get this from tina.io
-  token: ${{ secrets.tina_token }}, // Get this from tina.io
+  clientId: null, // Get this from tina.io
+  token: null, // Get this from tina.io
 
   build: {
-    outputFolder: "tina",
+    outputFolder: "admin",
     publicFolder: "static",
   },
   media: {
@@ -21,16 +21,9 @@ export default defineConfig({
   schema: {
     collections: [
       {
-        name: "chat",
-        label: "词穷",
-        path: "content/posts/chat",
-        defaultItem: () => {
-          return {
-            title: new Date().toISOString(),
-            date: new Date().toISOString(),
-            tags: '[词穷]'
-          }
-        },
+        name: "post",
+        label: "Posts",
+        path: "content/posts",
         fields: [
           {
             type: "string",
@@ -38,127 +31,6 @@ export default defineConfig({
             label: "Title",
             isTitle: true,
             required: true,
-          },
-          {
-            type: "string",
-            name: "date",
-            label: "Date"
-          },
-          {
-            label: "Tags",
-            name: "tags",
-            type: "string",
-          },
-          {
-            type: "rich-text",
-            name: "body",
-            label: "Body",
-            isBody: true,
-          },
-        ],
-      },
-      {
-        name: "daily",
-        label: "日常",
-        path: "content/posts/daily",
-        defaultItem: () => {
-          return {
-            title: new Date().toISOString(),
-            date: new Date().toISOString(),
-            tags: '[日常]'
-          }
-        },
-        fields: [
-          {
-            type: "string",
-            name: "title",
-            label: "Title",
-            isTitle: true,
-            required: true,
-          },
-          {
-            type: "string",
-            name: "date",
-            label: "Date"
-          },
-          {
-            label: "Tags",
-            name: "tags",
-            type: "string",
-          },
-          {
-            type: "rich-text",
-            name: "body",
-            label: "Body",
-            isBody: true,
-          },
-        ],
-      },
-      {
-        name: "coding",
-        label: "折腾",
-        path: "content/posts/coding",
-        defaultItem: () => {
-          return {
-            title: new Date().toISOString(),
-            date: new Date().toISOString(),
-            tags: '[折腾]'
-          }
-        },
-        fields: [
-          {
-            type: "string",
-            name: "title",
-            label: "Title",
-            isTitle: true,
-            required: true,
-          },
-          {
-            type: "string",
-            name: "date",
-            label: "Date"
-          },
-          {
-            label: "Tags",
-            name: "tags",
-            type: "string",
-          },
-          {
-            type: "rich-text",
-            name: "body",
-            label: "Body",
-            isBody: true,
-          },
-        ],
-      },
-      {
-        name: "reading",
-        label: "育人",
-        path: "content/posts/reading",
-        defaultItem: () => {
-          return {
-            title: new Date().toISOString(),
-            date: new Date().toISOString(),
-            tags: '[育人]'
-          }
-        },
-        fields: [
-          {
-            type: "string",
-            name: "title",
-            label: "Title",
-            isTitle: true,
-            required: true,
-          },
-          {
-            type: "string",
-            name: "date",
-            label: "Date"
-          },
-          {
-            label: "Tags",
-            name: "tags",
-            type: "string",
           },
           {
             type: "rich-text",
