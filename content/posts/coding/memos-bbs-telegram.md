@@ -42,6 +42,7 @@ https://memos.wiki-power.com/u/1/rss.xml
 https://b.lms.im/u/1/rss.xml
 https://memos.xrat.net/u/2/rss.xml
 https://mome.cyuanx.icu/u/1/rss.xml
+https://m.leonus.cn/u/1/rss.xml
 ```
 
 ### 报错
@@ -51,6 +52,7 @@ https://bb.elizen.me/u/101/rss.xml
 https://bb.seersu.top/u/101/rss.xml
 https://memos.koobai.com/u/1/rss.xml
 https://memos.vlieo.com/u/1/rss.xml
+https://memos.nuoea.com/u/101/rss.xml
 ```
 
 有意向的小伙伴，欢迎丢 rss 链接～
