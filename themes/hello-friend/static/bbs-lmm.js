@@ -20,6 +20,7 @@ const urls = [
   {host:"https://memos.noionion.cn/",creatorId:"1",imgsrc:"https://cravatar.cn/avatar/d240a727ea154be465796ef2644aac16"},
   {host:"https://qzone.boyhu.cn/",creatorId:"101",imgsrc:"https://cravatar.cn/avatar/55be217893c75baf8571837197de4a3e"},
   {host:"https://me.chenplus.com/",creatorId:"101",imgsrc:"https://chenyyds.com/avatar.png"},
+  {host:"https://memos.nuoea.com/",creatorId:"101",imgsrc:"https://cravatar.cn/avatar/020d365ea2596ef6d516143bb0552704"},
   {host:"https://memos.life97.top/",creatorId:"101",imgsrc:"https://cravatar.cn/avatar/d41d8cd98f00b204e9800998ecf8427e"},
   {host:"https://memos.1900.live/",creatorId:"101",imgsrc:"https://cravatar.cn/avatar/cc38267b10cc25dfc62209f8ca34589e"},
   {host:"https://bb.seersu.top/",creatorId:"101",imgsrc:"https://cravatar.cn/avatar/84b712148a63b44dd97ede997bc3efa5"},
