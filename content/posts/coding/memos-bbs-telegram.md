@@ -43,6 +43,7 @@ https://b.lms.im/u/1/rss.xml
 https://memos.xrat.net/u/2/rss.xml
 https://mome.cyuanx.icu/u/1/rss.xml
 https://m.leonus.cn/u/1/rss.xml
+https://say.veryjack.com/u/1/rss.xml
 ```
 
 ### 报错
