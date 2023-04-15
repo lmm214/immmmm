@@ -148,6 +148,8 @@ function updateHTMl(data){
   bbDom.insertAdjacentHTML('beforeend', resultAll);
   
   document.querySelector('button.button-load').textContent= '加载更多';
+  //渲染豆瓣
+  fetchDB()
   //图片灯箱
   window.ViewImage && ViewImage.init('.datacont img')
   //相对时间

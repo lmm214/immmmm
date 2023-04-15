@@ -274,6 +274,8 @@ function updateHTMl(data){
   if(btn){
     btn.textContent= '加载更多';
   }
+  //渲染豆瓣
+  fetchDB()
   //图片灯箱
   window.ViewImage && ViewImage.init('.bbs-content img')
   //相对时间
