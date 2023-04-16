@@ -36,7 +36,8 @@ const urls = [
   {host:"https://memos.xrat.net/",creatorId:"2",imgsrc:"https://cravatar.cn/avatar/0ab677e14d21d941f64d98192d6168e7"},
   {host:"https://mome.cyuanx.icu/",creatorId:"1",imgsrc:"https://www.cyuanx.icu/wp-content/uploads/2023/03/cropped-07b4b32029661fd9ce1200ac9b937f1.jpg"},
   {host:"https://m.leonus.cn/",creatorId:"1",imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=cZKBhtxe2iaxjSfbVYiaFgoQ&kti=Y9x6QwAAAAI&s=140&t=1672836908"},
-  {host:"https://say.veryjack.com/",creatorId:"1",imgsrc:"https://cravatar.cn/avatar/7a41a0e8e1df8e964fa1268193b03508"}
+  {host:"https://say.veryjack.com/",creatorId:"1",imgsrc:"https://cravatar.cn/avatar/7a41a0e8e1df8e964fa1268193b03508"},
+  {host:"https://memo.eirms.com/",creatorId:"1",imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=6bLfAytyUI7daRuxat0XxA&kti=ZDt5CwAAAAA&s=140&t=1646284093"}
 ]
 
 var bbDom = document.querySelector('#bbs');
