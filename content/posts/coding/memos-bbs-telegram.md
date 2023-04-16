@@ -58,4 +58,8 @@ https://memos.vlieo.com/u/1/rss.xml
 https://memos.nuoea.com/u/101/rss.xml
 ```
 
+### 招募
+
 有意向的小伙伴，欢迎丢 rss 链接～
+
+建议 Memos 进后台：设置 —— 系统 —— 服务名称，修改为自己昵称或站点名。
