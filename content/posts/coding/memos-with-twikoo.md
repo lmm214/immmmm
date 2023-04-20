@@ -5,7 +5,7 @@ tags: [折腾]
 feature: https://r2.immmmm.com/2023/04/memos-twikoo.png
 ---
 
-欢迎在线围观：<https://me.edui.fun/m/1531>
+欢迎在线围观：<https://me.edui.fun/m/1532>
 
 受 [@Damon](https://hanyu.cool/) 启发，给 Memos 增加了 Twikoo 评论。不过与之不同的是集成到自己的「自定义脚本」里。
 
