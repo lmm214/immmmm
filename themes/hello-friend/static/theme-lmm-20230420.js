@@ -50,7 +50,7 @@
   }
 //文章内显示豆瓣条目 https://immmmm.com/post-show-douban-item/
 var dbAPI = "https://douban-api.edui.fun/";
-var dbA = document.querySelectorAll(".post-content a[href*='douban.com/subject/']") || '';
+var dbA = document.querySelectorAll(".post-content a[href*='douban.com/subject/']:not([rel='noreferrer'])") || '';
 if(dbA){
   for(var i=0;i < dbA.length;i++){
     _this = dbA[i]
