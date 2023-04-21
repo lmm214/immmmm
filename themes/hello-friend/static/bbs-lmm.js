@@ -103,6 +103,7 @@ function urlsNow(e){
       for(var j=0;j < resdata.data.length;j++){
             var resValue = resdata.data[j]
             bbsData = {
+              memoId: resValue.id,
               updatedTs: resValue.updatedTs,
               creatorId:resValue.creatorId,
               creator: resValue.creatorName || resValue.creator.nickname || resValue.creator.name,
@@ -177,6 +178,7 @@ const fetchBBser = async () => {
         for(var j=0;j < resultsRes.length;j++){
           var resValue = resultsRes[j]
           bbsData = {
+            memoId: resValue.id,
             updatedTs: resValue.updatedTs,
             creatorId:resValue.creatorId,
             creator: resValue.creatorName || resValue.creator.nickname || resValue.creator.name,
@@ -225,8 +227,8 @@ function updateHTMl(data){
   });
 
   for(var i=0;i < data.length;i++){
-      //console.log(data[i].content)
       var memos = data[i].url
+      var memoUrl = memos + "m/" + data[i].memoId
       var bbContREG = data[i].content
         .replace(TAG_REG, "<span class='tag-span'>#$1</span> ")
         
@@ -269,7 +271,7 @@ function updateHTMl(data){
           bbContREG += '<div class="resour">'+resUrl+'</div>'
         }
       }
-      result += '<li class=""><div class="bbs-avatar"><img src="'+data[i].imgsrc+'" alt=""><a href="'+data[i].url+'u/'+data[i].creatorId+'" target="_blank" rel="noopener noreferrer" class="bbs-creator">'+data[i].creator+'</a><span class="bbs-dot">·</span><span class="bbs-date">'+new Date(data[i].updatedTs * 1000).toLocaleString()+'</span></div><div class="bbs-content"><div class="bbs-text">'+bbContREG+'</div></div></li>'
+      result += '<li class=""><div class="bbs-avatar"><img src="'+data[i].imgsrc+'" alt=""><a href="'+memoUrl+'" target="_blank" rel="noopener noreferrer" class="bbs-creator">'+data[i].creator+'</a><span class="bbs-dot">·</span><span class="bbs-date">'+new Date(data[i].updatedTs * 1000).toLocaleString()+'</span></div><div class="bbs-content"><div class="bbs-text">'+bbContREG+'</div></div></li>'
   }// end for
   
   var bbBefore = "<section class='bbs-timeline'><ul class='list'>"
