@@ -49,7 +49,7 @@ function startTwikoo() {
           twikoo.init({
             envId: twikooENV,
             el: '#mtcomment',
-            path: location.href,
+            path: nowHref.replace(/^(.*\/m\/[0-9]+).*$/,'$1'),
             onCommentLoaded: function () {
               //console.log('评论加载完成');
               startTwikoo()
