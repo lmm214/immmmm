@@ -41,7 +41,7 @@ const urls = [
   {host:"https://memos.cmsblog.cn/",creatorId:"1",comment:'',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=fcgI8ibPhO3zz3IvgL4bl7Q&kti=ZDuqEgAAAAI&s=140&t=1556624886"},
   {host:"https://www.forevers.love/",creatorId:"1",comment:'',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=ibHiaOLTgWctyNtR2EdVOvHA&kti=ZDvk_QAAAAE&s=140&t=1673516322"},
   {host:"https://me.isolitude.cn/",creatorId:"1",comment:'1',imgsrc:"https://cravatar.cn/avatar/924916294598a950bb80d78012dc3aac"},
-  {host:"https://memos.xzgljiang.com/",creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/a892fd3321ab65a1c5d9c7a54a04c881"},
+  {host:"https://memos.xzgljiang.com/",creatorId:"1",comment:'1',imgsrc:"https://cravatar.cn/avatar/a892fd3321ab65a1c5d9c7a54a04c881"},
   {host:"https://memos.roccoshi.top/",creatorId:"1",comment:'',imgsrc:"https://youpai.roccoshi.top/img/avatar.jpg"},
   {host:"https://note.l22.org/",creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/4b0d33a08ac73dc07a5293f14232ca53"},
   {host:"https://note.zdm.im/",creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/d41d8cd98f00b204e9800998ecf8427e"}
