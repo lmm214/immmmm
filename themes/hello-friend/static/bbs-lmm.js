@@ -20,7 +20,7 @@ const urls = [
   {host:"https://memos.noionion.cn/",creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/d240a727ea154be465796ef2644aac16"},
   {host:"https://qzone.boyhu.cn/",creatorId:"101",comment:'',imgsrc:"https://cravatar.cn/avatar/55be217893c75baf8571837197de4a3e"},
   {host:"https://me.chenplus.com/",creatorId:"101",comment:'1',imgsrc:"https://chenyyds.com/avatar.png"},
-  {host:"https://memos.nuoea.com/",creatorId:"101",comment:'',imgsrc:"https://cravatar.cn/avatar/020d365ea2596ef6d516143bb0552704"},
+  {host:"https://memos.nuoea.com/",creatorId:"101",comment:'1',imgsrc:"https://cravatar.cn/avatar/020d365ea2596ef6d516143bb0552704"},
   {host:"https://memos.life97.top/",creatorId:"101",comment:'',imgsrc:"https://cravatar.cn/avatar/d41d8cd98f00b204e9800998ecf8427e"},
   {host:"https://memos.1900.live/",creatorId:"101",comment:'',imgsrc:"https://cravatar.cn/avatar/cc38267b10cc25dfc62209f8ca34589e"},
   {host:"https://bb.seersu.top/",creatorId:"101",comment:'1',imgsrc:"https://cravatar.cn/avatar/84b712148a63b44dd97ede997bc3efa5"},
@@ -56,9 +56,10 @@ var page = 1,offset = 0,nextLength = 0,nextDom='',bbUrlNow = '',imgsrcNow = '',h
 bbDom.innerHTML = loading
 allUrls()
 function allUrls(){
+  //console.log(urls)
   var myHtml = ''
   for(var i=0;i < urls.length;i++){
-    myHtml += '<div class="bbs-urls " onclick="urlsNow(this)" data-host="'+urls[i].host+'" data-creatorId="'+urls[i].creatorId+'" data-imgsrc="'+urls[i].imgsrc+'" data-comment="'+urls[i].comment+'" data-index="'+i+'"><img src="'+urls[i].imgsrc+'" alt=""></div>'
+    myHtml += '<div class="bbs-urls bbs-url" onclick="urlsNow(this)" data-hostid="'+urls[i].host+"u/"+urls[i].creatorId+'" data-host="'+urls[i].host+'" data-creatorId="'+urls[i].creatorId+'" data-imgsrc="'+urls[i].imgsrc+'" data-comment="'+urls[i].comment+'" data-index="'+i+'"><img src="'+urls[i].imgsrc+'" alt=""></div>'
   }
   myHtml += '<div class="bbs-urls urls-button" onclick="urlsNow(this)" data-type="random"><svg t="1665928089691" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2562" width="32" height="32"><path d="M913.2 672l98.8 57.1c5.3 3.1 5.3 10.8 0 13.9l-43.4 25L710.4 924c-2.7 1.5-6-0.4-6-3.5V772c0-2.2-1.8-4-4-4H544c-70.4 0-134.4-28.8-180.8-75.2-11.1-11.1-21.2-23.2-30.1-36.1-6.4-9.2-20-9.1-26.4 0.1C260.5 723.9 183.1 768 96 768h-48c-26.5 0-48-21.5-48-48s21.5-48 48-48h48c42.5 0 82.6-16.7 112.9-47.1 30.4-30.4 47.1-70.5 47.1-112.9s-16.7-82.6-47.1-112.9C178.6 368.7 138.4 352 96 352h-48c-26.5 0-48-21.5-48-48s21.5-48 48-48h48c70.4 0 134.4 28.8 180.8 75.2 11.1 11.1 21.2 23.2 30.1 36.1 6.4 9.2 20 9.1 26.4-0.1 46.3-67 123.6-111.1 210.8-111.1H700.4c2.2 0 4-1.8 4-4V103.4c0-3.1 3.3-5 6-3.5l258.2 156 43.4 25.1c5.3 3.1 5.3 10.8 0 13.9L913.2 352 710.4 476c-2.7 1.5-6-0.4-6-3.5V356c0-2.2-1.8-4-4-4H544c-42.5 0-82.6 16.7-112.9 47.1-30.4 30.4-47.1 70.5-47.1 112.9 0 42.5 16.7 82.6 47.1 112.9C461.4 655.3 501.5 672 544 672H700.4c2.2 0 4-1.8 4-4V551.4c0-3.1 3.3-5 6-3.5L913.2 672z" p-id="2563" fill="#f5f5f5"></path></svg></div>'
   myHtml += '<div class="bbs-urls urls-button"><a href="https://immmmm.com/bbs-by-memos/"><svg t="1665929410343" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6308" width="32" height="32"><path d="M906.212134 565.732986 565.732986 565.732986 565.732986 906.212134C565.732986 926.013685 541.666486 959.972 511.97312 959.972 482.297674 959.972 458.213254 926.013685 458.213254 906.212134L458.213254 565.732986 117.734106 565.732986C97.950475 565.732986 63.97424 541.666486 63.97424 511.97312 63.97424 482.279754 97.950475 458.213254 117.734106 458.213254L458.213254 458.213254 458.213254 117.734106C458.213254 97.950475 482.297674 63.97424 511.97312 63.97424 541.666486 63.97424 565.732986 97.950475 565.732986 117.734106L565.732986 458.213254 906.212134 458.213254C925.995765 458.213254 959.972 482.279754 959.972 511.97312 959.972 541.666486 925.995765 565.732986 906.212134 565.732986Z" p-id="6309" fill="#f5f5f5"></path></svg></a></div>'
@@ -174,9 +175,17 @@ const withTimeout = (millis, promise) => {
 const fetchBBser = async () => {
   const results = await Promise.allSettled(urls.map(
     //限时
-    url => withTimeout(2000,fetch(url.host+"api/memo?creatorId="+url.creatorId+"&rowStatus=NORMAL&limit="+limit).then(response => response.json()).then(resdata => resdata.data))
+    url => withTimeout(2000,
+      fetch(url.host+"api/memo?creatorId="+url.creatorId+"&rowStatus=NORMAL&limit="+limit).then(response => response.json()).then(resdata => {
+        //console.log(url.host)
+        var qsLive = ".bbs-urls.bbs-url[data-hostid='"+url.host+"u/"+url.creatorId+"']"
+        document.querySelector(qsLive).classList.add("liveon");
+        return resdata.data
+      })
+    )
     //url => fetch(url.host+"api/memo?creatorId="+url.creatorId+"&rowStatus=NORMAL&limit="+limit).then(response => response.json()).then(resdata => resdata.data)
   )).then(results=> {
+    //console.log(urls)
     bbDom.innerHTML = ''
     for(var i=0;i < results.length;i++){
       var status = results[i].status

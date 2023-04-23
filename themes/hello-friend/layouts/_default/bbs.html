@@ -6,9 +6,20 @@
 <style>
 #bbs{padding: 2rem 0;}
 #bbs-urls{margin-top: 2rem;}
-.bbs-urls{display:inline-block;background: #4a4b50;border-radius:50%;margin:0 .4rem 5px 0;padding:4px;width:3rem;height:3rem;cursor: pointer;}
+.bbs-urls{position: relative;display:inline-block;background: #eaeaea;border-radius:50%;margin:0 .4rem 5px 0;padding:3px;width:3rem;height:3rem;cursor: pointer;}
+.dark .bbs-urls,.dark .bbs-url:before{background:#4a4b50;}
+.bbs-url:before{content:"";background:#eaeaea;width:5px;height:5px;border-radius:50%;position:absolute;top:0;right:0;}
+.bbs-url.liveon:before{background:#42b983;animation-name: light-a;animation-duration:2s;animation-timing-function: linear;animation-iteration-count: infinite;animation-direction: alternate;}
+@keyframes light-a {
+  from{opacity:0.6}
+  to{opacity:0.1;}
+}
+@keyframes light-b {
+  from{opacity:1}
+  to{opacity:0.4;}
+}
 .bbs-urls img{border-radius:50%;width:100%;height:100%;}
-.bbs-urls.url-now{background:#42b983;transition: 0.6s;}
+.bbs-urls.url-now{background:#42b983;transition: 0.6s;animation-name: light-b;animation-duration:1s;animation-timing-function: linear;animation-iteration-count: infinite;animation-direction: alternate;}
 .urls-button svg.icon{padding:10px;width:100%;height: 100%;}
 .bbs-timeline ul {margin:0;}
 .bbs-timeline ul li{list-style-type:none;position:relative;}
