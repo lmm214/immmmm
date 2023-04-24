@@ -44,7 +44,8 @@ const urls = [
   {host:"https://memos.xzgljiang.com/",creatorId:"1",comment:'1',imgsrc:"https://cravatar.cn/avatar/a892fd3321ab65a1c5d9c7a54a04c881"},
   {host:"https://memos.roccoshi.top/",creatorId:"1",comment:'',imgsrc:"https://youpai.roccoshi.top/img/avatar.jpg"},
   {host:"https://note.l22.org/",creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/4b0d33a08ac73dc07a5293f14232ca53"},
-  {host:"https://note.zdm.im/",creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/d41d8cd98f00b204e9800998ecf8427e"}
+  {host:"https://note.zdm.im/",creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/d41d8cd98f00b204e9800998ecf8427e"},
+  {host:"https://memos.dongjunke.cn/",creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/42542189ddb33064599dc88a5149bea7"}
 ]
 
 var bbDom = document.querySelector('#bbs');
