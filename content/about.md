@@ -230,7 +230,7 @@ Gridea 主题：[「Motify」](https://github.com/lmm214/gridea-theme-motify)、
 
 {{< friend des="" url="https://easyf12.top/" src="https://img.easyf12.top/images/2022/10/15/634a8b4186889.webp" name="一蓑烟雨" >}}
 
-{{< friend des="" url="https://wananaiko.design/" md5="11e15a8d264f1110f822ef2c55eeb965" name="wananaiko" >}}
+{{< friend des="" url="https://wananaiko.com/" md5="11e15a8d264f1110f822ef2c55eeb965" name="wananaiko" >}}
 
 {{< friend des="" url="https://wangyunzi.com/" md5="c1b204bab687a23c8b6d7c8de11c7c59" name="王云子" >}}
 
