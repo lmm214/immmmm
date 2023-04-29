@@ -41,11 +41,12 @@ function memoAlbum(numb){
               var galleryTime = new Date(resourceList[j].createdTs * 1000).toLocaleString()
               var restype = resourceList[j].type.slice(0,5);
               var resexlink = resourceList[j].externalLink
-              var resLink = ''
+              var resLink = '',fileId=''
               if(resexlink){
                 resLink = resexlink
               }else{
-                resLink = memoUrl+'o/r/'+resourceList[j].id+'/'+resourceList[j].filename
+                fileId = resourceList[j].publicId || resourceList[j].filename
+                resLink = memoUrl+'o/r/'+resourceList[j].id+'/'+fileId
               }
               if(restype == 'image' && nowNum <= limit ){
                   nowNum ++
