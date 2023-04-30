@@ -21,11 +21,15 @@ Long long ago，看到过这几个字符 「Rime」，但看到配置后就摊�
 
 [Windows 安装 Rime 小狼毫五笔拼音输入法 - 大大的小蜗牛](https://eallion.com/weasel/) 
 
+实用技巧：v 开头，symbols。
+
 ### Buff 2
 
 iOS 输入法 `仓输入法`： [从 macOS 到 iPhone 全面拥抱 RIME 输入法 - Geek](https://x.geekbb.ml/RIME) 
 
 拼音词库： [iDvel/rime-ice: Rime 配置：雾凇拼音 | 长期维护的简体词库](https://github.com/iDvel/rime-ice) 
+
+实用技巧：u 开头，两分拼字。
 
 ### 其它
 
