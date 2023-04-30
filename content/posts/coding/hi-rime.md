@@ -2,7 +2,7 @@
 title: "Hi，Rime"
 date: 2023-04-30T08:43:20+0800
 tags: [折腾]
-feature: https://r2.immmmm.com/2023/04/rime.jpg
+feature: https://r2.immmmm.com/2023/04/rime.png
 ---
 
 Long long ago，看到过这几个字符 「Rime」，但看到配置后就摊手说再见。
@@ -17,8 +17,6 @@ Long long ago，看到过这几个字符 「Rime」，但看到配置后就摊�
 
 ### Buff 1
 
-自定义符号表 `mysymbols.yaml` ，来自 @eallion。
-
 [Windows 安装 Rime 小狼毫五笔拼音输入法 - 大大的小蜗牛](https://eallion.com/weasel/) 
 
 实用技巧：v 开头，symbols。
@@ -30,6 +28,10 @@ iOS 输入法 `仓输入法`： [从 macOS 到 iPhone 全面拥抱 RIME 输入�
 拼音词库： [iDvel/rime-ice: Rime 配置：雾凇拼音 | 长期维护的简体词库](https://github.com/iDvel/rime-ice) 
 
 实用技巧：u 开头，两分拼字。
+
+### 详解
+
+[Rime Squirrel 鼠须管输入法配置详解 - 三十年河東(SSNHD.COM)-博客、分享](https://ssnhd.com/2022/01/06/rime/)
 
 ### 其它
 
