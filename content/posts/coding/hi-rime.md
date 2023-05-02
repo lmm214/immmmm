@@ -19,7 +19,9 @@ Long long ago，看到过这几个字符 「Rime」，但看到配置后就摊�
 
 Windows 系统推荐 @eallion 写的这篇 [Windows 安装 Rime 小狼毫五笔拼音输入法](https://eallion.com/weasel/) 。
 
-iPhone 安装 Rime `仓输入法` ： [从 macOS 到 iPhone 全面拥抱 RIME 输入法 - Geek](https://x.geekbb.ml/RIME) 
+iPhone  `仓输入法` ： [imfuxiao/Hamster](https://github.com/imfuxiao/Hamster) （[如何导入"雾淞拼音输入方案"](https://github.com/imfuxiao/Hamster/wiki/%E5%A6%82%E4%BD%95%E5%AF%BC%E5%85%A5%22%E9%9B%BE%E6%B7%9E%E6%8B%BC%E9%9F%B3%E8%BE%93%E5%85%A5%E6%96%B9%E6%A1%88%22)）
+
+多端安装教程：[从 macOS 到 iPhone 全面拥抱 RIME 输入法 - Geek](https://x.geekbb.ml/RIME) 
 
 雾凇拼音仓库： [iDvel/rime-ice: Rime 配置：雾凇拼音 | 长期维护的简体词库](https://github.com/iDvel/rime-ice) 
 
