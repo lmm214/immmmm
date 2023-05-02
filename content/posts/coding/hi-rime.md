@@ -15,24 +15,86 @@ Long long ago，看到过这几个字符 「Rime」，但看到配置后就摊�
 
 <!--more-->
 
-### Buff 1
+### 更多教程
 
-[Windows 安装 Rime 小狼毫五笔拼音输入法 - 大大的小蜗牛](https://eallion.com/weasel/) 
+Windows 系统推荐 @eallion 写的这篇 [Windows 安装 Rime 小狼毫五笔拼音输入法](https://eallion.com/weasel/) 。
 
-实用技巧：v 开头，symbols。
+iPhone 安装 Rime `仓输入法` ： [从 macOS 到 iPhone 全面拥抱 RIME 输入法 - Geek](https://x.geekbb.ml/RIME) 
 
-### Buff 2
+雾凇拼音仓库： [iDvel/rime-ice: Rime 配置：雾凇拼音 | 长期维护的简体词库](https://github.com/iDvel/rime-ice) 
 
-iOS 输入法 `仓输入法`： [从 macOS 到 iPhone 全面拥抱 RIME 输入法 - Geek](https://x.geekbb.ml/RIME) 
+配置详解：[鼠须管输入法配置详解 - 三十年河東](https://ssnhd.com/2022/01/06/rime/)
 
-拼音词库： [iDvel/rime-ice: Rime 配置：雾凇拼音 | 长期维护的简体词库](https://github.com/iDvel/rime-ice) 
+### 实用技巧
 
-实用技巧：u 开头，两分拼字。
+`v 开头`，symbols 字符，可自定义。具体见 [symbols_v.yaml](https://github.com/iDvel/rime-ice/blob/main/symbols_v.yaml)。
 
-### 详解
+![image.png](https://r2.immmmm.com/2023/05/20230502155915.png)
 
-[Rime Squirrel 鼠须管输入法配置详解 - 三十年河東(SSNHD.COM)-博客、分享](https://ssnhd.com/2022/01/06/rime/)
+`u 开头`，两分拼字，弥补不知道拼音时的尴尬。😅
 
-### 其它
+![iShot_2023-05-02_16.01.47.png](https://r2.immmmm.com/2023/05/iShot_2023-05-02_16.01.47.png)
+
+`rq` `sj` `xq` `dt` `ts`，时间日期快捷输入。
+
+```
+date: rq       # 日期： 2022-11-29
+time: sj       # 时间： 18:13
+week: xq       # 星期： 星期二
+datetime: dt   # ISO 8601： 2022-11-29T18:13:11+08:00
+timestamp: ts  # 时间戳： 1669716794
+```
+
+### 个人配置
 
 其实，最初安装 Rime 原动力来自于「微信输入法」的蓝皮肤 🤭
+
+#### 启用微信蓝皮肤
+
+`squirrel.custom.yaml` 文件内第 24、25行 `color_scheme: wechat_light`
+
+#### 横竖排修改
+
+同文件内，修改皮肤下的 `candidate_list_layout` 为 `stacked`，而不是 `style` 下的。
+
+#### 自定义短语
+
+修改 `custom_phrase.txt` 内容，可以清空换成自己的。
+
+注意，短语和缩写之间是 Tab，不是空格。
+
+```
+林木木	lmm
+https://immmmm.com	im
+<!--more-->	mr
+```
+
+#### 去除双拼方案
+
+`default.yaml` 只保留：
+
+```
+schema_list:
+  - schema: rime_ice
+```
+
+根目录下 double 开头的文件也可以删去，去除之后 iPhone 加载输入法好似快了一点点。
+
+#### 模糊音修改
+
+`rime_ice.schema.yaml` 文件修改中。
+
+### 图片备查
+
+#### Rime 配置详解经典图
+
+![rime-4.png](https://r2.immmmm.com/2023/05/rime-4.png)
+
+
+#### 皮肤配色效果图
+
+![rime-3.png](https://r2.immmmm.com/2023/05/rime-3.png)
+
+#### 皮肤、文字横竖排效果预览
+
+![rime-2.png](https://r2.immmmm.com/2023/05/rime-2.png)
