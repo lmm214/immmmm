@@ -21,7 +21,7 @@
                       time = tmp.split(' ')[0];
                       title = tmp.split(' ')[1];
                   } else title = tmp
-                  result += `<div class="gallery-photo"><img class="photo-img" loading='lazy' decoding="async" src="${img}"></a>`;
+                  result += `<div class="gallery-photo visible"><img class="photo-img" loading='lazy' decoding="async" src="${img}"></a>`;
                   title ? result += `<span class="photo-title">${title}</span>` : '';
                   time ? result += `<span class="photo-time">${time}</span>` : '';
                   result += `</div>`;
@@ -56,8 +56,8 @@
           imgStatus.watch('.photo-img', function(imgs) {
             if(imgs.isDone()){
               waterfall('.gallery-photos');
-              let pagePhoto = document.querySelectorAll('.gallery-photo');
-              for(var i=0;i < pagePhoto.length;i++){pagePhoto[i].className += " visible"};
+              //let pagePhoto = document.querySelectorAll('.gallery-photo');
+              //for(var i=0;i < pagePhoto.length;i++){pagePhoto[i].className += " visible"};
             }
           });
           window.addEventListener('resize', function () {
