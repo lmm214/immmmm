@@ -47,7 +47,9 @@ const urls = [
   {home:"https://yunlogs.com/",host:"https://note.zdm.im/",creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/d41d8cd98f00b204e9800998ecf8427e"},
   {home:"https://dongjunke.cn/",host:"https://memos.dongjunke.cn/",creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/42542189ddb33064599dc88a5149bea7"},
   {home:"https://emmm.space/",host:"https://memos.emmm.space/",creatorId:"1",comment:'',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=LxEGgNG5gRmKSbHibgaEFUw&kti=ZEy2AAAAAAE&s=140&t=1655774580"},
-  {home:"https://pipuwong.com/",host:"https://memos.pipuwong.com/",creatorId:"1",comment:'',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=5F8TcjFWpLMzia5ibn26vs5A&kti=ZFVJhgAAAAA&s=140&t=1679212034"}
+  {home:"https://pipuwong.com/",host:"https://memos.pipuwong.com/",creatorId:"1",comment:'',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=5F8TcjFWpLMzia5ibn26vs5A&kti=ZFVJhgAAAAA&s=140&t=1679212034"},
+  {home:"https://ysicing.cloud/",host:"https://note.ysicing.cloud/",creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/5ca16ee587d1e4befd805cf710361f26"},
+  {home:"https://ssay.cc/",host:"https://ssay.cc/",creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/20a66daa751adbbde7f03c5615fc2221"}
 ]
 
 var bbDom = document.querySelector('#bbs');
