@@ -34,7 +34,7 @@ const urls = [
   {home:"https://wiki-power.com/",host:"https://memos.wiki-power.com/",creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/44218020ee434de43516c19f05c71593"},
   {home:"https://lms.im/",host:"https://b.lms.im/",creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/d9cc49ea0301640d7a19b6a1e77012dd"},
   {home:"https://xrat.net/",host:"https://memos.xrat.net/",creatorId:"2",comment:'1',imgsrc:"https://cravatar.cn/avatar/0ab677e14d21d941f64d98192d6168e7"},
-  {home:"https://www.cyuanx.icu/",host:"https://mome.cyuanx.icu/",creatorId:"1",comment:'',imgsrc:"https://www.cyuanx.icu/wp-content/uploads/2023/03/cropped-07b4b32029661fd9ce1200ac9b937f1.jpg"},
+  {home:"https://www.cyuanx.icu/",host:"https://mome.cyuanx.icu/",creatorId:"1",comment:'1',imgsrc:"https://www.cyuanx.icu/wp-content/uploads/2023/03/cropped-07b4b32029661fd9ce1200ac9b937f1.jpg"},
   {home:"https://blog.leonus.cn/",host:"https://m.leonus.cn/",creatorId:"1",comment:'',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=cZKBhtxe2iaxjSfbVYiaFgoQ&kti=Y9x6QwAAAAI&s=140&t=1672836908"},
   {home:"https://veryjack.com/",host:"https://say.veryjack.com/",creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/7a41a0e8e1df8e964fa1268193b03508"},
   {home:"https://eirms.com/",host:"https://memo.eirms.com/",creatorId:"1",comment:'',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=6bLfAytyUI7daRuxat0XxA&kti=ZDt5CwAAAAA&s=140&t=1646284093"},
@@ -49,8 +49,10 @@ const urls = [
   {home:"https://emmm.space/",host:"https://memos.emmm.space/",creatorId:"1",comment:'',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=LxEGgNG5gRmKSbHibgaEFUw&kti=ZEy2AAAAAAE&s=140&t=1655774580"},
   {home:"https://pipuwong.com/",host:"https://memos.pipuwong.com/",creatorId:"1",comment:'',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=5F8TcjFWpLMzia5ibn26vs5A&kti=ZFVJhgAAAAA&s=140&t=1679212034"},
   {home:"https://ysicing.cloud/",host:"https://note.ysicing.cloud/",creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/5ca16ee587d1e4befd805cf710361f26"},
-  {home:"https://ssay.cc/",host:"https://ssay.cc/",creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/20a66daa751adbbde7f03c5615fc2221"}
+  {home:"https://ssay.cc/",host:"https://ssay.cc/",creatorId:"1",comment:'1',imgsrc:"https://cravatar.cn/avatar/20a66daa751adbbde7f03c5615fc2221"},
+  {home:"https://www.kingname.info/",host:"https://memos.kingname.info/",creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/2463f1bd85aea23703f320e67d33f349"}
 ]
+
 
 var bbDom = document.querySelector('#bbs');
 var load = '<div id="load" onclick="nextFetch()" ><button class="load-btn button-load">加载更多</button></div>'
