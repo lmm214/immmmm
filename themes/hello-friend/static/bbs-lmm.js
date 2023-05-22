@@ -50,7 +50,8 @@ const urls = [
   {home:"https://pipuwong.com/",host:"https://memos.pipuwong.com/",creatorId:"1",comment:'',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=5F8TcjFWpLMzia5ibn26vs5A&kti=ZFVJhgAAAAA&s=140&t=1679212034"},
   {home:"https://ysicing.cloud/",host:"https://note.ysicing.cloud/",creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/5ca16ee587d1e4befd805cf710361f26"},
   {home:"https://ssay.cc/",host:"https://ssay.cc/",creatorId:"1",comment:'1',imgsrc:"https://cravatar.cn/avatar/20a66daa751adbbde7f03c5615fc2221"},
-  {home:"https://www.kingname.info/",host:"https://memos.kingname.info/",creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/2463f1bd85aea23703f320e67d33f349"}
+  {home:"https://www.kingname.info/",host:"https://memos.kingname.info/",creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/2463f1bd85aea23703f320e67d33f349"},
+  {home:"https://mybelife.com/",host:"https://mybelife.com/",creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/7067b66529765b71181c62e59ac6969b"}
 ]
 
 
