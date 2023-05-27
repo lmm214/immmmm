@@ -1,0 +1,25 @@
+{
+    "good": [
+        {
+            "image": "https://r2.immmmm.com/2023/05/switch.png",
+            "jiage": "Nintendo",
+            "title": "Switch",
+            "link": "https://www.nintendo.com/",
+            "note": "家庭欢乐时光，可肝可闲。"
+        },
+        {
+            "image": "https://r2.immmmm.com/2023/05/synology.png",
+            "jiage": "Synology",
+            "title": "DS220+",
+            "link": "https://www.suncan.com.cn/product/ds220plus",
+            "note": "虽然性价比不咋地，但有公网IP之后，一切才完整。"
+        },
+        {
+            "image": "https://r2.immmmm.com/2023/05/macbook.png",
+            "jiage": "Apple",
+            "title": "MacBook Pro",
+            "link": "https://www.apple.com.cn/shop/buy-mac/macbook-pro/14-%E8%8B%B1%E5%AF%B8",
+            "note": "生产力工具"
+        }
+    ]
+}
