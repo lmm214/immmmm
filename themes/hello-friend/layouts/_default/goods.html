@@ -1,8 +1,11 @@
 {{ define "main" }}
 {{ $goods := getJSON "data/goods.json" }}
+<style>:root{--code-bg:#fafafa}.dark{--code-bg:#3b3d42}.goods-bankuai{display:inline-block;vertical-align:top;width:calc(33.33% - 16px);height:326px;margin:0 8px 12px 0;list-style:none;border-radius:8px;background:var(--code-bg);padding:0 16px}.goods-duiqi{min-height:164px;display:flex;justify-content:center;align-items:center}.goods-duiqi img{width:80%;margin:0;transition:transform .2s ease-in-out;cursor:pointer}.goods-duiqi:hover img{transform:translateY(-4px)}.goods-title{font-size:14px;margin:0;transition:.5s}.goods-title a{font-size:14px;text-decoration:none}.goods-jiage{color:#999;font-size:14px;line-height:1.4rem}.goods-note{color:#999;font-size:14px;line-height:1.3rem}@media (max-width:700px){.goods-bankuai{width:100%;height:100%;padding:0 2% 5% 2%}.goods-title{font-size:14px;margin:0 10px!important;transition:.5s}.goods-jiage{margin:0 10px 0 10px}.goods-duiqi img{width:50%;margin:0}.goods-note{line-height:1.3rem;margin:8px 10px 0 10px}.goods-title{font-size:14px;margin:0 auto;line-height:1.5rem}.goods-title a{font-size:14px;text-decoration:none;box-shadow:none}}@media screen and (min-width:700px) and (max-width:900px){.goods-quanju{font-size:0;width:106%}.goods-bankuai{display:inline-block;vertical-align:top;width:40%;margin-right:15px;height:420px;border:1px solid #333}.goods-title{font-size:14px;margin:0 auto;line-height:1.5rem;transition:.5s}.goods-title a{font-size:14px;text-decoration:none;box-shadow:none}}@media (min-width:900px){.goods-quanju{font-size:0;width:106%}.goods-bankuai{display:inline-block;vertical-align:top;width:calc(33.33% - 16px);height:312px;margin:0 8px 12px 0}.goods-note{font-size:14px;line-height:1.3rem;margin-top:.5rem}.goods-duiqi img{width:80%;margin:0}.goods-bankuai.img-hide img{transition:transform .2s ease-in-out;cursor:pointer}.goods-bankuai.img-hide:hover img{transform:translateY(-4px)}.goods-title{font-size:16px;margin:0 auto;line-height:1.6rem;transition:.5s}.goods-title a{font-size:16px;text-decoration:none;box-shadow:none;transition:.5s}}</style>
+
 <div class="post">
-  <h2 class="post-title">我的好物 | Goods</h2>
-  <div class="goods">
+  <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h2>
+  <div class="post-content goods">
+  {{ .Content }}
   {{ range $goods.good}}
   <div class="goods-bankuai img-hide">
     <div class="goods-duiqi"><img loading="lazy" decoding="async" src="{{ .image }}"></div>
@@ -12,10 +15,9 @@
   </div>
   {{ end }}
   </div>
-</div>
-{{ end }}
 
-{{ define "footer" }}
-<style>:root{--code-bg:#fafafa}.dark{--code-bg:#3b3d42}.goods{margin:2rem 0}.goods-bankuai{display:inline-block;vertical-align:top;width:calc(33.33% - 16px);height:326px;margin:0 8px 12px 0;list-style:none;border-radius:8px;background:var(--code-bg);padding:0 16px}.goods-duiqi{display:flex;justify-content:center;align-items:center}.goods-duiqi img{width:80%;margin:0;transition:transform .2s ease-in-out;cursor:pointer}.goods-duiqi:hover img{transform:translateY(-4px)}.goods-title{font-size:14px;margin:0;transition:.5s}.goods-title a{font-size:14px;text-decoration:none}.goods-jiage{color:#999;font-size:14px;line-height:1.4rem}.goods-note{color:#999;font-size:14px;line-height:1.3rem}@media (max-width:700px){.goods-bankuai{width:100%;height:100%;padding:0 2% 5% 2%}.goods-title{font-size:14px;margin:0 10px!important;transition:.5s}.goods-jiage{margin:0 10px 0 10px}.goods-duiqi img{width:50%;margin:0}.goods-note{line-height:1.3rem;margin:8px 10px 0 10px}.goods-title{font-size:14px;margin:0 auto;line-height:1.5rem}.goods-title a{font-size:14px;text-decoration:none;box-shadow:none}}@media screen and (min-width:700px) and (max-width:900px){.goods-quanju{font-size:0;width:106%}.goods-bankuai{display:inline-block;vertical-align:top;width:40%;margin-right:15px;height:420px;border:1px solid #333}.goods-title{font-size:14px;margin:0 auto;line-height:1.5rem;transition:.5s}.goods-title a{font-size:14px;text-decoration:none;box-shadow:none}}@media (min-width:900px){.goods-quanju{font-size:0;width:106%}.goods-bankuai{display:inline-block;vertical-align:top;width:calc(33.33% - 16px);height:312px;margin:0 8px 12px 0}.goods-note{font-size:14px;line-height:1.3rem;margin-top:.5rem}.goods-duiqi img{width:80%;margin:0}.goods-bankuai.img-hide img{transition:transform .2s ease-in-out;cursor:pointer}.goods-bankuai.img-hide:hover img{transform:translateY(-4px)}.goods-title{font-size:16px;margin:0 auto;line-height:1.6rem;transition:.5s}.goods-title a{font-size:16px;text-decoration:none;box-shadow:none;transition:.5s}}</style>
-<script type="text/javascript" src="/theme-main-1.js"></script>
+  {{ if not (eq .Params.Comments "false") }}
+    {{ partial "comments.html" . }}
+  {{ end }}
+</div>
 {{ end }}
