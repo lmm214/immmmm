@@ -24,3 +24,9 @@ feature: https://r2.immmmm.com/2023/05/goods-page.png
 [content/goods.md](https://github.com/lmm214/immmmm/blob/master/content/goods.md) ：新建 Hugo 页面
 
 [data/goods.json](https://github.com/lmm214/immmmm/blob/master/data/goods.json)：数据文件
+
+### 后话
+
+「好物」剁手真听不得大数据推送……当下，个体推荐价值逐步回升。
+
+最后，推荐一个设计感十足的独立博客收录导航：「积薪」 [firewood.news](https://firewood.news/)
