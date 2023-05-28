@@ -1,11 +1,11 @@
 {
     "good": [
         {
-            "image": "https://r2.immmmm.com/2023/05/L3153.png",
-            "jiage": "¥989 (21-08)",
-            "title": "爱普生墨仓式 L3153",
-            "link": "https://www.epson.com.cn/products/L-all-in-ones/L3153/",
-            "note": "复印功能，小学生必备！墨是真省，两年有余，送的墨才用掉一半，彩色的更是满血。"
+            "image": "https://r2.immmmm.com/2023/05/whirlpool.jpg",
+            "jiage": "¥1856 (23-01)",
+            "title": "惠而浦 Whirlpool 大蓝鲸净水器",
+            "link": "https://item.jd.com/10030311404093.html",
+            "note": "自用还是舒适的，最高温度90°+，泡泡挂耳咖啡也是足够的。奇怪的是这款停产了？甚至购买链接进去的品牌都不一样。"
         },
         {
             "image": "https://r2.immmmm.com/2023/05/switch.png",
@@ -27,6 +27,13 @@
             "title": "MacBook Pro",
             "link": "https://www.apple.com.cn/shop/buy-mac/macbook-pro/14-%E8%8B%B1%E5%AF%B8",
             "note": "生产力工具"
+        },
+        {
+            "image": "https://r2.immmmm.com/2023/05/L3153.png",
+            "jiage": "¥989 (21-08)",
+            "title": "爱普生墨仓式 L3153",
+            "link": "https://www.epson.com.cn/products/L-all-in-ones/L3153/",
+            "note": "复印功能，小学生必备！墨是真省，两年有余，送的墨才用掉一半，彩色的更是满血。"
         }
     ]
 }
