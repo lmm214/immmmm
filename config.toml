@@ -50,7 +50,7 @@ ignoreErrors = ["error-remote-getjson","error-remote-getcsv"]
   # "light" or "dark"
   defaultTheme = "dark"
   # if you set this to 0, only submenu trigger will be visible
-  showMenuItems = 5
+  showMenuItems = 0
   # Enable to show reading time in minutes for posts
   showReadingTime = false
   logoText = "hello friend"
