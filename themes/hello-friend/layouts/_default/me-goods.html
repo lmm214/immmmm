@@ -15,11 +15,9 @@
     //var creatorId = 101
     //var goodsUrl = memoUrl+"api/memo?creatorId="+creatorId+"&rowStatus=NORMAL&limit="+limit+"&tag=相册"
     var goodsUrl = memoUrl+"api/memo/all?rowStatus=NORMAL&tag=好物"
-    let nowNum = 1;
     const regex = /\n/;
     fetch(goodsUrl).then(res => res.json()).then( resdata =>{
         var result = '',resultAll="",data = resdata.data
-        console.log(data)
         for(var i=0;i < data.length;i++){
           var goodsCont = data[i].content.replace("#好物 \n",'')
           var goodsConts = goodsCont.split(regex)
