@@ -16,10 +16,6 @@ tags: [折腾]
 https://me.edui.fun/api/memo/amount
 ```
 
-结果：
-
-{{< getdata "https://me.edui.fun/api/memo/amount" >}}
-
 #### 指定用户
 
 参数：`userId` 或 `openId`
@@ -29,10 +25,6 @@ https://me.edui.fun/api/memo/amount
 ```
 https://me.edui.fun/api/memo/amount?userId=102
 ```
-
-结果：
-
-{{< getdata "https://me.edui.fun/api/memo/amount?userId=102" >}}
 
 <!--more-->
 

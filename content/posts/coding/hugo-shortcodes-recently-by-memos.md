@@ -75,3 +75,18 @@ var bbUrl = "https://me.edui.fun/api/memo?creatorId=101&rowStatus=NORMAL&limit=5
 ```
 \{\{< memos >\}\}
 ```
+
+### 近期好物
+
+#### 效果演示
+
+{{< goods >}}
+
+#### 主题集成
+
+- 把 [goods.html](https://github.com/lmm214/immmmm/blob/master/themes/hello-friend/layouts/shortcodes/goods.html) 另存为 html 修改参数之后丢入主题 `/layouts/shortcodes/` 内；
+- 调用短代码如下：
+
+```
+\{\{< goods >\}\}
+```

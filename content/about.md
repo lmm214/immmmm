@@ -4,10 +4,6 @@ date: 2020-03-14 12:41:27
 layout: 'posts'
 ---
 
-### 近期好物 <small>[🔗](/goods)</small>
-
-{{< goods >}}
-
 ### 近期观影 <small>[🔗](/movies)</small>
 
 {{< movies >}}
@@ -19,6 +15,10 @@ layout: 'posts'
 ### 近期光影 <small>[🔗](/album)</small>
 
 {{< album >}}
+
+### 近期好物 <small>[🔗](/goods)</small>
+
+{{< goods >}}
 
 ### 博客程序
 
