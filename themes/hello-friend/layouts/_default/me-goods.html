@@ -36,7 +36,7 @@
                   fileId = resourceList[j].publicId || resourceList[j].filename
                   resLink = memoUrl+'o/r/'+resourceList[j].id+'/'+fileId
                 }
-                if(restype == 'image' && nowNum <= limit ){
+                if(restype == 'image'){
                     result += '<div class="goods-bankuai img-hide"><div class="goods-duiqi"><img loading="lazy" decoding="async" src="'+resLink+'"/></div><div class="goods-jiage">'+goodsConts[0]+'</div><div class="goods-title">'+goodsConts[1].replace(/\[(.*?)\]\((.*?)\)/g,' <a href="$2" target="_blank">$1</a> ')+'</div><div class="goods-note">'+goodsConts[2]+'</div></div>'
                 }
               }
