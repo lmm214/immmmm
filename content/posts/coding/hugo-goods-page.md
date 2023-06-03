@@ -9,7 +9,11 @@ feature: https://r2.immmmm.com/2023/05/goods-page.png
 
 <!--more-->
 
-### 实现思路
+### 更新说明
+
+2023-06-03 已更换为利用 Memos 发布好物，具体见：[《Hugo 「近期」短代码（基于 Memos Docker）》](https://immmmm.com/hugo-shortcodes-recently-by-memos/#%E8%BF%91%E6%9C%9F%E5%A5%BD%E7%89%A9)
+
+### 原实现思路
 
 利用 `getJSON` 函数统一维护页面数据，后期更新修改在 `data/goods.json` 中，不再需要动页面模板。
 

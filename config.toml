@@ -29,7 +29,7 @@ ignoreErrors = ["error-remote-getjson","error-remote-getcsv"]
   weight="2"
   [[menu.main]]
   name="好物"
-  url="/goods/"
+  url="/me-goods/"
   weight="3"
   [[menu.main]]
   name="归档"

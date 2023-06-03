@@ -85,8 +85,14 @@ var bbUrl = "https://me.edui.fun/api/memo?creatorId=101&rowStatus=NORMAL&limit=5
 #### 主题集成
 
 - 把 [goods.html](https://github.com/lmm214/immmmm/blob/master/themes/hello-friend/layouts/shortcodes/goods.html) 另存为 html 修改参数之后丢入主题 `/layouts/shortcodes/` 内；
-- 调用短代码如下：
+- 文章内调用短代码如下：
 
 ```
 \{\{< goods >\}\}
 ```
+
+#### 好物更新方式
+
+![memos-goods](https://r2.immmmm.com/2023/06/memos-goods.png)
+
+标签后有空格，之后各行分别为：价格、标题（可链接）、描述。
