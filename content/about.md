@@ -4,6 +4,10 @@ date: 2020-03-14 12:41:27
 layout: 'posts'
 ---
 
+### 近期好物 <small>[🔗](/goods)</small>
+
+{{< goods >}}
+
 ### 近期观影 <small>[🔗](/movies)</small>
 
 {{< movies >}}
