@@ -16,7 +16,7 @@ layout: 'posts'
 
 {{< album >}}
 
-### 近期好物 <small>[🔗](/goods)</small>
+### 近期好物 <small>[🔗](/me-goods)</small>
 
 {{< goods >}}
 
