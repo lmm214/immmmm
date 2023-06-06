@@ -55,7 +55,8 @@ const urls = [
   {home:"https://kouseki.cn/",host:"https://memos.kouseki.cn/",creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/23978e8e57e20163e8cb67bbf9dbe907"},
   {home:"https://idh.ink/",host:"https://idh.ink/",creatorId:"1",comment:'',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=NAuictuJAIjdPiaHlY6xbDWA&kti=ZHUWoAAAAAA&s=140&t=1683481629"},
   {home:"https://laozhang.org/",host:"https://memos.laozhang.org/",creatorId:"1",comment:'1',imgsrc:"https://cravatar.cn/avatar/679666f7bd1af3e55f0e51dd70ed161c"},
-  {home:"https://leonfong.me/",host:"https://memo.leonfong.me/",creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/b147bfa4888f1233882ba5b39ef3bffc"}
+  {home:"https://leonfong.me/",host:"https://memo.leonfong.me/",creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/b147bfa4888f1233882ba5b39ef3bffc"},
+  {home:"https://cooolr.cn/",host:"https://m.cooolr.cn/",creatorId:"1",comment:'1',imgsrc:"https://cravatar.cn/avatar/7422f8bebdb99f6594e029f603ccb926"}
 ]
 
 

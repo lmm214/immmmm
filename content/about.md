@@ -238,6 +238,7 @@ Gridea 主题：[「Motify」](https://github.com/lmm214/gridea-theme-motify)、
 
 {{< friend des="" url="https://wangyunzi.com/" md5="c1b204bab687a23c8b6d7c8de11c7c59" name="王云子" >}}
 
+{{< friend des="" url="https://zuofei.net/" md5="dc75b1021b41486d062ff0285fb94749" name="青山" >}}
 
 ### 欢迎打赏
 
