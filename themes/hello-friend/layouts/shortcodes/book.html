@@ -1,0 +1,13 @@
+{{ if .Get 3 }}
+<div class="book-item">
+  <img class="book-image" src="{{ .Get 0 | safeURL }}" align="left" width="200" style="margin-right:20px">
+  <div class="book-details" style="margin-left:220px;">
+    <h3 class="title">
+      <a href="" class="book-title-link">{{ .Get 1 | markdownify }}</a >
+    </h3>
+    <p class="author">{{ .Get 2 | markdownify }}</p >
+    <p class="description">{{ .Get 3 | markdownify }}</p >
+  </div>
+</div>
+<div class="clear" style="clear:both;display:block;overflow:hidden;visibility:hidden;width:0;height:0;"></div>
+{{ end }}
