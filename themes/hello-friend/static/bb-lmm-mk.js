@@ -27,7 +27,7 @@ loadCssCode(allCSS);
 
 var limit = bbMemo.limit
 var memos = bbMemo.memos
-var page = 1,offset = 0,nextLength = 0,nextDom='';
+var mePage = 1,offset = 0,nextLength = 0,nextDom='';
 var bbDom = document.querySelector(bbMemo.domId);
 var load = '<div class="bb-load"><button class="load-btn button-load">加载中……</button></div>'
 if(bbDom){
@@ -54,8 +54,8 @@ function getFirstList(){
       document.querySelector("button.button-load").remove()
       return
     }
-    page++
-    offset = limit*(page-1)
+    mePage++
+    offset = limit*(mePage-1)
     getNextList()
   });
 }
@@ -65,8 +65,8 @@ function getNextList(){
   fetch(bbUrl).then(res => res.json()).then( resdata =>{
     nextDom = resdata.data
     nextLength = nextDom.length
-    page++
-    offset = limit*(page-1)
+    mePage++
+    offset = limit*(mePage-1)
     if(nextLength < 1){ //返回数据条数为 0 ，隐藏
       document.querySelector("button.button-load").remove()
       return
