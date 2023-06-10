@@ -110,7 +110,7 @@
             {{range $idx,$item := first $movienumb $movieitems}}
             {{if ne $idx 0}}
                 {{ $rating := float (index $item 6)}}
-                <div class="sc-gKAaRy dfdORB">
+                <div class="dfdORB">
                     <div class="sc-hKFxyN HPRth"><div class="lazyload-wrapper"><img class="avatar" src="{{ index $item 3 }}" referrer-policy="no-referrer" loading="lazy" alt="{{ index $item 9 }}"  title="{{ index $item 1 }}" width="150" height="220"></div></div>
                     <div class="sc-fujyAs eysHZq">
                         <div class="rating"><span class="allstardark"><span class="allstarlight" style="width:{{mul  10 $rating }}%"></span></span><span class="rating_nums">{{$rating}}</span></div>
@@ -130,7 +130,7 @@
             {{range $idx,$item := first $booknumb $bookitems}}
             {{if ne $idx 0}}
                 {{ $rating := float (index $item 6)}}
-                <div class="sc-gKAaRy dfdORB">
+                <div class="dfdORB">
                     <div class="sc-hKFxyN HPRth"><div class="lazyload-wrapper"><img class="avatar" src="{{ index $item 3 }}" referrer-policy="no-referrer" loading="lazy" alt="{{ index $item 9 }}"  title="{{ index $item 1 }}" width="150" height="220"></div></div>
                     <div class="sc-fujyAs eysHZq">
                         <div class="rating"><span class="allstardark"><span class="allstarlight" style="width:{{mul  10 $rating }}%"></span></span><span class="rating_nums">{{$rating}}</span></div>
