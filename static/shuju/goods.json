@@ -15,8 +15,8 @@
             "note": "早买早享受系列，Pro 多了一个背光氛围灯。"
         },
         {
-            "image": "https://r2.immmmm.com/2023/05/switch.png",
-            "jiage": "国行勇士",
+            "image": "https://r2m.immmmm.com/memos/2023/06/tx-switch.png/e4bc7b0d-8789-4d7f-b41f-010265829571.png",
+            "jiage": "国行套装",
             "title": "Nintendo Switch",
             "link": "https://www.nintendo.com/",
             "note": "本地山姆超市购买，为特殊期间居家生活增添了不少乐趣。真是买游戏送主机，囤卡也开心。"
@@ -29,18 +29,18 @@
             "note": "虽然性价比不咋地，但有公网IP之后，一切才完整。"
         },
         {
-            "image": "https://r2.immmmm.com/2023/05/macbook.png",
-            "jiage": "Apple",
-            "title": "MacBook Pro",
-            "link": "https://www.apple.com.cn/shop/buy-mac/macbook-pro/14-%E8%8B%B1%E5%AF%B8",
-            "note": "生产力工具"
-        },
-        {
             "image": "https://r2.immmmm.com/2023/05/L3153.png",
             "jiage": "¥989 (21-08)",
             "title": "爱普生墨仓式 L3153",
             "link": "https://www.epson.com.cn/products/L-all-in-ones/L3153/",
             "note": "复印功能，小学生必备！墨是真省，两年有余，送的墨才用掉一半，彩色的更是满血。"
+        },
+        {
+            "image": "https://r2.immmmm.com/2023/05/macbook.png",
+            "jiage": "Apple",
+            "title": "MacBook Pro",
+            "link": "https://www.apple.com.cn/shop/buy-mac/macbook-pro/14-%E8%8B%B1%E5%AF%B8",
+            "note": "生产力工具"
         }
     ]
 }
