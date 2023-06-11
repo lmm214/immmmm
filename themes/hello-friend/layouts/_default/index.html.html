@@ -87,12 +87,10 @@
     <div id="friArticle" style="min-height:160px;"></div>
   </div>
 
-  {{- if not .Site.IsServer }}
   <div class="home">
     <h3><a href="/album/">近期光影</a></h3>
     <div id="album" style="min-height:160px;"></div>
   </div>
-  {{ end -}}
   
   <div class="home">
     {{ $goods := getJSON "static/shuju/goods.json" }}
