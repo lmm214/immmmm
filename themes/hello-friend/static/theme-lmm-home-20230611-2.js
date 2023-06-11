@@ -91,26 +91,45 @@ function memoAlbum(numb){
 }
 
 // 加载文章
+var articleDom = document.querySelector('#friArticle')
 function MyFriends(){
   var fetchNum = 12;
   var fetchUrl = "https://cf.immmmm.com/all?end="+fetchNum;
+  var localfriendUpdated = JSON.parse(localStorage.getItem("friendUpdated")) || '';
+  var localfriendData = JSON.parse(localStorage.getItem("friendData")) || '';
+  if(localfriendData){
+    loadArticle(localfriendData)
+    console.log("本地数据加载成功")
+  }
   fetch(fetchUrl).then(res => res.json()).then(resdata =>{
-      var articleData = resdata.article_data,error_img="https://gravatar.loli.net/avatar/57d8260dfb55501c37dde588e7c3852c",articleItem = '';
-      var articleDom = document.querySelector('#friArticle');
-      for (var i = 0;i<fetchNum;i++){
-        var item = articleData[i];
-        articleItem +=`
-        <div class="fri-item">
-          <img class="fri-avatar avatar" src="${item.avatar}" alt="${item.author}" onerror="this.src='${error_img}';this.onerror = null;">
-          <div class="fri-cont">
-            <div class="fri-title"><a target="_blank" rel="noopener nofollow" href="${item.link}">${item.title}</a></div>
-            <div class="fri-updated">${item.updated}</div>
-          </div>
-        </div>
-        `;
-      }
-      articleDom.innerHTML = articleItem
-      //相对时间
-      window.Lately && Lately.init({ target: '.fri-updated'});
-    })
+    var friendUpdated = resdata.statistical_data.last_updated_time
+    if(localfriendUpdated != friendUpdated){
+      var friendData = resdata.article_data;
+      articleDom.innerHTML = "";
+      loadArticle(friendData)
+      localStorage.setItem("friendUpdated",JSON.stringify(friendUpdated))
+      localStorage.setItem("friendData",JSON.stringify(friendData))
+      console.log("热更新完成")
+    }else{
+      console.log("API数据未更新")
+    }
+  })
+}
+function loadArticle(friendData){
+  var error_img="https://gravatar.loli.net/avatar/57d8260dfb55501c37dde588e7c3852c",articleItem = '';
+  for (var i = 0;i<12;i++){
+    var item = friendData[i];
+    articleItem +=`
+    <div class="fri-item">
+      <img class="fri-avatar avatar" src="${item.avatar}" alt="${item.author}" onerror="this.src='${error_img}';this.onerror = null;">
+      <div class="fri-cont">
+        <div class="fri-title"><a target="_blank" rel="noopener nofollow" href="${item.link}">${item.title}</a></div>
+        <div class="fri-updated">${item.updated}</div>
+      </div>
+    </div>
+    `;
+  }
+  articleDom.innerHTML = articleItem
+  //相对时间
+  window.Lately && Lately.init({ target: '.fri-updated'});
 }

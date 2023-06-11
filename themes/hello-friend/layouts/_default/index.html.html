@@ -83,20 +83,20 @@
   </div>
 
   <div class="douban friends">
-    <h3>朋友连接</h3>
+    <h3><a href="/friends/">朋友连接</a></h3>
     <div id="friArticle" style="min-height:160px;"></div>
   </div>
 
   {{- if not .Site.IsServer }}
   <div class="home">
-    <h3>近期光影</h3>
+    <h3><a href="/album/">近期光影</a></h3>
     <div id="album" style="min-height:160px;"></div>
   </div>
   {{ end -}}
   
   <div class="home">
     {{ $goods := getJSON "static/shuju/goods.json" }}
-    <h3>近期好物</h3>
+    <h3><a href="/goods/">近期好物</a></h3>
     <div id="goods">
     {{ range first 5 $goods.good}}
     <div class="goods-bankuai img-hide">
@@ -112,7 +112,7 @@
     {{$movieitems := getCSV "," "data/douban/movie.csv" }}
     {{$movienumb := 6}}
     <div class="douban sc-ksluID gFnzgG">
-      <h3>近期观影</h3>
+      <h3><a href="/movies/">近期观影</a></h3>
         <div class="items sc-dIsUp fIuTG">
             {{range $idx,$item := first $movienumb $movieitems}}
             {{if ne $idx 0}}
@@ -132,7 +132,7 @@
     {{$bookitems := getCSV "," "data/douban/book.csv" }}
     {{$booknumb := 6}}
     <div class="douban sc-ksluID gFnzgG">
-      <h3>近期阅读</h3>
+      <h3><a href="/books/">近期阅读</a></h3>
         <div class="items sc-dIsUp fIuTG">
             {{range $idx,$item := first $booknumb $bookitems}}
             {{if ne $idx 0}}

@@ -823,7 +823,7 @@ hr {
 .fri-item{max-height:49px;border-radius:3rem;background: #3b3d42;padding: 5px 2rem 5px 7px;margin: 0 0.6rem 1rem 0;display: inline-block;display: flex;}
 .fri-cont{line-height:1rem;display: inline-block;margin-left: 10px;font-size: 1rem;}
 .fri-title{line-height: 24px;white-space: nowrap;max-width:350px;text-overflow:ellipsis;overflow:hidden;}
-.fri-title a{text-decoration:none;}
+.fri-title a,.douban h3 a,.home h3 a{text-decoration:none;}
 .fri-updated{font-style: italic;font-size: small;}
 
 @media (min-width: 768px){

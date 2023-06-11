@@ -1,42 +1,49 @@
 {
     "good": [
         {
-            "image": "https://r2.immmmm.com/2023/05/whirlpool-2.png",
+            "image": "/goods/whirlpool.webp",
             "jiage": "¥1856 (23-01)",
             "title": "Whirlpool 大蓝鲸净水器",
             "link": "https://item.jd.com/10030311404093.html",
             "note": "自用还是舒适的，最高温度90°+，泡泡挂耳咖啡也是足够的。奇怪的是这款停产了？"
         },
         {
-            "image": "https://r2.immmmm.com/2023/05/yeelight.png",
+            "image": "/goods/yeelight.webp",
             "jiage": "¥589 (23-01)",
             "title": "Yeelight 屏幕挂灯 Pro",
             "link": "https://cn.yeelight.com/zh_CN/consumer-grade",
             "note": "早买早享受系列，Pro 多了一个背光氛围灯。"
         },
         {
-            "image": "https://r2m.immmmm.com/memos/2023/06/tx-switch.png/e4bc7b0d-8789-4d7f-b41f-010265829571.png",
+            "image": "/goods/M15BT.webp",
+            "jiage": "¥1118 (22-10)",
+            "title": "Eimio 4K 便携显示器",
+            "link": "",
+            "note": "内置 1W 毫安电池，可以 Type-C 一线连，摆脱电源、扩展坞，外出露营美滋滋。"
+        },
+        {
+            "image": "/goods/switch.webp",
             "jiage": "国行套装",
             "title": "Nintendo Switch",
             "link": "https://www.nintendo.com/",
             "note": "本地山姆超市购买，为特殊期间居家生活增添了不少乐趣。真是买游戏送主机，囤卡也开心。"
         },
         {
-            "image": "https://r2.immmmm.com/2023/05/DS220.png",
+            "image": "/goods/DS220.webp",
             "jiage": "¥3480 (21-09)",
             "title": "Synology DS220+",
             "link": "https://www.suncan.com.cn/product/ds220plus",
             "note": "虽然性价比不咋地，但有公网IP之后，一切才完整。"
         },
         {
-            "image": "https://r2.immmmm.com/2023/05/L3153.png",
+            "image": "/goods/L3153.webp",
             "jiage": "¥989 (21-08)",
             "title": "爱普生墨仓式 L3153",
             "link": "https://www.epson.com.cn/products/L-all-in-ones/L3153/",
             "note": "复印功能，小学生必备！墨是真省，两年有余，送的墨才用掉一半，彩色的更是满血。"
         },
         {
-            "image": "https://r2.immmmm.com/2023/05/macbook.png",
+            "image": "/goods/macbook.webp",
             "jiage": "Apple",
             "title": "MacBook Pro",
             "link": "https://www.apple.com.cn/shop/buy-mac/macbook-pro/14-%E8%8B%B1%E5%AF%B8",
