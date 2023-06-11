@@ -1,69 +1,79 @@
 ---
 title: "前端调用 Umami API 数据"
-date: 2022-09-26T18:55:43+0800
+date: 2023-06-11T12:15:43+0800
 tags: [折腾]
-feature: https://r2.immmmm.com/2022/09/umami-1.jpg
+feature: https://r2.immmmm.com/2023/06/umami-im.png
 ---
 
 [Umani](https://umami.is/) 一个高颜值可自部署的统计应用。
 
-看着服务器负载常年低于10%，有一点点需求的应用，特别是能 Docker 部署的，全都安排上！
+看着服务器负载常年低于10%，有一点点需求的应用，特别是能 Docker 部署的，全都安排上！看着基本的统计数据都有。不错不错！但，能直接 API 前端调用统计数据不？可以的，接口见官网： <https://umami.is/docs/api>
 
 <!--more-->
 
-![umami-2](https://r2.immmmm.com/2022/09/umami-2.jpg)
+2023-06-11 更新：采用 @归臧 [《使用 Umami Api 显示统计数据》](https://nuoea.com/use-umami-api/) 获取 Token 。
 
-看着基本的统计数据都有。不错不错！但，能直接 API 前端调用统计数据不？可以的，接口见官网： <https://umami.is/docs/api>
+### 获取 Token
 
-! 注明：以下代码两个问题搞不定、搞不懂……依然报跨域！Token 会过期……
+Hoppscotch： <https://hoppscotch.io/>
 
-### 文章阅读量
+![umami-im-1](https://r2.immmmm.com/2023/06/umami-im-1.jpg)
 
-轻松平替 twikoo ～
+如图，成功后记录下 `token` 
 
-1. 进 umami 后台获取「共享链接」，如 <https://u.edui.fun/share/rMnNVR9W/immmmm>
-
-![umami-3](https://r2.immmmm.com/2022/09/umami-3.jpg)
-
-2. 浏览器隐身模式下访问，开启开发者工具，刷新页面，网络里获取到公开的访客 `token`，如：`eyJhb。。。。。x4`
-
-![umami-4](https://r2.immmmm.com/2022/09/umami-4.jpg)
-
-3. 部署服务器上开启允许跨域，我的是宝塔 nginx，加入 `x-umami-share-token`。
+### 获取 websiteId
 
 ```
-    add_header Access-Control-Allow-Origin *;
-    add_header Access-Control-Allow-Methods 'GET, POST, OPTIONS';
-    add_header Access-Control-Allow-Headers 'x-umami-share-token,DNT,X-Mx-ReqToken,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization';
-    if ($request_method = 'OPTIONS') {
-        return 204;
-    }
+https://u.edui.fun/websites/c27bd84b-02a3-4c3f-a168-0d7fadec9c74/immmmm
 ```
 
-4. 前端调用代码：
+如上链接中的 `c27bd84b-02a3-4c3f-a168-0d7fadec9c74` 就是 `websiteId`。
+
+### 前端调用全站数据
 
 ```html
-<span id="umami_visitors">0</span> 阅读
+<div class="tongji">总访问量 <span id="pvStatic">0</span> 次 | 总访客数 <span id="uvStatic">0</span> 人</div>
 ```
 
 ```JavaScript
-let uUrl = "https://u.edui.fun" //你自己部署的网址
-let uShare = "ey。。。。。go"  //刚获取的访客 token
-let uApi = uUrl+"/api/website/1/metrics?type=url&start_at=1664121600000&end_at=1664294399999"
-fetch(uApi,{
-  headers: {'x-umami-share-token': uShare}
-}).then(response => response.json() ).then(data => {
-  var queryDate = data.filter(function(fp){
-    return fp.x === window.location.pathname;
+document.addEventListener('DOMContentLoaded', () => {
+    umiTongji();
+});
+function umiTongji(){
+  var umiToken = "o7......w="  //获取到的 token
+  var umiId = "c27bd84b-02a3-4c3f-a168-0d7fadec9c74" //获取到的 websiteId
+  var umiTime = Date.parse(new Date());
+  var umiUrl = "https://u.edui.fun/api/websites/"+umiId+"/stats?start_at=1672848000000&end_at="+umiTime;
+  fetch(umiUrl,{
+    method: 'GET',
+    mode: 'cors',
+    cache: 'default',
+    headers: {
+      'Authorization': 'Bearer ' + umiToken,
+      'Content-Type': 'application/json'
+    }
   })
-  if(queryDate){
-    document.querySelector('#umami_visitors').innerHTML = queryDate[0].y;
-  }
-})
+  .then(res => res.json()).then(resdata => {
+    document.querySelector('#pvStatic').innerHTML = resdata.pageviews.value
+    document.querySelector('#uvStatic').innerHTML = resdata.uniques.value
+  });
+}
 ```
 
 搞定！
 
-### 更多：全站访问数、当前在线数……
+### 更多：当前在线数……
 
-同理，找显示啥，直接 api 搞定！
+```
+GET /api/websites/{websiteId}/active  //获取网站上的活跃用户数。
+GET /api/websites/{websiteId}/events  //获取给定时间范围内的事件。
+GET /api/websites/{websiteId}/pageviews  //获取给定时间范围内的页面浏览量。
+GET /api/websites/{websiteId}/metrics  //获取给定时间范围内的指标。
+GET /api/websites/{websiteId}/stats  //获取汇总的网站统计信息。
+```
+
+### 更多教程
+
+官方 API ：<https://umami.is/docs/website-stats>
+
+Umami API 使用方法：<https://www.zywvvd.com/notes/tools/umami/umami-api/umami-api/>

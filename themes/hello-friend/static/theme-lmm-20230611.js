@@ -109,3 +109,22 @@ function bookShow(fetch_href, fetch_item) {
   qs_dom.parentNode.replaceChild(db_div, qs_dom);
   db_div.innerHTML = db_html
 }
+function umiTongji(){
+  var umiId = "c27bd84b-02a3-4c3f-a168-0d7fadec9c74"
+  var umiToken = "o7UpYT1CFrJwL0lmIOY2IzKz23jJdQ3S/gVJJwlK9a+rNtJjXB/7sfEEKXfODAGTXe+d0/wE0tjib+iOZ1eo864qvspZBnt0bzO1edvhnHI6pZ7STLG/8OqJFoJEez0zUvme0XdkYHS+arEptgK0WXijkB2xmfEtD/2lfR5aLwY4QOjmCN+ADzt9TVdNV+bKfirH2s8fKvzcQEKxUCqXxDNMHPzRrHwyEGqv0GZ8CwQqTqL5hdfGsApq9p5XX19X4eaurjFFeBBAjPXu51stmCc82iBkqNhB6y7qT6xHdONqmoaz85gKVPgt/KAaNNIrx+ydW87DbmRi3XTJqj8J4bkgDcLqiV6Mc9UoWZCwf+UUvOtkY6vWwBCRV4Zd4YuFNiUNfw6izIg1Psj+Jjyej4w2oKABSVdrEWLFAL6bhkMzSQLlsl2imzfPMdw="
+  var umiTime = Date.parse(new Date()); //获取当前时间戳
+  var umiUrl = "https://u.edui.fun/api/websites/"+umiId+"/stats?start_at=0000000000&end_at="+umiTime;
+  fetch(umiUrl,{
+    method: 'GET',
+    mode: 'cors',
+    cache: 'default',
+    headers: {
+      'Authorization': 'Bearer ' + umiToken,
+      'Content-Type': 'application/json'
+    }
+  })
+  .then(res => res.json()).then(resdata => {
+    document.querySelector('#pvStatic').innerHTML = resdata.pageviews.value
+    document.querySelector('#uvStatic').innerHTML = resdata.uniques.value
+  });
+}

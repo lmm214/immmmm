@@ -766,8 +766,8 @@ hr {
 .post-cover {
     border-radius: 8px;
 	margin: 40px -50px;
-    width: 1100px;
-    max-width: 1100px;
+    width: 1060px;
+    max-width: 1060px;
 	box-shadow: 0 12px 40px rgba(0,0,0,.15)
 }
 .home{width:100%;margin:0 auto;max-width:1000px;}
@@ -1618,3 +1618,4 @@ photos .photo:last-child {
 .memos-photo-wrapper{grid-template-columns:repeat(4,minmax(0,1fr));margin-top:.5rem;display:grid;width:100%;gap:.5rem}.memos-photo{position:relative;overflow:hidden;border-radius:.25rem;height:194px}.memos-photo>img{min-height:100%;width:auto;min-width:100%;cursor:pointer;-o-object-fit:cover;object-fit:cover;height:auto;animation:fadeIn 1s;transition:all .4s ease-in-out}.memos-photo span.photo-time,.memos-photo span.photo-title{background:rgba(0,0,0,.3);padding:0 8px;font-size:.9rem;color:#fff;display:none;animation:fadeIn 1s}.memos-photo span.photo-title{position:absolute;bottom:4px;left:4px}.memos-photo span.photo-time{position:absolute;top:4px;left:4px;font-size:.8rem}.memos-photo:hover span.photo-time,.memos-photo:hover span.photo-title{display:block!important}@keyframes fadeIn{0%{opacity:0}100%{opacity:1}}@media screen and (min-width:480px) and (max-width:899px){.memos-photo-wrapper{grid-template-columns:repeat(3,minmax(0,1fr))}.memos-photo{height:201px}}@media only screen and (max-width:479px){.memos-photo-wrapper{grid-template-columns:repeat(2,minmax(0,1fr))}.memos-photo{height:171px}}
 /* memos-photo-wrapper -------- end */
 
+.tongji{font-size:1rem;}
