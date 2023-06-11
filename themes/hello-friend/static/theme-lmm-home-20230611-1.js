@@ -78,12 +78,39 @@ function memoAlbum(numb){
               }
             }
         }
-        var galleryDom = document.querySelector('#album');
+        var galleryDom = document.querySelector('#album') || '';
         var galleryBefore = `<div class="memos-photo-wrapper">`
         var galleryAfter = `</div>`
         resultAll = galleryBefore + result + galleryAfter
-        galleryDom.innerHTML = resultAll
+        if(galleryDom){
+          galleryDom.innerHTML = resultAll
+        }
         //相对时间
         window.Lately && Lately.init({ target: '.photo-time'});
     });
+}
+
+// 加载文章
+function MyFriends(){
+  var fetchNum = 12;
+  var fetchUrl = "https://cf.immmmm.com/all?end="+fetchNum;
+  fetch(fetchUrl).then(res => res.json()).then(resdata =>{
+      var articleData = resdata.article_data,error_img="https://gravatar.loli.net/avatar/57d8260dfb55501c37dde588e7c3852c",articleItem = '';
+      var articleDom = document.querySelector('#friArticle');
+      for (var i = 0;i<fetchNum;i++){
+        var item = articleData[i];
+        articleItem +=`
+        <div class="fri-item">
+          <img class="fri-avatar avatar" src="${item.avatar}" alt="${item.author}" onerror="this.src='${error_img}';this.onerror = null;">
+          <div class="fri-cont">
+            <div class="fri-title"><a target="_blank" rel="noopener nofollow" href="${item.link}">${item.title}</a></div>
+            <div class="fri-updated">${item.updated}</div>
+          </div>
+        </div>
+        `;
+      }
+      articleDom.innerHTML = articleItem
+      //相对时间
+      window.Lately && Lately.init({ target: '.fri-updated'});
+    })
 }
