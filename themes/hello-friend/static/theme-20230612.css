@@ -860,6 +860,7 @@ hr {
 	.fri-cont{width: 100%;}
 	.fri-title{width:calc(100% - 50px);}
 	.fri-item{width:48%;}
+	.fri-item:nth-child(n+15){display:none;}
 }
 @media (max-width:549px) {
 	.douban .dfdORB{width: 46%;}

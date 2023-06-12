@@ -116,7 +116,7 @@ function MyFriends(){
   var localfriendUpdated = JSON.parse(localStorage.getItem("friendUpdated")) || '';
   var localfriendData = JSON.parse(localStorage.getItem("friendData")) || '';
   if(localfriendData){
-    loadFriend(localfriendData)
+    loadFriend(localfriendData,fetchNum)
     console.log("MyFriends 本地数据加载成功")
   }
   fetch(fetchUrl).then(res => res.json()).then(resdata =>{
@@ -124,7 +124,7 @@ function MyFriends(){
     if(friendUpdated && localfriendUpdated != friendUpdated){
       var friendData = resdata.article_data;
       friendDom.innerHTML = "";
-      loadFriend(friendData)
+      loadFriend(friendData,fetchNum)
       localStorage.setItem("friendUpdated",JSON.stringify(friendUpdated))
       localStorage.setItem("friendData",JSON.stringify(friendData))
       console.log("MyFriends 热更新完成")
@@ -133,9 +133,9 @@ function MyFriends(){
     }
   })
 }
-function loadFriend(friendData){
+function loadFriend(friendData,fetchNum){
   var error_img="https://gravatar.loli.net/avatar/57d8260dfb55501c37dde588e7c3852c",articleItem = '';
-  for (var i = 0;i<12;i++){
+  for (var i = 0;i<fetchNum;i++){
     var item = friendData[i];
     articleItem +=`
     <div class="fri-item">
