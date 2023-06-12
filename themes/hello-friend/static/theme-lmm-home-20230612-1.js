@@ -111,7 +111,7 @@ function loadAlbum(albumData,limit){
 // 加载文章
 var friendDom = document.querySelector('#friArticle') || ''
 function MyFriends(){
-  var fetchNum = 12;
+  var fetchNum = 20;
   var fetchUrl = "https://cf.edui.fun/all?end="+fetchNum;
   var localfriendUpdated = JSON.parse(localStorage.getItem("friendUpdated")) || '';
   var localfriendData = JSON.parse(localStorage.getItem("friendData")) || '';
