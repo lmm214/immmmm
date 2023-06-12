@@ -112,7 +112,7 @@ function loadAlbum(albumData,limit){
 var friendDom = document.querySelector('#friArticle') || ''
 function MyFriends(){
   var fetchNum = 12;
-  var fetchUrl = "https://cf.immmmm.com/all?end="+fetchNum;
+  var fetchUrl = "https://cf.edui.fun/all?end="+fetchNum;
   var localfriendUpdated = JSON.parse(localStorage.getItem("friendUpdated")) || '';
   var localfriendData = JSON.parse(localStorage.getItem("friendData")) || '';
   if(localfriendData){
