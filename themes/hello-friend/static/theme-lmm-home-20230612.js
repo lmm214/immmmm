@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  memoTalks();memoAlbum(6);MyFriends();umiTongji();
+  memoTalks();memoAlbum(6);MyFriends();
 });
 
 function memoTalks(){
