@@ -93,7 +93,7 @@
   </div>
   
   <div class="home">
-    {{ $goods := getJSON "static/shuju/goods.json" }}
+    {{ $goods := getJSON "static/goods/goods.json" }}
     <h3><a href="/goods/">近期好物</a></h3>
     <div id="goods">
     {{ range first 5 $goods.good}}
