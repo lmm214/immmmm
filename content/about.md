@@ -4,43 +4,16 @@ date: 2020-03-14 12:41:27
 layout: 'posts'
 ---
 
-### 近期观影 <small>[🔗](/movies)</small>
-
-{{< movies >}}
-
-### 近期阅读 <small>[🔗](/books)</small>
-
-{{< books >}}
-
-### 近期光影 <small>[🔗](/album)</small>
-
-{{< album >}}
-
-### 近期好物 <small>[🔗](/me-goods)</small>
-
-{{< goods >}}
-
 ### 博客程序
 
 - Hugo：<https://gohugo.io/>
 - 本站源码：<https://github.com/lmm214/immmmm>
-
-### 主题分享
-
-Gridea 主题：[「Motify」](https://github.com/lmm214/gridea-theme-motify)、[「Webstack」](https://github.com/lmm214/gridea-theme-webstack)、[「Breek」](https://github.com/lmm214/gridea-theme-breek)、[「Puti」](https://github.com/lmm214/gridea-theme-puti)
 
 <!--more-->
 
 ### 维护项目
 
 - 教学工具导航: <https://edui123.com/>
-
-### 工具推荐
-
-- Mac 发图「uPic」：<https://github.com/gee1k/uPic>
-- 全平台发图「PicGo」：<https://github.com/Molunerfinn/PicGo>
-- 云存储管理客户端 「qiniuClient」: <https://github.com/willnewii/qiniuClient>
-- Chrome 新标签扩展「几枝」、HTML5视频速度控制「Video Speed Controller」、沉浸式阅读「简悦」
 
 ### 我的朋友
 
@@ -68,21 +41,17 @@ Gridea 主题：[「Motify」](https://github.com/lmm214/gridea-theme-motify)、
 
 {{< friend name="周良粥凉" url="https://imzl.com/" md5="7a3666b87e0dfb5d76fd1a0ea7779d9b" des="">}}
 
-{{< friend name="Axiu" url="https://axiu.me/" md5="c1c19d714393cd9b8ea3a1e955db8521" des="">}}
+{{< friend name="Axiu" url="https://www.axiu.me/" md5="c1c19d714393cd9b8ea3a1e955db8521" des="">}}
 
 {{< friend name="不亦乐乎" url="https://lms.im/" md5="d9cc49ea0301640d7a19b6a1e77012dd" des="">}}
 
-{{< friend name="从良未遂" url="https://www.ithmz.com/" md5="2672e294218856ef973af5821565a158" des="">}}
-
 {{< friend name="秦大叔" url="https://qfsyj.com/" md5="4ba509f9ec541ab4d316299727b3e3ab" des="">}}
 
-{{< friend name="灰常记忆" url="http://bestcherish.com/" md5="338aab9b039236de24c1d8a5def2dc77" des="">}}
+{{< friend name="灰常记忆" url="https://bestcherish.com/" md5="338aab9b039236de24c1d8a5def2dc77" des="">}}
 
-{{< friend des="" url="http://www.anandalue.com/" md5="6cb00a3ed13460e8317bec9745d6c8d8" name="Andalue" >}}
+{{< friend des="" url="https://www.anandalue.com/" md5="6cb00a3ed13460e8317bec9745d6c8d8" name="Andalue" >}}
 
 {{< friend name="AoTxLand" url="https://aotxland.com/" md5="63900087ce5ba22f6377309fa50962d0" des="记录行走和折腾之路。">}}
-
-{{< friend name="冰微未来" url="https://www.vwmwv.cn/" md5="4cc893d113dd74ceca73f9863f2c5446" des="">}}
 
 {{< friend name="SoSilent" url="https://sosilent.top/" md5="ee5c49f4d0339f71e1a3ded340bc1b98" des="" >}}
 
@@ -128,17 +97,11 @@ Gridea 主题：[「Motify」](https://github.com/lmm214/gridea-theme-motify)、
 
 {{< friend name="小王子" url="https://www.wanghao.me/" md5="5cc114213dee7cdf2d3364a15b090586" des="">}}
 
-{{< friend name="平顶山" url="https://0375.me/" md5="b41bd82dd1936605a992d4ded120c7d7" des="">}}
-
 {{< friend name="不一止集" url="https://buyivi.xyz/" md5="57d8260dfb55501c37dde588e7c3852c" des="">}}
-
-{{< friend name="忆往事" url="https://yiws.net/" md5="5227ee83f9f62c28edeed5554923d09c" des="">}}
 
 {{< friend name="SKYue" url="https://www.skyue.com/" md5="c3fb4bb4d5101284ddd672fb722cdd7d" des="">}}
 
 {{< friend name="权子" url="http://www.quanzi.de/" md5="0e99ef2ad07f02eee35584d7a9263696" des="">}}
-
-{{< friend name="羽中漫步" url="https://www.yzmb.me/" md5="ffa9ac42c56fd4776ccef37c57664965" des="">}}
 
 {{< friend name="弋牧" url="http://emuia.com/" md5="57d8260dfb55501c37dde588e7c3852c" des="">}}
 
@@ -160,8 +123,6 @@ Gridea 主题：[「Motify」](https://github.com/lmm214/gridea-theme-motify)、
 
 {{< friend name="Xinsenz茶話" url="https://xinsenz.com/" src="https://favicon.yandex.net/favicon/v2/xinsenz.com?size=32" des="">}}
 
-{{< friend name="浮游笔记" url="https://fffou.com/" src="https://favicon.yandex.net/favicon/v2/fffou.com?size=32" des="">}}
-
 {{< friend name="吕小荣" url="https://mednoter.com/" src="https://mednoter.com/images/scribble.png" des="">}}
 
 {{< friend name="Leyar" url="https://ileyar.com/" src="https://ileyar.com/apple-touch-icon.png" des="">}}
@@ -178,7 +139,7 @@ Gridea 主题：[「Motify」](https://github.com/lmm214/gridea-theme-motify)、
 
 {{< friend name="Black Flies" url="https://www.yyyzyyyz.cn/" src="https://fastly.jsdelivr.net/gh/hiltay/imgcdn/img/202111191951780.JPG" des="">}}
 
-{{< friend name="小孙同学" url="https://sunguoqi.com/" src="https://sunguoqi.com/images/avatar.jpg" des="">}}
+{{< friend name="小孙同学" url="https://blog.sunguoqi.com/" md5="f0e98910be9a5bcb7b4c987e03fd75e4" des="">}}
 
 {{< friend name="ChenYFanのSite" url="https://blog.cyfan.top/" src="https://npm.elemecdn.com/chenyfan-cdn@2.0.0/img/avatar.png" des="">}}
 
@@ -196,31 +157,21 @@ Gridea 主题：[「Motify」](https://github.com/lmm214/gridea-theme-motify)、
 
 {{< friend name="Gahotx" url="https://gahotx.cn/" src="https://pub.gahotx.cn/photo/cat.jpg" des="">}}
 
-{{< friend name="FanHeart" url="https://hesifan.top/" src="https://hesifan.top/medias/avatar.jpg" des="">}}
-
-{{< friend name="FiveFire的博客" url="https://fivefirex.github.io/" src="https://unpkg.com/fivefirex-assets/avatar.jpeg" des="">}}
-
 {{< friend name="iMaeGoo’s Blog" url="https://www.imaegoo.com/" src="https://cravatar.cn/avatar/05bb2aa29c9da6ef65fabd321135e7b6?s=200" des="">}}
-
-{{< friend name="天翔的博客" url="https://tnxg.loyunet.cn" src="https://q1.qlogo.cn/g?b=qq&nk=2271225249&s=640" des="">}}
 
 {{< friend name="多米诺的blog" url="https://blog.dominoh.com/" src="https://bu.dusays.com/2021/12/21/4f20cbfa55e12.png" des="">}}
 
-{{< friend name="LanYunのBlog" url="https://lanyundev.vercel.app/" src="https://lanyundev.vercel.app/img/logo2.jpg" des="">}}
-
-{{< friend name="iYuan's Blog" url="https://o0.work/" src="https://npm.elemecdn.com/iyuancdn@latest/img/avatar.jpg" des="">}}
+{{< friend name="LanYunのBlog" url="https://lanyundev.com/" md5="d8259458af3d294c086be80d5496a2ce" des="">}}
 
 {{< friend name="星空下的YZY" url="https://226yzy.com/" src="https://s4.ax1x.com/2021/12/11/oTDujJ.jpg" des="">}}
 
-{{< friend name="Hajeekn's Blog" url="https://blog.slqwq.cn/" src="https://npm.elemecdn.com/perorepe-cdn@1.0.0/v1/static-files/avatar.webp" des="">}}
+{{< friend name="Hajeekn" url="https://blog.slqwq.cn/" md5="0a800179c2fb65f302de3951bcd99cc3" des="">}}
 
-{{< friend name="Rootlex's Blog" url="https://blog.nalex.top/" src="https://bu.dusays.com/2022/01/24/445fb4d1af3e6.jpg" des="">}}
+{{< friend name="Rootlex" url="https://blog.nalex.top/" src="https://bu.dusays.com/2022/01/24/445fb4d1af3e6.jpg" des="">}}
 
 {{< friend name="怡红公子" url="https://imnerd.org/" md5="32f210c5e3cd76fdf677981974274dfd" des="">}}
 
 {{< friend name="小康博客" url="https://www.antmoe.com/" src="https://fastly.jsdelivr.net/npm/kang-static@latest/avatar.jpg" des="">}}
-
-{{< friend des="" url="https://www.foryuanbo.com/" md5="77a4ed5175b2c4995dc55c32310949a6" name="远博" >}}
 
 {{< friend des="" url="https://blog.leonus.cn/" src="https://q1.qlogo.cn/g?b=qq&nk=553344777&s=5" name="Leonus" >}}
 
@@ -239,6 +190,8 @@ Gridea 主题：[「Motify」](https://github.com/lmm214/gridea-theme-motify)、
 {{< friend des="" url="https://wangyunzi.com/" md5="c1b204bab687a23c8b6d7c8de11c7c59" name="王云子" >}}
 
 {{< friend des="" url="https://zuofei.net/" md5="dc75b1021b41486d062ff0285fb94749" name="青山" >}}
+
+{{< friend des="" url="https://koobai.com/" md5="3b3d336a7d389b7ae8531cbe177ae9b7" name="空白生活" >}}
 
 ### 欢迎打赏
 
