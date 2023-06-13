@@ -772,6 +772,7 @@ hr {
 }
 .home{width:100%;margin:0 auto;max-width:1000px;}
 .home .post{border-bottom:none;padding-bottom:0;margin:0 auto;}
+.home.posts,.home-1.post{margin-bottom:1rem;}
 .home-1 .post-cover{
 	float: left;
 	margin: 0 20px 20px 0;
@@ -791,6 +792,7 @@ hr {
     max-width: 90px;
 	-o-object-fit: cover;
     object-fit: cover;
+	box-shadow: 0 5px 25px rgba(0,0,0,.15);
 }
 .home-2 .post-title,.home-2 .post-meta{margin-right:140px;}
 .home-2 .post-title{font-size: 1.6rem;}
@@ -816,6 +818,7 @@ hr {
     left: -2rem;
 	letter-spacing: 0;
 }
+.douban.friends{padding-top:1.2rem;}
 .douban .dfdORB{width: 16%;}
 .home .post{flex-direction: column;}
 #friArticle{display:flex;flex-wrap:wrap;justify-content:center;margin:1.5rem 0 2rem;padding:0 20px;}
@@ -826,6 +829,10 @@ hr {
 .fri-title{line-height: 24px;white-space: nowrap;max-width:350px;text-overflow:ellipsis;overflow:hidden;}
 .fri-title a,.douban h3 a,.home h3 a{text-decoration:none;}
 .fri-updated{font-style: italic;font-size: small;}
+.douban h3 a,.home h3 a{text-decoration:none;padding:0 1.5rem 0 0.2rem;background: url(data:image/svg+xml;base64,PHN2ZyBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiPjxwYXRoIGQ9Ik01NTcuMjI3IDM0Ni4wMjdMNjE3LjYgNDA2LjRhMjk4LjY2NyAyOTguNjY3IDAgMCAxIDAgNDIyLjRsLTE1LjEwNCAxNS4wNjFhMjk4LjY2NyAyOTguNjY3IDAgMCAxLTQyMi40LTQyMi40bDYwLjM3MyA2MC4zNzRBMjEzLjMzMyAyMTMuMzMzIDAgMSAwIDU0Mi4xNjUgNzgzLjUzbDE1LjEwNC0xNS4xMDRhMjEzLjMzMyAyMTMuMzMzIDAgMCAwIDAtMzAxLjY1NEw0OTYuODk2IDQwNi40bDYwLjM3My02MC4zM3pNODQzLjg2IDYwMi40OTZsLTYwLjMzLTYwLjMzYTIxMy4zMzMgMjEzLjMzMyAwIDEgMC0zMDEuNjk2LTMwMS42OTdsLTE1LjEwNCAxNS4xMDRhMjEzLjMzMyAyMTMuMzMzIDAgMCAwIDAgMzAxLjY1NGw2MC4zNzMgNjAuMzczLTYwLjM3MyA2MC4zM0w0MDYuNCA2MTcuNmEyOTguNjY3IDI5OC42NjcgMCAwIDEgMC00MjIuNGwxNS4xMDQtMTUuMDYxYTI5OC42NjcgMjk4LjY2NyAwIDAgMSA0MjIuNCA0MjIuNHoiIGZpbGw9IiNmZmYiLz48L3N2Zz4=) no-repeat right center;}
+.homemore a{bottom: -20px;position: relative;z-index: 999;text-decoration: none;padding: .8rem 3rem;border-radius: 3rem;background: #fff;box-shadow: 0 1px 2px rgba(0,0,0,.05);}
+.dark .homemore a{background: #3b3d42;}
+
 
 @media (min-width: 768px){
 	.grid-cols-2{display: grid;grid-template-columns: repeat(2,minmax(0,1fr));gap:0rem;}
@@ -841,7 +848,7 @@ hr {
 		width: 100%
 	}
 	.home-1 .post-cover{
-		margin:0;
+		margin:0 0 2rem;
 		width: 100%;
 		max-width: 100%;
     	float: none;
@@ -1089,54 +1096,30 @@ hr {
 
 .archive {
 	width: 100%;
-	max-width: 800px;
+	max-width: 1000px;
 	text-align: left;
 	padding: 20px;
 	margin: 0 auto
 }
-
-.archive__group-month {
-	display: flex;
-	align-items: flex-start;
-	padding: 10px 0
-}
-.archive__group-month h3{margin:2rem 2rem 0 0;}
-
-@media (max-width:683px) {
-	.archive__group-month {
-		flex-direction: column
-	}
-}
-
-.archive__group-month:not(:last-of-type) {
-	width: 100%;
-	border-bottom: 1px solid #dcdcdc;
-	border-bottom: 1px solid var(--light-border-color)
+.archive .grid-cols-2{gap:0 4rem;}
+.archive .post{border:none;}
+.archive .home.posts,.archive  .home-1.post{margin-bottom:0;}
+.archive__group-month {padding: 10px 0}
+.archive__group-month h3{position: relative;}
+.archive__group-month h3:before {
+    content: "##";
+    color: #42b983;
+    position: absolute;
+    left: -2rem;
+    letter-spacing: 0;
 }
 
-.dark .archive__group-month:not(:last-of-type) {
-	border-color: #4a4b50;
-	border-color: var(--dark-border-color)
-}
-
-.archive__group-year {
-	margin-top: 40px
-}
+.archive__group-year {margin-top: 40px}
 
 @media (max-width:683px) {
 	.archive__group-year {
 		margin-top: 20px
 	}
-}
-
-.archive__group-year:not(:last-of-type) {
-	border-bottom: 1px solid #dcdcdc;
-	border-bottom: 1px solid var(--light-border-color)
-}
-
-.dark .archive__group-year:not(:last-of-type) {
-	border-color: #4a4b50;
-	border-color: var(--dark-border-color)
 }
 
 .archive__group-year-header {
@@ -1149,26 +1132,9 @@ hr {
 	opacity: .5
 }
 
-.archive__group-posts {
-	width: 100%
-}
-
+.archive__group-posts {width: 100%}
 .archive .post{padding:0;margin:0;}
-.archive__post {
-	flex-grow: 1;
-	padding:1.85rem 0 20px 0
-}
-
-.archive__post:not(:last-of-type) {
-	border-bottom: 1px solid #dcdcdc;
-	border-bottom: 1px solid var(--light-border-color)
-}
-
-.dark .archive__post:not(:last-of-type) {
-	border-color: #4a4b50;
-	border-color: var(--dark-border-color)
-}
-
+.archive__post {padding:1.85rem 0 20px 0}
 .archive__post-title {
 	margin:0 0 15px;
 	overflow: hidden;
