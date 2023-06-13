@@ -7,7 +7,7 @@ feature: https://r2.immmmm.com/2023/06/myfriends.png
 
 值得 Mark 一笔！
 
-最初动力来自于 [「积薪」](https://firewood.news/) （一个颜值在线的独立博客导航站），首页的前五篇文章样式自己来自于此。
+最初动力来自于 [「积薪」](https://firewood.news/) （一个颜值在线的独立博客导航站），首页的前五篇文章样式直接来自于此。
 
 另外的几个模块分别是：[哔哔点啥](/bbs/)、[朋友连接](/friends/)、[近期光影](/album/)、[近期好物](/goods/)、[近期观影](/movies/)、[近期阅读](/books/)。
 
