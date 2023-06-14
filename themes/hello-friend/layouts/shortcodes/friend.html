@@ -1,6 +1,0 @@
-{{ if .Get "url" }}
-<div class="archive-item links-item cf-friends">
-	<img loading="lazy" class="archive-list-image avatar" src="{{- if .Get "src" -}}{{- .Get "src" -}}{{- else -}}https://gravatar.loli.net/avatar/{{ .Get "md5" -}}{{- end -}}"/>
-	<a target="_blank" href={{ .Get "url" }} >{{ .Get "name" }}</a>
-</div>
-{{ end }}

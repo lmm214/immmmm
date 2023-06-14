@@ -1,0 +1,7 @@
+{{ $friends := getJSON "static/friends.json" }}
+{{ range $friends.friend}}
+<div class="archive-item links-item cf-friends">
+	<img loading="lazy" class="archive-list-image avatar" src="{{- if .src -}}{{- .src -}}{{- else -}}https://gravatar.loli.net/avatar/{{ .md5 -}}{{- end -}}"/>
+	<a target="_blank" href={{ .url }} >{{ .name }}</a>
+</div>
+{{ end }}
