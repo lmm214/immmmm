@@ -440,6 +440,11 @@
             "url": "https://koobai.com/",
             "md5": "3b3d336a7d389b7ae8531cbe177ae9b7",
             "des": ""
+        },{
+            "name": "Dejavu’s Blog",
+            "url": "https://blog.dejavu.moe/posts/",
+            "md5": "a0c39ef9fc53bf1ce37fa36d5c8aaaff",
+            "des": ""
         }
     ]
 }
