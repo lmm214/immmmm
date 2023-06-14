@@ -1,6 +1,17 @@
 /*
-Last Modified time : 20230614 by https://immmmm.com
+Last Modified time : 20230614 23:15 by https://immmmm.com
 */
+if (typeof Lately === 'undefined') {
+    const script = document.createElement('script');
+    script.src = 'https://fastly.jsdelivr.net/gh/Tokinx/Lately/lately.min.js';
+    script.onload = () => {
+      Lately.init({ target: '.forever-updated' });
+    };
+    document.head.appendChild(script);
+} else {
+    Lately.init({ target: '.forever-updated' });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     var foreverDom = document.querySelector('#foreverblog') || ''
     var ForeverCSS = "#foreverblog{display:flex;flex-wrap:wrap;justify-content:center;margin:1.5rem 0 2rem;padding:0 20px;}.forever-avatar{border-radius:50%;height:38px;width:38px;max-width:none;margin-right:10px;}.forever-item{max-height:49px;border-radius:3rem;background:#fff;padding:5px 2rem 5px 7px;margin:0 0.6rem 1rem 0;display:inline-block;display:flex;box-shadow:0 1px 2px rgba(0,0,0,.05);}.dark .forever-item{background: #3b3d42}.forever-cont{line-height:1rem;display: inline-block;font-size: 1rem;}.forever-title{line-height: 24px;white-space: nowrap;max-width:350px;text-overflow:ellipsis;overflow:hidden;}.forever-title a,.douban h3 a,.home h3 a{text-decoration:none;}.forever-updated{font-style: italic;font-size: small;}@media (min-width: 550px) and (max-width:899px) {.forever-cont{width: 100%;}.forever-title{width:calc(100% - 50px);}.forever-item{width:48%;}.forever-item:nth-child(n+15){display:none;}}@media (max-width:549px) {#foreverblog{display: block;}.forever-cont{width: 100%;}.forever-title{width:calc(100% - 50px);}.forever-item{width:100%;}.forever-item:nth-child(n+7){display:none;}}"
@@ -17,14 +28,14 @@ document.addEventListener("DOMContentLoaded", () => {
     function ForeverFeeds(){
       var fetchUrl = "https://www.foreverblog.cn/api/v1/blog/feeds?page=1";
       var localforeverData = JSON.parse(localStorage.getItem("foreverData")) || '';
+      console.log()
       if(localforeverData){
         loadforever(localforeverData)
         console.log("Myforevers 本地数据加载成功")
       }
       fetch(fetchUrl).then(res => res.json()).then(resdata =>{
         var foreverData = resdata.data
-        console.log(foreverData)
-        if(foreverData){
+        if(foreverData && localforeverData.data[0].link != foreverData.data[0].link){
           foreverDom.innerHTML = "";
           loadforever(foreverData)
           localStorage.setItem("foreverData",JSON.stringify(foreverData))
@@ -49,7 +60,5 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
       }
       foreverDom.innerHTML = foreverArticle
-      //相对时间
-      window.Lately && Lately.init({ target: '.forever-updated'});
     }
 })
