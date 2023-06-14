@@ -43,7 +43,7 @@ function memoAlbum(numb){
     }
     fetch(galleryUrl).then(res => res.json()).then( resdata =>{
       var albumUpdated = resdata.data[0].updatedTs
-      if(albumUpdated && localalbumUpdated != albumUpdated){
+      if(albumUpdated){// && localalbumUpdated != albumUpdated
         var albumData = resdata.data
         albumDom.innerHTML = "";
         loadAlbum(albumData,limit)
@@ -122,7 +122,7 @@ function MyFriends(){
   }
   fetch(fetchUrl).then(res => res.json()).then(resdata =>{
     var friendUpdated = resdata.statistical_data.last_updated_time
-    if(friendUpdated && localfriendUpdated != friendUpdated){
+    if(friendUpdated){// && localfriendUpdated != friendUpdated
       var friendData = resdata.article_data;
       friendDom.innerHTML = "";
       loadFriend(friendData,fetchNum)

@@ -9,7 +9,7 @@ if (typeof Lately === 'undefined') {
     };
     document.head.appendChild(script);
 } else {
-    Lately.init({ target: '.forever-updated' });
+    window.Lately && Lately.init({ target: '.forever-updated' });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -28,14 +28,14 @@ document.addEventListener("DOMContentLoaded", () => {
     function ForeverFeeds(){
       var fetchUrl = "https://www.foreverblog.cn/api/v1/blog/feeds?page=1";
       var localforeverData = JSON.parse(localStorage.getItem("foreverData")) || '';
-      console.log()
       if(localforeverData){
         loadforever(localforeverData)
         console.log("Myforevers 本地数据加载成功")
       }
       fetch(fetchUrl).then(res => res.json()).then(resdata =>{
         var foreverData = resdata.data
-        if(foreverData && localforeverData.data[0].link != foreverData.data[0].link){
+        var localLink = localforeverData.data[0].link || ''
+        if(foreverData){
           foreverDom.innerHTML = "";
           loadforever(foreverData)
           localStorage.setItem("foreverData",JSON.stringify(foreverData))
