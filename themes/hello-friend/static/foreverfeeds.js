@@ -5,7 +5,7 @@ if (typeof Lately === 'undefined') {
     const script = document.createElement('script');
     script.src = 'https://fastly.jsdelivr.net/gh/Tokinx/Lately/lately.min.js';
     script.onload = () => {
-      Lately.init({ target: '.forever-updated' });
+        window.Lately && Lately.init({ target: '.forever-updated' });
     };
     document.head.appendChild(script);
 } else {
@@ -60,5 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
       }
       foreverDom.innerHTML = foreverArticle
+      //相对时间
+      Lately.init({ target: '.forever-updated'});
     }
 })
