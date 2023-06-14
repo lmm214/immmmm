@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       fetch(fetchUrl).then(res => res.json()).then(resdata =>{
         var foreverData = resdata.data
-        var localLink = localforeverData.data[0].link || ''
+        //var localLink = localforeverData.data[0].link || ''
         if(foreverData){
           foreverDom.innerHTML = "";
           loadforever(foreverData)
