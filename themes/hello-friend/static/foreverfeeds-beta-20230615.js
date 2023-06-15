@@ -1,5 +1,5 @@
 /*
-Last Modified time : 20230615 07:15 by https://immmmm.com
+Last Modified time : 20230615 19:15 by https://immmmm.com
 */
 if (typeof Lately === 'undefined') {
     const script = document.createElement('script');
@@ -31,14 +31,18 @@ document.addEventListener("DOMContentLoaded", () => {
       if(localforeverData){
         loadforever(localforeverData)
         console.log("Myforevers 本地数据加载成功")
+      }else{
+        localStorage.setItem("foreverLink","")
       }
       fetch(fetchUrl).then(res => res.json()).then(resdata =>{
         var foreverData = resdata.data
-        //var localLink = localforeverData.data[0].link || ''
-        if(foreverData){
+        var foreverLink = foreverData.data[0].link
+        var localLink = localStorage.getItem("foreverLink")
+        if(foreverData && foreverLink != localLink){
           foreverDom.innerHTML = "";
           loadforever(foreverData)
           localStorage.setItem("foreverData",JSON.stringify(foreverData))
+          localStorage.setItem("foreverLink",foreverLink)
           console.log("Myforevers 热更新完成")
         }else{
           console.log("Myforevers API 数据未更新")
