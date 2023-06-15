@@ -40,10 +40,12 @@ function memoAlbum(numb){
     if(localalbumData){
       loadAlbum(localalbumData,limit)
       console.log("memoAlbum 本地数据加载成功")
+    }else{
+      localStorage.setItem("albumUpdated","")
     }
     fetch(galleryUrl).then(res => res.json()).then( resdata =>{
       var albumUpdated = resdata.data[0].updatedTs
-      if(albumUpdated){// && localalbumUpdated != albumUpdated
+      if(albumUpdated && localalbumUpdated != albumUpdated){
         var albumData = resdata.data
         albumDom.innerHTML = "";
         loadAlbum(albumData,limit)
@@ -119,10 +121,12 @@ function MyFriends(){
   if(localfriendData){
     loadFriend(localfriendData,fetchNum)
     console.log("MyFriends 本地数据加载成功")
+  }else{
+    localStorage.setItem("friendUpdated","")
   }
   fetch(fetchUrl).then(res => res.json()).then(resdata =>{
     var friendUpdated = resdata.statistical_data.last_updated_time
-    if(friendUpdated){// && localfriendUpdated != friendUpdated
+    if(friendUpdated && localfriendUpdated != friendUpdated){
       var friendData = resdata.article_data;
       friendDom.innerHTML = "";
       loadFriend(friendData,fetchNum)
