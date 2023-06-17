@@ -5,7 +5,7 @@ tags: [折腾]
 feature: https://r2.immmmm.com/2023/06/umami-im.png
 ---
 
-[Umani](https://umami.is/) 一个高颜值可自部署的统计应用。
+[Umami](https://umami.is/) 一个高颜值可自部署的统计应用。
 
 看着服务器负载常年低于10%，有一点点需求的应用，特别是能 Docker 部署的，全都安排上！看着基本的统计数据都有。不错不错！但，能直接 API 前端调用统计数据不？可以的，接口见官网： <https://umami.is/docs/api>
 
