@@ -83,11 +83,12 @@
 
   <div class="homemore"><a href="/archives/">查看更多</a></div>
 
-
+  {{- if not .Site.IsServer }}
   <div class="douban friends">
-    <h3><a href="https://www.foreverblog.cn/feeds.html" rel="noreferrer" target="_blank" >十年之约</a></h3>
-    <div id="foreverblog" style="min-height:160px;"></div>
+    <h3><a href="/friends/">朋友连接 </a></h3>
+    <div id="friArticle" style="min-height:160px;"></div>
   </div>
+  {{ end -}}
 
   {{- if not .Site.IsServer }}
   <div class="home">
