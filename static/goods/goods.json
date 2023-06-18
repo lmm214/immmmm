@@ -1,6 +1,13 @@
 {
     "good": [
         {
+            "image": "/goods/appleTV.webp",
+            "jiage": "¥1177 (23-06)",
+            "title": "Apple TV 7代",
+            "link": "https://npcitem.jd.hk/100045175467.html",
+            "note": "看到最新系统已支持网络设置，省去一个软路由，下单之！"
+        },
+        {
             "image": "/goods/whirlpool.webp",
             "jiage": "¥1856 (23-01)",
             "title": "Whirlpool 大蓝鲸净水器",
