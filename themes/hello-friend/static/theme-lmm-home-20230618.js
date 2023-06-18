@@ -156,56 +156,5 @@ function loadFriend(friendData,fetchNum){
   //相对时间
   window.Lately && Lately.init({ target: '.fri-updated'});
 }
-//bb 广场
-var bbsDom = document.querySelector('#bbsHub') || ''
-//if(bbsDom){MyBbs();}
-function MyBbs(){
-  var fetchNum = 20;
-  var fetchUrl = "https://cf.edui.fun/all?end="+fetchNum;
-  var localbbsUpdated = JSON.parse(localStorage.getItem("bbsUpdated")) || '';
-  var localbbsData = JSON.parse(localStorage.getItem("bbsData")) || '';
-  if(localbbsData){
-    loadbbs(localbbsData,fetchNum)
-    console.log("MyBbs 本地数据加载成功")
-  }else{
-    localStorage.setItem("bbsUpdated","")
-  }
-  fetch(fetchUrl).then(res => res.json()).then(resdata =>{
-    var bbsUpdated = resdata.statistical_data.last_updated_time
-    if(bbsUpdated && localbbsUpdated != bbsUpdated){
-      var bbsData = resdata.article_data;
-      bbsDom.innerHTML = "";
-      loadbbs(bbsData,fetchNum)
-      localStorage.setItem("bbsUpdated",JSON.stringify(bbsUpdated))
-      localStorage.setItem("bbsData",JSON.stringify(bbsData))
-      console.log("MyBbs 热更新完成")
-    }else{
-      console.log("MyBbs API 数据未更新")
-    }
-  })
-}
-var fetchBbs = "https://r2j.edui.fun/rss?per_page=20";
-fetch(fetchBbs).then(res => res.json()).then(resdata =>{
-  var bbsNum = 20;
-  var bbsData = resdata.rss_list
-  loadbbs(bbsData,bbsNum)
-})
-function loadbbs(bbsData,bbsNum){
-  var error_img="https://gravatar.loli.net/avatar/57d8260dfb55501c37dde588e7c3852c",bbsItem = '';
-  for (var i = 0;i<bbsNum;i++){
-    var item = bbsData[i];
-    bbsItem +=`
-    <div class="fri-item">
-      <div class="fri-cont">
-        <div class="fri-title"><a target="_blank" rel="noopener nofollow" href="${item.link}">${item.description}</a></div>
-        <div class="bbs-updated">${item.pubDate}</div>
-      </div>
-    </div>
-    `;
-  }
-  bbsDom.innerHTML = bbsItem
-  //相对时间
-  window.Lately && Lately.init({ target: '.bbs-updated'});
-}
 
 });
