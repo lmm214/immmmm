@@ -83,19 +83,19 @@
 
   <div class="homemore"><a href="/archives/">查看更多</a></div>
 
-  {{- if not .Site.IsServer }}
+
   <div class="douban friends">
     <h3><a href="/friends/">朋友连接 </a></h3>
     <div id="friArticle" style="min-height:160px;"></div>
   </div>
-  {{ end -}}
 
-  {{- if not .Site.IsServer }}
+
+
   <div class="home">
     <h3><a href="/album/">近期光影</a></h3>
     <div id="album" style="min-height:160px;"></div>
   </div>
-  {{ end -}}
+
 
   <div class="home">
     {{ $goods := getJSON "static/goods/goods.json" }}
@@ -114,7 +114,7 @@
 
     {{$movieitems := getCSV "," "data/douban/movie.csv" }}
     {{$movienumb := 6}}
-    <div class="douban sc-ksluID gFnzgG">
+    <div class="douban border-top sc-ksluID gFnzgG">
       <h3><a href="/movies/">近期观影</a></h3>
         <div class="items sc-dIsUp fIuTG">
             {{range $idx,$item := first $movienumb $movieitems}}
@@ -134,7 +134,7 @@
 
     {{$bookitems := getCSV "," "data/douban/book.csv" }}
     {{$booknumb := 6}}
-    <div class="douban sc-ksluID gFnzgG">
+    <div class="douban border-bottom sc-ksluID gFnzgG">
       <h3><a href="/books/">近期阅读</a></h3>
         <div class="items sc-dIsUp fIuTG">
             {{range $idx,$item := first $booknumb $bookitems}}

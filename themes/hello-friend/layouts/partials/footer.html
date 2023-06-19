@@ -34,7 +34,7 @@
 {{ else if ge $wowWord 5 }}{{$wowBook = "写完一本 埃克苏佩里 的</br>《小王子》了！"}}
 {{ end }}
 
-<footer class="footer">
+<footer class="footer {{ if .IsHome -}}home-footer{{- end -}}">
   <div class="footer__inner">
     <div class="copyright copyright-font">
       <span>共 {{$totalWord }} 字 <br/> {{$wowBook | safeHTML }}</span>

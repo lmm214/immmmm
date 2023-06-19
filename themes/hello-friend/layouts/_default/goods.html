@@ -5,6 +5,7 @@
   <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h2>
   <div class="post-content goods">
   {{ .Content }}
+  <div id="goods">
   {{ range $goods.good}}
   <div class="goods-bankuai img-hide">
     <div class="goods-duiqi"><img loading="lazy" decoding="async" src="{{ .image }}"></div>
@@ -13,6 +14,7 @@
     <div class="goods-note">{{ .note }}</div>
   </div>
   {{ end }}
+  </div>
   </div>
 
   {{ if not (eq .Params.Comments "false") }}
