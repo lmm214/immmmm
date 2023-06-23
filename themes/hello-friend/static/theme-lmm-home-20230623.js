@@ -116,9 +116,9 @@ if(friendDom){MyFriends();}
 function MyFriends(){
   var fetchNum = 20;
   var fetchUrl = "https://cf.edui.fun/all?end="+fetchNum;
-  var localfriendUpdated = JSON.parse(localStorage.getItem("friendUpdated")) || '';
+  var localfriendUpdated = localStorage.getItem("friendUpdated") || ''
   var localfriendData = JSON.parse(localStorage.getItem("friendData")) || '';
-  if(localfriendData){
+  if(localfriendData && localfriendUpdated){
     loadFriend(localfriendData,fetchNum)
     console.log("MyFriends 本地数据加载成功")
   }else{
@@ -130,7 +130,7 @@ function MyFriends(){
       var friendData = resdata.article_data;
       friendDom.innerHTML = "";
       loadFriend(friendData,fetchNum)
-      localStorage.setItem("friendUpdated",JSON.stringify(friendUpdated))
+      localStorage.setItem("friendUpdated",friendUpdated)
       localStorage.setItem("friendData",JSON.stringify(friendData))
       console.log("MyFriends 热更新完成")
     }else{
