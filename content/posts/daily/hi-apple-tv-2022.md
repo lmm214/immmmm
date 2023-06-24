@@ -29,11 +29,12 @@ feature: https://r2.immmmm.com/2023/06/appletv-1.png
 
 ### 网络直通
 
-> 方案 1：通过 Mac 安装 ClashX Pro 增强模式，成功；
+> 方案 1：通过 Mac 安装 ClashX Pro 增强模式，成功；优点是操作步骤少，但电脑得一直开着。
 > 
-> 方案 2：群晖 Docker 部署 Clash ，Mac 上用 Apple Configurator2 新增描述文件，给 Apple TV 的 Wi-Fi 添加代理。
+> 方案 2：群晖 Docker 部署 Clash ，Mac 上用 Apple Configurator2 新增描述文件，给 Apple TV 的 Wi-Fi 添加代理。优点是群晖本就一直开着，缺点是硬件依赖多。
+> 
+> 方案 3：群晖虚拟机安装 iStoreOS（openwrt）后装 openclash 插件作为旁路由。优缺点同上以外，缺点还有占了很多群晖内存。
 
-方案1的优点是操作步骤少，但电脑得一直开着。方案2的优点是群晖本就一直开着，缺点是硬件依赖多。
 
 ### 应用刚需
 
