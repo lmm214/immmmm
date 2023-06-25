@@ -115,7 +115,7 @@ var friendDom = document.querySelector('#friArticle') || ''
 if(friendDom){MyFriends();}
 function MyFriends(){
   var fetchNum = 20;
-  var fetchUrl = "https://cf.edui.fun/all?end="+fetchNum;
+  var fetchUrl = "https://cf.edui.fun/all?rule=created&end="+fetchNum;
   var localfriendUpdated = localStorage.getItem("friendUpdated") || ''
   var localfriendData = JSON.parse(localStorage.getItem("friendData")) || '';
   if(localfriendData && localfriendUpdated){
