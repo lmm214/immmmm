@@ -14,8 +14,8 @@ feature: https://r2.immmmm.com/2023/06/twikoo-x-bbs.png
 <!--more-->
 
 ```
-host:"https://me.edui.fun/",
-twiEnv:'https://tk.edui.fun/',
+host:"你的 Memos 托管网址",
+twiEnv:'你的 Twikoo 托管网址',
 ```
 
 ### 致谢
