@@ -29,9 +29,9 @@
 .bbs-creator,.bbs-date,.bbs-dot{position:relative;top:-5px;}
 .bbs-dot{font-weight: 800;margin:0 .5rem;}
 .bbs-content {margin-bottom: 3rem;}
-.bbs-text,.resour{background: #fff;border-radius: 8px;font-size: 1em;padding:10px 14px;position: relative;border:1px solid #eaeaea;box-shadow:0 4px 6px rgba(0,0,0,.04)}
+.bbs-text,.resour,.item-twikoo{background: #fff;border-radius: 8px;font-size: 1em;padding:10px 14px;position: relative;border:1px solid #eaeaea;box-shadow:0 4px 6px rgba(0,0,0,.04)}
 .resour{font-size: 0.9rem;margin-top: 2px;padding: 5px 14px;}
-.bbs-text{overflow:hidden;max-height:90vh;}
+.bbs-text{overflow:hidden;max-height:60vh;}
 .bbs-text blockquote{font-family: KaiTi,STKaiti,STFangsong;margin:0 0 0 1rem;padding:.25rem 2rem;position: relative;border-left:0 none;}
 .bbs-text blockquote::before{line-height: 2rem;content: "“";font-family: Georgia, serif;font-size: 28px;font-weight: bold;position: absolute;left: 10px;top:5px;}
 .bbs-text p{margin:0;}
@@ -40,8 +40,8 @@
 .tag-span{color: #42b983;}
 #load button.load-btn{width:100%;padding:8px 0;}
 #bb-footer{letter-spacing:8px;margin:5rem auto 1rem;text-align:center;}
-
-.dark .bbs-text,.dark .resour{background:#4a4b50;border:1px solid #3b3d42;}
+.dark .bbs-text,.dark .resour,.dark .item-twikoo{background:#4a4b50;border:1px solid #3b3d42;}
+.dark .item-twikoo{background:#272727;}
 .dark .bbs-text p{color:#fafafa;}
 .bbs-coment-svg{margin-left: 0.5rem;cursor: pointer;}
 
@@ -111,17 +111,19 @@
 }
 .video-wrapper{position:relative;padding-bottom:55%;width:100%;height:0}
 .video-wrapper iframe{position:absolute;height:100%;width:100%;}
+.d-none{display: none !important;}
 </style>
 
 
 <div class="post" style="max-width:1000px">
   <h2 class="post-title" style="margin:0 auto;text-align: center;"><a href="{{ .Permalink }}" rel="link">{{.Title}}</a></h2>
   <div id="bbs"></div>
-  <script src="https://fastly.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://fastly.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
   <script src="https://fastly.jsdelivr.net/gh/Tokinx/ViewImage/view-image.min.js"></script>
   <script src="https://fastly.jsdelivr.net/gh/Tokinx/Lately/lately.min.js"></script>
   <script src="https://fastly.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
   <script src="https://fastly.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
+  <script src="/twikoo1616.js"></script>
   <script src="/bbs-lmm.js"></script>
 
 {{ end }}
