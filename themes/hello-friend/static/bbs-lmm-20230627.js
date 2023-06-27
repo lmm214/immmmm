@@ -59,7 +59,8 @@ const urls = [
   {home:"https://kouseki.cn/",host:"https://memos.kouseki.cn/",creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/23978e8e57e20163e8cb67bbf9dbe907"},
   {home:"https://idh.ink/",host:"https://idh.ink/",creatorId:"1",comment:'',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=NAuictuJAIjdPiaHlY6xbDWA&kti=ZHUWoAAAAAA&s=140&t=1683481629"},
   {home:"https://leonfong.me/",host:"https://memo.leonfong.me/",creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/b147bfa4888f1233882ba5b39ef3bffc"},
-  {home:"https://memos.qiangtu.com/",host:"https://memos.qiangtu.com/",creatorId:"1",comment:'',imgsrc:"https://memos2504.oss-cn-hangzhou.aliyuncs.com/memos2504/assets/2023/06/06/1686021093_favicon.ico/1ef33f96-5296-4d5e-940c-04c88775d008.ico"}
+  {home:"https://memos.qiangtu.com/",host:"https://memos.qiangtu.com/",creatorId:"1",comment:'',imgsrc:"https://memos2504.oss-cn-hangzhou.aliyuncs.com/memos2504/assets/2023/06/06/1686021093_favicon.ico/1ef33f96-5296-4d5e-940c-04c88775d008.ico"},
+  {home:"https://darmau.design/",host:"https://memo.darmau.design/",creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/729357a0d48d17802332d52479d2399f"}
 ]
 
 
