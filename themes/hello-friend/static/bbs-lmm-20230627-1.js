@@ -19,12 +19,12 @@ const urls = [
   {home:"https://seersu.me/",host:"https://bb.seersu.top/",creatorId:"101",comment:'1',twiEnv:'https://twikoo.seersu.me/',imgsrc:"https://cravatar.cn/avatar/84b712148a63b44dd97ede997bc3efa5"},
   {home:"https://www.xzgljiang.com/",host:"https://memos.xzgljiang.com/",creatorId:"1",comment:'1',twiEnv:'https://twikoo.une.xzgljiang.com/',imgsrc:"https://cravatar.cn/avatar/a892fd3321ab65a1c5d9c7a54a04c881"},
   {home:"https://cooolr.cn/",host:"https://m.cooolr.cn/",creatorId:"1",comment:'1',twiEnv:'https://tk.cooolr.cn/',imgsrc:"https://cravatar.cn/avatar/7422f8bebdb99f6594e029f603ccb926"},
-  {home:"https://www.skyue.com/",host:"https://memos.skyue.com/",creatorId:"1",comment:'1',imgsrc:"https://cravatar.cn/avatar/c3fb4bb4d5101284ddd672fb722cdd7d"},
-  {home:"https://xrat.net/",host:"https://memos.xrat.net/",creatorId:"2",comment:'1',imgsrc:"https://cravatar.cn/avatar/0ab677e14d21d941f64d98192d6168e7"},
-  {home:"https://www.isolitude.cn/",host:"https://me.isolitude.cn/",creatorId:"1",comment:'1',imgsrc:"https://cravatar.cn/avatar/924916294598a950bb80d78012dc3aac"},
-  {home:"https://laozhang.org/",host:"https://memos.laozhang.org/",creatorId:"1",comment:'1',imgsrc:"https://cravatar.cn/avatar/679666f7bd1af3e55f0e51dd70ed161c"},
-  {home:"https://memos.ee/",host:"https://memos.ee/",creatorId:"1",comment:'1',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=ibRKdTab3VxmHk2EROqHGvA&kti=ZIgAdwAAAAE&s=40&t=1557855586"},
-  {home:"https://eallion.com/",host:"https://memos.eallion.com/",creatorId:"101",comment:'1',imgsrc:"https://cravatar.cn/avatar/171e4c30959e8c077a6c58b958624b31"},
+  {home:"https://eallion.com/",host:"https://memos.eallion.com/",creatorId:"101",comment:'1',artEnv:'https://api.eallion.com/artalk/',artSite:'memos',imgsrc:"https://cravatar.cn/avatar/171e4c30959e8c077a6c58b958624b31"},
+  {home:"https://www.skyue.com/",host:"https://memos.skyue.com/",creatorId:"1",comment:'1',artEnv: 'https://artalk.skyue.com',artSite: '拾月微博',imgsrc:"https://cravatar.cn/avatar/c3fb4bb4d5101284ddd672fb722cdd7d"},
+  {home:"https://xrat.net/",host:"https://memos.xrat.net/",creatorId:"2",comment:'1',artEnv:'https://vlabs.synology.me:96',artSite:'memos.xrat.net',imgsrc:"https://cravatar.cn/avatar/0ab677e14d21d941f64d98192d6168e7"},
+  {home:"https://www.isolitude.cn/",host:"https://me.isolitude.cn/",creatorId:"1",comment:'1',artEnv: 'https://artalk.isolitude.cn/',artSite: '自说自话王国',imgsrc:"https://cravatar.cn/avatar/924916294598a950bb80d78012dc3aac"},
+  {home:"https://laozhang.org/",host:"https://memos.laozhang.org/",creatorId:"1",comment:'1',artEnv: 'https://artalk.laozhang.org/',artSite: 'memos',imgsrc:"https://cravatar.cn/avatar/679666f7bd1af3e55f0e51dd70ed161c"},
+  {home:"https://memos.ee/",host:"https://memos.ee/",creatorId:"1",comment:'1',artEnv: 'https://artalk.loliko.cn',artSite: 'memo',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=ibRKdTab3VxmHk2EROqHGvA&kti=ZIgAdwAAAAE&s=40&t=1557855586"},
   {home:"https://linsnow.cn/",host:"https://bb.linsnow.cn/",creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/9f5d9e5efe3bea0139b12a0fe27100fe"},
   {home:"https://elizen.me/",host:"https://bb.elizen.me/",creatorId:"101",comment:'',imgsrc:"https://cravatar.cn/avatar/f65df4d87240feb1cb247857a621a48f"},
   {home:"https://www.cyuanx.icu/",host:"https://mome.cyuanx.icu/",creatorId:"1",comment:'',imgsrc:"https://www.cyuanx.icu/wp-content/uploads/2023/03/cropped-07b4b32029661fd9ce1200ac9b937f1.jpg"},
@@ -68,7 +68,7 @@ var bbDom = document.querySelector('#bbs');
 var load = '<div id="load" onclick="nextFetch()" ><button class="load-btn button-load">加载更多</button></div>'
 var loading = '<div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/></svg></div>'
 var bbsDatas = [],bbsData = {},nextDatas = [],nextData = {},limit = 2
-var page = 1,offset = 0,nextLength = 0,nextDom='',bbUrlNow = '',imgsrcNow = '',hostNow = '',creIdNow = '',commentNow = '',twiEnvNow=''
+var page = 1,offset = 0,nextLength = 0,nextDom='',bbUrlNow = '',imgsrcNow = '',hostNow = '',creIdNow = '',commentNow = '',twiEnvNow='',artEnvNow='',artSiteNow=''
 
 bbDom.innerHTML = loading
 allUrls()
@@ -76,7 +76,7 @@ function allUrls(){
   //console.log(urls)
   var myHtml = ''
   for(var i=0;i < urls.length;i++){
-    myHtml += '<div class="bbs-urls bbs-url" onclick="urlsNow(this)" data-hostid="'+urls[i].host+"u/"+urls[i].creatorId+'" data-host="'+urls[i].host+'" data-creatorId="'+urls[i].creatorId+'" data-imgsrc="'+urls[i].imgsrc+'" data-comment="'+urls[i].comment+'" data-home="'+urls[i].home+'" data-env="'+urls[i].twiEnv+'" data-index="'+i+'"><img src="'+urls[i].imgsrc+'" alt=""></div>'
+    myHtml += '<div class="bbs-urls bbs-url" onclick="urlsNow(this)" data-hostid="'+urls[i].host+"u/"+urls[i].creatorId+'" data-host="'+urls[i].host+'" data-creatorId="'+urls[i].creatorId+'" data-imgsrc="'+urls[i].imgsrc+'" data-comment="'+urls[i].comment+'" data-home="'+urls[i].home+'" data-twienv="'+urls[i].twiEnv+'" data-artenv="'+urls[i].artEnv+'" data-artsite="'+urls[i].artSite+'" data-index="'+i+'"><img src="'+urls[i].imgsrc+'" alt=""></div>'
   }
   myHtml += '<div class="bbs-urls urls-button" onclick="urlsNow(this)" data-type="random"><svg t="1665928089691" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2562" width="32" height="32"><path d="M913.2 672l98.8 57.1c5.3 3.1 5.3 10.8 0 13.9l-43.4 25L710.4 924c-2.7 1.5-6-0.4-6-3.5V772c0-2.2-1.8-4-4-4H544c-70.4 0-134.4-28.8-180.8-75.2-11.1-11.1-21.2-23.2-30.1-36.1-6.4-9.2-20-9.1-26.4 0.1C260.5 723.9 183.1 768 96 768h-48c-26.5 0-48-21.5-48-48s21.5-48 48-48h48c42.5 0 82.6-16.7 112.9-47.1 30.4-30.4 47.1-70.5 47.1-112.9s-16.7-82.6-47.1-112.9C178.6 368.7 138.4 352 96 352h-48c-26.5 0-48-21.5-48-48s21.5-48 48-48h48c70.4 0 134.4 28.8 180.8 75.2 11.1 11.1 21.2 23.2 30.1 36.1 6.4 9.2 20 9.1 26.4-0.1 46.3-67 123.6-111.1 210.8-111.1H700.4c2.2 0 4-1.8 4-4V103.4c0-3.1 3.3-5 6-3.5l258.2 156 43.4 25.1c5.3 3.1 5.3 10.8 0 13.9L913.2 352 710.4 476c-2.7 1.5-6-0.4-6-3.5V356c0-2.2-1.8-4-4-4H544c-42.5 0-82.6 16.7-112.9 47.1-30.4 30.4-47.1 70.5-47.1 112.9 0 42.5 16.7 82.6 47.1 112.9C461.4 655.3 501.5 672 544 672H700.4c2.2 0 4-1.8 4-4V551.4c0-3.1 3.3-5 6-3.5L913.2 672z" p-id="2563" fill="#f5f5f5"></path></svg></div>'
   myHtml += '<div class="bbs-urls urls-button"><a href="https://immmmm.com/bbs-by-memos/"><svg t="1665929410343" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6308" width="32" height="32"><path d="M906.212134 565.732986 565.732986 565.732986 565.732986 906.212134C565.732986 926.013685 541.666486 959.972 511.97312 959.972 482.297674 959.972 458.213254 926.013685 458.213254 906.212134L458.213254 565.732986 117.734106 565.732986C97.950475 565.732986 63.97424 541.666486 63.97424 511.97312 63.97424 482.279754 97.950475 458.213254 117.734106 458.213254L458.213254 458.213254 458.213254 117.734106C458.213254 97.950475 482.297674 63.97424 511.97312 63.97424 541.666486 63.97424 565.732986 97.950475 565.732986 117.734106L565.732986 458.213254 906.212134 458.213254C925.995765 458.213254 959.972 482.279754 959.972 511.97312 959.972 541.666486 925.995765 565.732986 906.212134 565.732986Z" p-id="6309" fill="#f5f5f5"></path></svg></a></div>'
@@ -113,6 +113,8 @@ function urlsNow(e){
       imgsrcNow = urls[num].imgsrc
       commentNow = urls[num].comment
       twiEnvNow = urls[num].twiEnv
+      artEnvNow = urls[num].artEnv
+      artSiteNow = urls[num].artSite
       homeNow = urls[num].home
       domUrls[num].classList.add("url-now")
     }else{
@@ -122,6 +124,8 @@ function urlsNow(e){
       imgsrcNow = e.getAttribute("data-imgsrc")
       commentNow = e.getAttribute("data-comment")
       twiEnvNow = e.getAttribute("data-env")
+      artEnvNow = e.getAttribute("data-env")
+      artSiteNow = e.getAttribute("data-site")
       homeNow = e.getAttribute("data-home")
     }
     bbUrlNow = hostNow+"api/memo?creatorId="+creIdNow+"&rowStatus=NORMAL&limit=10"
@@ -140,8 +144,10 @@ function urlsNow(e){
               resourceList: resValue.resourceList,
               url:hostNow,
               twiEnv:twiEnvNow,
+              artEnv:artEnvNow,
+              artSite:artSiteNow,
               home:homeNow,
-              comment: commentNow,
+              comment: commentNow
             }
             bbsDatas.push(bbsData)
       }
@@ -182,6 +188,8 @@ function getNextList(){
         resourceList: resValue.resourceList,
         url:hostNow,
         twiEnv:twiEnvNow,
+        artEnv:artEnvNow,
+        artSite:artSiteNow,
         comment:commentNow,
         memoId: resValue.id,
         home:homeNow,
@@ -235,7 +243,9 @@ const fetchBBser = async () => {
               home:urls[i].home,
               url:urls[i].host,
               comment:urls[i].comment,
-              twiEnv:urls[i].twiEnv || ''
+              twiEnv:urls[i].twiEnv || '',
+              artEnv:urls[i].artEnv || '',
+              artSite:urls[i].artSite || ''
             }
             bbsDatas.push(bbsData)
           }
@@ -283,6 +293,8 @@ function updateHTMl(data){
       var memoUrl = memos + "m/" + memoId
       var comment = data[i].comment
       var twiEnv = data[i].twiEnv
+      var artEnv = data[i].artEnv
+      var artSite = data[i].artSite
       var bbContREG = data[i].content
         .replace(TAG_REG, "<span class='tag-span'>#$1</span> ")
         
@@ -333,9 +345,11 @@ function updateHTMl(data){
 
       if(comment == '1'){
         if(twiEnv && twiEnv != 'undefined'){
-          result += '<a data-id="'+memoId+'" data-env="'+twiEnv+'" data-path="'+memoUrl+'" onclick="loadTwikoo(this)" href="javascript:void(0)" rel="noopener noreferrer">'+comSVG+'</a></div><div class="bbs-content"><div class="bbs-text">'+bbContREG+'</div><div class="item-twikoo twikoo-'+memoId+' d-none"><div id="twikoo-'+memoId+'"></div></div></div></li>'
+          result += '<a data-id="'+memoId+'" data-twienv="'+twiEnv+'" data-path="'+memoUrl+'" onclick="loadTwikoo(this)" href="javascript:void(0)" rel="noopener noreferrer">'+comSVG+'</a></div><div class="bbs-content"><div class="bbs-text">'+bbContREG+'</div><div class="item-twikoo twikoo-'+memoId+' d-none"><div id="twikoo-'+memoId+'"></div></div></div></li>'
+        }else if(artEnv && artEnv != 'undefined'){
+          result += '<a data-id="'+memoId+'" data-artenv="'+artEnv+'" data-artsite="'+artSite+'" data-path="'+memoUrl+'" onclick="loadArtalk(this)" href="javascript:void(0)" rel="noopener noreferrer">'+comSVG+'</a></div><div class="bbs-content"><div class="bbs-text">'+bbContREG+'</div><div class="item-artalk artalk-'+memoId+' d-none"></div></div></li>'
         }else{
-          result += '<a href="'+memoUrl+'" target="_blank" rel="noopener noreferrer">'+outSVG+'</a></div><div class="bbs-content"><div class="bbs-text">'+bbContREG+'</div></div></li>'
+          result += '<a href="'+memoUrl+'" target="_blank" rel="noopener noreferrer">'+outSVG+'</a></div><div class="bbs-content"><div class="bbs-text">'+bbContREG+'</div><div id="artalk-'+memoId+'"></div></div></li>'
         }
       }else{
         result += '</div><div class="bbs-content"><div class="bbs-text">'+bbContREG+'</div></div></li>'
@@ -360,7 +374,7 @@ function updateHTMl(data){
 }
 //前端加载 Twikoo 评论
 function loadTwikoo(e) {
-  var memoEnv = e.getAttribute("data-env")
+  var memoEnv = e.getAttribute("data-twienv")
   var memoPath = e.getAttribute("data-path")
   var memoId = e.getAttribute("data-id")
   var twikooDom = document.querySelector('.twikoo-'+memoId);
@@ -379,6 +393,33 @@ function loadTwikoo(e) {
     }
   }else{
     twikooDom.classList.add('d-none');
+  }
+}
+//前端加载 Artalk 评论
+function loadArtalk(e) {
+  var memoEnv = e.getAttribute("data-artenv")
+  var memoSite= e.getAttribute("data-artsite")
+  var memoId = e.getAttribute("data-id")
+  var ArtalkDom = document.querySelector('.artalk-'+memoId);
+  var ArtalkDom_ID = document.querySelector('#artalk-'+memoId);
+  if(!ArtalkDom_ID){
+    ArtalkDom.insertAdjacentHTML('afterbegin', '<div id="artalk-'+ memoId +'"></div>');
+  }
+  if (ArtalkDom.classList.contains('d-none')) {
+    document.querySelectorAll('.item-artalk').forEach((item) => {item.classList.add('d-none');})
+    if(!document.getElementById("artalk")){
+      ArtalkDom.classList.remove('d-none');
+      Artalk.init({
+        el: '#artalk-' + memoId,
+        pageKey: '/m/' + memoId,
+        pageTitle: '',
+        site: memoSite,
+        server: memoEnv
+      });
+    }
+  }else{
+    ArtalkDom.classList.add('d-none');
+    ArtalkDom_ID.remove();
   }
 }
 //文章内显示豆瓣条目 https://immmmm.com/post-show-douban-item/
