@@ -42,10 +42,6 @@ https://me.edui.fun/api/memo/amount?userId=102
 https://me.edui.fun/api/memo/stats?creatorId=101
 ```
 
-结果：
-
-{{< getdata "https://me.edui.fun/api/memo/stats?creatorId=101" >}}
-
 > 做个格子图？
 
 ### RSS 输出接口
@@ -74,11 +70,6 @@ https://me.edui.fun/api/memo?creatorId=101&tag=相册
 https://me.edui.fun/api/memo/all?tag=相册
 ```
 
-结果：
-
-{{< getdata "https://me.edui.fun/api/memo?creatorId=101&tag=相册" >}}
-{{< getdata "https://me.edui.fun/api/memo/all?tag=相册" >}}
-
 #### 指定条数
 
 参数：`limit`
@@ -87,10 +78,6 @@ https://me.edui.fun/api/memo/all?tag=相册
 https://me.edui.fun/api/memo?creatorId=101&tag=相册&limit=1
 https://me.edui.fun/api/memo/all?tag=相册&limit=1
 ```
-
-结果：
-
-{{< getdata "https://me.edui.fun/api/memo?creatorId=101&tag=相册&limit=1" >}}
 
 #### 指定偏移
 
