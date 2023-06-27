@@ -13,7 +13,7 @@ if (typeof Lately === 'undefined') {
 }
 //
 const urls = [
-  {home:"https://immmmm.com/",host:"https://me.edui.fun/",creatorId:"101",comment:'1',twiEnv:'https://tk.edui.fun/',imgsrc:"https://cravatar.cn/avatar/ba83fa02fc4b2ba621514941307e21be"},
+  {home:"https://immmmm.com/",host:"https://me.edui.fun/",creatorId:"101",comment:'1',twiEnv:'https://metk.edui.fun/',imgsrc:"https://cravatar.cn/avatar/ba83fa02fc4b2ba621514941307e21be"},
   {home:"https://nuoea.com/",host:"https://memos.nuoea.com/",creatorId:"101",comment:'1',twiEnv:'https://twikoo.nuoea.com/',imgsrc:"https://cravatar.cn/avatar/020d365ea2596ef6d516143bb0552704"},
   {home:"https://chenyyds.com/",host:"https://me.chenplus.com/",creatorId:"101",comment:'1',twiEnv:'https://twikoo.chenyyds.com/',imgsrc:"https://chenyyds.com/avatar.png"},
   {home:"https://seersu.me/",host:"https://bb.seersu.top/",creatorId:"101",comment:'1',twiEnv:'https://twikoo.seersu.me/',imgsrc:"https://cravatar.cn/avatar/84b712148a63b44dd97ede997bc3efa5"},
