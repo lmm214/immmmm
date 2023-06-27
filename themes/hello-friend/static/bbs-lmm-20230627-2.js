@@ -123,9 +123,9 @@ function urlsNow(e){
       creIdNow = e.getAttribute("data-creatorId")
       imgsrcNow = e.getAttribute("data-imgsrc")
       commentNow = e.getAttribute("data-comment")
-      twiEnvNow = e.getAttribute("data-env")
-      artEnvNow = e.getAttribute("data-env")
-      artSiteNow = e.getAttribute("data-site")
+      twiEnvNow = e.getAttribute("data-twienv")
+      artEnvNow = e.getAttribute("data-artenv")
+      artSiteNow = e.getAttribute("data-artsite")
       homeNow = e.getAttribute("data-home")
     }
     bbUrlNow = hostNow+"api/memo?creatorId="+creIdNow+"&rowStatus=NORMAL&limit=10"

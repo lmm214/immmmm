@@ -1,5 +1,4 @@
 {{ define "main" }}
-<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
 <style>
   .dark .aplayer{background:#212121}.dark .aplayer.aplayer-withlist .aplayer-info{border-bottom-color:#5c5c5c}.dark .aplayer.aplayer-fixed .aplayer-list{border-color:#5c5c5c}.dark .aplayer .aplayer-body{background-color:#212121}.dark .aplayer .aplayer-info{border-top-color:#212121}.dark .aplayer .aplayer-info .aplayer-music .aplayer-title{color:#fff}.dark .aplayer .aplayer-info .aplayer-music .aplayer-author{color:#fff}.dark .aplayer .aplayer-info .aplayer-controller .aplayer-time{color:#eee}.dark .aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon path{fill:#eee}.dark .aplayer .aplayer-list{background-color:#212121}.dark .aplayer .aplayer-list::-webkit-scrollbar-thumb{background-color:#999}.dark .aplayer .aplayer-list::-webkit-scrollbar-thumb:hover{background-color:#bbb}.dark .aplayer .aplayer-list li{color:#fff;border-top-color:#666}.dark .aplayer .aplayer-list li:hover{background:#4e4e4e}.dark .aplayer .aplayer-list li.aplayer-list-light{background:#6c6c6c}.dark .aplayer .aplayer-list li .aplayer-list-index{color:#ddd}.dark .aplayer .aplayer-list li .aplayer-list-author{color:#ddd}.dark .aplayer .aplayer-lrc{text-shadow:-1px -1px 0 #666}.dark .aplayer .aplayer-lrc:before{background:-moz-linear-gradient(top, #212121 0%, rgba(33,33,33,0) 100%);background:-webkit-linear-gradient(top, #212121 0%, rgba(33,33,33,0) 100%);background:linear-gradient(to bottom, #212121 0%, rgba(33,33,33,0) 100%);filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#212121', endColorstr='#00212121',GradientType=0 )}.dark .aplayer .aplayer-lrc:after{background:-moz-linear-gradient(top, rgba(33,33,33,0) 0%, rgba(33,33,33,0.8) 100%);background:-webkit-linear-gradient(top, rgba(33,33,33,0) 0%, rgba(33,33,33,0.8) 100%);background:linear-gradient(to bottom, rgba(33,33,33,0) 0%, rgba(33,33,33,0.8) 100%);filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#00212121', endColorstr='#cc212121',GradientType=0 )}.dark .aplayer .aplayer-lrc p{color:#fff}.dark .aplayer .aplayer-miniswitcher{background:#484848}.dark .aplayer .aplayer-miniswitcher .aplayer-icon path{fill:#eee}
 </style>
@@ -113,7 +112,8 @@
 .video-wrapper iframe{position:absolute;height:100%;width:100%;}
 .d-none{display: none !important;}
 </style>
-
+<link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+<link href="https://unpkg.com/artalk@2.5.5/dist/ArtalkLite.css" rel="stylesheet">
 
 <div class="post" style="max-width:1000px">
   <h2 class="post-title" style="margin:0 auto;text-align: center;"><a href="{{ .Permalink }}" rel="link">{{.Title}}</a></h2>
@@ -124,9 +124,8 @@
   <script src="https://fastly.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
   <script src="https://fastly.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
   <script src="/twikoo1616.js"></script>
-  <script src="https://unpkg.com/artalk@2/dist/ArtalkLite.js"></script>
-  <link href="https://unpkg.com/artalk@2/dist/ArtalkLite.css" rel="stylesheet">
-  <script src="/bbs-lmm-20230627-1.js"></script>
+  <script src="https://unpkg.com/artalk@2.5.5/dist/ArtalkLite.js"></script>
+  <script src="/bbs-lmm-20230627-2.js"></script>
 
 {{ end }}
 
