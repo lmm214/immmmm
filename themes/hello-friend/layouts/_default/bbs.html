@@ -28,7 +28,7 @@
 .bbs-creator,.bbs-date,.bbs-dot{position:relative;top:-5px;}
 .bbs-dot{font-weight: 800;margin:0 .5rem;}
 .bbs-content {margin-bottom: 3rem;}
-.bbs-text,.resour,.item-twikoo{background: #fff;border-radius: 8px;font-size: 1em;padding:10px 14px;position: relative;border:1px solid #eaeaea;box-shadow:0 4px 6px rgba(0,0,0,.04)}
+.bbs-text,.resour,.item-twikoo,.item-artalk{background: #fff;border-radius: 8px;font-size: 1em;padding:10px 14px;position: relative;border:1px solid #eaeaea;box-shadow:0 4px 6px rgba(0,0,0,.04)}
 .resour{font-size: 0.9rem;margin-top: 2px;padding: 5px 14px;}
 .bbs-text{overflow:hidden;max-height:40vh;}
 .bbs-text blockquote{font-family: KaiTi,STKaiti,STFangsong;margin:0 0 0 1rem;padding:.25rem 2rem;position: relative;border-left:0 none;}
@@ -39,8 +39,8 @@
 .tag-span{color: #42b983;}
 #load button.load-btn{width:100%;padding:8px 0;}
 #bb-footer{letter-spacing:8px;margin:5rem auto 1rem;text-align:center;}
-.dark .bbs-text,.dark .resour,.dark .item-twikoo{background:#4a4b50;border:1px solid #3b3d42;}
-.dark .item-twikoo{background:#272727;}
+.dark .bbs-text,.dark .resour{background:#4a4b50;border:1px solid #3b3d42;}
+.dark .item-twikoo,.dark .item-artalk{background:#272727;border:1px solid #3b3d42;}
 .dark .bbs-text p{color:#fafafa;}
 .bbs-coment-svg{margin-left: 0.5rem;cursor: pointer;}
 
@@ -114,6 +114,28 @@
 </style>
 <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
 <link href="https://unpkg.com/artalk@2.5.5/dist/ArtalkLite.css" rel="stylesheet">
+<style>
+.dark .artalk{
+  --at-color-font: #fff;
+  --at-color-deep: #e7e7e7;
+  --at-color-sub: #e7e7e7;
+  --at-color-grey: #fff;
+  --at-color-meta: #fff;
+  --at-color-border: #2d3235;
+  --at-color-light: #687a86;
+  --at-color-bg: #1e2224;
+  --at-color-bg-transl: rgba(30, 34, 36, .95);
+  --at-color-bg-grey: #46494e;
+  --at-color-bg-grey-transl: rgba(8, 8, 8, .95);
+  --at-color-bg-light: rgba(29, 161, 242, .1);
+  --at-color-main: #0083ff;
+  --at-color-red: #ff5652;
+  --at-color-pink: #fa5a57;
+  --at-color-yellow: #ff7c37;
+  --at-color-green: #4caf50;
+  --at-color-gradient: linear-gradient(180deg, transparent, rgba(30, 34, 36, 1))
+}
+</style>
 
 <div class="post" style="max-width:1000px">
   <h2 class="post-title" style="margin:0 auto;text-align: center;"><a href="{{ .Permalink }}" rel="link">{{.Title}}</a></h2>
