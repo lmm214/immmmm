@@ -276,6 +276,8 @@ function uniqueFunc(arr){
 function updateHTMl(data){
   var result="",resultAll="";
   const TAG_REG = /#([^\s#]+?) /g
+  ,IMG_REG = /\!\[(.*?)\]\((.*?)\)/g
+  ,LINK_REG = /\[(.*?)\]\((.*?)\)/g
   , BILIBILI_REG = /<a.*?href="https:\/\/www\.bilibili\.com\/video\/((av[\d]{1,10})|(BV([\w]{10})))\/?".*?>.*<\/a>/g
   , NETEASE_MUSIC_REG = /<a.*?href="https:\/\/music\.163\.com\/.*id=([0-9]+)".*?>.*<\/a>/g
   , QQMUSIC_REG = /<a.*?href="https\:\/\/y\.qq\.com\/.*(\/[0-9a-zA-Z]+)(\.html)?".*?>.*?<\/a>/g
@@ -298,6 +300,7 @@ function updateHTMl(data){
       var artSite = data[i].artSite
       var bbContREG = data[i].content
         .replace(TAG_REG, "<span class='tag-span'>#$1</span> ")
+        .replace(LINK_REG, "<a href='$2' target='_blank'><span> $1 </span></a>")
         
       bbContREG = marked.parse(bbContREG)
         .replace(BILIBILI_REG, "<div class='video-wrapper'><iframe src='//player.bilibili.com/player.html?bvid=$1&as_wide=1&high_quality=1&danmaku=0' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'></iframe></div>")
