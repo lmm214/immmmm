@@ -85,17 +85,20 @@
 
 
   <div class="douban friends">
-    <h3><a href="/friends/">朋友连接 </a></h3>
+    <h3><a href="/friends/" onclick="clearLocalFriend()">朋友连接 </a></h3>
     <div id="friArticle" style="min-height:160px;"></div>
   </div>
-
-
-
+  <script>
+    function clearLocalFriend(){
+      localStorage.removeItem("friendUpdated");
+      localStorage.removeItem("friendData");
+    }
+  </script>
+  
   <div class="home">
     <h3><a href="/album/">近期光影</a></h3>
     <div id="album" style="min-height:160px;"></div>
   </div>
-
 
   <div class="home">
     {{ $goods := getJSON "static/goods/goods.json" }}
