@@ -19,7 +19,7 @@ const urls = [
   {home:"https://seersu.me/",host:"https://bb.seersu.top/",creatorId:"101",comment:'1',twiEnv:'https://twikoo.seersu.me/',imgsrc:"https://cravatar.cn/avatar/84b712148a63b44dd97ede997bc3efa5"},
   {home:"https://www.xzgljiang.com/",host:"https://memos.xzgljiang.com/",creatorId:"1",comment:'1',twiEnv:'https://twikoo.une.xzgljiang.com/',imgsrc:"https://cravatar.cn/avatar/a892fd3321ab65a1c5d9c7a54a04c881"},
   {home:"https://cooolr.cn/",host:"https://m.cooolr.cn/",creatorId:"1",comment:'1',twiEnv:'https://tk.cooolr.cn/',imgsrc:"https://cravatar.cn/avatar/7422f8bebdb99f6594e029f603ccb926"},
-  {home:"https://www.boyhu.cn/",host:"https://qzone.boyhu.cn/",creatorId:"101",comment:'1',twiEnv:'https://tk.boyhu.cn',imgsrc:"https://cravatar.cn/avatar/55be217893c75baf8571837197de4a3e"},
+  {home:"https://www.boyhu.cn/",host:"https://qzone.boyhu.cn/",creatorId:"101",comment:'1',twiEnv:'https://tk.boyhu.cn/',imgsrc:"https://cravatar.cn/avatar/55be217893c75baf8571837197de4a3e"},
   {home:"https://kouseki.cn/",host:"https://memos.kouseki.cn/",creatorId:"1",comment:'1',twiEnv:'https://api-twi.kouseki.cn/',imgsrc:"https://cravatar.cn/avatar/23978e8e57e20163e8cb67bbf9dbe907"},
   {home:"https://lms.im/",host:"https://b.lms.im/",creatorId:"1",comment:'1',twiEnv:'https://b.lms.im/tk/',imgsrc:"https://cravatar.cn/avatar/d9cc49ea0301640d7a19b6a1e77012dd"},
   {home:"https://eallion.com/",host:"https://memos.eallion.com/",creatorId:"101",comment:'1',artEnv:'https://api.eallion.com/artalk/',artSite:'memos',imgsrc:"https://cravatar.cn/avatar/171e4c30959e8c077a6c58b958624b31"},
@@ -341,7 +341,7 @@ function updateHTMl(data){
           bbContREG += '<div class="resour">'+resUrl+'</div>'
         }
       }
-      result += '<li class=""><div class="bbs-avatar"><a href="'+data[i].home+'" target="_blank" rel="noopener noreferrer"><img src="'+data[i].imgsrc+'" alt=""></a><a href="'+memoUrl+'" target="_blank" rel="noopener noreferrer" class="bbs-creator">'+data[i].creator+'</a><span class="bbs-dot">·</span><span class="bbs-date">'+new Date(data[i].updatedTs * 1000).toLocaleString()+'</span>'
+      result += '<li class="memo-'+memoId+'"><div class="bbs-avatar"><a href="'+data[i].home+'" target="_blank" rel="noopener noreferrer"><img src="'+data[i].imgsrc+'" alt=""></a><a href="'+memoUrl+'" target="_blank" rel="noopener noreferrer" class="bbs-creator">'+data[i].creator+'</a><span class="bbs-dot">·</span><span class="bbs-date">'+new Date(data[i].updatedTs * 1000).toLocaleString()+'</span>'
 
       var comSVG = '<span class="bbs-coment-svg"><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="20" height="24"><path d="M816 808H672c-4.8 0-8 1.6-11.2 4.8l-80 80c-36.8 36.8-97.6 36.8-136 0l-80-80c-3.2-3.2-6.4-4.8-11.2-4.8h-144c-70.4 0-128-57.6-128-128V232c0-70.4 57.6-128 128-128h608c70.4 0 128 57.6 128 128v448C944 750.4 886.4 808 816 808zm0-64c35.2 0 64-28.8 64-64V232c0-35.2-28.8-64-64-64H208c-35.2 0-64 28.8-64 64v448c0 35.2 28.8 64 64 64h144c20.8 0 41.6 8 56 24l80 80c12.8 12.8 32 12.8 44.8 0l80-80c14.4-14.4 35.2-24 56-24H816zM320 408c27.2 0 48 20.8 48 48v32c0 27.2-20.8 48-48 48s-48-20.8-48-48v-32c0-27.2 20.8-48 48-48zm192 0c27.2 0 48 20.8 48 48v32c0 27.2-20.8 48-48 48s-48-20.8-48-48v-32c0-27.2 20.8-48 48-48zm192 0c27.2 0 48 20.8 48 48v32c0 27.2-20.8 48-48 48s-48-20.8-48-48v-32c0-27.2 20.8-48 48-48z" /></svg></span>'
 
@@ -386,6 +386,11 @@ function loadTwikoo(e) {
     document.querySelectorAll('.item-twikoo').forEach((item) => {item.classList.add('d-none');})
     if(!document.getElementById("twikoo")){
       twikooDom.classList.remove('d-none');
+      var domClass = document.getElementsByClassName('memo-'+memoId)
+      window.scrollTo({
+        top: domClass[0].offsetTop - 30,
+        behavior: "smooth"
+      });
       twikoo.init({
         envId: memoEnv,
         el: '#twikoo-' + memoId,
@@ -394,6 +399,7 @@ function loadTwikoo(e) {
       setTimeout(function(){
         document.getElementById("twikoo").id='twikoo-' + memoId;
       }, 600)
+      
     }
   }else{
     twikooDom.classList.add('d-none');
@@ -413,6 +419,11 @@ function loadArtalk(e) {
     document.querySelectorAll('.item-artalk').forEach((item) => {item.classList.add('d-none');})
     if(!document.getElementById("artalk")){
       ArtalkDom.classList.remove('d-none');
+      var domClass = document.getElementsByClassName('memo-'+memoId)
+      window.scrollTo({
+        top: domClass[0].offsetTop - 30,
+        behavior: "smooth"
+      });
       Artalk.init({
         el: '#artalk-' + memoId,
         pageKey: '/m/' + memoId,

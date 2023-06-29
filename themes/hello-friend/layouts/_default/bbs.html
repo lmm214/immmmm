@@ -4,7 +4,11 @@
 </style>
 <style>
 #bbs{padding: 2rem 0;min-height:100vh;}
-#bbs-urls{margin-top: 2rem;}
+#bbs-urls{margin-top: 2rem;justify-content: center;
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  height:168px;overflow-y: scroll;overflow-x: hidden;padding:10px;background: #fff;border-radius: 8px;border:1px solid #eaeaea;box-shadow:0 4px 6px rgba(0,0,0,.04)}
 .bbs-urls{position: relative;display:inline-block;background: #eaeaea;border-radius:50%;margin:0 .4rem 5px 0;padding:3px;width:3rem;height:3rem;cursor: pointer;}
 .dark .bbs-urls,.dark .bbs-url:before{background:#4a4b50;}
 .bbs-url:before{content:"";background:#eaeaea;width:5px;height:5px;border-radius:50%;position:absolute;top:0;right:0;}
@@ -39,7 +43,7 @@
 .tag-span{color: #42b983;}
 #load button.load-btn{width:100%;padding:8px 0;}
 #bb-footer{letter-spacing:8px;margin:5rem auto 1rem;text-align:center;}
-.dark .bbs-text,.dark .resour{background:#4a4b50;border:1px solid #3b3d42;}
+.dark .bbs-text,.dark .resour,.dark #bbs-urls{background:#272727;border:1px solid #3b3d42;}
 .dark .item-twikoo,.dark .item-artalk{background:#272727;border:1px solid #3b3d42;}
 .dark .bbs-text p{color:#fafafa;}
 .bbs-coment-svg{margin-left: 0.5rem;cursor: pointer;}
