@@ -23,6 +23,7 @@ const urls = [
   {home:"https://kouseki.cn/",host:"https://memos.kouseki.cn/",creatorId:"1",comment:'1',twiEnv:'https://api-twi.kouseki.cn/',imgsrc:"https://cravatar.cn/avatar/23978e8e57e20163e8cb67bbf9dbe907"},
   {home:"https://lms.im/",host:"https://b.lms.im/",creatorId:"1",comment:'1',twiEnv:'https://b.lms.im/tk/',imgsrc:"https://cravatar.cn/avatar/d9cc49ea0301640d7a19b6a1e77012dd"},
   {home:"https://edinik.com/",host:"https://memos.edinik.com/",creatorId:"1",comment:'1',twiEnv:'https://tk.edinik.com/',imgsrc:"https://cravatar.cn/avatar/e1cdf4f763e3c7e01271a44b990c712f"},
+  {home:"https://memos.qiangtu.com/",host:"https://memos.qiangtu.com/",creatorId:"1",comment:'1',twiEnv:'https://twikoo.qiangtu.com/',imgsrc:"https://memos2504.oss-cn-hangzhou.aliyuncs.com/memos2504/assets/2023/06/06/1686021093_favicon.ico/1ef33f96-5296-4d5e-940c-04c88775d008.ico"},
   {home:"https://eallion.com/",host:"https://memos.eallion.com/",creatorId:"101",comment:'1',artEnv:'https://api.eallion.com/artalk/',artSite:'memos',imgsrc:"https://cravatar.cn/avatar/171e4c30959e8c077a6c58b958624b31"},
   {home:"https://www.skyue.com/",host:"https://memos.skyue.com/",creatorId:"1",comment:'1',artEnv: 'https://artalk.skyue.com',artSite: '拾月微博',imgsrc:"https://cravatar.cn/avatar/c3fb4bb4d5101284ddd672fb722cdd7d"},
   {home:"https://xrat.net/",host:"https://memos.xrat.net/",creatorId:"2",comment:'1',artEnv:'https://vlabs.synology.me:96',artSite:'memos.xrat.net',imgsrc:"https://cravatar.cn/avatar/0ab677e14d21d941f64d98192d6168e7"},
@@ -60,7 +61,6 @@ const urls = [
   {home:"https://mybelife.com/",host:"https://mybelife.com/",creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/7067b66529765b71181c62e59ac6969b"},
   {home:"https://idh.ink/",host:"https://idh.ink/",creatorId:"1",comment:'',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=NAuictuJAIjdPiaHlY6xbDWA&kti=ZHUWoAAAAAA&s=140&t=1683481629"},
   {home:"https://leonfong.me/",host:"https://memo.leonfong.me/",creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/b147bfa4888f1233882ba5b39ef3bffc"},
-  {home:"https://memos.qiangtu.com/",host:"https://memos.qiangtu.com/",creatorId:"1",comment:'',imgsrc:"https://memos2504.oss-cn-hangzhou.aliyuncs.com/memos2504/assets/2023/06/06/1686021093_favicon.ico/1ef33f96-5296-4d5e-940c-04c88775d008.ico"},
   {home:"https://darmau.design/",host:"https://memo.darmau.design/",creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/729357a0d48d17802332d52479d2399f"}
 ]
 
