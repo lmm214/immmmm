@@ -24,11 +24,11 @@
 
 <style>
 #toBi iframe{
-  border: none;
+  border:1px solid #eaeaea;
+  box-shadow: 0 4px 6px 0px rgba(0,0,0,.14);
   position: fixed;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px;
   bottom: 5rem;
   right: 1rem;
   width: 448px;
@@ -49,6 +49,9 @@
 @keyframes atkFadeIn {
   0% {opacity: 0}
   to {opacity: 1}
+}
+@media (max-width:550px) {
+	#toBi iframe{right:0;width:100%;}
 }
 </style>
 <div id="toBi"></div>
