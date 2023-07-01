@@ -152,8 +152,8 @@ function urlsNow(e){
             }
             bbsDatas.push(bbsData)
       }
-      updateTiwkoo(resdata.data)
-      //updateHTMl(bbsDatas)
+      //updateTiwkoo(resdata.data)
+      updateHTMl(bbsDatas)
       bbDom.insertAdjacentHTML('afterend', load);
       var nowLength = bbsData.length
       if(nowLength < 10){ //返回数据条数小于 limit 则直接移除“加载更多”按钮，中断预加载
