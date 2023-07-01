@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+	  <link rel="icon" href="assets/logo_24x24.png" type="image/*">
+    <link rel="apple-touch-icon" href="assets/logo.jpg">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Memos Web</title>
+    <link rel="stylesheet" href="//cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.6.0/lxgwwenkaiscreen.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body class="body">
+    <div class="title" id="opensite">MEMOS</div>
+    <div id="blog_info_edit"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="icon" viewBox="0 0 1024 1024">
+      <path d="M914 432c-5-26-21-43-41-43h-4c-54 0-99-44-99-99 0-17 9-37 9-38 10-22 2-50-18-65l-103-57h-1c-21-9-49-4-64 12-12 12-50 44-79 44s-68-33-79-45a60 60 0 0 0-64-13l-106 58-2 1a54 54 0 0 0-18 65c0 1 9 21 9 38 0 55-45 99-99 99h-5c-19 0-35 17-40 43 0 2-9 45-9 80s9 79 9 81c5 25 21 42 41 42h4c54 0 99 45 99 99 0 18-9 37-9 38-10 23-2 51 18 65l101 56 1 1c21 9 49 3 65-13 14-15 52-47 80-47 30 0 69 35 81 48a58 58 0 0 0 64 14l104-58 2-1c20-14 28-42 18-65 0-1-9-20-9-38 0-54 45-99 99-99h5c19 0 35-17 40-42 0-2 9-46 9-81s-9-78-9-80m-51 80c0 23-5 52-7 64a158 158 0 0 0-134 215l-89 49c-4-5-17-18-35-31-31-23-61-35-88-35s-57 12-88 34c-17 13-30 26-34 31l-86-48a159 159 0 0 0-134-215c-2-12-7-41-7-64 0-22 5-51 7-64a157 157 0 0 0 134-214l91-50c4 4 17 17 35 29 30 22 59 33 86 33s55-11 85-32c18-13 31-25 35-29l88 49a159 159 0 0 0 134 214c2 13 7 42 7 64"/>
+      <path d="M510 366a146 146 0 1 0 1 292 146 146 0 0 0-1-292m87 146a87 87 0 1 1-173-1 87 87 0 0 1 173 1"/>
+    </svg></div>
+    <div id="blog_info" class="">
+        <input
+          id="apiUrl"
+          class="inputer"
+          name="apiUrl"
+          type="text"
+          value=""
+          maxlength="245"
+          placeholder="请填入 Memos Open API 链接"
+          required
+        />
+        <span id="saveKey" class="action-btn confirm-btn">保存</span>
+    </div>
+<div class="memo-editor-container">
+    <div class="memo-editor">
+      <textarea
+        class="common-editor-inputer"
+        rows="4"
+        name="text"
+        id="content"
+        placeholder="现在的想法是..."
+        required=""
+      ></textarea>
+    </div>
+  
+  <div class="common-tools-wrapper">
+    <div class="common-tools-container">
+      <div id="tags" class="mr-5">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="icon" viewBox="0 0 1024 1024">
+          <path fill="#666" d="M171 341h682q43 0 43 43t-43 43H171q-43 0-43-43t43-43Z"/>
+          <path fill="#666" d="M423 85h4a39 39 0 0 1 38 43l-77 772a43 43 0 0 1-43 39h-4a39 39 0 0 1-38-43l77-772a43 43 0 0 1 43-39zm256 0h4a39 39 0 0 1 38 43l-77 772a43 43 0 0 1-43 39h-4a39 39 0 0 1-38-43l77-772a43 43 0 0 1 43-39z"/>
+          <path fill="#666" d="M171 597h682q43 0 43 43t-43 43H171q-43 0-43-43t43-43Z"/>
+        </svg>
+      </div>
+      <div id="newtodo" class="mr-5">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="icon" viewBox="0 0 1024 1024">
+          <path fill="#666" d="M407 365a41 41 0 0 0-59 0 41 41 0 0 0 0 60l149 149c9 8 19 13 30 13s21-5 30-13l341-341c17-18 17-43 0-60s-43-17-60 0L527 484 407 365z"/>
+          <path fill="#666" d="M868 416c-23 0-45 19-45 45v277c0 2 0 7-2 9 0 2-2 4-4 6s-4 4-6 4l-9 2H247c-2 0-6 0-8-2-2 0-4-2-6-4-3-2-5-4-5-6l-2-9V183l2-8c0-2 2-4 5-6 2-3 4-5 6-5l8-2h278c23 0 45-19 45-45s-20-44-45-44H247c-14 0-27 2-42 8a144 144 0 0 0-55 60c-7 13-9 28-9 42v555c0 15 2 28 8 43a122 122 0 0 0 58 58c13 6 28 8 43 8h554a108 108 0 0 0 77-32c11-11 17-21 24-34 6-13 8-28 8-43V461c-2-26-21-45-45-45z"/>
+        </svg>
+      </div>
+      <div id="upres" class="mr-5">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" class="icon" viewBox="0 0 1024 1024">
+          <path fill="#555" d="M752 80H272c-70 0-128 58-128 128v608c0 70 58 128 128 128h354c33 0 65-13 91-37l126-126c24-24 37-56 37-91V208c0-70-58-128-128-128zM208 816V208c0-35 29-64 64-64h480c35 0 64 29 64 64v464h-96c-70 0-128 58-128 128v80H272c-35 0-64-29-64-64zm462 45c-4 5-9 8-14 11v-72c0-35 29-64 64-64h75L670 861z"/>
+          <path fill="#555" d="M368 352h288c18 0 32-14 32-32s-14-32-32-32H368c-18 0-32 14-32 32s14 32 32 32zm128 256H368c-18 0-32 14-32 32s14 32 32 32h128c18 0 32-14 32-32s-14-32-32-32zm-128-96h288c18 0 32-14 32-32s-14-32-32-32H368c-18 0-32 14-32 32s14 32 32 32z"/>
+        </svg>
+      </div>
+      <div id="random" class="mr-5">
+        <svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path fill="#666" d="M988.492 718.906L864.168 595.6c-15.686-15.556-41.012-15.454-56.568.232-15.556 15.686-15.452 41.012.232 56.568L922.368 766h-48.812c-115.514 0-222.1-49.978-292.428-137.122-13.874-17.194-39.058-19.88-56.248-6.006-17.192 13.874-19.88 39.056-6.006 56.248C604.464 785.176 733.74 846 873.556 846h44.78L807.832 955.6c-15.684 15.556-15.79 40.882-.232 56.568A39.88 39.88 0 0 0 836.002 1024c10.18 0 20.368-3.864 28.166-11.6l124.324-123.306C1011.39 866.384 1024 836.162 1024 804s-12.61-62.382-35.508-85.094z"/><path fill="#666" d="M988.492 134.906L864.168 11.6c-15.686-15.556-41.012-15.454-56.568.232-15.556 15.686-15.452 41.012.232 56.568L918.336 178h-44.78c-163.332 0-314.542 86.102-394.626 224.702l-16.952 29.342-27.352-47.342C354.544 246.102 203.332 160 40 160c-22.092 0-40 17.908-40 40s17.908 40 40 40c134.852 0 259.522 70.782 325.356 184.724L415.78 512l-50.426 87.276C299.522 713.22 174.852 784 40 784c-22.092 0-40 17.908-40 40s17.908 40 40 40c163.332 0 314.542-86.102 394.626-224.702l61.64-106.684c.224-.374.442-.752.654-1.134l51.28-88.756C614.034 328.782 738.704 258 873.556 258h48.812L807.832 371.6c-15.684 15.556-15.79 40.882-.232 56.568A39.88 39.88 0 0 0 836.002 440c10.18 0 20.368-3.864 28.166-11.6l124.324-123.306C1011.39 282.384 1024 252.162 1024 220s-12.61-62.382-35.508-85.094z"/></svg>
+      </div>
+      <div id="search" class="mr-5">
+        <svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path d="M689.067 631.467L889.6 832c38.4 38.4-19.2 96-57.6 57.6L631.467 689.067C576 731.733 505.6 757.333 430.933 757.333 249.6 757.333 102.4 610.133 102.4 428.8s147.2-326.4 328.533-326.4 328.534 147.2 328.534 328.533c-2.134 74.667-27.734 145.067-70.4 200.534zm-258.134 44.8c136.534 0 245.334-110.934 245.334-245.334S565.333 183.467 430.933 183.467 183.467 294.4 183.467 430.933 294.4 676.267 430.933 676.267z" fill="#666"/></svg>
+      </div>
+      <div class="selector-wrapper visibility-selector ">
+        <div id="lock" class="current-value-container active false">
+          <span id="lock-now" class="value-text"></span><span class="arrow-text"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-img"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+        </div>
+        <div id="lock-wrapper" class="items-wrapper !hidden">
+          <div class="item-lock" data-type="PRIVATE">仅自己可见</div>
+          <div class="item-lock" data-type="PROTECTED">登录用户可见</div>
+          <div class="item-lock" data-type="PUBLIC">所有人可见</div>
+        </div>
+      </div>
+    </div>
+    <div class="btns-container" type="submit" name="submit" id="submit">
+      <button id="content_submit_text" class="action-btn confirm-btn">记下<img class="icon-img" src="assets/logo_24x24.png"></button>
+    </div>
+  </div>
+  <div class="tag-list" id="taglist"></div>
+  <div class="tag-hide" id="taghide">
+    <input
+    id="hideInput"
+    class="inputer"
+    name="hideInput"
+    type="text"
+    value=""
+    maxlength="50"
+    placeholder="默认“仅自己可见”标签名"
+  />
+    <input
+    id="showInput"
+    class="inputer"
+    name="showInput"
+    type="text"
+    value=""
+    maxlength="50"
+    placeholder="默认“所有人可见”标签名"
+  />
+  <span id="saveTag" class="action-btn confirm-btn">保存</span>
+  </div>
+
+  <div class="" id="randomlist"></div>
+</div>
+
+  <input type="file" id="inFile" style="display:none;">
+  <script src="//cdn.staticfile.org/jquery/3.4.0/jquery.min.js"></script>
+  <script src="js/image-compressor.min.js"></script>
+  <script src="js/message.js"></script>
+  <script src="js/dayjs.min.js"></script>
+  <script src="js/zh-cn.js"></script>
+  <script src="js/relativeTime.js"></script>
+  <script src="js/fuse.basic.min.js"></script>
+  <script src="js/view-image.js"></script>
+  <script src="js/oper.js"></script>
+  </body>
+</html>
