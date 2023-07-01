@@ -95,9 +95,11 @@ function updateHTMl(data){
   , YOUKU_REG = /<a.*?href="https:\/\/v\.youku\.com\/.*\/id_([a-z|A-Z|0-9|==]+)\.html".*?>.*<\/a>/g
   , YOUTUBE_REG = /<a.*?href="https:\/\/www\.youtube\.com\/watch\?v\=([a-z|A-Z|0-9]{11})\".*?>.*<\/a>/g;
   marked.setOptions({
-    breaks: !0,
-    smartypants: !0,
-    langPrefix: 'language-'
+    breaks: false,
+    smartypants: false,
+    langPrefix: 'language-',
+    headerIds: false,
+    mangle: false
   });
   for(var i=0;i < data.length;i++){
       var bbContREG = data[i].content.replace(TAG_REG, "<span class='tag-span'>#$1</span> ")
