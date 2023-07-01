@@ -27,6 +27,10 @@
   animation: atkFadeIn both .3s;
   background-color: #f6f5f4;
 }
+@keyframes atkFadeIn {
+  0% {opacity: 0}
+  to {opacity: 1}
+}
 #toBi iframe{
   border: none;
   position: fixed;
@@ -48,10 +52,6 @@
 #toBi-icon{position: fixed; bottom: 1rem; right: 1rem; width: 50px; height: 50px; border-radius: 25px; background-color: rgb(0, 0, 0); box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 8px 0px; cursor: pointer; z-index: 2147483645; transition: all 0.2s ease-in-out 0s; left: unset; transform: scale(1);}
 #toBi-icon:hover{transform: scale(1.08);}
 #toBi-svg{display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;}
-@keyframes atkFadeIn {
-  0% {opacity: 0}
-  to {opacity: 1}
-}
 </style>
 <div id="toBi"></div>
 <div id="toBi-icon"><div id="toBi-svg">
