@@ -152,7 +152,8 @@ function urlsNow(e){
             }
             bbsDatas.push(bbsData)
       }
-      updateHTMl(bbsDatas)
+      updateTiwkoo(resdata.data)
+      //updateHTMl(bbsDatas)
       bbDom.insertAdjacentHTML('afterend', load);
       var nowLength = bbsData.length
       if(nowLength < 10){ //返回数据条数小于 limit 则直接移除“加载更多”按钮，中断预加载
@@ -163,6 +164,28 @@ function urlsNow(e){
       offset = 10*(page-1)
       getNextList()
     });
+  }
+}
+// 获取评论数量
+function updateTiwkoo(data) {
+  var twiID = data.map((item) => memos + "m/" + item.id);
+  twikoo.getCommentsCount({
+    envId: envId, // 环境 ID
+    urls: twiID,
+    includeReply: true // 评论数是否包括回复，默认：false
+  }).then(function (res) {
+    updateCount(res)
+  }).catch(function (err) {
+    console.error(err);
+  });
+  function updateCount(res) {
+    var twiCount = res.map((item) => {
+      return Object.assign({},{'count':item.count})
+    });
+    var bbTwikoo = data.map((item,index) => {
+      return {...item, ...twiCount[index]};
+    });
+    updateHTMl(bbTwikoo)
   }
 }
 //预加载下一页数据
@@ -399,7 +422,6 @@ function loadTwikoo(e) {
       setTimeout(function(){
         document.getElementById("twikoo").id='twikoo-' + memoId;
       }, 600)
-      
     }
   }else{
     twikooDom.classList.add('d-none');
