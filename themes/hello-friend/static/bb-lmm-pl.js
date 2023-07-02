@@ -38,7 +38,8 @@ if(bbDom){
   var btn = document.querySelector("button.button-load");
   btn.addEventListener("click", function () {
     btn.textContent= '加载中……';
-    updateHTMl(nextDom)
+    updateTiwkoo(nextDom)
+    //updateHTMl(nextDom)
     if(nextLength < limit){ //返回数据条数小于限制条数，隐藏
       document.querySelector("button.button-load").remove()
       return
