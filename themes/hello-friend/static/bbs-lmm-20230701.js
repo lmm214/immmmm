@@ -152,7 +152,6 @@ function urlsNow(e){
             }
             bbsDatas.push(bbsData)
       }
-      //updateTiwkoo(resdata.data)
       updateHTMl(bbsDatas)
       bbDom.insertAdjacentHTML('afterend', load);
       var nowLength = bbsData.length
@@ -167,26 +166,24 @@ function urlsNow(e){
   }
 }
 // 获取评论数量
-function updateTiwkoo(data) {
-  var twiID = data.map((item) => memos + "m/" + item.id);
+function insertTwikoo(e) {
+  var twienv = e.getAttribute("data-twienv")
+  var twipath = e.getAttribute("data-path")
+  var memoId = e.getAttribute("data-id")
   twikoo.getCommentsCount({
-    envId: envId, // 环境 ID
-    urls: twiID,
-    includeReply: true // 评论数是否包括回复，默认：false
+    envId: twienv, // 环境 ID
+    urls: [twipath],
+    includeReply: true
   }).then(function (res) {
-    updateCount(res)
+    var tkcountID = '#tkcount-'+memoId//tkcount-1635
+    var tkcountDom = document.querySelectorAll(tkcountID)
+    if(tkcountDom){
+      tkcountDom.forEach(e => e.remove());
+    }
+    e.insertAdjacentHTML('beforeend', '<span class="tkcount" id="tkcount-'+memoId+'">'+res[0].count+'</span>');
   }).catch(function (err) {
     console.error(err);
   });
-  function updateCount(res) {
-    var twiCount = res.map((item) => {
-      return Object.assign({},{'count':item.count})
-    });
-    var bbTwikoo = data.map((item,index) => {
-      return {...item, ...twiCount[index]};
-    });
-    updateHTMl(bbTwikoo)
-  }
 }
 //预加载下一页数据
 function getNextList(){
@@ -372,7 +369,7 @@ function updateHTMl(data){
 
       if(comment == '1'){
         if(twiEnv && twiEnv != 'undefined'){
-          result += '<a data-id="'+memoId+'" data-twienv="'+twiEnv+'" data-path="'+memoUrl+'" onclick="loadTwikoo(this)" href="javascript:void(0)" rel="noopener noreferrer">'+comSVG+'</a></div><div class="bbs-content"><div class="bbs-text">'+bbContREG+'</div><div class="item-twikoo twikoo-'+memoId+' d-none"><div id="twikoo-'+memoId+'"></div></div></div></li>'
+          result += '<a data-id="'+memoId+'" data-twienv="'+twiEnv+'" data-path="'+memoUrl+'" onclick="loadTwikoo(this)" onmouseenter="insertTwikoo(this)" href="javascript:void(0)" rel="noopener noreferrer">'+comSVG+'</a></div><div class="bbs-content"><div class="bbs-text">'+bbContREG+'</div><div class="item-twikoo twikoo-'+memoId+' d-none"><div id="twikoo-'+memoId+'"></div></div></div></li>'
         }else if(artEnv && artEnv != 'undefined'){
           result += '<a data-id="'+memoId+'" data-artenv="'+artEnv+'" data-artsite="'+artSite+'" data-path="'+memoUrl+'" onclick="loadArtalk(this)" href="javascript:void(0)" rel="noopener noreferrer">'+comSVG+'</a></div><div class="bbs-content"><div class="bbs-text">'+bbContREG+'</div><div class="item-artalk artalk-'+memoId+' d-none"></div></div></li>'
         }else{
