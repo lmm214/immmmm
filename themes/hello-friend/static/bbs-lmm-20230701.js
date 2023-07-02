@@ -361,7 +361,8 @@ function updateHTMl(data){
           bbContREG += '<div class="resour">'+resUrl+'</div>'
         }
       }
-      result += '<li class="memo-'+memoId+'"><div class="bbs-avatar"><a href="'+data[i].home+'" target="_blank" rel="noopener noreferrer"><img src="'+data[i].imgsrc+'" alt=""></a><a href="'+memoUrl+'" target="_blank" rel="noopener noreferrer" class="bbs-creator">'+data[i].creator+'</a><span class="bbs-dot">·</span><span class="bbs-date">'+new Date(data[i].updatedTs * 1000).toLocaleString()+'</span>'
+      var EnvNow =  twiEnv.replace(/https\:\/\/.*\.(.*)\..*/,'$1') || artEnv.replace(/https\:\/\/.*\.(.*)\..*/,'$1') || ''
+      result += '<li class="'+EnvNow+'memo-'+memoId+'"><div class="bbs-avatar"><a href="'+data[i].home+'" target="_blank" rel="noopener noreferrer"><img src="'+data[i].imgsrc+'" alt=""></a><a href="'+memoUrl+'" target="_blank" rel="noopener noreferrer" class="bbs-creator">'+data[i].creator+'</a><span class="bbs-dot">·</span><span class="bbs-date">'+new Date(data[i].updatedTs * 1000).toLocaleString()+'</span>'
 
       var comSVG = '<span class="bbs-coment-svg"><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="20" height="24"><path d="M816 808H672c-4.8 0-8 1.6-11.2 4.8l-80 80c-36.8 36.8-97.6 36.8-136 0l-80-80c-3.2-3.2-6.4-4.8-11.2-4.8h-144c-70.4 0-128-57.6-128-128V232c0-70.4 57.6-128 128-128h608c70.4 0 128 57.6 128 128v448C944 750.4 886.4 808 816 808zm0-64c35.2 0 64-28.8 64-64V232c0-35.2-28.8-64-64-64H208c-35.2 0-64 28.8-64 64v448c0 35.2 28.8 64 64 64h144c20.8 0 41.6 8 56 24l80 80c12.8 12.8 32 12.8 44.8 0l80-80c14.4-14.4 35.2-24 56-24H816zM320 408c27.2 0 48 20.8 48 48v32c0 27.2-20.8 48-48 48s-48-20.8-48-48v-32c0-27.2 20.8-48 48-48zm192 0c27.2 0 48 20.8 48 48v32c0 27.2-20.8 48-48 48s-48-20.8-48-48v-32c0-27.2 20.8-48 48-48zm192 0c27.2 0 48 20.8 48 48v32c0 27.2-20.8 48-48 48s-48-20.8-48-48v-32c0-27.2 20.8-48 48-48z" /></svg></span>'
 
@@ -369,11 +370,11 @@ function updateHTMl(data){
 
       if(comment == '1'){
         if(twiEnv && twiEnv != 'undefined'){
-          result += '<a data-id="'+memoId+'" data-twienv="'+twiEnv+'" data-path="'+memoUrl+'" onclick="loadTwikoo(this)" onmouseenter="insertTwikoo(this)" href="javascript:void(0)" rel="noopener noreferrer">'+comSVG+'</a></div><div class="bbs-content"><div class="bbs-text">'+bbContREG+'</div><div class="item-twikoo twikoo-'+memoId+' d-none"><div id="twikoo-'+memoId+'"></div></div></div></li>'
+          result += '<a data-id="'+memoId+'" data-twienv="'+twiEnv+'" data-path="'+memoUrl+'" onclick="loadTwikoo(this)" onmouseenter="insertTwikoo(this)" href="javascript:void(0)" rel="noopener noreferrer">'+comSVG+'</a></div><div class="bbs-content"><div class="bbs-text">'+bbContREG+'</div><div class="item-comment twikoo-'+memoId+' d-none"><div id="'+EnvNow+'twikoo-'+memoId+'"></div></div></div></li>'
         }else if(artEnv && artEnv != 'undefined'){
-          result += '<a data-id="'+memoId+'" data-artenv="'+artEnv+'" data-artsite="'+artSite+'" data-path="'+memoUrl+'" onclick="loadArtalk(this)" href="javascript:void(0)" rel="noopener noreferrer">'+comSVG+'</a></div><div class="bbs-content"><div class="bbs-text">'+bbContREG+'</div><div class="item-artalk artalk-'+memoId+' d-none"></div></div></li>'
+          result += '<a data-id="'+memoId+'" data-artenv="'+artEnv+'" data-artsite="'+artSite+'" data-path="'+memoUrl+'" onclick="loadArtalk(this)" href="javascript:void(0)" rel="noopener noreferrer">'+comSVG+'</a></div><div class="bbs-content"><div class="bbs-text">'+bbContREG+'</div><div class="item-comment '+EnvNow+'artalk-'+memoId+' d-none"></div></div></li>'
         }else{
-          result += '<a href="'+memoUrl+'" target="_blank" rel="noopener noreferrer">'+outSVG+'</a></div><div class="bbs-content"><div class="bbs-text">'+bbContREG+'</div><div id="artalk-'+memoId+'"></div></div></li>'
+          result += '<a href="'+memoUrl+'" target="_blank" rel="noopener noreferrer">'+outSVG+'</a></div><div class="bbs-content"><div class="bbs-text">'+bbContREG+'</div></div></li>'
         }
       }else{
         result += '</div><div class="bbs-content"><div class="bbs-text">'+bbContREG+'</div></div></li>'
@@ -399,25 +400,26 @@ function updateHTMl(data){
 //前端加载 Twikoo 评论
 function loadTwikoo(e) {
   var memoEnv = e.getAttribute("data-twienv")
+  var EnvNow = memoEnv.replace(/https\:\/\/.*\.(.*)\..*/,'$1')
   var memoPath = e.getAttribute("data-path")
   var memoId = e.getAttribute("data-id")
   var twikooDom = document.querySelector('.twikoo-'+memoId);
   if (twikooDom.classList.contains('d-none')) {
-    document.querySelectorAll('.item-twikoo').forEach((item) => {item.classList.add('d-none');})
+    document.querySelectorAll('.item-comment').forEach((item) => {item.classList.add('d-none');})
     if(!document.getElementById("twikoo")){
       twikooDom.classList.remove('d-none');
-      var domClass = document.getElementsByClassName('memo-'+memoId)
+      var domClass = document.getElementsByClassName(EnvNow+'memo-'+memoId)
       window.scrollTo({
         top: domClass[0].offsetTop - 30,
         behavior: "smooth"
       });
       twikoo.init({
         envId: memoEnv,
-        el: '#twikoo-' + memoId,
+        el: '#'+EnvNow+'twikoo-' + memoId,
         path: memoPath
       });
       setTimeout(function(){
-        document.getElementById("twikoo").id='twikoo-' + memoId;
+        document.getElementById("twikoo").id= EnvNow+'twikoo-' + memoId;
       }, 600)
     }
   }else{
@@ -427,24 +429,25 @@ function loadTwikoo(e) {
 //前端加载 Artalk 评论
 function loadArtalk(e) {
   var memoEnv = e.getAttribute("data-artenv")
+  var EnvNow = memoEnv.replace(/https\:\/\/.*\.(.*)\..*/,'$1')
   var memoSite= e.getAttribute("data-artsite")
   var memoId = e.getAttribute("data-id")
-  var ArtalkDom = document.querySelector('.artalk-'+memoId);
-  var ArtalkDom_ID = document.querySelector('#artalk-'+memoId);
+  var ArtalkDom = document.querySelector('.'+EnvNow+'artalk-'+memoId);
+  var ArtalkDom_ID = document.querySelector('#'+EnvNow+'artalk-'+memoId);
   if(!ArtalkDom_ID){
-    ArtalkDom.insertAdjacentHTML('afterbegin', '<div id="artalk-'+ memoId +'"></div>');
+    ArtalkDom.insertAdjacentHTML('afterbegin', '<div id="'+EnvNow+'artalk-'+ memoId +'"></div>');
   }
   if (ArtalkDom.classList.contains('d-none')) {
-    document.querySelectorAll('.item-artalk').forEach((item) => {item.classList.add('d-none');})
+    document.querySelectorAll('.item-comment').forEach((item) => {item.classList.add('d-none');})
     if(!document.getElementById("artalk")){
       ArtalkDom.classList.remove('d-none');
-      var domClass = document.getElementsByClassName('memo-'+memoId)
+      var domClass = document.getElementsByClassName(EnvNow+'memo-'+memoId)
       window.scrollTo({
         top: domClass[0].offsetTop - 30,
         behavior: "smooth"
       });
       Artalk.init({
-        el: '#artalk-' + memoId,
+        el: '#'+EnvNow+'artalk-' + memoId,
         pageKey: '/m/' + memoId,
         pageTitle: '',
         site: memoSite,
