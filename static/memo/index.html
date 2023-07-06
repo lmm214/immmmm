@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memos</title>
+</head>
+<link rel="stylesheet" href="/memo/css/style.css">
+<link rel="stylesheet" href="/memo/css/grid.css">
+<link rel="stylesheet" href="/memo/css/aplay.css">
+<link rel="stylesheet" href="/memo/css/iconfont.css">
+<link rel="stylesheet" href="/memo/css/animate.min.css">
+
+<body class="dark">
+  <div class="container">
+    <div id="memos" class="row p-3"></div>
+  </div>
+  
+</body>
+<script>
+  var memosData = {
+    dom: '#memos'
+  }
+</script>
+<script src="/memo/js/marked.min.js"></script>
+<script src="/memo/js/aplayer.min.js"></script>
+<script src="/memo/js/meting.min.js"></script>
+<script src="/memo/js/lately.min.js"></script>
+<script src="/memo/js/message.min.js"></script>
+<script src="/memo/js/view-image.min.js"></script>
+<script src="/memo/js/memos-editor.js"></script>
+<style>
+  /* Memos Editor */
+  .load-memos-editor{position:fixed;right:1rem;bottom:1rem;background-color:var(--light-background-secondary);}
+  .dark .load-memos-editor{background-color: var(--dark-background-secondary);}
+  .memos-editor-body{display:flex;border-radius:.33rem;background-color:var(--light-background-secondary);flex-direction:column}
+  .dark .memos-editor-body {background-color: var(--dark-background-secondary);}
+  .memos-editor-content,.memos-editor-footer,.memos-editor-option{display: flex;}
+  .memos-editor-content .memos-editor-textarea{max-height: 160px;}
+  .memos-editor-tools{display: flex;flex-direction: column;}
+  .memos-editor-tools .action-btn {padding: .25rem;}
+  .memos-editor-tools .memos-tag-list {display:flex;flex-wrap:wrap;align-items:center;line-height:2;}
+  .memos-editor-tools .memos-tag {position:relative;}
+  .memos-editor-tools .memos-tag a {flex:1}
+  /* Memos Content */
+  .card-item{position:relative;overflow:hidden;border-radius:.33rem;background:var(--light-background-secondary);cursor:default;transition:all .6s ease-out;}
+  .card-item:hover{background:var(--light-background-hover);}
+  .dark .card-item{background:var(--dark-background-secondary);}
+  .dark .card-item:hover{background:var(--dark-background-hover);}
+  .card-item .item-album{position:relative;overflow:hidden;background-color:rgba(0,0,0,.1);justify-content:center;align-items:center;}
+  .dark .card-item .item-album{background-color:rgba(255,255,255,.1);}
+  .card-item .item-album img{position:absolute;width:100%;transition:transform .2s ease-in-out;transition:all .6s ease;flex:1;object-fit:cover;}
+  .card-item .item-album::after{display:block;padding-top:64%;content:'';}
+  .card-item:hover .item-album>img{transform:scale(1.1);}
+  .card-item .item-header{position:relative;display:flex;line-height:2rem;align-items:center;}
+  .card-item .item-avatar{width:40px;height:40px;border-radius:50%;background-color:var(--light-background);background-size:contain;flex:0 0 auto;}
+  .dark .card-item .item-avatar{background-color:var(--dark-background);}
+  .card-item .item-sub{line-height:1;}
+  .card-item .item-creator{font-weight:700;}
+  .card-item .item-mate{color:var(--light-color-secondary);}
+  .dark .card-item .item-mate{color:var(--dark-color-secondary);}
+  .card-item .item-content{position:relative;display:flex;transition:all .3s ease;flex-direction:column;}
+  .card-item .item-content.is-feature{background-image:linear-gradient(transparent,rgba(0,0,0,.85));}
+  .card-item .item-content p{margin:.5rem 0;line-height:2rem;}
+  .dark .card-item .item-content pre{background:var(--dark-background);}
+  .card-item .item-footer>.item>a{display:flex;align-items:center;}
+  .card-item .item-tag,.list-item .item-tag,.memos-tag{border-radius:.33rem;background-color:var(--light-color-hover);white-space:nowrap;}
+  .dark .card-item .item-tag,.dark .list-item .item-tag,.dark .memos-tag{background-color:var(--dark-color-hover);}
+  .card-item .item-note{overflow:hidden;height:calc(1em * 2 * 1.5);}
+  .item-comment{padding:1rem;border-radius:.33rem;background-color:var(--dark-main-color);}
+  .dark .item-comment{background-color:var(--light-color-third);}
+
+  </style>
+</html>
