@@ -295,21 +295,30 @@ function uniqueFunc(arr){
 
 function updateHTMl(data){
   var result="",resultAll="";
-  const TAG_REG = /#([^\s#]+?) /g
-  ,IMG_REG = /\!\[(.*?)\]\((.*?)\)/g
-  , LINK_REG = /(?<!!)\[(.*?)\]\((.*?)\)/g
-  , BILIBILI_REG = /<a.*?href="https:\/\/www\.bilibili\.com\/video\/((av[\d]{1,10})|(BV([\w]{10})))\/?".*?>.*<\/a>/g
-  , NETEASE_MUSIC_REG = /<a.*?href="https:\/\/music\.163\.com\/.*id=([0-9]+)".*?>.*<\/a>/g
-  , QQMUSIC_REG = /<a.*?href="https\:\/\/y\.qq\.com\/.*(\/[0-9a-zA-Z]+)(\.html)?".*?>.*?<\/a>/g
-  , QQVIDEO_REG = /<a.*?href="https:\/\/v\.qq\.com\/.*\/([a-z|A-Z|0-9]+)\.html".*?>.*<\/a>/g
-  , YOUKU_REG = /<a.*?href="https:\/\/v\.youku\.com\/.*\/id_([a-z|A-Z|0-9|==]+)\.html".*?>.*<\/a>/g
-  , YOUTUBE_REG = /<a.*?href="https:\/\/www\.youtube\.com\/watch\?v\=([a-z|A-Z|0-9]{11})\".*?>.*<\/a>/g;
+  const TAG_REG = /#([^\s#]+)/;
+  const IMG_REG = /\!\[(.*?)\]\((.*?)\)/g;
+  BILIBILI_REG = /<a.*?href="https:\/\/www\.bilibili\.com\/video\/((av[\d]{1,10})|(BV([\w]{10})))\/?".*?>.*<\/a>/g;
+  NETEASE_MUSIC_REG = /<a.*?href="https:\/\/music\.163\.com\/.*id=([0-9]+)".*?>.*<\/a>/g;
+  QQMUSIC_REG = /<a.*?href="https\:\/\/y\.qq\.com\/.*(\/[0-9a-zA-Z]+)(\.html)?".*?>.*?<\/a>/g;
+  QQVIDEO_REG = /<a.*?href="https:\/\/v\.qq\.com\/.*\/([a-z|A-Z|0-9]+)\.html".*?>.*<\/a>/g;
+  YOUKU_REG = /<a.*?href="https:\/\/v\.youku\.com\/.*\/id_([a-z|A-Z|0-9|==]+)\.html".*?>.*<\/a>/g;
+  YOUTUBE_REG = /<a.*?href="https:\/\/www\.youtube\.com\/watch\?v\=([a-z|A-Z|0-9]{11})\".*?>.*<\/a>/g;
+
   marked.setOptions({
     breaks: true,
     smartypants: false,
     langPrefix: 'language-'
   });
-
+  // Marked Renderer Open links in New Tab
+  const renderer = new marked.Renderer();
+  const linkRenderer = renderer.link;
+  renderer.link = (href, title, text) => {
+      const localLink = href.startsWith(`${location.protocol}//${location.hostname}`);
+      const html = linkRenderer.call(renderer, href, title, text);
+      return localLink ? html : html.replace(/^<a /, `<a target="_blank" rel="noreferrer noopener nofollow" `);
+  };
+  marked.use({ renderer });
+  
   for(var i=0;i < data.length;i++){
       var memos = data[i].url
       var memoId = data[i].memoId
@@ -320,7 +329,8 @@ function updateHTMl(data){
       var artSite = data[i].artSite
       var bbContREG = data[i].content
         .replace(TAG_REG, "<span class='tag-span'>#$1</span> ")
-        .replace(LINK_REG, "<a href='$2' target='_blank'><span> $1 </span></a>")
+        .replace(IMG_REG, '')
+        //.replace(LINK_REG, "<a href='$2' target='_blank'><span> $1 </span></a>")
         
       bbContREG = marked.parse(bbContREG)
         .replace(BILIBILI_REG, "<div class='video-wrapper'><iframe src='//player.bilibili.com/player.html?bvid=$1&as_wide=1&high_quality=1&danmaku=0' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'></iframe></div>")
@@ -329,7 +339,28 @@ function updateHTMl(data){
         .replace(QQVIDEO_REG, "<div class='video-wrapper'><iframe src='//v.qq.com/iframe/player.html?vid=$1' allowFullScreen='true' frameborder='no'></iframe></div>")
         .replace(YOUKU_REG, "<div class='video-wrapper'><iframe src='https://player.youku.com/embed/$1' frameborder=0 'allowfullscreen'></iframe></div>")
         .replace(YOUTUBE_REG, "<div class='video-wrapper'><iframe src='https://www.youtube.com/embed/$1' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen title='YouTube Video'></iframe></div>")
-      
+
+      //解析 content 内 md 格式图片
+      var IMG_ARR = data[i].content.match(IMG_REG) || '';
+      if(IMG_ARR){
+        var IMG_ARR_Length = IMG_ARR.length,IMG_ARR_Url = '';
+        if(IMG_ARR_Length !== 1){var IMG_ARR_Grid = "grid grid-"+IMG_ARR_Length}
+        IMG_ARR.forEach(item => {
+            let imgSrc = item.replace(/!\[.*?\]\((.*?)\)/g,'$1')
+            IMG_ARR_Url += '<figure class="gallery-thumbnail"><img class="img thumbnail-image" loading="lazy" decoding="async" src="'+imgSrc+'"/></figure>'
+        });
+        bbContREG += '<div class="resimg '+IMG_ARR_Grid+'">'+IMG_ARR_Url+'</div>';
+      }
+
+      //标签
+      var tagArr = data[i].content.match(TAG_REG);
+      var bbContTag = '';
+      if (tagArr) {
+          bbContTag = String(tagArr[0]).replace(/[#]/g, '');
+      } else {
+          bbContTag = '动态';
+      };
+
       //解析内置资源文件
       if(data[i].resourceList && data[i].resourceList.length > 0){
         var resourceList = data[i].resourceList;
