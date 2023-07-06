@@ -153,15 +153,15 @@ function updateHTMl(data){
         .replace(YOUTUBE_REG, "<div class='video-wrapper'><iframe src='https://www.youtube.com/embed/$1' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen title='YouTube Video'></iframe></div>")
 
       //解析 content 内 md 格式图片
-      var IMG_ARR = data[i].content.match(IMG_REG) || '';
+      var IMG_ARR = data[i].content.match(IMG_REG) || '',IMG_ARR_Grid='';
       if(IMG_ARR){
         var IMG_ARR_Length = IMG_ARR.length,IMG_ARR_Url = '';
-        if(IMG_ARR_Length !== 1){var IMG_ARR_Grid = "grid grid-"+IMG_ARR_Length}
+        if(IMG_ARR_Length !== 1){var IMG_ARR_Grid = " grid grid-"+IMG_ARR_Length}
         IMG_ARR.forEach(item => {
             let imgSrc = item.replace(/!\[.*?\]\((.*?)\)/g,'$1')
             IMG_ARR_Url += '<figure class="gallery-thumbnail"><img class="img thumbnail-image" loading="lazy" decoding="async" src="'+imgSrc+'"/></figure>'
         });
-        bbContREG += '<div class="resimg '+IMG_ARR_Grid+'">'+IMG_ARR_Url+'</div>';
+        bbContREG += '<div class="resimg'+IMG_ARR_Grid+'">'+IMG_ARR_Url+'</div>';
       }
 
       //标签
