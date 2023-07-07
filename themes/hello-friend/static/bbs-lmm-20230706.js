@@ -24,7 +24,7 @@ const urls = [
   {home:"https://lms.im/",host:"https://b.lms.im/",creatorId:"1",comment:'1',twiEnv:'https://b.lms.im/tk/',imgsrc:"https://cravatar.cn/avatar/d9cc49ea0301640d7a19b6a1e77012dd"},
   {home:"https://edinik.com/",host:"https://memos.edinik.com/",creatorId:"1",comment:'1',twiEnv:'https://tk.edinik.com/',imgsrc:"https://cravatar.cn/avatar/e1cdf4f763e3c7e01271a44b990c712f"},
   {home:"https://memos.qiangtu.com/",host:"https://memos.qiangtu.com/",creatorId:"1",comment:'1',twiEnv:'https://twikoo.qiangtu.com/',imgsrc:"https://memos2504.oss-cn-hangzhou.aliyuncs.com/memos2504/assets/2023/06/06/1686021093_favicon.ico/1ef33f96-5296-4d5e-940c-04c88775d008.ico"},
-  {home:"https://life97.top/",host:"https://memos.life97.top/",creatorId:"101",comment:'1',twiEnv:'http://say.life97.top',imgsrc:"https://cravatar.cn/avatar/d41d8cd98f00b204e9800998ecf8427e"},
+  {home:"https://life97.top/",host:"https://memos.life97.top/",creatorId:"101",comment:'1',twiEnv:'https://say.life97.top/',imgsrc:"https://cravatar.cn/avatar/d41d8cd98f00b204e9800998ecf8427e"},
   {home:"https://eallion.com/",host:"https://memos.eallion.com/",creatorId:"101",comment:'1',artEnv:'https://api.eallion.com/artalk/',artSite:'memos',imgsrc:"https://cravatar.cn/avatar/171e4c30959e8c077a6c58b958624b31"},
   {home:"https://www.skyue.com/",host:"https://memos.skyue.com/",creatorId:"1",comment:'1',artEnv: 'https://artalk.skyue.com',artSite: '拾月微博',imgsrc:"https://cravatar.cn/avatar/c3fb4bb4d5101284ddd672fb722cdd7d"},
   {home:"https://xrat.net/",host:"https://memos.xrat.net/",creatorId:"2",comment:'1',artEnv:'https://vlabs.synology.me:96',artSite:'memos.xrat.net',imgsrc:"https://cravatar.cn/avatar/0ab677e14d21d941f64d98192d6168e7"},
