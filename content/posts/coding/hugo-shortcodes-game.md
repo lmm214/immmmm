@@ -4,7 +4,7 @@ date: 2023-02-01T09:51:09+0800
 tags: [折腾]
 ---
 
-
+{{< game "https://neodb.social/game/5rrQab2d2xhxGWrjJOZUs0" >}}
 
 效果如上 ⬆️
 
