@@ -39,6 +39,14 @@ feature: https://r2.immmmm.com/2023/07/neodb-2.png
 \{\{< neodb "https://neodb.social/podcast/5tlY7lSI0WfXcoHstz7u4S" >\}\}
 ```
 
+或者修改之前的 Douban 短代码，源码见 [shortcodes/douban.html](https://github.com/lmm214/immmmm/blob/master/themes/hello-friend/layouts/shortcodes/douban.html)。
+
+{{< douban "https://book.douban.com/subject/36328704/" >}}
+
+```
+\{\{< douban "https://book.douban.com/subject/36328704/" >\}\}
+```
+
 ### 首页「近期观影」和「近期阅读」
 
 整体思路，通过 Cloudflare Workers 发起 Fetch 请求，这样可以避免 `Access Token` 暴露。
