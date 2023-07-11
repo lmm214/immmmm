@@ -100,7 +100,7 @@ async function handleRequest(request) {
 
 `https://db.immmmm.com/movie` 获取到的数据其实是
 
-`https://neodb.social/api/me/shelf/complete?category=movie'
+`https://neodb.social/api/me/shelf/complete?category=movie&page=1`
 
 ### 后记
 
