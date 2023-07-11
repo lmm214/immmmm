@@ -119,12 +119,13 @@
     <div class="douban border-top sc-ksluID gFnzgG">
       <h3><a href="/movies/">近期观影</a></h3>
         <div class="items sc-dIsUp fIuTG">
-            {{range $value := $movieitems.data}}
+            {{range $value := first 5 $movieitems.data}}
               {{ $item := $value.item }}
+              {{ $itemRating := 0 }}{{ with $item.rating }}{{ $itemRating = . }}{{ end }}
               <div class="dfdORB">
                 <div class="sc-hKFxyN HPRth"><div class="lazyload-wrapper"><img class="avatar" src="{{ $item.cover_image_url }}" referrer-policy="no-referrer" loading="lazy" alt=""  title="{{ $item.title }}" width="150" height="220"></div></div>
                 <div class="sc-fujyAs eysHZq">
-                    <div class="rating"><span class="allstardark"><span class="allstarlight" style="width:{{ default (mul 10 $item.rating) 0 }}%"></span></span><span class="rating_nums">{{ default $item.rating 0 }}</span></div>
+                    <div class="rating"><span class="allstardark"><span class="allstarlight" style="width:{{ mul 10 $itemRating }}%"></span></span><span class="rating_nums">{{ $itemRating }}</span></div>
                 </div>
                 <div class="sc-iCoGMd kMthTr"><a rel="noreferrer" href="https://neodb.social{{ $item.url }}" target="_blank">{{ $item.title }}</a></div>
               </div>
@@ -136,12 +137,13 @@
     <div class="douban border-bottom sc-ksluID gFnzgG">
       <h3><a href="/books/">近期阅读</a></h3>
         <div class="items sc-dIsUp fIuTG">
-            {{range $value := $bookitems.data}}
+            {{range $value := first 5 $bookitems.data}}
               {{ $item := $value.item }}
+              {{ $itemRating := 0 }}{{ with $item.rating }}{{ $itemRating = . }}{{ end }}
               <div class="dfdORB">
                 <div class="sc-hKFxyN HPRth"><div class="lazyload-wrapper"><img class="avatar" src="{{ $item.cover_image_url }}" referrer-policy="no-referrer" loading="lazy" alt=""  title="{{ $item.title }}" width="150" height="220"></div></div>
                 <div class="sc-fujyAs eysHZq">
-                    <div class="rating"><span class="allstardark"><span class="allstarlight" style="width:{{ default (mul 10 $item.rating) 0 }}%"></span></span><span class="rating_nums">{{ default $item.rating 0 }}</span></div>
+                    <div class="rating"><span class="allstardark"><span class="allstarlight" style="width:{{ mul 10 $itemRating }}%"></span></span><span class="rating_nums">{{ $itemRating }}</span></div>
                 </div>
                 <div class="sc-iCoGMd kMthTr"><a rel="noreferrer" href="https://neodb.social{{ $item.url }}" target="_blank">{{ $item.title }}</a></div>
               </div>

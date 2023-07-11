@@ -1,0 +1,43 @@
+{{ $dbUrl := .Get 0 }}
+{{ $dbType := replaceRE `https://(movie|book).douban.com/subject/.*` "$1" $dbUrl }}
+{{ $dbID := replaceRE `.*douban.com/subject/([0-9]+)/.*` "$1" $dbUrl }}
+
+{{ if eq $dbType "book" }}
+    {{$items := getCSV "," "data/douban/book.csv" }}
+    {{range $item := $items}}
+    {{if eq (index $item 5) $dbUrl }}
+        {{ $rating := float (index $item 6) }}
+        <div class="db-card">
+            <div class="db-card-subject">
+                <div class="db-card-post"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="{{ index $item 3 }}"></div>
+                <div class="db-card-content">
+                    <div class="db-card-title"><a href="{{ index $item 5 }}" class="cute" target="_blank" rel="noreferrer">{{ index $item 1 }}</a></div>
+                    <div class="rating"><span class="allstardark"><span class="allstarlight" style="width:{{mul 10 $rating }}%"></span></span><span class="rating_nums">{{$rating}}</span></div>
+                    <div class="db-card-abstract">{{ index $item 12 }}</div>
+                    <div class="db-card-comment">{{ index $item 9}}</div>
+                </div>
+            </div>
+        </div>
+    {{end}}
+    {{end}}
+{{ end }}
+
+{{ if eq $dbType "movie" }}
+    {{$items := getCSV "," "data/douban/movie.csv" }}
+    {{range $item := $items}}
+    {{if eq (index $item 5) $dbUrl }}
+        {{ $rating := float (index $item 6)}}
+        <div class="db-card">
+            <div class="db-card-subject">
+                <div class="db-card-post"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="{{ index $item 3 }}"></div>
+                <div class="db-card-content">
+                    <div class="db-card-title"><a href="{{ index $item 5 }}" class="cute" target="_blank" rel="noreferrer">{{ index $item 1 }}</a></div>
+                    <div class="rating"><span class="allstardark"><span class="allstarlight" style="width:{{mul  10 $rating }}%"></span></span><span class="rating_nums">{{$rating}}</span></div>
+                    <div class="db-card-abstract">{{ index $item 12 }}</div>
+                    <div class="db-card-comment">{{ index $item 9}}</div>
+                </div>
+            </div>
+        </div>
+    {{end}}
+    {{end}}
+{{ end }}

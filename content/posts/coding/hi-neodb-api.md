@@ -64,7 +64,7 @@ async function handleRequest(request) {
   const url = new URL(request.url)
   const category = url.pathname.substring(1)
   console.log(category)
-  let dbApiUrl = 'https://neodb.social/api/me/shelf/complete?category=' + category
+  let dbApiUrl = 'https://neodb.social/api/me/shelf/complete?category=' + category + '&page=1'
   return fetch(dbApiUrl ,{
     method:'get',
     headers: {
