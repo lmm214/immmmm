@@ -124,7 +124,7 @@
               <div class="dfdORB">
                 <div class="sc-hKFxyN HPRth"><div class="lazyload-wrapper"><img class="avatar" src="{{ $item.cover_image_url }}" referrer-policy="no-referrer" loading="lazy" alt=""  title="{{ $item.title }}" width="150" height="220"></div></div>
                 <div class="sc-fujyAs eysHZq">
-                    <div class="rating"><span class="allstardark"><span class="allstarlight" style="width:{{mul  10 $item.rating }}%"></span></span><span class="rating_nums">{{ $item.rating }}</span></div>
+                    <div class="rating"><span class="allstardark"><span class="allstarlight" style="width:{{ default (mul 10 $item.rating) 0 }}%"></span></span><span class="rating_nums">{{ default $item.rating 0 }}</span></div>
                 </div>
                 <div class="sc-iCoGMd kMthTr"><a rel="noreferrer" href="https://neodb.social{{ $item.url }}" target="_blank">{{ $item.title }}</a></div>
               </div>
@@ -141,7 +141,7 @@
               <div class="dfdORB">
                 <div class="sc-hKFxyN HPRth"><div class="lazyload-wrapper"><img class="avatar" src="{{ $item.cover_image_url }}" referrer-policy="no-referrer" loading="lazy" alt=""  title="{{ $item.title }}" width="150" height="220"></div></div>
                 <div class="sc-fujyAs eysHZq">
-                    <div class="rating"><span class="allstardark"><span class="allstarlight" style="width:{{mul  10 $item.rating }}%"></span></span><span class="rating_nums">{{ $item.rating }}</span></div>
+                    <div class="rating"><span class="allstardark"><span class="allstarlight" style="width:{{ default (mul 10 $item.rating) 0 }}%"></span></span><span class="rating_nums">{{ default $item.rating 0 }}</span></div>
                 </div>
                 <div class="sc-iCoGMd kMthTr"><a rel="noreferrer" href="https://neodb.social{{ $item.url }}" target="_blank">{{ $item.title }}</a></div>
               </div>
