@@ -55,7 +55,7 @@ feature: https://r2.immmmm.com/2023/07/neodb-2.png
 
 #### 1. 获取 Access Token
 
-访问：<https://neodb.social/developer/> ，点击 `Test Access Token` `Generate` 复制，留存。
+参考 @eallion [《NeoDB 获取 Access Token》](https://eallion.com/neodb_token/)。
 
 #### 2. 新建 Cloudflare Workers
 
