@@ -21,7 +21,7 @@ for i in data_movie:
     }
   # 发送带有自定义请求头的GET请求获取图片数据
   response = requests.get(image_url_movie, headers=headers, timeout=10)
-  file_name_movie = image_url.split('/')[-1]
+  file_name_movie = image_url_movie.split('/')[-1]
   save_path_movie = os.path.join(save_folder, file_name_movie)
   # 保存图片到本地
   with open(save_path_movie, 'wb') as file_movie:
