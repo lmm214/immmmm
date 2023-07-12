@@ -32,7 +32,7 @@ for i in data_movie:
 json_file_path_book = './data/douban/book.json'
 # 从本地JSON文件加载数据
 with open(json_file_path_book, 'r',  encoding='utf-8') as file_book:
-    data_book = json.load(file)_book
+    data_book = json.load(file_book)
     # print(data_book)
 # 提取URL字段的值
 for j in data_book:
