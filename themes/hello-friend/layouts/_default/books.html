@@ -82,15 +82,18 @@
         {{if index $item 6 }}
           {{ $rating = float (index $item 6) }}
         {{end}}
+
+        {{ $coverSrc := index $item 5 }}
+        {{ $douURL := replaceRE "https://book.douban.com/subject/([0-9]+)/" "https://dou.img.lithub.cc/book/$1.jpg" $coverSrc}}
       <div 
         class="sc-gKAaRy dfdORB" 
-        data-year="{{index $item 11}}" 
+        data-year="{{index $item 11}}"
         data-star="{{index $item 8}}"
         data-rating="{{$rating}}"
       >
           <div class="sc-hKFxyN HPRth">
             <div class="lazyload-wrapper">
-              <img class="avatar" src="{{ index $item 3 }}" referrer-policy="no-referrer" decoding="async" loading="lazy" alt="{{ index $item 9 }}"  title="{{ index $item 1 }}" width="150" height="220">
+              <img class="avatar" src="{{ $douURL }}" referrer-policy="no-referrer" decoding="async" loading="lazy" alt="{{ index $item 9 }}"  title="{{ index $item 1 }}" width="150" height="220">
             </div>
           </div>
           <div class="sc-fujyAs eysHZq">
