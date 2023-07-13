@@ -15,9 +15,9 @@ feature: https://r2.immmmm.com/2023/07/neodb-2.png
 
 最早听闻 NeoDB 来自 [@eallion](https://eallion.com/)，那时某瓣标记记录还可以通过第三方 Docker API 和 GitHub Actions 获取调用。几天前，小伙伴发现图挂了一片一片一大片，哎，换轮子！
 
-### Hugo NeoDB 单挑短代码
+### Hugo NeoDB 单条短代码
 
-源码见 [shortcodes/neodb.html](https://github.com/lmm214/immmmm/blob/master/themes/hello-friend/layouts/shortcodes/neodb.html)，支持书、电影、剧集、游戏、博客。
+支持书、电影、剧集、游戏、播客，也支持豆瓣页面链接，源码见 [shortcodes/neodb.html](https://github.com/lmm214/immmmm/blob/master/themes/hello-friend/layouts/shortcodes/neodb.html)，
 
 {{< neodb "https://neodb.social/book/5SJvkuHNGL4XhBddW2J4EJ" >}}
 
@@ -39,12 +39,12 @@ feature: https://r2.immmmm.com/2023/07/neodb-2.png
 \{\{< neodb "https://neodb.social/podcast/5tlY7lSI0WfXcoHstz7u4S" >\}\}
 ```
 
-或者修改之前的 Douban 短代码，源码见 [shortcodes/douban.html](https://github.com/lmm214/immmmm/blob/master/themes/hello-friend/layouts/shortcodes/douban.html)。
+豆瓣页面链接调用：
 
-{{< douban "https://book.douban.com/subject/36328704/" >}}
+{{< neodb "https://book.douban.com/subject/36328704/" >}}
 
 ```
-\{\{< douban "https://book.douban.com/subject/36328704/" >\}\}
+\{\{< neodb "https://book.douban.com/subject/36328704/" >\}\}
 ```
 
 ### 首页「近期观影」和「近期阅读」
@@ -85,8 +85,6 @@ async function handleRequest(request) {
 
 #### 3. Hugo getJSON 调取
 
-源码见 [_default/index.html.html](https://github.com/lmm214/immmmm/blob/master/themes/hello-friend/layouts/_default/index.html.html)
-
 核心代码如下：
 
 ```
@@ -102,7 +100,7 @@ async function handleRequest(request) {
 
 `https://neodb.social/api/me/shelf/complete?category=movie&page=1`
 
-#### 相关 CSS 样式供参考
+#### 相关代码备份
 
 ```
 /* db-card -------- start*/
@@ -125,6 +123,44 @@ async function handleRequest(request) {
 	.db-card-comment{display: none;}
 }
 /* db-card -------- end */
+```
+
+```
+{{$movieitems := getJSON "https://db.immmmm.com/movie" }}
+<div class="douban border-top sc-ksluID gFnzgG">
+  <h3><a href="/movies/">近期观影</a></h3>
+    <div class="items sc-dIsUp fIuTG">
+        {{range $value := first 5 $movieitems.data}}
+          {{ $item := $value.item }}
+          {{ $itemRating := 0 }}{{ with $item.rating }}{{ $itemRating = . }}{{ end }}
+          <div class="dfdORB">
+            <div class="sc-hKFxyN HPRth"><div class="lazyload-wrapper"><img class="avatar" src="{{ $item.cover_image_url }}" referrer-policy="no-referrer" loading="lazy" alt=""  title="{{ $item.title }}" width="150" height="220"></div></div>
+            <div class="sc-fujyAs eysHZq">
+                <div class="rating"><span class="allstardark"><span class="allstarlight" style="width:{{ mul 10 $itemRating }}%"></span></span><span class="rating_nums">{{ $itemRating }}</span></div>
+            </div>
+            <div class="sc-iCoGMd kMthTr"><a rel="noreferrer" href="https://neodb.social{{ $item.url }}" target="_blank">{{ $item.title }}</a></div>
+          </div>
+        {{end}}
+    </div>
+</div>
+
+{{$bookitems := getJSON "https://db.immmmm.com/book" }}
+<div class="douban border-bottom sc-ksluID gFnzgG">
+  <h3><a href="/books/">近期阅读</a></h3>
+    <div class="items sc-dIsUp fIuTG">
+        {{range $value := first 5 $bookitems.data}}
+          {{ $item := $value.item }}
+          {{ $itemRating := 0 }}{{ with $item.rating }}{{ $itemRating = . }}{{ end }}
+          <div class="dfdORB">
+            <div class="sc-hKFxyN HPRth"><div class="lazyload-wrapper"><img class="avatar" src="{{ $item.cover_image_url }}" referrer-policy="no-referrer" loading="lazy" alt=""  title="{{ $item.title }}" width="150" height="220"></div></div>
+            <div class="sc-fujyAs eysHZq">
+                <div class="rating"><span class="allstardark"><span class="allstarlight" style="width:{{ mul 10 $itemRating }}%"></span></span><span class="rating_nums">{{ $itemRating }}</span></div>
+            </div>
+            <div class="sc-iCoGMd kMthTr"><a rel="noreferrer" href="https://neodb.social{{ $item.url }}" target="_blank">{{ $item.title }}</a></div>
+          </div>
+        {{end}}
+    </div>
+</div>
 ```
 
 ### 后记
