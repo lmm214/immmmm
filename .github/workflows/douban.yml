@@ -19,7 +19,7 @@ jobs:
       with:
         id: immmmm
         type: movie
-        format: json
+        format: csv
         dir: ./data/douban
 
     - name: book
@@ -27,7 +27,7 @@ jobs:
       with:
         id: immmmm
         type: book
-        format: json
+        format: csv
         dir: ./data/douban
   
     - name: Commit
