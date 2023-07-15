@@ -1,11 +1,58 @@
 {
     "app": [
         {
-            "image": "/apps/appleTV.webp",
-            "jiage": "¥1177 (23-06)",
-            "title": "Apple TV 7代",
-            "link": "https://npcitem.jd.hk/100045175467.html",
-            "note": "看到最新系统已支持网络设置，省去一个软路由，下单之！"
+            "image": "/apps/vscode.webp",
+            "title": "Visual Studio Code",
+            "link": "https://code.visualstudio.com/",
+            "note": "折腾必备"
+        },
+        {
+            "image": "/apps/obsidian.webp",
+            "title": "Obsidian",
+            "link": "https://obsidian.md/",
+            "note": "颜值在线的笔记软件"
+        },
+        {
+            "image": "/apps/iina.webp",
+            "title": "IINA",
+            "link": "https://iina.io/",
+            "note": "视频播放软件，免费开源。"
+        },
+        {
+            "image": "/apps/keka.webp",
+            "title": "Keka",
+            "link": "https://www.keka.io/zh-cn/",
+            "note": "压缩软件，免费开源。"
+        },
+        {
+            "image": "/apps/bob.webp",
+            "title": "Bob",
+            "link": "https://bobtranslate.com/",
+            "note": "翻译、OCR 必备"
+        },
+        {
+            "image": "/apps/rectangle.webp",
+            "title": "Rectangle",
+            "link": "https://rectangleapp.com/",
+            "note": "调整窗口大小"
+        },
+        {
+            "image": "/apps/hidden.webp",
+            "title": "Hidden Bar",
+            "link": "https://github.com/dwarvesf/hidden",
+            "note": "隐藏菜单栏图标"
+        },
+        {
+            "image": "/apps/picgo.webp",
+            "title": "Picgo",
+            "link": "https://molunerfinn.com/PicGo/",
+            "note": "图片上传+管理"
+        },
+        {
+            "image": "/apps/TinyPNG4Mac.webp",
+            "title": "TinyPNG4Mac",
+            "link": "https://github.com/kyleduo/TinyPNG4Mac",
+            "note": "图片压缩，需要申请 API"
         }
     ]
 }

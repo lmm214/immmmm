@@ -1,0 +1,73 @@
+{{ $apps := getJSON "static/apps/apps.json" }}
+
+<div id="apps">
+{{ range $apps.app}}
+<div class="appquanju">
+  <div class="appimg"><img loading="lazy" decoding="async" src="{{ .image }}"></div>
+  <div class="appwenben">
+    <div class="apptitle">
+      <a href="{{ .link }}" target="_blank">{{ .title }}</a>
+    </div>
+    <div class="appnote">{{ .note }}</div>
+  </div>
+</div>
+{{ end }}
+</div>
+
+<style>
+#apps{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(340px,1fr));
+    grid-gap: 10px
+}
+
+.appquanju{
+    border-radius: 8px;
+    align-items: center;
+    background-color:#fefefe;
+    transition: all .3s cubic-bezier(0,0,.5,1);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 15px;
+    border: 1px solid #eaeaea;
+    padding: .3rem 1rem;
+}
+.dark .appquanju{background-color: #3b3d42;border:1px solid #3b3d42;}
+.appquanju:hover {
+  box-shadow: 2px 4px 16px rgba(0,0,0,5%)
+}
+
+.appquanju:hover .appimg img {
+  transform: scale(1.04)
+}
+
+.appimg img {
+  padding: 10px;
+  box-shadow: 0 2px 3px rgba(0,0,0,.04);
+  width: 80px;
+  transition: transform .3s ease;
+}
+
+.appwenben {
+  overflow: hidden;
+  padding-bottom: 8px
+}
+
+.apptitle {
+  font-size: 18px;
+  margin-bottom: 8px;
+  font-family: var(--font-family-title)
+}
+
+.appnote{
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: justify;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical
+}
+
+.appnote {margin-bottom: 10px;-webkit-line-clamp: 3}
+</style>

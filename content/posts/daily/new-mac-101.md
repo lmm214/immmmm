@@ -50,27 +50,13 @@ Git： `brew install git`
 
 Hugo 博客程序： `brew install hugo`
 
-TinyPNG4Mac 图片压缩：`brew install --cask tinypng4mac`
-
-Hidden Bar 隐藏菜单栏图标: `brew install --cask hiddenbar`
-
 LxgwWenKai 字体：
 
 `brew tap homebrew/cask-fonts && brew install font-lxgw-wenkai`
 
 ### App 若干
 
-Picgo：<https://github.com/Molunerfinn/PicGo>
-
-IINA 播放器： <https://github.com/iina/iina>
-
-Keka 压缩： <https://www.keka.io/zh-cn/>
-
-Bob 翻译和OCR：<https://bobtranslate.com/>
-
-Obsidian 笔记：<https://obsidian.md/>
-
-Rectangle 调整窗口大小： <https://rectangleapp.com/>
+{{< apps >}}
 
 ### 待补税
 
