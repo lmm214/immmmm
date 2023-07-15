@@ -83,3 +83,5 @@ Adob全家桶：<https://www.yuque.com/yihulaojiu-gsfg9/zz2qv5/vixkf6>
 `sudo spctl --master-disable`
 
 `sudo xattr -r -d com.apple.quarantine /Applications/Sublime\ Text.app`
+
+![mac-101-3](https://r2.immmmm.com/2023/07/mac-101-3.png)
