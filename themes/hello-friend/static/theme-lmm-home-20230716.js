@@ -3,9 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
 var bbDom = document.querySelector('#bber-talk') || '';
 if(bbDom){memoTalks();}
 function memoTalks(){
-var bbUrl = "https://me.edui.fun/api/memo?creatorId=101&rowStatus=NORMAL&limit=10"
+var bbUrl = "https://me.edui.fun/api/v1/memo?creatorId=101&rowStatus=NORMAL&limit=10"
 fetch(bbUrl).then(res => res.json()).then( resdata =>{
-    var result = '',resultAll="",data = resdata.data
+    var result = '',resultAll="",data = resdata
     for(var i=0;i < data.length;i++){
         var bbTime = new Date(data[i].createdTs * 1000).toLocaleString()
         var bbCont = data[i].content
@@ -34,7 +34,7 @@ if(albumDom){memoAlbum(6);}
 function memoAlbum(numb){
     let limit = numb || 8;
     var memoUrl = "https://me.edui.fun/"
-    var galleryUrl = memoUrl+"api/memo/all?rowStatus=NORMAL&limit="+limit+"&tag=相册"
+    var galleryUrl = memoUrl+"api/v1/memo/all?rowStatus=NORMAL&limit="+limit+"&tag=相册"
     var localalbumUpdated = JSON.parse(localStorage.getItem("albumUpdated")) || '';
     var localalbumData = JSON.parse(localStorage.getItem("albumData")) || '';
     if(localalbumData){
@@ -44,9 +44,9 @@ function memoAlbum(numb){
       localStorage.setItem("albumUpdated","")
     }
     fetch(galleryUrl).then(res => res.json()).then( resdata =>{
-      var albumUpdated = resdata.data[0].updatedTs
+      var albumUpdated = resdata[0].updatedTs
       if(albumUpdated && localalbumUpdated != albumUpdated){
-        var albumData = resdata.data
+        var albumData = resdata
         albumDom.innerHTML = "";
         loadAlbum(albumData,limit)
         localStorage.setItem("albumUpdated",JSON.stringify(albumUpdated))

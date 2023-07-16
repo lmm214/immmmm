@@ -30,11 +30,24 @@ loadCssCode(allCSS);
 var limit = bbMemo.limit
 var memos = bbMemo.memos
 var mePage = 1,offset = 0,nextLength = 0,nextDom='';
+var apiV1 = '';
 var bbDom = document.querySelector(bbMemo.domId);
 var load = '<div class="bb-load"><button class="load-btn button-load">加载中……</button></div>'
 if(bbDom){
-  getFirstList() //首次加载数据
-  meNums() //加载总数
+  fetchStatus()
+}
+async function fetchStatus() {
+  var statusUrl = memos+"api/v1/status";
+  const response = await fetch(statusUrl);
+  //console.log(response.ok)
+  if (response.ok) {
+    apiV1 = 'v1/'
+  }
+  newApiV1(apiV1)
+}
+function newApiV1(apiV1){
+  getFirstList(apiV1) //首次加载数据
+  meNums(apiV1) //加载总数
   var btn = document.querySelector("button.button-load");
   btn.addEventListener("click", function () {
     btn.textContent= '加载中……';
@@ -44,22 +57,26 @@ if(bbDom){
       document.querySelector("button.button-load").remove()
       return
     }
-    getNextList()
+    getNextList(apiV1)
   });
 }
-function getFirstList(){
+function getFirstList(apiV1){
   bbDom.insertAdjacentHTML('afterend', load);
-  var bbUrl = memos+"api/memo?creatorId="+bbMemo.creatorId+"&rowStatus=NORMAL&limit="+limit;
+  var bbUrl = memos+"api/"+apiV1+"memo?creatorId="+bbMemo.creatorId+"&rowStatus=NORMAL&limit="+limit;
   fetch(bbUrl).then(res => res.json()).then( resdata =>{
-    updateTiwkoo(resdata.data)
-    var nowLength = resdata.data.length
+    var arrData = resdata || ''
+    if(resdata.data){
+      arrData = resdata.data
+    }
+    updateTiwkoo(arrData)
+    var nowLength = arrData.length
     if(nowLength < limit){ //返回数据条数小于 limit 则直接移除“加载更多”按钮，中断预加载
       document.querySelector("button.button-load").remove()
       return
     }
     mePage++
     offset = limit*(mePage-1)
-    getNextList()
+    getNextList(apiV1)
   });
 }
 // 获取评论数量
@@ -86,10 +103,14 @@ function updateTiwkoo(data) {
   }
 }
 //预加载下一页数据
-function getNextList(){
-  var bbUrl = memos+"api/memo?creatorId="+bbMemo.creatorId+"&rowStatus=NORMAL&limit="+limit+"&offset="+offset;
+function getNextList(apiV1){
+  var bbUrl = memos+"api/"+apiV1+"memo?creatorId="+bbMemo.creatorId+"&rowStatus=NORMAL&limit="+limit+"&offset="+offset;
   fetch(bbUrl).then(res => res.json()).then( resdata =>{
-    nextDom = resdata.data
+    var arrData = resdata || ''
+    if(resdata.data){
+      arrData = resdata.data
+    }
+    nextDom = arrData
     nextLength = nextDom.length
     mePage++
     offset = limit*(mePage-1)
@@ -100,12 +121,16 @@ function getNextList(){
   })
 }
 //加载总 Memos 数
-function meNums(){
+function meNums(apiV1){
   var bbLoad = document.querySelector('.bb-load')
-  var bbUrl = memos+"api/memo/stats?creatorId="+bbMemo.creatorId
+  var bbUrl = memos+"api/"+apiV1+"memo/stats?creatorId="+bbMemo.creatorId
   fetch(bbUrl).then(res => res.json()).then( resdata =>{
+    var arrData = resdata || ''
     if(resdata.data){
-      var allnums = '<div id="bb-footer"><p class="bb-allnums">共 '+resdata.data.length+' 条 </p><p class="bb-allpub"><a href="https://immmmm.com/bbs/" target="_blank">Memos Public</a></p></div>'
+      arrData = resdata.data
+    }
+    if(arrData){
+      var allnums = '<div id="bb-footer"><p class="bb-allnums">共 '+arrData.length+' 条 </p><p class="bb-allpub"><a href="https://immmmm.com/bbs/" target="_blank">Memos Public</a></p></div>'
       bbLoad.insertAdjacentHTML('afterend', allnums);
     }
   })
