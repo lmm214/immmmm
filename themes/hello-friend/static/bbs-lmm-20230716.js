@@ -22,7 +22,7 @@ const urls = [
   {home:"https://www.boyhu.cn/",host:"https://qzone.boyhu.cn/",apiV1:'',creatorId:"101",comment:'1',twiEnv:'https://tk.boyhu.cn/',imgsrc:"https://cravatar.cn/avatar/55be217893c75baf8571837197de4a3e"},
   {home:"https://kouseki.cn/",host:"https://memos.kouseki.cn/",apiV1:'',creatorId:"1",comment:'1',twiEnv:'https://api-twi.kouseki.cn/',imgsrc:"https://cravatar.cn/avatar/23978e8e57e20163e8cb67bbf9dbe907"},
   {home:"https://lms.im/",host:"https://b.lms.im/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://b.lms.im/tk/',imgsrc:"https://cravatar.cn/avatar/d9cc49ea0301640d7a19b6a1e77012dd"},
-  {home:"https://edinik.com/",host:"https://memos.edinik.com/",apiV1:'',creatorId:"1",comment:'1',twiEnv:'https://tk.edinik.com/',imgsrc:"https://cravatar.cn/avatar/e1cdf4f763e3c7e01271a44b990c712f"},
+  {home:"https://edinik.com/",host:"https://memos.edinik.com/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://tk.edinik.com/',imgsrc:"https://cravatar.cn/avatar/e1cdf4f763e3c7e01271a44b990c712f"},
   {home:"https://memos.qiangtu.com/",host:"https://memos.qiangtu.com/",apiV1:'',creatorId:"1",comment:'1',twiEnv:'https://twikoo.qiangtu.com/',imgsrc:"https://memos2504.oss-cn-hangzhou.aliyuncs.com/memos2504/assets/2023/06/06/1686021093_favicon.ico/1ef33f96-5296-4d5e-940c-04c88775d008.ico"},
   {home:"https://life97.top/",host:"https://memos.life97.top/",apiV1:'',creatorId:"101",comment:'1',twiEnv:'https://say.life97.top/',imgsrc:"https://cravatar.cn/avatar/d41d8cd98f00b204e9800998ecf8427e"},
   {home:"https://www.wangdu.site/",host:"https://bw.wangdu.site:4730/",apiV1:'',creatorId:"101",comment:'1',twiEnv:'https://wwsay.wangdu.site/',imgsrc:"https://cravatar.cn/avatar/3f86f3f1aa105924d030b7d3040a0037"},
