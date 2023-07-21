@@ -1,5 +1,5 @@
 /*
-Last Modified time : 20230421 by https://immmmm.com
+Last Modified time : 20230721 by https://immmmm.com
 */
 if (typeof Lately === 'undefined') {
   const script = document.createElement('script');
@@ -14,7 +14,7 @@ if (typeof Lately === 'undefined') {
 //
 const urls = [
   {home:"https://immmmm.com/",host:"https://me.edui.fun/",apiV1:'v1/',creatorId:"101",comment:'1',twiEnv:'https://metk.edui.fun/',imgsrc:"https://cravatar.cn/avatar/ba83fa02fc4b2ba621514941307e21be"},
-  {home:"https://nuoea.com/",host:"https://memos.nuoea.com/",apiV1:'',creatorId:"101",comment:'1',twiEnv:'https://twikoo.nuoea.com/',imgsrc:"https://cravatar.cn/avatar/020d365ea2596ef6d516143bb0552704"},
+  {home:"https://nuoea.com/",host:"https://memos.nuoea.com/",apiV1:'v1/',creatorId:"101",comment:'1',twiEnv:'https://twikoo.nuoea.com/',imgsrc:"https://cravatar.cn/avatar/020d365ea2596ef6d516143bb0552704"},
   {home:"https://chenyyds.com/",host:"https://me.chenplus.com/",apiV1:'',creatorId:"101",comment:'1',twiEnv:'https://twikoo.chenyyds.com/',imgsrc:"https://chenyyds.com/avatar.png"},
   {home:"https://seersu.me/",host:"https://bb.seersu.top/",apiV1:'',creatorId:"101",comment:'1',twiEnv:'https://twikoo.seersu.me/',imgsrc:"https://cravatar.cn/avatar/84b712148a63b44dd97ede997bc3efa5"},
   {home:"https://www.xzgljiang.com/",host:"https://memos.xzgljiang.com/",apiV1:'',creatorId:"1",comment:'1',twiEnv:'https://twikoo.une.xzgljiang.com/',imgsrc:"https://cravatar.cn/avatar/a892fd3321ab65a1c5d9c7a54a04c881"},
@@ -23,15 +23,15 @@ const urls = [
   {home:"https://kouseki.cn/",host:"https://memos.kouseki.cn/",apiV1:'',creatorId:"1",comment:'1',twiEnv:'https://api-twi.kouseki.cn/',imgsrc:"https://cravatar.cn/avatar/23978e8e57e20163e8cb67bbf9dbe907"},
   {home:"https://lms.im/",host:"https://b.lms.im/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://b.lms.im/tk/',imgsrc:"https://cravatar.cn/avatar/d9cc49ea0301640d7a19b6a1e77012dd"},
   {home:"https://edinik.com/",host:"https://memos.edinik.com/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://tk.edinik.com/',imgsrc:"https://cravatar.cn/avatar/e1cdf4f763e3c7e01271a44b990c712f"},
-  {home:"https://memos.qiangtu.com/",host:"https://memos.qiangtu.com/",apiV1:'',creatorId:"1",comment:'1',twiEnv:'https://twikoo.qiangtu.com/',imgsrc:"https://memos2504.oss-cn-hangzhou.aliyuncs.com/memos2504/assets/2023/06/06/1686021093_favicon.ico/1ef33f96-5296-4d5e-940c-04c88775d008.ico"},
+  {home:"https://memos.qiangtu.com/",host:"https://memos.qiangtu.com/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://twikoo.qiangtu.com/',imgsrc:"https://memos2504.oss-cn-hangzhou.aliyuncs.com/memos2504/assets/2023/06/06/1686021093_favicon.ico/1ef33f96-5296-4d5e-940c-04c88775d008.ico"},
   {home:"https://life97.top/",host:"https://memos.life97.top/",apiV1:'',creatorId:"101",comment:'1',twiEnv:'https://say.life97.top/',imgsrc:"https://cravatar.cn/avatar/d41d8cd98f00b204e9800998ecf8427e"},
-  {home:"https://www.wangdu.site/",host:"https://bw.wangdu.site:4730/",apiV1:'',creatorId:"101",comment:'1',twiEnv:'https://wwsay.wangdu.site/',imgsrc:"https://cravatar.cn/avatar/3f86f3f1aa105924d030b7d3040a0037"},
+  {home:"https://www.wangdu.site/",host:"https://bw.wangdu.site:4730/",apiV1:'v1/',creatorId:"101",comment:'1',twiEnv:'https://wwsay.wangdu.site/',imgsrc:"https://cravatar.cn/avatar/3f86f3f1aa105924d030b7d3040a0037"},
   {home:"https://eallion.com/",host:"https://memos.eallion.com/",apiV1:'v1/',creatorId:"101",comment:'1',artEnv:'https://api.eallion.com/artalk/',artSite:'memos',imgsrc:"https://cravatar.cn/avatar/171e4c30959e8c077a6c58b958624b31"},
   {home:"https://www.skyue.com/",host:"https://memos.skyue.com/",apiV1:'',creatorId:"1",comment:'1',artEnv: 'https://artalk.skyue.com',artSite: '拾月微博',imgsrc:"https://cravatar.cn/avatar/c3fb4bb4d5101284ddd672fb722cdd7d"},
   {home:"https://xrat.net/",host:"https://memos.xrat.net/",apiV1:'',creatorId:"2",comment:'1',artEnv:'https://vlabs.synology.me:96',artSite:'memos.xrat.net',imgsrc:"https://cravatar.cn/avatar/0ab677e14d21d941f64d98192d6168e7"},
-  {home:"https://www.isolitude.cn/",host:"https://me.isolitude.cn/",apiV1:'',creatorId:"1",comment:'1',artEnv: 'https://artalk.isolitude.cn/',artSite: '自说自话王国',imgsrc:"https://cravatar.cn/avatar/924916294598a950bb80d78012dc3aac"},
-  {home:"https://laozhang.org/",host:"https://memos.laozhang.org/",apiV1:'',creatorId:"1",comment:'1',artEnv: 'https://artalk.laozhang.org/',artSite: 'memos',imgsrc:"https://cravatar.cn/avatar/679666f7bd1af3e55f0e51dd70ed161c"},
-  {home:"https://memos.ee/",host:"https://memos.ee/",apiV1:'',creatorId:"1",comment:'1',artEnv: 'https://artalk.loliko.cn',artSite: 'memo',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=ibRKdTab3VxmHk2EROqHGvA&kti=ZIgAdwAAAAE&s=40&t=1557855586"},
+  {home:"https://www.isolitude.cn/",host:"https://me.isolitude.cn/",apiV1:'v1/',creatorId:"1",comment:'1',artEnv: 'https://artalk.isolitude.cn/',artSite: '自说自话王国',imgsrc:"https://cravatar.cn/avatar/924916294598a950bb80d78012dc3aac"},
+  {home:"https://laozhang.org/",host:"https://memos.laozhang.org/",apiV1:'v1/',creatorId:"1",comment:'1',artEnv: 'https://artalk.laozhang.org/',artSite: 'memos',imgsrc:"https://cravatar.cn/avatar/679666f7bd1af3e55f0e51dd70ed161c"},
+  {home:"https://memos.ee/",host:"https://memos.ee/",apiV1:'v1/',creatorId:"1",comment:'1',artEnv: 'https://artalk.loliko.cn',artSite: 'memo',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=ibRKdTab3VxmHk2EROqHGvA&kti=ZIgAdwAAAAE&s=40&t=1557855586"},
   {home:"https://koobai.com/",host:"https://memos.koobai.com/",apiV1:'v1/',creatorId:"1",comment:'1',artEnv:'https://c.koobai.com',artSite:'空白唠叨',imgsrc:"https://cravatar.cn/avatar/3b3d336a7d389b7ae8531cbe177ae9b7"},
   {home:"https://veryjack.com/",host:"https://say.veryjack.com/",apiV1:'',creatorId:"1",comment:'1',artEnv: 'https://artalk.veryjack.com',artSite: 'Jack\'s Space',imgsrc:"https://cravatar.cn/avatar/7a41a0e8e1df8e964fa1268193b03508"},
   {home:"https://linsnow.cn/",host:"https://bb.linsnow.cn/",apiV1:'',creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/9f5d9e5efe3bea0139b12a0fe27100fe"},
@@ -39,31 +39,33 @@ const urls = [
   {home:"https://www.cyuanx.icu/",host:"https://mome.cyuanx.icu/",apiV1:'',creatorId:"1",comment:'',imgsrc:"https://www.cyuanx.icu/wp-content/uploads/2023/03/cropped-07b4b32029661fd9ce1200ac9b937f1.jpg"},
   {home:"https://xsinger.me/",host:"https://isay.live/",apiV1:'',creatorId:"101",comment:'',imgsrc:"https://cravatar.cn/avatar/f0e33f4d097fe2e9fd74b9b129e7a655"},
   {home:"https://noionion.top/",host:"https://memos.noionion.cn/",apiV1:'',creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/d240a727ea154be465796ef2644aac16"},
-  {home:"https://1900.live/",host:"https://memos.1900.live/",apiV1:'',creatorId:"101",comment:'',imgsrc:"https://cravatar.cn/avatar/cc38267b10cc25dfc62209f8ca34589e"},
+  {home:"https://1900.live/",host:"https://memos.1900.live/",apiV1:'v1/',creatorId:"101",comment:'',imgsrc:"https://cravatar.cn/avatar/cc38267b10cc25dfc62209f8ca34589e"},
   {home:"https://usj.cc/",host:"https://memos.usj.cc/",apiV1:'',creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/1cce0a22c2c7648eab76ec876c6a54d9"},
   {home:"https://www.wananaiko.com/",host:"https://memo.wananaiko.com/",apiV1:'',creatorId:"1",comment:'',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=7AFd0gic7wVsNg2ToQrQU2w&s=140&t=1583250600"},
   {home:"https://dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/28b57baa4e8f13fe4292ccb2de267e30"},
   {home:"https://dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"9",comment:'',imgsrc:"https://cravatar.cn/avatar/c1b204bab687a23c8b6d7c8de11c7c59"},
-  {home:"https://vlieo.com/",host:"https://memos.vlieo.com/",apiV1:'',creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/d36125dcbca7fde4200fd76f6aa1fbe9"},
+  {home:"https://vlieo.com/",host:"https://memos.vlieo.com/",apiV1:'v1/',creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/d36125dcbca7fde4200fd76f6aa1fbe9"},
   {home:"https://www.4op.top/",host:"https://flomo.010316.xyz/",apiV1:'',creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/81f9378195d84e8ff73aad9ded2b9808"},
   {home:"https://wiki-power.com/",host:"https://memos.wiki-power.com/",apiV1:'v1/',creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/44218020ee434de43516c19f05c71593"},
   {home:"https://blog.leonus.cn/",host:"https://m.leonus.cn/",apiV1:'',creatorId:"1",comment:'',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=cZKBhtxe2iaxjSfbVYiaFgoQ&kti=Y9x6QwAAAAI&s=140&t=1672836908"},
   {home:"https://eirms.com/",host:"https://memo.eirms.com/",apiV1:'',creatorId:"1",comment:'',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=6bLfAytyUI7daRuxat0XxA&kti=ZDt5CwAAAAA&s=140&t=1646284093"},
-  {home:"https://cmsblog.cn/",host:"https://memos.cmsblog.cn/",apiV1:'',creatorId:"1",comment:'',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=fcgI8ibPhO3zz3IvgL4bl7Q&kti=ZDuqEgAAAAI&s=140&t=1556624886"},
+  {home:"https://cmsblog.cn/",host:"https://memos.cmsblog.cn/",apiV1:'',creatorId:"101",comment:'',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=fcgI8ibPhO3zz3IvgL4bl7Q&kti=ZDuqEgAAAAI&s=140&t=1556624886"},
   {home:"https://forevers.love/",host:"https://www.forevers.love/",apiV1:'',creatorId:"1",comment:'',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=ibHiaOLTgWctyNtR2EdVOvHA&kti=ZDvk_QAAAAE&s=140&t=1673516322"},
-  {home:"https://blog.roccoshi.top/",host:"https://memos.roccoshi.top/",apiV1:'',creatorId:"1",comment:'',imgsrc:"https://youpai.roccoshi.top/img/avatar.jpg"},
-  {home:"https://l22.org/",host:"https://note.l22.org/",apiV1:'',creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/4b0d33a08ac73dc07a5293f14232ca53"},
-  {home:"https://yunlogs.com/",host:"https://note.zdm.im/",apiV1:'',creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/d41d8cd98f00b204e9800998ecf8427e"},
+  {home:"https://blog.roccoshi.top/",host:"https://memos.roccoshi.top/",apiV1:'v1/',creatorId:"1",comment:'',imgsrc:"https://youpai.roccoshi.top/img/avatar.jpg"},
   {home:"https://dongjunke.cn/",host:"https://memos.dongjunke.cn/",apiV1:'',creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/42542189ddb33064599dc88a5149bea7"},
-  {home:"https://emmm.space/",host:"https://memos.emmm.space/",apiV1:'',creatorId:"1",comment:'',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=LxEGgNG5gRmKSbHibgaEFUw&kti=ZEy2AAAAAAE&s=140&t=1655774580"},
-  {home:"https://pipuwong.com/",host:"https://memos.pipuwong.com/",apiV1:'',creatorId:"1",comment:'',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=5F8TcjFWpLMzia5ibn26vs5A&kti=ZFVJhgAAAAA&s=140&t=1679212034"},
-  {home:"https://ysicing.cloud/",host:"https://note.ysicing.cloud/",apiV1:'',creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/5ca16ee587d1e4befd805cf710361f26"},
+  {home:"https://pipuwong.com/",host:"https://memos.pipuwong.com/",apiV1:'v1/',creatorId:"1",comment:'',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=5F8TcjFWpLMzia5ibn26vs5A&kti=ZFVJhgAAAAA&s=140&t=1679212034"},
+  {home:"https://ysicing.cloud/",host:"https://note.ysicing.cloud/",apiV1:'v1/',creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/5ca16ee587d1e4befd805cf710361f26"},
   {home:"https://www.kingname.info/",host:"https://memos.kingname.info/",apiV1:'v1/',creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/2463f1bd85aea23703f320e67d33f349"},
   {home:"https://mybelife.com/",host:"https://mybelife.com/",apiV1:'',creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/7067b66529765b71181c62e59ac6969b"},
-  {home:"https://idh.ink/",host:"https://idh.ink/",apiV1:'',creatorId:"1",comment:'',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=NAuictuJAIjdPiaHlY6xbDWA&kti=ZHUWoAAAAAA&s=140&t=1683481629"},
+  {home:"https://idh.ink/",host:"https://idh.ink/",apiV1:'v1/',creatorId:"1",comment:'',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=NAuictuJAIjdPiaHlY6xbDWA&kti=ZHUWoAAAAAA&s=140&t=1683481629"},
   {home:"https://leonfong.me/",host:"https://memo.leonfong.me/",apiV1:'',creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/b147bfa4888f1233882ba5b39ef3bffc"},
-  {home:"https://darmau.design/",host:"https://memo.darmau.design/",apiV1:'',creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/729357a0d48d17802332d52479d2399f"}
 ]
+
+//  {home:"https://l22.org/",host:"https://note.l22.org/",apiV1:'',creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/4b0d33a08ac73dc07a5293f14232ca53"},
+//  {home:"https://yunlogs.com/",host:"https://note.zdm.im/",apiV1:'',creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/d41d8cd98f00b204e9800998ecf8427e"},
+//  {home:"https://emmm.space/",host:"https://memos.emmm.space/",apiV1:'',creatorId:"1",comment:'',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=LxEGgNG5gRmKSbHibgaEFUw&kti=ZEy2AAAAAAE&s=140&t=1655774580"},
+//  {home:"https://darmau.design/",host:"https://memo.darmau.design/",apiV1:'',creatorId:"1",comment:'',imgsrc:"https://cravatar.cn/avatar/729357a0d48d17802332d52479d2399f"}
+
 
 var bbDom = document.querySelector('#bbs');
 var load = '<div id="load" onclick="nextFetch()" ><button class="load-btn button-load">加载更多</button></div>'
