@@ -22,6 +22,14 @@ jobs:
         format: csv
         dir: ./data/douban
 
+    - name: movie2neodb
+      uses: lizheming/doumark-action@master
+      with:
+        id: immmmm
+        type: movie
+        format: neodb
+        neodb_token: ${{ secrets.neodb }}
+        
     - name: book
       uses: lizheming/doumark-action@master
       with:
@@ -30,6 +38,14 @@ jobs:
         format: csv
         dir: ./data/douban
   
+    - name: book2neodb
+      uses: lizheming/doumark-action@master
+      with:
+        id: immmmm
+        type: book
+        format: neodb
+        neodb_token: ${{ secrets.neodb }}
+        
     - name: Commit
       uses: EndBug/add-and-commit@v9
       with:
