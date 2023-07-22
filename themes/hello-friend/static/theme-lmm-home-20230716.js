@@ -30,10 +30,10 @@ setInterval(function() {
 }
 //memos 相册
 var albumDom = document.querySelector('#album') || '';
+var memoUrl = "https://me.edui.fun/"
 if(albumDom){memoAlbum(6);}
 function memoAlbum(numb){
     let limit = numb || 8;
-    var memoUrl = "https://me.edui.fun/"
     var galleryUrl = memoUrl+"api/v1/memo/all?rowStatus=NORMAL&limit="+limit+"&tag=相册"
     var localalbumUpdated = JSON.parse(localStorage.getItem("albumUpdated")) || '';
     var localalbumData = JSON.parse(localStorage.getItem("albumData")) || '';
