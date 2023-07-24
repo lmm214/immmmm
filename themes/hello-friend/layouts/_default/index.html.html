@@ -96,10 +96,16 @@
   </script>
   
   <div class="home">
-    <h3><a href="/album/">近期光影</a></h3>
+    <h3><a href="/album/" onclick="clearLocalAlbum()">近期光影</a></h3>
     <div id="album" style="min-height:160px;"></div>
   </div>
-
+  <script>
+    function clearLocalAlbum(){
+      localStorage.removeItem("albumUpdated");
+      localStorage.removeItem("albumData");
+    }
+  </script>
+  
   <div class="home">
     {{ $goods := getJSON "static/goods/goods.json" }}
     <h3><a href="/goods/">近期好物</a></h3>
