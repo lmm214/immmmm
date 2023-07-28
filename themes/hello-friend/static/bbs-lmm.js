@@ -29,7 +29,7 @@ const urls = [
   {home:"https://www.wangdu.site/",host:"https://bw.wangdu.site:4730/",apiV1:'v1/',creatorId:"101",comment:'1',twiEnv:'https://wwsay.wangdu.site/',imgsrc:cdnGravatar+"3f86f3f1aa105924d030b7d3040a0037"},
   {home:"https://memos.ee/",host:"https://t.memos.ee/",apiV1:'',creatorId:"1",comment:'1',twiEnv:'https://twikoo.memos.ee',imgsrc:cdnGravatar+"f2e928a6f8548a1088d336e541ae1b9d"},
   {home:"https://1900.live/",host:"https://memos.1900.live/",apiV1:'v1/',creatorId:"101",comment:'1',twiEnv:'https://comment.1900.live/',imgsrc:cdnGravatar+"cc38267b10cc25dfc62209f8ca34589e"},
-  {home:"https://dongjunke.cn/",host:"https://memos.dongjunke.cn/",apiV1:'',creatorId:"1",comment:'1',twiEnv:'https://twikoo.dongjunke.cn/',imgsrc:cdnGravatar+"42542189ddb33064599dc88a5149bea7"},
+  {home:"https://dongjunke.cn/",host:"https://memos.dongjunke.cn/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://twikoo.dongjunke.cn/',imgsrc:cdnGravatar+"42542189ddb33064599dc88a5149bea7"},
   {home:"https://eallion.com/",host:"https://memos.eallion.com/",apiV1:'v1/',creatorId:"101",comment:'1',artEnv:'https://api.eallion.com/artalk/',artSite:'memos',imgsrc:cdnGravatar+"171e4c30959e8c077a6c58b958624b31"},
   {home:"https://www.skyue.com/",host:"https://memos.skyue.com/",apiV1:'v1/',creatorId:"1",comment:'1',artEnv: 'https://artalk.skyue.com',artSite: '拾月微博',imgsrc:cdnGravatar+"c3fb4bb4d5101284ddd672fb722cdd7d"},
   {home:"https://xrat.net/",host:"https://memos.xrat.net/",apiV1:'',creatorId:"2",comment:'1',artEnv:'https://vlabs.synology.me:96',artSite:'memos.xrat.net',imgsrc:cdnGravatar+"0ab677e14d21d941f64d98192d6168e7"},
@@ -411,10 +411,10 @@ function updateHTMl(data){
       }
       var EnvNow = ''
       if(twiEnv && twiEnv != "undefined"){
-        EnvNow = twiEnv.replace(/https\:\/\/.*\.(.*)\..*/,'$1')
+        EnvNow = twiEnv.replace(/https\:\/\/.*\.(.*)\..*/,'id-$1-')
       }
       if(artEnv && artEnv != "undefined"){
-        EnvNow = artEnv.replace(/https\:\/\/.*\.(.*)\..*/,'$1')
+        EnvNow = artEnv.replace(/https\:\/\/.*\.(.*)\..*/,'id-$1-')
       }
       result += '<li class="'+EnvNow+'memo-'+memoId+'"><div class="bbs-avatar"><a href="'+data[i].home+'" target="_blank" rel="noopener noreferrer"><img src="'+data[i].imgsrc+'" alt=""></a><a href="'+memoUrl+'" target="_blank" rel="noopener noreferrer" class="bbs-creator">'+data[i].creator+'</a><span class="bbs-dot">·</span><span class="bbs-date">'+new Date(data[i].updatedTs * 1000).toLocaleString()+'</span>'
 
@@ -454,7 +454,7 @@ function updateHTMl(data){
 //前端加载 Twikoo 评论
 function loadTwikoo(e) {
   var memoEnv = e.getAttribute("data-twienv")
-  var EnvNow = memoEnv.replace(/https\:\/\/.*\.(.*)\..*/,'$1')
+  var EnvNow = memoEnv.replace(/https\:\/\/.*\.(.*)\..*/,'id-$1-')
   var memoPath = e.getAttribute("data-path")
   var memoId = e.getAttribute("data-id")
   var twikooDom = document.querySelector('.twikoo-'+memoId);
@@ -483,7 +483,7 @@ function loadTwikoo(e) {
 //前端加载 Artalk 评论
 function loadArtalk(e) {
   var memoEnv = e.getAttribute("data-artenv")
-  var EnvNow = memoEnv.replace(/https\:\/\/.*\.(.*)\..*/,'$1')
+  var EnvNow = memoEnv.replace(/https\:\/\/.*\.(.*)\..*/,'id-$1-')
   var memoSite= e.getAttribute("data-artsite")
   var memoId = e.getAttribute("data-id")
   var ArtalkDom = document.querySelector('.'+EnvNow+'artalk-'+memoId);
