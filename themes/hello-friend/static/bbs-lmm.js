@@ -311,7 +311,7 @@ function uniqueFunc(arr){
 
 function updateHTMl(data){
   var result="",resultAll="";
-  const TAG_REG = /#([^\s#]+)/;
+  const TAG_REG = /#([^/\s#]+)/;
   const IMG_REG = /\!\[(.*?)\]\((.*?)\)/g;
   BILIBILI_REG = /<a.*?href="https:\/\/www\.bilibili\.com\/video\/((av[\d]{1,10})|(BV([\w]{10})))\/?".*?>.*<\/a>/g;
   NETEASE_MUSIC_REG = /<a.*?href="https:\/\/music\.163\.com\/.*id=([0-9]+)".*?>.*<\/a>/g;
