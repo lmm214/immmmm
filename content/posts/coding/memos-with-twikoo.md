@@ -18,8 +18,8 @@ v2023.04.21：新增单页“评论加载中”提示。
 ### 自定义脚本
 
 ```
-//添加 twikoo 评论 v2023.04.23
-var twikooENV = 'https://tk.edui.fun/'
+//添加 twikoo 评论 v2023.07.29
+var twikooENV = 'https://metk.edui.fun/'
 function addTwikooJS() { 
   var memosTwikoo = document.createElement("script");
   memosTwikoo.src = `https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js`;
@@ -37,42 +37,39 @@ function addComIcon(){
   }
 };
 function startTwikoo() {
-  start = setInterval(function(){
-    var twikooDom = document.getElementById('twikoo') || '';
-    var memoTw = document.querySelector('.memo-container') || '';
-    var memoLoading = document.querySelector('.action-button-container') || '';
-    var memoLoadingA = document.querySelector('.action-button-container a') || '';
-    var memoTwIcons = document.querySelectorAll('.time-text .twicon') || '';
+  startTW = setInterval(function(){ //定时执行 1秒/次
     var nowHref = window.location.href;
-    if( nowHref.replace(/^.*\/(m)\/.*$/,'$1') == "m" && memoLoadingA){
-      memoLoading.innerHTML = "评论加载中……"
-    }
-    if( nowHref.replace(/^.*\/(m)\/.*$/,'$1') == "m" && !twikooDom){
-      addTwikooJS()
-      if(memoTw){
-        clearInterval(start)
-        memoTw.insertAdjacentHTML('afterend', '<div id="mtcomment"></div>');
-        setTimeout(function() {
+    var twikooDom = document.querySelector('#twikoo') || '';
+    if( nowHref.replace(/^.*\/(m)\/.*$/,'$1') == "m"){//单条页面
+      if(!twikooDom){
+        //console.log('评论未加载');
+        addTwikooJS() //加载评论 js
+        setTimeout(function() { //延迟 1秒 执行
+          var memoTw = document.querySelector('.memo-wrapper') || '';
+          memoTw.insertAdjacentHTML('afterend', '<div id="mtcomment"></div>');
           twikoo.init({
             envId: twikooENV,
             el: '#mtcomment',
             path: nowHref.replace(/^(.*\/m\/[0-9]+).*$/,'$1'),
             onCommentLoaded: function () {
-              //console.log('评论加载完成');
-              memoLoading.innerHTML = ''
               startTwikoo()
+              //console.log('再次开启定时执行');
             }
           })
-        }, 1000)
+        }, 900)
+      }else{
+        //console.log('清除定时执行');
+        clearInterval(startTW)
       }
     }
+    
     if(nowHref.replace(/^.*\/(explore).*$/,'$1') == "explore" || nowHref.replace(/^.*\/(u).*$/,'$1') == "u"){
+      var memoTwIcons = document.querySelectorAll('.time-text .twicon') || '';
       memoTwIcons.forEach(memoTwIcon => {memoTwIcon.remove();});
       addComIcon()
       //console.log('图标添加成功');
     }
-    //console.log(window.location.href);
-  }, 1000)
+  }, 2000)
 }
 startTwikoo();
 ```
@@ -86,9 +83,6 @@ startTwikoo();
 .action-button-container{color: #e5e7eb;}
 .action-button-container a{display:none !important;}
 ```
-
-### 已开启评论的小伙伴
-
-<iframe style="width:100%;height:auto;min-width:256px;" src="https://me.edui.fun/m/1534/embed" frameBorder="0"></iframe>
+### 后记
 
 真是新奇的体验～
