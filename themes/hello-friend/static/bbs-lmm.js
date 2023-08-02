@@ -30,6 +30,7 @@ const urls = [
   {home:"https://memos.ee/",host:"https://t.memos.ee/",apiV1:'',creatorId:"1",comment:'1',twiEnv:'https://twikoo.memos.ee',imgsrc:cdnGravatar+"f2e928a6f8548a1088d336e541ae1b9d"},
   {home:"https://1900.live/",host:"https://memos.1900.live/",apiV1:'v1/',creatorId:"101",comment:'1',twiEnv:'https://comment.1900.live/',imgsrc:cdnGravatar+"cc38267b10cc25dfc62209f8ca34589e"},
   {home:"https://dongjunke.cn/",host:"https://memos.dongjunke.cn/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://twikoo.dongjunke.cn/',imgsrc:cdnGravatar+"42542189ddb33064599dc88a5149bea7"},
+  {home:"https://blog.xlap.top/",host:"https://api.mm.xlap.top/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://db.twk.xlap.top/',imgsrc:cdnGravatar+"9855359e235402ea030ccd7aad041164"},
   {home:"https://eallion.com/",host:"https://memos.eallion.com/",apiV1:'v1/',creatorId:"101",comment:'1',artEnv:'https://api.eallion.com/artalk/',artSite:'memos',imgsrc:cdnGravatar+"171e4c30959e8c077a6c58b958624b31"},
   {home:"https://www.skyue.com/",host:"https://memos.skyue.com/",apiV1:'v1/',creatorId:"1",comment:'1',artEnv: 'https://artalk.skyue.com',artSite: '拾月微博',imgsrc:cdnGravatar+"c3fb4bb4d5101284ddd672fb722cdd7d"},
   {home:"https://xrat.net/",host:"https://memos.xrat.net/",apiV1:'',creatorId:"2",comment:'1',artEnv:'https://vlabs.synology.me:96',artSite:'memos.xrat.net',imgsrc:cdnGravatar+"0ab677e14d21d941f64d98192d6168e7"},
