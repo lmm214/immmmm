@@ -22,7 +22,7 @@
 <link rel="apple-touch-icon-precomposed" sizes="180x180" href="{{ "favicon.ico" | absURL }}" >
 
 <!-- OG data -->
-{{ template "_internal/opengraph.html" . }}
+{{ partial "opengraph.html" . }}
 <!-- RSS | JSON -->
 {{ range .AlternativeOutputFormats -}}
     {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
