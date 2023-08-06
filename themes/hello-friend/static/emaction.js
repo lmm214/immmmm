@@ -24,7 +24,8 @@ var t;const i=window,s$1=i.trustedTypes,e=s$1?s$1.createPolicy("lit-html",{creat
  * SPDX-License-Identifier: BSD-3-Clause
  */var l,o;class s extends u$1{constructor(){super(...arguments),this.renderOptions={host:this},this._$Do=void 0;}createRenderRoot(){var t,e;const i=super.createRenderRoot();return null!==(t=(e=this.renderOptions).renderBefore)&&void 0!==t||(e.renderBefore=i.firstChild),i}update(t){const i=this.render();this.hasUpdated||(this.renderOptions.isConnected=this.isConnected),super.update(t),this._$Do=D(i,this.renderRoot,this.renderOptions);}connectedCallback(){var t;super.connectedCallback(),null===(t=this._$Do)||void 0===t||t.setConnected(!0);}disconnectedCallback(){var t;super.disconnectedCallback(),null===(t=this._$Do)||void 0===t||t.setConnected(!1);}render(){return T}}s.finalized=!0,s._$litElement$=!0,null===(l=globalThis.litElementHydrateSupport)||void 0===l||l.call(globalThis,{LitElement:s});const n=globalThis.litElementPolyfillSupport;null==n||n({LitElement:s});(null!==(o=globalThis.litElementVersions)&&void 0!==o?o:globalThis.litElementVersions=[]).push("3.3.2");
 
-const DEFAULT_EMOJIS = '👍,thumbs-up;😄,smile-face;🎉,party-popper;😕,confused-face;❤️,red-heart;🚀,rocket;👀,eyes;👎,thumbs-down;';
+//const DEFAULT_EMOJIS = '👍,thumbs-up;😄,smile-face;🎉,party-popper;😕,confused-face;❤️,red-heart;🚀,rocket;👀,eyes;👎,thumbs-down;';
+const DEFAULT_EMOJIS = '👍,thumbs-up;🎉,party-popper;❤️,red-heart;👀,eyes;';
 
 class EmojiReaction extends s {
   static properties = {
@@ -43,39 +44,39 @@ class EmojiReaction extends s {
       --start-smile-border-color-hover-default: #1f232826;
       --start-smile-bg-color-default: #f6f8fa;
       --start-smile-svg-fill-color-default: #656d76;
-      --reaction-got-not-reacted-bg-color-default: #fff;
+      --reaction-got-not-reacted-bg-color-default: transparent;
       --reaction-got-not-reacted-bg-color-hover-default: #eaeef2;
       --reaction-got-not-reacted-border-color-default: #d0d7de;
       --reaction-got-not-reacted-text-color-default: #656d76;
-      --reaction-got-reacted-bg-color-default: #ddf4ff;
-      --reaction-got-reacted-bg-color-hover-default: #b6e3ff;
-      --reaction-got-reacted-border-color-default: #0969da;
-      --reaction-got-reacted-text-color-default: #0969da;
-      --reaction-available-popup-bg-color-default: #fff;
+      --reaction-got-reacted-bg-color-default: transparent;
+      --reaction-got-reacted-bg-color-hover-default: #eaeef2;
+      --reaction-got-reacted-border-color-default: #888888;
+      --reaction-got-reacted-text-color-default: #888888;
+      --reaction-available-popup-bg-color-default: #ffffff;
       --reaction-available-popup-border-color-default: #d0d7de;
-      --reaction-available-popup-box-shadow-default: #8c959f33 0px 8px 24px 0px;
+      --reaction-available-popup-box-shadow-default: 0 4px 6px rgba(0,0,0,.04);
       --reaction-available-emoji-reacted-bg-color-default: #ddf4ff;
       --reaction-available-emoji-bg-color-hover-default: #f3f4f6;
       --reaction-available-emoji-z-index-default: 100;
       --reaction-available-mask-z-index-default: 80;
     }
     /* default dark */
-    .container-dark {
-      --start-smile-border-color-default: #21262d;
-      --start-smile-border-color-hover-default: #8b949e;
-      --start-smile-bg-color-default: #30363d;
-      --start-smile-svg-fill-color-default: #7d8590;
-      --reaction-got-not-reacted-bg-color-default: #00000000;
-      --reaction-got-not-reacted-bg-color-hover-default: #21262d;
-      --reaction-got-not-reacted-border-color-default: #30363d;
-      --reaction-got-not-reacted-text-color-default: #7d8590;
-      --reaction-got-reacted-bg-color-default: #388bfd1a;
-      --reaction-got-reacted-bg-color-hover-default: #0c2d6b;
-      --reaction-got-reacted-border-color-default: #1f6feb;
-      --reaction-got-reacted-text-color-default: #2f81f7;
+    .container-dark{
+      --start-smile-border-color-default: #3b3d42;
+      --start-smile-border-color-hover-default: #3b3d42;
+      --start-smile-bg-color-default: transparent;
+      --start-smile-svg-fill-color-default: #ffffff;
+      --reaction-got-not-reacted-bg-color-default: transparent;
+      --reaction-got-not-reacted-bg-color-hover-default: #272727;
+      --reaction-got-not-reacted-border-color-default: #3b3d42;
+      --reaction-got-not-reacted-text-color-default: #ffffff;
+      --reaction-got-reacted-bg-color-default: #272727;
+      --reaction-got-reacted-bg-color-hover-default: #272727;
+      --reaction-got-reacted-border-color-default: #3b3d42;
+      --reaction-got-reacted-text-color-default: #ffffff;
       --reaction-available-popup-bg-color-default: #161b22;
       --reaction-available-popup-border-color-default: #30363d;
-      --reaction-available-popup-box-shadow-default: #010409 0px 8px 24px 0px;
+      --reaction-available-popup-box-shadow-default: 0 4px 6px rgba(0,0,0,.04);
       --reaction-available-emoji-reacted-bg-color-default: #388bfd1a;
       --reaction-available-emoji-bg-color-hover-default: #30363d;
       --reaction-available-emoji-z-index-default: 100;
@@ -101,7 +102,10 @@ class EmojiReaction extends s {
 
   // Render the UI as a function of component state
   render() {
-    const system_theme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+    const system_theme = localStorage.getItem("theme") || ''
+    if (system_theme == null || system_theme == "undefined" || system_theme == "") {
+      system_theme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+    }
     return x`
     <style>
       #start-smile {
@@ -177,10 +181,10 @@ class EmojiReaction extends s {
             </path>
           </svg>
         </div>
-        <div class="anim-scale-in reaction-available-popup" @click=${this._closePopup} style="display: ${this.showAvailable ? 'flex' : 'none'}; user-select: none; position: absolute; top: -3rem; font-size: 0.875rem; border-radius: 0.375rem; padding: 0 0.125rem;">
+        <div class="anim-scale-in reaction-available-popup" @click=${this._closePopup} style="display: ${this.showAvailable ? 'flex' : 'none'}; user-select: none; position: absolute; right:0rem; top: -3rem; font-size: 0.875rem; border-radius: 0.375rem; padding: 0 0.125rem;">
           <!-- reactions available -->
           ${this.availableReactions.map(item => x`
-            <span @click=${this._react} data-name="${item.reaction_name}" class="reaction-available-emoji ${item.meReacted ? 'reaction-available-emoji-reacted' : ''}" style="cursor: pointer; margin: 0.25rem 0.125rem; padding: 0.25rem; border-radius: 0.375rem;">${item.emoji}</span>
+            <span @click=${this._react} data-name="${item.reaction_name}" class="reaction-available-emoji ${item.meReacted ? 'reaction-available-emoji-reacted' : ''}" style="cursor: pointer; margin: 0.25rem 0.25rem; padding: 0.25rem 0.35rem; border-radius: 0.375rem;">${item.emoji}</span>
           `)}
         </div>
       </div>

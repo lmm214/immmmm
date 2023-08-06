@@ -32,6 +32,7 @@ const urls = [
   {home:"https://dongjunke.cn/",host:"https://memos.dongjunke.cn/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://twikoo.dongjunke.cn/',imgsrc:cdnGravatar+"42542189ddb33064599dc88a5149bea7"},
   {home:"https://blog.xlap.top/",host:"https://api.mm.xlap.top/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://db.twk.xlap.top/',imgsrc:cdnGravatar+"9855359e235402ea030ccd7aad041164"},
   {home:"https://blog.sinzmise.top/",host:"https://diary.sinzmise.top/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://tk2.diary.sinzmise.top/',imgsrc:cdnGravatar+"11e2527586460395d520f421732f7237"},
+  {home:"https://vlieo.com/",host:"https://memos.vlieo.com/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://twikoo.vlieo.com/',imgsrc:cdnGravatar+"d36125dcbca7fde4200fd76f6aa1fbe9"},
   {home:"https://eallion.com/",host:"https://memos.eallion.com/",apiV1:'v1/',creatorId:"101",comment:'1',artEnv:'https://api.eallion.com/artalk/',artSite:'memos',imgsrc:cdnGravatar+"171e4c30959e8c077a6c58b958624b31"},
   {home:"https://www.skyue.com/",host:"https://memos.skyue.com/",apiV1:'v1/',creatorId:"1",comment:'1',artEnv: 'https://artalk.skyue.com',artSite: '拾月微博',imgsrc:cdnGravatar+"c3fb4bb4d5101284ddd672fb722cdd7d"},
   {home:"https://xrat.net/",host:"https://memos.xrat.net/",apiV1:'v1/',creatorId:"2",comment:'1',artEnv:'https://vlabs.synology.me:96',artSite:'memos.xrat.net',imgsrc:cdnGravatar+"0ab677e14d21d941f64d98192d6168e7"},
@@ -48,7 +49,6 @@ const urls = [
   {home:"https://www.wananaiko.com/",host:"https://memo.wananaiko.com/",apiV1:'',creatorId:"1",comment:'',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=7AFd0gic7wVsNg2ToQrQU2w&s=140&t=1583250600"},
   {home:"https://dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"1",comment:'',imgsrc:cdnGravatar+"28b57baa4e8f13fe4292ccb2de267e30"},
   {home:"https://dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"9",comment:'',imgsrc:cdnGravatar+"c1b204bab687a23c8b6d7c8de11c7c59"},
-  {home:"https://vlieo.com/",host:"https://memos.vlieo.com/",apiV1:'v1/',creatorId:"1",comment:'',imgsrc:cdnGravatar+"d36125dcbca7fde4200fd76f6aa1fbe9"},
   {home:"https://www.4op.top/",host:"https://flomo.010316.xyz/",apiV1:'',creatorId:"1",comment:'',imgsrc:cdnGravatar+"81f9378195d84e8ff73aad9ded2b9808"},
   {home:"https://wiki-power.com/",host:"https://memos.wiki-power.com/",apiV1:'v1/',creatorId:"1",comment:'',imgsrc:cdnGravatar+"44218020ee434de43516c19f05c71593"},
   {home:"https://blog.leonus.cn/",host:"https://m.leonus.cn/",apiV1:'v1/',creatorId:"1",comment:'',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=cZKBhtxe2iaxjSfbVYiaFgoQ&kti=Y9x6QwAAAAI&s=140&t=1672836908"},
@@ -424,16 +424,18 @@ function updateHTMl(data){
 
       var outSVG = '<span class="bbs-coment-svg"><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M864 640a32 32 0 0 1 64 0v224.096A63.936 63.936 0 0 1 864.096 928H159.904A63.936 63.936 0 0 1 96 864.096V159.904C96 124.608 124.64 96 159.904 96H384a32 32 0 0 1 0 64H192.064A31.904 31.904 0 0 0 160 192.064v639.872A31.904 31.904 0 0 0 192.064 864h639.872A31.904 31.904 0 0 0 864 831.936V640zm-485.184 52.48a31.84 31.84 0 0 1-45.12-.128 31.808 31.808 0 0 1-.128-45.12L815.04 166.048l-176.128.736a31.392 31.392 0 0 1-31.584-31.744 32.32 32.32 0 0 1 31.84-32l255.232-1.056a31.36 31.36 0 0 1 31.584 31.584L924.928 388.8a32.32 32.32 0 0 1-32 31.84 31.392 31.392 0 0 1-31.712-31.584l.736-179.392L378.816 692.48z"/></svg></span>'
 
+      var emojiReaction = '<emoji-reaction theme="system" class="reaction" endpoint="https://api-emaction.immmmm.com" reacttargetid="'+EnvNow+'memo-'+memoId+'"></emoji-reaction>'
+
       if(comment == '1'){
         if(twiEnv && twiEnv != 'undefined'){
-          result += '<a data-id="'+memoId+'" data-twienv="'+twiEnv+'" data-path="'+memoUrl+'" onclick="loadTwikoo(this)" onmouseenter="insertTwikoo(this)" href="javascript:void(0)" rel="noopener noreferrer">'+comSVG+'</a></div><div class="bbs-content"><div class="bbs-text">'+bbContREG+'</div><div class="item-comment twikoo-'+memoId+' d-none"><div id="'+EnvNow+'twikoo-'+memoId+'"></div></div></div></li>'
+          result += '<a data-id="'+memoId+'" data-twienv="'+twiEnv+'" data-path="'+memoUrl+'" onclick="loadTwikoo(this)" onmouseenter="insertTwikoo(this)" href="javascript:void(0)" rel="noopener noreferrer">'+comSVG+'</a>'+emojiReaction+'</div><div class="bbs-content"><div class="bbs-text">'+bbContREG+'</div><div class="item-comment twikoo-'+memoId+' d-none"><div id="'+EnvNow+'twikoo-'+memoId+'"></div></div></div></li>'
         }else if(artEnv && artEnv != 'undefined'){
-          result += '<a data-id="'+memoId+'" data-artenv="'+artEnv+'" data-artsite="'+artSite+'" data-path="'+memoUrl+'" onclick="loadArtalk(this)" href="javascript:void(0)" rel="noopener noreferrer">'+comSVG+'</a></div><div class="bbs-content"><div class="bbs-text">'+bbContREG+'</div><div class="item-comment '+EnvNow+'artalk-'+memoId+' d-none"></div></div></li>'
+          result += '<a data-id="'+memoId+'" data-artenv="'+artEnv+'" data-artsite="'+artSite+'" data-path="'+memoUrl+'" onclick="loadArtalk(this)" href="javascript:void(0)" rel="noopener noreferrer">'+comSVG+'</a>'+emojiReaction+'</div><div class="bbs-content"><div class="bbs-text">'+bbContREG+'</div><div class="item-comment '+EnvNow+'artalk-'+memoId+' d-none"></div></div></li>'
         }else{
-          result += '<a href="'+memoUrl+'" target="_blank" rel="noopener noreferrer">'+outSVG+'</a></div><div class="bbs-content"><div class="bbs-text">'+bbContREG+'</div></div></li>'
+          result += '<a href="'+memoUrl+'" target="_blank" rel="noopener noreferrer">'+outSVG+'</a>'+emojiReaction+'</div><div class="bbs-content"><div class="bbs-text">'+bbContREG+'</div></div></li>'
         }
       }else{
-        result += '</div><div class="bbs-content"><div class="bbs-text">'+bbContREG+'</div></div></li>'
+        result += emojiReaction+'</div><div class="bbs-content"><div class="bbs-text">'+bbContREG+'</div></div></li>'
       }
 
   }// end for
