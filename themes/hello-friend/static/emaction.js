@@ -102,7 +102,7 @@ class EmojiReaction extends s {
 
   // Render the UI as a function of component state
   render() {
-    const system_theme = localStorage.getItem("theme") || ''
+    var system_theme = localStorage.getItem("theme") || ''
     if (system_theme == null || system_theme == "undefined" || system_theme == "") {
       system_theme = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
     }
@@ -170,7 +170,7 @@ class EmojiReaction extends s {
       }
     </style>
     <!-- container -->
-    <div style="flex-wrap: nowrap; max-width: 100%; display: flex; gap: 0.375rem;" class="${this?.theme === 'dark' || (this?.theme === 'system' && system_theme === 'dark') ? 'container-dark' : 'container'}">
+    <div style="flex-wrap: nowrap; max-width: 100%; display: flex; gap: 0.375rem;margin-top: 0.6rem;" class="${this?.theme === 'dark' || (this?.theme === 'system' && system_theme === 'dark') ? 'container-dark' : 'container'}">
       <!-- 灰色笑脸 -->
       <div style="position: relative; user-select: none;">
         <div id="start-smile" @click="${this._showAvailable}"
@@ -181,7 +181,7 @@ class EmojiReaction extends s {
             </path>
           </svg>
         </div>
-        <div class="anim-scale-in reaction-available-popup" @click=${this._closePopup} style="display: ${this.showAvailable ? 'flex' : 'none'}; user-select: none; position: absolute; right:0rem; top: -3rem; font-size: 0.875rem; border-radius: 0.375rem; padding: 0 0.125rem;">
+        <div class="anim-scale-in reaction-available-popup" @click=${this._closePopup} style="display: ${this.showAvailable ? 'flex' : 'none'}; user-select: none; position: absolute; top: -3rem; font-size: 0.875rem; border-radius: 0.375rem; padding: 0 0.125rem;">
           <!-- reactions available -->
           ${this.availableReactions.map(item => x`
             <span @click=${this._react} data-name="${item.reaction_name}" class="reaction-available-emoji ${item.meReacted ? 'reaction-available-emoji-reacted' : ''}" style="cursor: pointer; margin: 0.25rem 0.25rem; padding: 0.25rem 0.35rem; border-radius: 0.375rem;">${item.emoji}</span>
