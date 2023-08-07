@@ -24,7 +24,8 @@ var t;const i=window,s$1=i.trustedTypes,e=s$1?s$1.createPolicy("lit-html",{creat
  * SPDX-License-Identifier: BSD-3-Clause
  */var l,o;class s extends u$1{constructor(){super(...arguments),this.renderOptions={host:this},this._$Do=void 0;}createRenderRoot(){var t,e;const i=super.createRenderRoot();return null!==(t=(e=this.renderOptions).renderBefore)&&void 0!==t||(e.renderBefore=i.firstChild),i}update(t){const i=this.render();this.hasUpdated||(this.renderOptions.isConnected=this.isConnected),super.update(t),this._$Do=D(i,this.renderRoot,this.renderOptions);}connectedCallback(){var t;super.connectedCallback(),null===(t=this._$Do)||void 0===t||t.setConnected(!0);}disconnectedCallback(){var t;super.disconnectedCallback(),null===(t=this._$Do)||void 0===t||t.setConnected(!1);}render(){return T}}s.finalized=!0,s._$litElement$=!0,null===(l=globalThis.litElementHydrateSupport)||void 0===l||l.call(globalThis,{LitElement:s});const n=globalThis.litElementPolyfillSupport;null==n||n({LitElement:s});(null!==(o=globalThis.litElementVersions)&&void 0!==o?o:globalThis.litElementVersions=[]).push("3.3.2");
 
-const DEFAULT_EMOJIS = '👍,thumbs-up;😄,smile-face;🎉,party-popper;😎,cool;😕,confused-face;❤️,red-heart;🚀,rocket;👀,eyes;👎,thumbs-down;';
+//const DEFAULT_EMOJIS = '👍,thumbs-up;😄,smile-face;🎉,party-popper;😎,cool;😕,confused-face;❤️,red-heart;🚀,rocket;👀,eyes;👎,thumbs-down;';
+const DEFAULT_EMOJIS = '👍,thumbs-up;🎉,party-popper;❤️,red-heart;😎,cool;😄,smile-face;🚀,rocket;';
 
 class EmojiReaction extends s {
   static properties = {
@@ -49,8 +50,8 @@ class EmojiReaction extends s {
       --reaction-got-not-reacted-text-color-default: #656d76;
       --reaction-got-reacted-bg-color-default: transparent;
       --reaction-got-reacted-bg-color-hover-default: #eaeef2;
-      --reaction-got-reacted-border-color-default: #888888;
-      --reaction-got-reacted-text-color-default: #888888;
+      --reaction-got-reacted-border-color-default: #42b983;
+      --reaction-got-reacted-text-color-default: #42b983;
       --reaction-available-popup-bg-color-default: #ffffff;
       --reaction-available-popup-border-color-default: #d0d7de;
       --reaction-available-popup-box-shadow-default: 0 4px 6px rgba(0,0,0,.04);
@@ -71,8 +72,8 @@ class EmojiReaction extends s {
       --reaction-got-not-reacted-text-color-default: #ffffff;
       --reaction-got-reacted-bg-color-default: #272727;
       --reaction-got-reacted-bg-color-hover-default: #272727;
-      --reaction-got-reacted-border-color-default: #3b3d42;
-      --reaction-got-reacted-text-color-default: #ffffff;
+      --reaction-got-reacted-border-color-default: #42b983;
+      --reaction-got-reacted-text-color-default: #42b983;
       --reaction-available-popup-bg-color-default: #161b22;
       --reaction-available-popup-border-color-default: #30363d;
       --reaction-available-popup-box-shadow-default: 0 4px 6px rgba(0,0,0,.04);
