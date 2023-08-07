@@ -15,6 +15,16 @@ if(typeof(bbMemos) !=="undefined"){
     }
   }
 }
+if (typeof twikoo === 'undefined') {
+  const script = document.createElement('script');
+  script.src = 'https://fastly.jsdelivr.net/gh/Tokinx/Lately/lately.min.js';
+  script.onload = () => {
+    Lately.init({ target: '.bbs-date' });
+  };
+  document.head.appendChild(script);
+} else {
+  Lately.init({ target: '.bbs-date' });
+}
 
 function loadCssCode(code){
 var style = document.createElement('style');
@@ -81,26 +91,26 @@ fetch(bbUrl).then(res => res.json()).then( resdata =>{
 }
 // 获取评论数量
 function updateTiwkoo(data) {
-var twiID = data.map((item) => memos + "m/" + item.id);
-twikoo.getCommentsCount({
-  envId: bbMemo.twiEnv,
-  urls: twiID,
-  includeReply: true
-}).then(function (res) {
-  updateCount(res)
-}).catch(function (err) {
-  console.error(err);
-});
-function updateCount(res) {
-  var twiCount = res.map((item) => {
-    return Object.assign({},{'count':item.count})
+  var twiID = data.map((item) => memos + "m/" + item.id);
+  twikoo.getCommentsCount({
+    envId: bbMemo.twiEnv,
+    urls: twiID,
+    includeReply: true
+  }).then(function (res) {
+    updateCount(res)
+  }).catch(function (err) {
+    console.error(err);
   });
-  
-  var bbTwikoo = data.map((item,index) => {
-    return {...item, ...twiCount[index]};
-  });
-  updateHTMl(bbTwikoo)
-}
+  function updateCount(res) {
+    var twiCount = res.map((item) => {
+      return Object.assign({},{'count':item.count})
+    });
+
+    var bbTwikoo = data.map((item,index) => {
+      return {...item, ...twiCount[index]};
+    });
+    updateHTMl(bbTwikoo)
+  }
 }
 //预加载下一页数据
 function getNextList(apiV1){

@@ -566,10 +566,12 @@ pre code {
 
 blockquote {
 	border-left: 2px solid;
-	margin: 40px;
-	padding: 10px 20px;
+	margin: 1.4rem;
+	padding: 0.8rem 1.2rem;
 	font-family: KaiTi,STKaiti,PingFang SC,STFangsong !important;
 }
+blockquote p{margin:0;}
+.home blockquote {margin:0;padding:0 10px;}
 
 @media (max-width:683px) {
 	blockquote {

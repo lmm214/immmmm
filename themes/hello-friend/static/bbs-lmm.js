@@ -62,14 +62,6 @@ const urls = [
   {home:"https://leonfong.me/",host:"https://memo.leonfong.me/",apiV1:'',creatorId:"1",comment:'',imgsrc:cdnGravatar+"b147bfa4888f1233882ba5b39ef3bffc",endpoint:'',reacttargetid:"",availablearraystring:""}
 ]
 
-//  {home:"https://l22.org/",host:"https://note.l22.org/",apiV1:'',creatorId:"1",comment:'',imgsrc:cdnGravatar+"4b0d33a08ac73dc07a5293f14232ca53"},
-//  {home:"https://yunlogs.com/",host:"https://note.zdm.im/",apiV1:'',creatorId:"1",comment:'',imgsrc:cdnGravatar+"d41d8cd98f00b204e9800998ecf8427e"},
-//  {home:"https://emmm.space/",host:"https://memos.emmm.space/",apiV1:'',creatorId:"1",comment:'',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=LxEGgNG5gRmKSbHibgaEFUw&kti=ZEy2AAAAAAE&s=140&t=1655774580"},
-//  {home:"https://darmau.design/",host:"https://memo.darmau.design/",apiV1:'',creatorId:"1",comment:'',imgsrc:cdnGravatar+"729357a0d48d17802332d52479d2399f"}
-//  {home:"https://forevers.love/",host:"https://www.forevers.love/",apiV1:'',creatorId:"1",comment:'',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=ibHiaOLTgWctyNtR2EdVOvHA&kti=ZDvk_QAAAAE&s=140&t=1673516322"},
-//  {home:"https://linsnow.cn/",host:"https://bb.linsnow.cn/",apiV1:'',creatorId:"1",comment:'',imgsrc:cdnGravatar+"9f5d9e5efe3bea0139b12a0fe27100fe"},
-//  {home:"https://mybelife.com/",host:"https://mybelife.com/",apiV1:'',creatorId:"1",comment:'',imgsrc:cdnGravatar+"7067b66529765b71181c62e59ac6969b"},
-  
 var bbDom = document.querySelector('#bbs');
 var load = '<div id="load" onclick="nextFetch()" ><button class="load-btn button-load">加载更多</button></div>'
 var loading = '<div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/></svg></div>'

@@ -28,12 +28,14 @@ feature: https://r2.immmmm.com/2022/10/immmmm-com-bb.webp
 <script src="https://fastly.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script src="https://fastly.jsdelivr.net/gh/Tokinx/ViewImage/view-image.min.js"></script>
 <script src="https://fastly.jsdelivr.net/gh/Tokinx/Lately/lately.min.js"></script>
+<script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
 <script type="text/javascript">
   var bbMemos = {
     memos : 'https://me.edui.fun/',//修改为自己部署 Memos 的网址，末尾有 / 斜杠
     limit : '',//默认每次显示 10条
     creatorId:'' ,//早期默认为 101 用户，新安装是 1； https://demo.usememos.com/u/101
     domId: '',//默认为 <div id="bber"></div>
+    twiEnv:'https://metk.edui.fun/',//启开 twikoo 评论，需加载 twikoo.js
   }
 </script>
 <script src="https://immmmm.com/bb-lmm-mk.js"></script>
