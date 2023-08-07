@@ -53,6 +53,9 @@
       </span>
     {{ end }}
   {{ end }}
+  
+    <emoji-reaction theme="system" class="reaction" endpoint="https://api-emaction.immmmm.com" reacttargetid="immmmm-{{ .File.BaseFileName }}"></emoji-reaction>
+
     <div class="clear"></div>
     
     {{ if eq .Type $.Site.Params.contentTypeName }}
