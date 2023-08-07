@@ -15,16 +15,6 @@ if(typeof(bbMemos) !=="undefined"){
     }
   }
 }
-if (typeof twikoo === 'undefined') {
-  const script = document.createElement('script');
-  script.src = 'https://fastly.jsdelivr.net/gh/Tokinx/Lately/lately.min.js';
-  script.onload = () => {
-    Lately.init({ target: '.bbs-date' });
-  };
-  document.head.appendChild(script);
-} else {
-  Lately.init({ target: '.bbs-date' });
-}
 
 function loadCssCode(code){
 var style = document.createElement('style');
