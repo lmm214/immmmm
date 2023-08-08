@@ -31,11 +31,13 @@
         {{ end }}
       {{ end }}
     </div>
-    {{ if .Params.feature }}
-      {{ if .Params.UseRelativeCover }}
-        <img loading='lazy' decoding="async" src="{{ (printf "%s%s" .Permalink .Params.feature ) }}" class="post-cover" />
-      {{ else }}
-        <img loading='lazy' decoding="async" src="{{ .Params.feature | absURL }}" class="post-cover" />
+    {{ if ne $PostCate "weekly"}}
+      {{ if .Params.feature}}
+        {{ if .Params.UseRelativeCover }}
+          <img loading='lazy' decoding="async" src="{{ (printf "%s%s" .Permalink .Params.feature ) }}" class="post-cover" />
+        {{ else }}
+          <img loading='lazy' decoding="async" src="{{ .Params.feature | absURL }}" class="post-cover" />
+        {{ end }}
       {{ end }}
     {{ end }}
   
