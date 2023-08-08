@@ -23,7 +23,7 @@ const urls = [
   {home:"https://www.xzgljiang.com/",host:"https://memos.xzgljiang.com/",apiV1:'',creatorId:"1",comment:'1',twiEnv:'https://twikoo.une.xzgljiang.com/',imgsrc:cdnGravatar+"a892fd3321ab65a1c5d9c7a54a04c881",endpoint:'',reacttargetid:"",availablearraystring:""},
   {home:"https://cooolr.cn/",host:"https://m.cooolr.cn/",apiV1:'',creatorId:"1",comment:'1',twiEnv:'https://tk.cooolr.cn/',imgsrc:cdnGravatar+"7422f8bebdb99f6594e029f603ccb926",endpoint:'',reacttargetid:"",availablearraystring:""},
   {home:"https://www.boyhu.cn/",host:"https://qzone.boyhu.cn/",apiV1:'',creatorId:"101",comment:'1',twiEnv:'https://tk.boyhu.cn/',imgsrc:cdnGravatar+"55be217893c75baf8571837197de4a3e",endpoint:'',reacttargetid:"",availablearraystring:""},
-  {home:"https://kouseki.cn/",host:"https://memos.kouseki.cn/",apiV1:'',creatorId:"1",comment:'1',twiEnv:'https://api-twi.kouseki.cn/',imgsrc:cdnGravatar+"23978e8e57e20163e8cb67bbf9dbe907",endpoint:'',reacttargetid:"",availablearraystring:""},
+  {home:"https://kouseki.cn/",host:"https://memos.kouseki.cn/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://api-twi.kouseki.cn/',imgsrc:cdnGravatar+"23978e8e57e20163e8cb67bbf9dbe907",endpoint:'',reacttargetid:"",availablearraystring:""},
   {home:"https://lms.im/",host:"https://b.lms.im/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://b.lms.im/tk/',imgsrc:cdnGravatar+"d9cc49ea0301640d7a19b6a1e77012dd",endpoint:'',reacttargetid:"",availablearraystring:""},
   {home:"https://edinik.com/",host:"https://memos.edinik.com/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://tk.edinik.com/',imgsrc:cdnGravatar+"e1cdf4f763e3c7e01271a44b990c712f",endpoint:'',reacttargetid:"",availablearraystring:""},
   {home:"https://memos.qiangtu.com/",host:"https://memos.qiangtu.com/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://twikoo.qiangtu.com/',imgsrc:"https://memos2504.oss-cn-hangzhou.aliyuncs.com/memos2504/assets/2023/06/06/1686021093_favicon.ico/1ef33f96-5296-4d5e-940c-04c88775d008.ico",endpoint:'',reacttargetid:"",availablearraystring:""},
@@ -50,7 +50,7 @@ const urls = [
   {home:"https://www.wananaiko.com/",host:"https://memo.wananaiko.com/",apiV1:'',creatorId:"1",comment:'',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=7AFd0gic7wVsNg2ToQrQU2w&s=140&t=1583250600",endpoint:'',reacttargetid:"",availablearraystring:""},
   {home:"https://dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"1",comment:'',imgsrc:cdnGravatar+"28b57baa4e8f13fe4292ccb2de267e30",endpoint:'',reacttargetid:"",availablearraystring:""},
   {home:"https://dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"9",comment:'',imgsrc:cdnGravatar+"c1b204bab687a23c8b6d7c8de11c7c59",endpoint:'',reacttargetid:"",availablearraystring:""},
-  {home:"https://www.4op.top/",host:"https://flomo.010316.xyz/",apiV1:'',creatorId:"1",comment:'',imgsrc:cdnGravatar+"81f9378195d84e8ff73aad9ded2b9808",endpoint:'',reacttargetid:"",availablearraystring:""},
+  {home:"https://www.4op.top/",host:"https://flomo.010316.xyz/",apiV1:'v1/',creatorId:"1",comment:'',imgsrc:cdnGravatar+"81f9378195d84e8ff73aad9ded2b9808",endpoint:'',reacttargetid:"",availablearraystring:""},
   {home:"https://wiki-power.com/",host:"https://memos.wiki-power.com/",apiV1:'v1/',creatorId:"1",comment:'',imgsrc:cdnGravatar+"44218020ee434de43516c19f05c71593",endpoint:'',reacttargetid:"",availablearraystring:""},
   {home:"https://blog.leonus.cn/",host:"https://m.leonus.cn/",apiV1:'v1/',creatorId:"1",comment:'',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=cZKBhtxe2iaxjSfbVYiaFgoQ&kti=Y9x6QwAAAAI&s=140&t=1672836908",endpoint:'',reacttargetid:"",availablearraystring:""},
   {home:"https://eirms.com/",host:"https://memo.eirms.com/",apiV1:'',creatorId:"1",comment:'',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=6bLfAytyUI7daRuxat0XxA&kti=ZDt5CwAAAAA&s=140&t=1646284093",endpoint:'',reacttargetid:"",availablearraystring:""},
@@ -59,7 +59,7 @@ const urls = [
   {home:"https://ysicing.cloud/",host:"https://note.ysicing.cloud/",apiV1:'v1/',creatorId:"1",comment:'',imgsrc:cdnGravatar+"5ca16ee587d1e4befd805cf710361f26",endpoint:'',reacttargetid:"",availablearraystring:""},
   {home:"https://www.kingname.info/",host:"https://memos.kingname.info/",apiV1:'v1/',creatorId:"1",comment:'',imgsrc:cdnGravatar+"2463f1bd85aea23703f320e67d33f349",endpoint:'',reacttargetid:"",availablearraystring:""},
   {home:"https://idh.ink/",host:"https://idh.ink/",apiV1:'v1/',creatorId:"1",comment:'',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=NAuictuJAIjdPiaHlY6xbDWA&kti=ZHUWoAAAAAA&s=140&t=1683481629",endpoint:'',reacttargetid:"",availablearraystring:""},
-  {home:"https://leonfong.me/",host:"https://memo.leonfong.me/",apiV1:'',creatorId:"1",comment:'',imgsrc:cdnGravatar+"b147bfa4888f1233882ba5b39ef3bffc",endpoint:'',reacttargetid:"",availablearraystring:""}
+  {home:"https://leonfong.me/",host:"https://memo.leonfong.me/",apiV1:'v1/',creatorId:"1",comment:'',imgsrc:cdnGravatar+"b147bfa4888f1233882ba5b39ef3bffc",endpoint:'',reacttargetid:"",availablearraystring:""}
 ]
 
 var bbDom = document.querySelector('#bbs');
@@ -425,10 +425,10 @@ function updateHTMl(data){
       }
       var EnvNow = ''
       if(twiEnv && twiEnv != "undefined"){
-        EnvNow = twiEnv.replace(/https\:\/\/.*\.(.*)\..*/,'id-$1-')
+        EnvNow = twiEnv.replace(/https\:\/\/(.*\.)?(.*)\..*/,'id-$2-')
       }
       if(artEnv && artEnv != "undefined"){
-        EnvNow = artEnv.replace(/https\:\/\/.*\.(.*)\..*/,'id-$1-')
+        EnvNow = artEnv.replace(/https\:\/\/(.*\.)?(.*)\..*/,'id-$2-')
       }
       result += '<li class="'+EnvNow+'memo-'+memoId+'"><div class="bbs-avatar"><a href="'+data[i].home+'" target="_blank" rel="noopener noreferrer"><img src="'+data[i].imgsrc+'" alt=""></a><a href="'+memoUrl+'" target="_blank" rel="noopener noreferrer" class="bbs-creator">'+data[i].creator+'</a><span class="bbs-dot">·</span><span class="bbs-date">'+new Date(data[i].updatedTs * 1000).toLocaleString()+'</span>'
 
@@ -436,7 +436,7 @@ function updateHTMl(data){
 
       var outSVG = '<span class="bbs-coment-svg"><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M864 640a32 32 0 0 1 64 0v224.096A63.936 63.936 0 0 1 864.096 928H159.904A63.936 63.936 0 0 1 96 864.096V159.904C96 124.608 124.64 96 159.904 96H384a32 32 0 0 1 0 64H192.064A31.904 31.904 0 0 0 160 192.064v639.872A31.904 31.904 0 0 0 192.064 864h639.872A31.904 31.904 0 0 0 864 831.936V640zm-485.184 52.48a31.84 31.84 0 0 1-45.12-.128 31.808 31.808 0 0 1-.128-45.12L815.04 166.048l-176.128.736a31.392 31.392 0 0 1-31.584-31.744 32.32 32.32 0 0 1 31.84-32l255.232-1.056a31.36 31.36 0 0 1 31.584 31.584L924.928 388.8a32.32 32.32 0 0 1-32 31.84 31.392 31.392 0 0 1-31.712-31.584l.736-179.392L378.816 692.48z"/></svg></span>'
 
-      var emojiReaction = '<emoji-reaction theme="system" class="reaction" endpoint="https://api-emaction.immmmm.com" reacttargetid="'+memoUrl.replace(/https\:\/\/.*\.(.*)\..*/,'id-$1-')+'memo-'+memoId+'"></emoji-reaction>'
+      var emojiReaction = '<emoji-reaction theme="system" class="reaction" endpoint="https://api-emaction.immmmm.com" reacttargetid="'+memoUrl.replace(/https\:\/\/(.*\.)?(.*)\..*/,'id-$2-')+'memo-'+memoId+'"></emoji-reaction>'
       if(endpoint && endpoint != "undefined"){
         emojiReaction = '<emoji-reaction theme="system" class="reaction" endpoint="'+endpoint+'" reacttargetid="'+reacttargetid+memoId+'" availablearraystring="'+availablearraystring+'"></emoji-reaction>'
       }
