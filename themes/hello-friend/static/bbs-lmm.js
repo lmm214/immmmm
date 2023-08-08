@@ -423,29 +423,23 @@ function updateHTMl(data){
           bbContREG += '<div class="resour">'+resUrl+'</div>'
         }
       }
-      var EnvNow = ''
-      if(twiEnv && twiEnv != "undefined"){
-        EnvNow = twiEnv.replace(/https\:\/\/(.*\.)?(.*)\..*/,'id-$2-')
-      }
-      if(artEnv && artEnv != "undefined"){
-        EnvNow = artEnv.replace(/https\:\/\/(.*\.)?(.*)\..*/,'id-$2-')
-      }
-      result += '<li class="'+EnvNow+'memo-'+memoId+'"><div class="bbs-avatar"><a href="'+data[i].home+'" target="_blank" rel="noopener noreferrer"><img src="'+data[i].imgsrc+'" alt=""></a><a href="'+memoUrl+'" target="_blank" rel="noopener noreferrer" class="bbs-creator">'+data[i].creator+'</a><span class="bbs-dot">·</span><span class="bbs-date">'+new Date(data[i].updatedTs * 1000).toLocaleString()+'</span>'
+      var memoIdNow = memoUrl.replace(/https\:\/\/(.*\.)?(.*)\..*/,'id-$2-')
+      result += '<li class="'+memoIdNow+'memo-'+memoId+'"><div class="bbs-avatar"><a href="'+data[i].home+'" target="_blank" rel="noopener noreferrer"><img src="'+data[i].imgsrc+'" alt=""></a><a href="'+memoUrl+'" target="_blank" rel="noopener noreferrer" class="bbs-creator">'+data[i].creator+'</a><span class="bbs-dot">·</span><span class="bbs-date">'+new Date(data[i].updatedTs * 1000).toLocaleString()+'</span>'
 
       var comSVG = '<span class="bbs-coment-svg"><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="20" height="24"><path d="M816 808H672c-4.8 0-8 1.6-11.2 4.8l-80 80c-36.8 36.8-97.6 36.8-136 0l-80-80c-3.2-3.2-6.4-4.8-11.2-4.8h-144c-70.4 0-128-57.6-128-128V232c0-70.4 57.6-128 128-128h608c70.4 0 128 57.6 128 128v448C944 750.4 886.4 808 816 808zm0-64c35.2 0 64-28.8 64-64V232c0-35.2-28.8-64-64-64H208c-35.2 0-64 28.8-64 64v448c0 35.2 28.8 64 64 64h144c20.8 0 41.6 8 56 24l80 80c12.8 12.8 32 12.8 44.8 0l80-80c14.4-14.4 35.2-24 56-24H816zM320 408c27.2 0 48 20.8 48 48v32c0 27.2-20.8 48-48 48s-48-20.8-48-48v-32c0-27.2 20.8-48 48-48zm192 0c27.2 0 48 20.8 48 48v32c0 27.2-20.8 48-48 48s-48-20.8-48-48v-32c0-27.2 20.8-48 48-48zm192 0c27.2 0 48 20.8 48 48v32c0 27.2-20.8 48-48 48s-48-20.8-48-48v-32c0-27.2 20.8-48 48-48z" /></svg></span>'
 
       var outSVG = '<span class="bbs-coment-svg"><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M864 640a32 32 0 0 1 64 0v224.096A63.936 63.936 0 0 1 864.096 928H159.904A63.936 63.936 0 0 1 96 864.096V159.904C96 124.608 124.64 96 159.904 96H384a32 32 0 0 1 0 64H192.064A31.904 31.904 0 0 0 160 192.064v639.872A31.904 31.904 0 0 0 192.064 864h639.872A31.904 31.904 0 0 0 864 831.936V640zm-485.184 52.48a31.84 31.84 0 0 1-45.12-.128 31.808 31.808 0 0 1-.128-45.12L815.04 166.048l-176.128.736a31.392 31.392 0 0 1-31.584-31.744 32.32 32.32 0 0 1 31.84-32l255.232-1.056a31.36 31.36 0 0 1 31.584 31.584L924.928 388.8a32.32 32.32 0 0 1-32 31.84 31.392 31.392 0 0 1-31.712-31.584l.736-179.392L378.816 692.48z"/></svg></span>'
 
-      var emojiReaction = '<emoji-reaction theme="system" class="reaction" endpoint="https://api-emaction.immmmm.com" reacttargetid="'+memoUrl.replace(/https\:\/\/(.*\.)?(.*)\..*/,'id-$2-')+'memo-'+memoId+'"></emoji-reaction>'
+      var emojiReaction = '<emoji-reaction theme="system" class="reaction" endpoint="https://api-emaction.immmmm.com" reacttargetid="'+memoIdNow+'memo-'+memoId+'"></emoji-reaction>'
       if(endpoint && endpoint != "undefined"){
         emojiReaction = '<emoji-reaction theme="system" class="reaction" endpoint="'+endpoint+'" reacttargetid="'+reacttargetid+memoId+'" availablearraystring="'+availablearraystring+'"></emoji-reaction>'
       }
       
       if(comment == '1'){
         if(twiEnv && twiEnv != 'undefined'){
-          result += '<a data-id="'+memoId+'" data-twienv="'+twiEnv+'" data-path="'+memoUrl+'" onclick="loadTwikoo(this)" onmouseenter="insertTwikoo(this)" href="javascript:void(0)" rel="noopener noreferrer">'+comSVG+'</a></div><div class="bbs-content"><div class="bbs-text">'+bbContREG+emojiReaction+'</div><div class="item-comment twikoo-'+memoId+' d-none"><div id="'+EnvNow+'twikoo-'+memoId+'"></div></div></div></li>'
+          result += '<a data-id="'+memoId+'" data-twienv="'+twiEnv+'" data-path="'+memoUrl+'" onclick="loadTwikoo(this)" onmouseenter="insertTwikoo(this)" href="javascript:void(0)" rel="noopener noreferrer">'+comSVG+'</a></div><div class="bbs-content"><div class="bbs-text">'+bbContREG+emojiReaction+'</div><div class="item-comment twikoo-'+memoId+' d-none"><div id="'+memoIdNow+'twikoo-'+memoId+'"></div></div></div></li>'
         }else if(artEnv && artEnv != 'undefined'){
-          result += '<a data-id="'+memoId+'" data-artenv="'+artEnv+'" data-artsite="'+artSite+'" data-path="'+memoUrl+'" onclick="loadArtalk(this)" href="javascript:void(0)" rel="noopener noreferrer">'+comSVG+'</a></div><div class="bbs-content"><div class="bbs-text">'+bbContREG+emojiReaction+'</div><div class="item-comment '+EnvNow+'artalk-'+memoId+' d-none"></div></div></li>'
+          result += '<a data-id="'+memoId+'" data-artenv="'+artEnv+'" data-artsite="'+artSite+'" data-path="'+memoUrl+'" onclick="loadArtalk(this)" href="javascript:void(0)" rel="noopener noreferrer">'+comSVG+'</a></div><div class="bbs-content"><div class="bbs-text">'+bbContREG+emojiReaction+'</div><div class="item-comment '+memoIdNow+'artalk-'+memoId+' d-none"></div></div></li>'
         }else{
           result += '<a href="'+memoUrl+'" target="_blank" rel="noopener noreferrer">'+outSVG+'</a></div><div class="bbs-content"><div class="bbs-text">'+bbContREG+emojiReaction+'</div></div></li>'
         }
@@ -473,7 +467,7 @@ function updateHTMl(data){
 //前端加载 Twikoo 评论
 function loadTwikoo(e) {
   var memoEnv = e.getAttribute("data-twienv")
-  var EnvNow = memoEnv.replace(/https\:\/\/.*\.(.*)\..*/,'id-$1-')
+  var EnvNow = memoEnv.replace(/https\:\/\/(.*\.)?(.*)\..*/,'id-$2-')
   var memoPath = e.getAttribute("data-path")
   var memoId = e.getAttribute("data-id")
   var twikooDom = document.querySelector('.twikoo-'+memoId);
@@ -502,7 +496,7 @@ function loadTwikoo(e) {
 //前端加载 Artalk 评论
 function loadArtalk(e) {
   var memoEnv = e.getAttribute("data-artenv")
-  var EnvNow = memoEnv.replace(/https\:\/\/.*\.(.*)\..*/,'id-$1-')
+  var EnvNow = memoEnv.replace(/https\:\/\/(.*\.)?(.*)\..*/,'id-$2-')
   var memoSite= e.getAttribute("data-artsite")
   var memoId = e.getAttribute("data-id")
   var ArtalkDom = document.querySelector('.'+EnvNow+'artalk-'+memoId);
