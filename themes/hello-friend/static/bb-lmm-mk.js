@@ -49,8 +49,8 @@ async function fetchStatus() {
 }
 function getMemoOne(memoOne){
   let OneDom = `<iframe style="width:100%;height:100vh;" src="${memoOne}" frameBorder="0"></iframe>`
-  let ContDom = document.querySelector('.content')
-  ContDom.innerHTML == OneDom
+  let ContDom = document.querySelector('.content123') || document.querySelector(bbMemo.domId);
+  ContDom.innerHTML = OneDom
 }
 function getQueryVariable(variable){
   var query = window.location.search.substring(1);
