@@ -6,7 +6,7 @@ if(memoOne){
   getMemoOne(memoOne)
 }
 function getMemoOne(memoOne){
-  let OneDom = `<iframe style="width:100%;height:100vh;margin-top:-50px;" src="${memoOne}" frameBorder="0"></iframe>`
+  let OneDom = `<iframe style="width:100%;height:100vh;margin-top:-50px;padding-top:50px;" src="${memoOne}" frameBorder="0"></iframe>`
   let ContDom = document.querySelector('.content')
   ContDom.innerHTML = OneDom
 }
@@ -79,7 +79,7 @@ let page = 1,offset = 0,nextLength = 0,nextDom,bbUrlNow,imgsrcNow,hostNow,creIdN
 bbDom.innerHTML = loading
 allUrls()
 function allUrls(){
-  console.log(urls)
+  //console.log(urls)
   let myHtml = ""
   for(let i=0;i < urls.length;i++){
     myHtml += `<div class="bbs-urls bbs-url" onclick="urlsNow(this)" data-hostid="${urls[i].host+"u/"+urls[i].creatorId}" data-index="${i}"><img src="${urls[i].imgsrc}" alt=""></div>`

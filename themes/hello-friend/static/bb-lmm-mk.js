@@ -52,7 +52,7 @@ async function fetchStatus() {
   }
 }
 function getMemoOne(memoID){
-  let OneDom = `<iframe style="width:100%;height:100vh;margin-top:-50px;" src="${memos+'m/'+memoID}" frameBorder="0"></iframe>`
+  let OneDom = `<iframe style="width:100%;height:100vh;margin-top:-50px;padding-top:50px;" src="${memos+'m/'+memoID}" frameBorder="0"></iframe>`
   let ContDom = document.querySelector('.content')
   ContDom.innerHTML = OneDom
 }
