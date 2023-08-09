@@ -13,7 +13,8 @@ feature: https://r2.immmmm.com/2023/04/memos-twikoo.png
 
 v2023.04.21：新增 `/explore` 页添加评论图标（但非常不优雅，用了定时器来动态插 dom ）。
 
-v2023.04.21：新增单页“评论加载中”提示。
+v2023.08.09：更新 twikoo.init 中的 path 正则
+
 
 ### 自定义脚本
 
@@ -50,7 +51,7 @@ function startTwikoo() {
           twikoo.init({
             envId: twikooENV,
             el: '#mtcomment',
-            path: nowHref.replace(/^(.*\/m\/[0-9]+).*$/,'$1'),
+            path: nowHref.replace(/^.*=?(http.*\/m\/[0-9]+).*$/,'$1'), //v2023.08.09 正则更新
             onCommentLoaded: function () {
               startTwikoo()
               //console.log('再次开启定时执行');

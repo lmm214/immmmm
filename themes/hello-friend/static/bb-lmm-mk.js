@@ -247,7 +247,7 @@ function updateHTMl(data){
         }
       }
       let memosIdNow = memos.replace(/https\:\/\/(.*\.)?(.*)\..*/,'id-$2-')
-      let emojiReaction = `<emoji-reaction theme="system" class="reaction" endpoint="https://api-emaction.immmmm.com" reacttargetid="${memosIdNow+'memo-'+data[i].id}"></emoji-reaction>`
+      let emojiReaction = `<emoji-reaction theme="system" class="reaction" endpoint="https://api-emaction.immmmm.com" reacttargetid="${memosIdNow+'memo-'+data[i].id}" style="line-height:normal;"></emoji-reaction>`
       let datacountDOM = `<div class="datacount" data-twienv="${bbMemo.twiEnv}" data-id="${data[i].id}" onclick="loadTwikoo(this)"> ${data[i].count} 条评论 </div>`
 
       result +=  `
