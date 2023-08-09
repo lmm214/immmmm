@@ -2,11 +2,8 @@
 Last Modified time : 20230809 by https://immmmm.com
 */
 let memoOne = getQueryVariable("memo") || ''
-if(memoOne){
-  getMemoOne(memoOne)
-}
-function getMemoOne(memoOne){
-  let OneDom = `<iframe style="width:100%;height:100vh;margin-top:-50px;padding-top:50px;" src="${memoOne}" frameBorder="0"></iframe>`
+function getMemoOne(){
+  let OneDom = `<iframe style="width:100%;height:100vh;" src="${memoOne}" frameBorder="0"></iframe>`
   let ContDom = document.querySelector('.content')
   ContDom.innerHTML = OneDom
 }
@@ -20,6 +17,10 @@ function getQueryVariable(variable){
   return(false);
 }
 
+if(memoOne){
+  getMemoOne(memoOne)
+}else{
+//链接无参数
 const cdnGravatar = "https://cravatar.cn/avatar/"
 const urls = [
   {home:"https://immmmm.com/",host:"https://me.edui.fun/",apiV1:'v1/',creatorId:"101",comment:'1',twiEnv:'https://metk.edui.fun/',imgsrc:cdnGravatar+"ba83fa02fc4b2ba621514941307e21be",endpoint:'https://api-emaction.immmmm.com',reacttargetid:"id-edui-memo-",availablearraystring:"👍,thumbs-up;🎉,party-popper;🚀,rocket;😄,smile-face;😎,cool;❤️,red-heart;"},
@@ -590,4 +591,6 @@ function bookShow(fetch_href, fetch_item) {
   let qs_dom = document.querySelector(qs_href)
   qs_dom.parentNode.replaceChild(db_div, qs_dom);
   db_div.innerHTML = db_html
+}
+
 }
