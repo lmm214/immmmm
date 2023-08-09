@@ -471,13 +471,14 @@ function loadTwikoo(e) {
 //前端加载 Artalk 评论
 function loadArtalk(e) {
   let memoEnv = e.getAttribute("data-artenv")
-  let EnvNow = memoEnv.replace(/https\:\/\/(.*\.)?(.*)\..*/,'id-$2-')
+  let EnvNow = e.getAttribute("data-path").replace(/https\:\/\/(.*\.)?(.*)\..*/,'id-$2-')
   let memoSite= e.getAttribute("data-artsite")
   let memoId = e.getAttribute("data-id")
   let ArtalkDom = document.querySelector('.'+EnvNow+'artalk-'+memoId);
   let ArtalkDom_ID = document.querySelector('#'+EnvNow+'artalk-'+memoId);
   if(!ArtalkDom_ID){
-    ArtalkDom.insertAdjacentHTML('afterbegin', '<div id="'+EnvNow+'artalk-'+ memoId +'"></div>');
+    let ArtDomNow = `<div id="${EnvNow+'artalk-'+ memoId }"></div>`
+    ArtalkDom.insertAdjacentHTML('afterbegin', ArtDomNow);
   }
   if (ArtalkDom.classList.contains('d-none')) {
     document.querySelectorAll('.item-comment').forEach((item) => {item.classList.add('d-none');})
