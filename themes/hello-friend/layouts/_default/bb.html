@@ -1,10 +1,4 @@
 {{ define "main" }}
-<div class="post">
-  <h2 class="post-title">{{.Title}}</h2>
-  <div class="post-content">
-    <div id="bber"></div>
-  </div>
-</div>
 
 <link rel="stylesheet" href="https://fastly.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
 <style>
@@ -32,7 +26,16 @@
   --at-color-green: #4caf50;
   --at-color-gradient: linear-gradient(180deg, transparent, rgba(30, 34, 36, 1))
 }
+.post-title span{font-size:22px;font-style:initial;cursor: pointer;}
 </style>
+
+<div class="post">
+  <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a> <span onclick="randomMemo()">/回忆</span> <span onclick="serchMemo()">/搜索</span></h2>
+  <div class="post-content">
+    <div id="bber"></div>
+  </div>
+</div>
+
 <script type="text/javascript">
   let bbMemos = {
     memos : 'https://me.edui.fun/',//修改为自己的 apiurl，末尾有 / 斜杠
@@ -42,6 +45,7 @@
     twiEnv:'https://metk.edui.fun/',//启开 twikoo 评论，需加载 twikoo.js
   }
 </script>
+<script type="module" src="/emaction.js?v=2308071"></script>
 <script src="https://fastly.jsdelivr.net/npm/marked@4.3.0/marked.min.js"></script>
 <script src="https://fastly.jsdelivr.net/gh/Tokinx/ViewImage/view-image.min.js"></script>
 <script src="https://fastly.jsdelivr.net/gh/Tokinx/Lately/lately.min.js"></script>
@@ -49,8 +53,7 @@
 <script src="https://fastly.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
 <script src="/twikoo1616.js"></script>
 <script src="https://unpkg.com/artalk@2/dist/ArtalkLite.js"></script>
-<script type="module" src="/emaction.js?v=2308071"></script>
-<script src="/bb-lmm-mk.js?v=2308092"></script>
+<script src="/bb-lmm-mk.js?v=2308093"></script>
 {{ end }}
 
 {{ define "footer" }}

@@ -23,7 +23,7 @@ function loadCssCode(code){
   let head = document.getElementsByTagName('head')[0];
   head.appendChild(style);
 }
-const allCSS = "#bber{margin-top:2em;width:auto !important;min-height:100vh;}.bb-timeline pre{color:#aaa;}.bb-timeline ul{margin:0;padding:0;}.bb-timeline ul li{list-style-type:none;margin-bottom:3rem;}.bb-timeline ul li .datacont ul li{margin-bottom:0;}.bb-timeline ul li .bb-div{padding:.6rem 1rem .6rem;border:1px solid #666;font-size:16px;}.bb-load button{font-size:.8rem;font-style:italic;background:none;border-radius:0;border:1px solid #666;padding:10px 30px;width:100%;letter-spacing:0.8rem;}.bb-timeline ul li .bb-info{font-size:14px;position:relative;margin-top:0.5rem;}.bb-timeline ul li .datatime{font-size:15px;}.bb-timeline ul li .datacont{margin-top:0.5rem;max-height:50vh;overflow-y:scroll;overflow-x:hidden;}.bb-timeline ul li .datacount{cursor: pointer;position:absolute;right:0;bottom: 0;}.bb-timeline ul li .datacount svg{margin: 2px 5px;}.bb-timeline ul li .datacont img[src*='emotion']{display:inline-block;width:auto;}.bb-timeline ul li p{margin:0;letter-spacing:1px;color:#3b3d42;line-height:28px;min-height:18px;margin:0;}.bb-timeline pre p{display:inline-block;}.bb-timeline pre p:empty{display:none;}.dark .bb-timeline ul li .bb-div p,.dark .bb-timeline .bb-load button{color:#fafafa;}.dark .bb-timeline ul li .bb-div p svg{fill:#fafafa;}.datacont p{magin:0;}.datacont blockquote{font-family: KaiTi,STKaiti,STFangsong !important;margin:0 0 0 1rem;padding:.25rem 2rem;position: relative;border-left:0 none;}.datacont blockquote::before{line-height: 2rem;content: '“';font-family: Georgia, serif;font-size: 28px;font-weight: bold;position: absolute;left: 10px;top:5px;}.datacont .tag-span{color:#42b983;}.datasource a{color:#fafafa;background:#3b3d42;padding:2px 8px;margin:0 6px 0 0;border-radius:5px;font-size:.9rem;font-weight:400;}.datacont .img{cursor:pointer;border-radius:4px;}.datacont .img.square{height:180px;width:180px;object-fit:cover;}.resimg.grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto;gap:4px;width:calc(100%* 2 / 3);box-sizing:border-box;margin:4px 0 0;}.resimg.grid-2{grid-template-columns:repeat(2,1fr);width:80%;}.resimg.grid-4{grid-template-columns:repeat(2,1fr);width:calc(80% * 2 / 3);}.resimg.grid figure.gallery-thumbnail{position:relative;width:100%;height:0;padding-top:100%;cursor:zoom-in;}.resimg figure{text-align:left;max-height:50%;}.resimg figure img{max-height:50vh;}.resimg.grid figure,figcaption{margin:0 !important;}.resimg.grid figure.gallery-thumbnail > img.thumbnail-image{position:absolute;left:0;top:0;display:block;width:100%;height:100%;object-fit:cover;object-position:50% 50%;}#bb-footer{margin:5rem auto 1rem;text-align:center;}#bb-footer p{margin:0 0 0.6rem;}.bb-allnums{letter-spacing:2px;}.bb-allpub{text-decoration:none;font-style:italic;}.bb-timeline ul li::before{content:none;}.post-preview{max-width:680px;height:210px;margin:1em auto;position:relative;display:flex;background:#fff;border-radius:4px;box-shadow:0 1px 2px rgba(0,0,0,.25),0 0 1px rgba(0,0,0,.25);}.post-preview--meta{width:75%;padding:25px;overflow:hidden;}.post-preview--middle {line-height:28px;}.post-preview--title {font-size:18px;margin:0!important;}.post-preview--title a{text-decoration:none;}.post-preview--date{font-size:14px;color:#999;}.post-preview--excerpt{font-size:14px;line-height:1.825;}.post-preview--excerpt p{display: inline;margin: 0;}.post-preview--image {object-fit:cover;height:auto;width:25%;float:right;border-top-right-radius: 2px!important;border-bottom-right-radius:2px!important;border-top-left-radius:0!important;border-bottom-left-radius:0!important;}@media (max-width:550px) {.post-preview {width:95%;height:120px;}.post-preview--meta{padding:15px;}.post-preview--image{height:120px!important;}.post-preview--excerpt{display:none;}.post-preview--middle {line-height:19px;}}.rating{display:block;line-height:15px;}.rating-star{display:inline-block;width:75px;height:15px;background-repeat:no-repeat;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAAClCAYAAAAUAAAYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA5xJREFUeNrs3T9rFEEcxvG7qEQIglaCICKkin9AUEtBKxU7wS61VlYivgWj70TtNFj5BqzE7qxEWwsxKIoYn4UtluFmbm8nczvzm+/BjxyuDwNzu3uXD0+46f7LC5PA45Hm+WTYw1x2LRDc0jzTXB+wqMlsaLPutz8fDFjYZHYauAz3NBvt83XNnyUWNpn1nVm3OsHmsb3EomazzZnVXKMPNcc0xzUnNKc0Rzv/77fms+Z7O3vt9b1eU7bZrNN68l5zcolX4ofmsuZXTdnmMvyi2dR86Bmcac62P6vKrnVubpc0bxYE32nOab45N8YqsvPeDfcD4SOav4HjprPuu+H5BTt9LXDMfNbdLPfT678Fx6vKupt1o/O8+R3pkOaJ5/iktqx7z/qp+aq5q/nY+fczmheaK03Gs7D5rLtZdzSvA6/Ebc2u55j57HQB0TzW7AzkjiKzny6+2hlKNE8juMNcFqKBaIZndRlCNBBNgmx7ZkE0fbLtZkE0EA1EM17WuQwhGogGooFoss6296y52cNO+J6HLJoPaFdbsvA9zGerIxrPh85eWYgGooFoDiQbuAxp0UA0EVmdWbRo+ma1WbRoIBqIZtzsnHdDWjQQDUQD0WSbde5ZS2UhmtqJJtSEiVkXooFoIJre2VATJmZdiKZ2ogk1YSb8oVMvDeUPnSAaiCaPJkzMuhANRAPRQDQpsqEmTMy6EI11oolpwkA0EA1EcyDZmCYMRAPR+LMxTZjqiCamCQPRQDQQzehNGIgGooFoIJpVZ2OaMBBN7USTqgkD0UA0EE3vbKomDERTO9GkasKYJJpUTRiIBqKBaEZvwkA0EA1EA9GkyKZqwkA01olmrCYMRAPRQDR9LkO+0QmiKbAJUyTRjNWEgWggGohm9CYMRAPRQDQQzZDsWE0YiMYC0eTYhIFoIJrKiCbHJgxEY4FocmzCZEs0OTZhIBqIpjKiybEJA9FANBANROPL5tiEgWhKIJoSmzAQDURjjGhKbMJANCUQTYlNmNGIpsQmDEQD0RgjmhKbMBANRAPR1Es0JTZhIJpciMZaEwaigWgKJBprTRiIJheisdaESUo01powEA1EUyDRWGvCQDQQDURjm2isNWEgmlURzWw2q4pZIBqIJkOiCVyGJpkFolkV0ejMMvel28mIRptl7ku3IRqIpjCimfNuaJpZIBqIBqIpm2ice5Z5ZonJupvVkMRu4JW4qXnrOWY++1+AAQBw9BJSCTeN9wAAAABJRU5ErkJggg==);overflow:hidden;}.allstar10{background-position:0px 0px;}.allstar9{background-position:0px -15px;}.allstar8{background-position:0px -30px;}.allstar7{background-position:0px -45px;}.allstar6{background-position:0px -60px;}.allstar5{background-position:0px -75px;}.allstar4{background-position:0px -90px;}.allstar3{background-position:0px -105px;}.allstar2{background-position:0px -120px;}.allstar1{background-position:0px -135px;}.allstar0{background-position:0px -150px;}.rating-average{color:#777;display:inline-block;font-size:13px;margin-left:10px;}.dark .post-preview{background: #3b3d42;}.video-wrapper{position:relative;padding-bottom:55%;width:100%;height:0}.video-wrapper iframe{position:absolute;height:100%;width:100%;}.d-none {display: none !important;}.item-twikoo{margin:2rem 0 0 0;}.video-wrapper video{max-height: 30vh;}"
+const allCSS = "#bber{margin-top:2em;width:auto !important;min-height:100vh;}.bb-timeline pre{color:#aaa;}.bb-timeline ul{margin:0;padding:0;}.bb-timeline ul li{list-style-type:none;margin-bottom:3rem;}.bb-timeline ul li .datacont ul li{margin-bottom:0;}.bb-timeline ul li .bb-div{padding:.6rem 1rem .6rem;border:1px solid #666;font-size:16px;}.bb-load button{font-size:.8rem;font-style:italic;background:none;border-radius:0;border:1px solid #666;padding:10px 30px;width:100%;letter-spacing:0.8rem;}.bb-timeline ul li .bb-info{font-size:14px;position:relative;margin-top:0.5rem;}.bb-timeline ul li .datatime{font-size:15px;}.bb-timeline ul li .datacont{margin-top:0.5rem;max-height:50vh;overflow-y:scroll;overflow-x:hidden;}.bb-timeline ul li .datacount{cursor: pointer;position:absolute;right:0;bottom: 0;}.bb-timeline ul li .datacount svg{margin: 2px 5px;}.bb-timeline ul li .datacont img[src*='emotion']{display:inline-block;width:auto;}.bb-timeline ul li p{margin:0;letter-spacing:1px;color:#3b3d42;line-height:28px;min-height:18px;margin:0;}.bb-timeline pre p{display:inline-block;}.bb-timeline pre p:empty{display:none;}.dark .bb-timeline ul li .bb-div p,.dark .bb-timeline .bb-load button{color:#fafafa;}.dark .bb-timeline ul li .bb-div p svg{fill:#fafafa;}.datacont p{magin:0;}.datacont blockquote{font-family: KaiTi,STKaiti,STFangsong !important;margin:0 0 0 1rem;padding:.25rem 2rem;position: relative;border-left:0 none;}.datacont blockquote::before{line-height: 2rem;content: '“';font-family: Georgia, serif;font-size: 28px;font-weight: bold;position: absolute;left: 10px;top:5px;}.tag-span{color:#42b983;cursor:pointer;}#tag-list{font-size:1.8rem;}.datasource a{color:#fafafa;background:#3b3d42;padding:2px 8px;margin:0 6px 0 0;border-radius:5px;font-size:.9rem;font-weight:400;}.datacont .img{cursor:pointer;border-radius:4px;}.datacont .img.square{height:180px;width:180px;object-fit:cover;}.resimg.grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto;gap:4px;width:calc(100%* 2 / 3);box-sizing:border-box;margin:4px 0 0;}.resimg.grid-2{grid-template-columns:repeat(2,1fr);width:80%;}.resimg.grid-4{grid-template-columns:repeat(2,1fr);width:calc(80% * 2 / 3);}.resimg.grid figure.gallery-thumbnail{position:relative;width:100%;height:0;padding-top:100%;cursor:zoom-in;}.resimg figure{text-align:left;max-height:50%;}.resimg figure img{max-height:50vh;}.resimg.grid figure,figcaption{margin:0 !important;}.resimg.grid figure.gallery-thumbnail > img.thumbnail-image{position:absolute;left:0;top:0;display:block;width:100%;height:100%;object-fit:cover;object-position:50% 50%;}#bb-footer{margin:5rem auto 1rem;text-align:center;}#bb-footer p{margin:0 0 0.6rem;}.bb-allnums{letter-spacing:2px;}.bb-allpub{text-decoration:none;font-style:italic;}.bb-timeline ul li::before{content:none;}.post-preview{max-width:680px;height:210px;margin:1em auto;position:relative;display:flex;background:#fff;border-radius:4px;box-shadow:0 1px 2px rgba(0,0,0,.25),0 0 1px rgba(0,0,0,.25);}.post-preview--meta{width:75%;padding:25px;overflow:hidden;}.post-preview--middle {line-height:28px;}.post-preview--title {font-size:18px;margin:0!important;}.post-preview--title a{text-decoration:none;}.post-preview--date{font-size:14px;color:#999;}.post-preview--excerpt{font-size:14px;line-height:1.825;}.post-preview--excerpt p{display: inline;margin: 0;}.post-preview--image {object-fit:cover;height:auto;width:25%;float:right;border-top-right-radius: 2px!important;border-bottom-right-radius:2px!important;border-top-left-radius:0!important;border-bottom-left-radius:0!important;}@media (max-width:550px) {.post-preview {width:95%;height:120px;}.post-preview--meta{padding:15px;}.post-preview--image{height:120px!important;}.post-preview--excerpt{display:none;}.post-preview--middle {line-height:19px;}}.rating{display:block;line-height:15px;}.rating-star{display:inline-block;width:75px;height:15px;background-repeat:no-repeat;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAAClCAYAAAAUAAAYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA5xJREFUeNrs3T9rFEEcxvG7qEQIglaCICKkin9AUEtBKxU7wS61VlYivgWj70TtNFj5BqzE7qxEWwsxKIoYn4UtluFmbm8nczvzm+/BjxyuDwNzu3uXD0+46f7LC5PA45Hm+WTYw1x2LRDc0jzTXB+wqMlsaLPutz8fDFjYZHYauAz3NBvt83XNnyUWNpn1nVm3OsHmsb3EomazzZnVXKMPNcc0xzUnNKc0Rzv/77fms+Z7O3vt9b1eU7bZrNN68l5zcolX4ofmsuZXTdnmMvyi2dR86Bmcac62P6vKrnVubpc0bxYE32nOab45N8YqsvPeDfcD4SOav4HjprPuu+H5BTt9LXDMfNbdLPfT678Fx6vKupt1o/O8+R3pkOaJ5/iktqx7z/qp+aq5q/nY+fczmheaK03Gs7D5rLtZdzSvA6/Ebc2u55j57HQB0TzW7AzkjiKzny6+2hlKNE8juMNcFqKBaIZndRlCNBBNgmx7ZkE0fbLtZkE0EA1EM17WuQwhGogGooFoss6296y52cNO+J6HLJoPaFdbsvA9zGerIxrPh85eWYgGooFoDiQbuAxp0UA0EVmdWbRo+ma1WbRoIBqIZtzsnHdDWjQQDUQD0WSbde5ZS2UhmtqJJtSEiVkXooFoIJre2VATJmZdiKZ2ogk1YSb8oVMvDeUPnSAaiCaPJkzMuhANRAPRQDQpsqEmTMy6EI11oolpwkA0EA1EcyDZmCYMRAPR+LMxTZjqiCamCQPRQDQQzehNGIgGooFoIJpVZ2OaMBBN7USTqgkD0UA0EE3vbKomDERTO9GkasKYJJpUTRiIBqKBaEZvwkA0EA1EA9GkyKZqwkA01olmrCYMRAPRQDR9LkO+0QmiKbAJUyTRjNWEgWggGohm9CYMRAPRQDQQzZDsWE0YiMYC0eTYhIFoIJrKiCbHJgxEY4FocmzCZEs0OTZhIBqIpjKiybEJA9FANBANROPL5tiEgWhKIJoSmzAQDURjjGhKbMJANCUQTYlNmNGIpsQmDEQD0RgjmhKbMBANRAPR1Es0JTZhIJpciMZaEwaigWgKJBprTRiIJheisdaESUo01powEA1EUyDRWGvCQDQQDURjm2isNWEgmlURzWw2q4pZIBqIJkOiCVyGJpkFolkV0ejMMvel28mIRptl7ku3IRqIpjCimfNuaJpZIBqIBqIpm2ice5Z5ZonJupvVkMRu4JW4qXnrOWY++1+AAQBw9BJSCTeN9wAAAABJRU5ErkJggg==);overflow:hidden;}.allstar10{background-position:0px 0px;}.allstar9{background-position:0px -15px;}.allstar8{background-position:0px -30px;}.allstar7{background-position:0px -45px;}.allstar6{background-position:0px -60px;}.allstar5{background-position:0px -75px;}.allstar4{background-position:0px -90px;}.allstar3{background-position:0px -105px;}.allstar2{background-position:0px -120px;}.allstar1{background-position:0px -135px;}.allstar0{background-position:0px -150px;}.rating-average{color:#777;display:inline-block;font-size:13px;margin-left:10px;}.dark .post-preview{background: #3b3d42;}.video-wrapper{position:relative;padding-bottom:55%;width:100%;height:0}.video-wrapper iframe{position:absolute;height:100%;width:100%;}.d-none {display: none !important;}.item-twikoo{margin:2rem 0 0 0;}.video-wrapper video{max-height: 30vh;}#tag-list{margin:0;position:fixed;bottom:1rem;right:1rem;}#tag-list .tag-span{position:relative;display:block;background:rgba(238,238,238,0.88);line-height: 2.5rem;border-radius: 7px;padding: 0 10px;}#tag-list .tag-span:before{font-size:1rem;content:'x';position:absolute;top:-1rem;right:5px;width:5px;height:5px;}"
 loadCssCode(allCSS);
 
 let limit = bbMemo.limit
@@ -50,7 +50,7 @@ async function fetchStatus() {
 function getMemoOne(memoOne){
   let OneDom = `<iframe style="width:100%;height:100vh;" src="${memoOne}" frameBorder="0"></iframe>`
   let ContDom = document.querySelector('.content')
-  ContDom.innerHTML = OneDom
+  ContDom.innerHTML == OneDom
 }
 function getQueryVariable(variable){
   var query = window.location.search.substring(1);
@@ -78,6 +78,8 @@ function newApiV1(apiV1){
 }
 function getFirstList(apiV1){
   bbDom.insertAdjacentHTML('afterend', load);
+  let tagHtml = `<p id="tag-list"></p>`
+  bbDom.insertAdjacentHTML('beforebegin', tagHtml);
   let bbUrl = memos+"api/"+apiV1+"memo?creatorId="+bbMemo.creatorId+"&rowStatus=NORMAL&limit="+limit;
   fetch(bbUrl).then(res => res.json()).then( resdata =>{
     let arrData = resdata || ''
@@ -179,10 +181,10 @@ function updateHTMl(data){
       return localLink ? html : html.replace(/^<a /, `<a target="_blank" rel="noreferrer noopener nofollow" `);
   };
   marked.use({ renderer });
-
+  
   for(let i=0;i < data.length;i++){
       let bbContREG = data[i].content
-        .replace(TAG_REG, "<span class='tag-span'>#$1</span> ")
+        .replace(TAG_REG, "<span class='tag-span' onclick='getTagNow(this)'>#$1</span> ")
         .replace(IMG_REG, '')
 
       bbContREG = marked.parse(bbContREG)
@@ -250,11 +252,9 @@ function updateHTMl(data){
       let emojiReaction = `<emoji-reaction theme="system" class="reaction" endpoint="https://api-emaction.immmmm.com" reacttargetid="${memosIdNow+'memo-'+data[i].id}" style="line-height:normal;"></emoji-reaction>`
       let datacountDOM = `<div class="datacount" data-twienv="${bbMemo.twiEnv}" data-id="${data[i].id}" onclick="loadTwikoo(this)"> ${data[i].count} 条评论 </div>`
 
-      result +=  `
-      <li class="memo-${data[i].id}">
+      result +=  `<li class="memo-${data[i].id}">
         <div class="bb-div">
-
-        ${emojiReaction}
+          ${emojiReaction}
           <div class="datacont">
             ${bbContREG}
           </div>
@@ -272,8 +272,7 @@ function updateHTMl(data){
   let bbAfter = "</ul></section>"
   resultAll = bbBefore + result + bbAfter
   bbDom.insertAdjacentHTML('beforeend', resultAll);
-
-  document.querySelector('button.button-load').textContent= '加载更多';
+  if(document.querySelector('button.button-load')) document.querySelector('button.button-load').textContent = '加载更多';
   //渲染豆瓣
   fetchDB()
   //图片灯箱
@@ -282,6 +281,51 @@ function updateHTMl(data){
   window.Lately && Lately.init({ target: '.datatime' });
 }
 
+//获取指定 Tag 评论
+function getTagNow(e){
+  //console.log(e.innerHTML)
+  let tagName = e.innerHTML.replace('#','')
+  let domClass = document.getElementById("bber")
+  window.scrollTo({
+    top: domClass.offsetTop - 30,
+    behavior: "smooth"
+  });
+  let tagHtmlNow = `<span class='tag-span' onclick='javascript:location.reload();'>${e.innerHTML}</span>`
+  document.querySelector('#tag-list').innerHTML = tagHtmlNow
+  let bbUrl = memos+"api/"+apiV1+"memo?creatorId="+bbMemo.creatorId+"&tag="+tagName+"&limit=20";
+  fetch(bbUrl).then(res => res.json()).then( resdata =>{
+    let arrData = resdata || ''
+    if(resdata.data){
+      arrData = resdata.data
+    }
+    document.querySelector(bbMemo.domId).innerHTML = ""
+    if(document.querySelector("button.button-load")) document.querySelector("button.button-load").remove()
+    updateTiwkoo(arrData)
+  })
+}
+function randomMemo(){
+  let randomUrl1 = memos+"api/"+apiV1+"memo/stats?creatorId="+bbMemo.creatorId;
+  fetch(randomUrl1).then(res => res.json()).then( resdata =>{
+    let arrData = resdata || ''
+    if(resdata.data){
+      arrData = resdata.data
+    }
+    console.log(arrData.length)
+    let randomNum = Math.floor(Math.random() * (arrData.length)) + 1;
+    console.log(randomNum)
+    let randomUrl2 = memos+"api/"+apiV1+"memo?creatorId="+bbMemo.creatorId+"&rowStatus=NORMAL&limit=1&offset="+randomNum
+    fetch(randomUrl2).then(res => res.json()).then( resdata =>{
+      let arrData = resdata || ''
+      if(resdata.data){
+        arrData = resdata.data
+      }
+      let randomData = arrData
+      document.querySelector(bbMemo.domId).innerHTML = ""
+      if(document.querySelector("button.button-load")) document.querySelector("button.button-load").remove()
+      updateTiwkoo(randomData)
+    });
+  })
+}
 //前端加载 Twikoo 评论
 function loadTwikoo(e) {
   let memoEnv = e.getAttribute("data-twienv")
@@ -390,7 +434,7 @@ function movieShow(fetch_href, fetch_item){
   let db_star = Math.ceil(data.rating);
   let db_html = `<div class="post-preview"><div class="post-preview--meta"><div class="post-preview--middle"><h4 class="post-preview--title"><a target="_blank" rel="noreferrer" href="${fetch_href}">《${data.name}》</a></h4><div class="rating"><div class="rating-star allstar${db_star}"></div><div class="rating-average">${data.rating}</div></div><time class="post-preview--date">导演：${data.director} / 类型：${data.genre} / ${data.year}</time><section style="max-height:75px;overflow:hidden;" class="post-preview--excerpt">${data.intro.replace(/\s*/g, "")}</section></div></div><img referrer-policy="no-referrer" loading="lazy" class="post-preview--image" src="https://dou.img.lithub.cc/movie/${data.id}.jpg"></div>`
   let db_div = document.createElement("div");
-  let qs_href = ".bbs-timeline a[href='"+ fetch_href +"']"
+  let qs_href = ".bb-timeline a[href='"+ fetch_href +"']"
   let qs_dom = document.querySelector(qs_href)
   qs_dom.parentNode.replaceChild(db_div, qs_dom);
   db_div.innerHTML = db_html
@@ -401,7 +445,7 @@ function bookShow(fetch_href, fetch_item) {
   let db_star = Math.ceil(data.rating.average);
   let db_html = `<div class="post-preview"><div class="post-preview--meta"><div class="post-preview--middle"><h4 class="post-preview--title"><a target="_blank" rel="noreferrer" href="${fetch_href}">《${data.title}》</a></h4><div class="rating"><div class="rating-star allstar${db_star}"></div><div class="rating-average">${data.rating.average}</div></div><time class="post-preview--date">作者：${data.author} </time><section style="max-height:75px;overflow:hidden;" class="post-preview--excerpt">${data.summary.replace(/\s*/g, "")}</section></div></div><img referrer-policy="no-referrer" loading="lazy" class="post-preview--image" src="https://dou.img.lithub.cc/book/${data.id}.jpg"></div>`
   let db_div = document.createElement("div");
-  let qs_href = ".bbs-timeline a[href='"+ fetch_href +"']"
+  let qs_href = ".bb-timeline a[href='"+ fetch_href +"']"
   let qs_dom = document.querySelector(qs_href)
   qs_dom.parentNode.replaceChild(db_div, qs_dom);
   db_div.innerHTML = db_html
