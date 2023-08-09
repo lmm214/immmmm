@@ -15,6 +15,7 @@ if(typeof(bbMemos) !=="undefined"){
     }
   }
 }
+
 function loadCssCode(code){
   let style = document.createElement('style');
   style.type = 'text/css';
@@ -49,7 +50,7 @@ async function fetchStatus() {
 }
 function getMemoOne(memoOne){
   let OneDom = `<iframe style="width:100%;height:100vh;" src="${memoOne}" frameBorder="0"></iframe>`
-  let ContDom = document.querySelector('.content123') || document.querySelector(bbMemo.domId);
+  let ContDom = document.querySelector('.content') || document.querySelector(bbMemo.domId);
   ContDom.innerHTML = OneDom
 }
 function getQueryVariable(variable){
@@ -293,16 +294,10 @@ function getTagNow(e){
   let tagHtmlNow = `<span class='tag-span' onclick='javascript:location.reload();'>${e.innerHTML}</span>`
   document.querySelector('#tag-list').innerHTML = tagHtmlNow
   let bbUrl = memos+"api/"+apiV1+"memo?creatorId="+bbMemo.creatorId+"&tag="+tagName+"&limit=20";
-  fetch(bbUrl).then(res => res.json()).then( resdata =>{
-    let arrData = resdata || ''
-    if(resdata.data){
-      arrData = resdata.data
-    }
-    document.querySelector(bbMemo.domId).innerHTML = ""
-    if(document.querySelector("button.button-load")) document.querySelector("button.button-load").remove()
-    updateTiwkoo(arrData)
-  })
+  fetchMemoDOM(bbUrl)
 }
+
+//随机一条 Memos 需手动添加 html 如：<span onclick="randomMemo()">回忆</span>
 function randomMemo(){
   let randomUrl1 = memos+"api/"+apiV1+"memo/stats?creatorId="+bbMemo.creatorId;
   fetch(randomUrl1).then(res => res.json()).then( resdata =>{
@@ -314,18 +309,32 @@ function randomMemo(){
     let randomNum = Math.floor(Math.random() * (arrData.length)) + 1;
     console.log(randomNum)
     let randomUrl2 = memos+"api/"+apiV1+"memo?creatorId="+bbMemo.creatorId+"&rowStatus=NORMAL&limit=1&offset="+randomNum
-    fetch(randomUrl2).then(res => res.json()).then( resdata =>{
-      let arrData = resdata || ''
-      if(resdata.data){
-        arrData = resdata.data
-      }
-      let randomData = arrData
-      document.querySelector(bbMemo.domId).innerHTML = ""
-      if(document.querySelector("button.button-load")) document.querySelector("button.button-load").remove()
-      updateTiwkoo(randomData)
-    });
+    fetchMemoDOM(randomUrl2)
   })
 }
+
+//搜索 Memo ，基于 v1 api，需手动添加 html 如：<span onclick="serchMemo()">搜索</span>
+function serchMemo(){
+  let serchText = prompt('搜点啥？','');
+  let tagHtmlNow = `<span class='tag-span' onclick='javascript:location.reload();'>${serchText}</span>`
+  document.querySelector('#tag-list').innerHTML = tagHtmlNow
+  let bbUrl = memos+"api/"+apiV1+"memo?creatorId="+bbMemo.creatorId+"&content="+serchText+"&limit=20";
+  fetchMemoDOM(bbUrl)
+}
+
+function fetchMemoDOM(bbUrl){
+  fetch(bbUrl).then(res => res.json()).then( resdata =>{
+    let arrData = resdata || ''
+    if(resdata.data){
+      arrData = resdata.data
+    }
+    document.querySelector(bbMemo.domId).innerHTML = ""
+    if(document.querySelector("button.button-load")) document.querySelector("button.button-load").remove()
+    updateTiwkoo(arrData)
+  })
+}
+
+
 //前端加载 Twikoo 评论
 function loadTwikoo(e) {
   let memoEnv = e.getAttribute("data-twienv")
@@ -432,7 +441,7 @@ function movieShow(fetch_href, fetch_item){
   let storage = localStorage.getItem(fetch_item);
   let data = JSON.parse(storage);
   let db_star = Math.ceil(data.rating);
-  let db_html = `<div class="post-preview"><div class="post-preview--meta"><div class="post-preview--middle"><h4 class="post-preview--title"><a target="_blank" rel="noreferrer" href="${fetch_href}">《${data.name}》</a></h4><div class="rating"><div class="rating-star allstar${db_star}"></div><div class="rating-average">${data.rating}</div></div><time class="post-preview--date">导演：${data.director} / 类型：${data.genre} / ${data.year}</time><section style="max-height:75px;overflow:hidden;" class="post-preview--excerpt">${data.intro.replace(/\s*/g, "")}</section></div></div><img referrer-policy="no-referrer" loading="lazy" class="post-preview--image" src="https://dou.img.lithub.cc/movie/${data.id}.jpg"></div>`
+  let db_html = `<div class="post-preview"><div class="post-preview--meta"><div class="post-preview--middle"><h4 class="post-preview--title"><a target="_blank" rel="noreferrer" href="${fetch_href}">《${data.name}》</a></h4><div class="rating"><div class="rating-star allstar${db_star}"></div><div class="rating-average">${data.rating}</div></div><time class="post-preview--date">导演：${data.director} / 类型：${data.genre} / ${data.year}</time><section style="max-height:75px;overflow:hidden;" class="post-preview--excerpt">${data.intro.replace(/\s*/g, "")}</section></div></div><img referrer-policy="no-referrer" loading="lazy" class="post-preview--image" src="https://dou.img.lithub.cc/movie/${data.sid}.jpg"></div>`
   let db_div = document.createElement("div");
   let qs_href = ".bb-timeline a[href='"+ fetch_href +"']"
   let qs_dom = document.querySelector(qs_href)

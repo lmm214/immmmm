@@ -574,7 +574,7 @@ function movieShow(fetch_href, fetch_item){
   let storage = localStorage.getItem(fetch_item);
   let data = JSON.parse(storage);
   let db_star = Math.ceil(data.rating);
-  let db_html = `<div class="post-preview"><div class="post-preview--meta"><div class="post-preview--middle"><h4 class="post-preview--title"><a target="_blank" rel="noreferrer" href="${fetch_href}">《${data.name}》</a></h4><div class="rating"><div class="rating-star allstar${db_star}"></div><div class="rating-average">${data.rating}</div></div><time class="post-preview--date">导演：${data.director} / 类型：${data.genre} / ${data.year}</time><section style="max-height:75px;overflow:hidden;" class="post-preview--excerpt">${data.intro.replace(/\s*/g, "")}</section></div></div><img referrer-policy="no-referrer" loading="lazy" class="post-preview--image" src="https://dou.img.lithub.cc/movie/${data.id}.jpg"></div>`
+  let db_html = `<div class="post-preview"><div class="post-preview--meta"><div class="post-preview--middle"><h4 class="post-preview--title"><a target="_blank" rel="noreferrer" href="${fetch_href}">《${data.name}》</a></h4><div class="rating"><div class="rating-star allstar${db_star}"></div><div class="rating-average">${data.rating}</div></div><time class="post-preview--date">导演：${data.director} / 类型：${data.genre} / ${data.year}</time><section style="max-height:75px;overflow:hidden;" class="post-preview--excerpt">${data.intro.replace(/\s*/g, "")}</section></div></div><img referrer-policy="no-referrer" loading="lazy" class="post-preview--image" src="https://dou.img.lithub.cc/movie/${data.sid}.jpg"></div>`
   let db_div = document.createElement("div");
   let qs_href = ".bbs-timeline a[href='"+ fetch_href +"']"
   let qs_dom = document.querySelector(qs_href)
