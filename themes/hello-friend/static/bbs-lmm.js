@@ -365,7 +365,6 @@ function updateHTMl(data){
 
       //标签
       let tagArr = data[i].content.match(TAG_REG),bbContTag;
-      console.log("tagArr"+tagArr)
       bbContTag = tagArr ? String(tagArr[0]).replace(/[#]/g, '') : "动态"
 
       //解析内置资源文件
