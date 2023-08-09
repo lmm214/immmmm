@@ -242,6 +242,7 @@ const fetchBBser = async () => {
   )).then(results=> {
     //console.log(results)
     bbDom.innerHTML = ''
+    bbsDatas.length = 0
     for(let i=0;i < results.length;i++){
       let status = results[i].status
       if(status == "fulfilled"){
