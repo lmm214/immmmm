@@ -6,13 +6,11 @@
 html{background-image:url('https://bing.immmmm.com/img/bing?region=zh-CN&type=image');width:100%;height:100vh;background-position:center;background-size:cover;background-attachment:fixed;height:100vh;}
 body{background:rgba(255,255,255,0.88);}
 .content{height:100%;}
-body.dark{background-color: rgba(41,42,45,0.88);}
+body.dark{background-color: rgba(41,42,45,0.92);}
 .bbs-text, .resour, .item-comment{background:rgba(255,255,255,0.88) !important;}
-.dark .bbs-text, .dark .resour, .dark #bbs-urls, .dark #load button.load-btn,.dark .item-comment{background-color: rgba(41,42,45,0.8) !important;}
+.dark .bbs-text, .dark .resour, .dark #bbs-urls, .dark #load button.load-btn,.dark .item-comment{background-color: rgba(41,42,45,0.92) !important;}
 .header{background:rgba(250,250,250,0.6);}
-.dark .header{background:rgba(37,38,39,0.7);}
-
-
+.dark .header{background:rgba(37,38,39,0.6);}
 
 #bbs{padding: 2rem 0;min-height:100vh;}
 #bbs-urls{margin-top: 2rem;justify-content: center;
@@ -32,6 +30,7 @@ body.dark{background-color: rgba(41,42,45,0.88);}
   from{opacity:1}
   to{opacity:0.4;}
 }
+
 .bbs-urls img{border-radius:50%;width:100%;height:100%;}
 .bbs-urls.url-now{background:#42b983;transition: 0.6s;animation-name: light-b;animation-duration:1s;animation-timing-function: linear;animation-iteration-count: infinite;animation-direction: alternate;}
 .urls-button svg.icon{padding:10px;width:100%;height: 100%;}
@@ -60,6 +59,8 @@ body.dark{background-color: rgba(41,42,45,0.88);}
 .dark .bbs-text p{color:#fafafa;}
 .bbs-coment-svg{margin-left: 0.5rem;cursor: pointer;}
 .dark .bbs-coment-svg svg.icon{fill:#ffffff;}
+.bbs-timeline ul li .bbs-outlink{position:absolute;right:2px;opacity:0.1;z-index: 999;}
+.bbs-timeline ul li:hover .bbs-outlink{opacity:1;}
 .loader {position: relative;margin:3rem auto;width: 100px;}
 .loader::before {content: '';display: block;padding-top: 100%;}
 .circular {animation: rotate 2s linear infinite;height: 100%;transform-origin: center center;width: 100%;position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;}
@@ -167,7 +168,7 @@ body.dark{background-color: rgba(41,42,45,0.88);}
   <script src="/twikoo1616.js"></script>
   <script src="https://unpkg.com/artalk@2/dist/ArtalkLite.js"></script>
   <script type="module" src="/emaction.js?v=2308072"></script>
-  <script src="/bbs-lmm.js?v=2308082"></script>
+  <script src="/bbs-lmm.js?v=230809"></script>
 {{ end }}
 
 {{ define "footer" }}
