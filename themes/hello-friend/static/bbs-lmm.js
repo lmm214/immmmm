@@ -1,6 +1,25 @@
 /*
 Last Modified time : 20230809 by https://immmmm.com
 */
+let memoOne = getQueryVariable("memo") || ''
+if(memoOne){
+  getMemoOne(memoOne)
+}
+function getMemoOne(memoOne){
+  let OneDom = `<iframe style="width:100%;height:100vh;margin-top:-50px;" src="${memoOne}" frameBorder="0"></iframe>`
+  let ContDom = document.querySelector('.content')
+  ContDom.innerHTML = OneDom
+}
+function getQueryVariable(variable){
+  var query = window.location.search.substring(1);
+  var vars = query.split("&");
+  for (var i=0;i<vars.length;i++) {
+    var pair = vars[i].split("=");
+    if(pair[0] == variable){return pair[1];}
+  }
+  return(false);
+}
+
 const cdnGravatar = "https://cravatar.cn/avatar/"
 const urls = [
   {home:"https://immmmm.com/",host:"https://me.edui.fun/",apiV1:'v1/',creatorId:"101",comment:'1',twiEnv:'https://metk.edui.fun/',imgsrc:cdnGravatar+"ba83fa02fc4b2ba621514941307e21be",endpoint:'https://api-emaction.immmmm.com',reacttargetid:"id-edui-memo-",availablearraystring:"👍,thumbs-up;🎉,party-popper;🚀,rocket;😄,smile-face;😎,cool;❤️,red-heart;"},
@@ -60,7 +79,7 @@ let page = 1,offset = 0,nextLength = 0,nextDom,bbUrlNow,imgsrcNow,hostNow,creIdN
 bbDom.innerHTML = loading
 allUrls()
 function allUrls(){
-  //console.log(urls)
+  console.log(urls)
   let myHtml = ""
   for(let i=0;i < urls.length;i++){
     myHtml += `<div class="bbs-urls bbs-url" onclick="urlsNow(this)" data-hostid="${urls[i].host+"u/"+urls[i].creatorId}" data-index="${i}"><img src="${urls[i].imgsrc}" alt=""></div>`
@@ -442,8 +461,8 @@ function updateHTMl(data){
 //前端加载 Twikoo 评论
 function loadTwikoo(e) {
   let memoEnv = e.getAttribute("data-twienv")
-  let EnvNow = memoEnv.replace(/https\:\/\/(.*\.)?(.*)\..*/,'id-$2-')
   let memoPath = e.getAttribute("data-path")
+  let EnvNow = memoPath.replace(/https\:\/\/(.*\.)?(.*)\..*/,'id-$2-')
   let memoId = e.getAttribute("data-id")
   let twikooDom = document.querySelector('.twikoo-'+memoId);
   if (twikooDom.classList.contains('d-none')) {
@@ -463,6 +482,9 @@ function loadTwikoo(e) {
       setTimeout(function(){
         document.getElementById("twikoo").id= EnvNow+'twikoo-' + memoId;
       }, 600)
+      //加参数 http://localhost:1313/bbs/?memo=https://me.edui.fun/m/1699
+      let memoUrlOne = location.pathname + '?memo=' + memoPath
+      history.pushState({memoUrlOne: memoUrlOne, title: document.title}, document.title, memoUrlOne)
     }
   }else{
     twikooDom.classList.add('d-none');
@@ -471,7 +493,8 @@ function loadTwikoo(e) {
 //前端加载 Artalk 评论
 function loadArtalk(e) {
   let memoEnv = e.getAttribute("data-artenv")
-  let EnvNow = e.getAttribute("data-path").replace(/https\:\/\/(.*\.)?(.*)\..*/,'id-$2-')
+  let memoPath = e.getAttribute("data-path")
+  let EnvNow = memoPath.replace(/https\:\/\/(.*\.)?(.*)\..*/,'id-$2-')
   let memoSite= e.getAttribute("data-artsite")
   let memoId = e.getAttribute("data-id")
   let ArtalkDom = document.querySelector('.'+EnvNow+'artalk-'+memoId);
@@ -496,6 +519,9 @@ function loadArtalk(e) {
         site: memoSite,
         server: memoEnv
       });
+      //加参数 http://localhost:1313/bbs/?memo=https://me.edui.fun/m/1699
+      let memoUrlOne = location.pathname + '?memo=' + memoPath
+      history.pushState({memoUrlOne: memoUrlOne, title: document.title}, document.title, memoUrlOne)
     }
   }else{
     ArtalkDom.classList.add('d-none');
