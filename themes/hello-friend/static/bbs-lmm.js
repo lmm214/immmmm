@@ -343,21 +343,21 @@ function updateHTMl(data){
       let reacttargetid = data[i].reacttargetid
       let availablearraystring = data[i].availablearraystring
       
-      let bbContREG = data[i].content
-        .replace(TAG_REG, "")
+      let bbCont = data[i].content + ' '
+      let bbContREG = bbCont.replace(TAG_REG, "")
         .replace(IMG_REG, "")
         .replace(LINK_REG, '<a class="primary" href="$2" target="_blank">$1</a>')
 
       //标签
-      let tagArr = data[i].content.match(TAG_REG);
-      console.log(tagArr)
+      let tagArr = bbCont.match(TAG_REG);
+      //console.log(tagArr)
       let bbContTag = '';
       if (tagArr) {
           bbContTag = tagArr.map(t=>{
             return `<span class='tag-span' onclick='getTagNow(this)'>${t}</span> `;
           }).join('');
       }
-      bbContREG = bbContTag + bbContREG
+      bbContREG = bbContTag + bbContREG.trim()
 
       bbContREG = marked.parse(bbContREG)
         .replace(BILIBILI_REG, "<div class='video-wrapper'><iframe src='//www.bilibili.com/blackboard/html5mobileplayer.html?bvid=$1&as_wide=1&high_quality=1&danmaku=0' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'></iframe></div>")
@@ -420,7 +420,7 @@ function updateHTMl(data){
         emojiReaction = `<emoji-reaction theme="system" class="reaction" endpoint="${endpoint}" reacttargetid="${reacttargetid+memoId}" availablearraystring="${availablearraystring}"></emoji-reaction>`
       }
       
-      let bbContDom = `<div class="bbs-content"><div class="bbs-text">${bbContREG+emojiReaction}</div>`
+      let bbContDom = `<div class="bbs-content"><div class="bbs-text">${bbContREG + emojiReaction}</div>`
       let bbAvaDom = `<div class="bbs-avatar"><a href="${data[i].home}" target="_blank" rel="noopener noreferrer"><img src="${data[i].imgsrc}" alt=""></a><a href="javascript:void(0)" class="bbs-creator" onclick="urlsNow(this)" data-index="${uslIndexNow}">${data[i].creator}</a><span class="bbs-dot">·</span><span class="bbs-date">${new Date(data[i].updatedTs * 1000).toLocaleString()}</span>`
 
       result += `<li class="${memoIdNow+"memo-"+memoId}">

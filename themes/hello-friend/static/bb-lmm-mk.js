@@ -24,7 +24,7 @@ function loadCssCode(code){
   let head = document.getElementsByTagName('head')[0];
   head.appendChild(style);
 }
-const allCSS = "#bber{margin-top:2em;width:auto !important;min-height:100vh;}.bb-timeline pre{color:#aaa;}.bb-timeline ul{margin:0;padding:0;}.bb-timeline ul li{list-style-type:none;margin-bottom:3rem;}.bb-timeline ul li .datacont ul li{margin-bottom:0;}.bb-timeline ul li .bb-div{padding:.6rem 1rem .6rem;border:1px solid #666;font-size:16px;}.bb-load button{font-size:.8rem;font-style:italic;background:none;border-radius:0;border:1px solid #666;padding:10px 30px;width:100%;letter-spacing:0.8rem;}.bb-timeline ul li .bb-info{font-size:14px;position:relative;margin-top:0.5rem;}.bb-info a{text-decoration:none;}.bb-timeline ul li .datatime{font-size:15px;}.bb-timeline ul li .datacont{margin-top:0.5rem;max-height:50vh;overflow-y:scroll;overflow-x:hidden;}.bb-timeline ul li .datacount{cursor: pointer;position:absolute;right:0;bottom: 0;}.bb-timeline ul li .datacount svg{margin: 2px 5px;}.bb-timeline ul li .datacont img[src*='emotion']{display:inline-block;width:auto;}.bb-timeline ul li p{margin:0;letter-spacing:1px;color:#3b3d42;line-height:28px;min-height:18px;margin:0;}.bb-timeline pre p{display:inline-block;}.bb-timeline pre p:empty{display:none;}.dark .bb-timeline ul li .bb-div p,.dark .bb-timeline .bb-load button{color:#fafafa;}.dark .bb-timeline ul li .bb-div p svg{fill:#fafafa;}.datacont p{magin:0;}.datacont blockquote{font-family: KaiTi,STKaiti,STFangsong !important;margin:0 0 0 1rem;padding:.25rem 2rem;position: relative;border-left:0 none;}.datacont blockquote::before{line-height: 2rem;content: '“';font-family: Georgia, serif;font-size: 28px;font-weight: bold;position: absolute;left: 10px;top:5px;}.tag-span{color:#42b983;cursor:pointer;}#tag-list{font-size:1.8rem;}.datasource a{color:#fafafa;background:#3b3d42;padding:2px 8px;margin:0 6px 0 0;border-radius:5px;font-size:.9rem;font-weight:400;}.datacont .img{cursor:pointer;border-radius:4px;}.datacont .img.square{height:180px;width:180px;object-fit:cover;}.resimg.grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto;gap:4px;width:calc(100%* 2 / 3);box-sizing:border-box;margin:4px 0 0;}.resimg.grid-2{grid-template-columns:repeat(2,1fr);width:80%;}.resimg.grid-4{grid-template-columns:repeat(2,1fr);width:calc(80% * 2 / 3);}.resimg.grid figure.gallery-thumbnail{position:relative;width:100%;height:0;padding-top:100%;cursor:zoom-in;}.resimg figure{text-align:left;max-height:50%;}.resimg figure img{max-height:50vh;}.resimg.grid figure,figcaption{margin:0 !important;}.resimg.grid figure.gallery-thumbnail > img.thumbnail-image{position:absolute;left:0;top:0;display:block;width:100%;height:100%;object-fit:cover;object-position:50% 50%;}#bb-footer{margin:5rem auto 1rem;text-align:center;}#bb-footer p{margin:0 0 0.6rem;}.bb-allnums{letter-spacing:2px;}.bb-allpub{text-decoration:none;font-style:italic;}.bb-timeline ul li::before{content:none;}.post-preview{max-width:680px;height:210px;margin:1em auto;position:relative;display:flex;background:#fff;border-radius:4px;box-shadow:0 1px 2px rgba(0,0,0,.25),0 0 1px rgba(0,0,0,.25);}.post-preview--meta{width:75%;padding:25px;overflow:hidden;}.post-preview--middle {line-height:28px;}.post-preview--title {font-size:18px;margin:0!important;}.post-preview--title a{text-decoration:none;}.post-preview--date{font-size:14px;color:#999;}.post-preview--excerpt{font-size:14px;line-height:1.825;}.post-preview--excerpt p{display: inline;margin: 0;}.post-preview--image {object-fit:cover;height:auto;width:25%;float:right;border-top-right-radius: 2px!important;border-bottom-right-radius:2px!important;border-top-left-radius:0!important;border-bottom-left-radius:0!important;}@media (max-width:550px) {.post-preview {width:95%;height:120px;}.post-preview--meta{padding:15px;}.post-preview--image{height:120px!important;}.post-preview--excerpt{display:none;}.post-preview--middle {line-height:19px;}}.rating{display:block;line-height:15px;}.rating-star{display:inline-block;width:75px;height:15px;background-repeat:no-repeat;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAAClCAYAAAAUAAAYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA5xJREFUeNrs3T9rFEEcxvG7qEQIglaCICKkin9AUEtBKxU7wS61VlYivgWj70TtNFj5BqzE7qxEWwsxKIoYn4UtluFmbm8nczvzm+/BjxyuDwNzu3uXD0+46f7LC5PA45Hm+WTYw1x2LRDc0jzTXB+wqMlsaLPutz8fDFjYZHYauAz3NBvt83XNnyUWNpn1nVm3OsHmsb3EomazzZnVXKMPNcc0xzUnNKc0Rzv/77fms+Z7O3vt9b1eU7bZrNN68l5zcolX4ofmsuZXTdnmMvyi2dR86Bmcac62P6vKrnVubpc0bxYE32nOab45N8YqsvPeDfcD4SOav4HjprPuu+H5BTt9LXDMfNbdLPfT678Fx6vKupt1o/O8+R3pkOaJ5/iktqx7z/qp+aq5q/nY+fczmheaK03Gs7D5rLtZdzSvA6/Ebc2u55j57HQB0TzW7AzkjiKzny6+2hlKNE8juMNcFqKBaIZndRlCNBBNgmx7ZkE0fbLtZkE0EA1EM17WuQwhGogGooFoss6296y52cNO+J6HLJoPaFdbsvA9zGerIxrPh85eWYgGooFoDiQbuAxp0UA0EVmdWbRo+ma1WbRoIBqIZtzsnHdDWjQQDUQD0WSbde5ZS2UhmtqJJtSEiVkXooFoIJre2VATJmZdiKZ2ogk1YSb8oVMvDeUPnSAaiCaPJkzMuhANRAPRQDQpsqEmTMy6EI11oolpwkA0EA1EcyDZmCYMRAPR+LMxTZjqiCamCQPRQDQQzehNGIgGooFoIJpVZ2OaMBBN7USTqgkD0UA0EE3vbKomDERTO9GkasKYJJpUTRiIBqKBaEZvwkA0EA1EA9GkyKZqwkA01olmrCYMRAPRQDR9LkO+0QmiKbAJUyTRjNWEgWggGohm9CYMRAPRQDQQzZDsWE0YiMYC0eTYhIFoIJrKiCbHJgxEY4FocmzCZEs0OTZhIBqIpjKiybEJA9FANBANROPL5tiEgWhKIJoSmzAQDURjjGhKbMJANCUQTYlNmNGIpsQmDEQD0RgjmhKbMBANRAPR1Es0JTZhIJpciMZaEwaigWgKJBprTRiIJheisdaESUo01powEA1EUyDRWGvCQDQQDURjm2isNWEgmlURzWw2q4pZIBqIJkOiCVyGJpkFolkV0ejMMvel28mIRptl7ku3IRqIpjCimfNuaJpZIBqIBqIpm2ice5Z5ZonJupvVkMRu4JW4qXnrOWY++1+AAQBw9BJSCTeN9wAAAABJRU5ErkJggg==);overflow:hidden;}.allstar10{background-position:0px 0px;}.allstar9{background-position:0px -15px;}.allstar8{background-position:0px -30px;}.allstar7{background-position:0px -45px;}.allstar6{background-position:0px -60px;}.allstar5{background-position:0px -75px;}.allstar4{background-position:0px -90px;}.allstar3{background-position:0px -105px;}.allstar2{background-position:0px -120px;}.allstar1{background-position:0px -135px;}.allstar0{background-position:0px -150px;}.rating-average{color:#777;display:inline-block;font-size:13px;margin-left:10px;}.dark .post-preview{background: #3b3d42;}.video-wrapper{position:relative;padding-bottom:55%;width:100%;height:0}.video-wrapper iframe{position:absolute;height:100%;width:100%;}.d-none {display: none !important;}.item-twikoo{margin:2rem 0 0 0;}.video-wrapper video{max-height: 30vh;}#tag-list{z-index: 99999;margin:0;position:fixed;bottom:1rem;right:6rem;}#tag-list .tag-span{position:relative;display:block;background:rgba(238,238,238,0.88);line-height:12px;border-radius:4px;padding: 0 10px;}#tag-list .tag-span:before{font-size:1rem;content:'x';position:absolute;top:-1rem;right:5px;width:5px;height:5px;}.bb-tool{display:flex;justify-content:space-between;align-items:center;}.reaction,.archive-btn{display:inline-flex;}.archive-btn{opacity:0.3;}"
+const allCSS = "#bber{margin-top:1rem;width:auto !important;min-height:100vh;}.bb-timeline pre{color:#aaa;}.bb-timeline ul{margin:0;padding:0;}.bb-timeline ul li{list-style-type:none;margin-bottom:3rem;}.bb-timeline ul li .datacont ul li{margin-bottom:0;}.bb-timeline ul li .bb-div{padding:.6rem 1rem .6rem;border:1px solid #666;font-size:16px;}.bb-load button{font-size:.8rem;font-style:italic;background:none;border-radius:0;border:1px solid #666;padding:10px 30px;width:100%;letter-spacing:0.8rem;}.bb-timeline ul li .bb-info{font-size:14px;position:relative;margin-top:0.5rem;}.bb-info a{text-decoration:none;}.bb-timeline ul li .datatime{font-size:15px;}.bb-timeline ul li .datacont{margin-top:0.5rem;max-height:50vh;overflow-y:scroll;overflow-x:hidden;}.bb-timeline ul li .datacount{cursor: pointer;position:absolute;right:0;bottom: 0;}.bb-timeline ul li .datacount svg{margin: 2px 5px;}.bb-timeline ul li .datacont img[src*='emotion']{display:inline-block;width:auto;}.bb-timeline ul li p{margin:0;letter-spacing:1px;color:#3b3d42;line-height:28px;min-height:18px;margin:0;}.bb-timeline pre p{display:inline-block;}.bb-timeline pre p:empty{display:none;}.dark .bb-timeline ul li .bb-div p,.dark .bb-timeline .bb-load button{color:#fafafa;}.dark .bb-timeline ul li .bb-div p svg{fill:#fafafa;}.datacont p{magin:0;}.datacont blockquote{font-family: KaiTi,STKaiti,STFangsong !important;margin:0 0 0 1rem;padding:.25rem 2rem;position: relative;border-left:0 none;}.datacont blockquote::before{line-height: 2rem;content: '“';font-family: Georgia, serif;font-size: 28px;font-weight: bold;position: absolute;left: 10px;top:5px;}.tag-span{color:#42b983;cursor:pointer;}#tag-list{font-size:1.8rem;}.datasource a{color:#fafafa;background:#3b3d42;padding:2px 8px;margin:0 6px 0 0;border-radius:5px;font-size:.9rem;font-weight:400;}.datacont .img{cursor:pointer;border-radius:4px;}.datacont .img.square{height:180px;width:180px;object-fit:cover;}.resimg.grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto;gap:4px;width:calc(100%* 2 / 3);box-sizing:border-box;margin:4px 0 0;}.resimg.grid-2{grid-template-columns:repeat(2,1fr);width:80%;}.resimg.grid-4{grid-template-columns:repeat(2,1fr);width:calc(80% * 2 / 3);}.resimg.grid figure.gallery-thumbnail{position:relative;width:100%;height:0;padding-top:100%;cursor:zoom-in;}.resimg figure{text-align:left;max-height:50%;}.resimg figure img{max-height:50vh;}.resimg.grid figure,figcaption{margin:0 !important;}.resimg.grid figure.gallery-thumbnail > img.thumbnail-image{position:absolute;left:0;top:0;display:block;width:100%;height:100%;object-fit:cover;object-position:50% 50%;}#bb-footer{margin:5rem auto 1rem;text-align:center;}#bb-footer p{margin:0 0 0.6rem;}.bb-allnums{letter-spacing:2px;}.bb-allpub{text-decoration:none;font-style:italic;}.bb-timeline ul li::before{content:none;}.post-preview{max-width:680px;height:210px;margin:1em auto;position:relative;display:flex;background:#fff;border-radius:4px;box-shadow:0 1px 2px rgba(0,0,0,.25),0 0 1px rgba(0,0,0,.25);}.post-preview--meta{width:75%;padding:25px;overflow:hidden;}.post-preview--middle {line-height:28px;}.post-preview--title {font-size:18px;margin:0!important;}.post-preview--title a{text-decoration:none;}.post-preview--date{font-size:14px;color:#999;}.post-preview--excerpt{font-size:14px;line-height:1.825;}.post-preview--excerpt p{display: inline;margin: 0;}.post-preview--image {object-fit:cover;height:auto;width:25%;float:right;border-top-right-radius: 2px!important;border-bottom-right-radius:2px!important;border-top-left-radius:0!important;border-bottom-left-radius:0!important;}@media (max-width:550px) {.post-preview {width:95%;height:120px;}.post-preview--meta{padding:15px;}.post-preview--image{height:120px!important;}.post-preview--excerpt{display:none;}.post-preview--middle {line-height:19px;}}.rating{display:block;line-height:15px;}.rating-star{display:inline-block;width:75px;height:15px;background-repeat:no-repeat;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAAClCAYAAAAUAAAYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA5xJREFUeNrs3T9rFEEcxvG7qEQIglaCICKkin9AUEtBKxU7wS61VlYivgWj70TtNFj5BqzE7qxEWwsxKIoYn4UtluFmbm8nczvzm+/BjxyuDwNzu3uXD0+46f7LC5PA45Hm+WTYw1x2LRDc0jzTXB+wqMlsaLPutz8fDFjYZHYauAz3NBvt83XNnyUWNpn1nVm3OsHmsb3EomazzZnVXKMPNcc0xzUnNKc0Rzv/77fms+Z7O3vt9b1eU7bZrNN68l5zcolX4ofmsuZXTdnmMvyi2dR86Bmcac62P6vKrnVubpc0bxYE32nOab45N8YqsvPeDfcD4SOav4HjprPuu+H5BTt9LXDMfNbdLPfT678Fx6vKupt1o/O8+R3pkOaJ5/iktqx7z/qp+aq5q/nY+fczmheaK03Gs7D5rLtZdzSvA6/Ebc2u55j57HQB0TzW7AzkjiKzny6+2hlKNE8juMNcFqKBaIZndRlCNBBNgmx7ZkE0fbLtZkE0EA1EM17WuQwhGogGooFoss6296y52cNO+J6HLJoPaFdbsvA9zGerIxrPh85eWYgGooFoDiQbuAxp0UA0EVmdWbRo+ma1WbRoIBqIZtzsnHdDWjQQDUQD0WSbde5ZS2UhmtqJJtSEiVkXooFoIJre2VATJmZdiKZ2ogk1YSb8oVMvDeUPnSAaiCaPJkzMuhANRAPRQDQpsqEmTMy6EI11oolpwkA0EA1EcyDZmCYMRAPR+LMxTZjqiCamCQPRQDQQzehNGIgGooFoIJpVZ2OaMBBN7USTqgkD0UA0EE3vbKomDERTO9GkasKYJJpUTRiIBqKBaEZvwkA0EA1EA9GkyKZqwkA01olmrCYMRAPRQDR9LkO+0QmiKbAJUyTRjNWEgWggGohm9CYMRAPRQDQQzZDsWE0YiMYC0eTYhIFoIJrKiCbHJgxEY4FocmzCZEs0OTZhIBqIpjKiybEJA9FANBANROPL5tiEgWhKIJoSmzAQDURjjGhKbMJANCUQTYlNmNGIpsQmDEQD0RgjmhKbMBANRAPR1Es0JTZhIJpciMZaEwaigWgKJBprTRiIJheisdaESUo01powEA1EUyDRWGvCQDQQDURjm2isNWEgmlURzWw2q4pZIBqIJkOiCVyGJpkFolkV0ejMMvel28mIRptl7ku3IRqIpjCimfNuaJpZIBqIBqIpm2ice5Z5ZonJupvVkMRu4JW4qXnrOWY++1+AAQBw9BJSCTeN9wAAAABJRU5ErkJggg==);overflow:hidden;}.allstar10{background-position:0px 0px;}.allstar9{background-position:0px -15px;}.allstar8{background-position:0px -30px;}.allstar7{background-position:0px -45px;}.allstar6{background-position:0px -60px;}.allstar5{background-position:0px -75px;}.allstar4{background-position:0px -90px;}.allstar3{background-position:0px -105px;}.allstar2{background-position:0px -120px;}.allstar1{background-position:0px -135px;}.allstar0{background-position:0px -150px;}.rating-average{color:#777;display:inline-block;font-size:13px;margin-left:10px;}.dark .post-preview{background: #3b3d42;}.video-wrapper{position:relative;padding-bottom:55%;width:100%;height:0}.video-wrapper iframe{position:absolute;height:100%;width:100%;}.d-none {display: none !important;}.item-twikoo{margin:2rem 0 0 0;}.video-wrapper video{max-height: 30vh;}#tag-list{z-index: 99999;margin:0;position:fixed;bottom:1rem;right:6rem;}#tag-list .tag-span{position:relative;display:block;background:rgba(238,238,238,0.88);line-height:12px;border-radius:4px;padding: 0 10px;}#tag-list .tag-span:before{font-size:1rem;content:'x';position:absolute;top:-1rem;right:5px;width:5px;height:5px;}.bb-tool{display:flex;justify-content:space-between;align-items:center;}.reaction,.archive-btn{display:inline-flex;}.archive-btn{opacity:0.3;}#tag-list-all .tag-span{margin:0.8rem 1rem 0 0;}"
 loadCssCode(allCSS);
 
 let limit = bbMemo.limit
@@ -33,6 +33,8 @@ let memosOpenId
 let mePage = 1,offset = 0,nextLength = 0,nextDom='',apiV1 = '';
 let bbDom = document.querySelector(bbMemo.domId);
 let load = '<div class="bb-load"><button class="load-btn button-load">加载中……</button></div>'
+let tagHtml = `<div id="tag-list-all"></div><div id="tag-list"></div>`
+
 if(bbDom){
   fetchStatus()
 }
@@ -63,6 +65,7 @@ function getQueryVariable(variable){
   }
   return(false);
 }
+
 function newApiV1(apiV1){
   getFirstList(apiV1) //首次加载数据
   meNums(apiV1) //加载总数
@@ -78,9 +81,9 @@ function newApiV1(apiV1){
     getNextList(apiV1)
   });
 }
+
 function getFirstList(apiV1){
   bbDom.insertAdjacentHTML('afterend', load);
-  let tagHtml = `<p id="tag-list"></p>`
   bbDom.insertAdjacentHTML('beforebegin', tagHtml);
   let bbUrl = memos+"api/"+apiV1+"memo?creatorId="+bbMemo.creatorId+"&rowStatus=NORMAL&limit="+limit;
   fetch(bbUrl).then(res => res.json()).then( resdata =>{
@@ -179,21 +182,22 @@ function updateHTMl(data){
   for(let i=0;i < data.length;i++){
       let bbID = data[i].id
       let memoUrl = memos + "m/" + bbID
-      //console.log(memoUrl)
-      let bbContREG = data[i].content
+      
+      let bbCont = data[i].content + ' '
+      let bbContREG = bbCont.replace(TAG_REG, "")
         .replace(TAG_REG, "")
         .replace(IMG_REG, "")
         .replace(LINK_REG, '<a class="primary" href="$2" target="_blank">$1</a>')
 
       //标签
-      let tagArr = data[i].content.match(TAG_REG);
+      let tagArr = bbCont.match(TAG_REG);
       let bbContTag = '';
       if (tagArr) {
           bbContTag = tagArr.map(t=>{
             return `<span class='tag-span' onclick='getTagNow(this)'>${t}</span> `;
           }).join('');
       }
-      bbContREG =  bbContTag + bbContREG
+      bbContREG =  bbContTag + bbContREG.trim()
             
       bbContREG = marked.parse(bbContREG)
         .replace(BILIBILI_REG, "<div class='video-wrapper'><iframe src='//www.bilibili.com/blackboard/html5mobileplayer.html?bvid=$1&as_wide=1&high_quality=1&danmaku=0' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'></iframe></div>")
@@ -251,15 +255,16 @@ function updateHTMl(data){
       let emojiReaction = `<emoji-reaction theme="system" class="reaction" endpoint="https://api-emaction.immmmm.com" reacttargetid="${memosIdNow+'memo-'+bbID}" style="line-height:normal;display:inline-flex;"></emoji-reaction>`
       let datacountDOM = `<div class="datacount" data-twienv="${bbMemo.twiEnv}" data-id="${bbID}" onclick="loadTwikoo(this)"> ${data[i].count} 条评论 </div>`
       
-      let moreAdmin = ''
-      let memosOpenIdNow = window.localStorage && window.localStorage.getItem("memos-access-token")
-      if(memosOpenIdNow){
-        moreAdmin = `<span class="archive-btn" onclick="archiveMemo(this)" data-id="${bbID}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-img"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></span>`
-      }
+      memosOpenIdNow = window.localStorage && window.localStorage.getItem("memos-access-token")
 
       result +=  `<li class="memo-${bbID}">
         <div class="bb-div">
-          <div class="bb-tool">${emojiReaction}${moreAdmin}</div>
+          <div class="bb-tool">
+            ${emojiReaction}
+            ${memosOpenIdNow == '' ? '':
+              `<span class="archive-btn" onclick="archiveMemo(this)" data-id="${bbID}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-img"><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle><circle cx="5" cy="12" r="1"></circle></svg></span>`
+            }
+          </div>
           <div class="datacont">
             ${bbContREG}
           </div>
@@ -330,9 +335,15 @@ function fetchMemoDOM(bbUrl){
     if(resdata.data){
       arrData = resdata.data
     }
-    document.querySelector(bbMemo.domId).innerHTML = ""
-    if(document.querySelector("button.button-load")) document.querySelector("button.button-load").remove()
-    updateTiwkoo(arrData)
+    //console.log(arrData)
+    if(arrData.length > 0){
+      document.querySelector(bbMemo.domId).innerHTML = ""
+      if(document.querySelector("button.button-load")) document.querySelector("button.button-load").remove()
+      updateTiwkoo(arrData)
+    }else{
+      alert("404 -_-!")
+      setTimeout(location.reload(), 1000);
+    }
   })
 }
 
@@ -343,7 +354,7 @@ function setOpenID(){
   if(memosOpenIdSet !== null ) window.localStorage && window.localStorage.setItem("memos-access-token", memosOpenIdSet);
 }
 
-//点击时间，归档 Memo
+//归档 Memo
 function archiveMemo(e) {
   let memoId = e.getAttribute("data-id")
   let memosOpenIdNow = window.localStorage && window.localStorage.getItem("memos-access-token");
@@ -367,6 +378,18 @@ function archiveMemo(e) {
   }else{
     setOpenID()
   }
+}
+
+//登录状态下，显示标签列表
+function showTaglist(){
+    let bbUrl = 'https://api-memos.immmmm.com/'
+    let tagListDom = ""
+    fetch(bbUrl).then(res => res.json()).then( resdata =>{
+      for(let i=0;i < resdata.length;i++){
+        tagListDom += `<span class="tag-span" onclick='getTagNow(this)'>#${resdata[i]}</span>`
+      }
+      document.querySelector('#tag-list-all').innerHTML = tagListDom
+    })
 }
 
 //前端加载 Twikoo 评论

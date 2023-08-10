@@ -31,7 +31,7 @@ span.setid{opacity:0.1;}
 </style>
 
 <div class="post">
-  <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a> <span onclick="randomMemo()">/回忆</span> <span onclick="serchMemo()">/搜索</span> <span class="setid" onclick="setOpenID()">/设置</span></h2>
+  <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a> <span onclick="randomMemo()">/回忆</span> <span onclick="showTaglist()">/分类</span> <span onclick="serchMemo()">/搜索</span> <span class="setid" onclick="setOpenID()">/设置</span></h2>
   <div class="post-content">
     <div id="bber"></div>
   </div>
@@ -54,7 +54,7 @@ span.setid{opacity:0.1;}
 <script src="https://fastly.jsdelivr.net/npm/meting@2.0.1/dist/Meting.min.js"></script>
 <script src="/twikoo1616.js"></script>
 <script src="https://unpkg.com/artalk@2/dist/ArtalkLite.js"></script>
-<script src="/bb-lmm-mk.js?v=2308102"></script>
+<script src="/bb-lmm-mk.js?v=2308103"></script>
 {{ end }}
 
 {{ define "footer" }}
