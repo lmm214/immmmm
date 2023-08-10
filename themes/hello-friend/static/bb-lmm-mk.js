@@ -260,7 +260,7 @@ function updateHTMl(data){
             ${bbContREG}
           </div>
           <div class="bb-info">
-            <div class="datatime">${new Date(data[i].createdTs * 1000).toLocaleString()}</div>
+            <div class="datatime" onclick="hiddenMemo()">${new Date(data[i].createdTs * 1000).toLocaleString()}</div>
             ${datacountDOM}
           </div>
           <div class="item-twikoo twikoo-${data[i].id} d-none">
@@ -334,6 +334,10 @@ function fetchMemoDOM(bbUrl){
   })
 }
 
+//点击时间，归档 Memo
+function hiddenMemo(){
+  
+}
 
 //前端加载 Twikoo 评论
 function loadTwikoo(e) {
