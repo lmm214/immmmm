@@ -1499,10 +1499,7 @@ photos .photo:last-child {
    100% {opacity: 1;}
 }
 
-.page.gallery-photos{margin-top:-46px;}
-@media (max-width: 683px){
-	.page.gallery-photos{margin-top:4px;}
-}
+.page.gallery-photos{margin-top:4px;}
 
 /* SLIMBOX2 */
 #lbOverlay{position:fixed;z-index:9999;left:0;top:0;width:100%;height:100%;background-color:#000;cursor:pointer;}
