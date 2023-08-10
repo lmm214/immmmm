@@ -238,7 +238,7 @@ function updateHTMl(data){
         }
         if(imgUrl){
           let resImgGrid = ""
-          if(resImgLength !== 1){let resImgGrid = "grid grid-"+resImgLength}
+          if(resImgLength !== 1){resImgGrid = "grid grid-"+resImgLength}
           bbContREG += `<div class="resimg ${resImgGrid}">${imgUrl}</div>`
         }
         if(resUrl){
