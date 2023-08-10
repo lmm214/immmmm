@@ -6,7 +6,7 @@
 <script>
   document.addEventListener("DOMContentLoaded", () => {
       var memoUrl = "https://me.edui.fun/"
-      var galleryUrl = memoUrl+"api/v1/memo/all?rowStatus=NORMAL&tag=相册"
+      var galleryUrl = memoUrl+"api/v1/memo?rowStatus=NORMAL&tag=相册"
       fetch(galleryUrl).then(res => res.json()).then( resdata =>{
           var result = '',resultAll="",data = resdata
           for(var i=0;i < data.length;i++){

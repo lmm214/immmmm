@@ -9,7 +9,7 @@ function memoAlbum(numb){
   var memoUrl = "https://me.edui.fun/"
   //var creatorId = 101
   //var galleryUrl = memoUrl+"api/memo?creatorId="+creatorId+"&rowStatus=NORMAL&limit="+limit+"&tag=相册"
-  var galleryUrl = memoUrl+"api/memo/all?rowStatus=NORMAL&limit="+limit+"&tag=相册"
+  var galleryUrl = memoUrl+"api/memo?rowStatus=NORMAL&limit="+limit+"&tag=相册"
   let nowNum = 1;
   fetch(galleryUrl).then(res => res.json()).then( resdata =>{
       var result = '',resultAll="",data = resdata.data
