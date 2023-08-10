@@ -170,7 +170,7 @@ class EmojiReaction extends s {
       }
     </style>
     <!-- container -->
-    <div style="flex-wrap: nowrap; max-width: 100%; display: flex; gap: 0.375rem;margin-top: 0.6rem;" class="${this?.theme === 'dark' || (this?.theme === 'system' && system_theme === 'dark') ? 'container-dark' : 'container'}">
+    <div style="flex-wrap: nowrap; max-width: 100%; display: flex; gap: 0.375rem;" class="${this?.theme === 'dark' || (this?.theme === 'system' && system_theme === 'dark') ? 'container-dark' : 'container'}">
       <!-- 灰色笑脸 -->
       <div style="position: relative; user-select: none;">
         <div id="start-smile" @click="${this._showAvailable}"

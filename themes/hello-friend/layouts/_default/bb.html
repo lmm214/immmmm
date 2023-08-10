@@ -27,10 +27,11 @@
   --at-color-gradient: linear-gradient(180deg, transparent, rgba(30, 34, 36, 1))
 }
 .post-title span{font-size:22px;font-style:italic;cursor:pointer;}
+span.setid{opacity:0.1;}
 </style>
 
 <div class="post">
-  <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a> <span onclick="randomMemo()">/回忆</span> <span onclick="serchMemo()">/搜索</span></h2>
+  <h2 class="post-title"><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a> <span onclick="randomMemo()">/回忆</span> <span onclick="serchMemo()">/搜索</span> <span class="setid" onclick="setOpenID()">/设置</span></h2>
   <div class="post-content">
     <div id="bber"></div>
   </div>

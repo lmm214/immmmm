@@ -313,32 +313,23 @@ function uniqueFunc(arr){
   return arr.filter((item) => !res.has(item.creator) && res.set(item.creator, 1));
 }
 
-
 function updateHTMl(data){
   let result = "",resultAll;
-  const TAG_REG = /#([^/\s#]+)/;
-  const IMG_REG = /\!\[(.*?)\]\((.*?)\)/g;
-  BILIBILI_REG = /<a.*?href="https:\/\/www\.bilibili\.com\/video\/((av[\d]{1,10})|(BV([\w]{10})))\/?".*?>.*<\/a>/g;
-  NETEASE_MUSIC_REG = /<a.*?href="https:\/\/music\.163\.com\/.*id=([0-9]+)".*?>.*<\/a>/g;
-  QQMUSIC_REG = /<a.*?href="https\:\/\/y\.qq\.com\/.*(\/[0-9a-zA-Z]+)(\.html)?".*?>.*?<\/a>/g;
-  QQVIDEO_REG = /<a.*?href="https:\/\/v\.qq\.com\/.*\/([a-z|A-Z|0-9]+)\.html".*?>.*<\/a>/g;
-  YOUKU_REG = /<a.*?href="https:\/\/v\.youku\.com\/.*\/id_([a-z|A-Z|0-9|==]+)\.html".*?>.*<\/a>/g;
-  YOUTUBE_REG = /<a.*?href="https:\/\/www\.youtube\.com\/watch\?v\=([a-z|A-Z|0-9]{11})\".*?>.*<\/a>/g;
+  const TAG_REG = /#([^#\s!.,;:?"'()]+)(?= )/g ///#([^/\s#]+?) /g
+  , IMG_REG = /\!\[(.*?)\]\((.*?)\)/g
+  , LINK_REG = /\[(.*?)\]\((.*?)\)/g
+  , BILIBILI_REG = /<a.*?href="https:\/\/www\.bilibili\.com\/video\/((av[\d]{1,10})|(BV([\w]{10})))\/?".*?>.*<\/a>/g
+  , NETEASE_MUSIC_REG = /<a.*?href="https:\/\/music\.163\.com\/.*id=([0-9]+)".*?>.*<\/a>/g
+  , QQMUSIC_REG = /<a.*?href="https\:\/\/y\.qq\.com\/.*(\/[0-9a-zA-Z]+)(\.html)?".*?>.*?<\/a>/g
+  , QQVIDEO_REG = /<a.*?href="https:\/\/v\.qq\.com\/.*\/([a-z|A-Z|0-9]+)\.html".*?>.*<\/a>/g
+  , YOUKU_REG = /<a.*?href="https:\/\/v\.youku\.com\/.*\/id_([a-z|A-Z|0-9|==]+)\.html".*?>.*<\/a>/g
+  , YOUTUBE_REG = /<a.*?href="https:\/\/www\.youtube\.com\/watch\?v\=([a-z|A-Z|0-9]{11})\".*?>.*<\/a>/g;
 
   marked.setOptions({
-    breaks: true,
+    breaks: false,
     smartypants: false,
     langPrefix: 'language-'
   });
-  // Marked Renderer Open links in New Tab
-  const renderer = new marked.Renderer();
-  const linkRenderer = renderer.link;
-  renderer.link = (href, title, text) => {
-      const localLink = href.startsWith(`${location.protocol}//${location.hostname}`);
-      const html = linkRenderer.call(renderer, href, title, text);
-      return localLink ? html : html.replace(/^<a /, `<a target="_blank" rel="noreferrer noopener nofollow" `);
-  };
-  marked.use({ renderer });
   
   for(let i=0;i < data.length;i++){
       let memos = data[i].url
@@ -353,10 +344,21 @@ function updateHTMl(data){
       let availablearraystring = data[i].availablearraystring
       
       let bbContREG = data[i].content
-        .replace(TAG_REG, "<span class='tag-span'>#$1</span> ")
-        .replace(IMG_REG, '')
-        //.replace(LINK_REG, "<a href='$2' target='_blank'><span> $1 </span></a>")
-        
+        .replace(TAG_REG, "")
+        .replace(IMG_REG, "")
+        .replace(LINK_REG, '<a class="primary" href="$2" target="_blank">$1</a>')
+
+      //标签
+      let tagArr = data[i].content.match(TAG_REG);
+      console.log(tagArr)
+      let bbContTag = '';
+      if (tagArr) {
+          bbContTag = tagArr.map(t=>{
+            return `<span class='tag-span' onclick='getTagNow(this)'>${t}</span> `;
+          }).join('');
+      }
+      bbContREG = bbContTag + bbContREG
+
       bbContREG = marked.parse(bbContREG)
         .replace(BILIBILI_REG, "<div class='video-wrapper'><iframe src='//www.bilibili.com/blackboard/html5mobileplayer.html?bvid=$1&as_wide=1&high_quality=1&danmaku=0' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'></iframe></div>")
         .replace(NETEASE_MUSIC_REG, "<meting-js auto='https://music.163.com/#/song?id=$1'></meting-js>")
@@ -376,10 +378,6 @@ function updateHTMl(data){
         });
         bbContREG += `<div class="resimg${IMG_ARR_Grid}">${IMG_ARR_Url}</div>`
       }
-
-      //标签
-      let tagArr = data[i].content.match(TAG_REG),bbContTag;
-      bbContTag = tagArr ? String(tagArr[0]).replace(/[#]/g, '') : "动态"
 
       //解析内置资源文件
       if(data[i].resourceList && data[i].resourceList.length > 0){
