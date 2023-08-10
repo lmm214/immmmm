@@ -1,8 +1,11 @@
 /*
-Last Modified time : 20230809 by https://immmmm.com
+Last Modified time : 20230810 by https://immmmm.com
 */
 let memoOne = getQueryVariable("memo") || ''
-function getMemoOne(){
+if(memoOne){
+  getMemoOne(memoOne)
+}
+function getMemoOne(memoOne){
   let OneDom = `<iframe style="width:100%;height:100vh;" src="${memoOne}" frameBorder="0"></iframe>`
   let ContDom = document.querySelector('.content')
   ContDom.innerHTML = OneDom
@@ -17,11 +20,7 @@ function getQueryVariable(variable){
   return(false);
 }
 
-if(memoOne){
-  getMemoOne(memoOne)
-}else{
-//链接无参数
-let cdnGravatar = "https://cravatar.cn/avatar/"
+const cdnGravatar = "https://cravatar.cn/avatar/"
 let urls = [
   {home:"https://immmmm.com/",host:"https://me.edui.fun/",apiV1:'v1/',creatorId:"101",comment:'1',twiEnv:'https://metk.edui.fun/',imgsrc:cdnGravatar+"ba83fa02fc4b2ba621514941307e21be",endpoint:'https://api-emaction.immmmm.com',reacttargetid:"id-edui-memo-",availablearraystring:"👍,thumbs-up;🎉,party-popper;🚀,rocket;😄,smile-face;😎,cool;❤️,red-heart;"},
   {home:"https://koobai.com/",host:"https://memos.koobai.com/",apiV1:'v1/',creatorId:"1",comment:'1',artEnv:'https://c.koobai.com',artSite:'空白唠叨',imgsrc:cdnGravatar+"3b3d336a7d389b7ae8531cbe177ae9b7",endpoint:'https://like.yangle.vip',reacttargetid:"/m/",availablearraystring:"👍,thumbs-up;🎉,party-popper;😄,smile-face;😎,cool;"},
@@ -78,9 +77,8 @@ let bbsDatas = [],bbsData = {},nextDatas = [],nextData = {},limit = 2
 let page = 1,offset = 0,nextLength = 0,nextDom,bbUrlNow,imgsrcNow,hostNow,creIdNow,commentNow,twiEnvNow,artEnvNow,artSiteNow,endpointNow,reacttargetidNow,availablearraystringNow;
 
 bbDom.innerHTML = loading
-allUrls()
-function allUrls(){
-  //console.log(urls)
+allUrls(urls)
+function allUrls(urls){
   let myHtml = ""
   for(let i=0;i < urls.length;i++){
     myHtml += `<div class="bbs-urls bbs-url" onclick="urlsNow(this)" data-hostid="${urls[i].host+"u/"+urls[i].creatorId}" data-index="${i}"><img src="${urls[i].imgsrc}" alt=""></div>`
@@ -591,6 +589,4 @@ function bookShow(fetch_href, fetch_item) {
   let qs_dom = document.querySelector(qs_href)
   qs_dom.parentNode.replaceChild(db_div, qs_dom);
   db_div.innerHTML = db_html
-}
-
 }
