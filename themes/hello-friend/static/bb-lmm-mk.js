@@ -120,7 +120,6 @@ let memosOpenId
 let mePage = 1,offset = 0,nextLength = 0,nextDom='',apiV1 = '';
 let bbDom = document.querySelector(bbMemo.domId);
 let load = '<div class="bb-load"><button class="load-btn button-load">加载中……</button></div>'
-let tagHtml = `<div id="tag-list-all"></div><div id="tag-list"></div>`
 
 if(bbDom){
   fetchStatus()
@@ -171,7 +170,6 @@ function newApiV1(apiV1){
 
 function getFirstList(apiV1){
   bbDom.insertAdjacentHTML('afterend', load);
-  bbDom.insertAdjacentHTML('beforebegin', tagHtml);
   let bbUrl = memos+"api/"+apiV1+"memo?creatorId="+bbMemo.creatorId+"&rowStatus=NORMAL&limit="+limit;
   fetch(bbUrl).then(res => res.json()).then( resdata =>{
     let arrData = resdata || ''
@@ -380,7 +378,8 @@ function updateHTMl(data){
 
 //获取指定 Tag 评论
 function getTagNow(e){
-  //console.log(e.innerHTML)
+  let tagHtml = `<div id="tag-list"></div>`
+  bbDom.insertAdjacentHTML('beforebegin', tagHtml);
   let tagName = e.innerHTML.replace('#','')
   let domClass = document.getElementById("tag-list")
   window.scrollTo({
@@ -410,8 +409,9 @@ function randomMemo(){
 //搜索 Memo ，基于 v1 api，需手动添加 html 如：<span onclick="serchMemo()">搜索</span>
 function serchMemo(){
   let serchText = prompt('搜点啥？','');
-  let tagHtmlNow = `<span class='tag-span' onclick='javascript:location.reload();'>${serchText}</span>`
-  document.querySelector('#tag-list').innerHTML = tagHtmlNow
+  let tagHtmlNow = `<span class='tag-span' onclick='javascript:location.reload();'>#${serchText}</span>`
+  let tagHtml = `<div id="tag-list">${tagHtmlNow}</div>`
+  bbDom.insertAdjacentHTML('beforebegin', tagHtml);
   let bbUrl = memos+"api/"+apiV1+"memo?creatorId="+bbMemo.creatorId+"&content="+serchText+"&limit=20";
   fetchMemoDOM(bbUrl)
 }
@@ -469,14 +469,15 @@ function archiveMemo(e) {
 
 //显示标签列表，需配合 cloudflare worker 食用
 function showTaglist(e){
-    let bbUrl = e.getAttribute("data-api")
-    let tagListDom = ""
-    fetch(bbUrl).then(res => res.json()).then( resdata =>{
-      for(let i=0;i < resdata.length;i++){
-        tagListDom += `<span class="tag-span" onclick='getTagNow(this)'>#${resdata[i]}</span>`
-      }
-      document.querySelector('#tag-list-all').innerHTML = tagListDom
-    })
+  let bbUrl = e.getAttribute("data-api")
+  let tagListDom = ""
+  fetch(bbUrl).then(res => res.json()).then( resdata =>{
+    for(let i=0;i < resdata.length;i++){
+      tagListDom += `<span class="tag-span" onclick='getTagNow(this)'>#${resdata[i]}</span>`
+    }
+    let tagHtml = `<div id="tag-list-all">${tagListDom}</div>`
+    bbDom.insertAdjacentHTML('beforebegin', tagHtml);
+  })
 }
 
 //前端加载 Twikoo 评论
