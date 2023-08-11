@@ -64,22 +64,19 @@ const allCSS = `
 .bb-allpub{text-decoration:none;font-style:italic;}
 .bb-timeline ul li::before{content:none;}
 
-.post-preview{position:relative;display:flex;margin:1em auto;height:210px;max-width:680px;border-radius:4px;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.25),0 0 1px rgba(0,0,0,.25);}
-.post-preview--meta{overflow:hidden;padding:25px;width:75%;}
-.post-preview--middle{line-height:28px;}
-.post-preview--title{margin:0!important;font-size:18px;}
-.post-preview--title a{text-decoration:none;}
-.post-preview--date{color:#999;font-size:14px;}
-.post-preview--excerpt{font-size:14px;line-height:1.825;}
-.post-preview--excerpt p{display:inline;margin:0;}
-.post-preview--image{float:right;width:25%;height:auto;border-top-right-radius:2px!important;border-bottom-right-radius:2px!important;border-bottom-left-radius:0!important;border-top-left-radius:0!important;object-fit:cover;}
-@media (max-width:550px){.post-preview{width:95%;height:120px;}
-.post-preview--meta{padding:15px;}
-.post-preview--image{height:120px!important;}
-.post-preview--excerpt{display:none;}
-.post-preview--middle{line-height:19px;}
-}
-.rating{display:block;line-height:15px;}
+/* db-card -------- start*/
+.db-card{margin:0.3rem 0.1rem;background:#fafafa;border-radius: 4px;box-shadow: 0 1px 2px rgb(0 0 0 / 25%), 0 0 1px rgb(0 0 0 / 25%)}
+.db-card-subject{display: flex;align-items:flex-start;line-height:1.6;padding:12px;position:relative;}
+.dark .db-card{background:#252627;}
+.db-card-content {flex:1 1 auto;}
+.db-card-post {width: 96px;margin-right: 15px;display: flex;flex: 0 0 auto;}
+.db-card-title {margin-bottom: 5px;font-size: 18px;}
+.db-card-title a{text-decoration: none!important}
+.db-card-abstract,.db-card-comment{font-size:14px;overflow: hidden;max-height:3rem;}
+.db-card-cate{position: absolute;top:0;right:0;background:#f99b01;padding:1px 8px;font-size:small;font-style:italic;border-radius:0 8px 0 8px;text-transform:capitalize;}
+.db-card-post img{width: 96px!important;height: 96px!important;border-radius: 4px;-o-object-fit: cover;object-fit: cover;}
+
+.rating{display:flex;line-height:15px;}
 .rating-star{display:inline-block;width:75px;height:15px;background-image:url('data:image/png;background-repeat:no-repeat;    base64,iVBORw0KGgoAAAANSUhEUgAAAEsAAAClCAYAAAAUAAAYAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA5xJREFUeNrs3T9rFEEcxvG7qEQIglaCICKkin9AUEtBKxU7wS61VlYivgWj70TtNFj5BqzE7qxEWwsxKIoYn4UtluFmbm8nczvzm+/BjxyuDwNzu3uXD0+46f7LC5PA45Hm+WTYw1x2LRDc0jzTXB+wqMlsaLPutz8fDFjYZHYauAz3NBvt83XNnyUWNpn1nVm3OsHmsb3EomazzZnVXKMPNcc0xzUnNKc0Rzv/77fms+Z7O3vt9b1eU7bZrNN68l5zcolX4ofmsuZXTdnmMvyi2dR86Bmcac62P6vKrnVubpc0bxYE32nOab45N8YqsvPeDfcD4SOav4HjprPuu+H5BTt9LXDMfNbdLPfT678Fx6vKupt1o/O8+R3pkOaJ5/iktqx7z/qp+aq5q/nY+fczmheaK03Gs7D5rLtZdzSvA6/Ebc2u55j57HQB0TzW7AzkjiKzny6+2hlKNE8juMNcFqKBaIZndRlCNBBNgmx7ZkE0fbLtZkE0EA1EM17WuQwhGogGooFoss6296y52cNO+J6HLJoPaFdbsvA9zGerIxrPh85eWYgGooFoDiQbuAxp0UA0EVmdWbRo+ma1WbRoIBqIZtzsnHdDWjQQDUQD0WSbde5ZS2UhmtqJJtSEiVkXooFoIJre2VATJmZdiKZ2ogk1YSb8oVMvDeUPnSAaiCaPJkzMuhANRAPRQDQpsqEmTMy6EI11oolpwkA0EA1EcyDZmCYMRAPR+LMxTZjqiCamCQPRQDQQzehNGIgGooFoIJpVZ2OaMBBN7USTqgkD0UA0EE3vbKomDERTO9GkasKYJJpUTRiIBqKBaEZvwkA0EA1EA9GkyKZqwkA01olmrCYMRAPRQDR9LkO+0QmiKbAJUyTRjNWEgWggGohm9CYMRAPRQDQQzZDsWE0YiMYC0eTYhIFoIJrKiCbHJgxEY4FocmzCZEs0OTZhIBqIpjKiybEJA9FANBANROPL5tiEgWhKIJoSmzAQDURjjGhKbMJANCUQTYlNmNGIpsQmDEQD0RgjmhKbMBANRAPR1Es0JTZhIJpciMZaEwaigWgKJBprTRiIJheisdaESUo01powEA1EUyDRWGvCQDQQDURjm2isNWEgmlURzWw2q4pZIBqIJkOiCVyGJpkFolkV0ejMMvel28mIRptl7ku3IRqIpjCimfNuaJpZIBqIBqIpm2ice5Z5ZonJupvVkMRu4JW4qXnrOWY++1+AAQBw9BJSCTeN9wAAAABJRU5ErkJggg==');overflow:hidden;}
 .allstar10{background-position:0 0;}
 .allstar9{background-position:0 -15px;}
@@ -244,12 +241,13 @@ function meNums(apiV1){
   })
 }
 // 插入 html 
-function updateHTMl(data){
+async function updateHTMl(data){
   //console.log(data)
   let result="",resultAll="";
   const TAG_REG = /#([^#\s!.,;:?"'()]+)(?= )/g ///#([^/\s#]+?) /g
   , IMG_REG = /\!\[(.*?)\]\((.*?)\)/g
   , LINK_REG = /\[(.*?)\]\((.*?)\)/g
+  , DEODB_LINK_REG = /(https:\/\/(www|movie|book)\.douban\.com\/(game|subject)\/[0-9]+\/).*?/g
   , BILIBILI_REG = /<a.*?href="https:\/\/www\.bilibili\.com\/video\/((av[\d]{1,10})|(BV([\w]{10})))\/?".*?>.*<\/a>/g
   , NETEASE_MUSIC_REG = /<a.*?href="https:\/\/music\.163\.com\/.*id=([0-9]+)".*?>.*<\/a>/g
   , QQMUSIC_REG = /<a.*?href="https\:\/\/y\.qq\.com\/.*(\/[0-9a-zA-Z]+)(\.html)?".*?>.*?<\/a>/g
@@ -267,24 +265,36 @@ function updateHTMl(data){
   for(let i=0;i < data.length;i++){
       let bbID = data[i].id
       let memoUrl = memos + "m/" + bbID
-      
       let bbCont = data[i].content + ' '
-      let bbContREG = bbCont.replace(TAG_REG, "")
+      let bbContREG = ''
+
+      bbContREG += bbCont.replace(TAG_REG, "")
         .replace(TAG_REG, "")
         .replace(IMG_REG, "")
+        .replace(DEODB_LINK_REG, '')
         .replace(LINK_REG, '<a class="primary" href="$2" target="_blank">$1</a>')
+
+      // NeoDB
+      let neodbArr = bbCont.match(DEODB_LINK_REG);
+      let neodbDom = '';
+      if(neodbArr){
+        for(let k=0;k < neodbArr.length;k++){
+          neodbDom += await fetchNeoDB(neodbArr[k])
+        }
+      }
 
       //标签
       let tagArr = bbCont.match(TAG_REG);
       let bbContTag = '';
       if (tagArr) {
-          bbContTag = tagArr.map(t=>{
-            return `<span class='tag-span' onclick='getTagNow(this)'>${t}</span> `;
-          }).join('');
+        bbContTag = tagArr.map(t=>{
+          return `<span class='tag-span' onclick='getTagNow(this)'>${t}</span> `;
+        }).join('');
+        bbContREG =  bbContTag + bbContREG.trim()
       }
-      bbContREG =  bbContTag + bbContREG.trim()
             
       bbContREG = marked.parse(bbContREG)
+        .replace(BILIBILI_REG, "<div class='video-wrapper'><iframe src='//www.bilibili.com/blackboard/html5mobileplayer.html?bvid=$1&as_wide=1&high_quality=1&danmaku=0' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'></iframe></div>")
         .replace(BILIBILI_REG, "<div class='video-wrapper'><iframe src='//www.bilibili.com/blackboard/html5mobileplayer.html?bvid=$1&as_wide=1&high_quality=1&danmaku=0' scrolling='no' border='0' frameborder='no' framespacing='0' allowfullscreen='true'></iframe></div>")
         .replace(NETEASE_MUSIC_REG, "<meting-js auto='https://music.163.com/#/song?id=$1'></meting-js>")
         .replace(QQMUSIC_REG, "<meting-js auto='https://y.qq.com/n/yqq/song$1.html'></meting-js>")
@@ -351,6 +361,7 @@ function updateHTMl(data){
             }
           </div>
           <div class="bb-cont">
+            ${neodbDom}
             ${bbContREG}
           </div>
           <div class="bb-info">
@@ -368,13 +379,33 @@ function updateHTMl(data){
   resultAll = bbBefore + result + bbAfter
   bbDom.insertAdjacentHTML('beforeend', resultAll);
   if(document.querySelector('button.button-load')) document.querySelector('button.button-load').textContent = '加载更多';
-  //渲染豆瓣
-  fetchDB()
+
   //图片灯箱
   window.ViewImage && ViewImage.init('.bb-cont img')
   //相对时间
   window.Lately && Lately.init({ target: '.datatime' });
 }
+
+// Fetch NeoDB
+async function fetchNeoDB(url){
+  let urlNow = "https://api-neodb.immmmm.com/?url="+url
+  let response = await fetch(urlNow);
+  let dbFetch = await response.json();
+  let neodbDom = `<div class="db-card">
+    <div class="db-card-subject">
+        <div class="db-card-post"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="${dbFetch.cover_image_url}"></div>
+        <div class="db-card-content">
+            <div class="db-card-title"><a href="${urlNow}" class="cute" target="_blank" rel="noreferrer">${dbFetch.title}</a></div>
+            <div class="rating"><span class="allstardark"><span class="allstarlight" style="width:${dbFetch.rating*10}%"></span></span><span class="rating_nums">${dbFetch.rating}</span></div>
+            <div class="db-card-abstract">${dbFetch.brief}</div>
+        </div>
+        <div class="db-card-cate">${dbFetch.category}</div>
+    </div>
+  </div>`
+  return neodbDom
+}
+
+
 
 //获取指定 Tag 评论
 function getTagNow(e){
@@ -540,67 +571,4 @@ function loadArtalk(e) {
     ArtalkDom.classList.add('d-none');
     ArtalkDom_ID.remove();
   }
-}
-//文章内显示豆瓣条目 https://immmmm.com/post-show-douban-item/
-function fetchDB(){
-  let dbAPI = "https://douban-api.edui.fun/";
-  let dbA = document.querySelectorAll(".bb-timeline a[href*='douban.com/subject/']:not([rel='noreferrer'])") || '';
-  if(dbA){
-    for(let i=0;i < dbA.length;i++){
-      _this = dbA[i]
-      let dbHref = _this.href
-      let db_reg = /^https\:\/\/(movie|book)\.douban\.com\/subject\/([0-9]+)\/?/;
-      let db_type = dbHref.replace(db_reg, "$1");
-      let db_id = dbHref.replace(db_reg, "$2").toString();
-        if (db_type == 'movie') {
-          let this_item = 'movie' + db_id;
-          let url = dbAPI + "movies/" + db_id ;
-          if (localStorage.getItem(this_item) == null || localStorage.getItem(this_item) == 'undefined') {
-            fetch(url).then(res => res.json()).then( data =>{
-              let fetch_item = 'movies' + data.sid;
-              let fetch_href = "https://movie.douban.com/subject/"+data.sid+"/"
-              localStorage.setItem(fetch_item, JSON.stringify(data));
-              movieShow(fetch_href, fetch_item)
-            });
-          } else {
-            movieShow(dbHref, this_item)
-          }
-        }else if (db_type == 'book') {
-          let this_item = 'book' + db_id;
-          let url = dbAPI + "v2/book/id/" + db_id;
-          if (localStorage.getItem(this_item) == null || localStorage.getItem(this_item) == 'undefined') {
-            fetch(url).then(res => res.json()).then( data =>{
-              let fetch_item = 'book' + data.id;
-              let fetch_href = "https://book.douban.com/subject/"+data.id+"/"
-              localStorage.setItem(fetch_item, JSON.stringify(data));
-              bookShow(fetch_href, fetch_item)
-            });
-          } else {
-            bookShow(dbHref, this_item)
-          }
-        }
-    }// for end
-  }
-}
-function movieShow(fetch_href, fetch_item){
-  let storage = localStorage.getItem(fetch_item);
-  let data = JSON.parse(storage);
-  let db_star = Math.ceil(data.rating);
-  let db_html = `<div class="post-preview"><div class="post-preview--meta"><div class="post-preview--middle"><h4 class="post-preview--title"><a target="_blank" rel="noreferrer" href="${fetch_href}">《${data.name}》</a></h4><div class="rating"><div class="rating-star allstar${db_star}"></div><div class="rating-average">${data.rating}</div></div><time class="post-preview--date">导演：${data.director} / 类型：${data.genre} / ${data.year}</time><section style="max-height:75px;overflow:hidden;" class="post-preview--excerpt">${data.intro.replace(/\s*/g, "")}</section></div></div><img referrer-policy="no-referrer" loading="lazy" class="post-preview--image" src="https://dou.img.lithub.cc/movie/${data.sid}.jpg"></div>`
-  let db_div = document.createElement("div");
-  let qs_href = ".bb-timeline a[href='"+ fetch_href +"']"
-  let qs_dom = document.querySelector(qs_href)
-  qs_dom.parentNode.replaceChild(db_div, qs_dom);
-  db_div.innerHTML = db_html
-}
-function bookShow(fetch_href, fetch_item) {
-  let storage = localStorage.getItem(fetch_item);
-  let data = JSON.parse(storage);
-  let db_star = Math.ceil(data.rating.average);
-  let db_html = `<div class="post-preview"><div class="post-preview--meta"><div class="post-preview--middle"><h4 class="post-preview--title"><a target="_blank" rel="noreferrer" href="${fetch_href}">《${data.title}》</a></h4><div class="rating"><div class="rating-star allstar${db_star}"></div><div class="rating-average">${data.rating.average}</div></div><time class="post-preview--date">作者：${data.author} </time><section style="max-height:75px;overflow:hidden;" class="post-preview--excerpt">${data.summary.replace(/\s*/g, "")}</section></div></div><img referrer-policy="no-referrer" loading="lazy" class="post-preview--image" src="https://dou.img.lithub.cc/book/${data.id}.jpg"></div>`
-  let db_div = document.createElement("div");
-  let qs_href = ".bb-timeline a[href='"+ fetch_href +"']"
-  let qs_dom = document.querySelector(qs_href)
-  qs_dom.parentNode.replaceChild(db_div, qs_dom);
-  db_div.innerHTML = db_html
 }
