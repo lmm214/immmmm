@@ -421,7 +421,12 @@ function updateHTMl(data){
       }
       
       let bbContDom = `<div class="bbs-content"><div class="bbs-text">${bbContREG + emojiReaction}</div>`
-      let bbAvaDom = `<div class="bbs-avatar"><a href="${data[i].home}" target="_blank" rel="noopener noreferrer"><img src="${data[i].imgsrc}" alt=""></a><a href="javascript:void(0)" class="bbs-creator" onclick="urlsNow(this)" data-index="${uslIndexNow}">${data[i].creator}</a><span class="bbs-dot">·</span><span class="bbs-date">${new Date(data[i].updatedTs * 1000).toLocaleString()}</span>`
+      let bbAvaDom = `
+      <div class="bbs-avatar">
+        <a href="${data[i].home}" target="_blank" rel="noopener noreferrer"><img src="${data[i].imgsrc}" alt=""></a><a href="javascript:void(0)" class="bbs-creator" onclick="urlsNow(this)" data-index="${uslIndexNow}">${data[i].creator}</a>
+        <span class="bbs-dot">·</span>
+        <span class="bbs-date">${new Date(data[i].updatedTs * 1000).toLocaleString()}</span>
+        `
 
       result += `<li class="${memoIdNow+"memo-"+memoId}">
                     <a href="${memoUrl}" target="_blank" rel="noopener noreferrer">${outSVG}</a>`
@@ -435,7 +440,7 @@ function updateHTMl(data){
           result += `${bbAvaDom+bbContDom}<div class="item-comment ${memoIdNow+'artalk-'+memoId} d-none"></div></div></li>`
         }
       }else{
-        result += `</div>${bbAvaDom+bbContDom}</div></li>`
+        result += `${bbAvaDom}</div>${bbContDom}</div></li>`
       }
 
   }// end for
