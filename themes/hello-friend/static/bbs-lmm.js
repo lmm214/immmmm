@@ -313,11 +313,12 @@ function uniqueFunc(arr){
   return arr.filter((item) => !res.has(item.creator) && res.set(item.creator, 1));
 }
 
-function updateHTMl(data){
+async function updateHTMl(data){
   let result = "",resultAll;
   const TAG_REG = /#([^#\s!.,;:?"'()]+)(?= )/g ///#([^/\s#]+?) /g
   , IMG_REG = /\!\[(.*?)\]\((.*?)\)/g
   , LINK_REG = /\[(.*?)\]\((.*?)\)/g
+  , DEODB_LINK_REG = /(https:\/\/(www|movie|book)\.douban\.com\/(game|subject)\/[0-9]+\/).*?/g
   , BILIBILI_REG = /<a.*?href="https:\/\/www\.bilibili\.com\/video\/((av[\d]{1,10})|(BV([\w]{10})))\/?".*?>.*<\/a>/g
   , NETEASE_MUSIC_REG = /<a.*?href="https:\/\/music\.163\.com\/.*id=([0-9]+)".*?>.*<\/a>/g
   , QQMUSIC_REG = /<a.*?href="https\:\/\/y\.qq\.com\/.*(\/[0-9a-zA-Z]+)(\.html)?".*?>.*?<\/a>/g
@@ -342,11 +343,23 @@ function updateHTMl(data){
       let endpoint = data[i].endpoint
       let reacttargetid = data[i].reacttargetid
       let availablearraystring = data[i].availablearraystring
-      
       let bbCont = data[i].content + ' '
-      let bbContREG = bbCont.replace(TAG_REG, "")
+      let bbContREG = ''
+
+      bbContREG += bbCont.replace(TAG_REG, "")
         .replace(IMG_REG, "")
+        .replace(DEODB_LINK_REG, '')
         .replace(LINK_REG, '<a class="primary" href="$2" target="_blank">$1</a>')
+
+      // NeoDB
+      let neodbArr = bbCont.match(DEODB_LINK_REG);
+      let neodbDom = '';
+      if(neodbArr){
+        console.log(neodbArr)
+        for(let k=0;k < neodbArr.length;k++){
+          neodbDom += await fetchNeoDB(neodbArr[k])
+        }
+      }
 
       //标签
       let tagArr = bbCont.match(TAG_REG);
@@ -420,7 +433,7 @@ function updateHTMl(data){
         emojiReaction = `<emoji-reaction theme="system" class="reaction" endpoint="${endpoint}" reacttargetid="${reacttargetid+memoId}" availablearraystring="${availablearraystring}"></emoji-reaction>`
       }
       
-      let bbContDom = `<div class="bbs-content"><div class="bbs-text">${bbContREG + emojiReaction}</div>`
+      let bbContDom = `<div class="bbs-content"><div class="bbs-text">${neodbDom + bbContREG + emojiReaction}</div>`
       let bbAvaDom = `
       <div class="bbs-avatar">
         <a href="${data[i].home}" target="_blank" rel="noopener noreferrer"><img src="${data[i].imgsrc}" alt=""></a><a href="javascript:void(0)" class="bbs-creator" onclick="urlsNow(this)" data-index="${uslIndexNow}">${data[i].creator}</a>
@@ -453,13 +466,32 @@ function updateHTMl(data){
   if(btn){
     btn.textContent= '加载更多';
   }
-  //渲染豆瓣
-  fetchDB()
+
   //图片灯箱
   window.ViewImage && ViewImage.init('.bbs-text img')
   //相对时间
   window.Lately && Lately.init({ target: '.bbs-date' });
 }
+
+// Fetch NeoDB
+async function fetchNeoDB(url){
+  let urlNow = "https://api-neodb.immmmm.com/?url="+url
+  let response = await fetch(urlNow);
+  let dbFetch = await response.json();
+  let neodbDom = `<div class="db-card">
+    <div class="db-card-subject">
+        <div class="db-card-post"><img loading="lazy" decoding="async" referrerpolicy="no-referrer" src="${dbFetch.cover_image_url}"></div>
+        <div class="db-card-content">
+            <div class="db-card-title"><a href="${urlNow}" class="cute" target="_blank" rel="noreferrer">${dbFetch.title}</a></div>
+            <div class="rating"><span class="allstardark"><span class="allstarlight" style="width:${dbFetch.rating*10}%"></span></span><span class="rating_nums">${dbFetch.rating}</span></div>
+            <div class="db-card-abstract">${dbFetch.brief}</div>
+        </div>
+        <div class="db-card-cate">${dbFetch.category}</div>
+    </div>
+  </div>`
+  return neodbDom
+}
+
 //前端加载 Twikoo 评论
 function loadTwikoo(e) {
   let memoEnv = e.getAttribute("data-twienv")
@@ -529,67 +561,4 @@ function loadArtalk(e) {
     ArtalkDom.classList.add('d-none');
     ArtalkDom_ID.remove();
   }
-}
-//文章内显示豆瓣条目 https://immmmm.com/post-show-douban-item/
-function fetchDB(){
-  let dbAPI = "https://douban-api.edui.fun/";
-  let dbA = document.querySelectorAll(".bbs-timeline a[href*='douban.com/subject/']:not([rel='noreferrer'])") || '';
-  if(dbA){
-    for(let i=0;i < dbA.length;i++){
-      _this = dbA[i]
-      let dbHref = _this.href
-      let db_reg = /^https\:\/\/(movie|book)\.douban\.com\/subject\/([0-9]+)\/?/;
-      let db_type = dbHref.replace(db_reg, "$1");
-      let db_id = dbHref.replace(db_reg, "$2").toString();
-        if (db_type == 'movie') {
-          let this_item = 'movie' + db_id;
-          let url = dbAPI + "movies/" + db_id ;
-          if (localStorage.getItem(this_item) == null || localStorage.getItem(this_item) == 'undefined') {
-            fetch(url).then(res => res.json()).then( data =>{
-              let fetch_item = 'movies' + data.sid;
-              let fetch_href = "https://movie.douban.com/subject/"+data.sid+"/"
-              localStorage.setItem(fetch_item, JSON.stringify(data));
-              movieShow(fetch_href, fetch_item)
-            });
-          } else {
-            movieShow(dbHref, this_item)
-          }
-        }else if (db_type == 'book') {
-          let this_item = 'book' + db_id;
-          let url = dbAPI + "v2/book/id/" + db_id;
-          if (localStorage.getItem(this_item) == null || localStorage.getItem(this_item) == 'undefined') {
-            fetch(url).then(res => res.json()).then( data =>{
-              let fetch_item = 'book' + data.id;
-              let fetch_href = "https://book.douban.com/subject/"+data.id+"/"
-              localStorage.setItem(fetch_item, JSON.stringify(data));
-              bookShow(fetch_href, fetch_item)
-            });
-          } else {
-            bookShow(dbHref, this_item)
-          }
-        }
-    }// for end
-  }
-}
-function movieShow(fetch_href, fetch_item){
-  let storage = localStorage.getItem(fetch_item);
-  let data = JSON.parse(storage);
-  let db_star = Math.ceil(data.rating);
-  let db_html = `<div class="post-preview"><div class="post-preview--meta"><div class="post-preview--middle"><h4 class="post-preview--title"><a target="_blank" rel="noreferrer" href="${fetch_href}">《${data.name}》</a></h4><div class="rating"><div class="rating-star allstar${db_star}"></div><div class="rating-average">${data.rating}</div></div><time class="post-preview--date">导演：${data.director} / 类型：${data.genre} / ${data.year}</time><section style="max-height:75px;overflow:hidden;" class="post-preview--excerpt">${data.intro.replace(/\s*/g, "")}</section></div></div><img referrer-policy="no-referrer" loading="lazy" class="post-preview--image" src="https://dou.img.lithub.cc/movie/${data.sid}.jpg"></div>`
-  let db_div = document.createElement("div");
-  let qs_href = ".bbs-timeline a[href='"+ fetch_href +"']"
-  let qs_dom = document.querySelector(qs_href)
-  qs_dom.parentNode.replaceChild(db_div, qs_dom);
-  db_div.innerHTML = db_html
-}
-function bookShow(fetch_href, fetch_item) {
-  let storage = localStorage.getItem(fetch_item);
-  let data = JSON.parse(storage);
-  let db_star = Math.ceil(data.rating.average);
-  let db_html = `<div class="post-preview"><div class="post-preview--meta"><div class="post-preview--middle"><h4 class="post-preview--title"><a target="_blank" rel="noreferrer" href="${fetch_href}">《${data.title}》</a></h4><div class="rating"><div class="rating-star allstar${db_star}"></div><div class="rating-average">${data.rating.average}</div></div><time class="post-preview--date">作者：${data.author} </time><section style="max-height:75px;overflow:hidden;" class="post-preview--excerpt">${data.summary.replace(/\s*/g, "")}</section></div></div><img referrer-policy="no-referrer" loading="lazy" class="post-preview--image" src="https://dou.img.lithub.cc/book/${data.id}.jpg"></div>`
-  let db_div = document.createElement("div");
-  let qs_href = ".bbs-timeline a[href='"+ fetch_href +"']"
-  let qs_dom = document.querySelector(qs_href)
-  qs_dom.parentNode.replaceChild(db_div, qs_dom);
-  db_div.innerHTML = db_html
 }

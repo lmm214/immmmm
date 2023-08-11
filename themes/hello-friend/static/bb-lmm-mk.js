@@ -65,9 +65,9 @@ const allCSS = `
 .bb-timeline ul li::before{content:none;}
 
 /* db-card -------- start*/
-.db-card{margin:0.3rem 0.1rem;background:#fafafa;border-radius: 4px;box-shadow: 0 1px 2px rgb(0 0 0 / 25%), 0 0 1px rgb(0 0 0 / 25%)}
+.db-card{border-bottom:1px solid #eaeaea;box-shadow: none;margin:-10px -14px 10px;}
 .db-card-subject{display: flex;align-items:flex-start;line-height:1.6;padding:12px;position:relative;}
-.dark .db-card{background:#252627;}
+.dark .db-card{background:#252627;border-bottom:1px solid #3b3d42;}
 .db-card-content {flex:1 1 auto;}
 .db-card-post {width: 96px;margin-right: 15px;display: flex;flex: 0 0 auto;}
 .db-card-title {margin-bottom: 5px;font-size: 18px;}
@@ -269,7 +269,6 @@ async function updateHTMl(data){
       let bbContREG = ''
 
       bbContREG += bbCont.replace(TAG_REG, "")
-        .replace(TAG_REG, "")
         .replace(IMG_REG, "")
         .replace(DEODB_LINK_REG, '')
         .replace(LINK_REG, '<a class="primary" href="$2" target="_blank">$1</a>')
@@ -404,8 +403,6 @@ async function fetchNeoDB(url){
   </div>`
   return neodbDom
 }
-
-
 
 //获取指定 Tag 评论
 function getTagNow(e){
