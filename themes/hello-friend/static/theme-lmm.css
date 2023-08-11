@@ -541,7 +541,8 @@ pre {
 	padding: 20px;
 	border-radius: 8px;
 	font-size: .9rem;
-	overflow: auto
+	overflow: auto;
+	max-height: 50vh;
 }
 
 @media (max-width:683px) {
