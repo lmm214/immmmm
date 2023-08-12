@@ -65,7 +65,7 @@ const allCSS = `
 .bb-timeline ul li::before{content:none;}
 
 /* db-card -------- start*/
-.db-card{border-bottom:1px solid #eaeaea;box-shadow: none;margin:-10px -14px 10px;}
+.db-card{border-bottom:1px solid #eaeaea;box-shadow: none;margin:-0.6rem -1rem .6rem;}
 .db-card-subject{display: flex;align-items:flex-start;line-height:1.6;padding:12px;position:relative;}
 .dark .db-card{background:#252627;border-bottom:1px solid #3b3d42;}
 .db-card-content {flex:1 1 auto;}
@@ -353,6 +353,8 @@ async function updateHTMl(data){
 
       result +=  `<li class="memo-${bbID}">
         <div class="bb-item">
+
+        ${neodbDom}
           <div class="bb-tool">
             ${emojiReaction}
             ${ !memosOpenIdNow ? '':
@@ -360,7 +362,6 @@ async function updateHTMl(data){
             }
           </div>
           <div class="bb-cont">
-            ${neodbDom}
             ${bbContREG}
           </div>
           <div class="bb-info">
