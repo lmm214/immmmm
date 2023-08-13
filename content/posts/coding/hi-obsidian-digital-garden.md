@@ -6,9 +6,10 @@ feature: https://r2.immmmm.com/2023/08/odg-1.png
 ---
 
 > 一个能直接把 Obsidian 文档发布建站的插件！
+
 - GitHub 项目地址：[oleeskild/obsidian-digital-garden](https://github.com/oleeskild/obsidian-digital-garden)
 - Obsidian 插件：[Digital Garden](obsidian://show-plugin?id=digitalgarden)
-- 
+
 <!--more-->
 
 ### 几句唠叨
