@@ -29,8 +29,9 @@ const allCSS = `
 .bb-timeline ul{margin:0;padding:0;}
 .bb-timeline ul li{margin-bottom:3rem;list-style-type:none;}
 .bb-timeline ul li .bb-cont ul li{margin-bottom:0;}
-.bb-timeline .bb-item{padding:.6rem 1rem .6rem;border:1px solid #dcdcdc;border-radius:5px;box-shadow:3px 3px 5px rgba(0,0,0,.1);font-size:16px;}
-.bb-load button{padding:10px 30px;width:100%;border:1px solid #dcdcdc;border-radius:5px;box-shadow:3px 3px 5px rgba(0,0,0,.1);background:0 0;letter-spacing:.8rem;font-style:italic;font-size:.8rem;}
+.bb-timeline .bb-item,.bb-load button{border:1px solid #dcdcdc;border-radius:8px;box-shadow:3px 3px 5px rgba(0,0,0,.1);}
+.bb-timeline .bb-item{padding:.6rem 1rem .6rem;font-size:16px;}
+.bb-load button{padding:10px 30px;width:100%;background:0 0;letter-spacing:.8rem;font-style:italic;font-size:.8rem;}
 .bb-timeline .bb-info{position:relative;margin-top:.5rem;font-size:14px;}
 .bb-timeline .bb-info a{text-decoration:none;}
 .bb-timeline .datatime{font-size:15px;}
