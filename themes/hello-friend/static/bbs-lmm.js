@@ -30,13 +30,13 @@ let urls = [
   {home:"https://seersu.me/",host:"https://bb.seersu.top/",apiV1:'v1/',creatorId:"101",comment:'1',twiEnv:'https://twikoo.seersu.me/',imgsrc:cdnGravatar+"84b712148a63b44dd97ede997bc3efa5"},
   {home:"https://www.xzgljiang.com/",host:"https://memos.xzgljiang.com/",apiV1:'',creatorId:"1",comment:'1',twiEnv:'https://twikoo.une.xzgljiang.com/',imgsrc:cdnGravatar+"a892fd3321ab65a1c5d9c7a54a04c881"},
   {home:"https://cooolr.cn/",host:"https://m.cooolr.cn/",apiV1:'',creatorId:"1",comment:'1',twiEnv:'https://tk.cooolr.cn/',imgsrc:cdnGravatar+"7422f8bebdb99f6594e029f603ccb926"},
-  {home:"https://www.boyhu.cn/",host:"https://qzone.boyhu.cn/",apiV1:'',creatorId:"101",comment:'1',twiEnv:'https://tk.boyhu.cn/',imgsrc:cdnGravatar+"55be217893c75baf8571837197de4a3e"},
+  {home:"https://www.boyhu.cn/",host:"https://qzone.boyhu.cn/",apiV1:'v1/',creatorId:"101",comment:'1',twiEnv:'https://tk.boyhu.cn/',imgsrc:cdnGravatar+"55be217893c75baf8571837197de4a3e"},
   {home:"https://kouseki.cn/",host:"https://memos.kouseki.cn/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://api-twi.kouseki.cn/',imgsrc:cdnGravatar+"23978e8e57e20163e8cb67bbf9dbe907",endpoint:'https://api-emoji.kouseki.cn',reacttargetid:"id-kouseki-memo-",availablearraystring:"👍,thumbs-up;🎉,party-popper;❤️,red-heart;😎,cool;"},
   {home:"https://lms.im/",host:"https://b.lms.im/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://b.lms.im/tk/',imgsrc:cdnGravatar+"d9cc49ea0301640d7a19b6a1e77012dd"},
   {home:"https://edinik.com/",host:"https://memos.edinik.com/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://tk.edinik.com/',imgsrc:cdnGravatar+"e1cdf4f763e3c7e01271a44b990c712f"},
   {home:"https://memos.qiangtu.com/",host:"https://memos.qiangtu.com/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://twikoo.qiangtu.com/',imgsrc:"https://memos2504.oss-cn-hangzhou.aliyuncs.com/memos2504/assets/2023/06/06/1686021093_favicon.ico/1ef33f96-5296-4d5e-940c-04c88775d008.ico"},
   {home:"https://life97.top/",host:"https://memos.life97.top/",apiV1:'v1/',creatorId:"101",comment:'1',twiEnv:'https://say.life97.top/',imgsrc:cdnGravatar+"d41d8cd98f00b204e9800998ecf8427e"},
-  {home:"https://memos.ee/",host:"https://t.memos.ee/",apiV1:'',creatorId:"1",comment:'1',twiEnv:'https://twikoo.memos.ee',imgsrc:cdnGravatar+"f2e928a6f8548a1088d336e541ae1b9d"},
+  {home:"https://memos.ee/",host:"https://t.memos.ee/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://twikoo.memos.ee',imgsrc:cdnGravatar+"f2e928a6f8548a1088d336e541ae1b9d"},
   {home:"https://1900.live/",host:"https://memos.1900.live/",apiV1:'v1/',creatorId:"101",comment:'1',twiEnv:'https://comment.1900.live/',imgsrc:cdnGravatar+"cc38267b10cc25dfc62209f8ca34589e"},
   {home:"https://dongjunke.cn/",host:"https://memos.dongjunke.cn/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://twikoo.dongjunke.cn/',imgsrc:cdnGravatar+"42542189ddb33064599dc88a5149bea7"},
   {home:"https://blog.xlap.top/",host:"https://api.mm.xlap.top/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://db.twk.xlap.top/',imgsrc:cdnGravatar+"9855359e235402ea030ccd7aad041164"},
@@ -63,13 +63,15 @@ let urls = [
   {home:"https://blog.leonus.cn/",host:"https://m.leonus.cn/",apiV1:'v1/',creatorId:"1",imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=cZKBhtxe2iaxjSfbVYiaFgoQ&kti=Y9x6QwAAAAI&s=140&t=1672836908"},
   {home:"https://eirms.com/",host:"https://memo.eirms.com/",apiV1:'',creatorId:"1",imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=6bLfAytyUI7daRuxat0XxA&kti=ZDt5CwAAAAA&s=140&t=1646284093"},
   {home:"https://cmsblog.cn/",host:"https://memos.cmsblog.cn/",apiV1:'',creatorId:"101",imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=fcgI8ibPhO3zz3IvgL4bl7Q&kti=ZDuqEgAAAAI&s=140&t=1556624886"},
-  {home:"https://pipuwong.com/",host:"https://memos.pipuwong.com/",apiV1:'v1/',creatorId:"1",imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=5F8TcjFWpLMzia5ibn26vs5A&kti=ZFVJhgAAAAA&s=140&t=1679212034"},
   {home:"https://ysicing.cloud/",host:"https://note.ysicing.cloud/",apiV1:'v1/',creatorId:"1",imgsrc:cdnGravatar+"5ca16ee587d1e4befd805cf710361f26"},
   {home:"https://www.kingname.info/",host:"https://memos.kingname.info/",apiV1:'v1/',creatorId:"1",imgsrc:cdnGravatar+"2463f1bd85aea23703f320e67d33f349"},
   {home:"https://idh.ink/",host:"https://idh.ink/",apiV1:'v1/',creatorId:"1",imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=NAuictuJAIjdPiaHlY6xbDWA&kti=ZHUWoAAAAAA&s=140&t=1683481629"},
   {home:"https://leonfong.me/",host:"https://memo.leonfong.me/",apiV1:'v1/',creatorId:"1",imgsrc:cdnGravatar+"b147bfa4888f1233882ba5b39ef3bffc"}
 ]
 
+/*
+{home:"https://pipuwong.com/",host:"https://memos.pipuwong.com/",apiV1:'v1/',creatorId:"1",imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=5F8TcjFWpLMzia5ibn26vs5A&kti=ZFVJhgAAAAA&s=140&t=1679212034"},
+*/
 let bbDom = document.querySelector('#bbs');
 let load = `<div id="load" onclick="nextFetch()" ><button class="load-btn button-load">加载更多</button></div>`
 let loading = `<div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/></svg></div>`
@@ -355,7 +357,6 @@ async function updateHTMl(data){
       let neodbArr = bbCont.match(DEODB_LINK_REG);
       let neodbDom = '';
       if(neodbArr){
-        console.log(neodbArr)
         for(let k=0;k < neodbArr.length;k++){
           neodbDom += await fetchNeoDB(neodbArr[k])
         }
