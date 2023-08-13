@@ -415,7 +415,7 @@ function getTagNow(e){
     top: domClass.offsetTop - 20,
     behavior: "smooth"
   });
-  let tagHtmlNow = `<span class='tag-span' onclick='javascript:location.reload();'>${e.innerHTML}</span>`
+  let tagHtmlNow = `<span class='tag-span' onclick='reLoad()'>${e.innerHTML}</span>`
   document.querySelector('#tag-list').innerHTML = tagHtmlNow
   let bbUrl = memos+"api/"+apiV1+"memo?creatorId="+bbMemo.creatorId+"&tag="+tagName+"&limit=20";
   fetchMemoDOM(bbUrl)
@@ -438,7 +438,7 @@ function randomMemo(){
 //搜索 Memo ，基于 v1 api，需手动添加 html 如：<span onclick="serchMemo()">搜索</span>
 function serchMemo(){
   let serchText = prompt('搜点啥？','');
-  let tagHtmlNow = `<span class='tag-span' onclick='javascript:location.reload();'>#${serchText}</span>`
+  let tagHtmlNow = `<span class='tag-span' onclick='reLoad()'>#${serchText}</span>`
   let tagHtml = `<div id="tag-list">${tagHtmlNow}</div>`
   bbDom.insertAdjacentHTML('beforebegin', tagHtml);
   let bbUrl = memos+"api/"+apiV1+"memo?creatorId="+bbMemo.creatorId+"&content="+serchText+"&limit=20";
@@ -458,9 +458,14 @@ function fetchMemoDOM(bbUrl){
       updateTiwkoo(arrData)
     }else{
       alert("404 -_-!")
-      setTimeout(location.reload(), 1000);
+      setTimeout(reLoad(), 1000);
     }
   })
+}
+
+function reLoad(){
+  let urlThis = location.protocol + '//' + location.host + location.pathname;
+  window.location.replace(urlThis)
 }
 
 //设置 openid Memos OpenId
@@ -487,7 +492,7 @@ function archiveMemo(e) {
         }
       }).then(function(res) {
         if (res.ok) {
-            location.reload();
+          reLoad()
         }
       })
     }
