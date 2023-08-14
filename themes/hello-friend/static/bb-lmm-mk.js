@@ -105,6 +105,20 @@ const allCSS = `
 .archive-btn{opacity:.3;}
 #tag-list-all .tag-span{margin:.8rem 1rem 0 0;}
 
+.loader {position: relative;margin:3rem auto;width: 100px;}
+.loader::before {content: '';display: block;padding-top: 100%;}
+.circular {animation: rotate 2s linear infinite;height: 100%;transform-origin: center center;width: 100%;position: absolute;top: 0;bottom: 0;left: 0;right: 0;margin: auto;}
+.path {stroke-dasharray: 1, 200;stroke-dashoffset: 0;animation: dash 1.5s ease-in-out infinite, color 6s ease-in-out infinite;stroke-linecap: round;}
+@keyframes rotate {100% {transform: rotate(360deg);}}
+@keyframes dash {
+  0% {stroke-dasharray: 1, 200;stroke-dashoffset: 0;}
+  50% {stroke-dasharray: 89, 200;stroke-dashoffset: -35px;}
+  100% {stroke-dasharray: 89, 200;stroke-dashoffset: -124px;}
+}
+@keyframes color {
+  100%,0% {stroke: #d62d20;}40% {stroke: #0057e7;}66% {stroke: #008744;}80%,90% {stroke: #ffa700;}
+}
+
 .dark .bb-timeline .bb-load button,.dark .bb-timeline .bb-item{border:1px solid #3b3d42;}
 .dark .bb-timeline .bb-item p{color:#fafafa;}
 .dark .bb-timeline .bb-item p svg{fill:#fafafa;}
@@ -118,6 +132,7 @@ let memosOpenId
 let mePage = 1,offset = 0,nextLength = 0,nextDom='',apiV1 = '';
 let bbDom = document.querySelector(bbMemo.domId);
 let load = '<div class="bb-load"><button class="load-btn button-load">加载中……</button></div>'
+let loading = `<div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/></svg></div>`
 
 if(bbDom){
   fetchStatus()
@@ -153,6 +168,7 @@ function getQueryVariable(variable){
 function newApiV1(apiV1){
   getFirstList(apiV1) //首次加载数据
   meNums(apiV1) //加载总数
+  bbDom.innerHTML = loading
   let btn = document.querySelector("button.button-load");
   btn.addEventListener("click", function () {
     btn.textContent= '加载中……';
@@ -377,6 +393,8 @@ async function updateHTMl(data){
   let bbBefore = "<section class='bb-timeline'><ul class='bb-list-ul'>"
   let bbAfter = "</ul></section>"
   resultAll = bbBefore + result + bbAfter
+  let loaderDom = document.querySelector('.loader') || ""
+  if(loaderDom) loaderDom.remove()
   bbDom.insertAdjacentHTML('beforeend', resultAll);
   if(document.querySelector('button.button-load')) document.querySelector('button.button-load').textContent = '加载更多';
 
@@ -446,6 +464,7 @@ function serchMemo(){
 }
 
 function fetchMemoDOM(bbUrl){
+  bbDom.innerHTML = loading
   fetch(bbUrl).then(res => res.json()).then( resdata =>{
     let arrData = resdata || ''
     if(resdata.data){

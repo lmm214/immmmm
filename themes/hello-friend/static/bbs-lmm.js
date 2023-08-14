@@ -137,7 +137,6 @@ function urlsNow(e){
       if(resdata.data){
         arrData = resdata.data
       }
-      bbDom.innerHTML = ''
       bbsDatas.length = 0
       for(let j=0;j < arrData.length;j++){
             let resValue = arrData[j]
@@ -258,7 +257,7 @@ const fetchBBser = async () => {
     //url => fetch(url.host+"api/memo?creatorId="+url.creatorId+"&rowStatus=NORMAL&limit="+limit).then(response => response.json()).then(resdata => resdata.data)
   )).then(results=> {
     //console.log(results)
-    bbDom.innerHTML = ''
+    //bbDom.innerHTML = ''
     bbsDatas.length = 0
     for(let i=0;i < results.length;i++){
       let status = results[i].status
@@ -460,6 +459,8 @@ async function updateHTMl(data){
   let bbBefore = "<section class='bbs-timeline'><ul class='list'>"
   let bbAfter = "</ul></section>"
   resultAll = bbBefore + result + bbAfter
+  let loaderDom = document.querySelector('.loader') || ""
+  if(loaderDom) loaderDom.remove()
   bbDom.insertAdjacentHTML('beforeend', resultAll);
   let btn = document.querySelector('button.button-load')
   if(btn){
