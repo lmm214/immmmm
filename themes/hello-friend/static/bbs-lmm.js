@@ -69,9 +69,6 @@ let urls = [
   {home:"https://leonfong.me/",host:"https://memo.leonfong.me/",apiV1:'v1/',creatorId:"1",imgsrc:cdnGravatar+"b147bfa4888f1233882ba5b39ef3bffc"}
 ]
 
-/*
-{home:"https://pipuwong.com/",host:"https://memos.pipuwong.com/",apiV1:'v1/',creatorId:"1",imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=5F8TcjFWpLMzia5ibn26vs5A&kti=ZFVJhgAAAAA&s=140&t=1679212034"},
-*/
 let bbDom = document.querySelector('#bbs');
 let load = `<div id="load" onclick="nextFetch()" ><button class="load-btn button-load">加载更多</button></div>`
 let loading = `<div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/></svg></div>`
@@ -321,6 +318,7 @@ async function updateHTMl(data){
   , IMG_REG = /\!\[(.*?)\]\((.*?)\)/g
   , LINK_REG = /\[(.*?)\]\((.*?)\)/g
   , DEODB_LINK_REG = /(https:\/\/(www|movie|book)\.douban\.com\/(game|subject)\/[0-9]+\/).*?/g
+  //https://www.bilibili.com/video/BV1x14y167eb
   , BILIBILI_REG = /<a.*?href="https:\/\/www\.bilibili\.com\/video\/((av[\d]{1,10})|(BV([\w]{10})))\/?".*?>.*<\/a>/g
   , NETEASE_MUSIC_REG = /<a.*?href="https:\/\/music\.163\.com\/.*id=([0-9]+)".*?>.*<\/a>/g
   , QQMUSIC_REG = /<a.*?href="https\:\/\/y\.qq\.com\/.*(\/[0-9a-zA-Z]+)(\.html)?".*?>.*?<\/a>/g
