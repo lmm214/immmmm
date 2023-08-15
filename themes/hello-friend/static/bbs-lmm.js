@@ -66,7 +66,8 @@ let urls = [
   {home:"https://ysicing.cloud/",host:"https://note.ysicing.cloud/",apiV1:'v1/',creatorId:"1",imgsrc:cdnGravatar+"5ca16ee587d1e4befd805cf710361f26"},
   {home:"https://www.kingname.info/",host:"https://memos.kingname.info/",apiV1:'v1/',creatorId:"1",imgsrc:cdnGravatar+"2463f1bd85aea23703f320e67d33f349"},
   {home:"https://idh.ink/",host:"https://idh.ink/",apiV1:'v1/',creatorId:"1",imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=NAuictuJAIjdPiaHlY6xbDWA&kti=ZHUWoAAAAAA&s=140&t=1683481629"},
-  {home:"https://leonfong.me/",host:"https://memo.leonfong.me/",apiV1:'v1/',creatorId:"1",imgsrc:cdnGravatar+"b147bfa4888f1233882ba5b39ef3bffc"}
+  {home:"https://leonfong.me/",host:"https://memo.leonfong.me/",apiV1:'v1/',creatorId:"1",imgsrc:cdnGravatar+"b147bfa4888f1233882ba5b39ef3bffc"},
+  {home:"https://www.xalaok.top/",host:"https://memos.xalaok.top/",apiV1:'v1/',creatorId:"1",imgsrc:cdnGravatar+"44e7a197aa88dcad4764a1c0ea508d8c"}
 ]
 
 let bbDom = document.querySelector('#bbs');
