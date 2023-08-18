@@ -2,7 +2,7 @@
 title: "Hi , Obsidian Digital Garden"
 date: 2023-08-13T19:25:03+0800
 tags: [折腾]
-feature: https://r2.immmmm.com/2023/08/odg-1.png
+feature: https://r2.immmmm.com/2023/08/iShot_2023-08-17_21.43.16.png
 ---
 
 > 一个能直接把 Obsidian 文档发布建站的插件！
@@ -82,6 +82,10 @@ CloudFlare 中新建 `Pages` 并连接，构建命令和输出目录填写 `例�
 #### 添加自定义样式若干
 
 `custom-style.css`：[src/site/styles/user/custom-style.css](https://github.com/lmm214/edui123/blob/main/src/site/styles/user/custom-style.css)
+
+#### 自定义样 favicon.svg
+
+路径：`src/site/favicon.svg`
 
 #### 更多折腾推荐个学习仓库
 
