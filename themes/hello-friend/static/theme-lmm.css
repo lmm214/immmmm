@@ -1604,7 +1604,7 @@ photos .photo:last-child {
 @media (max-width:550px) {.post-preview {width:95%;height:120px;}.post-preview--meta{padding:15px;}.post-preview--image{height:120px!important;}.post-preview--excerpt{display:none;}.post-preview--middle {line-height:19px;}}.dark .post-preview{background: #3b3d42;}
 
 /* db-card -------- start*/
-.db-card{margin:2rem 3rem;background:#fafafa;border-radius: 4px;box-shadow: 0 1px 2px rgb(0 0 0 / 25%), 0 0 1px rgb(0 0 0 / 25%)}
+.db-card{margin:2rem 3rem;background:#fafafa;border-radius: 8px;box-shadow: 0 1px 2px rgb(0 0 0 / 25%), 0 0 1px rgb(0 0 0 / 25%)}
 .db-card-subject{display: flex;align-items:flex-start;line-height:1.6;padding:12px;position:relative;}
 .dark .db-card{background:#252627;}
 .db-card-content {flex:1 1 auto;}
