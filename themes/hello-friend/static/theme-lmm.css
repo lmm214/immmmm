@@ -1455,7 +1455,9 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 .post-content p:has(> img:nth-child(4)){column-count:4;}
 .post-content p:has(> img:nth-child(5)){column-count:5;}
 .post-content p:has(> img:nth-child(6)){column-count:4;}
-.post-content p:has(> img:nth-child(2)) img{display:inherit;margin-bottom:8px;}
+.post-content p:has(> img:nth-child(2)) img{display:inherit;}
+.post-content p:has(> img:nth-child(6)) img{margin-bottom:8px;}
+
 .fullscreen{margin-left:calc(490px - 50vw);width:calc(100vw - 20px);column-count:4;column-gap:6px;}
 .fullscreen img{display:inherit;margin-bottom:8px;}
 @media (max-width: 980px){
