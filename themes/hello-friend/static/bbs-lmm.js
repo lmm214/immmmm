@@ -134,6 +134,7 @@ function urlsNow(e){
     availablearraystringNow = urls[num].availablearraystring || ''
     domUrls[num].classList.add("url-now")
     bbUrlNow = hostNow+"api/"+apiV1Now+"memo?creatorId="+creIdNow+"&rowStatus=NORMAL&limit=10"
+    console.log(bbUrlNow)
     fetch(bbUrlNow).then(res => res.json()).then( resdata =>{
       let arrData = resdata || ''
       if(resdata.data){
@@ -336,6 +337,7 @@ async function updateHTMl(data){
   for(let i=0;i < data.length;i++){
       let memos = data[i].url
       let memoId = data[i].memoId
+      let creatorId = data[i].creatorId
       let memoUrl = memos + "m/" + memoId
       let comment = data[i].comment
       let twiEnv = data[i].twiEnv
@@ -422,7 +424,7 @@ async function updateHTMl(data){
       }
       let memoIdNow = memoUrl.replace(/https\:\/\/(.*\.)?(.*)\..*/,'id-$2-')
       //查找当前 urls 中的 index 位置
-      let uslIndexNow = urls.findIndex(item => item.host === memos);
+      let uslIndexNow = urls.findIndex(item => (item.host == memos && item.creatorId == creatorId));
       
       let outSVG = '<span class="bbs-coment-svg bbs-outlink"><svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="20" height="20"><path d="M864 640a32 32 0 0 1 64 0v224.096A63.936 63.936 0 0 1 864.096 928H159.904A63.936 63.936 0 0 1 96 864.096V159.904C96 124.608 124.64 96 159.904 96H384a32 32 0 0 1 0 64H192.064A31.904 31.904 0 0 0 160 192.064v639.872A31.904 31.904 0 0 0 192.064 864h639.872A31.904 31.904 0 0 0 864 831.936V640zm-485.184 52.48a31.84 31.84 0 0 1-45.12-.128 31.808 31.808 0 0 1-.128-45.12L815.04 166.048l-176.128.736a31.392 31.392 0 0 1-31.584-31.744 32.32 32.32 0 0 1 31.84-32l255.232-1.056a31.36 31.36 0 0 1 31.584 31.584L924.928 388.8a32.32 32.32 0 0 1-32 31.84 31.392 31.392 0 0 1-31.712-31.584l.736-179.392L378.816 692.48z"/></svg></span>'
 
