@@ -1429,55 +1429,12 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 .dark .OwO .OwO-body .OwO-items .OwO-item,.dark .OwO .OwO-body .OwO-bar{background:#4a4b50 !important;color: #ccc !important;}
 .dark .OwO .OwO-body .OwO-bar .OwO-packages li:hover,.dark .OwO .OwO-body .OwO-items-image .OwO-item:hover,.dark .OwO .OwO-body .OwO-bar .OwO-packages .OwO-package-active{background-color: #252627 !important;}
 
-photos:after{
-  content: ".";
-  display: block;
-  overflow: hidden;
-  visibility: hidden;
-  font-size: 0;
-  line-height: 0;
-  width: 0;
-  height: 0;
-  clear: both;
-}
-.clear {
-  clear: both;
-  display: block;
-  overflow: hidden;
-  visibility: hidden;
-  width: 0;
-  height: 0;
-}
-photos {
-  display: block;
-  width: 100%;
-  margin: 0 auto;
-}
-photos .photo:nth-of-type(3n) {
-  margin-right: 0px;
-}
-photos .photo:last-child {
-  margin-right: 0px;
-}
-@media screen and (max-width: 860px) {
-  photos .photo {
-    width: 180px;
-    margin-right: 4px;
-    margin-bottom: 4px;
-    float: left;
-  }
-}
-@media screen and (min-width: 860px) {
-  photos .photo {
-    width: 245px;
-    margin-right: 8px;
-    margin-bottom: 8px;
-    float: left;
-  }
-}
 
-.gallery-photos{width:100%;}
-.gallery-photo{width:24.9%;position: relative;visibility: hidden;overflow: hidden;}
+
+
+
+.gallery-photos{width:100%;column-count:6;column-gap:0;}
+.gallery-photo{position: relative;visibility: hidden;overflow: hidden;}
 .gallery-photo.visible{visibility: visible;animation: fadeIn 2s;}
 .gallery-photo img{display: block;width:100%;border-radius:0;padding:4px;animation: fadeIn 1s;cursor: pointer;transition: all .4s ease-in-out;}
 .gallery-photo span.photo-title,.gallery-photo span.photo-time{background: rgba(0, 0, 0, 0.3);padding:0px 8px;font-size:0.9rem;color: #fff;display:none;animation: fadeIn 1s;}
@@ -1486,24 +1443,20 @@ photos .photo:last-child {
 .gallery-photo:hover span.photo-title,.gallery-photo:hover span.photo-time{display:block !important;}
 .gallery-photo:hover img{transform: scale(1.1);}
 .page .gallery-photo span.photo-time,.page .gallery-photo span.photo-title{display: block;}
-@media screen and (max-width: 1800px) {
-	.gallery-photo{width:33.3%;}
-	.page .gallery-photo{width:24.9%;}
-}
-@media screen and (max-width: 860px) {
-	.gallery-photo{width:49.9%;}
-	.page .gallery-photo{width:33.3%;}
-}
 @media (max-width: 683px){
 	.page .gallery-photo span.photo-time{display: none;}
-	.page .gallery-photo{width:49.9%;}
 }
 @keyframes fadeIn{
 	0% {opacity: 0;}
    100% {opacity: 1;}
 }
-
 .page.gallery-photos{margin-top:4px;}
+
+.gallery-photos.single{margin-left: calc(480px - 50vw);width:100vw;column-count:4;}
+@media (max-width: 980px){
+	.gallery-photos{column-count:3;}
+	.gallery-photos.single{margin-left: 0;width:auto;column-count:3;}
+}
 
 /* SLIMBOX2 */
 #lbOverlay{position:fixed;z-index:9999;left:0;top:0;width:100%;height:100%;background-color:#000;cursor:pointer;}

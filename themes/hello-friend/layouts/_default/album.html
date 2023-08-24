@@ -1,7 +1,6 @@
 {{ define "main" }}
 
-  <div id="album" style="width: 100%;"></div>
-
+<div id="album" style="width: 100%;"></div>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
@@ -52,17 +51,6 @@
           var galleryAfter = `</div>`
           resultAll = galleryBefore + result + galleryAfter
           galleryDom.innerHTML = resultAll
-          //相册排版
-          imgStatus.watch('.photo-img', function(imgs) {
-            if(imgs.isDone()){
-              waterfall('.gallery-photos');
-              //let pagePhoto = document.querySelectorAll('.gallery-photo');
-              //for(var i=0;i < pagePhoto.length;i++){pagePhoto[i].className += " visible"};
-            }
-          });
-          window.addEventListener('resize', function () {
-            waterfall('.gallery-photos');
-          });
           //图片灯箱
           window.ViewImage && ViewImage.init('.gallery-photo img')
           //相对时间
