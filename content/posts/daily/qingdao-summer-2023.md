@@ -29,7 +29,23 @@ feature: https://r2.immmmm.com/2023/07/qd-d1-1.jpg
 
 奥帆中心，太大了！果断，观光车，来回的，车览。
 
-<gallery>![qd-d1-5](https://r2.immmmm.com/2023/07/qd-d1-5.JPG)![qd-d1-4](https://r2.immmmm.com/2023/07/qd-d1-4.JPG)![qd-d1-6](https://r2.immmmm.com/2023/07/qd-d1-6.JPG)![qd-d1-2](https://r2.immmmm.com/2023/07/qd-d1-2.JPG)![qd-d1-1](https://r2.immmmm.com/2023/07/qd-d1-1.JPG)![qd-d1-3](https://r2.immmmm.com/2023/07/qd-d1-3.JPG)![qd-d1-7](https://r2.immmmm.com/2023/07/qd-d1-7.JPG)![qd-d1-8](https://r2.immmmm.com/2023/07/qd-d1-8.JPG)![qd-d1-9](https://r2.immmmm.com/2023/07/qd-d1-9.JPG)![qd-d1-10](https://r2.immmmm.com/2023/07/qd-d1-10.JPG)![qd-d1-11](https://r2.immmmm.com/2023/07/qd-d1-11.JPG)![qd-d1-13](https://r2.immmmm.com/2023/07/qd-d1-13.JPG)![qd-d1-12](https://r2.immmmm.com/2023/07/qd-d1-12.JPG)![qd-d1-14](https://r2.immmmm.com/2023/07/qd-d1-14.JPG)![qd-d1-15](https://r2.immmmm.com/2023/07/qd-d1-15.JPG)</gallery>
+{{< fullscreen >}}
+![qd-d1-5](https://r2.immmmm.com/2023/07/qd-d1-5.JPG)
+![qd-d1-4](https://r2.immmmm.com/2023/07/qd-d1-4.JPG)
+![qd-d1-6](https://r2.immmmm.com/2023/07/qd-d1-6.JPG)
+![qd-d1-2](https://r2.immmmm.com/2023/07/qd-d1-2.JPG)
+![qd-d1-1](https://r2.immmmm.com/2023/07/qd-d1-1.JPG)
+![qd-d1-3](https://r2.immmmm.com/2023/07/qd-d1-3.JPG)
+![qd-d1-7](https://r2.immmmm.com/2023/07/qd-d1-7.JPG)
+![qd-d1-8](https://r2.immmmm.com/2023/07/qd-d1-8.JPG)
+![qd-d1-9](https://r2.immmmm.com/2023/07/qd-d1-9.JPG)
+![qd-d1-10](https://r2.immmmm.com/2023/07/qd-d1-10.JPG)
+![qd-d1-11](https://r2.immmmm.com/2023/07/qd-d1-11.JPG)
+![qd-d1-13](https://r2.immmmm.com/2023/07/qd-d1-13.JPG)
+![qd-d1-12](https://r2.immmmm.com/2023/07/qd-d1-12.JPG)
+![qd-d1-14](https://r2.immmmm.com/2023/07/qd-d1-14.JPG)
+![qd-d1-15](https://r2.immmmm.com/2023/07/qd-d1-15.JPG)
+{{< /fullscreen >}}
 
 ### D2
 
@@ -47,7 +63,21 @@ feature: https://r2.immmmm.com/2023/07/qd-d1-1.jpg
 
 3号门出馆，边上又是网红路，咖啡街。
 
-<gallery>![qd-d2-1](https://r2.immmmm.com/2023/07/qd-d2-1.JPG)![qd-d2-2](https://r2.immmmm.com/2023/07/qd-d2-2.JPG)![qd-d2-3](https://r2.immmmm.com/2023/07/qd-d2-3.JPG)![qd-d2-4](https://r2.immmmm.com/2023/07/qd-d2-4.JPG)![qd-d2-5](https://r2.immmmm.com/2023/07/qd-d2-5.JPG)![qd-d2-6](https://r2.immmmm.com/2023/07/qd-d2-6.JPG)![qd-d2-7](https://r2.immmmm.com/2023/07/qd-d2-7.JPG)![qd-d2-8](https://r2.immmmm.com/2023/07/qd-d2-8.JPG)![qd-d2-9](https://r2.immmmm.com/2023/07/qd-d2-9.JPG)![qd-d2-10](https://r2.immmmm.com/2023/07/qd-d2-10.JPG)![qd-d2-11](https://r2.immmmm.com/2023/07/qd-d2-11.JPG)![qd-d2-12](https://r2.immmmm.com/2023/07/qd-d2-12.JPG)![qd-d2-13](https://r2.immmmm.com/2023/07/qd-d2-13.JPG)</gallery>
+{{< fullscreen >}}
+![qd-d2-1](https://r2.immmmm.com/2023/07/qd-d2-1.JPG)
+![qd-d2-2](https://r2.immmmm.com/2023/07/qd-d2-2.JPG)
+![qd-d2-3](https://r2.immmmm.com/2023/07/qd-d2-3.JPG)
+![qd-d2-4](https://r2.immmmm.com/2023/07/qd-d2-4.JPG)
+![qd-d2-5](https://r2.immmmm.com/2023/07/qd-d2-5.JPG)
+![qd-d2-6](https://r2.immmmm.com/2023/07/qd-d2-6.JPG)
+![qd-d2-7](https://r2.immmmm.com/2023/07/qd-d2-7.JPG)
+![qd-d2-8](https://r2.immmmm.com/2023/07/qd-d2-8.JPG)
+![qd-d2-9](https://r2.immmmm.com/2023/07/qd-d2-9.JPG)
+![qd-d2-10](https://r2.immmmm.com/2023/07/qd-d2-10.JPG)
+![qd-d2-11](https://r2.immmmm.com/2023/07/qd-d2-11.JPG)
+![qd-d2-12](https://r2.immmmm.com/2023/07/qd-d2-12.JPG)
+![qd-d2-13](https://r2.immmmm.com/2023/07/qd-d2-13.JPG)
+{{< /fullscreen >}}
 
 ### D3
 
@@ -69,7 +99,19 @@ feature: https://r2.immmmm.com/2023/07/qd-d1-1.jpg
 
 本计划酒店洗漱后不再出门，但发现各平台外卖评价推荐不一，主要是发现酒店后面就是餐饮一条街，走、走、走就走到了吕氏。
 
-<gallery>![qd-d3-1](https://r2.immmmm.com/2023/07/qd-d3-1.JPG)![qd-d3-2](https://r2.immmmm.com/2023/07/qd-d3-2.JPG)![qd-d3-3](https://r2.immmmm.com/2023/07/qd-d3-3.JPG)![qd-d3-4](https://r2.immmmm.com/2023/07/qd-d3-4.JPG)![qd-d3-5](https://r2.immmmm.com/2023/07/qd-d3-5.JPG)![qd-d3-6](https://r2.immmmm.com/2023/07/qd-d3-6.JPG)![qd-d3-7](https://r2.immmmm.com/2023/07/qd-d3-7.JPG)![qd-d3-8](https://r2.immmmm.com/2023/07/qd-d3-8.JPG)![qd-d3-9](https://r2.immmmm.com/2023/07/qd-d3-9.JPG)![qd-d3-10](https://r2.immmmm.com/2023/07/qd-d3-10.JPG)![qd-d3-11](https://r2.immmmm.com/2023/07/qd-d3-11.JPG)</gallery>
+{{< fullscreen >}}
+![qd-d3-1](https://r2.immmmm.com/2023/07/qd-d3-1.JPG)
+![qd-d3-2](https://r2.immmmm.com/2023/07/qd-d3-2.JPG)
+![qd-d3-3](https://r2.immmmm.com/2023/07/qd-d3-3.JPG)
+![qd-d3-4](https://r2.immmmm.com/2023/07/qd-d3-4.JPG)
+![qd-d3-5](https://r2.immmmm.com/2023/07/qd-d3-5.JPG)
+![qd-d3-6](https://r2.immmmm.com/2023/07/qd-d3-6.JPG)
+![qd-d3-7](https://r2.immmmm.com/2023/07/qd-d3-7.JPG)
+![qd-d3-8](https://r2.immmmm.com/2023/07/qd-d3-8.JPG)
+![qd-d3-9](https://r2.immmmm.com/2023/07/qd-d3-9.JPG)
+![qd-d3-10](https://r2.immmmm.com/2023/07/qd-d3-10.JPG)
+![qd-d3-11](https://r2.immmmm.com/2023/07/qd-d3-11.JPG)
+{{< /fullscreen >}}
 
 ### 后记
 

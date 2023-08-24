@@ -1429,13 +1429,8 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 .dark .OwO .OwO-body .OwO-items .OwO-item,.dark .OwO .OwO-body .OwO-bar{background:#4a4b50 !important;color: #ccc !important;}
 .dark .OwO .OwO-body .OwO-bar .OwO-packages li:hover,.dark .OwO .OwO-body .OwO-items-image .OwO-item:hover,.dark .OwO .OwO-body .OwO-bar .OwO-packages .OwO-package-active{background-color: #252627 !important;}
 
-
-
-
-
 .gallery-photos{width:100%;column-count:6;column-gap:0;}
-.gallery-photo{position: relative;visibility: hidden;overflow: hidden;}
-.gallery-photo.visible{visibility: visible;animation: fadeIn 2s;}
+.gallery-photo{position: relative;overflow: hidden;animation: fadeIn 2s;}
 .gallery-photo img{display: block;width:100%;border-radius:0;padding:4px;animation: fadeIn 1s;cursor: pointer;transition: all .4s ease-in-out;}
 .gallery-photo span.photo-title,.gallery-photo span.photo-time{background: rgba(0, 0, 0, 0.3);padding:0px 8px;font-size:0.9rem;color: #fff;display:none;animation: fadeIn 1s;}
 .gallery-photo span.photo-title{position:absolute;bottom:4px;left:4px;}
@@ -1451,11 +1446,20 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
    100% {opacity: 1;}
 }
 .page.gallery-photos{margin-top:4px;}
-
-.gallery-photos.single{margin-left: calc(480px - 50vw);width:100vw;column-count:4;}
 @media (max-width: 980px){
 	.gallery-photos{column-count:3;}
-	.gallery-photos.single{margin-left: 0;width:auto;column-count:3;}
+}
+
+.post-content p:has(> img:nth-child(2)){column-count:2;column-gap:8px;margin:6px 0;}
+.post-content p:has(> img:nth-child(3)){column-count:3;}
+.post-content p:has(> img:nth-child(4)){column-count:4;}
+.post-content p:has(> img:nth-child(5)){column-count:5;}
+.post-content p:has(> img:nth-child(6)){column-count:4;}
+.post-content p:has(> img:nth-child(2)) img{display:inherit;margin-bottom:8px;}
+.fullscreen{margin-left:calc(490px - 50vw);width:calc(100vw - 20px);column-count:4;column-gap:6px;}
+.fullscreen img{display:inherit;margin-bottom:8px;}
+@media (max-width: 980px){
+	.fullscreen{margin-left: 0;width:auto;column-count:3;}
 }
 
 /* SLIMBOX2 */
