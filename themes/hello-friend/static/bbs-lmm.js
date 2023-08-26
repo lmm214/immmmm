@@ -54,7 +54,6 @@ let urls = [
   {home:"https://veryjack.com/",host:"https://say.veryjack.com/",apiV1:'v1/',creatorId:"1",comment:'1',artEnv: 'https://artalk.veryjack.com',artSite: 'Jack\'s Space',imgsrc:cdnGravatar+"7a41a0e8e1df8e964fa1268193b03508"},
   {home:"https://usj.cc/",host:"https://memos.usj.cc/",apiV1:'',creatorId:"1",comment:'1',artEnv:'https://artalk.usj.cc',artSite:'优世界',imgsrc:cdnGravatar+"1cce0a22c2c7648eab76ec876c6a54d9"},
   {home:"https://blog.roccoshi.top/",host:"https://memos.roccoshi.top/",apiV1:'v1/',creatorId:"1",imgsrc:"https://youpai.roccoshi.top/img/avatar.jpg"},
-  {home:"https://www.cyuanx.icu/",host:"https://mome.cyuanx.icu/",apiV1:'',creatorId:"1",imgsrc:"https://www.cyuanx.icu/wp-content/uploads/2023/03/cropped-07b4b32029661fd9ce1200ac9b937f1.jpg"},
   {home:"https://xsinger.me/",host:"https://isay.live/",apiV1:'v1/',creatorId:"101",imgsrc:cdnGravatar+"f0e33f4d097fe2e9fd74b9b129e7a655"},
   {home:"https://noionion.top/",host:"https://memos.noionion.cn/",apiV1:'',creatorId:"1",imgsrc:cdnGravatar+"d240a727ea154be465796ef2644aac16"},
   {home:"https://www.wananaiko.com/",host:"https://memo.wananaiko.com/",apiV1:'',creatorId:"1",imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=7AFd0gic7wVsNg2ToQrQU2w&s=140&t=1583250600"},
@@ -408,7 +407,7 @@ async function updateHTMl(data){
             imgUrl += `<figure class="gallery-thumbnail"><img class="img thumbnail-image" src="${resLink}"/></figure>`
             resImgLength = resImgLength + 1 
           }else if(restype == 'video'){
-            imgUrl += `<div class="video-wrapper"><video controls><source src="${memos+"o/r/"+resourceList[j].id}" type="video/mp4"></video></div>`
+            imgUrl += `<div class="video-wrapper"><video controls><source src="${resLink}" type="video/mp4"></video></div>`
           }else{
             resUrl += `<a target="_blank" rel="noreferrer" href="${resLink}">${resourceList[j].filename}</a>`
           }

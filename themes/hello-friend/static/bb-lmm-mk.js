@@ -336,18 +336,14 @@ async function updateHTMl(data){
         for(let j=0;j < resourceList.length;j++){
           let restype = resourceList[j].type.slice(0,5)
           let resexlink = resourceList[j].externalLink
-          let resLink = '',fileId=''
-          if(resexlink){
-            resLink = resexlink
-          }else{
-            fileId = resourceList[j].publicId || resourceList[j].filename
-            resLink = memos+'o/r/'+resourceList[j].id+'/'+fileId
-          }
+          let resLink = resexlink ? resexlink : 
+                        memos+'o/r/'+resourceList[j].id+'/'+(resourceList[j].publicId || resourceList[j].filename)
+
           if(restype == 'image'){
             imgUrl += `<figure class="gallery-thumbnail"><img class="img thumbnail-image" src="${resLink}"/></figure>`
             resImgLength = resImgLength + 1 
           }else if(restype == 'video'){
-            imgUrl += `<div class="video-wrapper"><video controls><source src="${memos+'o/r/'+resourceList[j].id}" type="video/mp4"></video></div>`
+            imgUrl += `<div class="video-wrapper"><video controls><source src="${resLink}" type="video/mp4"></video></div>`
           }else{
             resUrl += `<a target="_blank" rel="noreferrer" href="${resLink}">${resourceList[j].filename}</a>`
           }
