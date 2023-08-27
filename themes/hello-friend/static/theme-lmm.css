@@ -730,6 +730,16 @@ hr {
 	line-height: 2.2rem;
     letter-spacing: 2px;
 }
+@media (max-width:899px) {
+	.home-1 .post-title a {
+		line-height: 2rem;
+		letter-spacing: 1px;
+	}
+	.home-2 .post-title a {
+		line-height: 1.6rem;
+		letter-spacing: 0;
+	}
+}
 .post-tags {
 	display: block;
 	margin-bottom: 20px;
