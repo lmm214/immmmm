@@ -716,7 +716,7 @@ hr {
 	--shadow-color: rgba(0,0,0,0.12);
 	--shadow: 0 8px 20px var(--shadow-color);
 }
-
+.home-1 .post-title{font-size: 1.8rem;margin-bottom:.5rem !important;}
 @media (max-width:683px) {
 	.post-title {
 		font-size: 2rem
@@ -726,7 +726,10 @@ hr {
 .post-title a {
 	text-decoration: none
 }
-
+.home-2 .post-title a {
+	line-height: 2.2rem;
+    letter-spacing: 2px;
+}
 .post-tags {
 	display: block;
 	margin-bottom: 20px;
