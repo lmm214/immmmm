@@ -67,7 +67,9 @@ let urls = [
   {home:"https://www.kingname.info/",host:"https://memos.kingname.info/",apiV1:'v1/',creatorId:"1",imgsrc:cdnGravatar+"2463f1bd85aea23703f320e67d33f349"},
   {home:"https://leonfong.me/",host:"https://memo.leonfong.me/",apiV1:'v1/',creatorId:"1",imgsrc:cdnGravatar+"b147bfa4888f1233882ba5b39ef3bffc"},
   {home:"https://www.xalaok.top/",host:"https://memos.xalaok.top/",apiV1:'v1/',creatorId:"1",imgsrc:cdnGravatar+"44e7a197aa88dcad4764a1c0ea508d8c"},
-  {home:"https://www.huxin1216.xyz/",host:"https://i.huxin1216.xyz:5233/",apiV1:'',creatorId:"1",comment:'1',twiEnv:'https://com.huxin1216.xyz/',imgsrc:cdnGravatar+"bb78cd69edd84cdbdb99a491ea2dc6c8"}
+  {home:"https://www.huxin1216.xyz/",host:"https://i.huxin1216.xyz:5233/",apiV1:'',creatorId:"1",comment:'1',twiEnv:'https://com.huxin1216.xyz/',imgsrc:cdnGravatar+"bb78cd69edd84cdbdb99a491ea2dc6c8"},
+  {home:"https://yinji.net/",host:"https://yinji.net/",apiV1:'v1/',creatorId:"1",comment:"1",twiEnv:"https://koo.yinji.net/",imgsrc:cdnGravatar+"ba98152d337d7be289b51b90769cb194"},
+  {home:"https://zuofei.net/",host:"https://memo.eirms.com/",apiV1:'v1/',creatorId:"1",imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&nk=546642451&s=140"}
 ]
 
 let bbDom = document.querySelector('#bbs');
