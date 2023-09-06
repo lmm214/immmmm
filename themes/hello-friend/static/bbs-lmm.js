@@ -45,7 +45,7 @@ let urls = [
   {home:"https://www.demochen.com/",host:"https://memos.elizen.me/",apiV1:'v1/',creatorId:"102",comment:'1',twiEnv:'https://pl.elizen.me/',imgsrc:cdnGravatar+"cc9b8a642c62eef389cd2cc7770276c4"},
   {home:"https://hexo.shangskr.top/",host:"https://memos.shangskr.top/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://twikoo.memos.shangskr.top/',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&nk=2622979530&s=140"},
   {home:"https://eallion.com/",host:"https://api.eallion.com/memos/",apiV1:'v1/',creatorId:"101",comment:'1',artEnv:'https://api.eallion.com/artalk/',artSite:'memos',imgsrc:cdnGravatar+"171e4c30959e8c077a6c58b958624b31",endpoint:'https://emaction.e5n.cc',reacttargetid:"e5n_gts_"},
-  {home:"https://www.skyue.com/",host:"https://memos.skyue.com/",apiV1:'v1/',creatorId:"1",comment:'1',artEnv: 'https://artalk.skyue.com',artSite: '拾月微博',imgsrc:cdnGravatar+"c3fb4bb4d5101284ddd672fb722cdd7d"},
+  {home:"https://www.skyue.com/",host:"https://memos.skyue.com/",apiV1:'v1/',creatorId:"1",imgsrc:cdnGravatar+"c3fb4bb4d5101284ddd672fb722cdd7d"},
   {home:"https://xrat.net/",host:"https://memos.xrat.net/",apiV1:'v1/',creatorId:"2",comment:'1',artEnv:'https://vlabs.synology.me:96',artSite:'memos.xrat.net',imgsrc:cdnGravatar+"0ab677e14d21d941f64d98192d6168e7"},
   {home:"https://www.isolitude.cn/",host:"https://me.isolitude.cn/",apiV1:'v1/',creatorId:"1",comment:'1',artEnv: 'https://artalk.isolitude.cn/',artSite: '自说自话王国',imgsrc:cdnGravatar+"924916294598a950bb80d78012dc3aac"},
   {home:"https://laozhang.org/",host:"https://memos.laozhang.org/",apiV1:'v1/',creatorId:"1",comment:'1',artEnv: 'https://artalk.laozhang.org/',artSite: 'memos',imgsrc:cdnGravatar+"679666f7bd1af3e55f0e51dd70ed161c"},
