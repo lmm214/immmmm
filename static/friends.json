@@ -432,7 +432,7 @@
             "des": "" 
         },{
             "name": "青山",
-            "url": "https://zuofei.net/",
+            "url": "https://yinji.org/",
             "md5": "dc75b1021b41486d062ff0285fb94749",
             "des": "" 
         },{
@@ -490,6 +490,16 @@
             "url": "https://blog.cuger.cn",
             "md5": "9aec3e60000157099f4adc30474af4ff",
             "des": "爱编程、爱摄影，期待走遍万水千山！"
+        },{
+            "name": "Leon Fong",
+            "url": "https://leonfong.me",
+            "md5": "b147bfa4888f1233882ba5b39ef3bffc",
+            "des": "记录生活，表达热爱"
+        },{
+            "name": "阿猫阿狗",
+            "url": "https://blog.yhz610.com/",
+            "src": "https://thirdqq.qlogo.cn/g?b=sdk&nk=344893213&s=140",
+            "des": ""
         }
         
     ]
