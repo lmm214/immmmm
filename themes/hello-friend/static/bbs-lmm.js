@@ -136,7 +136,7 @@ function urlsNow(e){
     reacttargetidNow = urls[num].reacttargetid || ''
     availablearraystringNow = urls[num].availablearraystring || ''
     domUrls[num].classList.add("url-now")
-    bbUrlNow = hostNow+"api/"+apiV1Now+"memo?creatorId="+creIdNow+"&rowStatus=NORMAL&limit=10"
+    bbUrlNow = "https://api-memos-v15.immmmm.com/?url="+hostNow+"api/"+apiV1Now+"memo?creatorId="+creIdNow+"&rowStatus=NORMAL&limit=10"
     console.log(bbUrlNow)
     fetch(bbUrlNow).then(res => res.json()).then( resdata =>{
       let arrData = resdata || ''
@@ -250,7 +250,7 @@ const fetchBBser = async () => {
   const results = await Promise.allSettled(urls.map(
     //限时
     url => withTimeout(2000,
-      fetch(url.host+"api/"+url.apiV1+"memo?creatorId="+url.creatorId+"&rowStatus=NORMAL&limit="+limit).then(response => response.json()).then(resdata => {
+      fetch("https://api-memos-v15.immmmm.com/?url="+url.host+"api/"+url.apiV1+"memo?creatorId="+url.creatorId+"&rowStatus=NORMAL&limit="+limit).then(response => response.json()).then(resdata => {
         let qsLive = ".bbs-urls.bbs-url[data-hostid='"+url.host+"u/"+url.creatorId+"']"
         document.querySelector(qsLive).classList.add("liveon");
         let arrData = resdata || ''
@@ -523,7 +523,6 @@ function loadTwikoo(e) {
       setTimeout(function(){
         document.getElementById("twikoo").id= EnvNow+'twikoo-' + memoId;
       }, 600)
-      //加参数 http://localhost:1313/bbs/?memo=https://me.edui.fun/m/1699
       let memoUrlOne = location.pathname + '?memo=' + memoPath
       history.pushState({memoUrlOne: memoUrlOne, title: document.title}, document.title, memoUrlOne)
     }
@@ -560,7 +559,6 @@ function loadArtalk(e) {
         site: memoSite,
         server: memoEnv
       });
-      //加参数 http://localhost:1313/bbs/?memo=https://me.edui.fun/m/1699
       let memoUrlOne = location.pathname + '?memo=' + memoPath
       history.pushState({memoUrlOne: memoUrlOne, title: document.title}, document.title, memoUrlOne)
     }
