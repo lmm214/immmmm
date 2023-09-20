@@ -136,7 +136,7 @@ function urlsNow(e){
     reacttargetidNow = urls[num].reacttargetid || ''
     availablearraystringNow = urls[num].availablearraystring || ''
     domUrls[num].classList.add("url-now")
-    bbUrlNow = "https://api-memos-v15.immmmm.com/?url="+hostNow+"api/"+apiV1Now+"memo?creatorId="+creIdNow+"&rowStatus=NORMAL&limit=10"
+    bbUrlNow = hostNow+"api/"+apiV1Now+"memo?creatorId="+creIdNow+"&rowStatus=NORMAL&limit=10"
     console.log(bbUrlNow)
     fetch(bbUrlNow).then(res => res.json()).then( resdata =>{
       let arrData = resdata || ''
@@ -250,7 +250,7 @@ const fetchBBser = async () => {
   const results = await Promise.allSettled(urls.map(
     //限时
     url => withTimeout(2000,
-      fetch("https://api-memos-v15.immmmm.com/?url="+url.host+"api/"+url.apiV1+"memo?creatorId="+url.creatorId+"&rowStatus=NORMAL&limit="+limit).then(response => response.json()).then(resdata => {
+      fetch(url.host+"api/"+url.apiV1+"memo?creatorId="+url.creatorId+"&rowStatus=NORMAL&limit="+limit).then(response => response.json()).then(resdata => {
         let qsLive = ".bbs-urls.bbs-url[data-hostid='"+url.host+"u/"+url.creatorId+"']"
         document.querySelector(qsLive).classList.add("liveon");
         let arrData = resdata || ''
