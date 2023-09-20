@@ -5,7 +5,7 @@
 <script>
   document.addEventListener("DOMContentLoaded", () => {
       var memoUrl = "https://me.edui.fun/"
-      var galleryUrl = "https://api-memos-v15.immmmm.com/?url="+memoUrl+"api/v1/memo?creatorId=101&rowStatus=NORMAL&tag=相册&limit=20"
+      var galleryUrl = memoUrl+"api/v1/memo?creatorId=101&rowStatus=NORMAL&tag=相册&limit=20"
       fetch(galleryUrl).then(res => res.json()).then( resdata =>{
           var result = '',resultAll="",data = resdata
           for(var i=0;i < data.length;i++){
