@@ -116,8 +116,8 @@
             "md5": "65106752d27bc6065e29a8a8d39bdbc2",
             "des": ""
         },{
-            "name": "胡家小子",
-            "url": "https://www.boyhu.cn/",
+            "name": "日志屿",
+            "url": "https://logyu.cc",
             "md5": "55be217893c75baf8571837197de4a3e",
             "des": ""
         },{
@@ -499,6 +499,11 @@
             "name": "阿猫阿狗",
             "url": "https://blog.yhz610.com/",
             "src": "https://thirdqq.qlogo.cn/g?b=sdk&nk=344893213&s=140",
+            "des": ""
+        },{
+            "name": "东评西就",
+            "url": "https://dongjunke.cn",
+            "md5": "42542189ddb33064599dc88a5149bea7",
             "des": ""
         }
         
