@@ -50,6 +50,8 @@ Git： `brew install git`
 
 Hugo 博客程序： `brew install hugo`
 
+ffmpeg ：`brew install ffmpeg`
+
 LxgwWenKai 字体：
 
 `brew tap homebrew/cask-fonts && brew install font-lxgw-wenkai`
