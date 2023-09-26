@@ -1,12 +1,12 @@
 /*
-Last Modified time : 20230809 11:00 by https://immmmm.com
+Last Modified time : 20230926 11:00 by https://immmmm.com
 */
 let bbMemo = {
   memos: 'https://demo.usememos.com/',
   limit: '10',
-  creatorId: '101',
+  creatorId: '1',
   domId: '#bber',
-  twiEnv:'https://metk.edui.fun/',
+  twiEnv:'',
 }
 if(typeof(bbMemos) !=="undefined"){
   for(let key in bbMemos) {
@@ -172,8 +172,11 @@ function newApiV1(apiV1){
   let btn = document.querySelector("button.button-load");
   btn.addEventListener("click", function () {
     btn.textContent= '加载中……';
-    updateTiwkoo(nextDom)
-    //updateHTMl(nextDom)
+    if(bbMemo.twiEnv){
+      updateTiwkoo(nextDom)
+    }else{
+      updateHTMl(nextDom)
+    }
     if(nextLength < limit){ //返回数据条数小于限制条数，隐藏
       document.querySelector("button.button-load").remove()
       return
@@ -186,12 +189,12 @@ function getFirstList(apiV1){
   bbDom.insertAdjacentHTML('afterend', load);
   let bbUrl = memos+"api/"+apiV1+"memo?creatorId="+bbMemo.creatorId+"&rowStatus=NORMAL&limit="+limit;
   fetch(bbUrl).then(res => res.json()).then( resdata =>{
-    let arrData = resdata || ''
-    if(resdata.data){
-      arrData = resdata.data
+    if(bbMemo.twiEnv){
+      updateTiwkoo(resdata)
+    }else{
+      updateHTMl(resdata)
     }
-    updateTiwkoo(arrData)
-    let nowLength = arrData.length
+    let nowLength = resdata.length
     if(nowLength < limit){ //返回数据条数小于 limit 则直接移除“加载更多”按钮，中断预加载
       document.querySelector("button.button-load").remove()
       return
@@ -228,12 +231,7 @@ function updateTiwkoo(data) {
 function getNextList(apiV1){
   let bbUrl = memos+"api/"+apiV1+"memo?creatorId="+bbMemo.creatorId+"&rowStatus=NORMAL&limit="+limit+"&offset="+offset;
   fetch(bbUrl).then(res => res.json()).then( resdata =>{
-    let arrData = resdata || ''
-    if(resdata.data){
-      arrData = resdata.data
-    }
-    nextDom = arrData
-    nextLength = nextDom.length
+    nextLength = resdata.length
     mePage++
     offset = limit*(mePage-1)
     if(nextLength < 1){ //返回数据条数为 0 ，隐藏
@@ -247,12 +245,8 @@ function meNums(apiV1){
   let bbLoad = document.querySelector('.bb-load')
   let bbUrl = memos+"api/"+apiV1+"memo/stats?creatorId="+bbMemo.creatorId
   fetch(bbUrl).then(res => res.json()).then( resdata =>{
-    let arrData = resdata || ''
-    if(resdata.data){
-      arrData = resdata.data
-    }
-    if(arrData){
-      let allnums = `<div id="bb-footer"><p class="bb-allnums">共 ${arrData.length} 条 </p><p class="bb-allpub"><a href="https://immmmm.com/bbs/" target="_blank">Memos Public</a></p></div>`
+    if(resdata){
+      let allnums = `<div id="bb-footer"><p class="bb-allnums">共 ${resdata.length} 条 </p><p class="bb-allpub"><a href="https://immmmm.com/bbs/" target="_blank">Memos Public</a></p></div>`
       bbLoad.insertAdjacentHTML('afterend', allnums);
     }
   })
@@ -359,8 +353,10 @@ async function updateHTMl(data){
       }
       let memosIdNow = memos.replace(/https\:\/\/(.*\.)?(.*)\..*/,'id-$2-')
       let emojiReaction = `<emoji-reaction theme="system" class="reaction" endpoint="https://api-emaction.immmmm.com" reacttargetid="${memosIdNow+'memo-'+bbID}" style="line-height:normal;display:inline-flex;"></emoji-reaction>`
-      let datacountDOM = `<div class="datacount" data-twienv="${bbMemo.twiEnv}" data-id="${bbID}" onclick="loadTwikoo(this)"> ${data[i].count} 条评论 </div>`
-      
+      let datacountDOM = ""
+      if(bbMemo.twiEnv){
+        datacountDOM = `<div class="datacount" data-twienv="${bbMemo.twiEnv}" data-id="${bbID}" onclick="loadTwikoo(this)"> ${data[i].count} 条评论 </div>`
+      }
       memosOpenIdNow = window.localStorage && window.localStorage.getItem("memos-access-token")
 
       result +=  `<li class="memo-${bbID}">
@@ -439,11 +435,7 @@ function getTagNow(e){
 function randomMemo(){
   let randomUrl1 = memos+"api/"+apiV1+"memo/stats?creatorId="+bbMemo.creatorId;
   fetch(randomUrl1).then(res => res.json()).then( resdata =>{
-    let arrData = resdata || ''
-    if(resdata.data){
-      arrData = resdata.data
-    }
-    let randomNum = Math.floor(Math.random() * (arrData.length)) + 1;
+    let randomNum = Math.floor(Math.random() * (resdata.length)) + 1;
     let randomUrl2 = memos+"api/"+apiV1+"memo?creatorId="+bbMemo.creatorId+"&rowStatus=NORMAL&limit=1&offset="+randomNum
     fetchMemoDOM(randomUrl2)
   })
@@ -462,15 +454,14 @@ function serchMemo(){
 function fetchMemoDOM(bbUrl){
   bbDom.innerHTML = loading
   fetch(bbUrl).then(res => res.json()).then( resdata =>{
-    let arrData = resdata || ''
-    if(resdata.data){
-      arrData = resdata.data
-    }
-    //console.log(arrData)
-    if(arrData.length > 0){
+    if(resdata.length > 0){
       document.querySelector(bbMemo.domId).innerHTML = ""
       if(document.querySelector("button.button-load")) document.querySelector("button.button-load").remove()
-      updateTiwkoo(arrData)
+      if(bbMemo.twiEnv){
+        updateTiwkoo(resdata)
+      }else{
+        updateHTMl(resdata)
+      }
     }else{
       alert("404 -_-!")
       setTimeout(reLoad(), 1000);
