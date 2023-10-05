@@ -19,8 +19,8 @@ v2023.08.09：更新 twikoo.init 中的 path 正则
 ### 自定义脚本
 
 ```
-//添加 twikoo 评论 v2023.07.29
-var twikooENV = 'https://metk.edui.fun/'
+//Memos v0.15.2 添加 twikoo 评论 v2023.10.05
+var twikooENV = '' //你的 https://xxxx/
 function addTwikooJS() { 
   var memosTwikoo = document.createElement("script");
   memosTwikoo.src = `https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js`;
@@ -28,7 +28,7 @@ function addTwikooJS() {
   tws.parentNode.insertBefore(memosTwikoo, tws);
 };
 function addComIcon(){
-  var memoTwIcons = document.querySelectorAll('.time-text') || '';
+  var memoTwIcons = document.querySelectorAll('.memo-top-wrapper span.text-sm.text-gray-400') || '';
   if(memoTwIcons){
     for(var i=0;i < memoTwIcons.length;i++){
       //if(memoTwIcon[i].hasChildNodes == false){
@@ -46,7 +46,7 @@ function startTwikoo() {
         //console.log('评论未加载');
         addTwikooJS() //加载评论 js
         setTimeout(function() { //延迟 1秒 执行
-          var memoTw = document.querySelector('.memo-wrapper') || '';
+          var memoTw = document.querySelector('.resource-wrapper') || '';
           memoTw.insertAdjacentHTML('afterend', '<div id="mtcomment"></div>');
           twikoo.init({
             envId: twikooENV,
@@ -65,7 +65,7 @@ function startTwikoo() {
     }
     
     if(nowHref.replace(/^.*\/(explore).*$/,'$1') == "explore" || nowHref.replace(/^.*\/(u).*$/,'$1') == "u"){
-      var memoTwIcons = document.querySelectorAll('.time-text .twicon') || '';
+      var memoTwIcons = document.querySelectorAll('.twicon') || '';
       memoTwIcons.forEach(memoTwIcon => {memoTwIcon.remove();});
       addComIcon()
       //console.log('图标添加成功');
