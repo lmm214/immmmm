@@ -11,8 +11,12 @@
 
 <link rel="alternate" type="application/rss+xml" href="/atom.xml" title="{{ $.Site.Title }}">
 <link rel="canonical" href="{{ .Permalink }}" />
-<link rel="stylesheet" href="//cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.6.0/lxgwwenkaiscreen.css" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="/theme-lmm.css?v=2308271">
+<link rel="preconnect" href="/fonts/result.css" crossorigin />
+<link rel="stylesheet" href="/fonts/result.css" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="/theme-lmm.css?v=231006">
+<style>
+body,.post-content,.footer .copyright-font{font-family: "Zhuque Fangsong (technical preview)" !important;}
+</style>
 <link rel="shortcut icon" href="{{ "favicon.ico" | absURL }}">
 
 <link rel="apple-touch-icon" href="{{ "favicon.ico" | absURL }}">
