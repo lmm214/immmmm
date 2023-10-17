@@ -99,14 +99,14 @@ feature: https://r2.immmmm.com/2023/08/immmmm-com-bb2.png
 
 ```
 const memos = 'https://me.edui.fun/'
-const openId = '96989db0-xxxxxx'
+const AccessToken = 'eyJhxxxxxxxx 需修改'
 
 async function handleRequest(request) {
   let url = new URL(request.url)
   let typeName = url.pathname.substring(1) || ''
-  let fetchUrl = memos+'api/v1/tag?openId='+openId;
+  let fetchUrl = memos+'api/v1/tag';
   if(typeName == 'tags'){
-    fetchUrl = memos+'api/v1/tag?openId='+openId
+    fetchUrl = memos+'api/v1/tag'
   }
   if(typeName == 'dele'){
     let cache = caches.default;
@@ -132,6 +132,7 @@ async function handleRequest(request) {
   const newRequest = new Request(fetchUrl, request);
 
   // 请求头删除来源
+  newRequest.headers.set("Authorization", "Bearer " + AccessToken);
   newRequest.headers.set("referrer-policy", "no-referrer");
   newRequest.headers.delete("Referer");
   newRequest.headers.delete("Origin");
