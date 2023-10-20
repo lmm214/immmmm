@@ -53,7 +53,7 @@ let urls = [
   {home:"https://dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"1",imgsrc:cdnGravatar+"28b57baa4e8f13fe4292ccb2de267e30"},
   {home:"https://dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"9",imgsrc:cdnGravatar+"c1b204bab687a23c8b6d7c8de11c7c59"},
   {home:"https://dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"62",imgsrc:cdnGravatar+"082dcea6f62ccf45a05244ce34bf4a96"},
-  {home:"https://ins.logyu.cc/",host:"https://ins.logyu.cc/",apiV1:'v1/',twiEnv:'https://tk.boyhu.cn',creatorId:"101",imgsrc:cdnGravatar+"9d2d0ea2d6bb2edcc6c2ffdf18019d77"},
+  {home:"https://ins.logyu.cc/",host:"https://ins.logyu.cc/",apiV1:'v1/',twiEnv:'https://tk.logyu.cc/',creatorId:"101",imgsrc:cdnGravatar+"9d2d0ea2d6bb2edcc6c2ffdf18019d77"},
   {home:"https://www.hux.ink/",host:"https://i.hux.ink:5233/",apiV1:'',creatorId:"1",twiEnv:'https://twikoo.hux.ink/',imgsrc:cdnGravatar+"bb78cd69edd84cdbdb99a491ea2dc6c8"},
   {home:"https://memos.lxx.pw/",host:"https://memos.lxx.pw/",apiV1:'v1/',creatorId:"101",comment:"1",twiEnv:"https://twikoo.lxx.pw/",imgsrc:cdnGravatar+"c50facf0ac4c3e23c1c1b2baa6c9e353"},
   {home:"https://www.4op.top/",host:"https://flomo.010316.xyz/",apiV1:'v1/',creatorId:"1",imgsrc:cdnGravatar+"81f9378195d84e8ff73aad9ded2b9808"},
