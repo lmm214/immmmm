@@ -1,6 +1,12 @@
 {
     "good": [
         {
+            "image": "/goods/vaydeer.webp",
+            "jiage": "¥204 (23-10)",
+            "title": "Mac mini 立式扩展坞",
+            "link": "",
+            "note": "虽塑料材质，但接口全也满速，还可内置 ssd。立起来后，桌面又整洁不少。"
+        },{
             "image": "/goods/appleTV.webp",
             "jiage": "¥1177 (23-06)",
             "title": "Apple TV 7代",
