@@ -104,7 +104,13 @@ function nextFetch(){
   }
   getNextList()
 };
-
+function viaNow(e){
+  let viaCreator = e.getAttribute("data-creator")
+  let viaUrl = e.getAttribute("data-url")
+  let viaCopy = ` （via [@${viaCreator}](${viaUrl})）`
+  navigator.clipboard.writeText(viaCopy);
+  alert(viaCopy)
+}
 function urlsNow(e){
   let domClass = document.getElementById("bbs-urls")
   window.scrollTo({
@@ -445,7 +451,7 @@ async function updateHTMl(data){
       <div class="bbs-avatar">
         <a href="${data[i].home}" target="_blank" rel="noopener noreferrer"><img src="${data[i].imgsrc}" alt=""></a><a href="javascript:void(0)" class="bbs-creator" onclick="urlsNow(this)" data-index="${uslIndexNow}">${data[i].creator}</a>
         <span class="bbs-dot">·</span>
-        <span class="bbs-date">${new Date(data[i].updatedTs * 1000).toLocaleString()}</span>
+        <span class="bbs-date" data-creator="${data[i].creator}" data-url="${memoUrl}" onclick="viaNow(this)">${new Date(data[i].updatedTs * 1000).toLocaleString()}</span>
         `
 
       result += `<li class="${memoIdNow+"memo-"+memoId}">
