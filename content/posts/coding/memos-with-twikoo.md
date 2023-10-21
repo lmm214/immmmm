@@ -15,8 +15,101 @@ v2023.04.21：新增 `/explore` 页添加评论图标（但非常不优雅，用
 
 v2023.08.09：更新 twikoo.init 中的 path 正则
 
+v2023.10.21 更新 Memos v0.16.1 单条页面插入 Twikoo / Artalk 评论代码
 
 ### 自定义脚本
+
+#### Twikoo 评论代码
+
+```
+// Memos v0.16.1 单条页面插入 Twikoo 评论
+var twikooENV = 'https://你的.com/'
+function addTwikooJS() { 
+  var memosTwikoo = document.createElement("script");
+  memosTwikoo.src = `https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js`;
+  var tws = document.getElementsByTagName("script")[0];
+  tws.parentNode.insertBefore(memosTwikoo, tws);
+};
+function startTwikoo() {
+  startTW = setInterval(function(){
+    var nowHref = window.location.href;
+    var twikooDom = document.querySelector('#twikoo') || '';
+    if( nowHref.replace(/^.*\/(m)\/.*$/,'$1') == "m"){
+      if(!twikooDom){
+        addTwikooJS()
+        setTimeout(function() {
+          var memoTw = document.querySelector('.gap-2') || '';
+          memoTw.insertAdjacentHTML('afterend', '<div id="mtcomment"></div>');
+          twikoo.init({
+            envId: twikooENV,
+            el: '#mtcomment',
+            path: nowHref.replace(/^.*=?(http.*\/m\/[0-9]+).*$/,'$1'),
+            onCommentLoaded: function () {
+              startTwikoo();
+            }
+          })
+        }, 1500)
+      }else{
+        clearInterval(startTW)
+      }
+    }
+  }, 2000)
+}
+startTwikoo();
+```
+
+#### Artalk 评论代码
+
+```
+// Memos v0.16.1 单条页面插入 Artalk 评论
+var artalkServer = 'https://你的.com/'
+function addArtalkJSCSS() { 
+    var memosArtalk = document.createElement("script");
+    memosArtalk.src = `https://unpkg.com/artalk/dist/Artalk.js`;
+    var artakPos = document.getElementsByTagName("script")[0];
+    artakPos.parentNode.insertBefore(memosArtalk, artakPos);
+    var cssLink = document.createElement("link");
+    cssLink.rel = "stylesheet";
+    cssLink.href = "https://unpkg.com/artalk/dist/Artalk.css";
+    document.head.appendChild(cssLink);
+};
+function addArtalkDom() {
+  startAK = setInterval(function(){
+    var nowHref = window.location.href;
+    var artalkDom = document.querySelector('#artalk') || '';
+    if( nowHref.replace(/^.*\/(m)\/.*$/,'$1') == "m"){
+      if(!artalkDom){
+        addArtalkJSCSS()
+        var memoAK = document.querySelector('.gap-2') || '';
+        memoAK.insertAdjacentHTML('afterend', '<div id="artalk"></div>');
+        setTimeout(function() {
+          Artalk.init({
+              el: '#artalk',
+              pageKey: location.pathname,
+              pageTitle: document.title,
+              server: artalkServer,
+              site: 'memos',
+              darkMode: 'auto'
+          });
+          Artalk.on('list-loaded', () => {
+            addArtalkDom();
+          })
+        }, 1500)
+      }else{
+        clearInterval(startAK)
+      }
+    }
+  }, 2000)
+}
+addArtalkDom();
+```
+
+
+
+
+
+
+
 
 ```
 //Memos v0.15.2 添加 twikoo 评论 v2023.10.05
