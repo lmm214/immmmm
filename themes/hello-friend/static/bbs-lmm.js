@@ -108,8 +108,7 @@ function viaNow(e){
   let viaCreator = e.getAttribute("data-creator")
   let viaUrl = e.getAttribute("data-url")
   let viaCopy = ` （via [@${viaCreator}](${viaUrl})）`
-  navigator.clipboard.writeText(viaCopy);
-  alert(viaCopy)
+  navigator.clipboard.writeText(viaCopy).then(() => {alert(viaCopy)});
 }
 function urlsNow(e){
   let domClass = document.getElementById("bbs-urls")
