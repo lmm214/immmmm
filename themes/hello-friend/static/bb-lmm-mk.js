@@ -206,6 +206,7 @@ function getFirstList(apiV1){
 }
 // 获取评论数量
 function updateTiwkoo(data) {
+  console.log(data)
   let twiID = data.map((item) => memos + "m/" + item.id);
   twikoo.getCommentsCount({
     envId: bbMemo.twiEnv,
@@ -231,6 +232,7 @@ function updateTiwkoo(data) {
 function getNextList(apiV1){
   let bbUrl = memos+"api/"+apiV1+"memo?creatorId="+bbMemo.creatorId+"&rowStatus=NORMAL&limit="+limit+"&offset="+offset;
   fetch(bbUrl).then(res => res.json()).then( resdata =>{
+    nextDom = resdata
     nextLength = resdata.length
     mePage++
     offset = limit*(mePage-1)
