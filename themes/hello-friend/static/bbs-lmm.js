@@ -47,7 +47,7 @@ let urls = [
   {home:"https://blog.roccoshi.top/",host:"https://memos.roccoshi.top/",apiV1:'v1/',creatorId:"1",imgsrc:"https://youpai.roccoshi.top/img/avatar.jpg"},
   {home:"https://xsinger.me/",host:"https://isay.live/",apiV1:'v1/',creatorId:"101",imgsrc:cdnGravatar+"f0e33f4d097fe2e9fd74b9b129e7a655"},
   {home:"https://www.wangdu.site/",host:"https://bw.wangdu.site:4730/",apiV1:'v1/',creatorId:"101",comment:'1',twiEnv:'https://wwsay.wangdu.site/',imgsrc:cdnGravatar+"3f86f3f1aa105924d030b7d3040a0037",endpoint:'https://like.wwkejishe.top',reacttargetid:"/m/",availablearraystring:"👍,thumbs-up;😄,smile-face;🎉,confused-face;❤️,red-heart;🚀,rocket;"},
-  {home:"https://blog.yuxiaocn.site/",host:"https://memos.yuxiaocn.site/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://my-twikoo-ruby-six.vercel.app/',imgsrc:"https://cdnjson.com/images/2023/11/02/image.png"},
+  {home:"https://blog.yuxiaocn.site/",host:"https://memos.yuxiaocn.site/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://twikoo.yuxiaocn.site/',imgsrc:"https://cdnjson.com/images/2023/11/02/image.png"},
   {home:"https://dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"1",imgsrc:cdnGravatar+"28b57baa4e8f13fe4292ccb2de267e30"},
   {home:"https://dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"9",imgsrc:cdnGravatar+"c1b204bab687a23c8b6d7c8de11c7c59"},
   {home:"https://dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"62",imgsrc:cdnGravatar+"082dcea6f62ccf45a05244ce34bf4a96"},
