@@ -142,7 +142,7 @@ function urlsNow(e){
     availablearraystringNow = urls[num].availablearraystring || ''
     domUrls[num].classList.add("url-now")
     bbUrlNow = hostNow+"api/"+apiV1Now+"memo?creatorId="+creIdNow+"&rowStatus=NORMAL&limit=10"
-    console.log(bbUrlNow)
+    //console.log(bbUrlNow)
     fetch(bbUrlNow).then(res => res.json()).then( resdata =>{
       let arrData = resdata || ''
       if(resdata.data){
