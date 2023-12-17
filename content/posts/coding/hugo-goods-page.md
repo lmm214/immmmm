@@ -27,7 +27,7 @@ feature: https://r2.immmmm.com/2023/05/goods-page.png
 
 [content/goods.md](https://github.com/lmm214/immmmm/blob/master/content/goods.md) ：新建 Hugo 页面
 
-[data/goods.json](https://github.com/lmm214/immmmm/blob/master/data/goods.json)：数据文件
+[data/goods.json](https://github.com/lmm214/immmmm/blob/master/master/static/goods/goods.json)：数据文件
 
 ### 后话
 
