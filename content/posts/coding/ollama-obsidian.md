@@ -39,6 +39,6 @@ feature: https://r2.immmmm.com/2023/12/obsidian-ollama.png
 
 ### 折腾体验
 
-模型大小是 4.1GB，运行时内存占用也差不多4G，Mac mini M2 16G 下，解释一个概念、翻译一句话等待 10+ 秒，总结千字文等待约 1～2 分钟。
+模型大小是 4.1GB，运行时内存占用也差不多6G，Mac mini M2 16G 下，解释一个概念、翻译一句话等待 10+ 秒，总结千字文等待约 1～2 分钟。
 
 搭配另一个插件一起使用也不错 [BMO Chatbot for Obsidian](https://github.com/longy2k/obsidian-bmo-chatbot?tab=readme-ov-file) ，它可以在侧边栏中对当前文档进行对话。
