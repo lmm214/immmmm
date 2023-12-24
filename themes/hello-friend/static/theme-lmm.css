@@ -730,9 +730,6 @@ hr {
 	line-height: 2.2rem;
     letter-spacing: 2px;
 }
-.posts-home .home-2 .post-title a {
-    letter-spacing: 0px;
-}
 @media (max-width:899px) {
 	.home-1 .post-title a {
 		line-height: 2rem;
