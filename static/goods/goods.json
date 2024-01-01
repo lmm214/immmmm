@@ -1,9 +1,21 @@
 {
     "good": [
         {
+            "image": "/goods/cuktech-1W.webp",
+            "jiage": "¥99 (23-12)",
+            "title": "酷态科口袋充电宝",
+            "link": "",
+            "note": "名片大小，小巧玲珑，颜值在线，支持 30W 快充。"
+        },{
+            "image": "/goods/mijia-cqb2.webp",
+            "jiage": "¥168 (23-10)",
+            "title": "米家充气宝2",
+            "link": "",
+            "note": "充气虽然慢了点，发热有点厉害，但值得常备。"
+        },{
             "image": "/goods/vaydeer.webp",
             "jiage": "¥204 (23-10)",
-            "title": "Mac mini 立式扩展坞",
+            "title": "Mac mini 立式扩展",
             "link": "",
             "note": "虽塑料材质，但接口全也满速，还可内置 ssd。立起来后，桌面整洁不少。"
         },{
@@ -16,7 +28,7 @@
         {
             "image": "/goods/whirlpool.webp",
             "jiage": "¥1856 (23-01)",
-            "title": "Whirlpool 大蓝鲸净水器",
+            "title": "Whirlpool 净水器",
             "link": "https://item.jd.com/10030311404093.html",
             "note": "自用还是舒适的，最高温度90°+，泡泡挂耳咖啡也是足够的。奇怪的是这款停产了？"
         },
