@@ -69,7 +69,7 @@ feature: https://r2.immmmm.com/2023/12/bye23-10-1.JPEG
 
 臭小子Get新技能，飞车小子 +1 
 
-{{< video "https://r2.immmmm.com/2023/12/bye23-4.mp4" >}}
+{{< video poster="https://r2.immmmm.com/2023/12/bye23-4-2.jpg" src="https://r2.immmmm.com/2023/12/bye23-4.mp4" >}}
 
 ### 三月
 
