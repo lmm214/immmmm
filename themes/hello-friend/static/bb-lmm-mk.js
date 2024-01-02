@@ -490,13 +490,14 @@ function archiveMemo(e) {
   if(memosOpenIdNow && memosOpenIdNow !== 'undefined' && memoId){
     let isOk = confirm("确认归档？");
     if(isOk){
-      let memoUrl = memos+"api/"+apiV1+"memo/"+memoId+"?openId="+memosOpenIdNow
+      let memoUrl = memos+"api/"+apiV1+"memo/"+memoId
       let memoBody = {id:memoId,rowStatus:"ARCHIVED"};
       fetch(memoUrl, {
         method: 'PATCH',
         body: JSON.stringify(memoBody),
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer '+ memosOpenIdNow
         }
       }).then(function(res) {
         if (res.ok) {
