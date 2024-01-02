@@ -501,7 +501,8 @@ function archiveMemo(e) {
         }
       }).then(function(res) {
         if (res.ok) {
-          reLoad()
+          randomMemo()
+          //reLoad()
         }
       })
     }
