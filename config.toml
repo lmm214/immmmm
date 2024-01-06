@@ -4,6 +4,7 @@ languageCode = "zh-CN"
 title  =  "木木木木木"
 subtitle = "不问明天，悠然浪费"
 
+
 theme  =  "hello-friend"
 summaryLength = 140
 hasCJKLanguage = true
@@ -44,6 +45,9 @@ ignoreErrors = ["error-remote-getjson","error-remote-getcsv"]
   url="/about/"
   weight="6"
 
+[Author]
+  name = "林木木"
+  
 [params]
   # dir name of your blog content (default is `content/posts`)
   contentTypeName = "posts"
