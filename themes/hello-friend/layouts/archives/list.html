@@ -3,6 +3,7 @@
     {{ partial "breadcrumb.html" . }}
     
     <h1 class="post-title">{{.Title}}</h1>
+
     共计 {{ len (where .Site.RegularPages "Section" "posts") }} 篇日志
 
     <div id="all-tags">
@@ -10,6 +11,8 @@
       <a href="/tags/{{ $name | urlize }}">#{{ $name }}<small>({{ .Count }})</small></a>
       {{- end -}}
     </div>
+
+    {{ partial "heatmap.html" . }}
 
     {{- range  (where (where .Site.Pages "Type" "in" "posts") "Kind" "page").GroupByDate "2006" }}
     <div class="post archive__group-posts ">

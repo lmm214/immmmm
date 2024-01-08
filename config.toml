@@ -76,7 +76,7 @@ ignoreErrors = ["error-remote-getjson","error-remote-getcsv"]
     startLevel = 1
     
 [outputs]
-  home = ["Atom", "HTML","JSON"] # <domain>/atom.xml
+  home = ["HTML","Atom","JSON"] # <domain>/atom.xml
   page = ["HTML"]
   
 [outputFormats.Atom]

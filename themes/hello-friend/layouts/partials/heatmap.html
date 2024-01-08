@@ -1,0 +1,145 @@
+<div id="heatmap" style="
+  max-width: 780px;
+  height:200px;
+  padding: 2px;
+  text-align: center;
+  margin:0 auto;
+  "
+></div>
+<script src="https://fastly.jsdelivr.net/npm/echarts@5.3.0/dist/echarts.min.js"></script>
+<script type="text/javascript">
+  var chartDom = document.getElementById('heatmap');
+  var myChart = echarts.init(chartDom, null, {
+    locale: "ZH",
+  });
+  window.onresize = function() {
+      myChart.resize();
+  };
+  var option;
+
+  var dataMap = new Map();
+  {{ range ((where .Site.RegularPages "Type" "posts")) }}
+    var key = {{ .Date.Format "2006-01-02" }};
+    var value = dataMap.get(key);
+    var wordCount = {{ div .WordCount 1000.0 | lang.FormatNumber 1 }};
+    var link = {{ .RelPermalink}};
+    var title = {{ .Title }};
+    if (value == null || wordCount > value[0]) {
+      dataMap.set(key, {wordCount, link, title});
+    }
+  {{- end -}}
+
+  var data = [];
+  for (const [key, value] of dataMap.entries()) {
+    data.push([key, value.wordCount]);
+  }
+  
+  var startDate = new Date();
+  var year_Mill = startDate.setFullYear((startDate.getFullYear() - 1));
+  var startDate = +new Date(year_Mill);
+  var endDate = +new Date();
+
+  var dayTime = 3600 * 24 * 1000;
+  startDate = echarts.format.formatTime('yyyy-MM-dd', startDate);
+  endDate = echarts.format.formatTime('yyyy-MM-dd', endDate);
+
+  function heatmap_width(months){
+    var startDate = new Date();
+    var mill = startDate.setMonth((startDate.getMonth() - months));
+    var endDate = +new Date();
+    startDate = +new Date(mill);
+
+    endDate = echarts.format.formatTime('yyyy-MM-dd', endDate);
+    startDate = echarts.format.formatTime('yyyy-MM-dd', startDate);
+
+    var showmonth = [];
+    showmonth.push([
+        startDate,
+        endDate
+    ]);
+    return showmonth
+  };
+
+  function getRangeArr() {
+    const windowWidth = window.innerWidth;
+    if (windowWidth >= 600) {
+      return heatmap_width(12);
+    } else if (windowWidth >= 400) {
+      return heatmap_width(9);
+    } else {
+      return heatmap_width(6);
+    }
+  }
+
+  option = {
+    title: {
+        top: 0,
+        left: 'center',
+        text: 'My HeatMap',
+        textStyle: {
+          fontSize: 28,
+          fontFamily: "Courier New"
+        },
+    },
+    tooltip: {
+      formatter: function (p) {
+        const post = dataMap.get(p.data[0]);
+        return post.title + ' / ' + post.wordCount + ' 千字';
+      }
+    },
+    visualMap: {
+        min: 0,
+        max: 10,
+        type: 'piecewise',
+        orient: 'horizontal',
+        left: 'center',
+        top: 30,
+        
+        inRange: {   
+          //  [floor color, ceiling color]
+          color: ['#7aa8744c', '#7AA874' ] 
+        },
+        splitNumber: 4,
+        showLabel: true,
+        itemGap: 20,
+    },
+    calendar: {
+        top: 80,
+        left: 20,
+        right: 4,
+        cellSize: ['auto', 16],
+        range: getRangeArr(),
+        itemStyle: {
+            color: '#F1F1F1',
+            borderWidth: 1,
+            borderColor: '#fff',
+        },
+        monthLabel:{
+          fontFamily: 'Courier New',
+        },
+        yearLabel: { show: false },
+        splitLine: {
+          lineStyle: {
+            color: 'rgba(0, 0, 0, 0.0)',
+            shadowColor: 'rgba(0, 0, 0, 0.5)',
+            shadowBlur: 5,
+            width: 0.5,
+            type: 'dashed',
+          }
+        }
+    },
+    series: {
+        type: 'heatmap',
+        coordinateSystem: 'calendar',
+        data: data,
+    }
+  };
+  myChart.setOption(option);
+  myChart.on('click', function(params) {
+    if (params.componentType === 'series') {
+      const post = dataMap.get(params.data[0]);
+      const link = window.location.origin + post.link;
+      window.open(link, '_blank').focus();
+    }
+});
+</script> 
