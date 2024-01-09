@@ -55,6 +55,7 @@ let urls = [
   {home:"https://dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"1",imgsrc:cdnGravatar+"28b57baa4e8f13fe4292ccb2de267e30"},
   {home:"https://dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"9",imgsrc:cdnGravatar+"c1b204bab687a23c8b6d7c8de11c7c59"},
   {home:"https://dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"62",imgsrc:cdnGravatar+"082dcea6f62ccf45a05244ce34bf4a96"},
+  {home:"https://www.domon.cn/",host:"https://memos.icebear.tech/",apiV1:'v1/',creatorId:"1",imgsrc:cdnGravatar+"67f2e28a8cc993219173d02bc0dbdcb7"},
   {home:"https://memos.lxx.pw/",host:"https://memos.lxx.pw/",apiV1:'v1/',creatorId:"101",comment:"1",twiEnv:"https://twikoo.lxx.pw/",imgsrc:cdnGravatar+"c50facf0ac4c3e23c1c1b2baa6c9e353"},
   {home:"https://kingname.info/",host:"https://memos.kingname.info/",apiV1:'v1/',creatorId:"1",imgsrc:cdnGravatar+"2463f1bd85aea23703f320e67d33f349"},
   {home:"https://hexo.shangskr.top/",host:"https://memos.shangskr.top/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://twikoo.memos.shangskr.top/',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&nk=2622979530&s=140"},
