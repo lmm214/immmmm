@@ -558,7 +558,7 @@ function loadArtalk(e) {
         top: domClass[0].offsetTop - 30,
         behavior: "smooth"
       });
-      Artalk.init({
+      ArtalkLite.init({
         el: '#'+EnvNow+'artalk-' + memoId,
         pageKey: '/m/' + memoId,
         pageTitle: '',
