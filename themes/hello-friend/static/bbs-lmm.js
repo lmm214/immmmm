@@ -49,7 +49,7 @@ let urls = [
   {home:"https://www.wangdu.site/",host:"https://bw.wangdu.site:4730/",apiV1:'v1/',creatorId:"101",comment:'1',twiEnv:'https://wwsay.wangdu.site/',imgsrc:cdnGravatar+"3f86f3f1aa105924d030b7d3040a0037",endpoint:'https://like.wwkejishe.top',reacttargetid:"/m/",availablearraystring:"👍,thumbs-up;😄,smile-face;🎉,confused-face;❤️,red-heart;🚀,rocket;"},
   {home:"https://blog.yuxiaocn.site/",host:"https://memos.yuxiaocn.site/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://twikoo.yuxiaocn.site/',imgsrc:"https://cdnjson.com/images/2023/11/02/image.png"},
   {home:"https://shiyu.dev/",host:"https://memos.shiyu.dev/",apiV1:'v1/',creatorId:"1",imgsrc:cdnGravatar+"23609c483d247bcfd1ff7c55deab0333"},
-  {home:"http://blog.xiewei.link/",host:"https://memo.xiewei.link/",apiV1:'v1/',creatorId:"1",artEnv:'https://comments.xiewei.link/',artSite:'memos',imgsrc:cdnGravatar+"84643ed4149cca17b1b74a2900ebaff2"},
+  {home:"http://blog.xiewei.link/",host:"https://memo.xiewei.link/",apiV1:'v1/',creatorId:"1",comment:'1',artEnv:'https://comments.xiewei.link/',artSite:'memos',imgsrc:cdnGravatar+"84643ed4149cca17b1b74a2900ebaff2"},
   {home:"https://chenyyds.com/",host:"https://me.chenplus.com/",apiV1:'v1/',creatorId:"101",comment:'1',twiEnv:'https://twikoo.chenyyds.com/',imgsrc:"https://chenyyds.com/avatar.png"},
   {home:"https://blog.sinzmise.top/",host:"https://diary.sinzmise.top/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://tk2.diary.sinzmise.top/',imgsrc:cdnGravatar+"11e2527586460395d520f421732f7237"},
   {home:"https://dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"1",imgsrc:cdnGravatar+"28b57baa4e8f13fe4292ccb2de267e30"},
