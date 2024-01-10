@@ -23,7 +23,7 @@ function getQueryVariable(variable){
 const cdnGravatar = "https://cravatar.cn/avatar/"
 let urls = [
   {home:"https://immmmm.com/",host:"https://me.edui.fun/",apiV1:'v1/',creatorId:"101",comment:'1',twiEnv:'https://metk.edui.fun/',imgsrc:cdnGravatar+"ba83fa02fc4b2ba621514941307e21be",endpoint:'https://api-emaction.immmmm.com',reacttargetid:"id-edui-memo-",availablearraystring:"👍,thumbs-up;🎉,party-popper;🚀,rocket;😄,smile-face;😎,cool;❤️,red-heart;"},
-  {home:"https://koobai.com/",host:"https://memos.koobai.com/",apiV1:'v1/',creatorId:"1",comment:'1',artEnv:'https://c.koobai.com',artSite:'空白唠叨',imgsrc:cdnGravatar+"3b3d336a7d389b7ae8531cbe177ae9b7",endpoint:'https://like.yangle.vip',reacttargetid:"/m/",availablearraystring:"👍,thumbs-up;🎉,party-popper;😄,smile-face;😎,cool;"},
+  {home:"https://koobai.com/",host:"https://memos.koobai.com/",apiV1:'v1/',creatorId:"1",comment:'1',artEnv:'https://c.koobai.com/',artSite:'空白唠叨',imgsrc:cdnGravatar+"3b3d336a7d389b7ae8531cbe177ae9b7",endpoint:'https://like.yangle.vip',reacttargetid:"/m/",availablearraystring:"👍,thumbs-up;🎉,party-popper;😄,smile-face;😎,cool;"},
   {home:"https://nuoea.com/",host:"https://memos.nuoea.com/",apiV1:'v1/',creatorId:"101",comment:'1',twiEnv:'https://twikoo.nuoea.com/',imgsrc:cdnGravatar+"020d365ea2596ef6d516143bb0552704"},
   {home:"https://lms.pub/",host:"https://b.lms.im/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://b.lms.im/tk/',imgsrc:cdnGravatar+"d9cc49ea0301640d7a19b6a1e77012dd"},
   {home:"https://edinik.com/",host:"https://memos.edinik.com/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://tk.edinik.com/',imgsrc:cdnGravatar+"e1cdf4f763e3c7e01271a44b990c712f"},
