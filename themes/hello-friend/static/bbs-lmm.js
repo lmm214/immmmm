@@ -22,66 +22,298 @@ function getQueryVariable(variable){
 
 const cdnGravatar = "https://cravatar.cn/avatar/"
 let urls = [
-  {home:"https://immmmm.com/",host:"https://me.edui.fun/",apiV1:'v1/',creatorId:"101",comment:'1',twiEnv:'https://metk.edui.fun/',imgsrc:cdnGravatar+"ba83fa02fc4b2ba621514941307e21be",endpoint:'https://api-emaction.immmmm.com',reacttargetid:"id-edui-memo-",availablearraystring:"👍,thumbs-up;🎉,party-popper;🚀,rocket;😄,smile-face;😎,cool;❤️,red-heart;"},
-  {home:"https://koobai.com/",host:"https://memos.koobai.com/",apiV1:'v1/',creatorId:"1",comment:'1',artEnv:'https://c.koobai.com/',artSite:'空白唠叨',imgsrc:cdnGravatar+"3b3d336a7d389b7ae8531cbe177ae9b7",endpoint:'https://like.yangle.vip',reacttargetid:"/m/",availablearraystring:"👍,thumbs-up;🎉,party-popper;😄,smile-face;😎,cool;"},
-  {home:"https://nuoea.com/",host:"https://memos.nuoea.com/",apiV1:'v1/',creatorId:"101",comment:'1',twiEnv:'https://twikoo.nuoea.com/',imgsrc:cdnGravatar+"020d365ea2596ef6d516143bb0552704"},
-  {home:"https://lms.pub/",host:"https://b.lms.im/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://b.lms.im/tk/',imgsrc:cdnGravatar+"d9cc49ea0301640d7a19b6a1e77012dd"},
-  {home:"https://edinik.com/",host:"https://memos.edinik.com/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://tk.edinik.com/',imgsrc:cdnGravatar+"e1cdf4f763e3c7e01271a44b990c712f"},
-  {home:"https://memos.qiangtu.com/",host:"https://memos.qiangtu.com/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://twikoo.qiangtu.com/',imgsrc:"https://memos2504.oss-cn-hangzhou.aliyuncs.com/memos2504/assets/2023/06/06/1686021093_favicon.ico/1ef33f96-5296-4d5e-940c-04c88775d008.ico"},
-  {home:"https://www.imsun.org/",host:"https://memos.imsun.org/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://twikoo.imsun.org/',imgsrc:cdnGravatar+"f2e928a6f8548a1088d336e541ae1b9d"},
-  {home:"https://1900.live/",host:"https://memos.1900.live/",apiV1:'v1/',creatorId:"101",comment:'1',twiEnv:'https://comment.1900.live/',imgsrc:cdnGravatar+"cc38267b10cc25dfc62209f8ca34589e"},
-  {home:"https://dongjunke.cn/",host:"https://memos.dongjunke.cn/",apiV1:'v1/',creatorId:"1",comment:'1',artEnv:'https://artalk.yunshusong.cn/',artSite:'东评西就',imgsrc:cdnGravatar+"42542189ddb33064599dc88a5149bea7"},
-  {home:"https://ssean.top/",host:"https://memos.ssean.top/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://twikoo.ssean.top/',imgsrc:cdnGravatar+"c381fd609e5dd4b8f9cc7588c073c1e4"},
-  {home:"https://vlieo.com/",host:"https://memos.vlieo.com/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://twikoo.vlieo.com/',imgsrc:cdnGravatar+"d36125dcbca7fde4200fd76f6aa1fbe9"},
-  {home:"https://elizen.me/",host:"https://memos.elizen.me/",apiV1:'v1/',creatorId:"101",comment:'1',twiEnv:'https://pl.elizen.me/',imgsrc:cdnGravatar+"f65df4d87240feb1cb247857a621a48f"},
-  {home:"https://www.demochen.com/",host:"https://memos.elizen.me/",apiV1:'v1/',creatorId:"102",comment:'1',twiEnv:'https://pl.elizen.me/',imgsrc:cdnGravatar+"cc9b8a642c62eef389cd2cc7770276c4"},
-  {home:"https://eallion.com/",host:"https://api.eallion.com/memos/",apiV1:'v1/',creatorId:"101",imgsrc:cdnGravatar+"171e4c30959e8c077a6c58b958624b31",endpoint:'https://emaction.e5n.cc',reacttargetid:"e5n_gts_"},
-  {home:"https://www.skyue.com/",host:"https://memos.skyue.com/",apiV1:'v1/',creatorId:"1",imgsrc:cdnGravatar+"c3fb4bb4d5101284ddd672fb722cdd7d"},
-  {home:"https://blog.linsnow.cn/",host:"https://memos.linsnow.cn/",apiV1:'v1/',creatorId:"1",imgsrc:cdnGravatar+"9f5d9e5efe3bea0139b12a0fe27100fe"},
-  {home:"https://blog.hxzhouh.com/",host:"https://memos.hxzhouh.com/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://twikoo.hxzhouh.com',imgsrc:cdnGravatar+"6ff785d0f0f10f29ac38701c058ff937"},
-  {home:"https://www.isolitude.cn/",host:"https://me.isolitude.cn/",apiV1:'v1/',creatorId:"1",comment:'1',artEnv: 'https://artalk.isolitude.cn/',artSite: '自说自话王国',imgsrc:cdnGravatar+"924916294598a950bb80d78012dc3aac"},
-  {home:"https://laozhang.org/",host:"https://memos.laozhang.org/",apiV1:'v1/',creatorId:"1",comment:'1',artEnv: 'https://artalk.laozhang.org/',artSite: 'memos',imgsrc:cdnGravatar+"679666f7bd1af3e55f0e51dd70ed161c"},
-  {home:"https://www.xalaok.top/",host:"https://memos.xalaok.top/",apiV1:'v1/',creatorId:"1",imgsrc:cdnGravatar+"44e7a197aa88dcad4764a1c0ea508d8c"},
-  {home:"https://yinji.net/",host:"https://yinji.net/",apiV1:'v1/',creatorId:"1",comment:"1",twiEnv:"https://koo.yinji.net/",imgsrc:cdnGravatar+"ba98152d337d7be289b51b90769cb194"},
-  {home:"https://veryjack.com/",host:"https://say.veryjack.com/",apiV1:'v1/',creatorId:"1",comment:'1',artEnv: 'https://artalk.veryjack.com',artSite: 'Jack\'s Space',imgsrc:cdnGravatar+"7a41a0e8e1df8e964fa1268193b03508"},
-  {home:"https://blog.roccoshi.top/",host:"https://memos.roccoshi.top/",apiV1:'v1/',creatorId:"1",imgsrc:"https://youpai.roccoshi.top/img/avatar.jpg"},
-  {home:"https://xsinger.me/",host:"https://isay.live/",apiV1:'v1/',creatorId:"101",imgsrc:cdnGravatar+"f0e33f4d097fe2e9fd74b9b129e7a655"},
-  {home:"https://www.wangdu.site/",host:"https://bw.wangdu.site:4730/",apiV1:'v1/',creatorId:"101",comment:'1',twiEnv:'https://wwsay.wangdu.site/',imgsrc:cdnGravatar+"3f86f3f1aa105924d030b7d3040a0037",endpoint:'https://like.wwkejishe.top',reacttargetid:"/m/",availablearraystring:"👍,thumbs-up;😄,smile-face;🎉,confused-face;❤️,red-heart;🚀,rocket;"},
-  {home:"https://blog.yuxiaocn.site/",host:"https://memos.yuxiaocn.site/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://twikoo.yuxiaocn.site/',imgsrc:"https://cdnjson.com/images/2023/11/02/image.png"},
-  {home:"https://shiyu.dev/",host:"https://memos.shiyu.dev/",apiV1:'v1/',creatorId:"1",imgsrc:cdnGravatar+"23609c483d247bcfd1ff7c55deab0333"},
-  {home:"http://blog.xiewei.link/",host:"https://memo.xiewei.link/",apiV1:'v1/',creatorId:"1",comment:'1',artEnv:'https://comments.xiewei.link/',artSite:'memos',imgsrc:cdnGravatar+"84643ed4149cca17b1b74a2900ebaff2"},
-  {home:"https://chenyyds.com/",host:"https://me.chenplus.com/",apiV1:'v1/',creatorId:"101",comment:'1',twiEnv:'https://twikoo.chenyyds.com/',imgsrc:"https://chenyyds.com/avatar.png"},
-  {home:"https://blog.sinzmise.top/",host:"https://diary.sinzmise.top/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://tk2.diary.sinzmise.top/',imgsrc:cdnGravatar+"11e2527586460395d520f421732f7237"},
-  {home:"https://dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"1",imgsrc:cdnGravatar+"28b57baa4e8f13fe4292ccb2de267e30"},
-  {home:"https://dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"9",imgsrc:cdnGravatar+"c1b204bab687a23c8b6d7c8de11c7c59"},
-  {home:"https://dusays.com/",host:"https://s.dusays.com/",apiV1:'v1/',creatorId:"62",imgsrc:cdnGravatar+"082dcea6f62ccf45a05244ce34bf4a96"},
-  {home:"https://www.domon.cn/",host:"https://memos.icebear.tech/",apiV1:'v1/',creatorId:"1",imgsrc:cdnGravatar+"67f2e28a8cc993219173d02bc0dbdcb7"},
-  {home:"https://memos.lxx.pw/",host:"https://memos.lxx.pw/",apiV1:'v1/',creatorId:"101",comment:"1",twiEnv:"https://twikoo.lxx.pw/",imgsrc:cdnGravatar+"c50facf0ac4c3e23c1c1b2baa6c9e353"},
-  {home:"https://kingname.info/",host:"https://memos.kingname.info/",apiV1:'v1/',creatorId:"1",imgsrc:cdnGravatar+"2463f1bd85aea23703f320e67d33f349"},
-  {home:"https://hexo.shangskr.top/",host:"https://memos.shangskr.top/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://twikoo.memos.shangskr.top/',imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&nk=2622979530&s=140"},
-  {home:"https://ins.logyu.cc/",host:"https://ins.logyu.cc/",apiV1:'v1/',twiEnv:'https://tk.logyu.cc/',creatorId:"101",imgsrc:cdnGravatar+"9d2d0ea2d6bb2edcc6c2ffdf18019d77"},
-  {home:"https://ssay.cc/",host:"https://ssay.cc/",apiV1:'v1/',creatorId:"1",imgsrc:cdnGravatar+"20a66daa751adbbde7f03c5615fc2221"},
-  {home:"https://www.hux.ink/",host:"https://i.hux.ink:5233/",apiV1:'',creatorId:"1",twiEnv:'https://twikoo.hux.ink/',imgsrc:cdnGravatar+"bb78cd69edd84cdbdb99a491ea2dc6c8"},
-  {home:"https://wiki-power.com/",host:"https://memos.wiki-power.com/",apiV1:'v1/',creatorId:"1",imgsrc:cdnGravatar+"44218020ee434de43516c19f05c71593"},
-  {home:"https://blog.leonus.cn/",host:"https://m.leonus.cn/",apiV1:'v1/',creatorId:"1",imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=cZKBhtxe2iaxjSfbVYiaFgoQ&kti=Y9x6QwAAAAI&s=140&t=1672836908"},
-  {home:"https://ysicing.net/",host:"https://note.ysicing.net/",apiV1:'v1/',creatorId:"1",imgsrc:cdnGravatar+"5ca16ee587d1e4befd805cf710361f26"},
-  {home:"https://kouseki.cn/",host:"https://memos.kouseki.cn/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://api-twi.kouseki.cn/',imgsrc:cdnGravatar+"23978e8e57e20163e8cb67bbf9dbe907",endpoint:'https://api-emoji.kouseki.cn',reacttargetid:"id-kouseki-memo-",availablearraystring:"👍,thumbs-up;🎉,party-popper;❤️,red-heart;😎,cool;"},
-  {home:"https://usj.cc/",host:"https://memos.usj.cc/",apiV1:'v1/',creatorId:"1",comment:'1',artEnv:'https://artalk.usj.cc',artSite:'优世界',imgsrc:cdnGravatar+"1cce0a22c2c7648eab76ec876c6a54d9"},
-  {home:"https://blog.xlap.top/",host:"https://api.mm.xlap.top/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://db.twk.xlap.top/',imgsrc:cdnGravatar+"9855359e235402ea030ccd7aad041164"},
-  {home:"https://xrat.net/",host:"https://memos.xrat.net/",apiV1:'v1/',creatorId:"2",comment:'1',artEnv:'https://vlabs.synology.me:96',artSite:'memos.xrat.net',imgsrc:cdnGravatar+"0ab677e14d21d941f64d98192d6168e7"},
-  {home:"https://noionion.top/",host:"https://memos.noionion.cn/",apiV1:'v1/',creatorId:"1",imgsrc:cdnGravatar+"d240a727ea154be465796ef2644aac16"},
-  {home:"https://cmsblog.cn/",host:"https://memos.cmsblog.cn/",apiV1:'',creatorId:"101",imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=fcgI8ibPhO3zz3IvgL4bl7Q&kti=ZDuqEgAAAAI&s=140&t=1556624886"},
-  {home:"https://cooolr.iok.la",host:"https://cooolr.iok.la/",apiV1:'v1/',creatorId:"1",comment:'1',twiEnv:'https://cooolr.iok.la/',imgsrc:cdnGravatar+"7422f8bebdb99f6594e029f603ccb926"},
-  {home:"https://www.4op.top/",host:"https://flomo.010316.xyz/",apiV1:'v1/',creatorId:"1",imgsrc:cdnGravatar+"81f9378195d84e8ff73aad9ded2b9808"}
+  {
+    home:"https://immmmm.com/",
+    host:"https://me.edui.fun/",
+    creatorId:"101",
+    twiEnv:"https://metk.edui.fun/",
+    imgsrc:cdnGravatar+"ba83fa02fc4b2ba621514941307e21be",
+    endpoint:"https://api-emaction.immmmm.com",
+    reacttargetid:"id-edui-memo-",
+    availablearraystring:"👍,thumbs-up;🎉,party-popper;🚀,rocket;😄,smile-face;😎,cool;❤️,red-heart;"
+  },{
+    home:"https://koobai.com/",
+    host:"https://memos.koobai.com/",
+    artEnv:"https://c.koobai.com/",
+    artSite:"空白唠叨",
+    imgsrc:cdnGravatar+"3b3d336a7d389b7ae8531cbe177ae9b7",
+    endpoint:"https://like.yangle.vip",
+    reacttargetid:"/m/",
+    availablearraystring:"👍,thumbs-up;🎉,party-popper;😄,smile-face;😎,cool;"
+  },{
+    home:"https://nuoea.com/",
+    host:"https://memos.nuoea.com/",
+    creatorId:"101",
+    twiEnv:"https://twikoo.nuoea.com/",
+    imgsrc:cdnGravatar+"020d365ea2596ef6d516143bb0552704"
+  },{
+    home:"https://lms.pub/",
+    host:"https://b.lms.im/",
+    twiEnv:"https://b.lms.im/tk/",
+    imgsrc:cdnGravatar+"d9cc49ea0301640d7a19b6a1e77012dd"
+  },{
+    home:"https://edinik.com/",
+    host:"https://memos.edinik.com/",
+    twiEnv:"https://tk.edinik.com/",
+    imgsrc:cdnGravatar+"e1cdf4f763e3c7e01271a44b990c712f"
+  },{
+    home:"https://memos.qiangtu.com/",
+    host:"https://memos.qiangtu.com/",
+    twiEnv:"https://twikoo.qiangtu.com/",
+    imgsrc:"https://memos2504.oss-cn-hangzhou.aliyuncs.com/memos2504/assets/2023/06/06/1686021093_favicon.ico/1ef33f96-5296-4d5e-940c-04c88775d008.ico"
+  },{
+    home:"https://www.imsun.org/",
+    host:"https://memos.imsun.org/",
+    twiEnv:"https://twikoo.imsun.org/",
+    imgsrc:cdnGravatar+"f2e928a6f8548a1088d336e541ae1b9d"
+  },{
+    home:"https://1900.live/",
+    host:"https://memos.1900.live/",
+    creatorId:"101",
+    twiEnv:"https://comment.1900.live/",
+    imgsrc:cdnGravatar+"cc38267b10cc25dfc62209f8ca34589e"
+  },{
+    home:"https://dongjunke.cn/",
+    host:"https://memos.dongjunke.cn/",
+    artEnv:"https://artalk.yunshusong.cn/",
+    artSite:"东评西就",
+    imgsrc:cdnGravatar+"42542189ddb33064599dc88a5149bea7"
+  },{
+    home:"https://ssean.top/",
+    host:"https://memos.ssean.top/",
+    twiEnv:"https://twikoo.ssean.top/",
+    imgsrc:cdnGravatar+"c381fd609e5dd4b8f9cc7588c073c1e4"
+  },{
+    home:"https://vlieo.com/",
+    host:"https://memos.vlieo.com/",
+    twiEnv:"https://twikoo.vlieo.com/",
+    imgsrc:cdnGravatar+"d36125dcbca7fde4200fd76f6aa1fbe9"
+  },{
+    home:"https://elizen.me/",
+    host:"https://memos.elizen.me/",
+    creatorId:"101",
+    twiEnv:"https://pl.elizen.me/",
+    imgsrc:cdnGravatar+"f65df4d87240feb1cb247857a621a48f"
+  },{
+    home:"https://www.demochen.com/",
+    host:"https://memos.elizen.me/",
+    creatorId:"102",
+    twiEnv:"https://pl.elizen.me/",
+    imgsrc:cdnGravatar+"cc9b8a642c62eef389cd2cc7770276c4"
+  },{
+    home:"https://eallion.com/",
+    host:"https://api.eallion.com/memos/",
+    creatorId:"101",
+    imgsrc:cdnGravatar+"171e4c30959e8c077a6c58b958624b31",
+    endpoint:"https://emaction.e5n.cc",
+    reacttargetid:"e5n_gts_"
+  },{
+    home:"https://www.skyue.com/",
+    host:"https://memos.skyue.com/",
+    imgsrc:cdnGravatar+"c3fb4bb4d5101284ddd672fb722cdd7d"
+  },{
+    home:"https://blog.linsnow.cn/",
+    host:"https://memos.linsnow.cn/",
+    imgsrc:cdnGravatar+"9f5d9e5efe3bea0139b12a0fe27100fe"
+  },{
+    home:"https://blog.hxzhouh.com/",
+    host:"https://memos.hxzhouh.com/",
+    twiEnv:"https://twikoo.hxzhouh.com",
+    imgsrc:cdnGravatar+"6ff785d0f0f10f29ac38701c058ff937"
+  },{
+    home:"https://www.isolitude.cn/",
+    host:"https://me.isolitude.cn/",
+    artEnv: "https://artalk.isolitude.cn/",
+    artSite: "自说自话王国",
+    imgsrc:cdnGravatar+"924916294598a950bb80d78012dc3aac"
+  },{
+    home:"https://laozhang.org/",
+    host:"https://memos.laozhang.org/",
+    artEnv: "https://artalk.laozhang.org/",
+    artSite: "memos",
+    imgsrc:cdnGravatar+"679666f7bd1af3e55f0e51dd70ed161c"
+  },{
+    home:"https://www.xalaok.top/",
+    host:"https://memos.xalaok.top/",
+    imgsrc:cdnGravatar+"44e7a197aa88dcad4764a1c0ea508d8c"
+  },{
+    home:"https://yinji.net/",
+    host:"https://yinji.net/",
+    twiEnv:"https://koo.yinji.net/",
+    imgsrc:cdnGravatar+"ba98152d337d7be289b51b90769cb194"
+  },{
+    home:"https://veryjack.com/",
+    host:"https://say.veryjack.com/",
+    artEnv: "https://artalk.veryjack.com",
+    artSite: "Jack\"s Space",
+    imgsrc:cdnGravatar+"7a41a0e8e1df8e964fa1268193b03508"
+  },{
+    home:"https://blog.roccoshi.top/",
+    host:"https://memos.roccoshi.top/",
+    imgsrc:"https://youpai.roccoshi.top/img/avatar.jpg"
+  },{
+    home:"https://xsinger.me/",
+    host:"https://isay.live/",
+    creatorId:"101",
+    imgsrc:cdnGravatar+"f0e33f4d097fe2e9fd74b9b129e7a655"
+  },{
+    home:"https://www.wangdu.site/",
+    host:"https://bw.wangdu.site:4730/",
+    creatorId:"101",
+    twiEnv:"https://wwsay.wangdu.site/",
+    imgsrc:cdnGravatar+"3f86f3f1aa105924d030b7d3040a0037",
+    endpoint:"https://like.wwkejishe.top",
+    reacttargetid:"/m/",
+    availablearraystring:"👍,thumbs-up;😄,smile-face;🎉,confused-face;❤️,red-heart;🚀,rocket;"
+  },{
+    home:"https://blog.yuxiaocn.site/",
+    host:"https://memos.yuxiaocn.site/",
+    twiEnv:"https://twikoo.yuxiaocn.site/",
+    imgsrc:"https://cdnjson.com/images/2023/11/02/image.png"
+  },{
+    home:"https://shiyu.dev/",
+    host:"https://memos.shiyu.dev/",
+    imgsrc:cdnGravatar+"23609c483d247bcfd1ff7c55deab0333"
+  },{
+    home:"http://blog.xiewei.link/",
+    host:"https://memo.xiewei.link/",
+    artEnv:"https://comments.xiewei.link/",
+    artSite:"memos",
+    imgsrc:cdnGravatar+"84643ed4149cca17b1b74a2900ebaff2"
+  },{
+    home:"https://chenyyds.com/",
+    host:"https://me.chenplus.com/",
+    creatorId:"101",
+    twiEnv:"https://twikoo.chenyyds.com/",
+    imgsrc:"https://chenyyds.com/avatar.png"
+  },{
+    home:"https://blog.sinzmise.top/",
+    host:"https://diary.sinzmise.top/",
+    twiEnv:"https://tk2.diary.sinzmise.top/",
+    imgsrc:cdnGravatar+"11e2527586460395d520f421732f7237"
+  },{
+    home:"https://dusays.com/",
+    host:"https://s.dusays.com/",
+    imgsrc:cdnGravatar+"28b57baa4e8f13fe4292ccb2de267e30"
+  },{
+    home:"https://dusays.com/",
+    host:"https://s.dusays.com/",
+    creatorId:"9",
+    imgsrc:cdnGravatar+"c1b204bab687a23c8b6d7c8de11c7c59"
+  },{
+    home:"https://dusays.com/",
+    host:"https://s.dusays.com/",
+    creatorId:"62",
+    imgsrc:cdnGravatar+"082dcea6f62ccf45a05244ce34bf4a96"
+  },{
+    home:"https://www.domon.cn/",
+    host:"https://memos.icebear.tech/",
+    imgsrc:cdnGravatar+"67f2e28a8cc993219173d02bc0dbdcb7"
+  },{
+    home:"https://memos.lxx.pw/",
+    host:"https://memos.lxx.pw/",
+    creatorId:"101",
+    twiEnv:"https://twikoo.lxx.pw/",
+    imgsrc:cdnGravatar+"c50facf0ac4c3e23c1c1b2baa6c9e353"
+  },{
+    home:"https://kingname.info/",
+    host:"https://memos.kingname.info/",
+    imgsrc:cdnGravatar+"2463f1bd85aea23703f320e67d33f349"
+  },{
+    home:"https://hexo.shangskr.top/",
+    host:"https://memos.shangskr.top/",
+    twiEnv:"https://twikoo.memos.shangskr.top/",
+    imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&nk=2622979530&s=140"
+  },{
+    home:"https://ins.logyu.cc/",
+    host:"https://ins.logyu.cc/",
+    twiEnv:"https://tk.logyu.cc/",
+    creatorId:"101",
+    imgsrc:cdnGravatar+"9d2d0ea2d6bb2edcc6c2ffdf18019d77"
+  },{
+    home:"https://ssay.cc/",
+    host:"https://ssay.cc/",
+    imgsrc:cdnGravatar+"20a66daa751adbbde7f03c5615fc2221"
+  },{
+    home:"https://www.hux.ink/",
+    host:"https://i.hux.ink:5233/",
+    apiV1:"api/",
+    creatorId:"1",
+    twiEnv:"https://twikoo.hux.ink/",
+    imgsrc:cdnGravatar+"bb78cd69edd84cdbdb99a491ea2dc6c8"
+  },{
+    home:"https://wiki-power.com/",
+    host:"https://memos.wiki-power.com/",
+    imgsrc:cdnGravatar+"44218020ee434de43516c19f05c71593"
+  },{
+    home:"https://blog.leonus.cn/",
+    host:"https://m.leonus.cn/",
+    imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=cZKBhtxe2iaxjSfbVYiaFgoQ&kti=Y9x6QwAAAAI&s=140&t=1672836908"
+  },{
+    home:"https://ysicing.net/",
+    host:"https://note.ysicing.net/",
+    imgsrc:cdnGravatar+"5ca16ee587d1e4befd805cf710361f26"
+  },{
+    home:"https://kouseki.cn/",
+    host:"https://memos.kouseki.cn/",
+    twiEnv:"https://api-twi.kouseki.cn/",
+    imgsrc:cdnGravatar+"23978e8e57e20163e8cb67bbf9dbe907",
+    endpoint:"https://api-emoji.kouseki.cn",
+    reacttargetid:"id-kouseki-memo-",
+    availablearraystring:"👍,thumbs-up;🎉,party-popper;❤️,red-heart;😎,cool;"
+  },{
+    home:"https://usj.cc/",
+    host:"https://memos.usj.cc/",
+    artEnv:"https://artalk.usj.cc",
+    artSite:"优世界",
+    imgsrc:cdnGravatar+"1cce0a22c2c7648eab76ec876c6a54d9"
+  },{
+    home:"https://blog.xlap.top/",
+    host:"https://api.mm.xlap.top/",
+    twiEnv:"https://db.twk.xlap.top/",
+    imgsrc:cdnGravatar+"9855359e235402ea030ccd7aad041164"
+  },{
+    home:"https://xrat.net/",
+    host:"https://memos.xrat.net/",
+    creatorId:"2",
+    artEnv:"https://vlabs.synology.me:96",
+    artSite:"memos.xrat.net",
+    imgsrc:cdnGravatar+"0ab677e14d21d941f64d98192d6168e7"
+  },{
+    home:"https://noionion.top/",
+    host:"https://memos.noionion.cn/",
+    imgsrc:cdnGravatar+"d240a727ea154be465796ef2644aac16"
+  },{
+    home:"https://cooolr.iok.la",
+    host:"https://cooolr.iok.la/",
+    twiEnv:"https://cooolr.iok.la/",
+    imgsrc:cdnGravatar+"7422f8bebdb99f6594e029f603ccb926"
+  },{
+    home:"https://www.4op.top/",
+    host:"https://flomo.010316.xyz/",
+    imgsrc:cdnGravatar+"81f9378195d84e8ff73aad9ded2b9808"
+  },{
+    home:"https://cmsblog.cn/",
+    host:"https://memos.cmsblog.cn/",
+    apiV1:"api/",
+    creatorId:"101",
+    imgsrc:"https://thirdqq.qlogo.cn/g?b=sdk&k=fcgI8ibPhO3zz3IvgL4bl7Q&kti=ZDuqEgAAAAI&s=140&t=1556624886"
+  }
 ]
-
+urls = urls.map(data => {
+  return {
+    ...data,
+    creatorId: data.creatorId || '1',
+    apiV1:data.apiV1 || 'api/v1/',
+  }
+});
 let bbDom = document.querySelector('#bbs');
 let load = `<div id="load" onclick="nextFetch()" ><button class="load-btn button-load">加载更多</button></div>`
 let loading = `<div class="loader"><svg class="circular" viewBox="25 25 50 50"><circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/></svg></div>`
 let bbsDatas = [],bbsData = {},nextDatas = [],nextData = {},limit = 2
-let page = 1,offset = 0,nextLength = 0,nextDom,bbUrlNow,imgsrcNow,hostNow,creIdNow,commentNow,twiEnvNow,artEnvNow,artSiteNow,endpointNow,reacttargetidNow,availablearraystringNow;
-
+let page = 1,offset = 0,nextLength = 0,nextDom,bbUrlNow,imgsrcNow,hostNow,creIdNow,twiEnvNow,artEnvNow,artSiteNow,endpointNow,reacttargetidNow,availablearraystringNow;
 bbDom.innerHTML = loading
+
 allUrls(urls)
 function allUrls(urls){
   let myHtml = ""
@@ -130,19 +362,18 @@ function urlsNow(e){
     let type = e.getAttribute("data-type")
     let num = (type == 'random') ? Math.round(Math.random() * (urls.length-1)) : e.getAttribute("data-index")
     hostNow = urls[num].host
-    creIdNow = urls[num].creatorId
+    creIdNow = urls[num].creatorId|| '1'
     imgsrcNow = urls[num].imgsrc
-    commentNow = urls[num].comment
     twiEnvNow = urls[num].twiEnv
     artEnvNow = urls[num].artEnv
     artSiteNow = urls[num].artSite
     homeNow = urls[num].home
-    apiV1Now = urls[num].apiV1
+    apiV1Now = urls[num].apiV1 || 'api/v1/'
     endpointNow = urls[num].endpoint || ''
     reacttargetidNow = urls[num].reacttargetid || ''
     availablearraystringNow = urls[num].availablearraystring || ''
     domUrls[num].classList.add("url-now")
-    bbUrlNow = hostNow+"api/"+apiV1Now+"memo?creatorId="+creIdNow+"&rowStatus=NORMAL&limit=10"
+    bbUrlNow = hostNow+apiV1Now+"memo?creatorId="+creIdNow+"&rowStatus=NORMAL&limit=10"
     //console.log(bbUrlNow)
     fetch(bbUrlNow).then(res => res.json()).then( resdata =>{
       let arrData = resdata || ''
@@ -164,7 +395,6 @@ function urlsNow(e){
               twiEnv:twiEnvNow,
               artEnv:artEnvNow,
               artSite:artSiteNow,
-              comment: commentNow,
               home:homeNow,
               endpoint:endpointNow,
               reacttargetid:reacttargetidNow,
@@ -233,7 +463,6 @@ function getNextList(){
         twiEnv:twiEnvNow,
         artEnv:artEnvNow,
         artSite:artSiteNow,
-        comment:commentNow,
         memoId: resValue.id,
         home:homeNow,
         endpoint:endpointNow,
@@ -256,8 +485,9 @@ const fetchBBser = async () => {
   const results = await Promise.allSettled(urls.map(
     //限时
     url => withTimeout(2000,
-      fetch(url.host+"api/"+url.apiV1+"memo?creatorId="+url.creatorId+"&rowStatus=NORMAL&limit="+limit).then(response => response.json()).then(resdata => {
+      fetch(url.host+url.apiV1+"memo?creatorId="+url.creatorId+"&rowStatus=NORMAL&limit="+limit).then(response => response.json()).then(resdata => {
         let qsLive = ".bbs-urls.bbs-url[data-hostid='"+url.host+"u/"+url.creatorId+"']"
+        console.log(qsLive)
         document.querySelector(qsLive).classList.add("liveon");
         let arrData = resdata || ''
         if(resdata.data){
@@ -267,7 +497,7 @@ const fetchBBser = async () => {
       })
     )
     //url => fetch(url.host+"api/memo?creatorId="+url.creatorId+"&rowStatus=NORMAL&limit="+limit).then(response => response.json()).then(resdata => resdata.data)
-  )).then(results=> {
+  )).then(results => {
     //console.log(results)
     //bbDom.innerHTML = ''
     bbsDatas.length = 0
@@ -309,7 +539,6 @@ const fetchBBser = async () => {
   })
 }
 fetchBBser()
-
 function compare(p){
   return function(m,n){
       let a = m[p];
@@ -455,14 +684,12 @@ async function updateHTMl(data){
       result += `<li class="${memoIdNow+"memo-"+memoId}">
                     <a href="${memoUrl}" target="_blank" rel="noopener noreferrer">${outSVG}</a>`
 
-      if(comment == '1'){
-        if(twiEnv && twiEnv != 'undefined'){
+      if(twiEnv && twiEnv != 'undefined'){
           bbAvaDom += `<a data-id="${memoId}" data-twienv="${twiEnv}" data-path="${memoUrl}" onclick="loadTwikoo(this)" onmouseenter="insertTwikoo(this)" href="javascript:void(0)" rel="noopener noreferrer">${comSVG}</a></div>`
           result += `${bbAvaDom+bbContDom}<div class="item-comment twikoo-${memoId} d-none"><div id="${memoIdNow+'twikoo-'+memoId}"></div></div></div></li>`
-        }else if(artEnv && artEnv != 'undefined'){
+      }else if(artEnv && artEnv != 'undefined'){
           bbAvaDom += `<a data-id="${memoId}" data-artenv="${artEnv}" data-artsite="${artSite}" data-path="${memoUrl}" onclick="loadArtalk(this)" href="javascript:void(0)" rel="noopener noreferrer">${comSVG}</a></div>`
           result += `${bbAvaDom+bbContDom}<div class="item-comment ${memoIdNow+'artalk-'+memoId} d-none"></div></div></li>`
-        }
       }else{
         result += `${bbAvaDom}</div>${bbContDom}</div></li>`
       }
