@@ -75,7 +75,7 @@ let urls = [
   },{
     home:"https://dongjunke.cn/",
     host:"https://memos.dongjunke.cn/",
-    artEnv:"https://artalk.yunshusong.cn/",
+    artEnv:"https://bb.yunshusong.cn/",
     artSite:"东评西就",
     imgsrc:cdnGravatar+"42542189ddb33064599dc88a5149bea7"
   },{
