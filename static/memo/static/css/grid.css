@@ -15,6 +15,8 @@ html {
 
 .container {
   width: 100%;
+  padding-right: 1rem;
+  padding-left: 1rem;
   margin-right: auto;
   margin-left: auto;
 }
@@ -56,9 +58,13 @@ html {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  margin-right: -.5rem;
+  margin-left: -.5rem;
 }
 
 .row-y {
+  margin-top: -0.5rem;
+  margin-bottom: -0.5rem;
 }
 
 .no-gutters {
@@ -80,6 +86,8 @@ html {
 .col-xl-auto {
   position: relative;
   min-height: 1px;
+  padding-right: .5rem;
+  padding-left: .5rem;
 }
 
 .col {
@@ -2529,7 +2537,7 @@ html {
 }
 
 .p-3 {
-  padding: .8rem !important;
+  padding: 1rem !important;
 }
 
 .pl-3,
