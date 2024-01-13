@@ -589,7 +589,7 @@ async function updateHTMl(data){
 
       bbContREG += bbCont.replace(TAG_REG, "")
         .replace(IMG_REG, "")
-        .replace(DEODB_LINK_REG, '')
+        .replace(DEODB_LINK_REG, "")
         .replace(LINK_REG, '<a class="primary" href="$2" target="_blank">$1</a>')
 
       // NeoDB
