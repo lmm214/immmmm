@@ -1,3 +1,4 @@
+@charset "UTF-8";@import "https://s1.hdslb.com/bfs/static/jinkela/long/font/regular.css";@import "https://s1.hdslb.com/bfs/static/jinkela/long/font/medium.css";
 :root {
 	--light-background: #fff;
 	--light-background-secondary: #f4f5f9;
@@ -36,14 +37,14 @@ body {
 	color: #222;
 	color: var(--light-color);
 	font-weight: 400;
-	font-size: .875rem;
-	font-family: "LXGW WenKai Screen","PingFangSC-Regular", "PingFang SC", "Microsoft YaHei", Arial, Helvetica, "WenQuanYi Micro Hei", "tohoma,sans-serif";
+	font-size: 1.1rem;
+	font-family: "HarmonyOS_Regular","PingFangSC-Regular", "PingFang SC", "Microsoft YaHei", Arial, Helvetica, "WenQuanYi Micro Hei", "tohoma,sans-serif";
 	line-height: 1.5;
 	text-rendering: optimizeLegibility;
 	-webkit-overflow-scrolling: touch;
 	-webkit-text-size-adjust: 100%;
 }
-
+.user-now-name,.item-creator,.item-footer{font-size:0.875rem;}
 body.dark-theme {
 	background-color: var(--dark-background);
 	color: #a9a9b3;
@@ -65,7 +66,7 @@ a {
 /* title */
 .title-line {
 	position: relative;
-	margin-bottom:-1rem;
+	padding-bottom: 1rem;
 }
 .header-title{max-width:unset;}
 .header-title .header-toggle{width:26px;height:26px;align-self:center;margin-left: auto;}
@@ -685,8 +686,11 @@ blockquote {
 .dark .db-card{background:#252627;}
 /* db-card -------- end */
 .user-now .row-fill{display:inline-flex;align-items: baseline;}
+.user-now .row-fill .iconfont,.load-memos-editor .iconfont{font-size: 1.5rem;}
 .user-now.row{margin-right:0;margin-left:0;}
-.user-now.card-item{overflow:unset;height:3rem;}
-.user-now.card-item .item-avatar{width:60px;margin-left:auto;height:60px;border-radius:unset;background-color:transparent;position: relative;top:-70px;font-weight: 700;text-align: center;right: -1rem;}
-.user-now.card-item .item-avatar span{position: relative;right:60px;bottom:-30px;}
+.user-now.card-item{overflow:unset;height:3.5rem;}
+.user-now.card-item .item-avatar{width:60px;margin-left:auto;height:60px;border-radius:unset;background-color:transparent;position: relative;top:-80px;font-weight:700;text-align: center;right: -1rem;}
+.user-now.card-item .item-avatar span{position: relative;right:75px;bottom:-40px;}
 .user-now.card-item .item-avatar img{width:60px;height:60px;border-radius:8px;}
+.load-memos-editor{background: var(--light-background-secondary) !important;}
+.dark-theme .load-memos-editor{background: var(--dark-background-secondary) !important;}
