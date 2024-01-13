@@ -8,10 +8,14 @@ var memosData = {
 var gravatar = memosData.gravatar;
 var memoList = [
   {creatorName:'林木木',website:'https://immmmm.com',link:'https://me.edui.fun',creatorId:'101',avatar:gravatar+'/avatar/ba83fa02fc4b2ba621514941307e21be.jpeg?s=400',twikoo:'https://metk.edui.fun'},
-  {creatorName:'归臧',website:'https://nuoea.com/',link:'https://memos.nuoea.com/',creatorId:'101',avatar:gravatar+'/avatar/020d365ea2596ef6d516143bb0552704.jpeg?s=400',twikoo:'https://twikoo.nuoea.com/'},
+  {creatorName:'归臧',website:'https://nuoea.com/',link:'https://memos.nuoea.com/',creatorId:'101',avatar:gravatar+'/avatar/020d365ea2596ef6d516143bb0552704.jpeg?s=400',twikoo:'https://twikoo.nuoea.com'},
   {creatorName:'koobai',website:'https://koobai.com',link:'https://memos.koobai.com',creatorId:'1',avatar:gravatar+'/avatar/3b3d336a7d389b7ae8531cbe177ae9b7.jpeg?s=400',artalk:'https://c.koobai.com',artSite:'空白唠叨'},
-  {creatorName:'老张',website:'https://laozhang.org',link:'https://memos.laozhang.org',creatorId:'1',avatar:gravatar+'/avatar/679666f7bd1af3e55f0e51dd70ed161c.jpeg?s=400',artalk:'https://artalk.laozhang.org',artSite:'memos'},{creatorName:'小赵同学',website:'https://usj.cc/',link:'https://memos.usj.cc',creatorId:'1',avatar:gravatar+'/avatar/1cce0a22c2c7648eab76ec876c6a54d9.jpeg?s=400',artalk:'https://artalk.usj.cc',artSite:'优世界'},
-  {creatorName:'不亦乐乎',website:'https://lms.pub',link:'https://b.lms.im',creatorId:'1',avatar:gravatar+'/avatar/d9cc49ea0301640d7a19b6a1e77012dd.jpeg?s=400',twikoo:'https://b.lms.im/tk/'},
+  {creatorName:'老张',website:'https://laozhang.org',link:'https://memos.laozhang.org',creatorId:'1',avatar:gravatar+'/avatar/679666f7bd1af3e55f0e51dd70ed161c.jpeg?s=400',artalk:'https://artalk.laozhang.org',artSite:'memos'},
+  {creatorName:'小赵同学',website:'https://usj.cc/',link:'https://memos.usj.cc',creatorId:'1',avatar:gravatar+'/avatar/1cce0a22c2c7648eab76ec876c6a54d9.jpeg?s=400'},
+  {creatorName:'不亦乐乎',website:'https://lms.pub',link:'https://b.lms.im',creatorId:'1',avatar:gravatar+'/avatar/d9cc49ea0301640d7a19b6a1e77012dd.jpeg?s=400'},
+  {creatorName:'Edinik',website:'https://edinik.com',link:'https://memos.edinik.com',creatorId:'1',avatar:gravatar+'/avatar/e1cdf4f763e3c7e01271a44b990c712f.jpeg?s=400'},
+  {creatorName:'1900',website:'https://1900.live',link:'https://memos.1900.live',creatorId:'101',avatar:gravatar+'/avatar/cc38267b10cc25dfc62209f8ca34589e.jpeg?s=400',artalk:'https://artalk.1900.live',artSite:'只是玩玩'},
+  {creatorName:'小饿',website:'https://dongjunke.cn',link:'https://memos.dongjunke.cn',creatorId:'1',avatar:gravatar+'/avatar/42542189ddb33064599dc88a5149bea7.jpeg?s=400',artalk:'https://bb.yunshusong.cn',artSite:'东评西就'},
 ];
 
 var memosDom = document.querySelector(memosData.dom);

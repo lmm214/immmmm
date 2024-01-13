@@ -70,7 +70,8 @@ let urls = [
     home:"https://1900.live/",
     host:"https://memos.1900.live/",
     creatorId:"101",
-    twiEnv:"https://comment.1900.live/",
+    artEnv:"https://artalk.1900.live",
+    artSite:"只是玩玩",
     imgsrc:cdnGravatar+"cc38267b10cc25dfc62209f8ca34589e"
   },{
     home:"https://dongjunke.cn/",
