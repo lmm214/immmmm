@@ -7,41 +7,105 @@ var memosData = {
 }
 var gravatar = memosData.gravatar;
 var memoList = [
-  {creatorName:'林木木',website:'https://immmmm.com',link:'https://me.edui.fun',creatorId:'101',avatar:gravatar+'/avatar/ba83fa02fc4b2ba621514941307e21be.jpeg?s=400',twikoo:'https://metk.edui.fun'},
-  {creatorName:'归臧',website:'https://nuoea.com/',link:'https://memos.nuoea.com/',creatorId:'101',avatar:gravatar+'/avatar/020d365ea2596ef6d516143bb0552704.jpeg?s=400',twikoo:'https://twikoo.nuoea.com'},
-  {creatorName:'koobai',website:'https://koobai.com',link:'https://memos.koobai.com',creatorId:'1',avatar:gravatar+'/avatar/3b3d336a7d389b7ae8531cbe177ae9b7.jpeg?s=400',artalk:'https://c.koobai.com',artSite:'空白唠叨'},
-  {creatorName:'老张',website:'https://laozhang.org',link:'https://memos.laozhang.org',creatorId:'1',avatar:gravatar+'/avatar/679666f7bd1af3e55f0e51dd70ed161c.jpeg?s=400',artalk:'https://artalk.laozhang.org',artSite:'memos'},
-  {creatorName:'小赵同学',website:'https://usj.cc/',link:'https://memos.usj.cc',creatorId:'1',avatar:gravatar+'/avatar/1cce0a22c2c7648eab76ec876c6a54d9.jpeg?s=400'},
-  {creatorName:'不亦乐乎',website:'https://lms.pub',link:'https://b.lms.im',creatorId:'1',avatar:gravatar+'/avatar/d9cc49ea0301640d7a19b6a1e77012dd.jpeg?s=400'},
-  {creatorName:'Edinik',website:'https://edinik.com',link:'https://memos.edinik.com',creatorId:'1',avatar:gravatar+'/avatar/e1cdf4f763e3c7e01271a44b990c712f.jpeg?s=400'},
-  {creatorName:'1900',website:'https://1900.live',link:'https://memos.1900.live',creatorId:'101',avatar:gravatar+'/avatar/cc38267b10cc25dfc62209f8ca34589e.jpeg?s=400',artalk:'https://artalk.1900.live',artSite:'只是玩玩'},
-  {creatorName:'小饿',website:'https://dongjunke.cn',link:'https://memos.dongjunke.cn',creatorId:'1',avatar:gravatar+'/avatar/42542189ddb33064599dc88a5149bea7.jpeg?s=400',artalk:'https://bb.yunshusong.cn',artSite:'东评西就'},
+  {
+    creatorName:'林木木',
+    website:'https://immmmm.com',
+    link:'https://me.edui.fun',
+    creatorId:'101',
+    avatar:gravatar+'/avatar/ba83fa02fc4b2ba621514941307e21be.jpeg?s=400',
+    twikoo:'https://metk.edui.fun'
+  },{
+    creatorName:'归臧',
+    website:'https://nuoea.com/',
+    link:'https://memos.nuoea.com/',
+    creatorId:'101',
+    avatar:gravatar+'/avatar/020d365ea2596ef6d516143bb0552704.jpeg?s=400',
+    twikoo:'https://twikoo.nuoea.com'
+  },{
+    creatorName:'koobai',
+    website:'https://koobai.com',
+    link:'https://memos.koobai.com',
+    creatorId:'1',
+    avatar:gravatar+'/avatar/3b3d336a7d389b7ae8531cbe177ae9b7.jpeg?s=400',
+    artalk:'https://c.koobai.com',
+    artSite:'空白唠叨'
+  },{
+    creatorName:'老张',
+    website:'https://laozhang.org',
+    link:'https://memos.laozhang.org',
+    creatorId:'1',
+    avatar:gravatar+'/avatar/679666f7bd1af3e55f0e51dd70ed161c.jpeg?s=400',
+    artalk:'https://artalk.laozhang.org',
+    artSite:'memos'
+  },{
+    creatorName:'小赵同学',
+    website:'https://usj.cc/',
+    link:'https://memos.usj.cc',
+    creatorId:'1',
+    avatar:gravatar+'/avatar/1cce0a22c2c7648eab76ec876c6a54d9.jpeg?s=400',
+    artalk:'https://artalk.usj.cc',
+    artSite:'优世界'
+  },{
+    creatorName:'不亦乐乎',
+    website:'https://lms.pub',
+    link:'https://b.lms.im',
+    creatorId:'1',
+    avatar:gravatar+'/avatar/d9cc49ea0301640d7a19b6a1e77012dd.jpeg?s=400'
+  },{
+    creatorName:'Edinik',
+    website:'https://edinik.com',
+    link:'https://memos.edinik.com',
+    creatorId:'1',
+    avatar:gravatar+'/avatar/e1cdf4f763e3c7e01271a44b990c712f.jpeg?s=400',
+    twikoo:'https://tk.edinik.com'
+  },{
+    creatorName:'1900',
+    website:'https://1900.live',
+    link:'https://memos.1900.live',
+    creatorId:'101',
+    avatar:gravatar+'/avatar/cc38267b10cc25dfc62209f8ca34589e.jpeg?s=400',
+    artalk:'https://artalk.1900.live',
+    artSite:'只是玩玩'
+  },{
+    creatorName:'小饿',
+    website:'https://dongjunke.cn',
+    link:'https://memos.dongjunke.cn',
+    creatorId:'1',
+    avatar:gravatar+'/avatar/42542189ddb33064599dc88a5149bea7.jpeg?s=400',
+    artalk:'https://bb.yunshusong.cn',
+    artSite:'东评西就'
+  },{
+    creatorName:'else',
+    website:'https://vlieo.com',
+    link:'https://memos.vlieo.com',
+    creatorId:'1',
+    avatar:gravatar+'/avatar/d36125dcbca7fde4200fd76f6aa1fbe9.jpeg?s=400',
+    twikoo:'https://twikoo.vlieo.com'
+  }
 ];
 
 var memosDom = document.querySelector(memosData.dom);
 var userAdmin = memoList[0]
-var userNow = `<div class="user-now card-item flex-fill p-3 mt-5 row"><div class="row-fill"><span class="back-memos button d-md-flex mr-3"><i class="iconfont iconappstore"></i></span><span class="theme-toggle header-toggle button d-md-flex mr-3"><i class="iconfont icondaytime-mode"></i></span></div><div class="item-avatar mr-3"><span class="user-now-name">${userAdmin.creatorName}</span><img class="user-now-avatar" src="${userAdmin.avatar}"/></div></div>`
+var userNow = `<div class="user-now card-item flex-fill p-3 mt-5 row"><div class="row-fill"><span class="back-memos button d-md-flex mr-3"><i class="iconfont iconappstore"></i></span><span class="theme-toggle header-toggle button d-md-flex mr-3"><i class="iconfont icondaytime-mode"></i></span></div><div class="item-avatar mr-3"><span class="user-now-name">${userAdmin.creatorName}</span><img class="call-memos-editor user-now-avatar" src="${userAdmin.avatar}"/></div></div>`
 memosDom.insertAdjacentHTML('beforebegin', userNow);
 
-var memosEditorCont = `<div class="memos-editor animate__animated animate__fadeInRight d-none col"><div class="memos-editor-body mb-3 p-3"><div class="memos-editor-inner animate__animated animate__fadeIn d-none"><div class="memos-editor-content"><textarea class="memos-editor-textarea text-sm" rows="1" placeholder="任何想法..."></textarea></div><div class="memos-image-list d-flex flex-fill line-xl"></div><div class="memos-editor-tools pt-3"><div class="d-flex"><div class="button outline action-btn tag-btn mr-2"><i class="iconfont iconnumber"></i></div><div class="button outline action-btn todo-btn mr-2"><i class="iconfont iconunorderedlist"></i></div><div class="button outline action-btn code-btn mr-2"><i class="iconfont iconcode"></i></div><div class="button outline action-btn mr-2 link-btn"><i class="iconfont iconlink"></i></div><div class="button outline action-btn image-btn mr-2" onclick="this.lastElementChild.click()"><i class="iconfont iconimage"></i><input class="memos-upload-image-input d-none" type="file" accept="image/*"></div></div><div class="d-flex flex-fill"><div class="memos-tag-list d-none mt-2 animate__animated animate__fadeIn"></div></div></div><div class="memos-editor-footer border-t mt-3 pt-3 "><div class="d-flex"><div class="editor-selector select outline"><select class="select-memos-value pl-2 pr-4 py-2"><option value="PUBLIC">所有人可见</option><option value="PROTECTED">仅登录可见</option><option value="PRIVATE">仅自己可见</option></select></div><div class="button outline random-btn mx-2 p-2"><i class="iconfont iconretweet"></i></div><div class="button outline switchUser-btn d-none d-md-flex mr-2 p-2"><i class="iconfont iconswitchuser"></i></div></div><div class="editor-submit d-flex flex-fill justify-content-end"><div class="edit-memos d-none"><button class="outline cancel-edit-btn mr-2 px-3 py-2" title="取消">取消</button><button class="primary edit-memos-btn px-3 py-2" title="保存">保存</button></div><button class="primary submit-memos-btn px-3 py-2" title="记下">记下</button></div></div></div><div class="memos-editor-option animate__animated animate__fadeIn d-none"><div class="row flex-fill mr-3 p-2"><input name="memos-path-url" class="memos-path-input input-text col-6" type="text" value="" placeholder="Path"><input name="memos-token-url" class="memos-token-input input-text col-6" type="text" value="" placeholder="Token"></div><button class="primary submit-openapi-btn px-3 py-2">保存</button></div></div><div class="memos-random d-none"></div></div>`;
+var memosEditorCont = `<div class="memos-editor animate__animated animate__fadeIn col-12"><div class="memos-editor-body mb-3 p-3"><div class="memos-editor-inner animate__animated animate__fadeIn d-none"><div class="memos-editor-content"><textarea class="memos-editor-textarea text-sm" rows="1" placeholder="任何想法..."></textarea></div><div class="memos-image-list d-flex flex-fill line-xl"></div><div class="memos-editor-tools pt-3"><div class="d-flex"><div class="button outline action-btn biao-qing-btn mr-2"><i class="iconfont iconsmile"></i></div><div class="button outline action-btn tag-btn mr-2"><i class="iconfont iconnumber"></i></div><div class="button outline action-btn todo-btn mr-2"><i class="iconfont iconunorderedlist"></i></div><div class="button outline action-btn code-btn mr-2"><i class="iconfont iconcode"></i></div><div class="button outline action-btn mr-2 link-btn"><i class="iconfont iconlink"></i></div><div class="button outline action-btn image-btn mr-2" onclick="this.lastElementChild.click()"><i class="iconfont iconimage"></i><input class="memos-upload-image-input d-none" type="file" accept="image/*"></div></div><div class="d-flex flex-fill"><div class="memos-tag-list d-none mt-2 animate__animated animate__fadeIn"></div></div></div><div class="memos-editor-footer border-t mt-3 pt-3 "><div class="d-flex"><div class="editor-selector select outline"><select class="select-memos-value pl-2 pr-4 py-2"><option value="PUBLIC">所有人可见</option><option value="PROTECTED">仅登录可见</option><option value="PRIVATE">仅自己可见</option></select></div><div class="button outline random-btn mx-2 p-2"><i class="iconfont iconretweet"></i></div><div class="button outline switchUser-btn d-none d-md-flex mr-2 p-2"><i class="iconfont iconswitchuser"></i></div></div><div class="editor-submit d-flex flex-fill justify-content-end"><div class="edit-memos d-none"><button class="outline cancel-edit-btn mr-2 px-3 py-2" title="取消">取消</button><button class="primary edit-memos-btn px-3 py-2" title="保存">保存</button></div><button class="primary submit-memos-btn px-3 py-2" title="记下">记下</button></div></div></div><div class="memos-editor-option animate__animated animate__fadeIn d-none"><div class="row flex-fill mr-3 p-2"><input name="memos-path-url" class="memos-path-input input-text col-6" type="text" value="" placeholder="Path"><input name="memos-token-url" class="memos-token-input input-text col-6" type="text" value="" placeholder="Token"></div><button class="primary submit-openapi-btn px-3 py-2">保存</button></div></div><div class="memos-random d-none"></div></div>`;
 memosDom.insertAdjacentHTML('afterbegin',memosEditorCont);
 
 var headerDom = document.querySelector(".header-title");
-var editIcon = `<button class="load-memos-editor outline p-1" title=""><i class="iconfont iconedit-square"></i></button>`;
-headerDom.insertAdjacentHTML('afterend', editIcon);
+//var editIcon = `<button class="load-memos-editor outline p-1" title=""><i class="iconfont iconedit-square"></i></button>`;
+//headerDom.insertAdjacentHTML('afterend', editIcon);
 
 var memosEditorInner = document.querySelector(".memos-editor-inner"); 
 var memosEditorOption = document.querySelector(".memos-editor-option");
 var memosRadomCont = document.querySelector(".memos-random");
-
 var taglistBtn = document.querySelector(".tag-btn");
-var todoBtn = document.querySelector(".todo-btn");
 var todoBtn = document.querySelector(".todo-btn");
 var codeBtn = document.querySelector(".code-btn");
 var linkBtn = document.querySelector(".link-btn");
 var randomBtn = document.querySelector(".random-btn");
 var switchUserBtn = document.querySelector(".switchUser-btn");
-var loadEditorBtn = document.querySelector(".load-memos-editor");
+var loadEditorBtn = document.querySelector(".call-memos-editor");//document.querySelector(".load-memos-editor");
 var submitApiBtn = document.querySelector(".submit-openapi-btn");
 var submitMemoBtn = document.querySelector(".submit-memos-btn");
 var memosVisibilitySelect = document.querySelector(".select-memos-value");
@@ -49,16 +113,13 @@ var pathInput = document.querySelector(".memos-path-input");
 var tokenInput = document.querySelector(".memos-token-input");
 var uploadImageInput = document.querySelector(".memos-upload-image-input");
 var memosTextarea = document.querySelector(".memos-editor-textarea");
-
 var memosOpenId = window.localStorage && window.localStorage.getItem("memos-access-token");
 var memosPath = window.localStorage && window.localStorage.getItem("memos-access-path");
 var getEditor = window.localStorage && window.localStorage.getItem("memos-editor-display");
-var memosTextarea = document.querySelector(".memos-editor-textarea");
-var memosVisibilitySelect = document.querySelector(".select-memos-value");
-var submitMemoBtn = document.querySelector(".submit-memos-btn");
 var editMemoDom = document.querySelector(".edit-memos");
 var editMemoBtn = document.querySelector(".edit-memos-btn");
 var cancelEditBtn = document.querySelector(".cancel-edit-btn");
+var biaoqingBtn = document.querySelector(".biao-qing-btn");
 
 var memoDom = document.querySelector(memosData.listDom);
 var skeleton = `<div class="el-loading"><div class="el-skeleton mb-3"></div><div class="el-skeleton mb-3"></div><div class="el-skeleton width-50 mb-3"></div><div class="el-skeleton mb-3"></div><div class="el-skeleton mb-3"></div><div class="el-skeleton width-50 mb-3"></div></div>`;
@@ -72,7 +133,7 @@ var memoData = [],memosStr = [],memoCreatorMap = {},twikooCount = {},artalkCount
 
 var memosAccessPath = memosData.path;
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   //切换主题
 	var headerIcon = document.querySelector('.header-toggle i')
 	var getTheme = window.localStorage && window.localStorage.getItem("theme");
@@ -90,7 +151,11 @@ document.addEventListener("DOMContentLoaded", () => {
 			window.localStorage && window.localStorage.setItem("theme", document.body.classList.contains("dark-theme") ? "dark" : "light");
 		});
 	});
-
+  try {
+    emojis = await getEmojisData(); // 获取表情数据
+  } catch (error) {
+    console.error('Failed to fetch emojis data:', error);
+  }
   memoFollow();
   getEditIcon();
 });
@@ -246,7 +311,7 @@ function memoFollow() {
       let data = memoCreatorMap[item.creatorName];
       return {...item, ...data};
     });
-    memoData = await getMemoCount(memoData);
+    //memoData = await getMemoCount(memoData);
     memoDom.innerHTML = "";
     loadBtn.classList.remove("d-none");
     updateData(memoData);
@@ -301,7 +366,7 @@ function memoFollow() {
       let memo = data[i];
       let memoString = JSON.stringify(memo).replace(/"/g, '&quot;');
       let avatar = memo.avatar;
-      let count = memo.count;
+      let count = memo.count || "";
       let website = memo.website;
       let creatorName = memo.creatorName;
       let createdTs = memo.createdTs;
@@ -667,6 +732,11 @@ cancelEditBtn.addEventListener("click", function () {
   }
 })
 
+function setMemoTag(e){
+  let memoTag = e.textContent.replace("#","") + " ";
+  memosTextarea.value += memoTag;
+  document.querySelector(".memos-tag-list").classList.toggle("d-none");
+}
 //归档
 function archiveMemo(memoId) {
   memosOpenId = window.localStorage && window.localStorage.getItem("memos-access-token");
@@ -731,6 +801,13 @@ function getEditIcon() {
   memosTextarea.addEventListener('input', (e) => {
     memosTextarea.style.height = 'inherit';
     memosTextarea.style.height = e.target.scrollHeight + 'px';
+    const inputValue = memosTextarea.value;
+    const lastWord = inputValue.charAt(inputValue.length - 1);
+    if (lastWord == '#') {
+      document.querySelector(".memos-tag-list").classList.toggle("d-none");
+    } else {
+      document.querySelector(".memos-tag-list").className == "d-none";
+    }
   });
 
   if (getEditor !== null) {
@@ -745,13 +822,13 @@ function getEditIcon() {
     getEditor = window.localStorage && window.localStorage.getItem("memos-editor-display");
   });
 
-  taglistBtn.addEventListener("click", function () {
-    memosPath = window.localStorage && window.localStorage.getItem("memos-access-path");
-    memosOpenId = window.localStorage && window.localStorage.getItem("memos-access-token");
-    if (memosPath && memosOpenId) {
-      document.querySelector(".memos-tag-list").classList.toggle("d-none"); 
-    }
-  });
+  //taglistBtn.addEventListener("click", function () {
+  //  memosPath = window.localStorage && window.localStorage.getItem("memos-access-path");
+  //  memosOpenId = window.localStorage && window.localStorage.getItem("memos-access-token");
+  //  if (memosPath && memosOpenId) {
+  //    document.querySelector(".memos-tag-list").classList.toggle("d-none"); 
+  //  }
+  //});
 
   todoBtn.addEventListener("click", function () {
     memosPath = window.localStorage && window.localStorage.getItem("memos-access-path");
@@ -1148,11 +1225,6 @@ function getEditIcon() {
   }
 }
 
-function setMemoTag(e){
-  let memoTag = e.textContent + " ";
-  memosTextarea.value += memoTag;
-}
-
 function deleteImage(e){
   if(e){
     let memoId = e.getAttribute("data-id")
@@ -1161,4 +1233,66 @@ function deleteImage(e){
     window.localStorage && window.localStorage.setItem("memos-resource-list",  JSON.stringify(memosResourceList));
     e.remove()
   } 
+}
+
+
+// 获取json文件中的数据
+let emojiSelectorVisible = false;
+let emojiSelector;
+let emojis = []; // 缓存表情数据
+async function getEmojisData() {
+  const response = await fetch('static/js/owo.json');
+  const data = await response.json();
+  return data.Emoji.container;
+}
+// 表情选择器点击事件处理
+biaoqingBtn.addEventListener("click", function (event) {
+  event.stopPropagation();
+  emojiSelectorVisible = !emojiSelectorVisible;
+  if (emojiSelectorVisible) {
+    displayEmojiSelector();
+  } else {
+    emojiSelector?.remove();
+  }
+});
+// 显示表情选择器
+function displayEmojiSelector() {
+  if (!emojiSelector) {
+    emojiSelector = document.createElement('div');
+    emojiSelector.classList.add('emoji-selector');
+
+    // 使用事件代理，将事件监听器添加到父元素上
+    emojiSelector.addEventListener('click', (event) => {
+      const target = event.target;
+      if (target.classList.contains('emoji-item')) {
+        insertEmoji(target.innerHTML); // 直接插入emoji图标
+      }
+    });
+  }
+
+  emojiSelector.innerHTML = ''; // 清空表情选择器内容
+
+  emojis.forEach(emoji => {
+    const emojiItem = document.createElement('div');
+    emojiItem.classList.add('emoji-item');
+    emojiItem.innerHTML = emoji.icon;
+    emojiItem.title = emoji.text;
+    emojiSelector.appendChild(emojiItem);
+  });
+
+  // 将表情下拉框插入到对应位置
+  const memosEditorTools = document.querySelector(".memos-editor-tools");
+  if (memosEditorTools) {
+    memosEditorTools.insertAdjacentElement('afterend', emojiSelector);
+  }
+}
+// 表情光标位置
+function insertEmoji(emojiText) {
+  const selectionStart = memosTextarea.selectionStart;
+  const newValue = `${memosTextarea.value.substring(0, selectionStart)}${emojiText}${memosTextarea.value.substring(memosTextarea.selectionEnd)}`;
+  memosTextarea.value = newValue;
+  memosTextarea.dispatchEvent(new Event('input'));
+  const newCursorPosition = selectionStart + emojiText.length;
+  memosTextarea.setSelectionRange(newCursorPosition, newCursorPosition);
+  memosTextarea.focus();
 }

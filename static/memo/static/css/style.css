@@ -408,23 +408,18 @@ blockquote {
 	color: var(--light-background);
 }
 /* Memos Editor */
-.load-memos,.load-memos-editor{position:fixed;right:1rem;bottom:1rem;background-color:var(--light-background-secondary);z-index:9999;}
-.dark-theme .load-memos-editor{background-color: var(--dark-background-secondary);}
-.memos-editor{position:fixed;left:auto;right:1rem;bottom: 3rem;padding:0;z-index: 99999;width:calc(100% - 2rem);max-width:480px;}
 .memos-editor-body{display:flex;border-radius:.33rem;background-color:var(--light-background-secondary);flex-direction:column;}
-.memos-editor-body{box-shadow: 0 1px 2px rgba(0,0,0,.05);border: 1px solid var(--light-background-hover);}
 .dark-theme .memos-editor-body{border: 1px solid var(--dark-background-hover);background-color: var(--dark-background-secondary);}
 .memos-editor-content,.memos-editor-footer,.memos-editor-option{display: flex;}
 .memos-editor-content .memos-editor-textarea{max-height: 160px;}
 .memos-image-list .memos-tag:hover{text-decoration: line-through;}
 .memos-editor-tools{display: flex;flex-direction: column;}
+.memos-editor-tools .iconfont{font-size:1.35rem;}
 .memos-editor-tools .action-btn {padding: .25rem;}
 .memos-editor-tools .memos-tag-list {display:flex;flex-wrap:wrap;align-items:center;line-height:2;}
 .memos-editor-tools .memos-tag {position:relative;}
 .memos-editor-tools .memos-tag a {flex:1}
 .memos-editor-footer .edit-memos {display:flex;}
-.memos-random .card-item{background-color: var(--light-background-hover);}
-.dark-theme .memos-random .card-item{background-color: var(--dark-background-hover);}
 
 /* dropdown */
 .dropdown {
@@ -713,4 +708,22 @@ blockquote {
 
 .dark-theme .el-skeleton {
 	background-image: linear-gradient(90deg, var(--dark-background-secondary) 25%, var(--dark-color-hover) 45%, var(--dark-background-secondary) 65%);
+}
+
+.tag-btn{display:none;}
+.emoji-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin: 8px 0;
+}
+.emoji-item {
+    padding: 4px;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer
+}
+.emoji-item:hover {
+    background: var(--light-background-hover);
+    border-radius: 4px
 }
