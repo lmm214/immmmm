@@ -605,7 +605,7 @@ blockquote {
 	background-color: var(--light-color-hover);
 	cursor: pointer;
 }
-
+.item-tag.no-cursor{cursor:unset;}
 .dark-theme .card-item .item-tag, .dark-theme .list-item .item-tag, .dark-theme .memos-tag {
 	background-color: var(--dark-color-hover);
 }
@@ -694,3 +694,23 @@ blockquote {
 .user-now.card-item .item-avatar img{width:60px;height:60px;border-radius:8px;}
 .load-memos-editor{background: var(--light-background-secondary) !important;}
 .dark-theme .load-memos-editor{background: var(--dark-background-secondary) !important;}
+
+/* loading */
+.el-loading {
+	position: relative;
+	flex: 1;
+}
+
+.el-skeleton {
+	padding: 1rem;
+	flex: 1;
+	border-radius: .33rem;
+	background-size: 400% 100%;
+	background-position: 100% 50%;
+	background-image: linear-gradient(90deg, var(--light-background-hover) 25%, var(--light-color-hover) 45%, var(--light-background-hover) 65%);
+	animation: skeleton-loading 3s ease infinite;
+}
+
+.dark-theme .el-skeleton {
+	background-image: linear-gradient(90deg, var(--dark-background-secondary) 25%, var(--dark-color-hover) 45%, var(--dark-background-secondary) 65%);
+}

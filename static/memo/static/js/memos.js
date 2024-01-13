@@ -225,7 +225,7 @@ function memoFollow() {
     memoDom.innerHTML = skeleton;
     loadBtn.classList.add("d-none");
     let results = await Promise.allSettled(memoList.map(u => 
-      withTimeout(2000, fetch(`${u.link}/api/v1/memo?creatorId=${u.creatorId}&rowStatus=NORMAL&limit=3`)
+      withTimeout(2000, fetch(`${u.link}/api/v1/memo?creatorId=${u.creatorId}&rowStatus=NORMAL&limit=${limit}`)
         .then(response => {
           if (!response.ok) {
             throw new Error(res.statusText); 
@@ -348,7 +348,7 @@ function memoFollow() {
           return `<div class="item-tag d-flex align-items-center text-xs line-lg mr-2 px-2" onclick="getTagNow('${memo.link}','${memo.creatorId}','${memo.creatorName}','${memo.avatar}',this)">${String(t).replace(/[#]/g, '')}</div>`;
         }).join('');
       }else{
-        memosTag = `<div class="item-tag d-flex align-items-center text-xs line-lg mr-2 px-2">动态</div>`;
+        memosTag = `<div class="item-tag d-flex align-items-center text-xs line-lg mr-2 px-2 no-cursor">动态</div>`;
       }
       
       //解析内置资源文件
@@ -446,6 +446,8 @@ function memoFollow() {
 
 // 获取指定用户列表
 async function getUserMemos(u,i,n,a,t) {
+    var backIcon = document.querySelector('.back-memos i');
+    backIcon.className = "iconfont iconappstore";
     memoDom.innerHTML = skeleton;
     loadBtn.classList.add('d-none');
     memoData = [],memoCreatorMap = {}, page = 1,nums = 0,dataNum = 0,memosContType = 1;
@@ -555,7 +557,7 @@ function loadArtalk(e) {
     }
     artalkDom.insertAdjacentHTML('beforeend', artalkCon);
     artalkDom.classList.remove('d-none');
-    artalkLite.init({
+    ArtalkLite.init({
       el: '#artalk',
       pageKey: '/m/' + artalkId,
       pageTitle: '',
