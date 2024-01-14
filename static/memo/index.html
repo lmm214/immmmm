@@ -10,28 +10,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
   <title>我的朋友圈</title>
 </head>
-<link rel="stylesheet" href="static/css/grid.css">
-<link rel="stylesheet" href="static/css/aplay.css">
-<link rel="stylesheet" href="static/css/iconfont.css">
-<link rel="stylesheet" href="static/css/animate.min.css">
-<link rel="stylesheet" href="static/css/style.css?v=20240114">
 
+<link rel="stylesheet" href="css/grid.css">
+<link rel="stylesheet" href="css/aplay.css">
+<link rel="stylesheet" href="css/iconfont.css">
+<link rel="stylesheet" href="css/animate.min.css">
+<link rel="stylesheet" href="css/style.css?v=20240114-1">
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-background);
+    color: #222;
+    color: var(--light-color);
+    font-weight: 400;
+    font-size: 1.1rem;
+    font-family: "HarmonyOS_Regular","PingFangSC-Regular", "PingFang SC", "Microsoft YaHei", Arial, Helvetica, "WenQuanYi Micro Hei", "tohoma,sans-serif";
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+    -webkit-overflow-scrolling: touch;
+    -webkit-text-size-adjust: 100%;
+  }
+</style>
 <body class="">
   <div class="container">
     <div class="header-title"><h1 class="title-line">我的朋友圈</h1></div>
-    <div id="memos" class="row p-3"></div>
-    <div class="memo-list"></div>
+    <div id="memos"></div>
+    <div id="memo-list"></div>
   </div>
 </body>
+
 <script type="text/javascript" src="//fastly.jsdelivr.net/npm/twikoo@1.6.29/dist/twikoo.all.min.js"></script>
 <script type="text/javascript" src="//fastly.jsdelivr.net/npm/artalk@2.7.3/dist/ArtalkLite.js"></script>
-<script src="static/js/marked.min.js"></script>
-<script src="static/js/aplayer.min.js"></script>
-<script src="static/js/meting.min.js"></script>
-<script src="static/js/lately.min.js"></script>
-<script src="static/js/message.min.js"></script>
-<script src="static/js/view-image.min.js"></script>
-<script src="static/js/lozad.min.js"></script>
-<script src="static/js/memos.js?v=20240114"></script>
+<script src="js/marked.min.js"></script>
+<script src="js/aplayer.min.js"></script>
+<script src="js/meting.min.js"></script>
+<script src="js/lately.min.js"></script>
+<script src="js/message.min.js"></script>
+<script src="js/view-image.min.js"></script>
+<script src="js/lozad.min.js"></script>
+<script src="js/memos.js?v=20240114-1"></script>
 <link href="//fastly.jsdelivr.net/npm/artalk@2.7.3/dist/ArtalkLite.css" rel="stylesheet">
 </html>
