@@ -399,7 +399,24 @@ blockquote {
 .memos-editor-tools .memos-tag {position:relative;}
 .memos-editor-tools .memos-tag a {flex:1}
 .memos-editor-footer .edit-memos {display:flex;}
-
+.memos-tag{border:1px solid var(--light-background-hover);}
+.dark-theme .memos-tag{border:1px solid var(--dark-background-hover);}
+.memos-tag.selected{
+    border:1px solid var(--light-color);
+}
+.dark-theme .memos-tag.selected{
+    border:1px solid var(--dark-color);
+}
+.memos-tagnow-name{cursor: pointer;}
+.memos-tagnow-name svg {
+    width: 1rem;
+    margin-left: 6px;
+    vertical-align: middle;
+    margin-top: -4px;
+}
+.memos-tagnow-name:hover {
+    text-decoration: line-through
+}
 /* dropdown */
 .dropdown {
 	position: relative;

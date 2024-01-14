@@ -59,13 +59,15 @@ var memosEditorCont = `
         <div class="d-flex flex-wrap">
           <div class="button outline action-btn biao-qing-btn mr-3"><i class="iconfont iconsmile"></i></div>
           <div class="button outline action-btn tag-btn mr-3"><i class="iconfont iconnumber"></i></div>
-          <div class="button outline action-btn tagin-btn mr-3"><i class="iconfont icontags"></i></div>
           <div class="button outline action-btn todo-btn mr-3"><i class="iconfont iconunorderedlist"></i></div>
           <div class="button outline action-btn codeone-btn mr-3"><svg xmlns="http://www.w3.org/2000/svg" width="1.35rem" height="1.35rem" viewBox="0 0 24 24"><path fill="currentColor" d="M4.825 12.025L8.7 15.9q.275.275.275.7t-.275.7q-.275.275-.7.275t-.7-.275l-4.6-4.6q-.15-.15-.213-.325T2.426 12q0-.2.063-.375T2.7 11.3l4.6-4.6q.3-.3.713-.3t.712.3q.3.3.3.713t-.3.712zm14.35-.05L15.3 8.1q-.275-.275-.275-.7t.275-.7q.275-.275.7-.275t.7.275l4.6 4.6q.15.15.213.325t.062.375q0 .2-.062.375t-.213.325l-4.6 4.6q-.3.3-.7.288t-.7-.313q-.3-.3-.3-.712t.3-.713z"/></svg></div>
           <div class="button outline action-btn code-btn mr-3"><i class="iconfont iconcode"></i></div>
           <div class="button outline action-btn mr-3 link-btn"><i class="iconfont iconlink"></i></div>
           <div class="button outline action-btn mr-3 linkpic-btn"><i class="iconfont iconimage"></i></div>
-          <div class="button outline action-btn image-btn mr-3" onclick="this.lastElementChild.click()"><svg xmlns="http://www.w3.org/2000/svg" width="1.35rem" height="1.35rem" viewBox="0 0 24 24"><path fill="currentColor" d="M18 9h-2c-.6 0-1 .4-1 1s.4 1 1 1h2c.6 0 1 .4 1 1v7c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-7c0-.6.4-1 1-1h2c.6 0 1-.4 1-1s-.4-1-1-1H6c-1.7 0-3 1.3-3 3v7c0 1.7 1.3 3 3 3h12c1.7 0 3-1.3 3-3v-7c0-1.7-1.3-3-3-3M9.7 6.7L11 5.4V17c0 .6.4 1 1 1s1-.4 1-1V5.4l1.3 1.3c.2.2.4.3.7.3c.3 0 .5-.1.7-.3c.4-.4.4-1 0-1.4l-3-3c-.4-.4-1-.4-1.4 0l-3 3c-.4.4-.4 1 0 1.4c.4.4 1 .4 1.4 0"/></svg><input class="memos-upload-image-input d-none" type="file" accept="image/*"></div>
+          <div class="button outline action-btn image-btn mr-3" onclick="this.lastElementChild.click()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1.35rem" height="1.35rem" viewBox="0 0 48 48"><g fill="none"><path fill="currentColor" d="M44 24a2 2 0 1 0-4 0zM24 8a2 2 0 1 0 0-4zm15 32H9v4h30zM8 39V9H4v30zm32-15v15h4V24zM9 8h15V4H9zm0 32a1 1 0 0 1-1-1H4a5 5 0 0 0 5 5zm30 4a5 5 0 0 0 5-5h-4a1 1 0 0 1-1 1zM8 9a1 1 0 0 1 1-1V4a5 5 0 0 0-5 5z"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="m6 35l10.693-9.802a2 2 0 0 1 2.653-.044L32 36m-4-5l4.773-4.773a2 2 0 0 1 2.615-.186L42 31m-5-13V6m-5 5l5-5l5 5"/></g></svg>
+            <input class="memos-upload-image-input d-none" type="file" accept="image/*">
+          </div>
         </div>
         <div class="d-flex flex-fill">
           <div class="memos-tag-list d-none mt-2 animate__animated animate__fadeIn"></div>
@@ -108,7 +110,6 @@ var memosEditorInner = document.querySelector(".memos-editor-inner");
 var memosEditorOption = document.querySelector(".memos-editor-option");
 var memosRadomCont = document.querySelector(".memos-random");
 var taglistBtn = document.querySelector(".tag-btn");
-var taginBtn = document.querySelector(".tagin-btn");
 var todoBtn = document.querySelector(".todo-btn");
 var codeoneBtn = document.querySelector(".codeone-btn");
 var codeBtn = document.querySelector(".code-btn");
@@ -446,7 +447,7 @@ function memoFollow() {
       let memosTag = '';
       if (tagArr) {
         memosTag = tagArr.map(t=>{
-          return `<div class="item-tag d-flex align-items-center text-xs line-lg mr-2 px-2" onclick="getTagNow('${memo.link}','${memo.creatorId}','${memo.creatorName}','${memo.avatar}',this)">${String(t).replace(/[#]/g, '')}</div>`;
+          return `<div class="item-tag d-flex align-items-center text-xs line-lg mr-2 px-2" onclick="getTagNow('${memo.link}','${memo.creatorId}','${memo.creatorName}','${memo.avatar}',this)">${String(t).replace(/[#]/, '')}</div>`;
         }).join('');
       }else{
         memosTag = `<div class="item-tag d-flex align-items-center text-xs line-lg mr-2 px-2 no-cursor">动态</div>`;
@@ -549,6 +550,12 @@ function memoFollow() {
     let serchText = prompt('搜点啥？','');
     let usernowName = document.querySelector(".user-now-name").innerHTML;
     if(serchText !== ""){
+      let serchDom = `
+        <div class="memos-tagnow row p-2 mb-2"">
+          <div class="memos-tagnow-title mr-3">当前搜索:</div>
+          <div class="memos-tagnow-name card-item pr-2 pl-2" onclick="javascript:location.reload();">${serchText}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-auto ml-1 opacity-40"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></div>
+        </div>`
+      memosDom.insertAdjacentHTML('beforebegin', serchDom);
       if(usernowName == ""){
         getMemos(serchText)
       }else{
@@ -627,6 +634,12 @@ async function fetchNeoDB(url){
 //获取指定 Tag
 function getTagNow(u,i,n,a,e){
   let tagName = e.innerHTML
+  let tagnowDom = `
+  <div class="memos-tagnow row p-2 mb-2"">
+    <div class="memos-tagnow-title mr-3">标签筛选:</div>
+    <div class="memos-tagnow-name card-item pr-2 pl-2" onclick="javascript:location.reload();">${tagName}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-auto ml-1 opacity-40"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></div>
+  </div>`
+  memosDom.insertAdjacentHTML('beforebegin', tagnowDom);
   getUserMemos(u,i,n,a,tagName);
 }
 // 加载Twikoo评论
@@ -855,15 +868,46 @@ function getEditIcon() {
   window.localStorage && window.localStorage.setItem("memos-resource-list",  JSON.stringify(memosResource));
   window.localStorage && window.localStorage.setItem("memos-relation-list",  JSON.stringify(memosRelation));
 
+  let memosTagList = document.querySelector(".memos-tag-list")
+  let selectedTagIndex = -1;
   memosTextarea.addEventListener('input', (e) => {
     memosTextarea.style.height = 'inherit';
     memosTextarea.style.height = e.target.scrollHeight + 'px';
     const inputValue = memosTextarea.value;
     const lastWord = inputValue.slice(-2);
     if (lastWord == ' #') {
-      document.querySelector(".memos-tag-list").classList.remove('d-none');
+      memosTagList.classList.remove('d-none');
     } else {
-      document.querySelector(".memos-tag-list").classList.add('d-none');
+      memosTagList.classList.add('d-none');
+    }
+  });
+
+  memosTextarea.addEventListener('keydown', event => {
+    const keyCode = event.keyCode;
+    if (memosTagList.classList.contains("d-none") === false) {
+      const matchingTags = Array.from(memosTagList.querySelectorAll('.memos-tag')).map(tag => tag.textContent);
+      if (keyCode === 38 || keyCode === 40 || keyCode === 37 || keyCode === 39) { // 添加左右方向键的处理
+        event.preventDefault();
+        if (keyCode === 37 || keyCode === 39) { // 处理左右方向键
+          const direction = keyCode === 37 ? -1 : 1;
+          selectedTagIndex = (selectedTagIndex + direction + matchingTags.length) % matchingTags.length;
+        } else { // 处理上下方向键
+          selectedTagIndex = (selectedTagIndex + (keyCode === 38 ? -1 : 1) + matchingTags.length) % matchingTags.length;
+        }
+        Array.from(memosTagList.querySelectorAll('.memos-tag')).forEach((option, index) => option.classList.toggle('selected', index  === selectedTagIndex));
+      } else if (keyCode === 13 && selectedTagIndex !== -1) {
+        event.preventDefault();
+        let tagName = matchingTags[selectedTagIndex].replace(/[#]/,'')
+        insertValue(tagName);
+        let bracketIndex = memosTextarea.value.indexOf(tagName);
+        if (bracketIndex !== -1) {
+          memosTextarea.selectionStart = bracketIndex + tagName.length;
+          memosTextarea.selectionEnd = bracketIndex + tagName.length;
+        }
+        memosTagList.querySelector('.memos-tag').classList.remove('selected');
+        memosTagList.classList.add('d-none');
+        selectedTagIndex = -1;
+      }
     }
   });
 
@@ -881,12 +925,6 @@ function getEditIcon() {
 
   taglistBtn.addEventListener("click", function () {
     document.querySelector(".memos-tag-list").classList.toggle("d-none");
-  });
-
-
-  taginBtn.addEventListener("click", function () {
-    let memoIn = ' #';
-    insertValue(memoIn);
   });
 
   todoBtn.addEventListener("click", function () {
@@ -941,6 +979,7 @@ function getEditIcon() {
 
   function insertValue(t) {
     let textLength = t.length;
+    //console.log(textLength)
     memosTextarea.value += t;
     memosTextarea.style.height = memosTextarea.scrollHeight + 'px';
     // 更新光标位置
@@ -1091,7 +1130,7 @@ function getEditIcon() {
       }).then(response => {
         let taglist = "";
         response.map((t)=>{
-          taglist += `<div class="memos-tag d-flex text-xs mt-2 mr-2"><a class="d-flex px-2 justify-content-center" onclick="setMemoTag(this)">#${t}</a></div>`;
+          taglist += `<div class="memos-tag d-flex text-xs mt-2 mr-2 px-2" onclick="setMemoTag(this)">#${t}</div>`;
         })
         document.querySelector(".memos-tag-list").innerHTML = taglist;
         //cocoMessage.success('准备就绪');
@@ -1213,7 +1252,7 @@ function getEditIcon() {
       let memosTag = '';
       if (tagArr) {
         memosTag = tagArr.map(t=>{
-          return `<div class="item-tag d-flex align-items-center text-xs line-lg mr-2 px-2" onclick="getTagNow('${memosPath}','${memo.creatorId}','${creatorName}','${avatar}',this)">${String(t).replace(/[#]/g, '')}</div>`;
+          return `<div class="item-tag d-flex align-items-center text-xs line-lg mr-2 px-2" onclick="getTagNow('${memosPath}','${memo.creatorId}','${creatorName}','${avatar}',this)">${String(t).replace(/[#]/, '')}</div>`;
         }).join('');
       }else{
         memosTag = `<div class="item-tag d-flex align-items-center text-xs line-lg mr-2 px-2">动态</div>`;
