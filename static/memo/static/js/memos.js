@@ -86,10 +86,10 @@ var memoList = [
 
 var memosDom = document.querySelector(memosData.dom);
 var userAdmin = memoList[0]
-var userNow = `<div class="user-now card-item flex-fill p-3 mt-5 row"><div class="row-fill"><span class="back-memos button d-md-flex mr-3"><i class="iconfont iconappstore"></i></span><span class="theme-toggle header-toggle button d-md-flex mr-3"><i class="iconfont icondaytime-mode"></i></span></div><div class="item-avatar mr-3"><span class="user-now-name">${userAdmin.creatorName}</span><img class="call-memos-editor user-now-avatar" src="${userAdmin.avatar}"/></div></div>`
+var userNow = `<div class="user-now card-item flex-fill p-3 row"><div class="item-avatar mr-3"><img class="call-memos-editor user-now-avatar" src="${userAdmin.avatar}"/></div><span class="user-now-name">${userAdmin.creatorName}</span><div class="row-fill"><span class="theme-toggle header-toggle button d-md-flex ml-3"><i class="iconfont icondaytime-mode"></i></span><span class="back-memos button d-md-flex ml-3"><i class="iconfont iconswitchuser"></i></span></div></div>`
 memosDom.insertAdjacentHTML('beforebegin', userNow);
 
-var memosEditorCont = `<div class="memos-editor animate__animated animate__fadeIn col-12"><div class="memos-editor-body mb-3 p-3"><div class="memos-editor-inner animate__animated animate__fadeIn d-none"><div class="memos-editor-content"><textarea class="memos-editor-textarea text-sm" rows="1" placeholder="任何想法..."></textarea></div><div class="memos-image-list d-flex flex-fill line-xl"></div><div class="memos-editor-tools pt-3"><div class="d-flex"><div class="button outline action-btn biao-qing-btn mr-2"><i class="iconfont iconsmile"></i></div><div class="button outline action-btn tag-btn mr-2"><i class="iconfont iconnumber"></i></div><div class="button outline action-btn todo-btn mr-2"><i class="iconfont iconunorderedlist"></i></div><div class="button outline action-btn code-btn mr-2"><i class="iconfont iconcode"></i></div><div class="button outline action-btn mr-2 link-btn"><i class="iconfont iconlink"></i></div><div class="button outline action-btn image-btn mr-2" onclick="this.lastElementChild.click()"><i class="iconfont iconimage"></i><input class="memos-upload-image-input d-none" type="file" accept="image/*"></div></div><div class="d-flex flex-fill"><div class="memos-tag-list d-none mt-2 animate__animated animate__fadeIn"></div></div></div><div class="memos-editor-footer border-t mt-3 pt-3 "><div class="d-flex"><div class="editor-selector select outline"><select class="select-memos-value pl-2 pr-4 py-2"><option value="PUBLIC">所有人可见</option><option value="PROTECTED">仅登录可见</option><option value="PRIVATE">仅自己可见</option></select></div><div class="button outline random-btn mx-2 p-2"><i class="iconfont iconretweet"></i></div><div class="button outline switchUser-btn d-none d-md-flex mr-2 p-2"><i class="iconfont iconswitchuser"></i></div></div><div class="editor-submit d-flex flex-fill justify-content-end"><div class="edit-memos d-none"><button class="outline cancel-edit-btn mr-2 px-3 py-2" title="取消">取消</button><button class="primary edit-memos-btn px-3 py-2" title="保存">保存</button></div><button class="primary submit-memos-btn px-3 py-2" title="记下">记下</button></div></div></div><div class="memos-editor-option animate__animated animate__fadeIn d-none"><div class="row flex-fill mr-3 p-2"><input name="memos-path-url" class="memos-path-input input-text col-6" type="text" value="" placeholder="Path"><input name="memos-token-url" class="memos-token-input input-text col-6" type="text" value="" placeholder="Token"></div><button class="primary submit-openapi-btn px-3 py-2">保存</button></div></div><div class="memos-random d-none"></div></div>`;
+var memosEditorCont = `<div class="memos-editor animate__animated animate__fadeIn col-12"><div class="memos-editor-body mb-3 p-3"><div class="memos-editor-inner animate__animated animate__fadeIn d-none"><div class="memos-editor-content"><textarea class="memos-editor-textarea text-sm" rows="1" placeholder="任何想法..."></textarea></div><div class="memos-image-list d-flex flex-fill line-xl"></div><div class="memos-editor-tools pt-3"><div class="d-flex"><div class="button outline action-btn biao-qing-btn mr-3"><i class="iconfont iconsmile"></i></div><div class="button outline action-btn tag-btn mr-3"><i class="iconfont iconnumber"></i></div><div class="button outline action-btn todo-btn mr-3"><i class="iconfont iconunorderedlist"></i></div><div class="button outline action-btn code-btn mr-3"><i class="iconfont iconcode"></i></div><div class="button outline action-btn mr-3 link-btn"><i class="iconfont iconlink"></i></div><div class="button outline action-btn image-btn mr-3" onclick="this.lastElementChild.click()"><i class="iconfont iconimage"></i><input class="memos-upload-image-input d-none" type="file" accept="image/*"></div></div><div class="d-flex flex-fill"><div class="memos-tag-list d-none mt-2 animate__animated animate__fadeIn"></div></div></div><div class="memos-editor-footer border-t mt-3 pt-3 "><div class="d-flex"><div class="editor-selector select outline"><select class="select-memos-value pl-2 pr-4 py-2"><option value="PUBLIC">所有人可见</option><option value="PROTECTED">仅登录可见</option><option value="PRIVATE">仅自己可见</option></select></div><div class="button outline random-btn mx-2 p-2"><i class="iconfont iconretweet"></i></div><div class="button outline switchUser-btn d-none d-md-flex mr-2 p-2"><i class="iconfont iconswitchuser"></i></div></div><div class="editor-submit d-flex flex-fill justify-content-end"><div class="edit-memos d-none"><button class="outline cancel-edit-btn mr-3 px-3 py-2" title="取消">取消</button><button class="primary edit-memos-btn px-3 py-2" title="保存">保存</button></div><button class="primary submit-memos-btn px-3 py-2" title="记下">记下</button></div></div></div><div class="memos-editor-option animate__animated animate__fadeIn d-none"><div class="row flex-fill mr-3 p-2"><input name="memos-path-url" class="memos-path-input input-text col-6" type="text" value="" placeholder="Path"><input name="memos-token-url" class="memos-token-input input-text col-6" type="text" value="" placeholder="Token"></div><button class="primary submit-openapi-btn px-3 py-2">保存</button></div></div><div class="memos-random d-none"></div></div>`;
 memosDom.insertAdjacentHTML('afterbegin',memosEditorCont);
 
 var headerDom = document.querySelector(".header-title");
@@ -175,7 +175,7 @@ function memoFollow() {
   var titleDom = document.querySelector('.back-memos');
   titleDom.addEventListener("click", function () {
     var backIcon = document.querySelector('.back-memos i');
-    backIcon.className = backIcon.classList.contains("iconappstore") ? "iconfont iconstar" : "iconfont iconappstore"
+    backIcon.className = backIcon.classList.contains("iconswitchuser") ? "iconfont iconsync" : "iconfont iconswitchuser"
     if(memosContType == 1) {
       getMemos();
       let usernowName = document.querySelector(".user-now-name");
@@ -516,7 +516,7 @@ function memoFollow() {
 // 获取指定用户列表
 async function getUserMemos(u,i,n,a,t) {
     var backIcon = document.querySelector('.back-memos i');
-    backIcon.className = "iconfont iconappstore";
+    backIcon.className = "iconfont iconswitchuser";
     memoDom.innerHTML = skeleton;
     loadBtn.classList.add('d-none');
     memoData = [],memoCreatorMap = {}, page = 1,nums = 0,dataNum = 0,memosContType = 1;
@@ -733,9 +733,16 @@ cancelEditBtn.addEventListener("click", function () {
 })
 
 function setMemoTag(e){
-  let memoTag = e.textContent.replace("#","") + " ";
+  let memoTag = '';
+  const inputValue = memosTextarea.value;
+  const lastWord = inputValue.charAt(inputValue.length - 1);
+  if (lastWord == '#') {
+    memoTag = e.textContent.replace("#","") + " ";
+  }else{
+    memoTag = e.textContent + " ";
+  }
   memosTextarea.value += memoTag;
-  document.querySelector(".memos-tag-list").classList.toggle("d-none");
+  document.querySelector(".memos-tag-list").classList.add("d-none");
 }
 //归档
 function archiveMemo(memoId) {
@@ -804,9 +811,9 @@ function getEditIcon() {
     const inputValue = memosTextarea.value;
     const lastWord = inputValue.charAt(inputValue.length - 1);
     if (lastWord == '#') {
-      document.querySelector(".memos-tag-list").classList.toggle("d-none");
+      document.querySelector(".memos-tag-list").classList.remove('d-none');
     } else {
-      document.querySelector(".memos-tag-list").className == "d-none";
+      document.querySelector(".memos-tag-list").classList.add('d-none');
     }
   });
 
@@ -822,13 +829,13 @@ function getEditIcon() {
     getEditor = window.localStorage && window.localStorage.getItem("memos-editor-display");
   });
 
-  //taglistBtn.addEventListener("click", function () {
-  //  memosPath = window.localStorage && window.localStorage.getItem("memos-access-path");
-  //  memosOpenId = window.localStorage && window.localStorage.getItem("memos-access-token");
-  //  if (memosPath && memosOpenId) {
-  //    document.querySelector(".memos-tag-list").classList.toggle("d-none"); 
-  //  }
-  //});
+  taglistBtn.addEventListener("click", function () {
+    memosPath = window.localStorage && window.localStorage.getItem("memos-access-path");
+    memosOpenId = window.localStorage && window.localStorage.getItem("memos-access-token");
+    if (memosPath && memosOpenId) {
+      document.querySelector(".memos-tag-list").classList.toggle("d-none"); 
+    }
+  });
 
   todoBtn.addEventListener("click", function () {
     memosPath = window.localStorage && window.localStorage.getItem("memos-access-path");

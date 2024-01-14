@@ -64,10 +64,6 @@ a {
 	-webkit-text-decoration-skip: objects;
 }
 /* title */
-.title-line {
-	position: relative;
-	padding-bottom: 1rem;
-}
 .header-title{max-width:unset;}
 .header-title .header-toggle{width:26px;height:26px;align-self:center;margin-left: auto;}
 .dark-theme a {
@@ -415,7 +411,7 @@ blockquote {
 .memos-image-list .memos-tag:hover{text-decoration: line-through;}
 .memos-editor-tools{display: flex;flex-direction: column;}
 .memos-editor-tools .iconfont{font-size:1.35rem;}
-.memos-editor-tools .action-btn {padding: .25rem;}
+.memos-editor-tools .action-btn {padding: .25rem;margin-right:0.5rem;}
 .memos-editor-tools .memos-tag-list {display:flex;flex-wrap:wrap;align-items:center;line-height:2;}
 .memos-editor-tools .memos-tag {position:relative;}
 .memos-editor-tools .memos-tag a {flex:1}
@@ -680,13 +676,13 @@ blockquote {
 .db-card{box-shadow: none;margin:-10px -1rem 10px;}
 .dark .db-card{background:#252627;}
 /* db-card -------- end */
-.user-now .row-fill{display:inline-flex;align-items: baseline;}
-.user-now .row-fill .iconfont,.load-memos-editor .iconfont{font-size: 1.5rem;}
+.user-now .row-fill{display:flex;align-items: baseline;margin-left:auto;}
+.user-now .row-fill .iconfont,.load-memos-editor .iconfont{font-size: 1.25rem;}
 .user-now.row{margin-right:0;margin-left:0;}
 .user-now.card-item{overflow:unset;height:3.5rem;}
-.user-now.card-item .item-avatar{width:60px;margin-left:auto;height:60px;border-radius:unset;background-color:transparent;position: relative;top:-80px;font-weight:700;text-align: center;right: -1rem;}
-.user-now.card-item .item-avatar span{position: relative;right:75px;bottom:-40px;}
-.user-now.card-item .item-avatar img{width:60px;height:60px;border-radius:8px;}
+.user-now.card-item .item-avatar{border-radius:unset;background-color: transparent;width:1.75rem;height:1.75rem;cursor: pointer;}
+.user-now.card-item .item-avatar img{width:1.75rem;height:1.75rem;border-radius:8px;}
+.user-now-name{display:flex;align-items:center;}
 .load-memos-editor{background: var(--light-background-secondary) !important;}
 .dark-theme .load-memos-editor{background: var(--dark-background-secondary) !important;}
 
@@ -710,7 +706,7 @@ blockquote {
 	background-image: linear-gradient(90deg, var(--dark-background-secondary) 25%, var(--dark-color-hover) 45%, var(--dark-background-secondary) 65%);
 }
 
-.tag-btn{display:none;}
+.todo-btn{display:none;}
 .emoji-selector {
     display: flex;
     flex-wrap: wrap;
