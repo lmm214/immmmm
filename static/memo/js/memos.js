@@ -303,53 +303,6 @@ function memoFollow() {
   }
   this.getMemoCount = getMemoCount;
 
-  function withTimeout(millis, promise) {
-    let timeout = new Promise((resolve, reject) =>
-      setTimeout(() => reject(`Timed out after ${millis} ms.`), millis)
-    );
-    return Promise.race([promise, timeout]);
-  };
-  
-  async function getMemos(search) {
-    memoData = [], memoCreatorMap = {}, page = 1, nums = 0, dataNum = 0, memosContType = 0, memosAccess = 0;
-    memoDom.innerHTML = skeleton;
-    loadBtn.classList.add("d-none");
-    let results;
-    if(search && search != "" && search != null ){
-      results = await Promise.allSettled(memoList.map(u => 
-        withTimeout(2000, fetch(`${u.link}/api/v1/memo?creatorId=${u.creatorId}&content=${search}&rowStatus=NORMAL&limit=${limit}`)
-          .then(response => {
-            if (!response.ok) {
-              throw new Error(res.statusText); 
-            }
-            return response.json();
-          })
-      )));
-    }else{
-      results = await Promise.allSettled(memoList.map(u => 
-        withTimeout(2000, fetch(`${u.link}/api/v1/memo?creatorId=${u.creatorId}&rowStatus=NORMAL&limit=${limit}`)
-          .then(response => {
-            if (!response.ok) {
-              throw new Error(res.statusText); 
-            }
-            return response.json();
-          })
-      )));
-    }
-    results = results.filter(i => i.status === 'fulfilled');
-    memoData = results.flatMap(result => result.value);
-    memoList.forEach(item => {
-      memoCreatorMap[item.creatorName] = item;
-    });
-    memoData = memoData.map(item => {
-      let data = memoCreatorMap[item.creatorName];
-      return {...item, ...data};
-    });
-    //memoData = await getMemoCount(memoData);
-    memoDom.innerHTML = "";
-    loadBtn.classList.remove("d-none");
-    updateData(memoData);
-  }
 
   function updateData(res) {
     res.sort((i,o)=>{
@@ -374,13 +327,13 @@ function memoFollow() {
     };
     updateHtml(memosStr);
 
-    console.log(usernowDom.offsetTop)
+    //console.log(usernowDom.offsetTop)
     setTimeout(function() {
-    window.scrollTo({
-      top: usernowDom.offsetTop - 20,
-      behavior: "smooth"
-    });
-    }, 500);
+      window.scrollTo({
+        top: usernowDom.offsetTop - 20,
+        behavior: "smooth"
+      });
+    }, 600);
   }
   
   // 插入 html 
@@ -553,31 +506,92 @@ function memoFollow() {
       });
     });
   }
-
-  //搜索 Memo
-  searchBtn.addEventListener("click", function () {
-    let tagnowHas = document.querySelector(".memos-tagnow") || ''
-    if(tagnowHas) tagnowHas.remove();
-    let serchText = prompt('搜点啥？','');
-    let usernowName = document.querySelector(".user-now-name").innerHTML;
-    if(serchText !== ""){
-      let serchDom = `
-        <div class="memos-tagnow row p-2 mb-2"">
-          <div class="memos-tagnow-title mr-3">当前搜索:</div>
-          <div class="memos-tagnow-name card-item pr-2 pl-2" onclick="reloadUser()">${serchText}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-auto ml-1 opacity-40"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></div>
-        </div>`
-      memosDom.insertAdjacentHTML('beforebegin', serchDom);
-
-      if(usernowName == ""){
-        getMemos(serchText)
-      }else{
-        let userNameIndex = memoList.findIndex(item => (item.creatorName == usernowName));
-        let userNowData = memoList[userNameIndex]
-        getUserMemos(userNowData.link,userNowData.creatorId,userNowData.creatorName,userNowData.avatar,"",serchText)
-      }
-    }
-  });
 };
+
+
+function withTimeout(millis, promise) {
+  let timeout = new Promise((resolve, reject) =>
+    setTimeout(() => reject(`Timed out after ${millis} ms.`), millis)
+  );
+  return Promise.race([promise, timeout]);
+};
+
+async function getMemos(search) {
+  memoData = [], memoCreatorMap = {}, page = 1, nums = 0, dataNum = 0, memosContType = 0, memosAccess = 0;
+  memoDom.innerHTML = skeleton;
+  loadBtn.classList.add("d-none");
+  let results;
+  if(search && search != "" && search != null ){
+    results = await Promise.allSettled(memoList.map(u => 
+      withTimeout(2000, fetch(`${u.link}/api/v1/memo?creatorId=${u.creatorId}&content=${search}&rowStatus=NORMAL&limit=${limit}`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(res.statusText); 
+          }
+          return response.json();
+        })
+    )));
+  }else{
+    results = await Promise.allSettled(memoList.map(u => 
+      withTimeout(2000, fetch(`${u.link}/api/v1/memo?creatorId=${u.creatorId}&rowStatus=NORMAL&limit=${limit}`)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(res.statusText); 
+          }
+          return response.json();
+        })
+    )));
+  }
+  results = results.filter(i => i.status === 'fulfilled');
+  memoData = results.flatMap(result => result.value);
+  memoList.forEach(item => {
+    memoCreatorMap[item.creatorName] = item;
+  });
+  memoData = memoData.map(item => {
+    let data = memoCreatorMap[item.creatorName];
+    return {...item, ...data};
+  });
+  //memoData = await getMemoCount(memoData);
+  memoDom.innerHTML = "";
+  loadBtn.classList.remove("d-none");
+  this.updateData(memoData);
+}
+//搜索 Memo
+searchBtn.addEventListener("click", function () {
+  let tagnowHas = document.querySelector(".memos-tagnow") || ''
+  if(tagnowHas) tagnowHas.remove();
+  let serchText = prompt('搜点啥？','');
+  let usernowName = document.querySelector(".user-now-name").innerHTML;
+  if(serchText !== ""){
+    let serchDom = `
+      <div class="memos-tagnow row p-2 mb-2"">
+        <div class="memos-tagnow-title mr-3">当前搜索:</div>
+        <div class="memos-tagnow-name card-item pr-2 pl-2" onclick="reloadUser()">${serchText}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-auto ml-1 opacity-40"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></div>
+      </div>`
+    memosDom.insertAdjacentHTML('beforebegin', serchDom);
+    if(usernowName == ""){
+      getMemos(serchText)
+    }else{
+      let userNameIndex = memoList.findIndex(item => (item.creatorName == usernowName));
+      let userNowData = memoList[userNameIndex]
+      getUserMemos(userNowData.link,userNowData.creatorId,userNowData.creatorName,userNowData.avatar,"",serchText)
+    }
+  }
+});
+
+//重载 reloadUser()
+function reloadUser(){
+  let tagnowHas = document.querySelector(".memos-tagnow") || ''
+  if(tagnowHas) tagnowHas.remove();
+  let usernowName = document.querySelector(".user-now-name").innerHTML;
+  if(usernowName == ""){
+    getMemos()
+  }else{
+    let userNameIndex = memoList.findIndex(item => (item.creatorName == usernowName));
+    let userNowData = memoList[userNameIndex]
+    getUserMemos(userNowData.link,userNowData.creatorId,userNowData.creatorName,userNowData.avatar,"","")
+  }
+}
 
 // 获取指定用户列表
 async function getUserMemos(u,i,n,a,t,s) {
@@ -656,21 +670,6 @@ function getTagNow(u,i,n,a,e){
   memosDom.insertAdjacentHTML('beforebegin', tagnowDom);
   getUserMemos(u,i,n,a,tagName);
 }
-
-//重载 reloadUser()
-function reloadUser(){
-  let tagnowHas = document.querySelector(".memos-tagnow") || ''
-  if(tagnowHas) tagnowHas.remove();
-  let usernowName = document.querySelector(".user-now-name").innerHTML;
-  if(usernowName == ""){
-    getMemos()
-  }else{
-    let userNameIndex = memoList.findIndex(item => (item.creatorName == usernowName));
-    let userNowData = memoList[userNameIndex]
-    getUserMemos(userNowData.link,userNowData.creatorId,userNowData.creatorName,userNowData.avatar,"","")
-  }
-}
-
 
 // 加载Twikoo评论
 function loadTwikoo(i) {
