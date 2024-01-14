@@ -54,7 +54,7 @@ var memosEditorCont = `
       <div class="memos-editor-content">
         <textarea class="memos-editor-textarea text-sm" rows="1" placeholder="任何想法..."></textarea>
       </div>
-      <div class="memos-image-list d-flex flex-fill line-xl"></div>
+      <div class="memos-image-list d-flex flex-fill line-xl flex-wrap"></div>
       <div class="memos-editor-tools pt-3">
         <div class="d-flex flex-wrap">
           <div class="button outline action-btn biao-qing-btn mr-3"><i class="iconfont iconsmile"></i></div>
@@ -92,8 +92,8 @@ var memosEditorCont = `
     </div>
     <div class="memos-editor-option animate__animated animate__fadeIn d-none">
       <div class="row flex-fill mr-3 p-2">
-        <input name="memos-path-url" class="memos-path-input input-text col-6" type="text" value="" placeholder="Path">
-        <input name="memos-token-url" class="memos-token-input input-text col-6" type="text" value="" placeholder="Token">
+        <input name="memos-path-url" class="memos-path-input input-text col-6" type="text" value="" placeholder="Memo 网址（最后无斜杠）">
+        <input name="memos-token-url" class="memos-token-input input-text col-6" type="text" value="" placeholder="Access Tokens">
       </div>
       <button class="primary submit-openapi-btn px-3 py-2">保存</button>
     </div>
@@ -105,7 +105,6 @@ memosDom.insertAdjacentHTML('afterbegin',memosEditorCont);
 var headerDom = document.querySelector(".header-title");
 //var editIcon = `<button class="load-memos-editor outline p-1" title=""><i class="iconfont iconedit-square"></i></button>`;
 //headerDom.insertAdjacentHTML('afterend', editIcon);
-let usernowDom = document.querySelector(".user-now");
 var memosEditorInner = document.querySelector(".memos-editor-inner"); 
 var memosEditorOption = document.querySelector(".memos-editor-option");
 var memosRadomCont = document.querySelector(".memos-random");
@@ -133,6 +132,7 @@ var editMemoDom = document.querySelector(".edit-memos");
 var editMemoBtn = document.querySelector(".edit-memos-btn");
 var cancelEditBtn = document.querySelector(".cancel-edit-btn");
 var biaoqingBtn = document.querySelector(".biao-qing-btn");
+var usernowDom = document.querySelector(".user-now");
 
 var memoDom = document.querySelector(memosData.listDom);
 var skeleton = `<div class="el-loading"><div class="el-skeleton mb-3"></div><div class="el-skeleton mb-3"></div><div class="el-skeleton width-50 mb-3"></div><div class="el-skeleton mb-3"></div><div class="el-skeleton mb-3"></div><div class="el-skeleton width-50 mb-3"></div></div>`;
@@ -146,9 +146,8 @@ var memoData = [],memosStr = [],memoCreatorMap = {},twikooCount = {},artalkCount
 
 var memosAccessPath = memosData.path;
 
-document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener("DOMContentLoaded", () => {
   //切换主题
-	//var headerIcon = document.querySelector('.header-toggle i')
 	var getTheme = window.localStorage && window.localStorage.getItem("theme");
 	var isDark = getTheme === "dark";
 	var isLight = getTheme === "light";
@@ -164,7 +163,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 			window.localStorage && window.localStorage.setItem("theme", document.body.classList.contains("dark-theme") ? "dark" : "light");
 		});
 	});
+});
 
+document.addEventListener("DOMContentLoaded", async () => {
   try {
     memoList = await getMemoListData(); // 获取自定义列表
   } catch (error) {
@@ -348,11 +349,6 @@ function memoFollow() {
     memoDom.innerHTML = "";
     loadBtn.classList.remove("d-none");
     updateData(memoData);
-
-    window.scrollTo({
-      top: usernowDom.offsetTop - 20,
-      behavior: "smooth"
-    });
   }
 
   function updateData(res) {
@@ -377,6 +373,14 @@ function memoFollow() {
       memosStr.push(data[i])
     };
     updateHtml(memosStr);
+
+    console.log(usernowDom.offsetTop)
+    setTimeout(function() {
+    window.scrollTo({
+      top: usernowDom.offsetTop - 20,
+      behavior: "smooth"
+    });
+    }, 500);
   }
   
   // 插入 html 
@@ -507,7 +511,7 @@ function memoFollow() {
         itemContent += `<div class="d-flex flex-fill justify-content-end"></div></div>`;
       }
       itemContent += `</div></div></div>`
-      result += `<div class="memo-${memosId} d-flex animate__animated mb-3"><div class="card-item flex-fill p-3"><div class="item-header d-flex mb-3"><div class="d-flex flex-fill"><div class="item-avatar mr-3" style="background-image:url(${avatar})"></div><div class="item-sub d-flex flex-column p-1"><div class="item-creator"><a href="${website}" target="_blank">${creatorName}</a></div><div class="item-mate mt-2 text-xs">${new Date(createdTs * 1000).toLocaleString()}</div></div></div>${itemOption}</div>${neodbDom+itemContent}</div></div>`;
+      result += `<div class="memo-${memosId} d-flex animate__animated mb-3"><div class="card-item flex-fill p-3"><div class="item-header d-flex mb-3"><div class="d-flex flex-fill"><div  onclick="getUserMemos('${memo.link}', '${memo.creatorId}','${memo.creatorName}','${memo.avatar}')" class="item-avatar mr-3" style="background-image:url(${avatar})"></div><div class="item-sub d-flex flex-column p-1"><div class="item-creator"><a href="${website}" target="_blank">${creatorName}</a></div><div class="item-mate mt-2 text-xs">${new Date(createdTs * 1000).toLocaleString()}</div></div></div>${itemOption}</div>${neodbDom+itemContent}</div></div>`;
     } // end for
 
     memoDom.insertAdjacentHTML('beforeend', result);
@@ -560,13 +564,10 @@ function memoFollow() {
       let serchDom = `
         <div class="memos-tagnow row p-2 mb-2"">
           <div class="memos-tagnow-title mr-3">当前搜索:</div>
-          <div class="memos-tagnow-name card-item pr-2 pl-2" onclick="javascript:location.reload();">${serchText}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-auto ml-1 opacity-40"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></div>
+          <div class="memos-tagnow-name card-item pr-2 pl-2" onclick="reloadUser()">${serchText}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-auto ml-1 opacity-40"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></div>
         </div>`
       memosDom.insertAdjacentHTML('beforebegin', serchDom);
-      window.scrollTo({
-        top: memosDom.offsetTop - 20,
-        behavior: "smooth"
-      });
+
       if(usernowName == ""){
         getMemos(serchText)
       }else{
@@ -623,11 +624,6 @@ async function getUserMemos(u,i,n,a,t,s) {
     } catch (error) {
       console.error(error);
     }
-    
-    window.scrollTo({
-      top: usernowDom.offsetTop - 20,
-      behavior: "smooth"
-    });
 }
 // Fetch NeoDB
 async function fetchNeoDB(url){
@@ -655,11 +651,27 @@ function getTagNow(u,i,n,a,e){
   let tagnowDom = `
   <div class="memos-tagnow row p-2 mb-2"">
     <div class="memos-tagnow-title mr-3">标签筛选:</div>
-    <div class="memos-tagnow-name card-item pr-2 pl-2" onclick="javascript:location.reload();">${tagName}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-auto ml-1 opacity-40"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></div>
+    <div class="memos-tagnow-name card-item pr-2 pl-2" onclick="reloadUser()">${tagName}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-auto ml-1 opacity-40"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></div>
   </div>`
   memosDom.insertAdjacentHTML('beforebegin', tagnowDom);
   getUserMemos(u,i,n,a,tagName);
 }
+
+//重载 reloadUser()
+function reloadUser(){
+  let tagnowHas = document.querySelector(".memos-tagnow") || ''
+  if(tagnowHas) tagnowHas.remove();
+  let usernowName = document.querySelector(".user-now-name").innerHTML;
+  if(usernowName == ""){
+    getMemos()
+  }else{
+    let userNameIndex = memoList.findIndex(item => (item.creatorName == usernowName));
+    let userNowData = memoList[userNameIndex]
+    getUserMemos(userNowData.link,userNowData.creatorId,userNowData.creatorName,userNowData.avatar,"","")
+  }
+}
+
+
 // 加载Twikoo评论
 function loadTwikoo(i) {
   let twikooEnv = i.getAttribute("data-env")
@@ -680,9 +692,9 @@ function loadTwikoo(i) {
       el: '#twikoo', 
       path: twikooPath 
     });
-    let memoDom = document.querySelector(`.memo-${Number(twikooTime)+Number(twikooId)}`)
+    let memoDomArtalk = document.querySelector(`.memo-${Number(twikooTime)+Number(twikooId)}`)
     window.scrollTo({
-      top: memoDom.offsetTop,
+      top: memoDomArtalk.offsetTop,
       behavior: "smooth"
     });
   }else{
@@ -714,9 +726,9 @@ function loadArtalk(e) {
       server: artalkEnv,
       emoticons: false
     });
-    let memoDom = document.querySelector(`.memo-${Number(artalkTime) + Number(artalkId)}`)
+    let memoDomArtalk = document.querySelector(`.memo-${Number(artalkTime) + Number(artalkId)}`)
     window.scrollTo({
-      top: memoDom.offsetTop,
+      top: memoDomArtalk.offsetTop - 20,
       behavior: "smooth"
     });
   }else{
@@ -915,7 +927,7 @@ function getEditIcon() {
         Array.from(memosTagList.querySelectorAll('.memos-tag')).forEach((option, index) => option.classList.toggle('selected', index  === selectedTagIndex));
       } else if (keyCode === 13 && selectedTagIndex !== -1) {
         event.preventDefault();
-        let tagName = matchingTags[selectedTagIndex].replace(/[#]/,'')
+        let tagName = matchingTags[selectedTagIndex].replace(/[#]/,'') + " "
         insertValue(tagName);
         let bracketIndex = memosTextarea.value.indexOf(tagName);
         if (bracketIndex !== -1) {

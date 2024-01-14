@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="css/aplay.css">
 <link rel="stylesheet" href="css/iconfont.css">
 <link rel="stylesheet" href="css/animate.min.css">
-<link rel="stylesheet" href="css/style.css?v=20240114-5">
+<link rel="stylesheet" href="css/style.css?v=20240114-6">
 <style>
   body {
     margin: 0;
@@ -30,6 +30,25 @@
     text-rendering: optimizeLegibility;
     -webkit-overflow-scrolling: touch;
     -webkit-text-size-adjust: 100%;
+  }
+  body.dark-theme {
+    background-color: var(--dark-background);
+    color: #a9a9b3;
+    color: var(--dark-color);
+  }
+  h1 {font-size: 1.5rem;}
+  a {
+    outline: none;
+    background-color: transparent;
+    color: var(--light-color);
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+    -webkit-text-decoration-skip: objects;
+  }
+  .dark-theme a {
+    color: var(--dark-color);
   }
 </style>
 <body class="">
@@ -49,6 +68,6 @@
 <script src="js/message.min.js"></script>
 <script src="js/view-image.min.js"></script>
 <script src="js/lozad.min.js"></script>
-<script src="js/memos.js?v=20240114-5"></script>
+<script src="js/memos.js?v=20240114-6"></script>
 <link href="//fastly.jsdelivr.net/npm/artalk@2.7.3/dist/ArtalkLite.css" rel="stylesheet">
 </html>
