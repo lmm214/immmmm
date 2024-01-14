@@ -326,14 +326,6 @@ function memoFollow() {
       memosStr.push(data[i])
     };
     updateHtml(memosStr);
-
-    //console.log(usernowDom.offsetTop)
-    setTimeout(function() {
-      window.scrollTo({
-        top: usernowDom.offsetTop - 20,
-        behavior: "smooth"
-      });
-    }, 600);
   }
   
   // 插入 html 
@@ -517,6 +509,14 @@ function withTimeout(millis, promise) {
 };
 
 async function getMemos(search) {
+
+    //console.log(usernowDom.offsetTop)
+    setTimeout(function() {
+      window.scrollTo({
+        top: usernowDom.offsetTop - 20,
+        behavior: "smooth"
+      });
+    }, 600);
   memoData = [], memoCreatorMap = {}, page = 1, nums = 0, dataNum = 0, memosContType = 0, memosAccess = 0;
   memoDom.innerHTML = skeleton;
   loadBtn.classList.add("d-none");
@@ -595,6 +595,13 @@ function reloadUser(){
 
 // 获取指定用户列表
 async function getUserMemos(u,i,n,a,t,s) {
+    //console.log(usernowDom.offsetTop)
+    setTimeout(function() {
+      window.scrollTo({
+        top: usernowDom.offsetTop - 20,
+        behavior: "smooth"
+      });
+    }, 600);
     var backIcon = document.querySelector('.back-memos i');
     backIcon.className = "iconfont iconswitchuser";
     memoDom.innerHTML = skeleton;
@@ -727,7 +734,7 @@ function loadArtalk(e) {
     });
     let memoDomArtalk = document.querySelector(`.memo-${Number(artalkTime) + Number(artalkId)}`)
     window.scrollTo({
-      top: memoDomArtalk.offsetTop - 20,
+      top: memoDomArtalk.offsetTop,
       behavior: "smooth"
     });
   }else{
