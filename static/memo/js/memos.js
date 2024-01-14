@@ -199,10 +199,10 @@ function memoFollow() {
       getMemos();
       let usernowName = document.querySelector(".user-now-name");
       let usernowAvatar = document.querySelector(".user-now-avatar");
-      usernowName.innerHTML = ""//userAdmin.creatorName;
-      usernowAvatar.src = "../memo/loading.svg"//userAdmin.avatar;
+      usernowName.innerHTML = ""
+      usernowAvatar.src = "../memo/loading.svg"
     }else{
-      getUserMemos(userAdmin.link,userAdmin.creatorId,userAdmin.creatorName,userAdmin.avatar,"")
+      getUserMemos(memoList[0].link,memoList[0].creatorId,memoList[0].creatorName,memoList[0].avatar,"")
     }
   });
 

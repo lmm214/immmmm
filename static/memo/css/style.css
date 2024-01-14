@@ -260,7 +260,6 @@ pre {
 	margin: 0.5rem 0;
 	padding: 1rem 1.5rem;
 	border-radius: .33rem;
-	background-color: var(--light-color-hover);
 	font-size: .75rem;
 }
 
@@ -564,8 +563,6 @@ blockquote {
 	margin: .5rem 0;
 	line-height: 1.8rem;
 }
-
-
 
 .card-item .item-footer>.item>a {
 	display: flex;
