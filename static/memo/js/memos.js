@@ -48,7 +48,7 @@ memosDom.insertAdjacentHTML('beforebegin', userNow);
 //<span class="theme-toggle header-toggle button d-md-flex ml-3"><i class="iconfont icondaytime-mode"></i></span>
 
 var memosEditorCont = `
-<div class="memos-editor animate__animated animate__fadeIn col-12">
+<div class="memos-editor animate__animated animate__fadeIn col-12 d-none">
   <div class="memos-editor-body mb-3 p-3">
     <div class="memos-editor-inner animate__animated animate__fadeIn d-none">
       <div class="memos-editor-content">
@@ -105,7 +105,7 @@ memosDom.insertAdjacentHTML('afterbegin',memosEditorCont);
 var headerDom = document.querySelector(".header-title");
 //var editIcon = `<button class="load-memos-editor outline p-1" title=""><i class="iconfont iconedit-square"></i></button>`;
 //headerDom.insertAdjacentHTML('afterend', editIcon);
-
+let usernowDom = document.querySelector(".user-now");
 var memosEditorInner = document.querySelector(".memos-editor-inner"); 
 var memosEditorOption = document.querySelector(".memos-editor-option");
 var memosRadomCont = document.querySelector(".memos-random");
@@ -348,6 +348,11 @@ function memoFollow() {
     memoDom.innerHTML = "";
     loadBtn.classList.remove("d-none");
     updateData(memoData);
+
+    window.scrollTo({
+      top: usernowDom.offsetTop - 20,
+      behavior: "smooth"
+    });
   }
 
   function updateData(res) {
@@ -547,6 +552,8 @@ function memoFollow() {
 
   //搜索 Memo
   searchBtn.addEventListener("click", function () {
+    let tagnowHas = document.querySelector(".memos-tagnow") || ''
+    if(tagnowHas) tagnowHas.remove();
     let serchText = prompt('搜点啥？','');
     let usernowName = document.querySelector(".user-now-name").innerHTML;
     if(serchText !== ""){
@@ -556,6 +563,10 @@ function memoFollow() {
           <div class="memos-tagnow-name card-item pr-2 pl-2" onclick="javascript:location.reload();">${serchText}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-auto ml-1 opacity-40"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></div>
         </div>`
       memosDom.insertAdjacentHTML('beforebegin', serchDom);
+      window.scrollTo({
+        top: memosDom.offsetTop - 20,
+        behavior: "smooth"
+      });
       if(usernowName == ""){
         getMemos(serchText)
       }else{
@@ -612,6 +623,11 @@ async function getUserMemos(u,i,n,a,t,s) {
     } catch (error) {
       console.error(error);
     }
+    
+    window.scrollTo({
+      top: usernowDom.offsetTop - 20,
+      behavior: "smooth"
+    });
 }
 // Fetch NeoDB
 async function fetchNeoDB(url){
@@ -633,6 +649,8 @@ async function fetchNeoDB(url){
 }
 //获取指定 Tag
 function getTagNow(u,i,n,a,e){
+  let tagnowHas = document.querySelector(".memos-tagnow") || ''
+  if(tagnowHas) tagnowHas.remove();
   let tagName = e.innerHTML
   let tagnowDom = `
   <div class="memos-tagnow row p-2 mb-2"">
@@ -1162,10 +1180,6 @@ function getEditIcon() {
       if (response.ok) {
         let resdata = await response.json();
         if (resdata) {
-          // let apiRes = e.match(/openId=([^&]*)/);
-          // let urlRes = e.match(/(.+?)(?:\/api)/)[1];
-          // memosOpenId = t;
-          // memosPath = p;
           memosCount = resdata.length;
           window.localStorage && window.localStorage.setItem("memos-access-path", p);
           window.localStorage && window.localStorage.setItem("memos-access-token", t);
