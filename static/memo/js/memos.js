@@ -40,12 +40,12 @@ var userNow = `
   <div class="item-avatar mr-3"><img class="call-memos-editor user-now-avatar" src="../memo/loading.svg"/></div>
   <span class="user-now-name"></span>
   <div class="row-fill">
-    <span class="theme-toggle header-toggle button d-md-flex ml-3"><i class="iconfont icondaytime-mode"></i></span>
     <span class="search-memos button d-md-flex ml-3"><i class="iconfont iconsearch"></i></span>
     <span class="back-memos button d-md-flex ml-3"><i class="iconfont iconswitchuser"></i></span>
   </div>
 </div>`
 memosDom.insertAdjacentHTML('beforebegin', userNow);
+//<span class="theme-toggle header-toggle button d-md-flex ml-3"><i class="iconfont icondaytime-mode"></i></span>
 
 var memosEditorCont = `
 <div class="memos-editor animate__animated animate__fadeIn col-12">
@@ -147,19 +147,19 @@ var memosAccessPath = memosData.path;
 
 document.addEventListener("DOMContentLoaded", async () => {
   //切换主题
-	var headerIcon = document.querySelector('.header-toggle i')
+	//var headerIcon = document.querySelector('.header-toggle i')
 	var getTheme = window.localStorage && window.localStorage.getItem("theme");
 	var isDark = getTheme === "dark";
 	var isLight = getTheme === "light";
 	if (getTheme !== null) {
 		document.body.classList.toggle("dark-theme",isDark);
-		headerIcon.classList.toggle("iconnight-mode",isDark);
-		headerIcon.classList.toggle("icondaytime-mode",isLight);
+	//	headerIcon.classList.toggle("iconnight-mode",isDark);
+	//	headerIcon.classList.toggle("icondaytime-mode",isLight);
 	}
 	Array.prototype.forEach.call(document.querySelectorAll('.theme-toggle'), function(el){
     el.addEventListener('click', function() {
 			document.body.classList.toggle("dark-theme"); 
-			headerIcon.className = headerIcon.classList.contains("iconnight-mode") ? "iconfont icondaytime-mode" : "iconfont iconnight-mode"
+	//		headerIcon.className = headerIcon.classList.contains("iconnight-mode") ? "iconfont icondaytime-mode" : "iconfont iconnight-mode"
 			window.localStorage && window.localStorage.setItem("theme", document.body.classList.contains("dark-theme") ? "dark" : "light");
 		});
 	});

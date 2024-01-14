@@ -562,12 +562,10 @@ blockquote {
 
 .card-item .item-content p {
 	margin: .5rem 0;
-	line-height: 2rem;
+	line-height: 1.8rem;
 }
 
-.dark-theme .card-item .item-content pre {
-	background: var(--dark-background);
-}
+
 
 .card-item .item-footer>.item>a {
 	display: flex;
@@ -601,7 +599,7 @@ blockquote {
 	transition: transform .4s ease;
 	transform: translate3d(0, 0, 0);
 }
-
+.item-inner ul li{font-size:1rem;}
 .item-comment {
 	padding: 1rem;
 	border-radius: .33rem;
