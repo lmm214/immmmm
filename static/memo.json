@@ -189,7 +189,7 @@
     "link" : "https://bw.wangdu.site:4730",
     "creatorId" : "101",
     "twikoo" : "https://wwsay.wangdu.site",
-    "avatar": "https://cravatar.cn/avatar/3f86f3f1aa105924d030b7d3040a0037.jpeg?s=400",
+    "avatar": "https://cravatar.cn/avatar/3f86f3f1aa105924d030b7d3040a0037.jpeg?s=400"
   },{
     "creatorName": "倾雨",
     "website" : "https://blog.yuxiaocn.site",
@@ -329,4 +329,5 @@
     "creatorId" : "1",
     "avatar": "https://cravatar.cn/avatar/81f9378195d84e8ff73aad9ded2b9808.jpeg?s=400"
   }
-]}
+]
+}
