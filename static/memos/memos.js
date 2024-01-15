@@ -1,8 +1,12 @@
+/**
+ * memos.js 24.1.15
+ * https://immmmm.com/
+ */
 var memosData = {
   dom:"#memos",
   listDom:"#memo-list",
   limit:"8",
-  loadUrl:"../memo/loading.svg",
+  loadUrl:"../memos/loading.svg",
   gravatar:"https://cravatar.cn"
 }
 var gravatar = memosData.gravatar;
@@ -37,15 +41,19 @@ var memoDefaultList = [
 
 var userNow = `
 <div class="user-now card-item flex-fill p-3 mb-3 row">
-  <div class="item-avatar mr-3"><img class="call-memos-editor user-now-avatar" src="../memo/loading.svg"/></div>
+  <div class="item-avatar mr-3"><img class="call-memos-editor user-now-avatar" src="../memos/loading.svg"/></div>
   <span class="user-now-name"></span>
   <div class="row-fill">
-    <span class="search-memos button d-md-flex ml-3"><i class="iconfont iconsearch"></i></span>
-    <span class="back-memos button d-md-flex ml-3"><i class="iconfont iconswitchuser"></i></span>
+    <span class="search-memos button d-md-flex ml-3">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1.15rem" height="1.15rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21l-4.3-4.3"/></g></svg>
+    </span>
+    <span class="back-memos button d-md-flex ml-3">
+      <svg class="users-switch" xmlns="http://www.w3.org/2000/svg" width="1.15rem" height="1.15rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87m-3-12a4 4 0 0 1 0 7.75"/></g></svg>
+      <svg class="d-none users-refresh" xmlns="http://www.w3.org/2000/svg" width="1.15rem" height="1.15rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M3 12a9 9 0 0 1 9-9a9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5m5 4a9 9 0 0 1-9 9a9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></g></svg>
+    </span>
   </div>
 </div>`
 memosDom.insertAdjacentHTML('beforebegin', userNow);
-//<span class="theme-toggle header-toggle button d-md-flex ml-3"><i class="iconfont icondaytime-mode"></i></span>
 
 var memosEditorCont = `
 <div class="memos-editor animate__animated animate__fadeIn col-12 d-none">
@@ -57,15 +65,26 @@ var memosEditorCont = `
       <div class="memos-image-list d-flex flex-fill line-xl flex-wrap"></div>
       <div class="memos-editor-tools pt-3">
         <div class="d-flex flex-wrap">
-          <div class="button outline action-btn biao-qing-btn mr-3"><i class="iconfont iconsmile"></i></div>
-          <div class="button outline action-btn tag-btn mr-3"><i class="iconfont iconnumber"></i></div>
-          <div class="button outline action-btn todo-btn mr-3"><i class="iconfont iconunorderedlist"></i></div>
-          <div class="button outline action-btn codeone-btn mr-3"><svg xmlns="http://www.w3.org/2000/svg" width="1.35rem" height="1.35rem" viewBox="0 0 24 24"><path fill="currentColor" d="M4.825 12.025L8.7 15.9q.275.275.275.7t-.275.7q-.275.275-.7.275t-.7-.275l-4.6-4.6q-.15-.15-.213-.325T2.426 12q0-.2.063-.375T2.7 11.3l4.6-4.6q.3-.3.713-.3t.712.3q.3.3.3.713t-.3.712zm14.35-.05L15.3 8.1q-.275-.275-.275-.7t.275-.7q.275-.275.7-.275t.7.275l4.6 4.6q.15.15.213.325t.062.375q0 .2-.062.375t-.213.325l-4.6 4.6q-.3.3-.7.288t-.7-.313q-.3-.3-.3-.712t.3-.713z"/></svg></div>
-          <div class="button outline action-btn code-btn mr-3"><i class="iconfont iconcode"></i></div>
-          <div class="button outline action-btn mr-3 link-btn"><i class="iconfont iconlink"></i></div>
-          <div class="button outline action-btn mr-3 linkpic-btn"><i class="iconfont iconimage"></i></div>
+          <div class="button outline action-btn biao-qing-btn mr-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1.35rem" height="1.35rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2s4-2 4-2M9 9h.01M15 9h.01"/></g></svg>
+          </div>
+          <div class="button outline action-btn tag-btn mr-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1.35rem" height="1.35rem" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 9h16M4 15h16M10 3L8 21m8-18l-2 18"/></svg>
+          </div>
+          <div class="button outline action-btn codeone-btn mr-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1.35rem" height="1.35rem" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 7l-5 5l5 5m8 0l5-5l-5-5"/></svg>
+          </div>
+          <div class="button outline action-btn code-btn mr-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1.35rem" height="1.35rem" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m7 8l-4 4l4 4m10-8l4 4l-4 4M14 4l-4 16"/></svg>
+          </div>
+          <div class="button outline action-btn mr-3 link-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1.35rem" height="1.35rem" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg>
+          </div>
+          <div class="button outline action-btn mr-3 linkpic-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1.35rem" height="1.35rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15l-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></g></svg>
+          </div>
           <div class="button outline action-btn image-btn mr-3" onclick="this.lastElementChild.click()">
-          <svg xmlns="http://www.w3.org/2000/svg" width="1.35rem" height="1.35rem" viewBox="0 0 48 48"><g fill="none"><path fill="currentColor" d="M44 24a2 2 0 1 0-4 0zM24 8a2 2 0 1 0 0-4zm15 32H9v4h30zM8 39V9H4v30zm32-15v15h4V24zM9 8h15V4H9zm0 32a1 1 0 0 1-1-1H4a5 5 0 0 0 5 5zm30 4a5 5 0 0 0 5-5h-4a1 1 0 0 1-1 1zM8 9a1 1 0 0 1 1-1V4a5 5 0 0 0-5 5z"/><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="m6 35l10.693-9.802a2 2 0 0 1 2.653-.044L32 36m-4-5l4.773-4.773a2 2 0 0 1 2.615-.186L42 31m-5-13V6m-5 5l5-5l5 5"/></g></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="1.35rem" height="1.35rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7m4 2h6m-3-3v6"/><circle cx="9" cy="9" r="2"/><path d="m21 15l-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></g></svg>
             <input class="memos-upload-image-input d-none" type="file" accept="image/*">
           </div>
         </div>
@@ -78,8 +97,12 @@ var memosEditorCont = `
           <div class="editor-selector select outline">
             <select class="select-memos-value pl-2 pr-4 py-2"><option value="PUBLIC">所有人可见</option><option value="PROTECTED">仅登录可见</option><option value="PRIVATE">仅自己可见</option></select>
           </div>
-          <div class="button outline random-btn mx-2 p-2"><i class="iconfont iconretweet"></i></div>
-          <div class="button outline switchUser-btn d-none d-md-flex mr-2 p-2"><i class="iconfont iconswitchuser"></i></div>
+          <div class="button outline random-btn mx-2 p-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width=".9rem" height=".9rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22"/><path d="m18 2l4 4l-4 4M2 6h1.9c1.5 0 2.9.9 3.6 2.2M22 18h-5.9c-1.3 0-2.6-.7-3.3-1.8l-.5-.8"/><path d="m18 14l4 4l-4 4"/></g></svg>
+          </div>
+          <div class="button outline switchUser-btn d-none d-md-flex mr-2 p-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width=".9rem" height=".9rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M20 7h-9m3 10H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></g></svg>
+          </div>
         </div>
         <div class="editor-submit d-flex flex-fill justify-content-end">
           <div class="edit-memos d-none">
@@ -102,14 +125,10 @@ var memosEditorCont = `
 </div>`;
 memosDom.insertAdjacentHTML('afterbegin',memosEditorCont);
 
-var headerDom = document.querySelector(".header-title");
-//var editIcon = `<button class="load-memos-editor outline p-1" title=""><i class="iconfont iconedit-square"></i></button>`;
-//headerDom.insertAdjacentHTML('afterend', editIcon);
 var memosEditorInner = document.querySelector(".memos-editor-inner"); 
 var memosEditorOption = document.querySelector(".memos-editor-option");
 var memosRadomCont = document.querySelector(".memos-random");
 var taglistBtn = document.querySelector(".tag-btn");
-var todoBtn = document.querySelector(".todo-btn");
 var codeoneBtn = document.querySelector(".codeone-btn");
 var codeBtn = document.querySelector(".code-btn");
 var linkBtn = document.querySelector(".link-btn");
@@ -137,14 +156,12 @@ var usernowDom = document.querySelector(".user-now");
 var memoDom = document.querySelector(memosData.listDom);
 var skeleton = `<div class="el-loading"><div class="el-skeleton mb-3"></div><div class="el-skeleton mb-3"></div><div class="el-skeleton width-50 mb-3"></div><div class="el-skeleton mb-3"></div><div class="el-skeleton mb-3"></div><div class="el-skeleton width-50 mb-3"></div></div>`;
 
-var load = `<div class="load col-12"><button class="load-btn button-load d-none flex-fill mb-3 p-3">加载更多</button></div>`;
+var load = `<button class="col-12 load-btn button-load d-none flex-fill mb-3 p-3 animate__animated animate__fadeIn">加载更多</button>`;
 memoDom.insertAdjacentHTML('afterend', load);
 var loadBtn = document.querySelector("button.button-load");
 
 var limit = memosData.limit,page = 1,nums = 0,dataNum = 0,memosContType = 0, memosAccess = 0;
 var memoData = [],memosStr = [],memoCreatorMap = {},twikooCount = {},artalkCount = {};
-
-var memosAccessPath = memosData.path;
 
 document.addEventListener("DOMContentLoaded", () => {
   //切换主题
@@ -153,13 +170,10 @@ document.addEventListener("DOMContentLoaded", () => {
 	var isLight = getTheme === "light";
 	if (getTheme !== null) {
 		document.body.classList.toggle("dark-theme",isDark);
-	//	headerIcon.classList.toggle("iconnight-mode",isDark);
-	//	headerIcon.classList.toggle("icondaytime-mode",isLight);
 	}
 	Array.prototype.forEach.call(document.querySelectorAll('.theme-toggle'), function(el){
     el.addEventListener('click', function() {
-			document.body.classList.toggle("dark-theme"); 
-	//		headerIcon.className = headerIcon.classList.contains("iconnight-mode") ? "iconfont icondaytime-mode" : "iconfont iconnight-mode"
+			document.body.classList.toggle("dark-theme");
 			window.localStorage && window.localStorage.setItem("theme", document.body.classList.contains("dark-theme") ? "dark" : "light");
 		});
 	});
@@ -195,14 +209,16 @@ function memoFollow() {
 
   var titleDom = document.querySelector('.back-memos');
   titleDom.addEventListener("click", function () {
-    var backIcon = document.querySelector('.back-memos i');
-    backIcon.className = backIcon.classList.contains("iconswitchuser") ? "iconfont iconsync" : "iconfont iconswitchuser"
+    let backSVG = document.querySelectorAll('.back-memos svg')
+    for(const nowSVG of backSVG){
+      nowSVG.classList.toggle("d-none");
+    }
     if(memosContType == 1) {
       getMemos();
       let usernowName = document.querySelector(".user-now-name");
       let usernowAvatar = document.querySelector(".user-now-avatar");
       usernowName.innerHTML = ""
-      usernowAvatar.src = "../memo/loading.svg"
+      usernowAvatar.src = "../memos/loading.svg"
     }else{
       getUserMemos(memoList[0].link,memoList[0].creatorId,memoList[0].creatorName,memoList[0].avatar,"")
     }
@@ -401,10 +417,10 @@ function memoFollow() {
       let memosTag = '';
       if (tagArr) {
         memosTag = tagArr.map(t=>{
-          return `<div class="item-tag d-flex align-items-center text-xs line-lg mr-2 px-2" onclick="getTagNow('${memo.link}','${memo.creatorId}','${memo.creatorName}','${memo.avatar}',this)">${String(t).replace(/[#]/, '')}</div>`;
+          return `<div class="item-tag d-flex align-items-center text-sm line-xl mr-2 px-2" onclick="getTagNow('${memo.link}','${memo.creatorId}','${memo.creatorName}','${memo.avatar}',this)">${String(t).replace(/[#]/, '')}</div>`;
         }).join('');
       }else{
-        memosTag = `<div class="item-tag d-flex align-items-center text-xs line-lg mr-2 px-2 no-cursor">动态</div>`;
+        memosTag = `<div class="item-tag d-flex align-items-center text-sm line-xl mr-2 px-2 no-cursor">动态</div>`;
       }
       
       //解析内置资源文件
@@ -437,7 +453,7 @@ function memoFollow() {
         }
       }
       if (memosContType === 0) {
-        itemOption = `<div class="item-option"><div class="d-flex dropdown"><i class="text-md iconfont iconellipsis"></i><div class="dropdown-wrapper d-none"><a class="btn" onclick="getUserMemos('${memo.link}', '${memo.creatorId}','${memo.creatorName}','${memo.avatar}')">只看他</a>`;
+        itemOption = `<div class="item-option mr-1"><div class="d-flex dropdown"><svg xmlns="http://www.w3.org/2000/svg" width="1.15rem" height="1.15rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></g></svg><div class="dropdown-wrapper d-none"><a class="btn" onclick="getUserMemos('${memo.link}', '${memo.creatorId}','${memo.creatorName}','${memo.avatar}')">只看他</a>`;
         if (memosOpenId) {
           itemOption += `<a class="btn" data-form="${memosFormString}" onclick="transPond(this)">转发</a>`;
         } else {
@@ -445,13 +461,13 @@ function memoFollow() {
         }
         itemOption += `</div></div></div>`;
       } else if (memosAccess === 1) {
-        itemOption = `<div class="item-option"><div class="d-flex dropdown"><i class="text-md iconfont iconellipsis"></i><div class="dropdown-wrapper d-none"><a class="btn edit-btn" data-form="${memoString}" onclick="editMemo(this)">编辑</a><a class="btn" onclick="archiveMemo('${memo.id}')">归档</a><a class="btn" onclick="deleteMemo('${memo.id}')">删除</a></div></div></div>`;
+        itemOption = `<div class="item-option mr-1"><div class="d-flex dropdown"><svg xmlns="http://www.w3.org/2000/svg" width="1.15rem" height="1.15rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></g></svg><div class="dropdown-wrapper d-none"><a class="btn edit-btn" data-form="${memoString}" onclick="editMemo(this)">编辑</a><a class="btn" onclick="archiveMemo('${memo.id}')">归档</a><a class="btn" onclick="deleteMemo('${memo.id}')">删除</a></div></div></div>`;
       }
       itemContent = `<div class="item-content"><div class="item-inner">${memosRes}</div><div class="item-footer d-flex mt-2"><div class="d-flex">${memosTag}</div>`;
       if (twikooEnv) {
-        itemContent += `<div class="d-flex flex-fill justify-content-end"><div class="item d-flex align-items-center"><a data-id="${memo.id}" data-time="${createdTs}" data-env="${twikooEnv}" data-path="${memosLink}" onclick="loadTwikoo(this)" rel="noopener noreferrer"><i class="iconfont iconmessage"></i></a><span class="ml-1">${count}</span></div></div></div><div id="${memosId}" class="item-comment mt-3 d-none"></div>`;
+        itemContent += `<div class="d-flex flex-fill justify-content-end"><div class="item d-flex align-items-center"><a data-id="${memo.id}" data-time="${createdTs}" data-env="${twikooEnv}" data-path="${memosLink}" onclick="loadTwikoo(this)" rel="noopener noreferrer" class="d-flex"><svg xmlns="http://www.w3.org/2000/svg" width="1.25rem" height="1.25rem" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2zM8 10h.01M12 10h.01M16 10h.01"/></svg></a><span class="ml-1">${count}</span></div></div></div><div id="${memosId}" class="item-comment mt-3 d-none"></div>`;
       } else if (artalkEnv) {
-        itemContent += `<div class="d-flex flex-fill justify-content-end"><div class="item d-flex align-items-center"><a data-id="${memo.id}" data-time="${createdTs}" data-env="${artalkEnv}" data-path="${artSite}" onclick="loadArtalk(this)" rel="noopener noreferrer"><i class="iconfont iconmessage"></i></a><span class="ml-1">${count}</span></div></div></div><div id="${memosId}" class="item-comment mt-3 d-none"></div>`;
+        itemContent += `<div class="d-flex flex-fill justify-content-end"><div class="item d-flex align-items-center"><a data-id="${memo.id}" data-time="${createdTs}" data-env="${artalkEnv}" data-path="${artSite}" onclick="loadArtalk(this)" rel="noopener noreferrer" class="d-flex"><svg xmlns="http://www.w3.org/2000/svg" width="1.25rem" height="1.25rem" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2zM8 10h.01M12 10h.01M16 10h.01"/></svg></a><span class="ml-1">${count}</span></div></div></div><div id="${memosId}" class="item-comment mt-3 d-none"></div>`;
       } else {
         itemContent += `<div class="d-flex flex-fill justify-content-end"></div></div>`;
       }
@@ -509,14 +525,6 @@ function withTimeout(millis, promise) {
 };
 
 async function getMemos(search) {
-
-    //console.log(usernowDom.offsetTop)
-    setTimeout(function() {
-      window.scrollTo({
-        top: usernowDom.offsetTop - 20,
-        behavior: "smooth"
-      });
-    }, 600);
   memoData = [], memoCreatorMap = {}, page = 1, nums = 0, dataNum = 0, memosContType = 0, memosAccess = 0;
   memoDom.innerHTML = skeleton;
   loadBtn.classList.add("d-none");
@@ -553,8 +561,16 @@ async function getMemos(search) {
   });
   //memoData = await getMemoCount(memoData);
   memoDom.innerHTML = "";
-  loadBtn.classList.remove("d-none");
   this.updateData(memoData);
+  setTimeout(function() {
+    loadBtn.classList.remove('d-none');
+  }, 1000);
+  setTimeout(function() {
+    window.scrollTo({
+      top: usernowDom.offsetTop - 20,
+      behavior: "smooth"
+    });
+  }, 800);
 }
 //搜索 Memo
 searchBtn.addEventListener("click", function () {
@@ -595,15 +611,8 @@ function reloadUser(){
 
 // 获取指定用户列表
 async function getUserMemos(u,i,n,a,t,s) {
-    //console.log(usernowDom.offsetTop)
-    setTimeout(function() {
-      window.scrollTo({
-        top: usernowDom.offsetTop - 20,
-        behavior: "smooth"
-      });
-    }, 600);
-    var backIcon = document.querySelector('.back-memos i');
-    backIcon.className = "iconfont iconswitchuser";
+    document.querySelector('.back-memos svg.users-refresh').classList.add("d-none")
+    document.querySelector('.back-memos svg.users-switch').classList.remove("d-none")
     memoDom.innerHTML = skeleton;
     loadBtn.classList.add('d-none');
     memoData = [],memoCreatorMap = {}, page = 1,nums = 0,dataNum = 0,memosContType = 1;
@@ -635,16 +644,23 @@ async function getUserMemos(u,i,n,a,t,s) {
       });
       memoData = await this.getMemoCount(memoData);
       memoDom.innerHTML = "";
-      loadBtn.classList.remove('d-none');
       let usernowName = document.querySelector(".user-now-name");
       let usernowAvatar = document.querySelector(".user-now-avatar");
       usernowName.innerHTML = n;
       usernowAvatar.src = a;
       this.updateData(memoData);
-      //titleDom.innerText = "返回";
+      setTimeout(function() {
+        loadBtn.classList.remove('d-none');
+      }, 1000);
     } catch (error) {
       console.error(error);
     }
+    setTimeout(function() {
+      window.scrollTo({
+        top: usernowDom.offsetTop - 20,
+        behavior: "smooth"
+      });
+    }, 800);
 }
 // Fetch NeoDB
 async function fetchNeoDB(url){
@@ -698,11 +714,11 @@ function loadTwikoo(i) {
       el: '#twikoo', 
       path: twikooPath 
     });
-    let memoDomArtalk = document.querySelector(`.memo-${Number(twikooTime)+Number(twikooId)}`)
-    window.scrollTo({
-      top: memoDomArtalk.offsetTop,
-      behavior: "smooth"
-    });
+    //let memoDomArtalk = document.querySelector(`.memo-${Number(twikooTime)+Number(twikooId)}`)
+    //window.scrollTo({
+    //  top: memoDomArtalk.offsetTop,
+    //  behavior: "smooth"
+    //});
   }else{
     twikooDom.classList.add('d-none');
     document.getElementById("twikoo").remove()
@@ -732,11 +748,11 @@ function loadArtalk(e) {
       server: artalkEnv,
       emoticons: false
     });
-    let memoDomArtalk = document.querySelector(`.memo-${Number(artalkTime) + Number(artalkId)}`)
-    window.scrollTo({
-      top: memoDomArtalk.offsetTop,
-      behavior: "smooth"
-    });
+    //let memoDomArtalk = document.querySelector(`.memo-${Number(artalkTime) + Number(artalkId)}`)
+    //window.scrollTo({
+    //  top: memoDomArtalk.offsetTop,
+    //  behavior: "smooth"
+    //});
   }else{
     artalkDom.classList.add('d-none');
     document.getElementById("artalk").remove()
@@ -963,15 +979,15 @@ function getEditIcon() {
     document.querySelector(".memos-tag-list").classList.toggle("d-none");
   });
 
-  todoBtn.addEventListener("click", function () {
-    let memoTodo = '- [] \n';
-    insertValue(memoTodo);
-    let bracketIndex = memosTextarea.value.indexOf("[]");
-    if (bracketIndex !== -1) {
-      memosTextarea.selectionStart = bracketIndex + 1;
-      memosTextarea.selectionEnd = bracketIndex + 1;
-    }
-  });
+  //todoBtn.addEventListener("click", function () {
+  //  let memoTodo = '- [] \n';
+  //  insertValue(memoTodo);
+  //  let bracketIndex = memosTextarea.value.indexOf("[]");
+  //  if (bracketIndex !== -1) {
+  //    memosTextarea.selectionStart = bracketIndex + 1;
+  //    memosTextarea.selectionEnd = bracketIndex + 1;
+  //  }
+  //});
 
   codeoneBtn.addEventListener("click", function () {
     let memoCode = ' `` ';
@@ -1284,10 +1300,10 @@ function getEditIcon() {
       let memosTag = '';
       if (tagArr) {
         memosTag = tagArr.map(t=>{
-          return `<div class="item-tag d-flex align-items-center text-xs line-lg mr-2 px-2" onclick="getTagNow('${memosPath}','${memo.creatorId}','${creatorName}','${avatar}',this)">${String(t).replace(/[#]/, '')}</div>`;
+          return `<div class="item-tag d-flex align-items-center text-sm line-xl mr-2 px-2" onclick="getTagNow('${memosPath}','${memo.creatorId}','${creatorName}','${avatar}',this)">${String(t).replace(/[#]/, '')}</div>`;
         }).join('');
       }else{
-        memosTag = `<div class="item-tag d-flex align-items-center text-xs line-lg mr-2 px-2">动态</div>`;
+        memosTag = `<div class="item-tag d-flex align-items-center text-sm line-xl mr-2 px-2">动态</div>`;
       }
       
       //解析内置资源文件
@@ -1302,7 +1318,7 @@ function getEditIcon() {
             imgLink = resexlink
           } else {
             fileId = resourceList[j].publicId || resourceList[j].filename
-            imgLink = `${memo.link}/o/r/${resourceList[j].id}/${fileId}`;
+            imgLink = `${memosPath}/o/r/${resourceList[j].id}/${fileId}`;
           }
           if (restype == 'image') {
             imgUrl += `<div class="memo-resource w-100"><img class="lozad" src="${loadUrl}" data-src="${imgLink}"/></div>`;
@@ -1319,8 +1335,29 @@ function getEditIcon() {
           memosRes += `<p class="datasource">${resUrl}</p>`
         }
       }
-      itemOption = `<div class="item-option"><div class="d-flex dropdown"><i class="text-md iconfont iconellipsis"></i><div class="dropdown-wrapper d-none"><a class="btn edit-btn" data-form="${memoString}" onclick="editMemo(this)">编辑</a><a class="btn" onclick="archiveMemo('${memosId}')">归档</a><a class="btn" onclick="deleteMemo('${memosId}')">删除</a></div></div></div>`;
-      result += `<div class="d-flex animate__animated animate__fadeIn mb-3"><div class="card-item flex-fill p-3"><div class="item-header d-flex mb-3"><div class="item-avatar mr-3" style="background-image:url(${avatar})"></div><div class="item-sub d-flex flex-column"><div class="item-creator"><a href="${memosPath}" target="_blank">${creatorName}</a></div><div class="item-mate mt-2 text-xs">${new Date(createdTs * 1000).toLocaleString()}</div></div>${itemOption}</div><div class="item-content"><div class="item-inner">${memosRes}</div><div class="item-footer d-flex mt-2"><div class="d-flex">${memosTag}</div><div class="d-flex flex-fill justify-content-end"><div class="item d-flex align-items-center"><a href="${memosLink}" target="_blank"><i class="iconfont iconlink-ex"></i></a></div></div></div></div></div></div>`;
+      itemOption = `<div class="item-option mr-1">
+      <div class="d-flex dropdown"><svg xmlns="http://www.w3.org/2000/svg" width="1.15rem" height="1.15rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></g></svg><div class="dropdown-wrapper d-none"><a class="btn edit-btn" data-form="${memoString}" onclick="editMemo(this)">编辑</a><a class="btn" onclick="archiveMemo('${memosId}')">归档</a><a class="btn" onclick="deleteMemo('${memosId}')">删除</a></div>
+      </div></div>`;
+      result += `<div class="d-flex animate__animated animate__fadeIn mb-3">
+      <div class="card-item flex-fill p-3">
+        <div class="item-header d-flex mb-3">
+          <div class="item-avatar mr-3" style="background-image:url(${avatar})"></div>
+          <div class="item-sub d-flex flex-column">
+            <div class="item-creator"><a href="${memosPath}" target="_blank">${creatorName}</a></div>
+            <div class="item-mate mt-2 text-xs">${new Date(createdTs * 1000).toLocaleString()}</div>
+          </div>
+          ${itemOption}
+        </div>
+      <div class="item-content">
+        <div class="item-inner">${memosRes}</div>
+        <div class="item-footer d-flex mt-2">
+          <div class="d-flex">${memosTag}</div>
+          <div class="d-flex flex-fill justify-content-end">
+            <div class="item d-flex align-items-center"><a class="d-flex" href="${memosLink}" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="1.15rem" height="1.15rem" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6m4-3h6v6m-11 5L21 3"/></svg></a></div>
+          </div>
+        </div>
+      </div>
+    </div></div>`;
     };
     memosRadomCont.innerHTML = result;
 
@@ -1363,7 +1400,7 @@ function deleteImage(e){
 
 // 获取自定义 memos.json 订阅列表
 async function getMemoListData() {
-  const response = await fetch('../memo.json');
+  const response = await fetch('../memos/memos.json');
   const data = await response.json();
   return data.myMemoList
 }
@@ -1373,7 +1410,7 @@ let emojiSelectorVisible = false;
 let emojiSelector;
 let emojis = []; // 缓存表情数据
 async function getEmojisData() {
-  const response = await fetch('../memo/js/owo.json');
+  const response = await fetch('../memos/owo.json');
   const data = await response.json();
   return data.Emoji.container;
 }
@@ -1422,3 +1459,26 @@ function insertEmoji(emojiText) {
   memosTextarea.setSelectionRange(newCursorPosition, newCursorPosition);
   memosTextarea.focus();
 }
+
+
+/**
+ * Lately.min.js 2.5.2
+ * https://tokinx.github.io/lately/
+ */
+!function(){window.Lately=new function(){var t=this;this.lang={second:"秒",minute:"分钟",hour:"小时",day:"天",month:"个月",year:"年",ago:"前",error:"NaN"};var e=function(e){e=new Date(n(e));var r=new function(){this.second=(Date.now()-e.getTime())/1e3,this.minute=this.second/60,this.hour=this.minute/60,this.day=this.hour/24,this.month=this.day/30,this.year=this.month/12},i=Object.keys(r).reverse().find(function(t){return r[t]>=1});return(i?function(t,e){return Math.floor(t)+e}(r[i],t.lang[i]):t.lang.error)+t.lang.ago},n=function(t){return t=new Date(t&&("number"==typeof t?t:t.replace(/-/g,"/").replace("T"," "))),!isNaN(t.getTime())&&t.getTime()};return{init:function(){var r=arguments.length>0&&void 0!==arguments[0]?arguments[0]:{},i=r.target,a=void 0===i?"time":i,o=r.lang;o&&(t.lang=o);var u=!0,h=!1,l=void 0;try{for(var s,c=document.querySelectorAll(a)[Symbol.iterator]();!(u=(s=c.next()).done);u=!0){var f=s.value,g=n(f.dateTime)||n(f.title)||n(f.innerHTML)||0;if(!g)return;f.title=new Date(g).toLocaleString(),f.innerHTML=e(g)}}catch(t){h=!0,l=t}finally{try{!u&&c.return&&c.return()}finally{if(h)throw l}}},format:e}}}();
+/**
+ * ViewImage.min.js 2.0.2
+ * https://tokinx.github.io/ViewImage/
+ */
+var $jscomp=$jscomp||{};$jscomp.scope={};$jscomp.createTemplateTagFirstArg=function(b){return b.raw=b};$jscomp.createTemplateTagFirstArgWithRaw=function(b,a){b.raw=a;return b};$jscomp.arrayIteratorImpl=function(b){var a=0;return function(){return a<b.length?{done:!1,value:b[a++]}:{done:!0}}};$jscomp.arrayIterator=function(b){return{next:$jscomp.arrayIteratorImpl(b)}};$jscomp.makeIterator=function(b){var a="undefined"!=typeof Symbol&&Symbol.iterator&&b[Symbol.iterator];return a?a.call(b):$jscomp.arrayIterator(b)};
+$jscomp.arrayFromIterator=function(b){for(var a,d=[];!(a=b.next()).done;)d.push(a.value);return d};$jscomp.arrayFromIterable=function(b){return b instanceof Array?b:$jscomp.arrayFromIterator($jscomp.makeIterator(b))};
+(function(){window.ViewImage=new function(){var b=this;this.target="[view-image] img";this.listener=function(a){if(!(a.ctrlKey||a.metaKey||a.shiftKey||a.altKey)){var d=String(b.target.split(",").map(function(g){return g.trim()+":not([no-view])"})),c=a.target.closest(d);if(c){var e=c.closest("[view-image]")||document.body;d=[].concat($jscomp.arrayFromIterable(e.querySelectorAll(d))).map(function(g){return g.href||g.src});b.display(d,c.href||c.src);a.stopPropagation();a.preventDefault()}}};this.init=
+function(a){a&&(b.target=a);["removeEventListener","addEventListener"].forEach(function(d){document[d]("click",b.listener,!1)})};this.display=function(a,d){var c=a.indexOf(d),e=(new DOMParser).parseFromString('\n                <div class="view-image">\n                    <style>.view-image{position:fixed;inset:0;z-index:500;padding:1rem;display:flex;flex-direction:column;animation:view-image-in 300ms;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}.view-image__out{animation:view-image-out 300ms}@keyframes view-image-in{0%{opacity:0}}@keyframes view-image-out{100%{opacity:0}}.view-image-btn{width:32px;height:32px;display:flex;justify-content:center;align-items:center;cursor:pointer;border-radius:3px;background-color:rgba(255,255,255,0.2)}.view-image-btn:hover{background-color:rgba(255,255,255,0.5)}.view-image-close__full{position:absolute;inset:0;background-color:rgba(48,55,66,0.3);z-index:unset;cursor:zoom-out;margin:0}.view-image-container{height:0;flex:1;display:flex;align-items:center;justify-content:center;}.view-image-lead{display:contents}.view-image-lead img{position:relative;z-index:1;max-width:100%;max-height:100%;object-fit:contain;border-radius:3px}.view-image-lead__in img{animation:view-image-lead-in 300ms}.view-image-lead__out img{animation:view-image-lead-out 300ms forwards}@keyframes view-image-lead-in{0%{opacity:0;transform:translateY(-20px)}}@keyframes view-image-lead-out{100%{opacity:0;transform:translateY(20px)}}[class*=__out] ~ .view-image-loading{display:block}.view-image-loading{position:absolute;inset:50%;width:8rem;height:2rem;color:#aab2bd;overflow:hidden;text-align:center;margin:-1rem -4rem;z-index:1;display:none}.view-image-loading::after{content:"";position:absolute;inset:50% 0;width:100%;height:3px;background:rgba(255,255,255,0.5);transform:translateX(-100%) translateY(-50%);animation:view-image-loading 800ms -100ms ease-in-out infinite}@keyframes view-image-loading{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}.view-image-tools{position:relative;display:flex;justify-content:space-between;align-content:center;color:#fff;max-width:600px;position: absolute; bottom: 5%; left: 1rem; right: 1rem; backdrop-filter: blur(10px);margin:0 auto;padding:10px;border-radius:5px;background:rgba(0,0,0,0.1);margin-bottom:constant(safe-area-inset-bottom);margin-bottom:env(safe-area-inset-bottom);z-index:1}.view-image-tools__count{width:60px;display:flex;align-items:center;justify-content:center}.view-image-tools__flip{display:flex;gap:10px}.view-image-tools [class*=-close]{margin:0 10px}</style>\n                    <div class="view-image-container">\n                        <div class="view-image-lead"></div>\n                        <div class="view-image-loading"></div>\n                        <div class="view-image-close view-image-close__full"></div>\n                    </div>\n                    <div class="view-image-tools">\n                        <div class="view-image-tools__count">\n                            <span><b class="view-image-index">'+
+(c+1)+"</b>/"+a.length+'</span>\n                        </div>\n                        <div class="view-image-tools__flip">\n                            <div class="view-image-btn view-image-tools__flip-prev">\n                                <svg width="20" height="20" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" fill="white" fill-opacity="0.01"/><path d="M31 36L19 24L31 12" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>\n                            </div>\n                            <div class="view-image-btn view-image-tools__flip-next">\n                                <svg width="20" height="20" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" fill="white" fill-opacity="0.01"/><path d="M19 12L31 24L19 36" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>\n                            </div>\n                        </div>\n                        <div class="view-image-btn view-image-close">\n                            <svg width="16" height="16" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="48" height="48" fill="white" fill-opacity="0.01"/><path d="M8 8L40 40" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 40L40 8" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>\n                        </div>\n                    </div>\n                </div>\n            ',
+"text/html").body.firstChild,g=function(f){var h={Escape:"close",ArrowLeft:"tools__flip-prev",ArrowRight:"tools__flip-next"};h[f.key]&&e.querySelector(".view-image-"+h[f.key]).click()},l=function(f){var h=new Image,k=e.querySelector(".view-image-lead");k.className="view-image-lead view-image-lead__out";setTimeout(function(){k.innerHTML="";h.onload=function(){setTimeout(function(){k.innerHTML='<img src="'+h.src+'" alt="ViewImage" no-view/>';k.className="view-image-lead view-image-lead__in"},100)};
+h.src=f},300)};document.body.appendChild(e);l(d);window.addEventListener("keydown",g);e.onclick=function(f){f.target.closest(".view-image-close")?(window.removeEventListener("keydown",g),e.onclick=null,e.classList.add("view-image__out"),setTimeout(function(){return e.remove()},290)):f.target.closest(".view-image-tools__flip")&&(c=f.target.closest(".view-image-tools__flip-prev")?0===c?a.length-1:c-1:c===a.length-1?0:c+1,l(a[c]),e.querySelector(".view-image-index").innerHTML=c+1)}}}})();
+/**
+ * coco-message
+ * https://github.com/TheWindRises-2/coco-message
+ */
+"use strict";function _typeof(o){return _typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(o){return typeof o}:function(o){return o&&"function"==typeof Symbol&&o.constructor===Symbol&&o!==Symbol.prototype?"symbol":typeof o},_typeof(o)}!function(o,t){"object"===("undefined"==typeof exports?"undefined":_typeof(exports))&&"undefined"!=typeof module?module.exports=t():"function"==typeof define&&define.amd?define(t):(o=o||self,o.cocoMessage=t())}(void 0,function(){function o(o,t){var e=document.createElement("div");for(var n in o){var i=o[n];"className"==n?(n="class",e.setAttribute(n,i)):"_"==n[0]&&e.addEventListener(n.slice(1),i)}if("string"==typeof t)e.innerHTML=t;else if("object"==_typeof(t)&&t.tagName)e.appendChild(t);else if(t)for(var s=0;s<t.length;s++){var r=t[s];e.appendChild(r)}return e}function t(o,t){for(var e in t)o.style[e]=t[e];""===o.getAttribute("style")&&o.removeAttribute("style")}function e(o,t){var e=o.className||"";if(!n(e,t)){var i=e.split(/\s+/);i.push(t),o.className=i.join(" ")}}function n(o,t){return o.indexOf(t)>-1}function i(o,t){var e=o.className||"";if(n(e,t)){var i=e.split(/\s+/),s=i.indexOf(t);i.splice(s,1),o.className=i.join(" ")}""===o.className&&o.removeAttribute("class")}function s(){return r(arguments,"info")}function r(o,t){var e={};for(var n in h)e[n]=h[n];for(var i=0;i<o.length;i++){var s=o[i];void 0!==s&&("string"==typeof s||"object"==_typeof(s)?e.msg=s:"boolean"==typeof s?e.showClose=s:"function"==typeof s?e.onClose=s:"number"==typeof s&&(e.duration=s))}return e.type=t,a(e)}function a(e){var n=e.type,s=e.duration,r=e.msg,a=e.showClose,d=e.onClose,g=0===s,p=l();"loading"==n&&(r=""===r?"正在加载":r,g=a,s=0);var h=o({className:"coco-msg-wrapper"},[o({className:"coco-msg coco-msg-fade-in ".concat(n)},[o({className:"coco-msg-icon"},p[n]),o({className:"coco-msg-content"},r),o({className:"coco-msg-wait ".concat(g?"coco-msg-pointer":"coco-msg-wait-hidden"),_click:function(){f(h,d)}},c(g)||"")])]);return 0!==s&&setTimeout(function(){f(h,d)},s),m.children.length||document.body.appendChild(m),m.appendChild(h),t(h,{height:h.offsetHeight+"px"}),setTimeout(function(){i(h.children[0],"coco-msg-fade-in")},300),function(){f(h,d)}}function c(o){return o?'<svg class="coco-msg-close" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5514"><path d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z" p-id="5515"></path></svg>':""}function f(o,n){o&&(t(o,{padding:0,height:0}),e(o.children[0],"coco-msg-fade-out"),n&&n(),setTimeout(function(){if(o){for(var t=!1,e=0;e<m.children.length;e++)m.children[e]===o&&(t=!0);t&&d(o),o=null,m.children.length||t&&d(m)}},300))}function l(){return{info:'\n    <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3250"><path d="M469.333333 341.333333h85.333334v469.333334H469.333333z" fill="#ffffff" p-id="3251"></path><path d="M469.333333 213.333333h85.333334v85.333334H469.333333z" fill="#ffffff" p-id="3252"></path><path d="M384 341.333333h170.666667v85.333334H384z" fill="#ffffff" p-id="3253"></path><path d="M384 725.333333h256v85.333334H384z" fill="#ffffff" p-id="3254"></path></svg>\n    ',success:'\n    <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1807"><path d="M455.42 731.04c-8.85 0-17.75-3.05-24.99-9.27L235.14 553.91c-16.06-13.81-17.89-38.03-4.09-54.09 13.81-16.06 38.03-17.89 54.09-4.09l195.29 167.86c16.06 13.81 17.89 38.03 4.09 54.09-7.58 8.83-18.31 13.36-29.1 13.36z" p-id="1808" fill="#ffffff"></path><path d="M469.89 731.04c-8.51 0-17.07-2.82-24.18-8.6-16.43-13.37-18.92-37.53-5.55-53.96L734.1 307.11c13.37-16.44 37.53-18.92 53.96-5.55 16.43 13.37 18.92 37.53 5.55 53.96L499.67 716.89c-7.58 9.31-18.64 14.15-29.78 14.15z" p-id="1809" fill="#ffffff"></path></svg>\n    ',warning:'\n    <svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="18912"><path d="M468.114286 621.714286c7.314286 21.942857 21.942857 36.571429 43.885714 36.571428s36.571429-14.628571 43.885714-36.571428L585.142857 219.428571c0-43.885714-36.571429-73.142857-73.142857-73.142857-43.885714 0-73.142857 36.571429-73.142857 80.457143l29.257143 394.971429zM512 731.428571c-43.885714 0-73.142857 29.257143-73.142857 73.142858s29.257143 73.142857 73.142857 73.142857 73.142857-29.257143 73.142857-73.142857-29.257143-73.142857-73.142857-73.142858z" p-id="18913" fill="#ffffff"></path></svg>\n    ',error:'\n    <svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5514"><path d="M810 274l-238 238 238 238-60 60-238-238-238 238-60-60 238-238-238-238 60-60 238 238 238-238z" p-id="5515" fill="#ffffff"></path></svg>\n    ',loading:'\n    <div class="coco-msg_loading">\n    <svg class="coco-msg-circular" viewBox="25 25 50 50">\n      <circle class="coco-msg-path" cx="50" cy="50" r="20" fill="none" stroke-width="4" stroke-miterlimit="10"/>\n    </svg>\n    </div>\n    '}}function d(o){o&&o.parentNode.removeChild(o)}function g(){for(var o=0;o<m.children.length;o++){var t=m.children[o];f(t)}}function p(){var o=document;if(o&&o.head){var t=o.head,e=o.createElement("style"),n=".coco-msg-stage *{box-sizing:border-box}.coco-msg-stage{position:fixed;top:20px;left:50%;width:auto;transform:translate(-50%,0);z-index:3000;padding-top:constant(safe-area-inset-top);padding-top:env(safe-area-inset-top)}.coco-msg-wrapper{position:relative;left:50%;transform:translate(-50%,0);transition:height .35s ease-out,padding .35s ease-out;padding:8px 0}.coco-msg{padding:8px 16px;border-radius:7px;position:relative;left:50%;transform:translate(-50%,0);display:inline-flex;align-items:center;box-shadow:0 4px 16px rgba(15,15,15,.15);color:rgba(44,44,44,.9);background-color:rgba(255,255,255,.95);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}.dark .coco-msg{color:rgba(255,255,255,.9);background-color:rgba(36,36,36,.95);box-shadow:0 0 1px 0 rgba(55,55,55,.3)}.coco-msg-icon{position:relative;width:16px;height:16px;border-radius:100px;display:flex;justify-content:center;align-items:center}.coco-msg-icon svg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:12px;height:12px}.coco-msg-wait{width:20px;height:20px;position:relative;display:inline-flex;justify-content:center;align-items:center;margin-left:10px}.coco-msg-wait:active svg{transform:scale(.7)}.coco-msg-wait svg{transition:.12s ease-out;fill:currentColor}.coco-msg-close{width:14px;height:14px}.coco-msg-content{margin-left:10px;text-align:left;font-size:14px;font-weight:400;word-break:keep-all;line-height:1.57143;display:inline-block}.coco-msg.info .coco-msg-icon{background-color:#3491fa}.coco-msg.success .coco-msg-icon{background-color:#00b42a}.coco-msg.warning .coco-msg-icon{background-color:#f7ba1e}.coco-msg.error .coco-msg-icon{background-color:#f53f3f}.dark .coco-msg.info .coco-msg-icon{background-color:#1d4dd2}.dark .coco-msg.success .coco-msg-icon{background-color:#129a37}.dark .coco-msg.warning .coco-msg-icon{background-color:#cc961f}.dark .coco-msg.error .coco-msg-icon{background-color:#cb2e34}.dark .coco-msg .coco-msg-icon path{fill:rgba(36,36,36,.95)}.coco-msg_loading{flex-shrink:0;width:20px;height:20px;position:relative}.coco-msg-circular{-webkit-animation:coco-msg-rotate 2s linear infinite both;animation:coco-msg-rotate 2s linear infinite both;transform-origin:center center;height:20px!important;width:20px!important;color:#3491fa;margin-top:-1px}.dark .coco-msg-circular{color:#1d4dd2}.coco-msg-path{stroke-dasharray:1,200;stroke-dashoffset:0;stroke:currentColor;-webkit-animation:coco-msg-dash 1.5s ease-in-out infinite;animation:coco-msg-dash 1.5s ease-in-out infinite;stroke-linecap:round}@-webkit-keyframes coco-msg-rotate{100%{transform:translate(-50%,-50%) rotate(360deg)}}@keyframes coco-msg-rotate{100%{transform:translate(-50%,-50%) rotate(360deg)}}@-webkit-keyframes coco-msg-dash{0%{stroke-dasharray:1,200;stroke-dashoffset:0}50%{stroke-dasharray:89,200;stroke-dashoffset:-35px}100%{stroke-dasharray:89,200;stroke-dashoffset:-124px}}@keyframes coco-msg-dash{0%{stroke-dasharray:1,200;stroke-dashoffset:0}50%{stroke-dasharray:89,200;stroke-dashoffset:-35px}100%{stroke-dasharray:89,200;stroke-dashoffset:-124px}}.coco-msg-pointer{cursor:pointer}.coco-msg-wait-hidden{display:none}.coco-msg-fade-in{-webkit-animation:coco-msg-fade .22s ease-out both;animation:coco-msg-fade .22s ease-out both}.coco-msg-fade-out{animation:coco-msg-fade .22s linear reverse both}@-webkit-keyframes coco-msg-fade{0%{opacity:0;transform:translate(-50%,-80%)}to{opacity:1;transform:translate(-50%,0)}}@keyframes coco-msg-fade{0%{opacity:0;transform:translate(-50%,-80%)}to{opacity:1;transform:translate(-50%,0)}}";e.innerHTML=n,t.appendChild(e)}}if("undefined"!=typeof window){var m=o({className:"coco-msg-stage"}),h={msg:"",duration:2e3,showClose:!1},u={info:function(){return r(arguments,"info")},success:function(){return r(arguments,"success")},warning:function(){return r(arguments,"warning")},error:function(){return r(arguments,"error")},loading:function(){return r(arguments,"loading")},destroyAll:function(){g()},config:function(o){for(var t in o)Object.hasOwnProperty.call(o,t)&&void 0!==o[t]&&(h[t]=o[t])}};for(var v in u)s[v]=u[v];return p(),s}});
