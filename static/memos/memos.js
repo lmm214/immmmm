@@ -40,7 +40,7 @@ var memoDefaultList = [
 
 var userNow = `
 <div class="user-now card-item flex-fill mb-3 row">
-  <div class="item-avatar p-3"><img class="call-memos-editor user-now-avatar" src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="/></div>
+  <div class="item-avatar p-3"><img class="call-memos-editor user-now-avatar" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/></div>
   <span class="user-now-name"></span>
   <div class="row-fill">
     <span class="search-memos button d-md-flex pt-3 pb-3 pl-2 pr-2 mr-2">
@@ -398,7 +398,7 @@ function memoFollow() {
       let memosFormString = JSON.stringify(memosForm).replace(/"/g, '&quot;');
 
       //解析 content 内 md 格式图片
-      let loadUrl = "data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=";
+      let loadUrl = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
       let imgArr = memo.content.match(IMG_REG);
       let imgStr = String(imgArr).replace(/[,]/g, '');
       if (imgArr) {
@@ -1300,7 +1300,7 @@ function getEditIcon() {
         .replace(QQMUSIC_REG, `<meting-js auto="https://y.qq.com/n/yqq/song$1.html"></meting-js>`)
       
       //解析 content 内 md 格式图片
-      let loadUrl = "data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=";
+      let loadUrl = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
       let imgArr = memo.content.match(IMG_REG);
       let imgStr = String(imgArr).replace(/[,]/g, '');
       if (imgArr) {
