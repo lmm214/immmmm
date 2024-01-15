@@ -6,7 +6,6 @@ var memosData = {
   dom:"#memos",
   listDom:"#memo-list",
   limit:"8",
-  loadUrl:"../memos/loading.svg",
   gravatar:"https://cravatar.cn"
 }
 var gravatar = memosData.gravatar;
@@ -41,7 +40,7 @@ var memoDefaultList = [
 
 var userNow = `
 <div class="user-now card-item flex-fill mb-3 row">
-  <div class="item-avatar p-3"><img class="call-memos-editor user-now-avatar" src="../memos/loading.svg"/></div>
+  <div class="item-avatar p-3"><img class="call-memos-editor user-now-avatar" src="data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="/></div>
   <span class="user-now-name"></span>
   <div class="row-fill">
     <span class="search-memos button d-md-flex pt-3 pb-3 pl-2 pr-2 mr-2">
@@ -190,11 +189,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     memoList = memoDefaultList
     console.error('load memoDefaultList');
   }
-  try {
-    emojis = await getEmojisData(); // 获取表情数据
-  } catch (error) {
-    console.error('Failed to fetch emojis data:', error);
-  }
   memoFollow();
   getEditIcon();
 });
@@ -222,7 +216,7 @@ function memoFollow() {
       let usernowName = document.querySelector(".user-now-name");
       let usernowAvatar = document.querySelector(".user-now-avatar");
       usernowName.innerHTML = ""
-      usernowAvatar.src = "../memos/loading.svg"
+      usernowAvatar.src = "data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="
       cocoMessage.success("有啥新鲜事儿？");
     }else{
       randomUser = 0;
@@ -607,7 +601,7 @@ randomUserBtn.addEventListener("click", function () {
   let usernowName = document.querySelector(".user-now-name");
   let usernowAvatar = document.querySelector(".user-now-avatar");
   usernowName.innerHTML = ""
-  usernowAvatar.src = "../memos/loading.svg"
+  usernowAvatar.src = "data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="
   let randomIndex = Math.floor(Math.random() * (memoList.length +1));
   let userNowData = memoList[randomIndex]
   getUserMemos(userNowData.link,userNowData.creatorId,userNowData.creatorName,userNowData.avatar,"","")
@@ -1306,7 +1300,7 @@ function getEditIcon() {
         .replace(QQMUSIC_REG, `<meting-js auto="https://y.qq.com/n/yqq/song$1.html"></meting-js>`)
       
       //解析 content 内 md 格式图片
-      let loadUrl = memosData.loadUrl;
+      let loadUrl = "data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=";
       let imgArr = memo.content.match(IMG_REG);
       let imgStr = String(imgArr).replace(/[,]/g, '');
       if (imgArr) {
@@ -1426,12 +1420,249 @@ async function getMemoListData() {
 // 获取 owo.json 文件中的数据
 let emojiSelectorVisible = false;
 let emojiSelector;
-let emojis = []; // 缓存表情数据
-async function getEmojisData() {
-  const response = await fetch('../memos/owo.json');
-  const data = await response.json();
-  return data.Emoji.container;
-}
+let emojis = [
+  {  
+    "icon": "😂",
+    "text": "哭笑不得"
+  },
+  {
+    "icon": "😎",
+    "text": "酷"
+  },
+  {
+    "icon": "😏",
+    "text": "坏笑"
+  },
+  {
+    "icon": "😅",
+    "text": "流汗"
+  },
+  {
+    "icon": "😄",
+    "text": "笑"
+  },
+  {
+    "icon": "😜",
+    "text": "调皮"
+  },
+  {
+    "icon": "🤣",
+    "text": "笑倒"
+  },
+  {
+    "icon": "😭",
+    "text": "大哭"
+  },
+  {
+    "icon": "🙄",
+    "text": "白眼"
+  },
+  {
+    "icon": "🤐",
+    "text": "嘘"
+  },
+  {
+    "icon": "😋",
+    "text": "美食脸"
+  },
+  {
+    "icon": "🥶",
+    "text": "冰冻"
+  },
+  {
+    "icon": "🥵",
+    "text": "热"
+  },
+    {
+    "icon": "😴",
+    "text": "睡觉"
+  },
+  {
+    "icon": "🤧",
+    "text": "打喷嚏"
+  },
+  {
+    "icon": "🍉",
+    "text": "西瓜"
+  },
+  {
+    "icon": "😱",
+    "text": "惊恐"
+  },
+  {
+    "icon": "👋",
+    "text": "招手"
+  },
+  {
+    "icon": "🔨",
+    "text": "锤子"
+  },
+  {
+    "icon": "🐶",
+    "text": "小狗"
+  },
+  {
+    "icon": "👏",
+    "text": "鼓掌"
+  },
+  {
+    "icon": "🙈",
+    "text": "不看"
+  },
+  {
+    "icon": "😓",
+    "text": "汗"
+  },
+  {
+    "icon": "😍",
+    "text": "爱心眼"
+  },
+  {
+    "icon": "🤝",
+    "text": "握手"
+  },
+  {
+    "icon": "🥺",
+    "text": "求你"
+  },
+  {
+    "icon": "😔",
+    "text": "沮丧"
+  },
+  {
+    "icon": "😪",
+    "text": "困"
+  },
+  {
+    "icon": "😕",
+    "text": "困惑"
+  },
+  {
+    "icon": "🤷‍♂️",
+    "text": "摊手"
+  },
+  {
+    "icon": "😛",
+    "text": "舌头"
+  },
+  {
+    "icon": "🤭",
+    "text": "偷笑"
+  },
+  {
+    "icon": "🤮",
+    "text": "呕吐"
+  },
+  {
+    "icon": "🥺",
+    "text": "求你"
+  },
+  {
+    "icon": "🙂",
+    "text": "轻松的笑"
+  },
+  {
+    "icon": "😈",
+    "text": "恶魔"
+  },
+  {
+    "icon": "😃",
+    "text": "笑脸"
+  },
+  {
+    "icon": "🤫",
+    "text": "嘘"
+  },
+  {
+    "icon": "😒",
+    "text": "无语"
+  },
+  {
+    "icon": "😵",
+    "text": "晕"
+  },
+  {
+    "icon": "💪",
+    "text": "加油"
+  },
+  {
+    "icon": "👍",
+    "text": "赞"
+  },
+  {
+    "icon": "👎",  
+    "text": "踩"
+  },
+  {
+    "icon": "😡",
+    "text": "愤怒"
+  },
+  {
+    "icon": "🤬",
+    "text": "怒骂"
+  },
+  {
+    "icon": "😖",
+    "text": "心烦"
+  },
+  {
+    "icon": "🌹",
+    "text": "玫瑰"
+  },
+  {
+    "icon": "🏃",
+    "text": "跑步"
+  },
+  {
+    "icon": "😆",
+    "text": "大笑"
+  },
+  {
+    "icon": "💵",
+    "text": "钞票"
+  },
+  {
+    "icon": "😘",
+    "text": "飞吻"
+  },
+  {
+    "icon": "😷",
+    "text": "生病"
+  },
+  {
+    "icon": "🤕",
+    "text": "受伤"
+  },
+  {
+    "icon": "🎉",
+    "text": "庆祝"
+  },
+  {
+    "icon": "❤️",
+    "text": "红心"
+  },
+  {
+    "icon": "💔",
+    "text": "心碎"
+  },
+  {
+    "icon": "😣",
+    "text": "无奈"
+  },
+  {
+    "icon": "😘",
+    "text": "飞吻"
+  },
+  {
+    "icon": "💩",
+    "text": "一坨便便"
+  },
+  {
+    "icon": "🤩",
+    "text": "爱慕"
+  }
+];
+
 // 表情选择器点击事件处理
 biaoqingBtn.addEventListener("click", function (event) {
   event.stopPropagation();
