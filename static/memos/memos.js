@@ -398,7 +398,7 @@ function memoFollow() {
       let memosFormString = JSON.stringify(memosForm).replace(/"/g, '&quot;');
 
       //解析 content 内 md 格式图片
-      let loadUrl = memosData.loadUrl;
+      let loadUrl = "data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA=";
       let imgArr = memo.content.match(IMG_REG);
       let imgStr = String(imgArr).replace(/[,]/g, '');
       if (imgArr) {
