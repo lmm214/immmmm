@@ -405,7 +405,7 @@ blockquote {
 	position: absolute;
 	display: flex;
 	flex-direction: column;
-	top: 1.1rem;
+	top: 0.4rem;
 	right: 0;
 	padding: .25rem;
 	border-radius: .33rem;
@@ -655,9 +655,9 @@ button.button-load{width:98%;margin:0 auto;}
 .user-now .row-fill .iconfont,.load-memos-editor .iconfont{font-size: 1.25rem;}
 .user-now.row{margin-right:0;margin-left:0;}
 .user-now.card-item{overflow:unset;height:3.5rem;}
-.user-now.card-item .item-avatar{border-radius:unset;background-color: transparent;width:1.75rem;height:1.75rem;cursor: pointer;}
+.user-now.card-item .item-avatar{border-radius:unset;background-color: transparent;width:3.5rem;height:3.5rem;cursor: pointer;}
 .user-now.card-item .item-avatar img{width:1.75rem;height:1.75rem;border-radius:8px;}
-.user-now-name{display:flex;align-items:center;}
+.user-now-name{line-height: 3.9rem;}
 .load-memos-editor{background: var(--light-background-secondary) !important;}
 .dark .load-memos-editor{background: var(--dark-background-secondary) !important;}
 

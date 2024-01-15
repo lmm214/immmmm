@@ -40,15 +40,18 @@ var memoDefaultList = [
 ];
 
 var userNow = `
-<div class="user-now card-item flex-fill p-3 mb-3 row">
-  <div class="item-avatar mr-3"><img class="call-memos-editor user-now-avatar" src="../memos/loading.svg"/></div>
+<div class="user-now card-item flex-fill mb-3 row">
+  <div class="item-avatar p-3"><img class="call-memos-editor user-now-avatar" src="../memos/loading.svg"/></div>
   <span class="user-now-name"></span>
   <div class="row-fill">
-    <span class="search-memos button d-md-flex ml-3">
+    <span class="search-memos button d-md-flex pt-3 pb-3 pl-2 pr-2 mr-2">
       <svg xmlns="http://www.w3.org/2000/svg" width="1.15rem" height="1.15rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21l-4.3-4.3"/></g></svg>
     </span>
-    <span class="back-memos button d-md-flex ml-3">
-      <svg class="users-switch" xmlns="http://www.w3.org/2000/svg" width="1.15rem" height="1.15rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87m-3-12a4 4 0 0 1 0 7.75"/></g></svg>
+    <span class="randomuser-memos button d-md-flex pt-3 pb-3 pl-2 pr-2 mr-2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1.15rem" height="1.15rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect width="16" height="16" x="4" y="3" rx="2"/><path d="M4 11h16m-8-8v8m-4 8l-2 3m12 0l-2-3m0-4"/></g></svg>
+    </span>
+    <span class="back-memos button d-md-flex pt-3 pb-3 pl-2 pr-2 mr-2">
+      <svg class="users-switch" xmlns="http://www.w3.org/2000/svg" width="1.15rem" height="1.15rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M4.9 16.1C1 12.2 1 5.8 4.9 1.9m2.9 2.8a6.14 6.14 0 0 0-.8 7.5"/><circle cx="12" cy="9" r="2"/><path d="M16.2 4.8c2 2 2.26 5.11.8 7.47M19.1 1.9a9.96 9.96 0 0 1 0 14.1m-9.6 2h5M8 22l4-11l4 11"/></g></svg>
       <svg class="d-none users-refresh" xmlns="http://www.w3.org/2000/svg" width="1.15rem" height="1.15rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M3 12a9 9 0 0 1 9-9a9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5m5 4a9 9 0 0 1-9 9a9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></g></svg>
     </span>
   </div>
@@ -137,6 +140,7 @@ var randomBtn = document.querySelector(".random-btn");
 var switchUserBtn = document.querySelector(".switchUser-btn");
 var loadEditorBtn = document.querySelector(".call-memos-editor");
 var searchBtn = document.querySelector(".search-memos");
+var randomUserBtn = document.querySelector(".randomuser-memos");
 var submitApiBtn = document.querySelector(".submit-openapi-btn");
 var submitMemoBtn = document.querySelector(".submit-memos-btn");
 var memosVisibilitySelect = document.querySelector(".select-memos-value");
@@ -160,7 +164,7 @@ var load = `<button class="col-12 load-btn button-load d-none flex-fill mb-3 p-3
 memoDom.insertAdjacentHTML('afterend', load);
 var loadBtn = document.querySelector("button.button-load");
 
-var limit = memosData.limit,page = 1,nums = 0,dataNum = 0,memosContType = 0, memosAccess = 0;
+var limit = memosData.limit,page = 1,nums = 0,dataNum = 0,memosContType = 0, memosAccess = 0,randomUser = 0;
 var memoData = [],memosStr = [],memoCreatorMap = {},twikooCount = {},artalkCount = {};
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -200,11 +204,11 @@ function memoFollow() {
   getUserMemos(memoList[0].link,memoList[0].creatorId,memoList[0].creatorName,memoList[0].avatar,"")
   
   loadBtn.addEventListener("click", function () {
-    loadBtn.textContent = '加载中';
     if(page < dataNum) {
       page++;
     }
     updateData(memoData)
+    cocoMessage.success("加载中");
   });
 
   var titleDom = document.querySelector('.back-memos');
@@ -219,8 +223,11 @@ function memoFollow() {
       let usernowAvatar = document.querySelector(".user-now-avatar");
       usernowName.innerHTML = ""
       usernowAvatar.src = "../memos/loading.svg"
+      cocoMessage.success("有啥新鲜事儿？");
     }else{
+      randomUser = 0;
       getUserMemos(memoList[0].link,memoList[0].creatorId,memoList[0].creatorName,memoList[0].avatar,"")
+      cocoMessage.success("返回 "+memoList[0].creatorName+" 的 Memos");
     }
   });
 
@@ -452,7 +459,7 @@ function memoFollow() {
           memosRes += `<p class="datasource">${resUrl}</p>`
         }
       }
-      if (memosContType === 0) {
+      if (memosContType === 0 && randomUser !== 1) {
         itemOption = `<div class="item-option mr-1"><div class="d-flex dropdown"><svg xmlns="http://www.w3.org/2000/svg" width="1.15rem" height="1.15rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></g></svg><div class="dropdown-wrapper d-none"><a class="btn" onclick="getUserMemos('${memo.link}', '${memo.creatorId}','${memo.creatorName}','${memo.avatar}')">只看他</a>`;
         if (memosOpenId) {
           itemOption += `<a class="btn" data-form="${memosFormString}" onclick="transPond(this)">转发</a>`;
@@ -460,7 +467,7 @@ function memoFollow() {
           itemOption += `<a class="btn" href="${memosLink}">查看</a>`;
         }
         itemOption += `</div></div></div>`;
-      } else if (memosAccess === 1) {
+      } else if (memosAccess === 1 && randomUser !== 1) {
         itemOption = `<div class="item-option mr-1"><div class="d-flex dropdown"><svg xmlns="http://www.w3.org/2000/svg" width="1.15rem" height="1.15rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></g></svg><div class="dropdown-wrapper d-none"><a class="btn edit-btn" data-form="${memoString}" onclick="editMemo(this)">编辑</a><a class="btn" onclick="archiveMemo('${memo.id}')">归档</a><a class="btn" onclick="deleteMemo('${memo.id}')">删除</a></div></div></div>`;
       }
       itemContent = `<div class="item-content"><div class="item-inner">${memosRes}</div><div class="item-footer d-flex mt-2"><div class="d-flex">${memosTag}</div>`;
@@ -472,7 +479,7 @@ function memoFollow() {
         itemContent += `<div class="d-flex flex-fill justify-content-end"></div></div>`;
       }
       itemContent += `</div></div></div>`
-      result += `<div class="memo-${memosId} d-flex animate__animated mb-3"><div class="card-item flex-fill p-3"><div class="item-header d-flex mb-3"><div class="d-flex flex-fill"><div  onclick="getUserMemos('${memo.link}', '${memo.creatorId}','${memo.creatorName}','${memo.avatar}')" class="item-avatar mr-3" style="background-image:url(${avatar})"></div><div class="item-sub d-flex flex-column p-1"><div class="item-creator"><a href="${website}" target="_blank">${creatorName}</a></div><div class="item-mate mt-2 text-xs">${new Date(createdTs * 1000).toLocaleString()}</div></div></div>${itemOption}</div>${neodbDom+itemContent}</div></div>`;
+      result += `<div class="memo-${memosId} d-flex animate__animated mb-3"><div class="card-item flex-fill p-3"><div class="item-header d-flex mb-3"><div class="d-flex flex-fill"><div onclick="getUserMemos('${memo.link}', '${memo.creatorId}','${memo.creatorName}','${memo.avatar}')" class="item-avatar mr-3" style="background-image:url(${avatar})"></div><div class="item-sub d-flex flex-column p-1"><div class="item-creator"><a href="${website}" target="_blank">${creatorName}</a></div><div class="item-mate mt-2 text-xs">${new Date(createdTs * 1000).toLocaleString()}</div></div></div>${itemOption}</div>${neodbDom+itemContent}</div></div>`;
     } // end for
 
     memoDom.insertAdjacentHTML('beforeend', result);
@@ -578,7 +585,7 @@ searchBtn.addEventListener("click", function () {
   if(tagnowHas) tagnowHas.remove();
   let serchText = prompt('搜点啥？','');
   let usernowName = document.querySelector(".user-now-name").innerHTML;
-  if(serchText !== ""){
+  if(serchText !== "" && serchText != null){
     let serchDom = `
       <div class="memos-tagnow row p-2 mb-2"">
         <div class="memos-tagnow-title mr-3">当前搜索:</div>
@@ -594,7 +601,18 @@ searchBtn.addEventListener("click", function () {
     }
   }
 });
-
+//随机个人
+randomUserBtn.addEventListener("click", function () {
+  randomUser = 1;
+  let usernowName = document.querySelector(".user-now-name");
+  let usernowAvatar = document.querySelector(".user-now-avatar");
+  usernowName.innerHTML = ""
+  usernowAvatar.src = "../memos/loading.svg"
+  let randomIndex = Math.floor(Math.random() * (memoList.length +1));
+  let userNowData = memoList[randomIndex]
+  getUserMemos(userNowData.link,userNowData.creatorId,userNowData.creatorName,userNowData.avatar,"","")
+  cocoMessage.success("有缘人呢？哦，是：  "+userNowData.creatorName);
+});
 //重载 reloadUser()
 function reloadUser(){
   let tagnowHas = document.querySelector(".memos-tagnow") || ''
