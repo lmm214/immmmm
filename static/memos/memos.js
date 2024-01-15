@@ -6,6 +6,7 @@ var memosData = {
   dom:"#memos",
   listDom:"#memo-list",
   limit:"8",
+  loadUrl:"../memos/loading.svg",
   gravatar:"https://cravatar.cn"
 }
 var gravatar = memosData.gravatar;
@@ -40,7 +41,7 @@ var memoDefaultList = [
 
 var userNow = `
 <div class="user-now card-item flex-fill mb-3 row">
-  <div class="item-avatar p-3"><img class="call-memos-editor user-now-avatar" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/></div>
+  <div class="item-avatar p-3"><img class="call-memos-editor user-now-avatar" src="../memos/loading.svg"/></div>
   <span class="user-now-name"></span>
   <div class="row-fill">
     <span class="search-memos button d-md-flex pt-3 pb-3 pl-2 pr-2 mr-2">
@@ -216,7 +217,7 @@ function memoFollow() {
       let usernowName = document.querySelector(".user-now-name");
       let usernowAvatar = document.querySelector(".user-now-avatar");
       usernowName.innerHTML = ""
-      usernowAvatar.src = "data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="
+      usernowAvatar.src = "../memos/loading.svg"
       cocoMessage.success("有啥新鲜事儿？");
     }else{
       randomUser = 0;
@@ -398,7 +399,7 @@ function memoFollow() {
       let memosFormString = JSON.stringify(memosForm).replace(/"/g, '&quot;');
 
       //解析 content 内 md 格式图片
-      let loadUrl = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+      let loadUrl = memosData.loadUrl;
       let imgArr = memo.content.match(IMG_REG);
       let imgStr = String(imgArr).replace(/[,]/g, '');
       if (imgArr) {
@@ -601,7 +602,7 @@ randomUserBtn.addEventListener("click", function () {
   let usernowName = document.querySelector(".user-now-name");
   let usernowAvatar = document.querySelector(".user-now-avatar");
   usernowName.innerHTML = ""
-  usernowAvatar.src = "data:image/gif;base64,R0lGODlhAQABAAAAACwAAAAAAQABAAA="
+  usernowAvatar.src = "../memos/loading.svg"
   let randomIndex = Math.floor(Math.random() * (memoList.length +1));
   let userNowData = memoList[randomIndex]
   getUserMemos(userNowData.link,userNowData.creatorId,userNowData.creatorName,userNowData.avatar,"","")
@@ -1300,7 +1301,7 @@ function getEditIcon() {
         .replace(QQMUSIC_REG, `<meting-js auto="https://y.qq.com/n/yqq/song$1.html"></meting-js>`)
       
       //解析 content 内 md 格式图片
-      let loadUrl = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+      let loadUrl = memosData.loadUrl;
       let imgArr = memo.content.match(IMG_REG);
       let imgStr = String(imgArr).replace(/[,]/g, '');
       if (imgArr) {
