@@ -110,8 +110,7 @@
     "twikoo" : "https://pl.elizen.me",
     "avatar": "https://cravatar.cn/avatar/cc9b8a642c62eef389cd2cc7770276c4.jpeg?s=400"
   },{
-    "creatorName": "大大的小
-蜗牛",
+    "creatorName": "大大的小蜗牛",
     "website" : "https://eallion.com",
     "link" : "https://api.eallion.com/memos",
     "creatorId" : "101",
@@ -140,16 +139,16 @@
     "website" : "https://www.isolitude.cn",
     "link" : "https://me.isolitude.cn",
     "creatorId" : "1",
-    artEnv: "https://artalk.isolitude.cn",
-    artSite: "自说自话王国",
+    "artalk" : "https://artalk.isolitude.cn",
+    "artSite" : "自说自话王国",
     "avatar": "https://cravatar.cn/avatar/924916294598a950bb80d78012dc3aac.jpeg?s=400"
   },{
     "creatorName": "老张",
     "website" : "https://laozhang.org",
     "link" : "https://memos.laozhang.org",
     "creatorId" : "1",
-    artEnv: "https://artalk.laozhang.org",
-    artSite: "memos",
+    "artalk" : "https://artalk.laozhang.org",
+    "artSite" : "memos",
     "avatar": "https://cravatar.cn/avatar/679666f7bd1af3e55f0e51dd70ed161c.jpeg?s=400"
   },{
     "creatorName": "Xalaok",
@@ -169,8 +168,8 @@
     "website" : "https://veryjack.com",
     "link" : "https://say.veryjack.com",
     "creatorId" : "1",
-    artEnv: "https://artalk.veryjack.com",
-    artSite: "Jack\"s Space",
+    "artalk" : "https://artalk.veryjack.com",
+    "artSite" : "Jack\"s Space",
     "avatar": "https://cravatar.cn/avatar/7a41a0e8e1df8e964fa1268193b03508.jpeg?s=400"
   },{
     "creatorName": "Moreality",
