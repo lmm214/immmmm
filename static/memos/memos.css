@@ -398,6 +398,7 @@ blockquote {
 	padding: .25rem;
 	border-radius: .33rem;
 	background-color: var(--light-background-secondary);
+	font-size:1rem;
 }
 
 .dark .dropdown-wrapper {
@@ -412,8 +413,8 @@ blockquote {
 	user-select: none;
 	display: flex;
 	justify-content: center;
-	padding: .5rem 1rem;
-	line-height: 1rem;
+	padding: .2rem 1rem;
+	line-height: 1.6rem;
 	border-radius: .24rem;
 }
 

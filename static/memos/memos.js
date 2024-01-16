@@ -383,7 +383,7 @@ function memoFollow() {
       let twikooEnv = memo.twikoo;
       let artalkEnv = memo.artalk;
       let artSite = memo.artSite;
-      let memosLink = link + "/m/" + memo.id;
+      let memosLink = memo.link + "/m/" + memo.id;
       let memosRes = memo.content
         .replace(TAG_REG, "")
         .replace(IMG_REG, "")
@@ -457,15 +457,9 @@ function memoFollow() {
           memosRes += `<p class="datasource">${resUrl}</p>`
         }
       }
-      if (memosContType === 0 && randomUser !== 1) {
-        itemOption = `<div class="item-option mr-1"><div class="d-flex dropdown"><svg xmlns="http://www.w3.org/2000/svg" width="1.15rem" height="1.15rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></g></svg><div class="dropdown-wrapper d-none"><a class="btn" onclick="getUserMemos('${link}', '${creatorId}','${creatorName}','${avatar}')">只看他</a>`;
-        if (memosOpenId) {
-          itemOption += `<a class="btn" data-form="${memosFormString}" onclick="transPond(this)">转发</a>`;
-        } else {
-          itemOption += `<a class="btn" href="${memosLink}">查看</a>`;
-        }
-        itemOption += `</div></div></div>`;
-      } else if (memosAccess === 1 && randomUser !== 1) {
+      if(memosContType === 1){
+        itemOption = `<div class="item-option mr-1"><a class="d-flex" href="${memosLink}" target="_blank" rel="noopener noreferrer"><svg xmlns="http://www.w3.org/2000/svg" width="1.15rem" height="1.15rem" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6m4-3h6v6m-11 5L21 3"></path></svg></div>`;
+      }else if (memosAccess === 1 && randomUser !== 1) {
         itemOption = `<div class="item-option mr-1"><div class="d-flex dropdown"><svg xmlns="http://www.w3.org/2000/svg" width="1.15rem" height="1.15rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></g></svg><div class="dropdown-wrapper d-none"><a class="btn edit-btn" data-form="${memoString}" onclick="editMemo(this)">编辑</a><a class="btn" onclick="archiveMemo('${memo.id}')">归档</a><a class="btn" onclick="deleteMemo('${memo.id}')">删除</a></div></div></div>`;
       }
       itemContent = `<div class="item-content"><div class="item-inner">${memosRes}</div><div class="item-footer d-flex mt-2"><div class="d-flex">${memosTag}</div>`;
@@ -477,7 +471,7 @@ function memoFollow() {
         itemContent += `<div class="d-flex flex-fill justify-content-end"></div></div>`;
       }
       itemContent += `</div></div></div>`
-      result += `<div class="memo-${memosId} d-flex animate__animated mb-3"><div class="card-item flex-fill p-3"><div class="item-header d-flex mb-3"><div class="d-flex flex-fill"><div onclick="getUserMemos('${link}', '${creatorId}','${creatorName}','${avatar}')" class="item-avatar mr-3" style="background-image:url(${avatar})"></div><div class="item-sub d-flex flex-column p-1"><div class="item-creator"><a href="${website}" target="_blank">${creatorName}</a></div><div class="item-mate mt-2 text-xs">${new Date(createdTs * 1000).toLocaleString()}</div></div></div>${itemOption}</div>${neodbDom+itemContent}</div></div>`;
+      result += `<div class="memo-${memosId} d-flex animate__animated mb-3"><div class="card-item flex-fill p-3"><div class="item-header d-flex mb-3"><div class="d-flex flex-fill"><div onclick="getUserMemos('${link}', '${creatorId}','${creatorName}','${avatar}')" class="item-avatar mr-2" style="background-image:url(${avatar})"></div><div class="item-sub d-flex flex-column p-1"><div class="item-creator"><a href="${website}" target="_blank">${creatorName}</a></div><div class="item-mate mt-2 text-xs" onclick="viaNow('${creatorName}','${memosLink}')">${new Date(createdTs * 1000).toLocaleString()}</div></div></div>${itemOption}</div>${neodbDom+itemContent}</div></div>`;
     } // end for
 
     memoDom.insertAdjacentHTML('beforeend', result);
@@ -917,52 +911,63 @@ function setMemoTag(e){
 }
 //归档
 function archiveMemo(memoId) {
-  memosOpenId = window.localStorage && window.localStorage.getItem("memos-access-token");
-  if(memosOpenId && memoId){
-    let memoUrl = `${memosPath}/api/v1/memo/${memoId}`;
-    let memoBody = {id:memoId,rowStatus:"ARCHIVED"};
-    fetch(memoUrl, {
-      method: 'PATCH',
-      body: JSON.stringify(memoBody),
-      headers: {
-        'Authorization': `Bearer ${memosOpenId}`,
-        'Content-Type': 'application/json'
-      }
-    }).then(function(res) {
-      if (res.ok) {
-        cocoMessage.success(
-        '归档成功',
-        ()=>{
-          location.reload();
-        })
-      }
-    })
+  let isOk = confirm("确认删除？");
+  if(isOk){
+    memosOpenId = window.localStorage && window.localStorage.getItem("memos-access-token");
+    if(memosOpenId && memoId){
+      let memoUrl = `${memosPath}/api/v1/memo/${memoId}`;
+      let memoBody = {id:memoId,rowStatus:"ARCHIVED"};
+      fetch(memoUrl, {
+        method: 'PATCH',
+        body: JSON.stringify(memoBody),
+        headers: {
+          'Authorization': `Bearer ${memosOpenId}`,
+          'Content-Type': 'application/json'
+        }
+      }).then(function(res) {
+        if (res.ok) {
+          cocoMessage.success(
+          '归档成功',
+          ()=>{
+            location.reload();
+          })
+        }
+      })
+    }
   }
 }
 
 //删除
 function deleteMemo(memoId) {
-  memosOpenId = window.localStorage && window.localStorage.getItem("memos-access-token");
-  if(memosOpenId && memoId){
-    let memoUrl = `${memosPath}/api/v1/memo/${memoId}`;
-    fetch(memoUrl, {
-      method: 'DELETE',
-      headers: {
-        'Authorization': `Bearer ${memosOpenId}`,
-        'Content-Type': 'application/json'
-      }
-    }).then(function(res) {
-      if (res.ok) {
-        cocoMessage.success(
-        '删除成功',
-        ()=>{
-          location.reload();
-        })
-      }
-    }).catch(err => {
-      cocoMessage.error('出错了，再检查一下吧')
-    })
+  let isOk = confirm("确认删除？");
+  if(isOk){
+    memosOpenId = window.localStorage && window.localStorage.getItem("memos-access-token");
+    if(memosOpenId && memoId){
+      let memoUrl = `${memosPath}/api/v1/memo/${memoId}`;
+      fetch(memoUrl, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${memosOpenId}`,
+          'Content-Type': 'application/json'
+        }
+      }).then(function(res) {
+        if (res.ok) {
+          cocoMessage.success(
+          '删除成功',
+          ()=>{
+            location.reload();
+          })
+        }
+      }).catch(err => {
+        cocoMessage.error('出错了，再检查一下吧')
+      })
+    }
   }
+}
+
+function viaNow(name,link){
+  let viaCopy = ` （via [@${name}](${link})）`
+  navigator.clipboard.writeText(viaCopy).then(() => {alert(viaCopy)});
 }
 
 function getEditIcon() {
@@ -1397,7 +1402,7 @@ function getEditIcon() {
       result += `<div class="d-flex animate__animated animate__fadeIn mb-3">
       <div class="card-item flex-fill p-3">
         <div class="item-header d-flex mb-3">
-          <div class="item-avatar mr-3" style="background-image:url(${avatar})"></div>
+          <div class="item-avatar mr-2" style="background-image:url(${avatar})"></div>
           <div class="item-sub d-flex flex-column">
             <div class="item-creator"><a href="${memosPath}" target="_blank">${creatorName}</a></div>
             <div class="item-mate mt-2 text-xs">${new Date(createdTs * 1000).toLocaleString()}</div>
