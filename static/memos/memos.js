@@ -1321,8 +1321,8 @@ function getEditIcon() {
       NETEASE_MUSIC_REG = /<a.*?href="https:\/\/music\.163\.com\/.*id=([0-9]+)".*?>.*<\/a>/g,
       QQMUSIC_REG = /<a.*?href="https\:\/\/y\.qq\.com\/.*(\/[0-9a-zA-Z]+)(\.html)?".*?>.*?<\/a>/g;
       marked.setOptions({
-        breaks: !0,
-        smartypants: !0,
+        breaks: true,
+        smartypants: false,
         langPrefix: 'language-'
       });
 
@@ -1377,7 +1377,7 @@ function getEditIcon() {
             imgLink = `${memosPath}/o/r/${resourceList[j].id}/${fileId}`;
           }
           if (restype == 'image') {
-            imgUrl += `<div class="memo-resource w-100"><img class="lozad" src="${loadUrl}" data-src="${imgLink}"/></div>`;
+            imgUrl += `<div class="memo-resource w-100"><img class="lozad" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="${imgLink}"/></div>`;
             resImgLength = resImgLength + 1
           }
           if (restype !== 'image') {
