@@ -656,7 +656,7 @@ button.button-load{width:98%;margin:0 auto;}
 .user-now.row{margin-right:0;margin-left:0;}
 .user-now.card-item{overflow:unset;height:3.5rem;}
 .user-now.card-item .item-avatar{border-radius:unset;background-color: transparent;width:3.5rem;height:3.5rem;cursor: pointer;}
-.user-now.card-item .item-avatar img{border-radius:8px;}
+.user-now.card-item .item-avatar img{border-radius:8px;display: inline-block;max-width: 100%;}
 .user-now-name{line-height: 3.9rem;}
 .load-memos-editor{background: var(--light-background-secondary) !important;}
 .dark .load-memos-editor{background: var(--dark-background-secondary) !important;}
