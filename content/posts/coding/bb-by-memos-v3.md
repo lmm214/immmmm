@@ -28,6 +28,38 @@ feature: https://r2.immmmm.com/2024/01/bbv3.png.webp
 
 ### 折腾说明
 
-先看源码先呗～
+单页面源码：[memos-html-230116.zip](https://r2m.immmmm.com/memos/2024/01/memos-html-230116.zip)
 
-`memos.js` 代码中设置了优先加载本地路径的 `../memos/memos.json` 文件作为广场模式下的加载列表，这样方面自定义，具体格式看文件 [memos.json](https://immmmm.com/memos/memos.json)。
+其中 `memos.js` 代码中设置了优先加载本地路径的 `../memos/memos.json` 文件作为广场模式下的加载列表，这样方便我们自定义，同时又不需要修改功能代码，具体格式看文件 [memos.json](https://immmmm.com/memos/memos.json)。
+
+### 主题集成
+
+#### HTML
+
+```
+<div id="memos"></div>
+<div id="memo-list"></div>
+```
+
+#### CSS
+
+```
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.7.3/ArtalkLite.css" rel="stylesheet">
+<link rel="stylesheet" href="https://immmmm.com/memos/grid.css">
+<link rel="stylesheet" href="https://immmmm.com/memos/memos.css?v=20240116">
+```
+
+#### JS
+
+```
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twikoo/1.6.29/twikoo.all.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.7.3/ArtalkLite.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/7.0.5/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/meting/2.0.1/Meting.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js"></script>
+<script src="https://immmmm.com/memos/memos.js?v=20240116"></script>
+```
+
