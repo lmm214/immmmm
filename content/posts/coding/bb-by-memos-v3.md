@@ -30,7 +30,27 @@ feature: https://r2.immmmm.com/2024/01/bbv3.png.webp
 
 单页面源码：[memos-html-230116.zip](https://r2m.immmmm.com/memos/2024/01/memos-html-230116.zip)
 
-其中 `memos.js` 代码中设置了优先加载本地路径的 `../memos/memos.json` 文件作为广场模式下的加载列表，这样方便我们自定义，同时又不需要修改功能代码，具体格式看文件 [memos.json](https://immmmm.com/memos/memos.json)。
+其中 `memos.js` 代码中设置了优先加载本地路径的 `../memos/memos.json` 文件作为广场模式下的加载列表，具体格式看文件 [memos.json](https://immmmm.com/memos/memos.json)。
+
+默认第一条信息为主页，所以下载后需要修改为自己的（先搜索一下，有的话前移到第一条），这样方便我们自定义维护，同时又不需要修改功能代码。
+
+注：Hugo 是把这个 json 文件丢入到 `static/memos/` 内。
+
+```
+{
+    "myMemoList": [
+        {
+            "creatorName": "林木木",
+            "website": "https://immmmm.com",
+            "link": "https://me.edui.fun",
+            "creatorId": "101",
+            "avatar": "https://cravatar.cn/avatar/ba83fa02fc4b2ba621514941307e21be.jpeg?s=400",
+            "twikoo": "https://metk.edui.fun"
+        },
+        {
+            "creatorName": "归臧",
+            "website": "https://nuoea.com/",
+```
 
 ### 主题集成
 
