@@ -70,6 +70,8 @@ button,a {
 	background: var(--dark-background-secondary);
 	color: inherit;
 }
+.dark .user-now .button{background: transparent;}
+
 .button.outline,
 a.button.outline,
 button.outline,
