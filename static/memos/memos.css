@@ -496,6 +496,25 @@ blockquote {
 .dark .card-item .item-avatar {
 	background-color: var(--dark-background);
 }
+.userlist{
+	justify-content: center;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    height: 168px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 10px;
+}
+.userlist.row{margin-right:0;margin-left:0;}
+.userlist.card-item .item-avatar {
+    background-color: var(--light-background);
+    border-radius: 50%;
+    margin: 0 6px 5px 0;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
 
 .card-item .item-sub {
 	line-height: 1;

@@ -46,12 +46,17 @@ var userNow = `
     <span class="search-memos button d-md-flex pt-3 pb-3 pl-2 pr-2 mr-2">
       <svg xmlns="http://www.w3.org/2000/svg" width="1.15rem" height="1.15rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21l-4.3-4.3"/></g></svg>
     </span>
+    <span class="userlist-memos button d-md-flex pt-3 pb-3 pl-2 pr-2 mr-2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1.25rem" height="1.25rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M14 19a6 6 0 0 0-12 0"/><circle cx="8" cy="9" r="4"/><path d="M22 19a6 6 0 0 0-6-6a4 4 0 1 0 0-8"/></g></svg>
+    </span>
     <span class="randomuser-memos button d-md-flex pt-3 pb-3 pl-2 pr-2 mr-2">
       <svg xmlns="http://www.w3.org/2000/svg" width="1.15rem" height="1.15rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect width="16" height="16" x="4" y="3" rx="2"/><path d="M4 11h16m-8-8v8m-4 8l-2 3m12 0l-2-3m0-4"/></g></svg>
     </span>
-    <span class="back-memos button d-md-flex pt-3 pb-3 pl-2 pr-2 mr-2">
-      <svg class="users-switch" xmlns="http://www.w3.org/2000/svg" width="1.15rem" height="1.15rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M4.9 16.1C1 12.2 1 5.8 4.9 1.9m2.9 2.8a6.14 6.14 0 0 0-.8 7.5"/><circle cx="12" cy="9" r="2"/><path d="M16.2 4.8c2 2 2.26 5.11.8 7.47M19.1 1.9a9.96 9.96 0 0 1 0 14.1m-9.6 2h5M8 22l4-11l4 11"/></g></svg>
-      <svg class="d-none users-refresh" xmlns="http://www.w3.org/2000/svg" width="1.15rem" height="1.15rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M3 12a9 9 0 0 1 9-9a9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5m5 4a9 9 0 0 1-9 9a9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></g></svg>
+    <span class="gobbs-memos button d-md-flex pt-3 pb-3 pl-2 pr-2 mr-2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1.15rem" height="1.15rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M4.9 16.1C1 12.2 1 5.8 4.9 1.9m2.9 2.8a6.14 6.14 0 0 0-.8 7.5"/><circle cx="12" cy="9" r="2"/><path d="M16.2 4.8c2 2 2.26 5.11.8 7.47M19.1 1.9a9.96 9.96 0 0 1 0 14.1m-9.6 2h5M8 22l4-11l4 11"/></g></svg>
+    </span> 
+    <span class="gohome-memos button d-md-flex pt-3 pb-3 pl-2 pr-2 mr-2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1.15rem" height="1.15rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="m3 9l9-7l9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></g></svg>
     </span>
   </div>
 </div>`
@@ -139,6 +144,7 @@ var randomBtn = document.querySelector(".random-btn");
 var switchUserBtn = document.querySelector(".switchUser-btn");
 var loadEditorBtn = document.querySelector(".call-memos-editor");
 var searchBtn = document.querySelector(".search-memos");
+var userlistBtn = document.querySelector(".userlist-memos");
 var randomUserBtn = document.querySelector(".randomuser-memos");
 var submitApiBtn = document.querySelector(".submit-openapi-btn");
 var submitMemoBtn = document.querySelector(".submit-memos-btn");
@@ -155,8 +161,8 @@ var editMemoBtn = document.querySelector(".edit-memos-btn");
 var cancelEditBtn = document.querySelector(".cancel-edit-btn");
 var biaoqingBtn = document.querySelector(".biao-qing-btn");
 var usernowDom = document.querySelector(".user-now");
-var backUserBtn = document.querySelector('.back-memos svg.users-refresh')
-var gotoBbsBtn = document.querySelector('.back-memos svg.users-switch')
+var goHomeBtn = document.querySelector('.gohome-memos')
+var goBbsBtn = document.querySelector('.gobbs-memos')
 
 var memoDom = document.querySelector(memosData.listDom);
 var skeleton = `<div class="el-loading"><div class="el-skeleton mb-3"></div><div class="el-skeleton mb-3"></div><div class="el-skeleton width-50 mb-3"></div><div class="el-skeleton mb-3"></div><div class="el-skeleton mb-3"></div><div class="el-skeleton width-50 mb-3"></div></div>`;
@@ -365,17 +371,19 @@ function memoFollow() {
       });
     for (var i = 0; i < data.length; i++) {
       let memo = data[i];
+      let link = memo.link;
       let memoString = JSON.stringify(memo).replace(/"/g, '&quot;');
       let avatar = memo.avatar;
       let count = memo.count || "";
       let website = memo.website;
+      let creatorId = memo.creatorId;
       let creatorName = memo.creatorName;
       let createdTs = memo.createdTs;
       let memosId = createdTs+memo.id;
       let twikooEnv = memo.twikoo;
       let artalkEnv = memo.artalk;
       let artSite = memo.artSite;
-      let memosLink = memo.link + "/m/" + memo.id;
+      let memosLink = link + "/m/" + memo.id;
       let memosRes = memo.content
         .replace(TAG_REG, "")
         .replace(IMG_REG, "")
@@ -414,7 +422,7 @@ function memoFollow() {
       let memosTag = '';
       if (tagArr) {
         memosTag = tagArr.map(t=>{
-          return `<div class="item-tag d-flex align-items-center text-sm line-xl mr-2 px-2" onclick="getTagNow('${memo.link}','${memo.creatorId}','${memo.creatorName}','${memo.avatar}',this)">${String(t).replace(/[#]/, '')}</div>`;
+          return `<div class="item-tag d-flex align-items-center text-sm line-xl mr-2 px-2" onclick="getTagNow('${link}','${creatorId}','${creatorName}','${avatar}',this)">${String(t).replace(/[#]/, '')}</div>`;
         }).join('');
       }else{
         memosTag = `<div class="item-tag d-flex align-items-center text-sm line-xl mr-2 px-2 no-cursor">动态</div>`;
@@ -450,7 +458,7 @@ function memoFollow() {
         }
       }
       if (memosContType === 0 && randomUser !== 1) {
-        itemOption = `<div class="item-option mr-1"><div class="d-flex dropdown"><svg xmlns="http://www.w3.org/2000/svg" width="1.15rem" height="1.15rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></g></svg><div class="dropdown-wrapper d-none"><a class="btn" onclick="getUserMemos('${memo.link}', '${memo.creatorId}','${memo.creatorName}','${memo.avatar}')">只看他</a>`;
+        itemOption = `<div class="item-option mr-1"><div class="d-flex dropdown"><svg xmlns="http://www.w3.org/2000/svg" width="1.15rem" height="1.15rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></g></svg><div class="dropdown-wrapper d-none"><a class="btn" onclick="getUserMemos('${link}', '${creatorId}','${creatorName}','${avatar}')">只看他</a>`;
         if (memosOpenId) {
           itemOption += `<a class="btn" data-form="${memosFormString}" onclick="transPond(this)">转发</a>`;
         } else {
@@ -469,7 +477,7 @@ function memoFollow() {
         itemContent += `<div class="d-flex flex-fill justify-content-end"></div></div>`;
       }
       itemContent += `</div></div></div>`
-      result += `<div class="memo-${memosId} d-flex animate__animated mb-3"><div class="card-item flex-fill p-3"><div class="item-header d-flex mb-3"><div class="d-flex flex-fill"><div onclick="getUserMemos('${memo.link}', '${memo.creatorId}','${memo.creatorName}','${memo.avatar}')" class="item-avatar mr-3" style="background-image:url(${avatar})"></div><div class="item-sub d-flex flex-column p-1"><div class="item-creator"><a href="${website}" target="_blank">${creatorName}</a></div><div class="item-mate mt-2 text-xs">${new Date(createdTs * 1000).toLocaleString()}</div></div></div>${itemOption}</div>${neodbDom+itemContent}</div></div>`;
+      result += `<div class="memo-${memosId} d-flex animate__animated mb-3"><div class="card-item flex-fill p-3"><div class="item-header d-flex mb-3"><div class="d-flex flex-fill"><div onclick="getUserMemos('${link}', '${creatorId}','${creatorName}','${avatar}')" class="item-avatar mr-3" style="background-image:url(${avatar})"></div><div class="item-sub d-flex flex-column p-1"><div class="item-creator"><a href="${website}" target="_blank">${creatorName}</a></div><div class="item-mate mt-2 text-xs">${new Date(createdTs * 1000).toLocaleString()}</div></div></div>${itemOption}</div>${neodbDom+itemContent}</div></div>`;
     } // end for
 
     memoDom.insertAdjacentHTML('beforeend', result);
@@ -592,19 +600,31 @@ searchBtn.addEventListener("click", function () {
   }
 });
 
+//显示订阅列表
+userlistBtn.addEventListener("click", function () {
+  let userlistDom = document.querySelector(".userlist");
+  if(userlistDom){
+    userlistDom.remove();
+  }else{
+    let userlistDom = `<div class="userlist card-item d-flex flex-wrap mb-3 animate__animated animate__fadeIn">`;
+    for (var i = 0; i < memoList.length; i++) {
+      let nowMemo = memoList[i]
+      userlistDom += `<div onclick="getUserMemos('${nowMemo.link}', '${nowMemo.creatorId}','${nowMemo.creatorName}','${nowMemo.avatar}')" class="item-avatar" style="background-image:url(${nowMemo.avatar})"></div>`
+    }
+    userlistDom += `</div>`;
+    memosDom.insertAdjacentHTML('beforebegin', userlistDom);
+  }
+});
+
 //返回个人主页
-function backUser(){
-  backUserBtn.classList.add("d-none")
-  gotoBbsBtn.classList.remove("d-none")
+function goHome(){
   randomUser = 0;
   getUserMemos(memoList[0].link,memoList[0].creatorId,memoList[0].creatorName,memoList[0].avatar,"")
   cocoMessage.success("Hi， "+memoList[0].creatorName);
 };
 
 //切换为广场模式
-function gotoBbs(){
-  backUserBtn.classList.remove("d-none")
-  gotoBbsBtn.classList.add("d-none")
+function goBbs(){
   getMemos();
   let usernowName = document.querySelector(".user-now-name");
   let usernowAvatar = document.querySelector(".user-now-avatar");
@@ -613,11 +633,11 @@ function gotoBbs(){
   cocoMessage.success("有啥新鲜事儿？");
 };
 
-backUserBtn.addEventListener("click", function () {
-  backUser();
+goHomeBtn.addEventListener("click", function () {
+  goHome();
 });
-gotoBbsBtn.addEventListener("click", function () {
-  gotoBbs()
+goBbsBtn.addEventListener("click", function () {
+  goBbs()
 });
 
 //随机个人
@@ -630,8 +650,6 @@ randomUserBtn.addEventListener("click", function () {
   let randomIndex = Math.floor(Math.random() * (memoList.length +1));
   let userNowData = memoList[randomIndex]
   getUserMemos(userNowData.link,userNowData.creatorId,userNowData.creatorName,userNowData.avatar,"","")
-  backUserBtn.classList.remove("d-none")
-  gotoBbsBtn.classList.add("d-none")
   cocoMessage.success(userNowData.creatorName+" 上线～");
 });
 
@@ -651,8 +669,6 @@ function reloadUser(){
 
 // 获取指定用户列表
 async function getUserMemos(u,i,n,a,t,s) {
-    backUserBtn.classList.add("d-none")
-    gotoBbsBtn.classList.remove("d-none")
     memoDom.innerHTML = skeleton;
     loadBtn.classList.add('d-none');
     memoData = [],memoCreatorMap = {}, page = 1,nums = 0,dataNum = 0,memosContType = 1;
@@ -1314,6 +1330,7 @@ function getEditIcon() {
       let memo = data[i];
       let memoString = JSON.stringify(memo).replace(/"/g, '&quot;');
       let avatar = memo.avatarUrl;
+      let creatorId = memo.creatorId;
       let creatorName = memo.creatorName;
       let createdTs = memo.createdTs;
       let memosId = memo.id;
@@ -1339,7 +1356,7 @@ function getEditIcon() {
       let memosTag = '';
       if (tagArr) {
         memosTag = tagArr.map(t=>{
-          return `<div class="item-tag d-flex align-items-center text-sm line-xl mr-2 px-2" onclick="getTagNow('${memosPath}','${memo.creatorId}','${creatorName}','${avatar}',this)">${String(t).replace(/[#]/, '')}</div>`;
+          return `<div class="item-tag d-flex align-items-center text-sm line-xl mr-2 px-2" onclick="getTagNow('${memosPath}','${creatorId}','${creatorName}','${avatar}',this)">${String(t).replace(/[#]/, '')}</div>`;
         }).join('');
       }else{
         memosTag = `<div class="item-tag d-flex align-items-center text-sm line-xl mr-2 px-2">动态</div>`;
