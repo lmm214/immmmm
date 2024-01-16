@@ -703,3 +703,7 @@ button.button-load{width:98%;margin:0 auto;}
     background: var(--light-background-hover);
     border-radius: 4px
 }
+@media (max-width:480px) {
+	.user-now-name{display:none;}
+	.user-now .row-fill span.mr-2{margin-right:0 !important;}
+}
