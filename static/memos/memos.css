@@ -21,6 +21,12 @@
 	--main-color: #1890ff;
 	--main-hover-color: #40a9ff;
 }
+*, :before, :after {
+	box-sizing: border-box;
+	border-width: 0;
+	border-style: solid;
+	border-color: inherit;
+}
 .container{min-width:320px;max-width:unset;}
 #memo-list a{padding-bottom:0;border-bottom:0;}
 /* title */

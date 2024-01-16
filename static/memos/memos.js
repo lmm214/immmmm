@@ -40,7 +40,7 @@ var memoDefaultList = [
 
 var userNow = `
 <div class="user-now card-item flex-fill mb-3 row">
-  <div class="item-avatar p-3"><img class="call-memos-editor user-now-avatar" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/></div>
+  <div class="call-memos-editor item-avatar p-3 "><img class="user-now-avatar" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/ style="pointer-events: none;"></div>
   <span class="user-now-name"></span>
   <div class="row-fill">
     <span class="search-memos button d-md-flex pt-3 pb-3 pl-2 pr-2 mr-2">
@@ -155,6 +155,8 @@ var editMemoBtn = document.querySelector(".edit-memos-btn");
 var cancelEditBtn = document.querySelector(".cancel-edit-btn");
 var biaoqingBtn = document.querySelector(".biao-qing-btn");
 var usernowDom = document.querySelector(".user-now");
+var backUserBtn = document.querySelector('.back-memos svg.users-refresh')
+var gotoBbsBtn = document.querySelector('.back-memos svg.users-switch')
 
 var memoDom = document.querySelector(memosData.listDom);
 var skeleton = `<div class="el-loading"><div class="el-skeleton mb-3"></div><div class="el-skeleton mb-3"></div><div class="el-skeleton width-50 mb-3"></div><div class="el-skeleton mb-3"></div><div class="el-skeleton mb-3"></div><div class="el-skeleton width-50 mb-3"></div></div>`;
@@ -183,15 +185,30 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", async () => {
-  try {
-    memoList = await getMemoListData(); // 获取自定义列表
-  } catch (error) {
-    memoList = memoDefaultList
-    console.error('load memoDefaultList');
+  // 获取自定义列表
+  if(typeof memosJson !== 'undefined'){
+    try {
+      memoList = await getMemoListData(memosJson.url); // 获取自定义列表
+    } catch (error) {
+      memoList = memoDefaultList
+    }
+  }else{
+    try {
+      memoList = await getMemoListData('../memos/memos.json'); // 获取自定义列表
+    } catch (error) {
+      memoList = memoDefaultList
+    }
   }
   memoFollow();
   getEditIcon();
 });
+
+// 获取自定义 memos.json 订阅列表
+async function getMemoListData(url) {
+  const response = await fetch(url);
+  const data = await response.json();
+  return data.myMemoList
+}
 
 function memoFollow() {
   //getMemos();
@@ -203,26 +220,6 @@ function memoFollow() {
     }
     updateData(memoData)
     cocoMessage.success("加载中");
-  });
-
-  var titleDom = document.querySelector('.back-memos');
-  titleDom.addEventListener("click", function () {
-    let backSVG = document.querySelectorAll('.back-memos svg')
-    for(const nowSVG of backSVG){
-      nowSVG.classList.toggle("d-none");
-    }
-    if(memosContType == 1) {
-      getMemos();
-      let usernowName = document.querySelector(".user-now-name");
-      let usernowAvatar = document.querySelector(".user-now-avatar");
-      usernowName.innerHTML = ""
-      usernowAvatar.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-      cocoMessage.success("有啥新鲜事儿？");
-    }else{
-      randomUser = 0;
-      getUserMemos(memoList[0].link,memoList[0].creatorId,memoList[0].creatorName,memoList[0].avatar,"")
-      cocoMessage.success("返回 "+memoList[0].creatorName+" 的 Memos");
-    }
   });
 
   async function getMemoCount(m) {
@@ -398,11 +395,10 @@ function memoFollow() {
       let memosFormString = JSON.stringify(memosForm).replace(/"/g, '&quot;');
 
       //解析 content 内 md 格式图片
-      let loadUrl = memosData.loadUrl;
       let imgArr = memo.content.match(IMG_REG);
       let imgStr = String(imgArr).replace(/[,]/g, '');
       if (imgArr) {
-          let memosImg = imgStr.replace(IMG_REG, `<div class="memo-resource width-100"><img class="lozad" src="${loadUrl}" data-src="$2"></div>`)
+          let memosImg = imgStr.replace(IMG_REG, `<div class="memo-resource width-100"><img class="lozad" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="$2"></div>`)
           memosRes += `<div class="resource-wrapper"><div class="images-wrapper my-2">${memosImg}</div></div>`
       }
       // NeoDB
@@ -439,7 +435,7 @@ function memoFollow() {
                 imgLink = `${memo.link}/o/r/${resourceList[j].id}/${fileId}`;
             }
           if (restype == 'image') {
-            imgUrl += `<div class="memo-resource w-100"><img class="lozad" src="${loadUrl}" data-src="${imgLink}"/></div>`;
+            imgUrl += `<div class="memo-resource w-100"><img class="lozad" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="${imgLink}"/></div>`;
             resImgLength = resImgLength + 1
           }
           if (restype !== 'image') {
@@ -595,6 +591,35 @@ searchBtn.addEventListener("click", function () {
     }
   }
 });
+
+//返回个人主页
+function backUser(){
+  backUserBtn.classList.add("d-none")
+  gotoBbsBtn.classList.remove("d-none")
+  randomUser = 0;
+  getUserMemos(memoList[0].link,memoList[0].creatorId,memoList[0].creatorName,memoList[0].avatar,"")
+  cocoMessage.success("Hi， "+memoList[0].creatorName);
+};
+
+//切换为广场模式
+function gotoBbs(){
+  backUserBtn.classList.remove("d-none")
+  gotoBbsBtn.classList.add("d-none")
+  getMemos();
+  let usernowName = document.querySelector(".user-now-name");
+  let usernowAvatar = document.querySelector(".user-now-avatar");
+  usernowName.innerHTML = ""
+  usernowAvatar.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+  cocoMessage.success("有啥新鲜事儿？");
+};
+
+backUserBtn.addEventListener("click", function () {
+  backUser();
+});
+gotoBbsBtn.addEventListener("click", function () {
+  gotoBbs()
+});
+
 //随机个人
 randomUserBtn.addEventListener("click", function () {
   randomUser = 1;
@@ -605,9 +630,12 @@ randomUserBtn.addEventListener("click", function () {
   let randomIndex = Math.floor(Math.random() * (memoList.length +1));
   let userNowData = memoList[randomIndex]
   getUserMemos(userNowData.link,userNowData.creatorId,userNowData.creatorName,userNowData.avatar,"","")
-  cocoMessage.success("有缘人呢？哦，是：  "+userNowData.creatorName);
+  backUserBtn.classList.remove("d-none")
+  gotoBbsBtn.classList.add("d-none")
+  cocoMessage.success(userNowData.creatorName+" 上线～");
 });
-//重载 reloadUser()
+
+//重载当前 user
 function reloadUser(){
   let tagnowHas = document.querySelector(".memos-tagnow") || ''
   if(tagnowHas) tagnowHas.remove();
@@ -623,8 +651,8 @@ function reloadUser(){
 
 // 获取指定用户列表
 async function getUserMemos(u,i,n,a,t,s) {
-    document.querySelector('.back-memos svg.users-refresh').classList.add("d-none")
-    document.querySelector('.back-memos svg.users-switch').classList.remove("d-none")
+    backUserBtn.classList.add("d-none")
+    gotoBbsBtn.classList.remove("d-none")
     memoDom.innerHTML = skeleton;
     loadBtn.classList.add('d-none');
     memoData = [],memoCreatorMap = {}, page = 1,nums = 0,dataNum = 0,memosContType = 1;
@@ -1300,11 +1328,10 @@ function getEditIcon() {
         .replace(QQMUSIC_REG, `<meting-js auto="https://y.qq.com/n/yqq/song$1.html"></meting-js>`)
       
       //解析 content 内 md 格式图片
-      let loadUrl = memosData.loadUrl;
       let imgArr = memo.content.match(IMG_REG);
       let imgStr = String(imgArr).replace(/[,]/g, '');
       if (imgArr) {
-        let memosImg = imgStr.replace(IMG_REG, `<div class="memo-resource width-100"><img class="lozad" src="${loadUrl}" data-src="$2"></div>`);
+        let memosImg = imgStr.replace(IMG_REG, `<div class="memo-resource width-100"><img class="lozad" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="$2"></div>`);
         memosRes += `<div class="resource-wrapper"><div class="images-wrapper my-2">${memosImg}</div></div>`;        
       }
       
@@ -1408,13 +1435,6 @@ function deleteImage(e){
     window.localStorage && window.localStorage.setItem("memos-resource-list",  JSON.stringify(memosResourceList));
     e.remove()
   } 
-}
-
-// 获取自定义 memos.json 订阅列表
-async function getMemoListData() {
-  const response = await fetch('../memos/memos.json');
-  const data = await response.json();
-  return data.myMemoList
 }
 
 // 获取 owo.json 文件中的数据

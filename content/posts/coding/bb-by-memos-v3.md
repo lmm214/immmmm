@@ -24,17 +24,18 @@ feature: https://r2.immmmm.com/2024/01/bbv3.png.webp
 - 支持点击顶部左侧头像位置，显示 Memos 发布框；
 - 支持点选 emoji ，新增多个实用快捷输入按钮；
 - 支持对自己的 memo 编辑、归档、删除，包括随机显示的；
+- 支持 twikoo、artalk 评论数调取，仅个人页面；
 - 更多内容客观细品，小弟修 Bug 中。
 
 ### 折腾说明
 
-单页面源码：[memos-html-230116.zip](https://r2m.immmmm.com/memos/2024/01/memos-html-230116.zip)
+### 主题集成
 
-其中 `memos.js` 代码中设置了优先加载本地路径的 `../memos/memos.json` 文件作为广场模式下的加载列表，具体格式看文件 [memos.json](https://immmmm.com/memos/memos.json)。
+#### memos.json
 
-默认第一条信息为主页，所以下载后需要修改为自己的（先搜索一下，有的话前移到第一条），这样方便我们自定义维护，同时又不需要修改功能代码。
+下载 [memos.json](https://immmmm.com/memos/memos.json)，编辑第一条为自己的信息（先搜索一下，有的话前移到第一条），然后丢入本地路径 `../memos/memos.json` （注：Hugo 是把这个 json 文件丢入到 `static/memos/` 内。）
 
-注：Hugo 是把这个 json 文件丢入到 `static/memos/` 内。
+第一条为个人主页，之后的作为广场模式的加载列表：
 
 ```
 {
@@ -52,7 +53,19 @@ feature: https://r2.immmmm.com/2024/01/bbv3.png.webp
             "website": "https://nuoea.com/",
 ```
 
-### 主题集成
+用这个 json 文件用来管理维护订阅列表，这样就不需要修改 js 文件。
+
+#### 【可选】指定 memos.json 的 url
+
+当然也支持指定 json 的加载 url，方便丢云上～
+
+```
+<script type="text/javascript">
+  var memosJson = {
+    url : "https://immmmm.com/memos/memos.json"
+  }
+</script>
+```
 
 #### HTML
 
@@ -68,7 +81,7 @@ feature: https://r2.immmmm.com/2024/01/bbv3.png.webp
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.7.3/ArtalkLite.css" rel="stylesheet">
 <link rel="stylesheet" href="https://immmmm.com/memos/grid.css">
-<link rel="stylesheet" href="https://immmmm.com/memos/memos.css?v=20240116">
+<link rel="stylesheet" href="https://immmmm.com/memos/memos.css">
 ```
 
 #### JS
@@ -80,6 +93,6 @@ feature: https://r2.immmmm.com/2024/01/bbv3.png.webp
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/meting/2.0.1/Meting.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js"></script>
-<script src="https://immmmm.com/memos/memos.js?v=20240116"></script>
+<script src="https://immmmm.com/memos/memos.js"></script>
 ```
 
