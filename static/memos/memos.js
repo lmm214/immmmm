@@ -668,6 +668,10 @@ async function getUserMemos(u,i,n,a,t,s) {
     loadBtn.classList.add('d-none');
     memoData = [],memoCreatorMap = {}, page = 1,nums = 0,dataNum = 0,memosContType = 1;
     memosPath = window.localStorage && window.localStorage.getItem("memos-access-path");
+    let usernowName = document.querySelector(".user-now-name");
+    let usernowAvatar = document.querySelector(".user-now-avatar");
+    usernowName.innerHTML = n;
+    usernowAvatar.src = a;
     if (u == memosPath) {
       memosAccess = 1;
     };
@@ -679,32 +683,58 @@ async function getUserMemos(u,i,n,a,t,s) {
     }else{
       userMemoUrl = `${u}/api/v1/memo?creatorId=${i}&rowStatus=NORMAL&limit=50`;
     }
-    try {
-      let response = await fetch(userMemoUrl);
-      if (!response.ok) {
-        throw new Error(response.statusText);
-      }
-      let data = await response.json();
-      memoData = data.flatMap(result => result);
-      memoList.forEach(item => {
-        memoCreatorMap[item.creatorName] = item;
-      });
-      memoData = memoData.map(item => {
-        let data = memoCreatorMap[item.creatorName];
-        return {...item, ...data};
-      });
-      memoData = await this.getMemoCount(memoData);
-      memoDom.innerHTML = "";
-      let usernowName = document.querySelector(".user-now-name");
-      let usernowAvatar = document.querySelector(".user-now-avatar");
-      usernowName.innerHTML = n;
-      usernowAvatar.src = a;
-      this.updateData(memoData);
-      setTimeout(function() {
-        loadBtn.classList.remove('d-none');
-      }, 1000);
-    } catch (error) {
-      console.error(error);
+    if (u == memosPath) {
+        try {
+          let response = await fetch(userMemoUrl,
+              headers: {
+                'Authorization': `Bearer ${memosOpenId}`,
+                'Content-Type': 'application/json'
+              });
+          if (!response.ok) {
+            throw new Error(response.statusText);
+          }
+          let data = await response.json();
+          memoData = data.flatMap(result => result);
+          memoList.forEach(item => {
+            memoCreatorMap[item.creatorName] = item;
+          });
+          memoData = memoData.map(item => {
+            let data = memoCreatorMap[item.creatorName];
+            return {...item, ...data};
+          });
+          memoData = await this.getMemoCount(memoData);
+          memoDom.innerHTML = "";
+          this.updateData(memoData);
+          setTimeout(function() {
+            loadBtn.classList.remove('d-none');
+          }, 1000);
+        } catch (error) {
+          console.error(error);
+        }
+    }else{
+        try {
+          let response = await fetch(userMemoUrl);
+          if (!response.ok) {
+            throw new Error(response.statusText);
+          }
+          let data = await response.json();
+          memoData = data.flatMap(result => result);
+          memoList.forEach(item => {
+            memoCreatorMap[item.creatorName] = item;
+          });
+          memoData = memoData.map(item => {
+            let data = memoCreatorMap[item.creatorName];
+            return {...item, ...data};
+          });
+          memoData = await this.getMemoCount(memoData);
+          memoDom.innerHTML = "";
+          this.updateData(memoData);
+          setTimeout(function() {
+            loadBtn.classList.remove('d-none');
+          }, 1000);
+        } catch (error) {
+          console.error(error);
+        }
     }
     setTimeout(function() {
       window.scrollTo({
