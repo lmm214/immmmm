@@ -210,15 +210,15 @@ pre code {
 code {
 	margin: 0 4px;
 	padding: 3px 8px 2px;
-	border: 1px solid #b8e0f3;
+	border: 1px solid var(--light-color-secondary);
 	border-radius: .33rem;
-	background-color: #e6f7ff;
+	background-color: var(--light-background-secondary);
 	vertical-align: middle;
 	font-size: .75rem;
 }
 
 .dark code {
-	border: 1px solid var(--dark-border-color);
+	border: 1px solid var(--dark-color-secondary);
 	background-color: var(--dark-background-secondary);
 }
 
