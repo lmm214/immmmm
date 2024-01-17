@@ -700,7 +700,8 @@ async function getUserMemos(u,i,n,a,t,s) {
               headers: {
                 'Authorization': `Bearer ${memosOpenId}`,
                 'Content-Type': 'application/json'
-              }
+              },
+              cache: 'no-store',
           });
           if (!response.ok) {
             throw new Error(response.statusText);
