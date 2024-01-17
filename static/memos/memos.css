@@ -27,7 +27,7 @@
 	border-style: solid;
 	border-color: inherit;
 }
-.container{min-width:320px;max-width:unset;}
+.container{min-width:320px;}
 #memo-list a{padding-bottom:0;border-bottom:0;}
 /* title */
 a.primary {
