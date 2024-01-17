@@ -192,18 +192,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", async () => {
   // 获取自定义列表
-  if(typeof memosJson !== 'undefined'){
+  if(typeof memosMyJson !== 'undefined'){
     try {
-      memoList = await getMemoListData(memosJson.url); // 获取自定义列表
+      memoOurList = await getMemoListData(memosJson.url); // 获取自定义列表
     } catch (error) {
-      memoList = memoDefaultList
+      memoOurList = memoDefaultList
     }
   }else{
     try {
-      memoList = await getMemoListData('../memos/memos.json'); // 获取自定义列表
+      memoOurList = await getMemoListData('../memos/memos.json'); // 获取自定义列表
     } catch (error) {
-      memoList = memoDefaultList
+      memoOurList = memoDefaultList
     }
+  }
+  if(typeof memosMyList !== 'undefined'){
+    const mergedArray = [...memosMyList, ...memoOurList];
+    memoList = mergedArray.filter((item, index) => {
+      const stringifiedItem = JSON.stringify(item);
+      return index === mergedArray.findIndex(obj => {
+        return JSON.stringify(obj) === stringifiedItem;
+      });
+    });
+  }else{
+    memoList = memoOurList
   }
   memoFollow();
   getEditIcon();
