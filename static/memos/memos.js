@@ -1209,6 +1209,9 @@ function getEditIcon() {
           cocoMessage.success(
             '发送成功',
             () => {
+		window.localStorage && window.localStorage.removeItem("memos-resource-list");
+		window.localStorage && window.localStorage.removeItem("memos-relation-list");
+		memosTextarea.value = '';
 	        getUserMemos(memoList[0].link,memoList[0].creatorId,memoList[0].creatorName,memoList[0].avatar,"")
             })
         }
