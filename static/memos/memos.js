@@ -1138,11 +1138,12 @@ function getEditIcon() {
     try {
       let randomNum = random(0,memosCount);
       let randomUrl = `${memosPath}/api/v1/memo/all?&limit=1&offset=${randomNum}`;
-      let res = await fetch(randomUrl,
-        headers: {
-          'Authorization': `Bearer ${memosOpenId}`,
-          'Content-Type': 'application/json'
-        });
+      let res = await fetch(randomUrl,{
+              headers: {
+                'Authorization': `Bearer ${memosOpenId}`,
+                'Content-Type': 'application/json'
+              }
+          });
       if (res.ok) {
         let resdata = await res.json();
         updateAvatarUrl(resdata);
