@@ -283,16 +283,7 @@
     "link" : "https://memos.kouseki.cn",
     "creatorId" : "1",
     "twikoo" : "https://api-twi.kouseki.cn",
-    "avatar": "https://cravatar.cn/avatar/23978e8e57e20163e8cb67bbf9dbe907.jpeg?s=400"
-  },{
-    "creatorName": "小赵同学",
-    "website" : "https://usj.cc",
-    "link" : "https://memos.usj.cc",
-    "creatorId" : "1",
-    "artalk" : "https://artalk.usj.cc",
-    "artSite" : "优世界",
-    "avatar": "https://cravatar.cn/avatar/1cce0a22c2c7648eab76ec876c6a54d9.jpeg?s=400"
-  },{
+    "avatar": "https://cravatar.cn/avatar/23978e8e57e20163e8cb67bbf9dbe907.jpeg?s=400",{
     "creatorName": "Cheman",
     "website" : "https://blog.xlap.top",
     "link" : "https://api.mm.xlap.top",
