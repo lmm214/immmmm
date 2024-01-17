@@ -912,7 +912,7 @@ function setMemoTag(e){
 }
 //归档
 function archiveMemo(memoId) {
-  let isOk = confirm("确认删除？");
+  let isOk = confirm("确认归档？");
   if(isOk){
     memosOpenId = window.localStorage && window.localStorage.getItem("memos-access-token");
     if(memosOpenId && memoId){
