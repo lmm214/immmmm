@@ -576,12 +576,12 @@ async function getMemos(search) {
   setTimeout(function() {
     loadBtn.classList.remove('d-none');
   }, 1000);
-  setTimeout(function() {
+  //setTimeout(function() {
     window.scrollTo({
       top: usernowDom.offsetTop - 20,
       behavior: "smooth"
     });
-  }, 800);
+  //}, 800);
 }
 //搜索 Memo
 searchBtn.addEventListener("click", function () {
@@ -699,9 +699,9 @@ async function getUserMemos(u,i,n,a,t,s) {
           let response = await fetch(userMemoUrl,{
               headers: {
                 'Authorization': `Bearer ${memosOpenId}`,
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
               },
-              cache: 'no-store',
+              cache: 'no-cache',
           });
           if (!response.ok) {
             throw new Error(response.statusText);
@@ -749,12 +749,12 @@ async function getUserMemos(u,i,n,a,t,s) {
           console.error(error);
         }
     }
-    setTimeout(function() {
+    //setTimeout(function() {
       window.scrollTo({
         top: usernowDom.offsetTop - 20,
         behavior: "smooth"
       });
-    }, 800);
+    //}, 800);
 }
 // Fetch NeoDB
 async function fetchNeoDB(url){
