@@ -685,11 +685,12 @@ async function getUserMemos(u,i,n,a,t,s) {
     }
     if (u == memosPath) {
         try {
-          let response = await fetch(userMemoUrl,
+          let response = await fetch(userMemoUrl,{
               headers: {
                 'Authorization': `Bearer ${memosOpenId}`,
                 'Content-Type': 'application/json'
-              });
+              }
+          });
           if (!response.ok) {
             throw new Error(response.statusText);
           }
