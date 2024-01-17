@@ -880,7 +880,7 @@ function editMemo(memo) {
           ()=>{
             submitMemoBtn.classList.remove("d-none");
             editMemoDom.classList.add("d-none");
-            location.reload();
+            getUserMemos(memoList[0].link,memoList[0].creatorId,memoList[0].creatorName,memoList[0].avatar,"")
           })
         }
       })
@@ -930,7 +930,7 @@ function archiveMemo(memoId) {
           cocoMessage.success(
           '归档成功',
           ()=>{
-            location.reload();
+            getUserMemos(memoList[0].link,memoList[0].creatorId,memoList[0].creatorName,memoList[0].avatar,"")
           })
         }
       })
@@ -956,7 +956,7 @@ function deleteMemo(memoId) {
           cocoMessage.success(
           '删除成功',
           ()=>{
-            location.reload();
+            getUserMemos(memoList[0].link,memoList[0].creatorId,memoList[0].creatorName,memoList[0].avatar,"")
           })
         }
       }).catch(err => {
@@ -1209,7 +1209,7 @@ function getEditIcon() {
           cocoMessage.success(
             '发送成功',
             () => {
-              location.reload();
+	        getUserMemos(memoList[0].link,memoList[0].creatorId,memoList[0].creatorName,memoList[0].avatar,"")
             })
         }
       });
@@ -1283,7 +1283,7 @@ function getEditIcon() {
           cocoMessage.success('保存成功', () => {
             memosPath = window.localStorage && window.localStorage.getItem("memos-access-path");
             memosOpenId = window.localStorage && window.localStorage.getItem("memos-access-token");
-            location.reload();
+            getUserMemos(memoList[0].link,memoList[0].creatorId,memoList[0].creatorName,memoList[0].avatar,"")
             hasMemosOpenId();
           });
         }
