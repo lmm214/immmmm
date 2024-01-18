@@ -71,6 +71,8 @@ button,a {
 	background: var(--dark-background-secondary);
 	color: inherit;
 }
+.user-now .button{border-radius: unset;}
+.user-now .button:hover,.user-now .button.current{border-bottom: 3px solid var(--light-background);}
 .dark .user-now .button{background: transparent;}
 
 .button.outline,
