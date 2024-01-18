@@ -122,7 +122,7 @@ var memosEditorCont = `
     </div>
     <div class="memos-editor-option animate__animated animate__fadeIn d-none">
       <div class="row flex-fill mr-3 p-2">
-        <input name="memos-path-url" class="memos-path-input input-text col-6" type="text" value="" placeholder="Memo 网址（最后无斜杠）">
+        <input name="memos-path-url" class="memos-path-input input-text col-6" type="text" value="" placeholder="Memo 网址">
         <input name="memos-token-url" class="memos-token-input input-text col-6" type="text" value="" placeholder="Access Tokens">
       </div>
       <button class="primary submit-openapi-btn px-3 py-2">保存</button>
@@ -725,8 +725,9 @@ async function getUserMemos(u,i,n,a,t,s) {
               headers: {
                 'Authorization': `Bearer ${memosOpenId}`,
                 'Content-Type': 'application/json',
+                'Cache-Control': 'no-cache',
               },
-              cache: 'no-cache',
+              cache: 'no-store',
           });
           if (!response.ok) {
             throw new Error(response.statusText);
@@ -898,65 +899,55 @@ function transPond(item){
 //修改
 function editMemo(memo) {
   let e = JSON.parse(memo.getAttribute("data-form"));
-  let memoContent = e.content,memoId = e.id,memoRelationList = e.relationList,memoResourceList = e.resourceList,memoVisibility = e.visibility;
+  window.localStorage && window.localStorage.setItem("memos-editor-dataform",JSON.stringify(e)),
   getEditor = window.localStorage && window.localStorage.getItem("memos-editor-display"),
   memosOpenId = window.localStorage && window.localStorage.getItem("memos-access-token");
   if(memosOpenId && getEditor == "show"){
-    memosTextarea.value = memoContent;
+    memosTextarea.value = e.content;
     memosTextarea.style.height = memosTextarea.scrollHeight + 'px';
     submitMemoBtn.classList.add("d-none");
     editMemoDom.classList.remove("d-none");
     document.body.scrollIntoView({behavior: 'smooth'});
   }
-  editMemoBtn.addEventListener("click", function () {
-    memosOpenId = window.localStorage && window.localStorage.getItem("memos-access-token"),
-    memoContent = memosTextarea.value,
-    memoResourceList = window.localStorage && JSON.parse(window.localStorage.getItem("memos-resource-list")) ? window.localStorage && JSON.parse(window.localStorage.getItem("memos-resource-list")) : e.resourceList,
-    memoVisibility = memosVisibilitySelect.value;
-    let TAG_REG = /(?<=#)([^#\s!.,;:?"'()]+)(?= )/g;
-    let memosTag = memoContent.match(TAG_REG);
-    let hasContent = memoContent.length !== 0;
-    if (hasContent) {
-      let memoUrl = `${memosPath}/api/v1/memo/${memoId}`;
-      let memoBody = {content:memoContent,id:memoId,relationList:memoRelationList,resourceList:memoResourceList,visibility:memoVisibility}
-      fetch(memoUrl, {
-        method: 'PATCH',
-        body: JSON.stringify(memoBody),
-        headers: {
-          'Authorization': `Bearer ${memosOpenId}`,
-          'Content-Type': 'application/json'
-        }
-      }).then(function(res) {
-        if (res.ok) {
-          if (memosTag !== null) {
-            let memoTagUrl = `${memosPath}/api/v1/tag`;
-            (async () => {
-              for await (let i of memosTag) {
-                let response = await fetch(memoTagUrl, {
-                  method: 'POST',
-                  headers: {
-                    'Authorization': `Bearer ${memosOpenId}`,
-                    'Content-Type': 'application/json'
-                  },
-                  body: JSON.stringify({
-                    name: i
-                  })
-                });
-              }
-            })();
-          }
-          cocoMessage.success(
-          '保存成功',
-          ()=>{
-            submitMemoBtn.classList.remove("d-none");
-            editMemoDom.classList.add("d-none");
-            getUserMemos(memoList[0].link,memoList[0].creatorId,memoList[0].creatorName,memoList[0].avatar,"")
-          })
-        }
-      })
-    }
-  })
 }
+
+editMemoBtn.addEventListener("click", function () {
+  let dataformNow = JSON.parse(window.localStorage && window.localStorage.getItem("memos-editor-dataform"));
+  let memoId = dataformNow.id,memoRelationList = dataformNow.relationList,memoResourceList = dataformNow.resourceList,memoVisibility = dataformNow.visibility;
+  memosOpenId = window.localStorage && window.localStorage.getItem("memos-access-token"),
+  memoContent = memosTextarea.value,
+  memoResourceList = window.localStorage && JSON.parse(window.localStorage.getItem("memos-resource-list")) ? window.localStorage && JSON.parse(window.localStorage.getItem("memos-resource-list")) : memoResourceList,
+  memoVisibility = memosVisibilitySelect.value;
+  let hasContent = memoContent.length !== 0;
+  if (hasContent) {
+    let memoUrl = `${memosPath}/api/v1/memo/${memoId}`;
+    let memoBody = {content:memoContent,id:memoId,relationList:memoRelationList,resourceList:memoResourceList,visibility:memoVisibility}
+    fetch(memoUrl, {
+      method: 'PATCH',
+      body: JSON.stringify(memoBody),
+      headers: {
+        'Authorization': `Bearer ${memosOpenId}`,
+        'Content-Type': 'application/json'
+      }
+    }).then(function(res) {
+      if (res.ok) {
+        cocoMessage.success(
+        '修改成功',
+        ()=>{
+          submitMemoBtn.classList.remove("d-none");
+          editMemoDom.classList.add("d-none");
+          document.querySelector(".memos-image-list").innerHTML = '';
+          window.localStorage && window.localStorage.removeItem("memos-resource-list");
+          window.localStorage && window.localStorage.removeItem("memos-relation-list");
+          memosTextarea.value = '';
+          memosTextarea.style.height = 'inherit';
+          window.localStorage && window.localStorage.removeItem("memos-editor-dataform");
+          getUserMemos(memoList[0].link,memoList[0].creatorId,memoList[0].creatorName,memoList[0].avatar,"")
+        })
+      }
+    })
+  }
+})
 
 cancelEditBtn.addEventListener("click", function () {
   if (!editMemoDom.classList.contains("d-none")) {
@@ -1241,7 +1232,13 @@ function getEditIcon() {
     }else if(pathInput.value == null || pathInput.value == ''){
       cocoMessage.info('请输入Path');
     }else{
-      getMemosData(pathInput.value,tokenInput.value);
+      let pathValue;
+      if (pathInput.value.substr(-1) === '/') {
+        pathValue = pathInput.value.substr(0, str.length - 1);
+      }else{
+        pathValue = pathInput.value
+      }
+      getMemosData(pathValue,tokenInput.value);
     }
   });
 
