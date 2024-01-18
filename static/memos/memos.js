@@ -102,7 +102,7 @@ var memosEditorCont = `
       <div class="memos-editor-footer border-t mt-2 pt-2 ">
         <div class="d-flex">
           <div class="editor-selector select outline">
-            <select class="select-memos-value pl-2 pr-4 py-2"><option value="PUBLIC">所有人可见</option><option value="PROTECTED">仅登录可见</option><option value="PRIVATE">仅自己可见</option></select>
+            <select class="select-memos-value pl-2 pr-4 py-2"><option value="PUBLIC">公开</option><option value="PROTECTED">站内</option><option value="PRIVATE">私有</option></select>
           </div>
           <div class="button outline random-btn mx-2 p-2">
             <svg xmlns="http://www.w3.org/2000/svg" width=".9rem" height=".9rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22"/><path d="m18 2l4 4l-4 4M2 6h1.9c1.5 0 2.9.9 3.6 2.2M22 18h-5.9c-1.3 0-2.6-.7-3.3-1.8l-.5-.8"/><path d="m18 14l4 4l-4 4"/></g></svg>
@@ -592,6 +592,7 @@ async function getMemos(search) {
       behavior: "smooth"
     });
   //}, 800);
+  goBbsBtn.classList.remove("noclick")
 }
 //搜索 Memo
 searchBtn.addEventListener("click", function () {
@@ -634,22 +635,26 @@ userlistBtn.addEventListener("click", function () {
 
 //返回个人主页
 function goHome(){
+  goHomeBtn.classList.add("noclick")
   goHomeBtn.classList.add("current")
   goBbsBtn.classList.remove("current")
   randomUser = 0;
   getUserMemos(memoList[0].link,memoList[0].creatorId,memoList[0].creatorName,memoList[0].avatar,"")
+  //goHomeBtn.classList.remove("noclick")
   cocoMessage.success("Hi， "+memoList[0].creatorName);
 };
 
 //切换为广场模式
 function goBbs(){
+  goBbsBtn.classList.add("noclick")
   goHomeBtn.classList.remove("current")
   goBbsBtn.classList.add("current")
   getMemos();
   let usernowName = document.querySelector(".user-now-name");
   let usernowAvatar = document.querySelector(".user-now-avatar");
-  usernowName.innerHTML = ""
-  usernowAvatar.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+  usernowName.innerHTML = "";
+  usernowAvatar.src = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
+  //goBbsBtn.classList.remove("noclick")
   cocoMessage.success("有啥新鲜事儿？");
 };
 
@@ -693,6 +698,7 @@ function reloadUser(){
 async function getUserMemos(u,i,n,a,t,s) {
     memoDom.innerHTML = skeleton;
     loadBtn.classList.add('d-none');
+    randomUserBtn.classList.add("noclick")
     memoData = [],memoCreatorMap = {}, page = 1,nums = 0,dataNum = 0,memosContType = 1;
     memosPath = window.localStorage && window.localStorage.getItem("memos-access-path");
     let usernowName = document.querySelector(".user-now-name");
@@ -765,12 +771,14 @@ async function getUserMemos(u,i,n,a,t,s) {
           console.error(error);
         }
     }
-    //setTimeout(function() {
-      window.scrollTo({
-        top: usernowDom.offsetTop - 20,
-        behavior: "smooth"
-      });
-    //}, 800);
+    setTimeout(function() {
+      goHomeBtn.classList.remove("noclick")
+      randomUserBtn.classList.remove("noclick")
+    }, 800);
+    window.scrollTo({
+      top: usernowDom.offsetTop - 20,
+      behavior: "smooth"
+    });
 }
 // Fetch NeoDB
 async function fetchNeoDB(url){
@@ -1187,6 +1195,7 @@ function getEditIcon() {
     let filesData = uploadImageInput.files[0];
     if (uploadImageInput.files.length !== 0){
       uploadImage(filesData);
+      cocoMessage.info('图片上传中……');
     }
   });
 
@@ -1234,6 +1243,7 @@ function getEditIcon() {
   });
 
   submitMemoBtn.addEventListener("click", function () {
+    submitMemoBtn.classList.add("noclick")
     memosContent = memosTextarea.value;
     memosVisibility = memosVisibilitySelect.value;
     memosResource = window.localStorage && JSON.parse(window.localStorage.getItem("memos-resource-list"));
@@ -1273,10 +1283,12 @@ function getEditIcon() {
           cocoMessage.success(
             '发送成功',
             () => {
-		window.localStorage && window.localStorage.removeItem("memos-resource-list");
-		window.localStorage && window.localStorage.removeItem("memos-relation-list");
-		memosTextarea.value = '';
-	        getUserMemos(memoList[0].link,memoList[0].creatorId,memoList[0].creatorName,memoList[0].avatar,"")
+              submitMemoBtn.classList.remove("noclick")
+              document.querySelector(".memos-image-list").innerHTML = '';
+              window.localStorage && window.localStorage.removeItem("memos-resource-list");
+              window.localStorage && window.localStorage.removeItem("memos-relation-list");
+              memosTextarea.value = '';
+              getUserMemos(memoList[0].link,memoList[0].creatorId,memoList[0].creatorName,memoList[0].avatar,"")
             })
         }
       });
@@ -1350,7 +1362,8 @@ function getEditIcon() {
           cocoMessage.success('保存成功', () => {
             memosPath = window.localStorage && window.localStorage.getItem("memos-access-path");
             memosOpenId = window.localStorage && window.localStorage.getItem("memos-access-token");
-            getUserMemos(memoList[0].link,memoList[0].creatorId,memoList[0].creatorName,memoList[0].avatar,"")
+            location.reload();
+            //getUserMemos(memoList[0].link,memoList[0].creatorId,memoList[0].creatorName,memoList[0].avatar,"")
             hasMemosOpenId();
           });
         }
@@ -1530,248 +1543,7 @@ function deleteImage(e){
 // 获取 owo.json 文件中的数据
 let emojiSelectorVisible = false;
 let emojiSelector;
-let emojis = [
-  {  
-    "icon": "😂",
-    "text": "哭笑不得"
-  },
-  {
-    "icon": "😎",
-    "text": "酷"
-  },
-  {
-    "icon": "😏",
-    "text": "坏笑"
-  },
-  {
-    "icon": "😅",
-    "text": "流汗"
-  },
-  {
-    "icon": "😄",
-    "text": "笑"
-  },
-  {
-    "icon": "😜",
-    "text": "调皮"
-  },
-  {
-    "icon": "🤣",
-    "text": "笑倒"
-  },
-  {
-    "icon": "😭",
-    "text": "大哭"
-  },
-  {
-    "icon": "🙄",
-    "text": "白眼"
-  },
-  {
-    "icon": "🤐",
-    "text": "嘘"
-  },
-  {
-    "icon": "😋",
-    "text": "美食脸"
-  },
-  {
-    "icon": "🥶",
-    "text": "冰冻"
-  },
-  {
-    "icon": "🥵",
-    "text": "热"
-  },
-    {
-    "icon": "😴",
-    "text": "睡觉"
-  },
-  {
-    "icon": "🤧",
-    "text": "打喷嚏"
-  },
-  {
-    "icon": "🍉",
-    "text": "西瓜"
-  },
-  {
-    "icon": "😱",
-    "text": "惊恐"
-  },
-  {
-    "icon": "👋",
-    "text": "招手"
-  },
-  {
-    "icon": "🔨",
-    "text": "锤子"
-  },
-  {
-    "icon": "🐶",
-    "text": "小狗"
-  },
-  {
-    "icon": "👏",
-    "text": "鼓掌"
-  },
-  {
-    "icon": "🙈",
-    "text": "不看"
-  },
-  {
-    "icon": "😓",
-    "text": "汗"
-  },
-  {
-    "icon": "😍",
-    "text": "爱心眼"
-  },
-  {
-    "icon": "🤝",
-    "text": "握手"
-  },
-  {
-    "icon": "🥺",
-    "text": "求你"
-  },
-  {
-    "icon": "😔",
-    "text": "沮丧"
-  },
-  {
-    "icon": "😪",
-    "text": "困"
-  },
-  {
-    "icon": "😕",
-    "text": "困惑"
-  },
-  {
-    "icon": "🤷‍♂️",
-    "text": "摊手"
-  },
-  {
-    "icon": "😛",
-    "text": "舌头"
-  },
-  {
-    "icon": "🤭",
-    "text": "偷笑"
-  },
-  {
-    "icon": "🤮",
-    "text": "呕吐"
-  },
-  {
-    "icon": "🥺",
-    "text": "求你"
-  },
-  {
-    "icon": "🙂",
-    "text": "轻松的笑"
-  },
-  {
-    "icon": "😈",
-    "text": "恶魔"
-  },
-  {
-    "icon": "😃",
-    "text": "笑脸"
-  },
-  {
-    "icon": "🤫",
-    "text": "嘘"
-  },
-  {
-    "icon": "😒",
-    "text": "无语"
-  },
-  {
-    "icon": "😵",
-    "text": "晕"
-  },
-  {
-    "icon": "💪",
-    "text": "加油"
-  },
-  {
-    "icon": "👍",
-    "text": "赞"
-  },
-  {
-    "icon": "👎",  
-    "text": "踩"
-  },
-  {
-    "icon": "😡",
-    "text": "愤怒"
-  },
-  {
-    "icon": "🤬",
-    "text": "怒骂"
-  },
-  {
-    "icon": "😖",
-    "text": "心烦"
-  },
-  {
-    "icon": "🌹",
-    "text": "玫瑰"
-  },
-  {
-    "icon": "🏃",
-    "text": "跑步"
-  },
-  {
-    "icon": "😆",
-    "text": "大笑"
-  },
-  {
-    "icon": "💵",
-    "text": "钞票"
-  },
-  {
-    "icon": "😘",
-    "text": "飞吻"
-  },
-  {
-    "icon": "😷",
-    "text": "生病"
-  },
-  {
-    "icon": "🤕",
-    "text": "受伤"
-  },
-  {
-    "icon": "🎉",
-    "text": "庆祝"
-  },
-  {
-    "icon": "❤️",
-    "text": "红心"
-  },
-  {
-    "icon": "💔",
-    "text": "心碎"
-  },
-  {
-    "icon": "😣",
-    "text": "无奈"
-  },
-  {
-    "icon": "😘",
-    "text": "飞吻"
-  },
-  {
-    "icon": "💩",
-    "text": "一坨便便"
-  },
-  {
-    "icon": "🤩",
-    "text": "爱慕"
-  }
-];
+let emojis = [{"icon": "😂","text": "哭笑不得"},{"icon": "😎","text": "酷"},{"icon": "😏","text": "坏笑"},{"icon": "😅","text": "流汗"},{"icon": "😄","text": "笑"},{"icon": "😜","text": "调皮"},{"icon": "🤣","text": "笑倒"},{"icon": "😭","text": "大哭"},{"icon": "🙄","text": "白眼"},{"icon": "🤐","text": "嘘"},{"icon": "😋","text": "美食脸"},{"icon": "🥶","text": "冰冻"},{"icon": "🥵","text": "热"},{"icon": "😴","text": "睡觉"},{"icon": "🤧","text": "打喷嚏"},{"icon": "🍉","text": "西瓜"},{"icon": "😱","text": "惊恐"},{"icon": "👋","text": "招手"},{"icon": "🔨","text": "锤子"},{"icon": "🐶","text": "小狗"},{"icon": "👏","text": "鼓掌"},{"icon": "🙈","text": "不看"},{"icon": "😓","text": "汗"},{"icon": "😍","text": "爱心眼"},{"icon": "🤝","text": "握手"},{"icon": "🥺","text": "求你"},{"icon": "😔","text": "沮丧"},{"icon": "😪","text": "困"},{"icon": "😕","text": "困惑"},{"icon": "🤷‍♂️","text": "摊手"},{"icon": "😛","text": "舌头"},{"icon": "🤭","text": "偷笑"},{"icon": "🤮","text": "呕吐"},{"icon": "🥺","text": "求你"},{"icon": "🙂","text": "轻松的笑"},{"icon": "😈","text": "恶魔"},{"icon": "😃","text": "笑脸"},{"icon": "🤫","text": "嘘"},{"icon": "😒","text": "无语"},{"icon": "😵","text": "晕"},{"icon": "💪","text": "加油"},{"icon": "👍","text": "赞"},{"icon": "👎",  "text": "踩"},{"icon": "😡","text": "愤怒"},{"icon": "🤬","text": "怒骂"},{"icon": "😖","text": "心烦"},{"icon": "🌹","text": "玫瑰"},{"icon": "🏃","text": "跑步"},{"icon": "😆","text": "大笑"},{"icon": "💵","text": "钞票"},{"icon": "😘","text": "飞吻"},{"icon": "😷","text": "生病"},{"icon": "🤕","text": "受伤"},{"icon": "🎉","text": "庆祝"},{"icon": "❤️","text": "红心"},{"icon": "💔","text": "心碎"},{"icon": "😣","text": "无奈"},{"icon": "😘","text": "飞吻"},{"icon": "💩","text": "一坨便便"},{"icon": "🤩","text": "爱慕"}];
 
 // 表情选择器点击事件处理
 biaoqingBtn.addEventListener("click", function (event) {
