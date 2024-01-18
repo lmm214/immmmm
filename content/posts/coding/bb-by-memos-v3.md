@@ -61,7 +61,7 @@ feature: https://r2.immmmm.com/2024/01/bbv3.png.webp
       "website" : "https://immmmm.com",
       "link" : "https://me.edui.fun",
       "creatorId" : "101",
-      "avatar" : "https://cravatar.cn/avatar/ba83fa02fc4b2ba621514941307e21be.jpeg?s=400",
+      "avatar" : "https://cravatar.cn/avatar/ba83fa02fc4b2ba621514941307e21be?s=80",
       "twikoo" : "https://metk.edui.fun"
     },
     {
@@ -69,7 +69,7 @@ feature: https://r2.immmmm.com/2024/01/bbv3.png.webp
       "website" : "https://koobai.com",
       "link" : "https://memos.koobai.com",
       "creatorId" : "1",
-      "avatar" : "https://cravatar.cn/avatar/3b3d336a7d389b7ae8531cbe177ae9b7.jpeg?s=400",
+      "avatar" : "https://cravatar.cn/avatar/3b3d336a7d389b7ae8531cbe177ae9b7?s=80",
       "artalk" : "https://c.koobai.com",
       "artSite" : "空白唠叨"
     },{
@@ -78,7 +78,7 @@ feature: https://r2.immmmm.com/2024/01/bbv3.png.webp
       "link" : "https://memos.elizen.me",
       "creatorId" : "101",
       "twikoo" : "https://pl.elizen.me",
-      "avatar": "https://cravatar.cn/avatar/f65df4d87240feb1cb247857a621a48f.jpeg?s=400"
+      "avatar": "https://cravatar.cn/avatar/f65df4d87240feb1cb247857a621a48f?s=80"
     }
   ]
 </script>
@@ -111,4 +111,4 @@ feature: https://r2.immmmm.com/2024/01/bbv3.png.webp
 
 #### 二合一？
 
-当然也可以，会自动合并去重。
+⭐️⭐️⭐️⭐️⭐️ 推荐，这样自己就不用维护基本库啦，省心省力，而且会自动合并去重。
