@@ -1283,11 +1283,12 @@ function getEditIcon() {
           cocoMessage.success(
             '发送成功',
             () => {
-              submitMemoBtn.classList.remove("noclick")
+              submitMemoBtn.classList.remove("noclick");
               document.querySelector(".memos-image-list").innerHTML = '';
               window.localStorage && window.localStorage.removeItem("memos-resource-list");
               window.localStorage && window.localStorage.removeItem("memos-relation-list");
               memosTextarea.value = '';
+              memosTextarea.style.height = 'inherit';
               getUserMemos(memoList[0].link,memoList[0].creatorId,memoList[0].creatorName,memoList[0].avatar,"")
             })
         }
