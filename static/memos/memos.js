@@ -102,7 +102,7 @@ var memosEditorCont = `
       <div class="memos-editor-footer border-t mt-2 pt-2 ">
         <div class="d-flex">
           <div class="editor-selector select outline">
-            <select class="select-memos-value pl-2 pr-4 py-2"><option value="PUBLIC">公开</option><option value="PROTECTED">站内</option><option value="PRIVATE">私有</option></select>
+            <select class="select-memos-value pl-2 pr-4 py-2"><option value="PUBLIC">公开</option><option value="PRIVATE">私有</option></select>
           </div>
           <div class="button outline random-btn mx-2 p-2">
             <svg xmlns="http://www.w3.org/2000/svg" width=".9rem" height=".9rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22"/><path d="m18 2l4 4l-4 4M2 6h1.9c1.5 0 2.9.9 3.6 2.2M22 18h-5.9c-1.3 0-2.6-.7-3.3-1.8l-.5-.8"/><path d="m18 14l4 4l-4 4"/></g></svg>
@@ -898,7 +898,10 @@ function transPond(item){
 
 //修改
 function editMemo(memo) {
+  document.querySelector(".memos-image-list").innerHTML = '';
   let e = JSON.parse(memo.getAttribute("data-form"));
+  let memoResList = e.resourceList,memosResource = [],imageList = "";
+  memosVisibilitySelect.value = e.visibility;
   window.localStorage && window.localStorage.setItem("memos-editor-dataform",JSON.stringify(e)),
   getEditor = window.localStorage && window.localStorage.getItem("memos-editor-display"),
   memosOpenId = window.localStorage && window.localStorage.getItem("memos-access-token");
@@ -907,21 +910,29 @@ function editMemo(memo) {
     memosTextarea.style.height = memosTextarea.scrollHeight + 'px';
     submitMemoBtn.classList.add("d-none");
     editMemoDom.classList.remove("d-none");
+    if(memoResList.length > 0){
+      for (let i = 0; i < memoResList.length; i++) {
+        memosResource.push(memoResList[i].id);
+        imageList += `<div data-id="${memoResList[i].id}" class="memos-tag d-flex text-xs mt-2 mr-2" onclick="deleteImage(this)"><div class="d-flex px-2 justify-content-center" style="back">${memoResList[i].filename}</div></div>`;
+      }
+      window.localStorage && window.localStorage.setItem("memos-resource-list",  JSON.stringify(memosResource));
+      document.querySelector(".memos-image-list").insertAdjacentHTML('afterbegin', imageList);
+    }
     document.body.scrollIntoView({behavior: 'smooth'});
   }
 }
 
 editMemoBtn.addEventListener("click", function () {
   let dataformNow = JSON.parse(window.localStorage && window.localStorage.getItem("memos-editor-dataform"));
-  let memoId = dataformNow.id,memoRelationList = dataformNow.relationList,memoResourceList = dataformNow.resourceList,memoVisibility = dataformNow.visibility;
+  let memoId = dataformNow.id,memoRelationList = dataformNow.relationList,
   memosOpenId = window.localStorage && window.localStorage.getItem("memos-access-token"),
   memoContent = memosTextarea.value,
-  memoResourceList = window.localStorage && JSON.parse(window.localStorage.getItem("memos-resource-list")) ? window.localStorage && JSON.parse(window.localStorage.getItem("memos-resource-list")) : memoResourceList,
-  memoVisibility = memosVisibilitySelect.value;
+  memoVisibility = memosVisibilitySelect.value,
+  memoResourceList = window.localStorage && JSON.parse(window.localStorage.getItem("memos-resource-list"));
   let hasContent = memoContent.length !== 0;
   if (hasContent) {
     let memoUrl = `${memosPath}/api/v1/memo/${memoId}`;
-    let memoBody = {content:memoContent,id:memoId,relationList:memoRelationList,resourceList:memoResourceList,visibility:memoVisibility}
+    let memoBody = {content:memoContent,id:memoId,relationList:memoRelationList,resourceIdList:memoResourceList,visibility:memoVisibility}
     fetch(memoUrl, {
       method: 'PATCH',
       body: JSON.stringify(memoBody),
@@ -951,8 +962,12 @@ editMemoBtn.addEventListener("click", function () {
 
 cancelEditBtn.addEventListener("click", function () {
   if (!editMemoDom.classList.contains("d-none")) {
+    document.querySelector(".memos-image-list").innerHTML = '';
+    window.localStorage && window.localStorage.removeItem("memos-resource-list");
+    window.localStorage && window.localStorage.removeItem("memos-relation-list");
     memosTextarea.value = '';
     memosTextarea.style.height = 'inherit';
+    window.localStorage && window.localStorage.removeItem("memos-editor-dataform");
     editMemoDom.classList.add("d-none");
     submitMemoBtn.classList.remove("d-none");
   }
@@ -1038,8 +1053,9 @@ function getEditIcon() {
   let memosPath = window.localStorage && window.localStorage.getItem("memos-access-path");
   let memosOpenId = window.localStorage && window.localStorage.getItem("memos-access-token");
   let getEditor = window.localStorage && window.localStorage.getItem("memos-editor-display");
+  let getSelectedValue = window.localStorage && window.localStorage.getItem("memos-visibility-select") || "PUBLIC";
   let isHide = getEditor === "hide";
-
+  memosVisibilitySelect.value = getSelectedValue;
   window.localStorage && window.localStorage.setItem("memos-resource-list",  JSON.stringify(memosResource));
   window.localStorage && window.localStorage.setItem("memos-relation-list",  JSON.stringify(memosRelation));
 
@@ -1163,6 +1179,11 @@ function getEditIcon() {
     memosTextarea.focus()
   }
 
+  memosVisibilitySelect.addEventListener('change', function() {
+    var selectedValue = memosVisibilitySelect.value;
+    window.localStorage && window.localStorage.setItem("memos-visibility-select",selectedValue);
+  });
+
   randomBtn.addEventListener("click", async function () {
     memosCount = window.localStorage && window.localStorage.getItem("memos-response-count");
     try {
@@ -1207,7 +1228,7 @@ function getEditIcon() {
     let res = await resp.json();
     if(res.id){
       let imageList = "";
-      imageList += `<div data-id="${res.id}" class="memos-tag d-flex text-xs mt-2 mr-2" onclick="deleteImage(this)"><div class="d-flex px-2 justify-content-center">${res.filename}</div></div>`;
+      imageList += `<div data-id="${res.id}" class="memos-tag d-flex text-xs mt-2 mr-2" onclick="deleteImage(this)"><div class="d-flex px-2 justify-content-center" style="background-image:url(${res.externalLink})">${res.filename}</div></div>`;
       document.querySelector(".memos-image-list").insertAdjacentHTML('afterbegin', imageList);
       cocoMessage.success(
       '上传成功',

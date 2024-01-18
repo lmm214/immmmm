@@ -398,7 +398,7 @@ blockquote {
 	position: absolute;
 	display: flex;
 	flex-direction: column;
-	top: 0.4rem;
+	top: 0.65rem;
 	right: 0;
 	padding: .25rem;
 	border-radius: .33rem;
