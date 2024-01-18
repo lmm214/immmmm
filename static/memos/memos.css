@@ -664,6 +664,7 @@ button.button-load{width:98%;margin:0 auto;}
 .db-card{box-shadow: none;margin:-10px -1rem 10px;}
 .dark .db-card{background:#252627;}
 /* db-card -------- end */
+
 .user-now .row-fill{display:flex;align-items: baseline;margin-left:auto;}
 .user-now .row-fill .iconfont,.load-memos-editor .iconfont{font-size: 1.25rem;}
 .user-now.row{margin-right:0;margin-left:0;}
@@ -672,6 +673,9 @@ button.button-load{width:98%;margin:0 auto;}
 .user-now.card-item .item-avatar img{border-radius:8px;display: inline-block;max-width: 100%;}
 .user-now-name{line-height: 3.9rem;}
 .user-now-name,.item-creator,.item-footer{font-size:0.875rem;}
+.item-footer svg{opacity:0.4;}
+.item-footer .item span{color: var(--light-color-secondary);}
+.dark .item-footer .item span{color: var(--dark-color-secondary);}
 .load-memos-editor{background: var(--light-background-secondary) !important;}
 .dark .load-memos-editor{background: var(--dark-background-secondary) !important;}
 
