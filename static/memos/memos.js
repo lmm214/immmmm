@@ -232,7 +232,11 @@ function memoFollow() {
   let memosBbs = window.localStorage && window.localStorage.getItem("memos-bbs");
   if(memosBbs == "show"){
     getMemos();
+    goHomeBtn.classList.remove("current")
+    goBbsBtn.classList.add("current")
   }else{
+    goHomeBtn.classList.add("current")
+    goBbsBtn.classList.remove("current")
     window.localStorage && window.localStorage.setItem("memos-bbs",  "hide");
     getUserMemos(memoList[0].link,memoList[0].creatorId,memoList[0].creatorName,memoList[0].avatar,"")
   }
@@ -630,6 +634,8 @@ userlistBtn.addEventListener("click", function () {
 
 //返回个人主页
 function goHome(){
+  goHomeBtn.classList.add("current")
+  goBbsBtn.classList.remove("current")
   randomUser = 0;
   getUserMemos(memoList[0].link,memoList[0].creatorId,memoList[0].creatorName,memoList[0].avatar,"")
   cocoMessage.success("Hi， "+memoList[0].creatorName);
@@ -637,6 +643,8 @@ function goHome(){
 
 //切换为广场模式
 function goBbs(){
+  goHomeBtn.classList.remove("current")
+  goBbsBtn.classList.add("current")
   getMemos();
   let usernowName = document.querySelector(".user-now-name");
   let usernowAvatar = document.querySelector(".user-now-avatar");
