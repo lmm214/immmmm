@@ -46,6 +46,7 @@ button,a {
 	margin-right: auto;
 	margin-left: auto;
 }
+.noclick{pointer-events:none;}
 .button,a.button,button,.select,select {
 	position: relative;
 	display: flex;
