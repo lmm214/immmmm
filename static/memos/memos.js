@@ -1,5 +1,5 @@
 /**
- * memos.js 24.1.17
+ * memos.js 24.1.18
  * https://immmmm.com/
  */
 var memosData = {
@@ -228,9 +228,15 @@ async function getMemoListData(url) {
 }
 
 function memoFollow() {
-  //getMemos();
-  getUserMemos(memoList[0].link,memoList[0].creatorId,memoList[0].creatorName,memoList[0].avatar,"")
-  
+  //记忆显示模式
+  let memosBbs = window.localStorage && window.localStorage.getItem("memos-bbs");
+  if(memosBbs == "show"){
+    getMemos();
+  }else{
+    window.localStorage && window.localStorage.setItem("memos-bbs",  "hide");
+    getUserMemos(memoList[0].link,memoList[0].creatorId,memoList[0].creatorName,memoList[0].avatar,"")
+  }
+
   loadBtn.addEventListener("click", function () {
     if(page < dataNum) {
       page++;
@@ -640,9 +646,11 @@ function goBbs(){
 };
 
 goHomeBtn.addEventListener("click", function () {
+  window.localStorage && window.localStorage.setItem("memos-bbs",  "hide");
   goHome();
 });
 goBbsBtn.addEventListener("click", function () {
+  window.localStorage && window.localStorage.setItem("memos-bbs",  "show");
   goBbs()
 });
 
