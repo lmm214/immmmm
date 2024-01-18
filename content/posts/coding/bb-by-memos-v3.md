@@ -85,7 +85,7 @@ feature: https://r2.immmmm.com/2024/01/bbv3.png.webp
 ```
 
 ```
-<script src="https://cdn.staticfile.org/twikoo/1.6.30/twikoo.all.min.js"></script>
+<script src="https://cdn.staticfile.org/twikoo/1.6.29/twikoo.min.js"></script>
 <script src="https://cdn.staticfile.org/artalk/2.7.3/ArtalkLite.js"></script>
 <script src="https://cdn.staticfile.org/marked/7.0.5/marked.min.js"></script>
 <script src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js"></script>
