@@ -18,21 +18,21 @@ var memoDefaultList = [
     website:'https://immmmm.com',
     link:'https://me.edui.fun',
     creatorId:'101',
-    avatar:gravatar+'/avatar/ba83fa02fc4b2ba621514941307e21be.jpeg?s=400',
+    avatar:gravatar+'/avatar/ba83fa02fc4b2ba621514941307e21be?s=80',
     twikoo:'https://metk.edui.fun'
   },{
     creatorName:'归臧',
     website:'https://nuoea.com/',
     link:'https://memos.nuoea.com',
     creatorId:'101',
-    avatar:gravatar+'/avatar/020d365ea2596ef6d516143bb0552704.jpeg?s=400',
+    avatar:gravatar+'/avatar/020d365ea2596ef6d516143bb0552704?s=80',
     twikoo:'https://twikoo.nuoea.com'
   },{
     creatorName:'koobai',
     website:'https://koobai.com',
     link:'https://memos.koobai.com',
     creatorId:'1',
-    avatar:gravatar+'/avatar/3b3d336a7d389b7ae8531cbe177ae9b7.jpeg?s=400',
+    avatar:gravatar+'/avatar/3b3d336a7d389b7ae8531cbe177ae9b7?s=80',
     artalk:'https://c.koobai.com',
     artSite:'空白唠叨'
   }
