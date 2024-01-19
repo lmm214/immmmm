@@ -66,6 +66,8 @@ button,a {
 	-moz-appearance: none;
 	appearance: none;
 }
+.button.private.private-btn{background-color: var(--light-background-hover);}
+.dark .button.private.private-btn{background-color: var(--dark-background-hover);}
 .dark .button,
 .dark a.button,
 .dark button {
@@ -641,6 +643,8 @@ blockquote {
 .dark .load-btn:hover {
 	background: var(--dark-background-hover);
 }
+
+button{margin-bottom:0 !important;}
 button.button-load{width:98%;margin:0 auto;}
 /*db-card*/
 .db-card{margin:2rem 3rem;background:#fafafa;box-shadow: 0 1px 2px rgb(0 0 0 / 25%), 0 0 1px rgb(0 0 0 / 25%);border-radius:0 !important;}
