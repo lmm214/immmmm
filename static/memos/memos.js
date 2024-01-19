@@ -992,7 +992,7 @@ cancelEditBtn.addEventListener("click", function () {
     window.localStorage && window.localStorage.removeItem("memos-editor-dataform");
     editMemoDom.classList.add("d-none");
     submitMemoBtn.classList.remove("d-none");
-    clearTextarea(cancel)
+    clearTextarea("cancel")
   }
 })
 
@@ -1445,6 +1445,7 @@ function clearTextarea(mode){
   document.querySelector(".memos-image-list").innerHTML = '';
   window.localStorage && window.localStorage.removeItem("memos-resource-list");
   window.localStorage && window.localStorage.removeItem("memos-relation-list");
+  let memosTextarea = document.querySelector(".memos-editor-textarea")
   memosTextarea.value = '';
   memosTextarea.style.height = 'inherit';
   let memosMode = mode || window.localStorage && window.localStorage.getItem("memos-mode");
