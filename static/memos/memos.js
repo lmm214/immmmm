@@ -946,7 +946,7 @@ function editMemo(memo) {
     if(memoResList.length > 0){
       for (let i = 0; i < memoResList.length; i++) {
         memosResource.push(memoResList[i].id);
-        imageList += `<div data-id="${memoResList[i].id}" class="memos-tag d-flex text-xs mt-2 mr-2" onclick="deleteImage(this)"><div class="d-flex px-2 justify-content-center" style="back">${memoResList[i].filename}</div></div>`;
+        imageList += `<div data-id="${memoResList[i].id}" class="memos-tag d-flex text-xs mt-2 mr-2" onclick="deleteImage(this)"><div class="d-flex image-background" style="background-image:url(${memoResList[i].externalLink})"><span class="d-none">${memoResList[i].filename}</span></div></div>`;
       }
       window.localStorage && window.localStorage.setItem("memos-resource-list",  JSON.stringify(memosResource));
       document.querySelector(".memos-image-list").insertAdjacentHTML('afterbegin', imageList);
@@ -1270,7 +1270,7 @@ function getEditIcon() {
     let res = await resp.json();
     if(res.id){
       let imageList = "";
-      imageList += `<div data-id="${res.id}" class="memos-tag d-flex text-xs mt-2 mr-2" onclick="deleteImage(this)"><div class="d-flex px-2 justify-content-center" style="background-image:url(${res.externalLink})">${res.filename}</div></div>`;
+      imageList += `<div data-id="${res.id}" class="memos-tag d-flex text-xs mt-2 mr-2" onclick="deleteImage(this)"><div class="d-flex image-background" style="background-image:url(${res.externalLink})"><span class="d-none">${res.filename}</span></div></div>`;
       document.querySelector(".memos-image-list").insertAdjacentHTML('afterbegin', imageList);
       cocoMessage.success(
       '上传成功',
