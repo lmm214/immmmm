@@ -1232,6 +1232,7 @@ function getEditIcon() {
 
   privateBtn.addEventListener("click", async function () {
     privateBtn.classList.add("private")
+    memosVisibilitySelect.value = "PRIVATE"
     usernowBtnDom.forEach((item) => {item.classList.remove('current');})
     window.localStorage && window.localStorage.setItem("memos-mode",  "NOPUBLIC");
     getUserMemos(memoList[0].link,memoList[0].creatorId,memoList[0].creatorName,memoList[0].avatar,"","","NOPUBLIC")
