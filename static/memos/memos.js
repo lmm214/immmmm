@@ -1,5 +1,5 @@
 /**
- * memos.js 24.1.18
+ * memos.js 24.1.19
  * https://immmmm.com/
  */
 var memosData = {
@@ -101,15 +101,19 @@ var memosEditorCont = `
       </div>
       <div class="memos-editor-footer border-t mt-2 pt-2 ">
         <div class="d-flex">
-          <div class="editor-selector select outline">
-            <select class="select-memos-value pl-2 pr-4 py-2"><option value="PUBLIC">公开</option><option value="PRIVATE">私有</option></select>
-          </div>
           <div class="button outline random-btn mx-2 p-2">
             <svg xmlns="http://www.w3.org/2000/svg" width=".9rem" height=".9rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22"/><path d="m18 2l4 4l-4 4M2 6h1.9c1.5 0 2.9.9 3.6 2.2M22 18h-5.9c-1.3 0-2.6-.7-3.3-1.8l-.5-.8"/><path d="m18 14l4 4l-4 4"/></g></svg>
           </div>
           <div class="button outline switchUser-btn d-none d-md-flex mr-2 p-2">
             <svg xmlns="http://www.w3.org/2000/svg" width=".9rem" height=".9rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M20 7h-9m3 10H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></g></svg>
           </div>
+        </div>
+
+        <div class="editor-selector select outline">
+          <select class="select-memos-value pl-2 pr-4 py-2">
+            <option value="PUBLIC">公开</option>
+            <option value="PRIVATE">私有</option>
+          </select>
         </div>
         <div class="editor-submit d-flex flex-fill justify-content-end">
           <div class="edit-memos d-none">
@@ -491,14 +495,14 @@ function memoFollow() {
       } else if (artalkEnv && memosVisibility == "PUBLIC") {
         itemContent += `<div class="d-flex flex-fill justify-content-end"><div class="item d-flex align-items-center"><a data-id="${memo.id}" data-time="${createdTs}" data-env="${artalkEnv}" data-path="${artSite}" onclick="loadArtalk(this)" rel="noopener noreferrer" class="d-flex"><svg xmlns="http://www.w3.org/2000/svg" width="1.25rem" height="1.25rem" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2zM8 10h.01M12 10h.01M16 10h.01"/></svg></a><span class="ml-1">${count}</span></div></div></div><div id="${memosId}" class="item-comment mt-3 d-none"></div>`;
       } else if(memosVisibility !== "PUBLIC"){
-        itemContent += `<div class="d-flex flex-fill justify-content-end"><div class="item d-flex align-items-center"><svg xmlns="http://www.w3.org/2000/svg" width="1.25rem" height="1.25rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24m-3.39-9.04A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61M2 2l20 20"/></g></svg></div></div></div>`;
+        itemContent += `<div class="d-flex flex-fill justify-content-end"><div class="item d-flex align-items-center" onclick="getUserMemos('${link}','${creatorId}','${creatorName}','${avatar}','','','NOPUBLIC')"><svg xmlns="http://www.w3.org/2000/svg" width="1.25rem" height="1.25rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24m-3.39-9.04A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61M2 2l20 20"/></g></svg></div></div></div>`;
       } else {
         itemContent += `<div class="d-flex flex-fill justify-content-end"></div></div>`;
       }
       itemContent += `</div></div></div>`
       result += `<div class="memo-${memosId} d-flex animate__animated mb-3"><div class="card-item flex-fill p-3"><div class="item-header d-flex mb-3"><div class="d-flex flex-fill"><div onclick="getUserMemos('${link}', '${creatorId}','${creatorName}','${avatar}')" class="item-avatar mr-2" style="background-image:url(${avatar})"></div><div class="item-sub d-flex flex-column p-1"><div class="item-creator"><a href="${website}" target="_blank">${creatorName}</a></div><div class="item-mate mt-2 text-xs" onclick="viaNow('${creatorName}','${memosLink}')">${new Date(createdTs * 1000 - 5 ).toLocaleString()}</div></div></div>${itemOption}</div>${neodbDom+itemContent}</div></div>`;
     } // end for
-
+    
     memoDom.insertAdjacentHTML('beforeend', result);
     loadBtn.textContent = "加载更多";
     function animation() {
@@ -597,6 +601,7 @@ async function getMemos(search) {
   //}, 800);
   goBbsBtn.classList.remove("noclick")
 }
+
 //搜索 Memo
 searchBtn.addEventListener("click", function () {
   let tagnowHas = document.querySelector(".memos-tagnow") || ''
@@ -698,7 +703,7 @@ function reloadUser(){
 }
 
 // 获取指定用户列表
-async function getUserMemos(u,i,n,a,t,s) {
+async function getUserMemos(u,i,n,a,t,s,p) {
     memoDom.innerHTML = skeleton;
     loadBtn.classList.add('d-none');
     randomUserBtn.classList.add("noclick")
@@ -716,40 +721,45 @@ async function getUserMemos(u,i,n,a,t,s) {
       userMemoUrl = `${u}/api/v1/memo?creatorId=${i}&tag=${t}&rowStatus=NORMAL&limit=50`;
     }else if(s){
       userMemoUrl = `${u}/api/v1/memo?creatorId=${i}&content=${s}&rowStatus=NORMAL&limit=${limit}`;
+    }else if(p){
+      userMemoUrl = `${u}/api/v1/memo`;
     }else{
       userMemoUrl = `${u}/api/v1/memo?creatorId=${i}&rowStatus=NORMAL&limit=50`;
     }
     if (u == memosPath) {
-        try {
-          let response = await fetch(userMemoUrl,{
-              headers: {
-                'Authorization': `Bearer ${memosOpenId}`,
-                'Content-Type': 'application/json',
-                'Cache-Control': 'no-cache',
-              },
-              cache: 'no-store',
-          });
-          if (!response.ok) {
-            throw new Error(response.statusText);
-          }
-          let data = await response.json();
-          memoData = data.flatMap(result => result);
-          memoList.forEach(item => {
-            memoCreatorMap[item.creatorName] = item;
-          });
-          memoData = memoData.map(item => {
-            let data = memoCreatorMap[item.creatorName];
-            return {...item, ...data};
-          });
-          memoData = await this.getMemoCount(memoData);
-          memoDom.innerHTML = "";
-          this.updateData(memoData);
-          setTimeout(function() {
-            loadBtn.classList.remove('d-none');
-          }, 1000);
-        } catch (error) {
-          console.error(error);
+      try {
+        let response = await fetch(userMemoUrl,{
+            headers: {
+              'Authorization': `Bearer ${memosOpenId}`,
+              'Content-Type': 'application/json',
+              'Cache-Control': 'no-cache',
+            },
+            cache: 'no-store',
+        });
+        if (!response.ok) {
+          throw new Error(response.statusText);
         }
+        let data = await response.json();
+        if (p == "NOPUBLIC") {
+          data = data.filter((item) => item.visibility !== "PUBLIC");
+        }
+        memoData = data.flatMap(result => result);
+        memoList.forEach(item => {
+          memoCreatorMap[item.creatorName] = item;
+        });
+        memoData = memoData.map(item => {
+          let data = memoCreatorMap[item.creatorName];
+          return {...item, ...data};
+        });
+        memoData = await this.getMemoCount(memoData);
+        memoDom.innerHTML = "";
+        this.updateData(memoData);
+        setTimeout(function() {
+          loadBtn.classList.remove('d-none');
+        }, 1000);
+      } catch (error) {
+        console.error(error);
+      }
     }else{
         try {
           let response = await fetch(userMemoUrl);
