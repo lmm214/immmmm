@@ -1223,20 +1223,23 @@ function getEditIcon() {
   memosVisibilitySelect.addEventListener('change', function() {
     var selectedValue = memosVisibilitySelect.value;
     window.localStorage && window.localStorage.setItem("memos-visibility-select",selectedValue);
-    if(selectedValue == "PUBLIC"){
-      window.localStorage && window.localStorage.setItem("memos-mode",  "");
-      privateBtn.classList.remove("private")
-      cocoMessage.success("已退出「私有浏览」模式")
-    }
   });
 
   privateBtn.addEventListener("click", async function () {
-    privateBtn.classList.add("private")
-    memosVisibilitySelect.value = "PRIVATE"
-    usernowBtnDom.forEach((item) => {item.classList.remove('current');})
-    window.localStorage && window.localStorage.setItem("memos-mode",  "NOPUBLIC");
-    getUserMemos(memoList[0].link,memoList[0].creatorId,memoList[0].creatorName,memoList[0].avatar,"","","NOPUBLIC")
-    cocoMessage.success("进入「私有浏览」模式")
+    if (!privateBtn.classList.contains("private")) {
+      privateBtn.classList.add("private")
+      memosVisibilitySelect.value = "PRIVATE"
+      usernowBtnDom.forEach((item) => {item.classList.remove('current');})
+      window.localStorage && window.localStorage.setItem("memos-mode",  "NOPUBLIC");
+      getUserMemos(memoList[0].link,memoList[0].creatorId,memoList[0].creatorName,memoList[0].avatar,"","","NOPUBLIC")
+      cocoMessage.success("进入「私有浏览」模式")
+    }else{
+      memosVisibilitySelect.value = "PUBLIC"
+      window.localStorage && window.localStorage.setItem("memos-mode",  "");
+      privateBtn.classList.remove("private")
+      getUserMemos(memoList[0].link,memoList[0].creatorId,memoList[0].creatorName,memoList[0].avatar,"","","")
+      cocoMessage.success("已退出「私有浏览」模式")
+    }
   });
   
   randomBtn.addEventListener("click", async function () {
