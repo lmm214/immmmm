@@ -502,7 +502,7 @@ async function updateHtml(data) {
     } else if (artalkEnv && memosVisibility == "PUBLIC") {
       itemContent += `<div class="d-flex flex-fill justify-content-end"><div class="item d-flex align-items-center"><a data-id="${memo.id}" data-time="${createdTs}" data-env="${artalkEnv}" data-path="${artSite}" onclick="loadArtalk(this)" rel="noopener noreferrer" class="d-flex"><svg xmlns="http://www.w3.org/2000/svg" width="1.25rem" height="1.25rem" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2zM8 10h.01M12 10h.01M16 10h.01"/></svg></a><span class="ml-1">${count}</span></div></div></div><div id="${memosId}" class="item-comment mt-3 d-none"></div>`;
     } else if(memosVisibility !== "PUBLIC"){
-      itemContent += `<div class="d-flex flex-fill justify-content-end"><div class="item d-flex align-items-center" onclick="getUserMemos('${link}','${creatorId}','${creatorName}','${avatar}','','','NOPUBLIC')"><svg xmlns="http://www.w3.org/2000/svg" width="1.25rem" height="1.25rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M9.88 9.88a3 3 0 1 0 4.24 4.24m-3.39-9.04A10.43 10.43 0 0 1 12 5c7 0 10 7 10 7a13.16 13.16 0 0 1-1.67 2.68"/><path d="M6.61 6.61A13.526 13.526 0 0 0 2 12s3 7 10 7a9.74 9.74 0 0 0 5.39-1.61M2 2l20 20"/></g></svg></div></div></div>`;
+      itemContent += `<div class="d-flex flex-fill justify-content-end"><div class="item d-flex align-items-center mr-1" onclick="getUserMemos('${link}','${creatorId}','${creatorName}','${avatar}','','','NOPUBLIC')"><svg xmlns="http://www.w3.org/2000/svg" width="1.15rem" height="1.15rem" viewBox="0 0 14 14"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M1.68 4.206C2.652 6.015 4.67 7.258 7 7.258c2.331 0 4.348-1.243 5.322-3.052M2.75 5.596L.5 7.481m4.916-.415L4.333 9.794m6.917-4.198l2.25 1.885m-4.92-.415l1.083 2.728"/></svg></div></div></div>`;
     } else {
       itemContent += `<div class="d-flex flex-fill justify-content-end"></div></div>`;
     }
@@ -931,8 +931,7 @@ function transPond(item){
 let memosOldSelect;
 function editMemo(memo) {
   memosOldSelect = memosVisibilitySelect.value;
-  console.log(memosOldSelect)
-  getEditor = window.localStorage && window.localStorage.getItem("memos-editor-display"),
+  getEditor = window.localStorage && window.localStorage.getItem("memos-editor-display");
   memosOpenId = window.localStorage && window.localStorage.getItem("memos-access-token");
   if(memosOpenId && getEditor == "show"){
     document.querySelector(".memos-image-list").innerHTML = '';
@@ -957,7 +956,6 @@ function editMemo(memo) {
 }
 
 editMemoBtn.addEventListener("click", function () {
-  console.log(memosOldSelect)
   let dataformNow = JSON.parse(window.localStorage && window.localStorage.getItem("memos-editor-dataform"));
   let memoId = dataformNow.id,memoRelationList = dataformNow.relationList,
   memosOpenId = window.localStorage && window.localStorage.getItem("memos-access-token"),
@@ -1225,6 +1223,11 @@ function getEditIcon() {
   memosVisibilitySelect.addEventListener('change', function() {
     var selectedValue = memosVisibilitySelect.value;
     window.localStorage && window.localStorage.setItem("memos-visibility-select",selectedValue);
+    if(selectedValue == "PUBLIC"){
+      window.localStorage && window.localStorage.setItem("memos-mode",  "");
+      privateBtn.classList.remove("private")
+      cocoMessage.success("已退出「私有浏览」模式")
+    }
   });
 
   privateBtn.addEventListener("click", async function () {
