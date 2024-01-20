@@ -957,7 +957,7 @@ function editMemo(memo) {
       }
       window.localStorage && window.localStorage.setItem("memos-resource-list",  JSON.stringify(memosResource));
       document.querySelector(".memos-image-list").insertAdjacentHTML('afterbegin', imageList);
-      imageListDrag()
+      //imageListDrag()
     }
     document.body.scrollIntoView({behavior: 'smooth'});
   }
@@ -1293,7 +1293,7 @@ function getEditIcon() {
       ()=>{
         memosResource.push(res.id);
         window.localStorage && window.localStorage.setItem("memos-resource-list",  JSON.stringify(memosResource));
-        imageListDrag()
+        //imageListDrag()
       })
     }
   };
@@ -1465,6 +1465,7 @@ function imageListDrag(){// 获取包含所有图像元素的父元素
   const imageList = document.querySelector('.memos-image-list');
   // 存储被拖动的元素
   let draggedItem = null;
+  let memosResourceList;
   // 为每个图像元素添加拖动事件监听器
   imageList.querySelectorAll('.imagelist-item').forEach(item => {
     item.draggable = true;
@@ -1472,6 +1473,7 @@ function imageListDrag(){// 获取包含所有图像元素的父元素
     item.addEventListener('dragstart', function(e) {
       // 存储被拖动的元素
       draggedItem = this;
+      memosResourceList = [];
     });
     // 当拖动元素进入目标区域时
     item.addEventListener('dragover', function(e) {
@@ -1500,6 +1502,12 @@ function imageListDrag(){// 获取包含所有图像元素的父元素
         // 插入到后一个元素后  
         this.parentNode.insertBefore(draggedItem, this.nextElementSibling); 
       }
+      document.querySelectorAll('.memos-image-list .imagelist-item').forEach((item) => {
+        console.log(item)
+        let itemId = Number(item.dataset.id)
+        memosResourceList.push(itemId);
+      })
+      window.localStorage && window.localStorage.setItem("memos-resource-list",  JSON.stringify(memosResourceList));
     });
   });
 }
