@@ -72,25 +72,25 @@ var memosEditorCont = `
       <div class="memos-image-list d-flex flex-fill line-xl flex-wrap"></div>
       <div class="memos-editor-tools pt-3">
         <div class="d-flex flex-wrap">
-          <div class="button outline action-btn biao-qing-btn mr-3">
+          <div class="button outline action-btn biao-qing-btn mr-2">
             <svg xmlns="http://www.w3.org/2000/svg" width="1.35rem" height="1.35rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2s4-2 4-2M9 9h.01M15 9h.01"/></g></svg>
           </div>
-          <div class="button outline action-btn tag-btn mr-3">
+          <div class="button outline action-btn tag-btn mr-2">
             <svg xmlns="http://www.w3.org/2000/svg" width="1.35rem" height="1.35rem" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 9h16M4 15h16M10 3L8 21m8-18l-2 18"/></svg>
           </div>
-          <div class="button outline action-btn codeone-btn mr-3">
+          <div class="button outline action-btn codeone-btn mr-2">
             <svg xmlns="http://www.w3.org/2000/svg" width="1.35rem" height="1.35rem" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m8 7l-5 5l5 5m8 0l5-5l-5-5"/></svg>
           </div>
-          <div class="button outline action-btn code-btn mr-3">
+          <div class="button outline action-btn code-btn mr-2">
             <svg xmlns="http://www.w3.org/2000/svg" width="1.35rem" height="1.35rem" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m7 8l-4 4l4 4m10-8l4 4l-4 4M14 4l-4 16"/></svg>
           </div>
-          <div class="button outline action-btn mr-3 link-btn">
+          <div class="button outline action-btn mr-2 link-btn">
             <svg xmlns="http://www.w3.org/2000/svg" width="1.35rem" height="1.35rem" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17H7A5 5 0 0 1 7 7h2m6 0h2a5 5 0 1 1 0 10h-2m-7-5h8"/></svg>
           </div>
-          <div class="button outline action-btn mr-3 linkpic-btn">
+          <div class="button outline action-btn mr-2 linkpic-btn">
             <svg xmlns="http://www.w3.org/2000/svg" width="1.35rem" height="1.35rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15l-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></g></svg>
           </div>
-          <div class="button outline action-btn image-btn mr-3" onclick="this.lastElementChild.click()">
+          <div class="button outline action-btn image-btn mr-2" onclick="this.lastElementChild.click()">
             <svg xmlns="http://www.w3.org/2000/svg" width="1.35rem" height="1.35rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7m4 2h6m-3-3v6"/><circle cx="9" cy="9" r="2"/><path d="m21 15l-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></g></svg>
             <input class="memos-upload-image-input d-none" type="file" accept="image/*">
           </div>
@@ -99,7 +99,7 @@ var memosEditorCont = `
           <div class="memos-tag-list d-none mt-2 animate__animated animate__fadeIn"></div>
         </div>
       </div>
-      <div class="memos-editor-footer border-t mt-2 pt-2 ">
+      <div class="memos-editor-footer border-t mt-2 pt-2 flex-wrap">
         <div class="d-flex">
           <div class="button outline switchUser-btn d-none d-md-flex mr-2 p-2">
             <svg xmlns="http://www.w3.org/2000/svg" width=".9rem" height=".9rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M20 7h-9m3 10H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></g></svg>
