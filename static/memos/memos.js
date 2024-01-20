@@ -469,12 +469,12 @@ async function updateHtml(data) {
         let restype = resourceList[j].type.slice(0, 5);
         let resexlink = resourceList[j].externalLink;
         let imgLink = '', fileId = '';
-          if (resexlink) {
-              imgLink = resexlink
-          } else {
-              fileId = resourceList[j].publicId || resourceList[j].filename
-              imgLink = `${memo.link}/o/r/${resourceList[j].id}/${fileId}`;
-          }
+        if (resexlink) {
+            imgLink = resexlink
+        } else {
+            fileId = resourceList[j].publicId || resourceList[j].filename
+            imgLink = `${memo.link}/o/r/${resourceList[j].id}`;///${fileId}
+        }
         if (restype == 'image') {
           imgUrl += `<div class="memo-resource w-100"><img class="lozad" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-src="${imgLink}"/></div>`;
           resImgLength = resImgLength + 1
@@ -937,6 +937,7 @@ function editMemo(memo) {
     document.querySelector(".memos-image-list").innerHTML = '';
     let e = JSON.parse(memo.getAttribute("data-form"));
     let memoResList = e.resourceList,memosResource = [],imageList = "";
+    console.log(memoResList)
     window.localStorage && window.localStorage.setItem("memos-editor-dataform",JSON.stringify(e));
     memosVisibilitySelect.value = e.visibility;
     memosTextarea.value = e.content;
@@ -945,8 +946,15 @@ function editMemo(memo) {
     editMemoDom.classList.remove("d-none");
     if(memoResList.length > 0){
       for (let i = 0; i < memoResList.length; i++) {
+        let imgLink = '', fileId = '',resexlink = memoResList[i].externalLink;
+        if (resexlink) {
+            imgLink = resexlink
+        } else {
+            fileId = memoResList[i].publicId || memoResList[i].filename
+            imgLink = `${memoList[0].link}/o/r/${memoResList[i].id}`;///${fileId}
+        }
         memosResource.push(memoResList[i].id);
-        imageList += `<div data-id="${memoResList[i].id}" class="memos-tag d-flex text-xs mt-2 mr-2" onclick="deleteImage(this)"><div class="d-flex image-background" style="background-image:url(${memoResList[i].externalLink})"><span class="d-none">${memoResList[i].filename}</span></div></div>`;
+        imageList += `<div data-id="${memoResList[i].id}" class="memos-tag d-flex text-xs mt-2 mr-2" onclick="deleteImage(this)"><div class="d-flex image-background" style="background-image:url(${imgLink})"><span class="d-none">${fileId}</span></div></div>`;
       }
       window.localStorage && window.localStorage.setItem("memos-resource-list",  JSON.stringify(memosResource));
       document.querySelector(".memos-image-list").insertAdjacentHTML('afterbegin', imageList);
@@ -1269,8 +1277,16 @@ function getEditIcon() {
     })
     let res = await resp.json();
     if(res.id){
+      let resexlink = res.externalLink;
+      let imgLink = '', fileId = '';
+      if (resexlink) {
+          imgLink = resexlink
+      } else {
+          fileId = res.publicId || res.filename
+          imgLink = `${memo.link}/o/r/${res.id}`;///${fileId}
+      }
       let imageList = "";
-      imageList += `<div data-id="${res.id}" class="memos-tag d-flex text-xs mt-2 mr-2" onclick="deleteImage(this)"><div class="d-flex image-background" style="background-image:url(${res.externalLink})"><span class="d-none">${res.filename}</span></div></div>`;
+      imageList += `<div data-id="${res.id}" class="memos-tag d-flex text-xs mt-2 mr-2" onclick="deleteImage(this)"><div class="d-flex image-background" style="background-image:url(${imgLink})"><span class="d-none">${fileId}</span></div></div>`;
       document.querySelector(".memos-image-list").insertAdjacentHTML('afterbegin', imageList);
       cocoMessage.success(
       '上传成功',
