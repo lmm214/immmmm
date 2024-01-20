@@ -70,7 +70,7 @@ var memosEditorCont = `
         <textarea class="memos-editor-textarea text-sm" rows="1" placeholder="任何想法..."></textarea>
       </div>
       <div class="memos-image-list d-flex flex-fill line-xl flex-wrap"></div>
-      <div class="memos-editor-tools pt-3">
+      <div class="memos-editor-tools pt-1">
         <div class="d-flex flex-wrap">
           <div class="button outline action-btn biao-qing-btn mr-2">
             <svg xmlns="http://www.w3.org/2000/svg" width="1.35rem" height="1.35rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2s4-2 4-2M9 9h.01M15 9h.01"/></g></svg>
@@ -119,7 +119,7 @@ var memosEditorCont = `
             </select>
           </div>
           <div class="edit-memos d-none">
-            <button class="outline cancel-edit-btn mr-3 px-5 py-2" title="取消">取消</button>
+            <button class="outline cancel-edit-btn mr-3 px-3 py-2" title="取消">取消</button>
             <button class="primary edit-memos-btn px-5 py-2" title="保存">保存</button>
           </div>
           <button class="primary submit-memos-btn px-5 py-2" title="记下">记下</button>
@@ -927,7 +927,7 @@ function transPond(item){
   }
 }
 
-//修改
+//编辑修改
 let memosOldSelect;
 function editMemo(memo) {
   memosOldSelect = memosVisibilitySelect.value;
@@ -937,7 +937,6 @@ function editMemo(memo) {
     document.querySelector(".memos-image-list").innerHTML = '';
     let e = JSON.parse(memo.getAttribute("data-form"));
     let memoResList = e.resourceList,memosResource = [],imageList = "";
-    console.log(memoResList)
     window.localStorage && window.localStorage.setItem("memos-editor-dataform",JSON.stringify(e));
     memosVisibilitySelect.value = e.visibility;
     memosTextarea.value = e.content;
@@ -954,10 +953,11 @@ function editMemo(memo) {
             imgLink = `${memoList[0].link}/o/r/${memoResList[i].id}`;///${fileId}
         }
         memosResource.push(memoResList[i].id);
-        imageList += `<div data-id="${memoResList[i].id}" class="memos-tag d-flex text-xs mt-2 mr-2" onclick="deleteImage(this)"><div class="d-flex image-background" style="background-image:url(${imgLink})"><span class="d-none">${fileId}</span></div></div>`;
+        imageList += `<div data-id="${memoResList[i].id}" class="imagelist-item d-flex text-xs mt-2 mr-2" onclick="deleteImage(this)"><div class="d-flex image-background" style="background-image:url(${imgLink})"><span class="d-none">${fileId}</span></div></div>`;
       }
       window.localStorage && window.localStorage.setItem("memos-resource-list",  JSON.stringify(memosResource));
       document.querySelector(".memos-image-list").insertAdjacentHTML('afterbegin', imageList);
+      imageListDrag()
     }
     document.body.scrollIntoView({behavior: 'smooth'});
   }
@@ -1286,13 +1286,14 @@ function getEditIcon() {
           imgLink = `${memo.link}/o/r/${res.id}`;///${fileId}
       }
       let imageList = "";
-      imageList += `<div data-id="${res.id}" class="memos-tag d-flex text-xs mt-2 mr-2" onclick="deleteImage(this)"><div class="d-flex image-background" style="background-image:url(${imgLink})"><span class="d-none">${fileId}</span></div></div>`;
+      imageList += `<div data-id="${res.id}" class="imagelist-item d-flex text-xs mt-2 mr-2" onclick="deleteImage(this)"><div class="d-flex image-background" style="background-image:url(${imgLink})"><span class="d-none">${fileId}</span></div></div>`;
       document.querySelector(".memos-image-list").insertAdjacentHTML('afterbegin', imageList);
       cocoMessage.success(
       '上传成功',
       ()=>{
         memosResource.push(res.id);
         window.localStorage && window.localStorage.setItem("memos-resource-list",  JSON.stringify(memosResource));
+        imageListDrag()
       })
     }
   };
@@ -1397,7 +1398,7 @@ function getEditIcon() {
       }).then(response => {
         let taglist = "";
         response.map((t)=>{
-          taglist += `<div class="memos-tag d-flex text-xs mt-2 mr-2 px-2" onclick="setMemoTag(this)">#${t}</div>`;
+          taglist += `<div class="imagelist-item d-flex text-xs mt-2 mr-2 px-2" onclick="setMemoTag(this)">#${t}</div>`;
         })
         document.querySelector(".memos-tag-list").innerHTML = taglist;
         //cocoMessage.success('准备就绪');
@@ -1460,7 +1461,55 @@ function deleteImage(e){
   } 
 }
 
+function imageListDrag(){// 获取包含所有图像元素的父元素
+  const imageList = document.querySelector('.memos-image-list');
+  // 存储被拖动的元素
+  let draggedItem = null;
+  // 为每个图像元素添加拖动事件监听器
+  imageList.querySelectorAll('.imagelist-item').forEach(item => {
+    item.draggable = true;
+    // 当拖动开始时
+    item.addEventListener('dragstart', function(e) {
+      // 存储被拖动的元素
+      draggedItem = this;
+    });
+    // 当拖动元素进入目标区域时
+    item.addEventListener('dragover', function(e) {
+      e.preventDefault(); // 阻止默认行为
+      this.classList.add('dragover'); // 添加拖动进入样式
+    });
+  
+    // 当拖动元素离开目标区域时
+    item.addEventListener('dragleave', function() {
+      this.classList.remove('dragover'); // 移除拖动进入样式
+    });
+  
+    // 当拖动元素放置到目标区域时
+    item.addEventListener('drop', function(e) {
+      e.preventDefault(); // 阻止默认行为
+      this.classList.remove('dragover'); // 移除拖动进入样式
+      // 计算拖动元素中心点
+      const rect = this.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      // 判断鼠标相对中心点的位置
+      const isLeft = e.clientX < centerX;
+      if (isLeft) {
+        // 插入到前一个元素前
+        this.parentNode.insertBefore(draggedItem, this.previousElementSibling);
+      } else {
+        // 插入到后一个元素后  
+        this.parentNode.insertBefore(draggedItem, this.nextElementSibling); 
+      }
+    });
+  });
+}
+
 function clearTextarea(mode){
+  if (!editMemoDom.classList.contains("d-none")) {
+    window.localStorage && window.localStorage.removeItem("memos-editor-dataform");
+    editMemoDom.classList.add("d-none");
+    submitMemoBtn.classList.remove("d-none");
+  }
   submitMemoBtn.classList.remove("noclick");
   document.querySelector(".memos-image-list").innerHTML = '';
   window.localStorage && window.localStorage.removeItem("memos-resource-list");
