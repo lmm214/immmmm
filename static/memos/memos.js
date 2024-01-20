@@ -623,7 +623,7 @@ async function getMemos(search) {
   }, 1000);
   //setTimeout(function() {
     window.scrollTo({
-      top: usernowDom.offsetTop - 20,
+      top: usernowDom.offsetTop - 30,
       behavior: "smooth"
     });
   //}, 800);
@@ -862,7 +862,7 @@ async function getUserMemos(link,id,name,avatar,tag,search,mode,random) {
       randomUserBtn.classList.remove("noclick")
     }, 800);
     window.scrollTo({
-      top: usernowDom.offsetTop - 20,
+      top: usernowDom.offsetTop - 30,
       behavior: "smooth"
     });
 }
