@@ -256,7 +256,6 @@ function memoFollow(mode) {
   let nowAvatar = memosMeAvatarUrl || memoList[0].avatar
   //记忆显示模式
   usernowBtnDom.forEach((item) => {item.classList.remove('current');})
-  console.log(mode)
   if(mode == "MEMOSHOME"){
     goHomeBtn.classList.add("current")
     getUserMemos(nowLink,nowId,nowName,nowAvatar)
@@ -429,7 +428,6 @@ async function updateHtml(data) {
     });
   for (var i = 0; i < data.length; i++) {
     let memo = data[i];
-    console.log(memo)
     let link = memo.link;
     let memoString = JSON.stringify(memo).replace(/"/g, '&quot;');
     let avatar = memo.avatar;
@@ -760,7 +758,6 @@ function reloadUser(){
 
 // 获取指定用户列表
 async function getUserMemos(link,id,name,avatar,tag,search,mode,random) {
-    console.log("link "+link+"     id "+id+"    name "+name)
     memoDom.innerHTML = skeleton;
     loadBtn.classList.add('d-none');
     randomUserBtn.classList.add("noclick")
@@ -1240,7 +1237,6 @@ function getEditIcon() {
 
   function insertValue(t) {
     let textLength = t.length;
-    //console.log(textLength)
     memosTextarea.value += t;
     memosTextarea.style.height = memosTextarea.scrollHeight + 'px';
     // 更新光标位置
@@ -1562,7 +1558,6 @@ function imageListDrag(){// 获取包含所有图像元素的父元素
         this.parentNode.insertBefore(draggedItem, this.nextElementSibling); 
       }
       document.querySelectorAll('.memos-image-list .imagelist-item').forEach((item) => {
-        console.log(item)
         let itemId = Number(item.dataset.id)
         memosResourceList.push(itemId);
       })
