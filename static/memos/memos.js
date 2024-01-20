@@ -22,7 +22,7 @@ var memoDefaultList = [
     twikoo:'https://metk.edui.fun'
   },{
     creatorName:'归臧',
-    website:'https://nuoea.com/',
+    website:'https://nuoea.com',
     link:'https://memos.nuoea.com',
     creatorId:'101',
     avatar:gravatar+'/avatar/020d365ea2596ef6d516143bb0552704?s=80',
@@ -950,7 +950,7 @@ function editMemo(memo) {
             imgLink = resexlink
         } else {
             fileId = memoResList[i].publicId || memoResList[i].filename
-            imgLink = `${memoList[0].link}/o/r/${memoResList[i].id}`;///${fileId}
+            imgLink = `${memosPath}/o/r/${memoResList[i].id}`;///${fileId}
         }
         memosResource.push(memoResList[i].id);
         imageList += `<div data-id="${memoResList[i].id}" class="imagelist-item d-flex text-xs mt-2 mr-2" onclick="deleteImage(this)"><div class="d-flex image-background" style="background-image:url(${imgLink})"><span class="d-none">${fileId}</span></div></div>`;
@@ -1283,7 +1283,7 @@ function getEditIcon() {
           imgLink = resexlink
       } else {
           fileId = res.publicId || res.filename
-          imgLink = `${memo.link}/o/r/${res.id}`;///${fileId}
+          imgLink = `${memosPath}/o/r/${res.id}`;///${fileId}
       }
       let imageList = "";
       imageList += `<div data-id="${res.id}" class="imagelist-item d-flex text-xs mt-2 mr-2" onclick="deleteImage(this)"><div class="d-flex image-background" style="background-image:url(${imgLink})"><span class="d-none">${fileId}</span></div></div>`;
@@ -1293,7 +1293,7 @@ function getEditIcon() {
       ()=>{
         memosResource.push(res.id);
         window.localStorage && window.localStorage.setItem("memos-resource-list",  JSON.stringify(memosResource));
-        //imageListDrag()
+        imageListDrag()
       })
     }
   };
@@ -1312,13 +1312,11 @@ function getEditIcon() {
     }else if(pathInput.value == null || pathInput.value == ''){
       cocoMessage.info('请输入Path');
     }else{
-      let pathValue;
-      if (pathInput.value.substr(-1) === '/') {
-        pathValue = pathInput.value.substr(0, str.length - 1);
-      }else{
-        pathValue = pathInput.value
+      let pathInputValue = pathInput.value;
+      if (pathInputValue.substr(-1) === '/') {
+        pathInputValue = pathInputValue.substr(0, pathInputValue.length - 1);
       }
-      getMemosData(pathValue,tokenInput.value);
+      getMemosData(pathInputValue,tokenInput.value);
     }
   });
 
@@ -1429,6 +1427,7 @@ function getEditIcon() {
       });
       if (response.ok) {
         let resdata = await response.json();
+        console.log(resdata)
         if (resdata) {
           memosCount = resdata.length;
           window.localStorage && window.localStorage.setItem("memos-access-path", p);
