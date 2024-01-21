@@ -249,10 +249,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   }else{
     memoList = memoOurList
   }
-  nowLink = memosPath || memoList[1].link;
-  nowId = memosMeID || memoList[1].creatorId;
-  nowName = memosMeNickname || memoList[1].creatorName;
-  nowAvatar = memosMeAvatarUrl || memoList[1].avatar;
+  nowLink = memosPath || memoList[0].link;
+  nowId = memosMeID || memoList[0].creatorId;
+  nowName = memosMeNickname || memoList[0].creatorName;
+  nowAvatar = memosMeAvatarUrl || memoList[0].avatar;
   memoFollow(getMode);
   getEditIcon();
 });
