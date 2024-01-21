@@ -5,7 +5,7 @@
     "background_color": "#ffffff",
     "display": "standalone",
     "scope": "/",
-    "start_url": "/",
+    "start_url": "/memos/",
     "icons": [
         {
           "src": "../memos/pwa/36.png",
