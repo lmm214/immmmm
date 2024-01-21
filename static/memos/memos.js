@@ -236,7 +236,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   }else{
     try {
-      memoOurList = await getMemoListData('/memos.json'); // 获取自定义列表
+      memoOurList = await getMemoListData("https://memobbs.app/memos.json"); // 获取自定义列表
     } catch (error) {
       memoOurList = memoDefaultList
     }
@@ -249,13 +249,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         return JSON.stringify(obj) === stringifiedItem;
       });
     });
-  }else{
-    memoList = memoOurList
   }
-
   //查询当前页面 window.location.origin 作为主页展示
   let memobbsAdmin = []
-  let memobbsLink = window.location.origin.replace(/'/g, '');
+  let memobbsLink = window.location.origin;
   let linkIndex = memoList.findIndex(item => (item.website == memobbsLink))
   if(linkIndex >= 0){
     memobbsAdmin.push(memoList[linkIndex])
