@@ -211,14 +211,11 @@ document.addEventListener("DOMContentLoaded", () => {
 	let isLight = getTheme === "light";
   //切换主题
 	if (getTheme !== null) {
-    console.log("无设置")
 		document.body.classList.toggle("dark-theme",isDark);
 	}
   if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    console.log("系统黑色")
-		document.body.classList.add("dark-theme",isDark);
+		document.body.classList.add("dark-theme","dark");
   }else{
-    console.log("白")
     document.body.classList.toggle("dark-theme",isLight);
   }
 	Array.prototype.forEach.call(document.querySelectorAll('.theme-toggle'), function(el){
