@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta charset="UTF-8"/>
+  <meta name="renderer" content="webkit"/>
+  <meta name="force-rendering" content="webkit"/>
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/> 
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-touch-fullscreen" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <link rel="manifest" href="../memos/manifest.json"/>
+  <link rel="apple-touch-startup-image" href="../memos/pwa/splash-2048x2732.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/>
+  <link rel="apple-touch-startup-image" href="../memos/pwa/splash-2732x2048.png" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/>
+  <link rel="apple-touch-startup-image" href="../memos/pwa/splash-1668x2388.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/>
+  <link rel="apple-touch-startup-image" href="../memos/pwa/splash-2388x1668.png" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/>
+  <link rel="apple-touch-startup-image" href="../memos/pwa/splash-1536x2048.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/>
+  <link rel="apple-touch-startup-image" href="../memos/pwa/splash-2048x1536.png" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/>
+  <link rel="apple-touch-startup-image" href="../memos/pwa/splash-1668x2224.png" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/>
+  <link rel="apple-touch-startup-image" href="../memos/pwa/splash-2224x1668.png" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/>
+  <link rel="apple-touch-startup-image" href="../memos/pwa/splash-1620x2160.png" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/>
+  <link rel="apple-touch-startup-image" href="../memos/pwa/splash-2160x1620.png" media="(device-width: 810px) and (device-height: 1080px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/>
+  <link rel="apple-touch-startup-image" href="../memos/pwa/splash-1290x2796.png" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/>
+  <link rel="apple-touch-startup-image" href="../memos/pwa/splash-2796x1290.png" media="(device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/>
+  <link rel="apple-touch-startup-image" href="../memos/pwa/splash-1179x2556.png" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/>
+  <link rel="apple-touch-startup-image" href="../memos/pwa/splash-2556x1179.png" media="(device-width: 393px) and (device-height: 852px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/>
+  <link rel="apple-touch-startup-image" href="../memos/pwa/splash-1248x2778.png" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/>
+  <link rel="apple-touch-startup-image" href="../memos/pwa/splash-2778x1248.png" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/>
+  <link rel="apple-touch-startup-image" href="../memos/pwa/splash-1170x2532.png" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/>
+  <link rel="apple-touch-startup-image" href="../memos/pwa/splash-2532x1170.png" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/>
+  <link rel="apple-touch-startup-image" href="../memos/pwa/splash-1125x2436.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/>
+  <link rel="apple-touch-startup-image" href="../memos/pwa/splash-2436x1125.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/>
+  <link rel="apple-touch-startup-image" href="../memos/pwa/splash-1242x2688.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/>
+  <link rel="apple-touch-startup-image" href="../memos/pwa/splash-2688x1242.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/>
+  <link rel="apple-touch-startup-image" href="../memos/pwa/splash-828x1792.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/>
+  <link rel="apple-touch-startup-image" href="../memos/pwa/splash-1792x828.png" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/>
+  <link rel="apple-touch-startup-image" href="../memos/pwa/splash-1242x2208.png" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"/>
+  <link rel="apple-touch-startup-image" href="../memos/pwa/splash-2208x1242.png" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)"/>
+  <link rel="apple-touch-startup-image" href="../memos/pwa/splash-750x1334.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/>
+  <link rel="apple-touch-startup-image" href="../memos/pwa/splash-1334x750.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/>
+  <link rel="apple-touch-startup-image" href="../memos/pwa/splash-640x1136.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)"/>
+  <link rel="apple-touch-startup-image" href="../memos/pwa/splash-1136x640.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)"/>
+  
+  <title>MemoBBS</title>
+</head>
+
+<link rel="stylesheet" href="../memos/cdn/APlayer.min.css">
+<link rel="stylesheet" href="../memos/cdn/animate.min.css">
+<link rel="stylesheet" href="../memos/cdn/ArtalkLite.css">
+<link rel="stylesheet" href="../memos/grid.css">
+<link rel="stylesheet" href="../memos/memos.css">
+
+<style>
+  html, body {
+    touch-action: manipulation;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-background);
+    color: #222;
+    color: var(--light-color);
+    font-weight: 400;
+    font-size: 1.1rem;
+    font-family: "HarmonyOS_Regular","PingFangSC-Regular", "PingFang SC", "Microsoft YaHei", Arial, Helvetica, "WenQuanYi Micro Hei", "tohoma,sans-serif";
+    line-height: 1.5;
+    text-rendering: optimizeLegibility;
+    -webkit-overflow-scrolling: touch;
+    -webkit-text-size-adjust: 100%;
+  }
+  body.dark-theme {
+    background-color: var(--dark-background);
+    color: #a9a9b3;
+    color: var(--dark-color);
+  }
+  h1 {font-size: 1.5rem;}
+  a {
+    outline: none;
+    background-color: transparent;
+    color: var(--light-color);
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-transition: all 0.3s linear;
+    transition: all 0.3s linear;
+    -webkit-text-decoration-skip: objects;
+  }
+  .dark-theme a {
+    color: var(--dark-color);
+  }
+</style>
+<body class="">
+  <div class="container pt-4">
+    <div id="memos"></div>
+    <div id="memo-list"></div>
+  </div>
+</body>
+
+<script type="text/javascript">
+// [Safari only] gesturestart event: multi finger gestures touching 
+document.addEventListener('gesturestart', function(event) {
+  event.preventDefault();
+});
+</script>
+
+<script type="text/javascript">
+  var memosJson = {
+    url : "https://immmmm.com/memos/memos.json"
+  }
+  var memosMyList = [
+    {
+      "creatorName" : "林木木",
+      "website" : "https://immmmm.com",
+      "link" : "https://me.edui.fun",
+      "creatorId" : "101",
+      "avatar" : "https://cravatar.cn/avatar/ba83fa02fc4b2ba621514941307e21be?s=80",
+      "twikoo" : "https://metk.edui.fun"
+    },
+    {
+      "creatorName" : "koobai",
+      "website" : "https://koobai.com",
+      "link" : "https://memos.koobai.com",
+      "creatorId" : "1",
+      "avatar" : "https://cravatar.cn/avatar/3b3d336a7d389b7ae8531cbe177ae9b7?s=80",
+      "artalk" : "https://c.koobai.com",
+      "artSite" : "空白唠叨"
+    },{
+      "creatorName": "Elizen",
+      "website" : "https://elizen.me",
+      "link" : "https://memos.elizen.me",
+      "creatorId" : "101",
+      "twikoo" : "https://pl.elizen.me",
+      "avatar": "https://cravatar.cn/avatar/f65df4d87240feb1cb247857a621a48f?s=80"
+    }
+  ]
+</script>
+
+<script src="../memos/cdn/twikoo.min.js"></script>
+<script src="../memos/cdn/ArtalkLite.js"></script>
+<script src="../memos/cdn/marked.min.js"></script>
+<script src="../memos/cdn/APlayer.min.js"></script>
+<script src="../memos/cdn/Meting.min.js"></script>
+<script src="../memos/cdn/lozad.min.js"></script>
+<script src="../memos/memos.js"></script>
+
+</html>
