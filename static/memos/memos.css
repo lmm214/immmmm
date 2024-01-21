@@ -78,7 +78,7 @@ button,a {
 }
 .user-now .button{border-radius: unset;}
 .user-now .button:hover,.user-now .button.current{color:var(--main-color);}
-.dark .user-now .button:hover,.dark .user-now .button.current{border-bottom: 3px solid var(--light-background);}
+.dark .user-now .button:hover,.dark .user-now .button.current{color:var(--main-color);}
 .dark .user-now .button{background: transparent;}
 
 .button.outline,
