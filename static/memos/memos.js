@@ -252,10 +252,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   }else{
     memoList = memoOurList
   }
-  
+
   //查询当前页面 window.location.origin 作为主页展示
   let memobbsAdmin = []
-  let memobbsLink = window.location.origin
+  let memobbsLink = window.location.origin.replace(/'/g, '');
   let linkIndex = memoList.findIndex(item => (item.website == memobbsLink))
   if(linkIndex >= 0){
     memobbsAdmin.push(memoList[linkIndex])
