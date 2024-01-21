@@ -5,13 +5,17 @@ tags: [折腾]
 feature: https://r2.immmmm.com/2024/01/bbv3.png.webp
 ---
 
-鼓起劲头肝了一个周末，终于切换到 [@归臧](https://nuoea.com/) 的 Memos 样式和功能 [（点我围观）](https://immmmm.com/bb/) 。
+鼓起劲头肝了一个周末，终于切换到 [@归臧](https://nuoea.com/) 的 Memos 样式和功能 [（点我围观）](https://memobbs.app/) 。
 
 折腾的核心动力是其：颜值在线！
 
 其次，功能齐全，集个人与广场模式，内置发布框，登录后编辑、归档、删除，前台一条龙～
 
 <!--more-->
+
+### 欢迎加入
+
+直接 PR [memos.json](https://github.com/lmm214/memobbs/blob/main/memos.json) 这个文件即可～
 
 ### 功能列表
 
@@ -44,8 +48,8 @@ feature: https://r2.immmmm.com/2024/01/bbv3.png.webp
 <link rel="stylesheet" href="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css">
 <link rel="stylesheet" href="https://cdn.staticfile.org/animate.css/4.1.1/animate.min.css">
 <link rel="stylesheet" href="https://cdn.staticfile.org/artalk/2.7.3/ArtalkLite.css">
-<link rel="stylesheet" href="https://immmmm.com/memos/grid.css">
-<link rel="stylesheet" href="https://immmmm.com/memos/memos.css">
+<link rel="stylesheet" href="https://memobbs.app/grid.css">
+<link rel="stylesheet" href="https://memobbs.app/memos.css">
 ```
 
 #### JS
@@ -53,7 +57,7 @@ feature: https://r2.immmmm.com/2024/01/bbv3.png.webp
 ```
 <script type="text/javascript">
   var memosJson = {
-    url : "https://immmmm.com/memos/memos.json"
+    url : "https://memobbs.app/memos.json"
   }
   var memosMyList = [
     {
@@ -91,24 +95,24 @@ feature: https://r2.immmmm.com/2024/01/bbv3.png.webp
 <script src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js"></script>
 <script src="https://cdn.staticfile.org/meting/2.0.1/Meting.min.js"></script>
 <script src="https://cdn.staticfile.org/lozad.js/1.16.0/lozad.min.js"></script>
-<script src="https://immmmm.com/memos/memos.js"></script>
+<script src="https://memobbs.app/memos.js"></script>
 ```
 
 ### 关注列表加载逻辑
 
-#### 其一，memos.json 文件管理
+#### 荐：二合一
+
+⭐️⭐️⭐️⭐️⭐️ 这样自己就不用维护基本库啦，省心省力，而且会自动合并去重。
+
+#### 其一，HTML 页面内添加内容
+
+见上方 JS 代码部分，修改 `memosMyList` 第一条信息为自己的，就可以啦～
+
+#### 其二，memos.json 文件管理
 
 可远程或本地加载，是二选一 `if...else` 的关系。
 
-- 个人维护列表：`https://immmmm.com/memos/memos.json`
-- 本地路径 `../memos/memos.json`
+- 个人维护列表：`https://memobbs.app/memos.json`
+- 本地路径 `/memos.json`
 
-下载 [memos.json](https://immmmm.com/memos/memos.json)，编辑第一条为自己的信息（先搜索一下，有的话前移到第一条），然后丢入 （注：Hugo 是把这个 json 文件丢入到 `static/memos/` 内。）
-
-#### 其二，HTML 页面内添加内容
-
-见上方 JS 代码部分，修改 `memosMyList` 第一条信息为自己的。
-
-#### 二合一？
-
-⭐️⭐️⭐️⭐️⭐️ 推荐，这样自己就不用维护基本库啦，省心省力，而且会自动合并去重。
+下载 [memos.json](https://memobbs.app/memos.json)，编辑第一条为自己的信息（先搜索一下，有的话前移到第一条），然后丢入 （注：Hugo 是把这个 json 文件丢入到 `static/memos/` 内。）
