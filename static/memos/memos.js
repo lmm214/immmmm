@@ -249,7 +249,10 @@ document.addEventListener("DOMContentLoaded", async () => {
         return JSON.stringify(obj) === stringifiedItem;
       });
     });
+  }else{
+    memoList = memoOurList
   }
+
   //查询当前页面 window.location.origin 作为主页展示
   let memobbsAdmin = []
   let memobbsLink = window.location.origin;
