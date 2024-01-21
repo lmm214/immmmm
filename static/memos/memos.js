@@ -168,10 +168,10 @@ var artalkSiteInput = document.querySelector(".memos-artalksite-input");
 var twikooInput = document.querySelector(".memos-twikoo-input");
 var uploadImageInput = document.querySelector(".memos-upload-image-input");
 var memosTextarea = document.querySelector(".memos-editor-textarea");
-var memosOpenId = window.localStorage && window.localStorage.getItem("memos-access-token");
-var memosPath = window.localStorage && window.localStorage.getItem("memos-access-path");
 var getEditor = window.localStorage && window.localStorage.getItem("memos-editor-display");
 var getMode = window.localStorage && window.localStorage.getItem("memos-mode");
+var memosOpenId = window.localStorage && window.localStorage.getItem("memos-access-token");
+var memosPath = window.localStorage && window.localStorage.getItem("memos-access-path");
 var memosMeID = window.localStorage && window.localStorage.getItem("memos-me-id");
 var memosMeNickname = window.localStorage && window.localStorage.getItem("memos-me-nickname");
 var memosMeAvatarUrl = window.localStorage && window.localStorage.getItem("memos-me-avatarurl");
@@ -197,6 +197,11 @@ var loadBtn = document.querySelector("button.button-load");
 
 var limit = memosData.limit,page = 1,nums = 0,dataNum = 0,memosContType = 0, memosAccess = 0,randomUser = 0;
 var memoData = [],memosStr = [],memoCreatorMap = {},twikooCount = {},artalkCount = {};
+let memosMode;
+let nowLink;
+let nowId;
+let nowName;
+let nowAvatar;
 var memoChangeDate = 0;
 var getSelectedValue = window.localStorage && window.localStorage.getItem("memos-visibility-select") || "PUBLIC";
 
@@ -244,6 +249,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   }else{
     memoList = memoOurList
   }
+  nowLink = memosPath || memoList[1].link;
+  nowId = memosMeID || memoList[1].creatorId;
+  nowName = memosMeNickname || memoList[1].creatorName;
+  nowAvatar = memosMeAvatarUrl || memoList[1].avatar;
   memoFollow(getMode);
   getEditIcon();
 });
@@ -256,10 +265,6 @@ async function getMemoListData(url) {
 }
 
 function memoFollow(mode) {
-  let nowLink = memosPath || memoList[0].link;
-  let nowId = memosMeID || memoList[0].creatorId;
-  let nowName = memosMeNickname || memoList[0].creatorName;
-  let nowAvatar = memosMeAvatarUrl || memoList[0].avatar
   //记忆显示模式
   usernowBtnDom.forEach((item) => {item.classList.remove('current');})
   if(mode == "MEMOSHOME"){
@@ -409,10 +414,6 @@ function memoFollow(mode) {
 
 // 插入 html 
 async function updateHtml(data) {
-  let nowLink = memosPath || memoList[0].link;
-  let nowId = memosMeID || memoList[0].creatorId;
-  let nowName = memosMeNickname || memoList[0].creatorName;
-  let nowAvatar = memosMeAvatarUrl || memoList[0].avatar
   let result = '',itemOption = '',itemContent = '';
   let TAG_REG = /#([^#\s!.,;:?"'()]+)(?= )/g, 
     IMG_REG = /\!\[(.*?)\]\((.*?)\)/g,
@@ -665,10 +666,6 @@ searchBtn.addEventListener("click", function () {
           getMemos(serchText)
         }else{
           let userNameIndex = memoList.findIndex(item => (item.creatorName == usernowName));
-          let nowLink = memosPath || memoList[0].link;
-          let nowId = memosMeID || memoList[0].creatorId;
-          let nowName = memosMeNickname || memoList[0].creatorName;
-          let nowAvatar = memosMeAvatarUrl || memoList[0].avatar
           if(userNameIndex == -1){
             getUserMemos(nowLink,nowId,nowName,nowAvatar,"",serchText)
           }else{
@@ -705,10 +702,6 @@ function goHome(){
   goHomeBtn.classList.add("current")
   goBbsBtn.classList.remove("current")
   randomUser = 0;
-  let nowLink = memosPath || memoList[0].link;
-  let nowId = memosMeID || memoList[0].creatorId;
-  let nowName = memosMeNickname || memoList[0].creatorName;
-  let nowAvatar = memosMeAvatarUrl || memoList[0].avatar
   getUserMemos(nowLink,nowId,nowName,nowAvatar)
   cocoMessage.success("Hi， "+nowName);
 };
@@ -764,10 +757,6 @@ function reloadUser(mode){
     getMemos()
   }else{
     let userNameIndex = memoList.findIndex(item => (item.creatorName == usernowName));
-    let nowLink = memosPath || memoList[0].link;
-    let nowId = memosMeID || memoList[0].creatorId;
-    let nowName = memosMeNickname || memoList[0].creatorName;
-    let nowAvatar = memosMeAvatarUrl || memoList[0].avatar
     if(userNameIndex == -1){
       getUserMemos(nowLink,nowId,nowName,nowAvatar)
     }else{
@@ -987,8 +976,8 @@ function editMemo(memo) {
     document.querySelector(".memos-image-list").innerHTML = '';
     let e = JSON.parse(memo.getAttribute("data-form"));
     let memoResList = e.resourceList,memosResource = [],imageList = "";
-    window.localStorage && window.localStorage.setItem("memos-editor-dataform",JSON.stringify(e));
     memosVisibilitySelect.value = e.visibility;
+    window.localStorage && window.localStorage.setItem("memos-editor-dataform",JSON.stringify(e));
     window.localStorage && window.localStorage.setItem("memos-visibility-select",memosVisibilitySelect.value);
     memosTextarea.value = e.content;
     memosTextarea.style.height = memosTextarea.scrollHeight + 'px';
@@ -1096,10 +1085,6 @@ function archiveMemo(memoId) {
           '归档成功',
           ()=>{
             let memosMode = window.localStorage && window.localStorage.getItem("memos-mode");
-            let nowLink = memosPath || memoList[0].link;
-            let nowId = memosMeID || memoList[0].creatorId;
-            let nowName = memosMeNickname || memoList[0].creatorName;
-            let nowAvatar = memosMeAvatarUrl || memoList[0].avatar
             getUserMemos(nowLink,nowId,nowName,nowAvatar,"","",memosMode)
           })
         }
@@ -1127,10 +1112,6 @@ function deleteMemo(memoId) {
           '删除成功',
           ()=>{
             let memosMode = window.localStorage && window.localStorage.getItem("memos-mode");
-            let nowLink = memosPath || memoList[0].link;
-            let nowId = memosMeID || memoList[0].creatorId;
-            let nowName = memosMeNickname || memoList[0].creatorName;
-            let nowAvatar = memosMeAvatarUrl || memoList[0].avatar
             getUserMemos(nowLink,nowId,nowName,nowAvatar,"","",memosMode)
           })
         }
@@ -1286,10 +1267,6 @@ function getEditIcon() {
   });
 
   privateBtn.addEventListener("click", async function () {
-    let nowLink = memosPath || memoList[0].link;
-    let nowId = memosMeID || memoList[0].creatorId;
-    let nowName = memosMeNickname || memoList[0].creatorName;
-    let nowAvatar = memosMeAvatarUrl || memoList[0].avatar
     if (!privateBtn.classList.contains("private")) {
       privateBtn.classList.add("private")
       memosVisibilitySelect.value = "PRIVATE"
@@ -1309,10 +1286,6 @@ function getEditIcon() {
   
   randomBtn.addEventListener("click", async function () {
     memosCount = window.localStorage && window.localStorage.getItem("memos-response-count");
-    let nowLink = memosPath || memoList[0].link;
-    let nowId = memosMeID || memoList[0].creatorId;
-    let nowName = memosMeNickname || memoList[0].creatorName;
-    let nowAvatar = memosMeAvatarUrl || memoList[0].avatar
     if(!memosCount){
       try {
         let userMemoUrl = `${nowLink}/api/v1/memo`
@@ -1616,10 +1589,6 @@ function clearTextarea(mode){
   memosTextarea.value = '';
   memosTextarea.style.height = 'inherit';
   let memosMode = mode || window.localStorage && window.localStorage.getItem("memos-mode");
-  let nowLink = memosPath || memoList[0].link;
-  let nowId = memosMeID || memoList[0].creatorId;
-  let nowName = memosMeNickname || memoList[0].creatorName;
-  let nowAvatar = memosMeAvatarUrl || memoList[0].avatar
   if(memosMode != "cancel"){
     getUserMemos(nowLink,nowId,nowName,nowAvatar,"","",memosMode)
   }
