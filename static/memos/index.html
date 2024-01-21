@@ -7,7 +7,7 @@
   <meta name="force-rendering" content="webkit"/>
   <meta name="referrer" content="no-referrer">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/> 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 
   <meta name="apple-mobile-web-app-capable" content="yes"/>
   <meta name="apple-touch-fullscreen" content="yes"/>
@@ -54,6 +54,9 @@
 <link rel="stylesheet" href="../memos/memos.css">
 
 <style>
+  html, body {
+    touch-action: manipulation;
+  }
   body {
     margin: 0;
     padding: 0;
@@ -94,6 +97,13 @@
     <div id="memo-list"></div>
   </div>
 </body>
+
+<script type="text/javascript">
+// [Safari only] gesturestart event: multi finger gestures touching 
+document.addEventListener('gesturestart', function(event) {
+  event.preventDefault();
+});
+</script>
 
 <script type="text/javascript">
   var memosJson = {
