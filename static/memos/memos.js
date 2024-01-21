@@ -43,8 +43,9 @@ var userNow = `
   <div class="call-memos-editor item-avatar p-3 "><img class="user-now-avatar" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"/ style="pointer-events: none;"></div>
   <span class="user-now-name"></span>
   <div class="row-fill">
-    <span class="search-memos button d-md-flex pt-3 pb-3 pl-2 pr-2 mr-2">
-      <svg xmlns="http://www.w3.org/2000/svg" width="1.15rem" height="1.15rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21l-4.3-4.3"/></g></svg>
+    <input class="search-memos-input border-b input-text py-2 animate__animated animate__fadeIn animate__fadeInRight d-none" type="text" placeholder="想搜点啥？" id="">
+    <span class="search-memos-btn button d-md-flex pt-3 pb-3 pl-2 pr-2 mr-2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1.25rem" height="1.25rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21l-4.3-4.3"/></g></svg>
     </span>
     <span class="userlist-memos button d-md-flex pt-3 pb-3 pl-2 pr-2 mr-2">
       <svg xmlns="http://www.w3.org/2000/svg" width="1.25rem" height="1.25rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M14 19a6 6 0 0 0-12 0"/><circle cx="8" cy="9" r="4"/><path d="M22 19a6 6 0 0 0-6-6a4 4 0 1 0 0-8"/></g></svg>
@@ -104,11 +105,11 @@ var memosEditorCont = `
           <div class="button outline switchUser-btn d-none d-md-flex mr-2 p-2">
             <svg xmlns="http://www.w3.org/2000/svg" width=".9rem" height=".9rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M20 7h-9m3 10H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></g></svg>
           </div>
-          <div class="button outline random-btn mr-2 p-2">
-            <svg xmlns="http://www.w3.org/2000/svg" width=".9rem" height=".9rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22"/><path d="m18 2l4 4l-4 4M2 6h1.9c1.5 0 2.9.9 3.6 2.2M22 18h-5.9c-1.3 0-2.6-.7-3.3-1.8l-.5-.8"/><path d="m18 14l4 4l-4 4"/></g></svg>
-          </div>
           <div class="button outline private-btn mr-2 p-2">
             <svg xmlns="http://www.w3.org/2000/svg" width=".9rem" height=".9rem" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10h.01M15 10h.01M12 2a8 8 0 0 0-8 8v12l3-3l2.5 2.5L12 19l2.5 2.5L17 19l3 3V10a8 8 0 0 0-8-8"/></svg>
+          </div>
+          <div class="button outline random-btn mr-2 p-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width=".9rem" height=".9rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M2 18h1.4c1.3 0 2.5-.6 3.3-1.7l6.1-8.6c.7-1.1 2-1.7 3.3-1.7H22"/><path d="m18 2l4 4l-4 4M2 6h1.9c1.5 0 2.9.9 3.6 2.2M22 18h-5.9c-1.3 0-2.6-.7-3.3-1.8l-.5-.8"/><path d="m18 14l4 4l-4 4"/></g></svg>
           </div>
         </div>
         <div class="editor-submit d-flex flex-fill justify-content-end">
@@ -153,7 +154,8 @@ var randomBtn = document.querySelector(".random-btn");
 var privateBtn = document.querySelector(".private-btn");
 var switchUserBtn = document.querySelector(".switchUser-btn");
 var loadEditorBtn = document.querySelector(".call-memos-editor");
-var searchBtn = document.querySelector(".search-memos");
+var searchBtn = document.querySelector(".search-memos-btn");
+var searchInput = document.querySelector(".search-memos-input");
 var userlistBtn = document.querySelector(".userlist-memos");
 var randomUserBtn = document.querySelector(".randomuser-memos");
 var submitApiBtn = document.querySelector(".submit-openapi-btn");
@@ -195,15 +197,19 @@ var loadBtn = document.querySelector("button.button-load");
 
 var limit = memosData.limit,page = 1,nums = 0,dataNum = 0,memosContType = 0, memosAccess = 0,randomUser = 0;
 var memoData = [],memosStr = [],memoCreatorMap = {},twikooCount = {},artalkCount = {};
+var memoChangeDate = 0;
+var getSelectedValue = window.localStorage && window.localStorage.getItem("memos-visibility-select") || "PUBLIC";
 
 document.addEventListener("DOMContentLoaded", () => {
+  let getTheme = window.localStorage && window.localStorage.getItem("theme");
+	let isDark = getTheme === "dark";
+	let isLight = getTheme === "light";
   //切换主题
-	var getTheme = window.localStorage && window.localStorage.getItem("theme");
-	var isDark = getTheme === "dark";
-	var isLight = getTheme === "light";
-	if (getTheme !== null) {
+	if (getTheme !== null || window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
 		document.body.classList.toggle("dark-theme",isDark);
-	}
+	}else {
+    document.body.classList.toggle("dark-theme",isLight);
+  }
 	Array.prototype.forEach.call(document.querySelectorAll('.theme-toggle'), function(el){
     el.addEventListener('click', function() {
 			document.body.classList.toggle("dark-theme");
@@ -632,33 +638,48 @@ async function getMemos(search) {
 
 //搜索 Memo
 searchBtn.addEventListener("click", function () {
-  let tagnowHas = document.querySelector(".memos-tagnow") || ''
-  if(tagnowHas) tagnowHas.remove();
-  let serchText = prompt('搜点啥？','');
-  let usernowName = document.querySelector(".user-now-name").innerHTML;
-  if(serchText !== "" && serchText != null){
-    let serchDom = `
-      <div class="memos-tagnow row p-2 mb-2"">
-        <div class="memos-tagnow-title mr-3">当前搜索:</div>
-        <div class="memos-tagnow-name card-item pr-2 pl-2" onclick="reloadUser()">${serchText}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-auto ml-1 opacity-40"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></div>
-      </div>`
-    memosDom.insertAdjacentHTML('beforebegin', serchDom);
-    if(usernowName == ""){
-      getMemos(serchText)
-    }else{
-      let userNameIndex = memoList.findIndex(item => (item.creatorName == usernowName));
-      let nowLink = memosPath || memoList[0].link;
-      let nowId = memosMeID || memoList[0].creatorId;
-      let nowName = memosMeNickname || memoList[0].creatorName;
-      let nowAvatar = memosMeAvatarUrl || memoList[0].avatar
-      if(userNameIndex == -1){
-        getUserMemos(nowLink,nowId,nowName,nowAvatar,"",serchText)
-      }else{
-        let userNowData = memoList[userNameIndex]
-        getUserMemos(userNowData.link,userNowData.creatorId,userNowData.creatorName,userNowData.avatar,"",serchText)
+  if(searchInput.classList.contains("d-none")){
+    searchInput.classList.remove("d-none")
+    searchInput.focus();
+  }else{
+    searchInput.classList.add("animate__fadeOutRight")
+    setTimeout(function() {
+      searchInput.classList.add("d-none")
+      searchInput.classList.remove("animate__fadeOutRight")
+    }, 500);
+  }
+  searchInput.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+      let tagnowHas = document.querySelector(".memos-tagnow")
+      if(tagnowHas) tagnowHas.remove();
+      const serchText = searchInput.value;
+      let usernowName = document.querySelector(".user-now-name").innerHTML;
+      if(serchText !== "" && serchText != null){
+        let serchDom = `
+          <div class="memos-tagnow row p-2 mb-2"">
+            <div class="memos-tagnow-title mr-3">当前搜索:</div>
+            <div class="memos-tagnow-name card-item pr-2 pl-2" onclick="reloadUser('search')">${serchText}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-auto ml-1 opacity-40"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></div>
+          </div>`
+        memosDom.insertAdjacentHTML('beforebegin', serchDom);
+        if(usernowName == ""){
+          getMemos(serchText)
+        }else{
+          let userNameIndex = memoList.findIndex(item => (item.creatorName == usernowName));
+          let nowLink = memosPath || memoList[0].link;
+          let nowId = memosMeID || memoList[0].creatorId;
+          let nowName = memosMeNickname || memoList[0].creatorName;
+          let nowAvatar = memosMeAvatarUrl || memoList[0].avatar
+          if(userNameIndex == -1){
+            getUserMemos(nowLink,nowId,nowName,nowAvatar,"",serchText)
+          }else{
+            let userNowData = memoList[userNameIndex]
+            getUserMemos(userNowData.link,userNowData.creatorId,userNowData.creatorName,userNowData.avatar,"",serchText)
+          }
+        }
+        searchInput.value = ''
       }
     }
-  }
+  });
 });
 
 //显示订阅列表
@@ -689,7 +710,7 @@ function goHome(){
   let nowName = memosMeNickname || memoList[0].creatorName;
   let nowAvatar = memosMeAvatarUrl || memoList[0].avatar
   getUserMemos(nowLink,nowId,nowName,nowAvatar)
-  cocoMessage.success("Hi， "+name);
+  cocoMessage.success("Hi， "+nowName);
 };
 
 //切换为广场模式
@@ -735,8 +756,8 @@ function goRandUser(){
 }
 
 //重载当前 user
-function reloadUser(){
-  let tagnowHas = document.querySelector(".memos-tagnow") || ''
+function reloadUser(mode){
+  let tagnowHas = document.querySelector(".memos-tagnow")
   if(tagnowHas) tagnowHas.remove();
   let usernowName = document.querySelector(".user-now-name").innerHTML;
   if(usernowName == ""){
@@ -753,6 +774,9 @@ function reloadUser(){
       let userNowData = memoList[userNameIndex]
       getUserMemos(userNowData.link,userNowData.creatorId,userNowData.creatorName,userNowData.avatar)
     }
+  }
+  if(mode == "search"){
+    memosTextarea.value = '';
   }
 }
 
@@ -886,7 +910,7 @@ async function fetchNeoDB(url){
 }
 //获取指定 Tag
 function getTagNow(u,i,n,a,e){
-  let tagnowHas = document.querySelector(".memos-tagnow") || ''
+  let tagnowHas = document.querySelector(".memos-tagnow")
   if(tagnowHas) tagnowHas.remove();
   let tagName = e.innerHTML
   let tagnowDom = `
@@ -965,6 +989,7 @@ function editMemo(memo) {
     let memoResList = e.resourceList,memosResource = [],imageList = "";
     window.localStorage && window.localStorage.setItem("memos-editor-dataform",JSON.stringify(e));
     memosVisibilitySelect.value = e.visibility;
+    window.localStorage && window.localStorage.setItem("memos-visibility-select",memosVisibilitySelect.value);
     memosTextarea.value = e.content;
     memosTextarea.style.height = memosTextarea.scrollHeight + 'px';
     submitMemoBtn.classList.add("d-none");
@@ -994,12 +1019,16 @@ editMemoBtn.addEventListener("click", function () {
   let memoId = dataformNow.id,memoRelationList = dataformNow.relationList,
   memosOpenId = window.localStorage && window.localStorage.getItem("memos-access-token"),
   memoContent = memosTextarea.value,
+  memocreatedTs = dataformNow.createdTs,
   memoVisibility = memosVisibilitySelect.value,
   memoResourceList = window.localStorage && JSON.parse(window.localStorage.getItem("memos-resource-list"));
+  if(memoChangeDate == 1){
+    memocreatedTs = Math.floor(Date.now() / 1000);;
+  }
   let hasContent = memoContent.length !== 0;
   if (hasContent) {
     let memoUrl = `${memosPath}/api/v1/memo/${memoId}`;
-    let memoBody = {content:memoContent,id:memoId,relationList:memoRelationList,resourceIdList:memoResourceList,visibility:memoVisibility}
+    let memoBody = {content:memoContent,id:memoId,createdTs:memocreatedTs,relationList:memoRelationList,resourceIdList:memoResourceList,visibility:memoVisibility}
     fetch(memoUrl, {
       method: 'PATCH',
       body: JSON.stringify(memoBody),
@@ -1009,10 +1038,13 @@ editMemoBtn.addEventListener("click", function () {
       }
     }).then(function(res) {
       if (res.ok) {
+        let tagnowHas = document.querySelector(".memos-tagnow")
+        if(tagnowHas) tagnowHas.remove();
         cocoMessage.success(
         '修改成功',
         ()=>{
           memosVisibilitySelect.value = memosOldSelect;
+          memoChangeDate = 0;
           clearTextarea();
         })
       }
@@ -1120,7 +1152,6 @@ function getEditIcon() {
   let memosPath = window.localStorage && window.localStorage.getItem("memos-access-path");
   let memosOpenId = window.localStorage && window.localStorage.getItem("memos-access-token");
   let getEditor = window.localStorage && window.localStorage.getItem("memos-editor-display");
-  let getSelectedValue = window.localStorage && window.localStorage.getItem("memos-visibility-select") || "PUBLIC";
   let isHide = getEditor === "hide";
   memosVisibilitySelect.value = getSelectedValue;
   window.localStorage && window.localStorage.setItem("memos-resource-list",  JSON.stringify(memosResource));
@@ -1246,8 +1277,12 @@ function getEditIcon() {
   }
 
   memosVisibilitySelect.addEventListener('change', function() {
+    memoNowSelct = window.localStorage && window.localStorage.getItem("memos-visibility-select");
     var selectedValue = memosVisibilitySelect.value;
     window.localStorage && window.localStorage.setItem("memos-visibility-select",selectedValue);
+    if(memoNowSelct == "PRIVATE" && selectedValue == "PUBLIC"){
+      memoChangeDate = 1;
+    }
   });
 
   privateBtn.addEventListener("click", async function () {
@@ -1315,6 +1350,7 @@ function getEditIcon() {
   });
 
   async function uploadImage(data) {
+    let memosResourceListNow = JSON.parse(window.localStorage && window.localStorage.getItem("memos-resource-list"));
     let imageData = new FormData();
     let blobUrl = `${memosPath}/api/v1/resource/blob`;
     imageData.append('file', data, data.name)
@@ -1341,8 +1377,8 @@ function getEditIcon() {
       cocoMessage.success(
       '上传成功',
       ()=>{
-        memosResource.push(res.id);
-        window.localStorage && window.localStorage.setItem("memos-resource-list",  JSON.stringify(memosResource));
+        memosResourceListNow.push(res.id);
+        window.localStorage && window.localStorage.setItem("memos-resource-list",  JSON.stringify(memosResourceListNow));
         imageListDrag()
       })
     }
@@ -1486,6 +1522,7 @@ function getEditIcon() {
           memosMeAvatarUrl = resdata.avatarUrl;
           window.localStorage && window.localStorage.setItem("memos-access-path", p);
           window.localStorage && window.localStorage.setItem("memos-access-token", t);
+          window.localStorage && window.localStorage.setItem("memos-visibility-select","PUBLIC");
           window.localStorage && window.localStorage.setItem("memos-me-id", memosMeID);
           window.localStorage && window.localStorage.setItem("memos-me-nickname", memosMeNickname);
           window.localStorage && window.localStorage.setItem("memos-me-avatarurl", memosMeAvatarUrl);

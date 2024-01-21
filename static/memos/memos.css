@@ -27,7 +27,7 @@
 	border-style: solid;
 	border-color: inherit;
 }
-.container{min-width:320px;}
+.container{min-width:400px;}
 #memo-list{min-height: 100vh;}
 #memo-list a{padding-bottom:0;border-bottom:0;}
 /* title */
