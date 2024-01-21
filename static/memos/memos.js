@@ -1350,7 +1350,7 @@ function getEditIcon() {
   });
 
   async function uploadImage(data) {
-    let memosResourceListNow = JSON.parse(window.localStorage && window.localStorage.getItem("memos-resource-list"));
+    let memosResourceListNow = JSON.parse(window.localStorage && window.localStorage.getItem("memos-resource-list")) || [];
     let imageData = new FormData();
     let blobUrl = `${memosPath}/api/v1/resource/blob`;
     imageData.append('file', data, data.name)
@@ -1410,7 +1410,6 @@ function getEditIcon() {
   });
 
   submitMemoBtn.addEventListener("click", function () {
-    submitMemoBtn.classList.add("noclick")
     memosContent = memosTextarea.value;
     memosVisibility = memosVisibilitySelect.value;
     memosResource = window.localStorage && JSON.parse(window.localStorage.getItem("memos-resource-list"));
@@ -1419,6 +1418,7 @@ function getEditIcon() {
     let memosTag = memosContent.match(TAG_REG);
     let  hasContent = memosContent.length !== 0;
     if (memosOpenId && hasContent) {
+      submitMemoBtn.classList.add("noclick")
       let memoUrl = `${memosPath}/api/v1/memo`;
       let memoBody = {content:memosContent,relationList:memosRelation,resourceIdList:memosResource,visibility:memosVisibility}
       fetch(memoUrl, {
@@ -1454,7 +1454,6 @@ function getEditIcon() {
             })
         }
       });
-      
     }else if(!hasContent){
       cocoMessage.info('内容不能为空');
     }else{
