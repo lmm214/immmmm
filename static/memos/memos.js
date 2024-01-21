@@ -252,10 +252,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   }else{
     memoList = memoOurList
   }
+  
   //查询当前页面 window.location.origin 作为主页展示
-  console.log(memoList)
   let memobbsAdmin = []
-  let memobbsLink = "https://koobai.com" //window.location.origin
+  let memobbsLink = window.location.origin
   let linkIndex = memoList.findIndex(item => (item.website == memobbsLink))
   if(linkIndex >= 0){
     memobbsAdmin.push(memoList[linkIndex])
@@ -267,7 +267,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       });
     });
   }
-  //console.log(memoList[0].link)
+  
   nowLink = memosPath || memoList[0].link;
   nowId = memosMeID || memoList[0].creatorId;
   nowName = memosMeNickname || memoList[0].creatorName;
