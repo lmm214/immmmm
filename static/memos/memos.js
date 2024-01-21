@@ -1,40 +1,38 @@
 /**
- * memos.js 24.1.21
+ * memos.js 24.1.22
  * https://immmmm.com/
  */
 var memosData = {
   dom:"#memos",
   listDom:"#memo-list",
-  limit:"8",
-  gravatar:"https://cravatar.cn"
+  limit:"8"
 }
-var gravatar = memosData.gravatar;
 var memosDom = document.querySelector(memosData.dom);
 
 let memoList
 var memoDefaultList = [
   {
-    creatorName:'林木木',
-    website:'https://immmmm.com',
-    link:'https://me.edui.fun',
-    creatorId:'101',
-    avatar:gravatar+'/avatar/ba83fa02fc4b2ba621514941307e21be?s=80',
-    twikoo:'https://metk.edui.fun'
+    "creatorName": "林木木",
+    "website": "https://immmmm.com",
+    "link": "https://me.edui.fun",
+    "creatorId": "101",
+    "avatar": "https://cravatar.cn/avatar/ba83fa02fc4b2ba621514941307e21be?s=80",
+    "twikoo": "https://metk.edui.fun"
   },{
-    creatorName:'归臧',
-    website:'https://nuoea.com',
-    link:'https://memos.nuoea.com',
-    creatorId:'101',
-    avatar:gravatar+'/avatar/020d365ea2596ef6d516143bb0552704?s=80',
-    twikoo:'https://twikoo.nuoea.com'
+    "creatorName": "归臧",
+    "website": "https://nuoea.com/",
+    "link": "https://memos.nuoea.com",
+    "creatorId": "101",
+    "avatar": "https://cravatar.cn/avatar/020d365ea2596ef6d516143bb0552704?s=80",
+    "twikoo": "https://twikoo.nuoea.com"
   },{
-    creatorName:'koobai',
-    website:'https://koobai.com',
-    link:'https://memos.koobai.com',
-    creatorId:'1',
-    avatar:gravatar+'/avatar/3b3d336a7d389b7ae8531cbe177ae9b7?s=80',
-    artalk:'https://c.koobai.com',
-    artSite:'空白唠叨'
+    "creatorName": "koobai",
+    "website": "https://koobai.com",
+    "link": "https://memos.koobai.com",
+    "creatorId": "1",
+    "avatar": "https://cravatar.cn/avatar/3b3d336a7d389b7ae8531cbe177ae9b7?s=80",
+    "artalk": "https://c.koobai.com",
+    "artSite": "空白唠叨"
   }
 ];
 
@@ -46,6 +44,9 @@ var userNow = `
     <input class="search-memos-input border-b input-text py-2 animate__animated animate__fadeIn animate__fadeInRight d-none" type="text" placeholder="想搜点啥？" id="">
     <span class="search-memos-btn button d-md-flex p-2 mr-2">
       <svg xmlns="http://www.w3.org/2000/svg" width="1.15rem" height="1.15rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21l-4.3-4.3"/></g></svg>
+    </span>
+    <span class="memos-theme-toggle button d-md-flex p-2 mr-2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="1.15rem" height="1.15rem" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8a2.83 2.83 0 0 0 4 4a4 4 0 1 1-4-4m0-6v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4l1.4 1.4M2 12h2m16 0h2M6.3 17.7l-1.4 1.4M19.1 4.9l-1.4 1.4"/></svg>
     </span>
     <span class="userlist-memos button d-md-flex p-2 mr-2">
       <svg xmlns="http://www.w3.org/2000/svg" width="1.15rem" height="1.15rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M14 19a6 6 0 0 0-12 0"/><circle cx="8" cy="9" r="4"/><path d="M22 19a6 6 0 0 0-6-6a4 4 0 1 0 0-8"/></g></svg>
@@ -142,6 +143,7 @@ var memosEditorCont = `
 </div>`;
 memosDom.insertAdjacentHTML('afterbegin',memosEditorCont);
 
+var themeTogglebtn = document.querySelector(".memos-theme-toggle");
 var memosEditorInner = document.querySelector(".memos-editor-inner"); 
 var memosEditorOption = document.querySelector(".memos-editor-option");
 var memosRadomCont = document.querySelector(".memos-random");
@@ -213,17 +215,19 @@ document.addEventListener("DOMContentLoaded", () => {
 	if (getTheme !== null) {
 		document.body.classList.toggle("dark-theme",isDark);
 	}
-  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  if (getTheme == null && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
 		document.body.classList.add("dark-theme","dark");
-  }else{
-    document.body.classList.toggle("dark-theme",isLight);
   }
-	Array.prototype.forEach.call(document.querySelectorAll('.theme-toggle'), function(el){
-    el.addEventListener('click', function() {
-			document.body.classList.toggle("dark-theme");
-			window.localStorage && window.localStorage.setItem("theme", document.body.classList.contains("dark-theme") ? "dark" : "light");
-		});
-	});
+});
+
+themeTogglebtn.addEventListener('click', function() {
+  if(!document.body.classList.contains("dark")){
+    document.body.classList.add("dark-theme","dark");
+    window.localStorage && window.localStorage.setItem("theme","dark");
+  }else{
+    document.body.classList.remove("dark-theme","dark");
+    window.localStorage && window.localStorage.setItem("theme","light");
+  }
 });
 
 document.addEventListener("DOMContentLoaded", async () => {

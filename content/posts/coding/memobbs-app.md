@@ -1,6 +1,6 @@
 ---
 title: "哔哔广场.app"
-date: 2024-01-21T21:30:45+0800
+date: 2024-01-21T23:55:45+0800
 tags: [折腾]
 feature: https://r2.immmmm.com/2024/01/bbv3.png.webp
 ---
@@ -73,24 +73,16 @@ feature: https://r2.immmmm.com/2024/01/bbv3.png.webp
 
 - 支持豆瓣影音解析，采用 neodb api，直接丢入裸链接即可；
 
-
-
-### 折腾说明
-
-
-
-
 ### 主题集成
 
 #### 效果预览
 
-https://elizen.me/bb/
-https://dongjunke.cn/bbs/
-https://www.hux.ink/bb/
-https://www.xigeshudong.com/memos/
-https://lms.pub/bidao
-
-
+- https://elizen.me/bb/
+- https://dongjunke.cn/bbs/
+- https://www.hux.ink/bb/
+- https://www.xigeshudong.com/memos/
+- https://lms.pub/bidao
+- ……
 
 #### HTML
 
@@ -112,10 +104,28 @@ https://lms.pub/bidao
 #### JS
 
 ```
+<script src="https://cdn.staticfile.org/twikoo/1.6.29/twikoo.min.js"></script>
+<script src="https://cdn.staticfile.org/artalk/2.7.3/ArtalkLite.js"></script>
+<script src="https://cdn.staticfile.org/marked/7.0.5/marked.min.js"></script>
+<script src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js"></script>
+<script src="https://cdn.staticfile.org/meting/2.0.1/Meting.min.js"></script>
+<script src="https://cdn.staticfile.org/lozad.js/1.16.0/lozad.min.js"></script>
+<script src="https://memobbs.app/memos.js"></script>
+```
+
+#### 折腾说明
+
+若已加入 `memos.json` ，则会自动查询当前页面的主域名，如 `https://elizen.me` 匹配上主页直接就是展示 Elizen 的 Memos 信息；否，则展示我的信息。
+
+![elizen_me_2.jpeg](https://r2.immmmm.com/2024/01/elizen_me_2.jpeg.webp)
+![elizen_me_1.jpeg](https://r2.immmmm.com/2024/01/elizen_me_1.jpeg.webp)
+
+（图左是匹配上，图右为没匹配上的默认显示）
+
+没匹配上，那怎么办？修改下面 `memosMyList` 第一条信息为自己的，再在 HTML 内加入下面的代码，就可以啦～
+
+```
 <script type="text/javascript">
-  var memosJson = {
-    url : "https://memobbs.app/memos.json"
-  }
   var memosMyList = [
     {
       "creatorName" : "林木木",
@@ -145,35 +155,6 @@ https://lms.pub/bidao
 </script>
 ```
 
-```
-<script src="https://cdn.staticfile.org/twikoo/1.6.29/twikoo.min.js"></script>
-<script src="https://cdn.staticfile.org/artalk/2.7.3/ArtalkLite.js"></script>
-<script src="https://cdn.staticfile.org/marked/7.0.5/marked.min.js"></script>
-<script src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js"></script>
-<script src="https://cdn.staticfile.org/meting/2.0.1/Meting.min.js"></script>
-<script src="https://cdn.staticfile.org/lozad.js/1.16.0/lozad.min.js"></script>
-<script src="https://memobbs.app/memos.js"></script>
-```
-
-### 关注列表加载逻辑
-
-#### 荐：二合一
-
-⭐️⭐️⭐️⭐️⭐️ 这样自己就不用维护基本库啦，省心省力，而且会自动合并去重。
-
-#### 其一，HTML 页面内添加内容
-
-见上方 JS 代码部分，修改 `memosMyList` 第一条信息为自己的，就可以啦～
-
-#### 其二，memos.json 文件管理
-
-可远程或本地加载，是二选一 `if...else` 的关系。
-
-- 个人维护列表：`https://memobbs.app/memos.json`
-- 本地路径 `/memos.json`
-
-下载 [memos.json](https://memobbs.app/memos.json)，编辑第一条为自己的信息（先搜索一下，有的话前移到第一条），然后丢入 （注：Hugo 是把这个 json 文件丢入到 `static/memos/` 内。）
-
 ### 致谢
 
 - <https://github.com/usememos/memos>
@@ -181,4 +162,3 @@ https://lms.pub/bidao
 - <https://devv.ai/zh>
 - <https://yesicon.app/>
 - [让网页支持iOS添加到主屏幕全屏应用，webapp启动图生成](https://blog.zhheo.com/p/b737e93d.html)
-- 
