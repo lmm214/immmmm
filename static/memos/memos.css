@@ -77,7 +77,7 @@ button,a {
 	color: inherit;
 }
 .user-now .button{border-radius: unset;}
-.user-now .button:hover,.user-now .button.current{border-bottom: 3px solid var(--dark-background);}
+.user-now .button:hover,.user-now .button.current{color:var(--main-color);}
 .dark .user-now .button:hover,.dark .user-now .button.current{border-bottom: 3px solid var(--light-background);}
 .dark .user-now .button{background: transparent;}
 
@@ -177,7 +177,7 @@ input:focus,input:active {
 	outline: none;
 	background-color: transparent;
 }
-
+input.search-memos-input{max-width:100px;}
 textarea {
 	font-family: inherit;
 	overflow-x: hidden;
@@ -673,13 +673,13 @@ buttom.cancel-edit-btn{margin-left:-1rem;}
 .dark .db-card{background:#252627;}
 /* db-card -------- end */
 
-.user-now .row-fill{display:flex;align-items: baseline;margin-left:auto;}
+.user-now .row-fill{display:flex;align-items:center;margin-left:auto;}
 .user-now .row-fill .iconfont,.load-memos-editor .iconfont{font-size: 1.25rem;}
 .user-now.row{margin-right:0;margin-left:0;}
 .user-now.card-item{overflow:unset;height:3.5rem;}
 .user-now.card-item .item-avatar{border-radius:unset;background-color: transparent;width:3.5rem;height:3.5rem;cursor: pointer;}
 .user-now.card-item .item-avatar img{border-radius:8px;display: inline-block;max-width: 100%;}
-.user-now-name{line-height: 3.9rem;}
+.user-now-name{height:3.5rem;line-height:3.5rem;}
 .user-now-name,.item-creator,.item-footer{font-size:0.875rem;}
 .item-footer svg{opacity:0.4;}
 .item-footer .item span{color: var(--light-color-secondary);}
