@@ -27,17 +27,15 @@ feature: https://r2.immmmm.com/2024/01/bbv3.png.webp
 
 直接 PR [memos.json](https://github.com/lmm214/memobbs/blob/main/memos.json) 这个文件即可。
 
-麻烦使用 Artalk 评论的小伙伴们，添加一下 `https://memobbs.app/` 和 `https://immmmm.com/` 到白名单，方便大家评论互动～
+> 麻烦使用 Artalk 评论的小伙伴们，添加一下 `https://memobbs.app/` 和 `https://immmmm.com/` 到白名单，方便大家评论互动～
 
 ### 功能列表
 
-![meap-1.png](https://r2.immmmm.com/2024/01/meap-1.png.webp)
+![meap1-1.png](https://r2.immmmm.com/2024/01/meap1-1.png.webp)
 
 #### 登录授权
 
 点击顶部左侧“头像位置”，输入 Memos 网址、密钥，保存后即可解锁优化后的发布框功能。
-
-<svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2s4-2 4-2M9 9h.01M15 9h.01"></path></g></svg> 内置 emoji
 
 <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 9h16M4 15h16M10 3L8 21m8-18l-2 18"></path></svg> 「键选标签」
 
@@ -46,6 +44,10 @@ feature: https://r2.immmmm.com/2024/01/bbv3.png.webp
 <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7m4 2h6m-3-3v6"></path><circle cx="9" cy="9" r="2"></circle><path d="m21 15l-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></g></svg> 上传图片「缩略图显示」
 
 - 点击删除，PC 端还可 **拖动排序**
+
+<svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2m16 0h2m-7-1v2m-6-2v2"/></g></svg> 「AI 助手」
+
+- 新建 Cloudflare Workers AI 并绑定域名后，填入设置处解锁。教程（[这里](https://immmmm.com/cloudflare-workers-ai/)）
 
 <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10h.01M15 10h.01M12 2a8 8 0 0 0-8 8v12l3-3l2.5 2.5L12 19l2.5 2.5L17 19l3 3V10a8 8 0 0 0-8-8"></path></svg> 「私有模式」
 
