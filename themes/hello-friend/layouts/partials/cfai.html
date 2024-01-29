@@ -1,0 +1,35 @@
+<div class="post-ai" onclick="cfWKAI()">
+    {{ "![Feedly](https://api-shields.edui.fun/badge/AI-文章摘要-blue)" | markdownify }}
+  </div>
+    <script>
+      let postAI = document.querySelector(".post-ai")
+      let postTile = document.querySelector(".post-title a").textContent
+      let cfWKUrl = "https://ai.memobbs.app"
+      async function cfWKAI() {
+        postAI.insertAdjacentHTML('afterend', '<div class="post-ai-result"></div>');
+        postAI.classList.add("noclick")
+        try{
+          let postAIResult = document.querySelector(".post-ai-result")
+          postAIResult.textContent = ""
+          let input = document.querySelector(".post-content").textContent
+          let inputHanzi = input.replace(/\n/g, '').replace(/[ ]+/g, ' ').replace(/<pre>[\s\S]*?<\/pre>/g, '').substring(0, 1800)
+          let toAI = `《${postTile}》，具体内容：${inputHanzi}`
+          console.log(toAI)
+          let fetchUrl = `${cfWKUrl}/?q=${toAI}`
+          const source = new EventSource(fetchUrl);
+          source.onmessage = (event) => {
+            if(event.data == "[DONE]") {
+              source.close();
+              //postAI.classList.remove("noclick")
+              return;
+            }
+            const data = JSON.parse(event.data);
+            console.log(data.response)
+            postAIResult.textContent += data.response
+          }
+        } catch (error) {
+          //postAI.classList.remove("noclick")
+          console.log('已超时，请稍后再试～');
+        }
+      };
+    </script>

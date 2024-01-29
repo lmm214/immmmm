@@ -1640,3 +1640,14 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 
 .tongji{font-size:1rem;}
 .reaction{line-height:normal;}
+
+.post-ai{cursor: pointer;}
+.noclick{pointer-events:none;}
+.post-ai-result{
+	box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    background-color: var(--light-header);
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+	min-height: 3rem;
+}
+.dark .post-ai-result{background-color: var(--dark-header);}
