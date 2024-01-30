@@ -44,7 +44,7 @@
     {{ end }}
   
     {{ if ne $PostCate "weekly"}}
-      {{ partial "cfai.html" . }}
+      {{ partial "gemini.html" . }}
     {{ end }}
     <div class="post-content">
       {{ if .Params.toc }}{{ .TableOfContents }}{{ end }}
