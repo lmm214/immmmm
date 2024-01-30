@@ -37,17 +37,24 @@ feature: https://r2.immmmm.com/2024/01/bbv3.png.webp
 
 点击顶部左侧“头像位置”，输入 Memos 网址、密钥，保存后即可解锁优化后的发布框功能。
 
+![memobbs-1.png](https://r2.immmmm.com/2024/01/memobbs-1.png.webp)
+
 <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 9h16M4 15h16M10 3L8 21m8-18l-2 18"></path></svg> 「键选标签」
 
 - 输入 `空格+井号`，再键盘方向键选择后回车，可快速填入标签
 
-<svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7m4 2h6m-3-3v6"></path><circle cx="9" cy="9" r="2"></circle><path d="m21 15l-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></g></svg> 上传图片「缩略图显示」
+<svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7m4 2h6m-3-3v6"></path><circle cx="9" cy="9" r="2"></circle><path d="m21 15l-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></g></svg> 上传图片
 
-- 点击删除，PC 端还可 **拖动排序**
+- 外链图片、WebP 压缩上传（仅PC）、原图上传。
+- 上传后，点击「缩略图」删除，PC 端还可 **拖动图片排序**
 
 <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2m16 0h2m-7-1v2m-6-2v2"/></g></svg> 「AI 助手」
 
 - 新建 Cloudflare Workers AI 并绑定域名后，填入设置处解锁。教程（[这里](https://immmmm.com/cloudflare-workers-ai/)）
+
+<svg xmlns="http://www.w3.org/2000/svg" width="1.15rem" height="1.15rem" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m21.64 3.64l-1.28-1.28a1.21 1.21 0 0 0-1.72 0L2.36 18.64a1.21 1.21 0 0 0 0 1.72l1.28 1.28a1.2 1.2 0 0 0 1.72 0L21.64 5.36a1.2 1.2 0 0 0 0-1.72M14 7l3 3M5 6v4m14 4v4M10 2v2M7 8H3m18 8h-4M11 3H9"/></svg> 「Gemini Pro」
+
+- 填入自己的密钥即可解锁：语音润色、自动标签、育儿帮手、智囊团队、智能问答。
 
 <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10h.01M15 10h.01M12 2a8 8 0 0 0-8 8v12l3-3l2.5 2.5L12 19l2.5 2.5L17 19l3 3V10a8 8 0 0 0-8-8"></path></svg> 「私有模式」
 
@@ -59,25 +66,41 @@ feature: https://r2.immmmm.com/2024/01/bbv3.png.webp
 
 #### 浏览模式
 
-<svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="m3 9l9-7l9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><path d="M9 22V12h6v10"></path></g></svg> 个人首页
+<svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="m3 9l9-7l9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><path d="M9 22V12h6v10"></path></g></svg> 个人首页 <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.8 20v-4.1l1.9.2a2.3 2.3 0 0 0 2.164-2.1V8.3A5.37 5.37 0 0 0 2 8.25c0 2.8.656 3.054 1 4.55a5.77 5.77 0 0 1 .029 2.758L2 20m17.8-2.2a7.5 7.5 0 0 0 .003-10.603M17 15a3.5 3.5 0 0 0-.025-4.975"/></svg> 广场模式 <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0m16 4v-2.38c0-2.12 1.03-3.12 1-5.62c-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0m-4-3h4M4 13h4"/></svg> 闲逛模式 <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M14 19a6 6 0 0 0-12 0"></path><circle cx="8" cy="9" r="4"></circle><path d="M22 19a6 6 0 0 0-6-6a4 4 0 1 0 0-8"></path></g></svg> 关注列表 <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M10 10v.2A3 3 0 0 1 8.9 16v0H5v0h0a3 3 0 0 1-1-5.8V10a3 3 0 0 1 6 0m-3 6v6m6-3v3"/><path d="M12 19h8.3a1 1 0 0 0 .7-1.7L18 14h.3a1 1 0 0 0 .7-1.7L16 9h.2a1 1 0 0 0 .8-1.7L13 3l-1.4 1.5"/></g></svg> 友链朋友圈 <svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21l-4.3-4.3"></path></g></svg> 搜索内容
 
-<svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.8 20v-4.1l1.9.2a2.3 2.3 0 0 0 2.164-2.1V8.3A5.37 5.37 0 0 0 2 8.25c0 2.8.656 3.054 1 4.55a5.77 5.77 0 0 1 .029 2.758L2 20m17.8-2.2a7.5 7.5 0 0 0 .003-10.603M17 15a3.5 3.5 0 0 0-.025-4.975"/></svg> 广场模式
+### 使用 Tips
 
-<svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v-2.38C4 11.5 2.97 10.5 3 8c.03-2.72 1.49-6 4.5-6C9.37 2 10 3.8 10 5.5c0 3.11-2 5.66-2 8.68V16a2 2 0 1 1-4 0m16 4v-2.38c0-2.12 1.03-3.12 1-5.62c-.03-2.72-1.49-6-4.5-6C14.63 6 14 7.8 14 9.5c0 3.11 2 5.66 2 8.68V20a2 2 0 1 0 4 0m-4-3h4M4 13h4"/></svg> 闲逛模式
+#### 豆瓣卡片
 
-<svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M14 19a6 6 0 0 0-12 0"></path><circle cx="8" cy="9" r="4"></circle><path d="M22 19a6 6 0 0 0-6-6a4 4 0 1 0 0-8"></path></g></svg> 关注列表
-
-<svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M10 10v.2A3 3 0 0 1 8.9 16v0H5v0h0a3 3 0 0 1-1-5.8V10a3 3 0 0 1 6 0m-3 6v6m6-3v3"/><path d="M12 19h8.3a1 1 0 0 0 .7-1.7L18 14h.3a1 1 0 0 0 .7-1.7L16 9h.2a1 1 0 0 0 .8-1.7L13 3l-1.4 1.5"/></g></svg> 友链朋友圈
-
-<svg xmlns="http://www.w3.org/2000/svg" width="1.5rem" height="1.5rem" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><path d="m21 21l-4.3-4.3"></path></g></svg> 搜索内容
-
-- 当前有头像即搜索此个人，无头像时，关注列表内全员搜索！
+- 采用 [neodb api](https://neodb.social/discover/)，直接丢入链接即可，如：`https://movie.douban.com/subject/35725869/`
 
 ![meap-2.png](https://r2.immmmm.com/2024/01/meap-2.png.webp)
 
-- 支持豆瓣影音解析，采用 neodb api，直接丢入裸链接即可；
+#### 影音解析
+
+B站、优酷、腾讯视频、YOUTUBE，丢入视频链接即可，如：`https://www.bilibili.com/video/BV1dN4y117Y8/`
+
+网易云音乐，如：`https://music.163.com/#/song?id=139893`
+
+QQ音乐，如：`https://y.qq.com/n/ryqq/songDetail/001qioWg4HkeRY`
+
+![memobbs-2.png](https://r2.immmmm.com/2024/01/memobbs-2.png.webp)
+
+#### 单条 Memo 管理
+
+未授权，默认跳转源站；授权后可对自己的 Memo 编辑、归档或删除，对别人的可：
+
+- 收藏：直接保存到自己的 Memos，仅自己可见；
+- 引用：复制内容并加上 via 信息到剪切板，手动粘贴；
+- 跳转
+
+![memobbs-5.png](https://r2.immmmm.com/2024/01/memobbs-5.png.webp)
+![memobbs-4.png](https://r2.immmmm.com/2024/01/memobbs-4.png.webp)
+![memobbs-3.png](https://r2.immmmm.com/2024/01/memobbs-3.png.webp)
 
 ### 主题集成
+
+小 Tips：`https://memobbs.app/memos.css` 和 `https://memobbs.app/memos.js` 可直接复制调取，因为一直在更新；CDN 引用的 css、js 若出现不稳定情况，可下载存到自己地方。
 
 #### 效果预览
 
@@ -112,6 +135,9 @@ feature: https://r2.immmmm.com/2024/01/bbv3.png.webp
 <script src="https://cdn.staticfile.org/artalk/2.7.3/ArtalkLite.js"></script>
 <script src="https://cdn.staticfile.org/marked/7.0.5/marked.min.js"></script>
 <script src="https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js"></script>
+<script>
+var meting_api='https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&auth=:auth&r=:r';
+</script>
 <script src="https://cdn.staticfile.org/meting/2.0.1/Meting.min.js"></script>
 <script src="https://cdn.staticfile.org/lozad.js/1.16.0/lozad.min.js"></script>
 <script src="https://memobbs.app/memos.js"></script>
