@@ -102,8 +102,8 @@ let urls = [
     twiEnv:"https://pl.elizen.me/",
     imgsrc:cdnGravatar+"cc9b8a642c62eef389cd2cc7770276c4"
   },{
-    home:"https://eallion.com/",
-    host:"https://api.eallion.com/memos/",
+    home:"https://www.eallion.com/",
+    host:"https://memos.eallion.com/",
     creatorId:"101",
     imgsrc:cdnGravatar+"171e4c30959e8c077a6c58b958624b31",
     endpoint:"https://emaction.e5n.cc",
