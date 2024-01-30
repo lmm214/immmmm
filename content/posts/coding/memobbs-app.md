@@ -70,6 +70,18 @@ feature: https://r2.immmmm.com/2024/01/bbv3.png.webp
 
 ### 使用 Tips
 
+#### 输入框支持选中包裹插入
+
+{{< video "https://r2.immmmm.com/2024/01/iShot_2024-01-24_19.53.14.mp4" >}}
+
+#### 编辑“私有” Memo 为“公开”时，会以当前时间发布
+
+日常零碎内容可先以“私有”模式保存记录。
+
+#### 自动添加当前标签到输入框
+
+频繁记录一个比较长的标签时，可先点击此标签，再点输入框，则自动添加此标签🏷️
+
 #### 豆瓣卡片
 
 - 采用 [neodb api](https://neodb.social/discover/)，直接丢入链接即可，如：`https://movie.douban.com/subject/35725869/`
@@ -97,6 +109,13 @@ QQ音乐，如：`https://y.qq.com/n/ryqq/songDetail/001qioWg4HkeRY`
 ![memobbs-5.png](https://r2.immmmm.com/2024/01/memobbs-5.png.webp)
 ![memobbs-4.png](https://r2.immmmm.com/2024/01/memobbs-4.png.webp)
 ![memobbs-3.png](https://r2.immmmm.com/2024/01/memobbs-3.png.webp)
+
+#### 开启 「OneDay 」模式
+
+点击自己要回顾的“标签”，在有标签的情况下点击“随机”，边上会出现一个“日历”图标，点它即可开启～
+
+![memobbs-7.png](https://r2.immmmm.com/2024/01/memobbs-7.png.webp)
+![memobbs-6.png](https://r2.immmmm.com/2024/01/memobbs-6.png.webp)
 
 ### 主题集成
 
