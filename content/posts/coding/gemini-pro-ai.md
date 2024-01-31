@@ -29,7 +29,7 @@ feature: https://r2.immmmm.com/2024/01/gemini-pro-3.jpg
 
 - [可选] 自用设置，第 24 行，添加上自己的主域名，：`origin: "https://immmmm.com",`
 - 第 1419 行，改为 Netlify 网址：`var BASE_URL = "https://lucky-beignet-12345.netlify.app"`
-- 第 2106 行，写上 Gemini Pro 的 Key：`const apiKey = "YourGeminiProKey"`
+- 第 2106 行，写上 Gemini Pro 的 Key：`const apiKey = "YourGeminiProKey";`
 
 ### 添加前端代码
 
