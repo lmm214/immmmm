@@ -52,7 +52,7 @@ async function geminiAI() {
     }
   } catch (error) {
     document.querySelector(".post-ai-result").remove();
-    console.log('已超时，请稍后再试～');
+    console.log(error);
   }
 };
 </script>
