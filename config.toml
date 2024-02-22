@@ -78,7 +78,6 @@ ignoreErrors = ["error-remote-getjson","error-remote-getcsv"]
 [outputs]
   home = ["HTML","Atom","JSON"] # <domain>/atom.xml
   page = ["HTML"]
-  section = ["JSON"]
 
 [outputFormats.Atom]
   mediatype = "application/rss"
