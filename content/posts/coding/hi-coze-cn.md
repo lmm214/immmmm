@@ -37,3 +37,10 @@ feature: https://r2.immmmm.com/2024/02/coze-cn-4.png.webp
 ### 更多介绍
 
 - <https://blog.zhheo.com/p/83c29d2f.html>
+
+### 补充更新
+
+https://www.coze.com/ 国际版大模型直接就是 GPT4（128K），各种联网插件，还能一键发布到电报，自己用或加入到群组都是随手的事儿，香！
+
+![coze-com-gpt4](https://r2.immmmm.com/2024/02/coze-com-gpt4.png)
+
