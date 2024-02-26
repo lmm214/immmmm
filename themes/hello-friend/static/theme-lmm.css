@@ -1651,3 +1651,30 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 	min-height: 3rem;
 }
 .dark .post-ai-result{background-color: var(--dark-header);}
+
+.single-nrong{
+	display: flex;
+  }
+  .single-zw{
+	width: 100%;
+  }
+  .paragraph-dh {
+	 display: none;
+
+  }
+  .paragraph-dh a{
+	line-height: 1.4;
+	color: #666;
+  }
+  .paragraph-dh ul{
+	gap: 15px;
+	display: grid;
+  }
+  .paragraph-dh ul ul {
+	padding-inline-start: 1rem;
+	margin-top: 10px;
+  }
+  .paragraph-dh a.active {
+	color: var(--text-highlight-color);
+	transition: all .25s ease-in-out;
+  }

@@ -1,131 +1,127 @@
 <div id="heatmap" style="
   max-width: 780px;
-  height:200px;
-  padding: 2px;
+  height:110px;
   text-align: center;
-  margin:0 auto;
+  margin:10px auto;
   "
 ></div>
-<script src="https://fastly.jsdelivr.net/npm/echarts@5.3.0/dist/echarts.min.js"></script>
+<script src="/echarts.min.js"></script>
 <script type="text/javascript">
   var chartDom = document.getElementById('heatmap');
-  var myChart = echarts.init(chartDom, null, {
-    locale: "ZH",
-  });
+  var myChart = echarts.init(chartDom);
   window.onresize = function() {
       myChart.resize();
   };
   var option;
-
   var dataMap = new Map();
   {{ range ((where .Site.RegularPages "Type" "posts")) }}
     var key = {{ .Date.Format "2006-01-02" }};
     var value = dataMap.get(key);
-    var wordCount = {{ div .WordCount 1000.0 | lang.FormatNumber 1 }};
     var link = {{ .RelPermalink}};
     var title = {{ .Title }};
-    if (value == null || wordCount > value[0]) {
-      dataMap.set(key, {wordCount, link, title});
+    
+    // multiple posts in same day
+    if (value == null) {
+      dataMap.set(key, [{link, title}]);
+    } else {
+      value.push({link, title});
     }
   {{- end -}}
 
   var data = [];
   for (const [key, value] of dataMap.entries()) {
-    data.push([key, value.wordCount]);
+    data.push([key, value.length]);
   }
-  
+
   var startDate = new Date();
   var year_Mill = startDate.setFullYear((startDate.getFullYear() - 1));
   var startDate = +new Date(year_Mill);
   var endDate = +new Date();
 
-  var dayTime = 3600 * 24 * 1000;
   startDate = echarts.format.formatTime('yyyy-MM-dd', startDate);
   endDate = echarts.format.formatTime('yyyy-MM-dd', endDate);
+  
+  // 检测浏览器主题模式并选择颜色方案
+  var prefersDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-  function heatmap_width(months){
-    var startDate = new Date();
-    var mill = startDate.setMonth((startDate.getMonth() - months));
-    var endDate = +new Date();
-    startDate = +new Date(mill);
-
-    endDate = echarts.format.formatTime('yyyy-MM-dd', endDate);
-    startDate = echarts.format.formatTime('yyyy-MM-dd', startDate);
-
-    var showmonth = [];
-    showmonth.push([
-        startDate,
-        endDate
-    ]);
-    return showmonth
+  // 定义明亮模式下的颜色方案
+  var lightTheme = {
+      backgroundColor: '#FFFFFF',
+      fangkuaicolor:'#F4F4F4',
+      gaoliangcolor: ['#ffd0b6'],
+      riqiColor: '#999',
+      textbrcolor: '#FFF',
+      xiankuangcolor:'rgba(0, 0, 0, 0.0)',
   };
 
-  function getRangeArr() {
-    const windowWidth = window.innerWidth;
-    if (windowWidth >= 600) {
-      return heatmap_width(12);
-    } else if (windowWidth >= 400) {
-      return heatmap_width(9);
-    } else {
-      return heatmap_width(6);
-    }
-  }
+  // 定义暗黑模式下的颜色方案
+  var darkTheme = {
+      backgroundColor: '#2f2f2f',
+      fangkuaicolor:'#282325',
+      gaoliangcolor: ['#b25f2f'],
+      riqiColor: '#666',
+      textbrcolor: '#332D2F',
+      xiankuangcolor:'rgba(0, 0, 0, 0.0)',
+  };
+
+  var Mode = localStorage.getItem("theme") || ''
+  var currentTheme = Mode == 'dark' ? darkTheme : lightTheme;
 
   option = {
-    title: {
-        top: 0,
-        left: 'center',
-        text: 'My HeatMap',
-        textStyle: {
-          fontSize: 28,
-          fontFamily: "Courier New"
-        },
-    },
     tooltip: {
-      formatter: function (p) {
-        const post = dataMap.get(p.data[0]);
-        return post.title + ' / ' + post.wordCount + ' 千字';
-      }
+    hideDelay: 1000,
+    enterable: true,
+    backgroundColor: currentTheme.textbrcolor,
+    borderWidth: 0, // 边框宽度为0
+    formatter: function (p) {
+        const date = p.data[0];
+        const posts = dataMap.get(date);
+        var content = `<span style="font-size: 0.75rem;font-family: var(--font-family-code);">${date}</span>`;
+        for (const [i, post] of posts.entries()) {
+            content += "<br>";          
+            var link = post.link;
+            var title = post.title;
+            content += `<a href="${link}" target="_blank">${title}</a>` + '<br>';
+        }
+        return content;
+        }
     },
     visualMap: {
-        min: 0,
-        max: 10,
-        type: 'piecewise',
-        orient: 'horizontal',
-        left: 'center',
-        top: 30,
-        
+        show: false,
         inRange: {   
-          //  [floor color, ceiling color]
-          color: ['#7aa8744c', '#7AA874' ] 
+          color: currentTheme.gaoliangcolor
         },
-        splitNumber: 4,
-        showLabel: true,
-        itemGap: 20,
     },
     calendar: {
-        top: 80,
         left: 20,
-        right: 4,
-        cellSize: ['auto', 16],
-        range: getRangeArr(),
+        top:20,
+        bottom:0,
+        right: 0,
+        cellSize: ['auto', 13],
+        range: [startDate, endDate],
         itemStyle: {
-            color: '#F1F1F1',
-            borderWidth: 1,
-            borderColor: '#fff',
-        },
-        monthLabel:{
-          fontFamily: 'Courier New',
+            color: currentTheme.fangkuaicolor,
+            borderWidth: 3.5,
+            borderColor: currentTheme.backgroundColor, 
         },
         yearLabel: { show: false },
+        monthLabel: { 
+        nameMap: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
+        textStyle: {
+            color: currentTheme.riqiColor,
+        }
+    },
+        dayLabel: {
+            firstDay: 1,
+            nameMap: ['日', '一', '', '三', '', '五', ''],
+            textStyle: {
+                color: currentTheme.riqiColor
+            }
+        },
         splitLine: {
-          lineStyle: {
-            color: 'rgba(0, 0, 0, 0.0)',
-            shadowColor: 'rgba(0, 0, 0, 0.5)',
-            shadowBlur: 5,
-            width: 0.5,
-            type: 'dashed',
-          }
+            lineStyle: {
+                color: currentTheme.xiankuangcolor,
+            }
         }
     },
     series: {
@@ -134,12 +130,14 @@
         data: data,
     }
   };
+  
   myChart.setOption(option);
   myChart.on('click', function(params) {
     if (params.componentType === 'series') {
-      const post = dataMap.get(params.data[0]);
+      // open the first post on the day
+      const post = dataMap.get(params.data[0])[0];
       const link = window.location.origin + post.link;
       window.open(link, '_blank').focus();
     }
 });
-</script> 
+</script>
