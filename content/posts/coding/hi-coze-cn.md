@@ -37,6 +37,7 @@ feature: https://r2.immmmm.com/2024/02/coze-cn-4.png.webp
 ### 更多介绍
 
 - <https://blog.zhheo.com/p/83c29d2f.html>
+- [Coze 全方位入门剖析 - 免费打造自己的 AI Agent(国内版)](https://waytoagi.feishu.cn/wiki/SaCFwcw9xi2qcrkmSxscxTxLnxb?fromScene=spaceOverview)
 
 ### 补充更新
 
