@@ -12,7 +12,7 @@ hasCJKLanguage = true
 paginate =  10
 # rss 输出数量
 rssLimit = 5
-timeout = '30s'
+timeout = '10m'
 ignoreErrors = ["error-remote-getjson","error-remote-getcsv"]
 
 [permalinks]
