@@ -5,3 +5,5 @@ public
 .obsidian
 node_modules
 .hugo_build.lock
+.frontmatter
+frontmatter.json
