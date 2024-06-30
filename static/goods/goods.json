@@ -1,6 +1,12 @@
 {
     "good": [
         {
+            "image": "/goods/mijia-zmfs.webp",
+            "jiage": "¥129 (24-06)",
+            "title": "米家桌面移动风扇",
+            "link": "",
+            "note": "风力是真强筋，内置4000毫安电池，说是最大档能吹2小时。"
+        },{
             "image": "/goods/cuktech-1W.webp",
             "jiage": "¥99 (23-12)",
             "title": "酷态科口袋充电宝",
