@@ -1546,7 +1546,6 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 .kMthTr{margin-top:5px;line-height:1.3;max-height:2.6rem;overflow:hidden}
 .eysHZq{display:flex;-webkit-box-align:center;align-items:center;margin-top:12px;min-height:16px;line-height:1}
 .HPRth{position:relative;min-height:87px;overflow:hidden;color:transparent}
-.HPRth:hover{box-shadow:rgb(48 55 66 / 30%) 0 1rem 2.1rem}
 .jcTaHb{display:flex;-webkit-box-align:center;align-items:center}
 .lhtmRw{margin-right:1px;width:12px;height:12px;color:#fccd59}
 .gaztka{margin-right:1px;width:12px;height:12px;color:#eee}
@@ -1560,7 +1559,7 @@ div.code-toolbar>.toolbar a:focus,div.code-toolbar>.toolbar a:hover,div.code-too
 .sort-by-item{margin-left:10px;padding:0 5px;line-height:20px}
 .sort-by-item.active{background:rgba(85,85,85,.1)}
 .sort-by-item svg{margin-right:5px}
-.sc-hKFxyN img{max-width:100%!important;height:auto!important;display:block!important;vertical-align:middle!important}
+.sc-hKFxyN img{max-width:100%!important;object-fit:cover;display:block!important;vertical-align:middle!important}
 @media(min-width:1024px){
   .lg\:col-span-6{grid-column:span 6/span 6!important}
   .lg\:col-start-2{grid-column-start:2!important}

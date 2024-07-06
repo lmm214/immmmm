@@ -1,110 +1,23 @@
 {{ define "main" }}
 <div class="post">
   <h2 class="post-title">{{.Title}}</h2>
-  <script type="text/javascript">
-    function search(e) {
-      document.querySelectorAll('.dfdORB').forEach(item => item.classList.add('hide'));
-      document.querySelector(`.dvtjjf.active[data-search="${e.target.dataset.search}"]`)?.classList.remove('active');
-      if(e.target.dataset.value) {
-        e.target.classList.add('active');
-      }
-      const searchItems = document.querySelectorAll('.dvtjjf.active');
-      const attributes = Array.from(searchItems, searchItem => {
-        const property = `data-${searchItem.dataset.search}`;
-        const logic = searchItem.dataset.method === 'contain' ? '*' : '^';
-        const value = searchItem.dataset.method === 'contain' ? `${searchItem.dataset.value}` : searchItem.dataset.value;
-        return `[${property}${logic}='${value}']`;
-      });
-      const selector = `.dfdORB${attributes.join('')}`;
-      document.querySelectorAll(selector).forEach(item => item.classList.remove('hide'));
-    }
-    window.addEventListener('click', function(e) {
-      if(e.target.classList.contains('sc-gtsrHT')) {
-        e.preventDefault();
-        search(e);
-      }
-    });
-    function sort(e) {
-      const sortBy = e.target.dataset.order;
-      const style = document.createElement('style');
-      style.classList.add('sort-order-style');
-      document.querySelector('style.sort-order-style')?.remove();
-      document.querySelector('.sort-by-item.active')?.classList.remove('active');
-      e.target.classList.add('active');
-      if(sortBy === 'rating') {
-        const items = Array.from(document.querySelectorAll('.dfdORB'));
-        items.sort((itemA, itemB) => {
-          const ratingA = parseFloat(itemA.dataset.rating) || 0;
-          const ratingB = parseFloat(itemB.dataset.rating) || 0;
-          if(ratingA === ratingB) {
-            return 0;
-          }
-          return ratingA > ratingB ? -1 : 1;
-        });
-        const stylesheet = items.map((item, idx) => `.dfdORB[data-rating="${item.dataset.rating}"] { order: ${idx}; }`).join('\r\n');
-        style.innerHTML = stylesheet;
-        document.body.appendChild(style);
-      }
-    }
-    window.addEventListener('click', function(e) {
-      if(e.target.classList.contains('sort-by-item')) {
-        e.preventDefault();
-        sort(e);
-      }
-    });
-  </script>
-<div class="lg:col-start-2 lg:col-span-6">
-  {{$items := getCSV "," "data/douban/book.csv" }}
+  <div class="lg:col-start-2 lg:col-span-6">
+  {{$movieitems := getJSON "https://dbapi.immmmm.com/list?type=book" }}
   <div class="sc-ksluID gFnzgG">
-    <div class="sc-bdnxRM">
-      <a href="javascript:void 0;" class="sc-gtsrHT kEoOHR" data-search="year" data-method="equal" data-value="">全部</a>
-      {{range $year := (seq now.Year -1 2012)}}
-      <a href="javascript:void 0;" class="sc-gtsrHT dvtjjf" data-search="year" data-method="equal" data-value="{{$year}}">{{$year}}</a>
-      {{end}}
-    </div>
-    <div class="sc-bdnxRM">
-      <a href="javascript:void 0;" class="sc-gtsrHT kEoOHR" data-search="star" data-method="equal" data-value="">全部</a>
-      <a href="javascript:void 0;" class="sc-gtsrHT dvtjjf" data-search="star" data-method="equal" data-value="5">五星</a>
-      <a href="javascript:void 0;" class="sc-gtsrHT dvtjjf" data-search="star" data-method="equal" data-value="4">四星</a>
-      <a href="javascript:void 0;" class="sc-gtsrHT dvtjjf" data-search="star" data-method="equal" data-value="3">三星</a>
-      <a href="javascript:void 0;" class="sc-gtsrHT dvtjjf" data-search="star" data-method="equal" data-value="2">二星</a>
-      <a href="javascript:void 0;" class="sc-gtsrHT dvtjjf" data-search="star" data-method="equal" data-value="1">一星</a>
-      <a href="javascript:void 0;" class="sc-gtsrHT dvtjjf" data-search="star" data-method="equal" data-value="0">零星</a>
-    </div>
-    <div class="jvCTkj sort-by">
-      <a href="javascript:void 0;" class="sort-by-item active" data-order="time">时间排序</a>
-      <a href="javascript:void 0;" class="sort-by-item" data-order="rating">评分排序</a>
-    </div>
-    <div class="sc-dIsUp fIuTG">
-      {{range $idx,$item := $items}}
-      {{if ne $idx 0}}
-        {{$rating := 0}}
-        {{if index $item 6 }}
-          {{ $rating = float (index $item 6) }}
-        {{end}}
-
-        {{ $coverSrc := index $item 5 }}
-        {{ $douURL := replaceRE "https://book.douban.com/subject/([0-9]+)/" "https://dou.img.lithub.cc/book/$1.jpg" $coverSrc}}
-      <div 
-        class="sc-gKAaRy dfdORB" 
-        data-year="{{index $item 11}}"
-        data-star="{{index $item 8}}"
-        data-rating="{{$rating}}"
-      >
-          <div class="sc-hKFxyN HPRth">
-            <div class="lazyload-wrapper">
-              <img class="avatar" src="{{ $douURL }}" referrer-policy="no-referrer" decoding="async" loading="lazy" alt="{{ index $item 9 }}"  title="{{ index $item 1 }}" width="150" height="220">
-            </div>
-          </div>
+    <div class="items sc-dIsUp fIuTG">
+      {{range $item := $movieitems.results}}
+        {{ $itemRating := default 0 (float $item.douban_score) }}
+        <div class="dfdORB">
+          <div class="sc-hKFxyN HPRth"><div class="lazyload-wrapper"><img class="avatar" src="{{ $item.poster }}" referrer-policy="no-referrer" loading="lazy" alt=""  title="{{ $item.name }}" width="150" height="220"></div></div>
           <div class="sc-fujyAs eysHZq">
-            <div class="rating"><span class="allstardark"><span class="allstarlight" style="width:{{mul  10 $rating }}%"></span></span><span class="rating_nums">{{$rating}}</span></div>
+              <div class="rating"><span class="allstardark"><span class="allstarlight" style="width:{{ mul 10 $itemRating }}%"></span></span><span class="rating_nums">{{ $itemRating }}</span></div>
           </div>
-          <div class="sc-iCoGMd kMthTr"><a rel="link" href="{{ index $item 5 }}" target="_blank">{{ index $item 1 }}</a></div>
-      </div>
-      {{end}}
+          <div class="sc-iCoGMd kMthTr"><a rel="noreferrer" href="{{ $item.link }}" target="_blank">{{ $item.name }}</a></div>
+        </div>
       {{end}}
     </div>
   </div>
+
 </div>
 
 </div>
