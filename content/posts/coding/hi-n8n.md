@@ -29,7 +29,7 @@ n8n 中文教程：<https://n8n.akashio.com/welcome>
 
 ### 部署代码
 
-个人采用如下命令，需留意 `5678` 端口放行、反向代理，修改 `n8n_data` 路径到自己创建的目录。
+个人采用如下命令，需留意 `5678` 端口放行、反向代理，修改 `~/.n8n` 路径到自己创建的目录。
 
 ```
 docker run -it --rm \
@@ -37,7 +37,7 @@ docker run -it --rm \
  -p 5678:5678 \
  -e GENERIC_TIMEZONE="Asia/Shanghai" \
  -e TZ="Asia/Shanghai" \
- -v n8n_data:/home/node/.n8n \
+ -v ~/.n8n:/home/node/.n8n \
  docker.n8n.io/n8nio/n8n:latest
 ```
 
