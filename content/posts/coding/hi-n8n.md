@@ -7,7 +7,7 @@ feature: https://r2.immmmm.com/2024/08/SCR-20240801-mgzr.png.webp
 
 借用 [@heo](https://blog.zhheo.com/) 某篇文章的句式，表达一下对 [n8n](https://n8n.io/) 的惊叹之感！不搜不知道，一搜吓一跳。
 
-少数派 [@珪璋](https://sspai.com/prime/story/automation-n8n) 去年5月、[@OSEN](https://ai-news.bullet.site/ai-reader-n8n-build/)今年1月、[@lcomplete](https://tech.codelc.com/docs/tools/n8n.html) 今年4月，以及我最最后才从 @汐笺 知道的 [n8n 中文教程](https://n8n.akashio.com/welcome)。
+[小众软件](https://www.appinn.com/n8n-io/)19年10月、少数派 [@珪璋](https://sspai.com/prime/story/automation-n8n) 去年5月、[@OSEN](https://ai-news.bullet.site/ai-reader-n8n-build/)今年1月、[@lcomplete](https://tech.codelc.com/docs/tools/n8n.html) 今年4月，以及我最最后才从 @汐笺 知道的 [n8n 中文教程](https://n8n.akashio.com/welcome)。
 
 <!--more-->
 
@@ -29,7 +29,7 @@ n8n 中文教程：<https://n8n.akashio.com/welcome>
 
 ### 部署代码
 
-个人采用如下命令，需留意 `5678` 端口放行、方向代理，修改 `n8n_data` 路径到自己创建的目录。
+个人采用如下命令，需留意 `5678` 端口放行、反向代理，修改 `n8n_data` 路径到自己创建的目录。
 
 ```
 docker run -it --rm \
@@ -67,7 +67,7 @@ docker run -it --rm \
 
 #### 4. Compare Datasets 数据对比节点
 
-AI日报最后上线的流程图加入了很多对比判断，只为节省些 Token，只让新文章过 AI 通道。当日，RSS feed 节点还有个自动触发节点。
+AI日报最后上线的流程图加入了很多对比判断，只为节省些 Token，只让新文章过 AI 通道。当然，RSS feed 节点还有个自动触发节点。
 
 ![](https://r2.immmmm.com/2024/08/SCR-20240801-njot.png.webp)
 
