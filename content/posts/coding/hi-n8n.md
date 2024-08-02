@@ -48,6 +48,10 @@ docker run \
  n8nio/n8n:latest
 ```
 
+![](https://r2.immmmm.com/2024/08/SCR-20240802-kogq.jpeg)
+![](https://r2.immmmm.com/2024/08/SCR-20240802-kpml.jpeg)
+![](https://r2.immmmm.com/2024/08/SCR-20240802-krvg.jpeg)
+
 ### 折腾心得
 
 #### 1. Filter 过滤节点
