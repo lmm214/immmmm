@@ -27,9 +27,15 @@ n8n 中文教程：<https://n8n.akashio.com/welcome>
 
 > 学习 n8n 的目的是为了让有需求但是没有编程能力的人快速实现自动化的效果，学习 n8n 本身其实说不上有多有趣，如果没有明确的诉求，有时间看这个教程，不如出门和朋友吃个饭。
 
-### 部署代码
+#### 宝塔面板部署步骤
 
-个人采用如下命令，需留意 `5678` 端口放行、反向代理，修改 `~/.n8n` 路径到自己创建的目录。
+1.创建个网址，开启 ssl，放行端口 `5678` 并反代，创建数据文件夹并复制路径，如：`/www/wwwroot/n8n.edui.fun/n8n`
+
+2.拉取 Docker 镜像有问题的话如下设置：
+
+- 设置、配置文件修改 `https://docker.1panel.live`；
+- 本地镜像、从仓库中拉取、输入镜像名 `n8nio/n8n:latest`；
+- 容器、创建容器、命令创建
 
 ```
 docker run \
@@ -38,7 +44,7 @@ docker run \
  -p 5678:5678 \
  -e GENERIC_TIMEZONE="Asia/Shanghai" \
  -e TZ="Asia/Shanghai" \
- -v ~/.n8n:/home/node/.n8n \
+ -v /www/wwwroot/n8n.edui.fun/n8n:/home/node/.n8n \
  n8nio/n8n:latest
 ```
 
