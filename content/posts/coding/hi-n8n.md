@@ -58,6 +58,8 @@ docker run \
 
 可视化编辑，三列清清楚楚：`INPUT` 输入、中间数据或逻辑处理、`OUTPUT` 输出。简单粗暴关键词匹配，过滤标题党、软文硬广，开心。
 
+中间数据处理支持 `or` 或 `and` 过滤，而且支持正则匹配，舒服至极。
+
 ![](https://r2.immmmm.com/2024/08/SCR-20240801-mzgd.png.webp)
 
 #### 2. Markdown 转换节点
@@ -70,6 +72,8 @@ docker run \
 
 没事，上 JavaScript 大法，正则 `replaceAll` 替换，`substring(0,6000)` 截取最大字符数。
 
+而且可以修改输出的字段名称，而而且还能：供其它节点调用，就算不在一条线上，对，甚至没有线连接的其它节点调用这里的 out 数据。
+
 ```
 {{ $json.data.replaceAll(/规则问AI/g,'').substring(0,6000) }}
 ```
@@ -78,10 +82,12 @@ docker run \
 
 #### 4. Compare Datasets 数据对比节点
 
-AI日报最后上线的流程图加入了很多对比判断，只为节省些 Token，只让新文章过 AI 通道。当然，RSS feed 节点还有个自动触发节点。
+AI日报最后上线的流程图加入了很多对比判断，只为节省些 Token，只让新文章过 AI 通道。
+
+其实有关 RSS 还有个 RSS Trigger 内置节点，虽然用了它 feed 已更新就能自动触发流程，但实际并无需要为1个feed更新而跑整个流程，对，如果 feed 更新了 3 篇文章，那会跑 3次……幸福的负担。
 
 ![](https://r2.immmmm.com/2024/08/SCR-20240801-njot.png.webp)
 
-### 更多记录
+### 更多阅读
 
-待填坑。
+[使用自动化工作流聚合信息摄入和输出](https://reorx.com/blog/sharing-my-footprints-automation/)：将 Twitter, YouTube, GitHub, Douban 等服务的动态同步到 Telegram Channel，实现个人数字生活的信息聚合。
