@@ -88,6 +88,23 @@ AI日报最后上线的流程图加入了很多对比判断，只为节省些 To
 
 ![](https://r2.immmmm.com/2024/08/SCR-20240801-njot.png.webp)
 
+#### 5. Read/Write Files from Disk 储存文件节点
+
+`-v /www/wwwroot/n8n.edui.fun/n8n:/home/node/.n8n \`
+
+拉起 Docker 时，我们做了数据持久化，也就是把容器内的配置运行数据都映射到指定文件夹。
+
+同样，如果要顺利使用这个储存节点也需要自己映射一下，不然文件都在容器内部。
+
+![](https://r2.immmmm.com/2024/08/SCR-20240810-kebd.png.webp)
+
+#### 6. 调试技巧，省钱秘籍：固定（Pin）数据
+
+一般 http、AI 等获取数据的节点都有一定限制或成本，而为了调试一般都是不停的 test、test、test，所以可以跑一次后，把这样的节点上的“开关小按钮”点一下将节点 Deactive 关闭，同时在这个节点后面的数据如下 Pin 固定。
+
+![](https://r2.immmmm.com/2024/08/SCR-20240807-taix.png.webp)
+
+
 ### 更多阅读
 
 [使用自动化工作流聚合信息摄入和输出](https://reorx.com/blog/sharing-my-footprints-automation/)：将 Twitter, YouTube, GitHub, Douban 等服务的动态同步到 Telegram Channel，实现个人数字生活的信息聚合。
