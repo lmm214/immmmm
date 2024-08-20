@@ -90,7 +90,7 @@ AI日报最后上线的流程图加入了很多对比判断，只为节省些 To
 
 #### 5. Read/Write Files from Disk 储存文件节点
 
-`-v /www/wwwroot/n8n.edui.fun/n8n:/home/node/.n8n \`
+`-v /www/wwwroot/n8n.edui.fun/n8nfile:/home/node/n8nfile \`
 
 拉起 Docker 时，我们做了数据持久化，也就是把容器内的配置运行数据都映射到指定文件夹。
 
