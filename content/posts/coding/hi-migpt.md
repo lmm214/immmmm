@@ -15,11 +15,13 @@ feature: https://r2.immmmm.com/2024/08/mipro.jpg
 
 {{< bilibili BV1N1421y7qn >}}
 
-首先看下完美运行的型号有这些：小爱音箱 Pro、小爱音箱 mini、小爱音箱 Play（2019 款）、小爱音箱 万能遥控版、小米 AI 音箱、小米 AI 音箱（第二代）、小爱智能家庭屏 10、Xiaomi Sound Pro。其它支持不支持的看这里[音箱型号](https://github.com/idootop/mi-gpt/blob/main/docs/compatibility.md)。
+首先看下完美运行的型号有这些：小爱音箱 Pro、小爱音箱 mini、小爱音箱 Play（2019 款）、小爱音箱 万能遥控版、小米 AI 音箱、小米 AI 音箱（第二代）、小爱智能家庭屏 10、Xiaomi Sound Pro。其它支持不支持的看这里[音箱型号](https://github.com/idootop/mi-gpt/blob/main/docs/compatibility.md)，完整 [配置参数](https://github.com/idootop/mi-gpt/blob/main/docs/settings.md) 看这里。
 
-部署也真不能再简单，拉起一个 Docker `idootop/mi-gpt:latest` 的事，但 NAS 上网络不通拉不动，一通设置，略过不表。
+部署也真不能再简单，拉起一个 Docker `idootop/mi-gpt` 的事，但 NAS 上网络不通拉不动，补上设置，不保证可用：
 
-[配置参数](https://github.com/idootop/mi-gpt/blob/main/docs/settings.md) 按照教程来，个人修改记录。
+![](https://r2.immmmm.com/2024/08/SCR-20240821-mmoh.png.webp)
+
+图中的这个 docker 是托管在 cf worker 上。
 
 ### .migpt.js
 
@@ -56,7 +58,7 @@ tts: "custom",
 switchSpeakerKeywords: ["把声音换成"],
 ```
 
-同时，拉去另一个 Docker `idootop/mi-gpt:latest`，具体教程见 [使用第三方 TTS](https://github.com/idootop/mi-gpt-tts/blob/main/docs/mi-gpt.md)，如果部署在 NAS 上记得端口映射。
+同时，拉去另一个 Docker `idootop/mi-gpt-tts`，具体教程见 [使用第三方 TTS](https://github.com/idootop/mi-gpt-tts/blob/main/docs/mi-gpt.md)，如果部署在 NAS 上记得端口映射。
 
 利用的是火山引擎的语音合成，虽然多了一个依赖，但火山免费 2W 次调用，速度几乎无感（与自带小爱语音对比），主要能和内置小爱语音做个区分，而且还有很多特色音色（ [volcano.ts](https://github.com/idootop/mi-gpt-tts/blob/main/src/tts/volcano.ts) ）选择，挺有意思。
 
