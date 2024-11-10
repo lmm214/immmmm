@@ -2,7 +2,7 @@
 title: "迁移 FRP 记录"
 date: 2024-11-10T11:07:08+0800
 tags: [折腾]
-feature: https://r2.immmmm.com/2024/11/SCR-20241110-kfqf.png
+feature: https://r2.immmmm.com/2024/11/SCR-20241110-kfqf.png.webp
 ---
 
 （旧文重更：2024/11/10）
