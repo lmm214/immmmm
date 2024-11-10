@@ -1,63 +1,42 @@
 ---
-title: "重装 FRP 记录"
-date: 2023-01-05T14:25:32+0800
+title: "迁移 FRP 记录"
+date: 2024-11-10T11:07:08+0800
 tags: [折腾]
+feature: https://r2.immmmm.com/2024/11/SCR-20241110-kfqf.png
 ---
 
-被逼无奈，服务器系统重装，恢复服务比预想的简单。
+（旧文重更：2024/11/10）
 
-因为主站采用 [Github + Cloudflare Pages](https://immmmm.com/hi-cloudflare/) 不需要自己的服务器，只是博客里的评论、豆瓣引用、Memos 引用跑在服务器上，这些都 Docker 部署，一行命令拉起一行域名解析即可。
+服务器到期在即，迁移 FRP 小记，为了把家里的 书库 [talebook](https://hub.docker.com/r/talebook/talebook) 能无障碍在线使用。
 
-唯有 FRP 这货，是自己不知所以搞定的。现在对于 FRP ，只是稍微厘清了一些思路。所以，以下内容不保证没问题，有问题我也搞不定。
-
-> 1. 公网服务器部署 `frps`
-> 2. 本地服务部署 `frpc`
-> 3. 本地内网穿透
-> 4. 服务器域名解析
+群晖拉起 `frpc`，服务器部署 `frps`，路由器端口转发，给个子域名解析，即可实现域名访问服务。
 
 <!--more-->
-
-硬件环境：群晖 220+、腾讯轻量云服务器、路由器拨号；
-
-实现效果：群晖 docker 拉起内部服务后，服务器绑定一个子域名即可外网访问服务。
 
 ### 公网服务器部署 frps
 
 项目地址：<https://github.com/stilleshan/frps>
 
-安装命令：
+启动 Docker：
 
 ```
-wget https://github.ioiox.com/stilleshan/frps/raw/branch/master/frps_linux_install.sh && chmod +x frps_linux_install.sh && ./frps_linux_install.sh
+docker run -d --name=frps --restart=always \
+    --network host \
+    -v /root/frps/frps.toml:/frp/frps.toml  \
+    stilleshan/frps
 ```
 
-根据提示输入命令:
-
-```
-vi /usr/local/frp/frps.ini
-```
-
-按 `i` 进入编辑模式 `frps.ini`，移动光标修改配置：
+注意，`/root/frps/frps.toml` 可以自行修改这个路径，先创建和修改好配置。
 
 ![frp-1](https://r2.immmmm.com/2023/01/frp-1.jpg)
 
 如果是用宝塔和腾讯服务器的话，记得允许这些端口。其中 `vhost_https_port` 是 https 的穿透端口，`dashboard_port` 是面板访问端口；`token` 是之后客户端验证需要。
 
-修改好之后按 `esc` 再输入 `:wq` 退出编辑模式并保存。最后输入命令，重启服务：
-
-```
-sudo systemctl restart frps
-```
-
 此时访问: http://服务器IP:7500 弹出要登陆，就OK啦！
 
-备，卸载脚本：
-
-```
-wget https://github.ioiox.com/stilleshan/frps/raw/branch/master/frps_linux_uninstall.sh && chmod +x frps_linux_uninstall.sh && ./frps_linux_uninstall.sh
-```
-
 ### 群晖本地部署 frpc
+
+2024/11/10 注明：群晖注册表正常已无法加载，通过本地 ssh 终端连接，手动 `docker pull xxxxx/xxxx` 拉去镜像搞定。
 
 项目地址：<https://github.com/stilleshan/frpc>
 
@@ -73,21 +52,22 @@ wget https://github.ioiox.com/stilleshan/frps/raw/branch/master/frps_linux_unins
 
 ![frp-3](https://r2.immmmm.com/2023/01/frp-3.jpg)
 
-配置参考：
+配置参考（0.61）：
 
 ![frp-4](https://r2.immmmm.com/2023/01/frp-4.jpg)
 
 ```
-[common]
-server_addr = frp.freefrp.net     # 服务器IP或者地址
-server_port = 7000                # 服务器提供的端口号
-token = freefrp.net               # 服务器提供的token
+serverAddr = "111.xxxxxxx"  # 服务器IP或者地址
+serverPort = 7000           # 服务器提供的端口号
+auth.method = "token"
+auth.token = "usertoken"    # 服务器设定的token
 
-[web1_xxxxxx]                     # 为避免错误,一定需更改为比较特殊的名称,不能和服务器端其他配置重名.
-type = https                      # https协议
-local_ip = 192.168.1.5            # 填写群晖内网IP.
-local_port = 443                 # 需路由器端口转发 HTTPS 
-custom_domains = nas.ioiox.com    # 填写你的域名
+[[proxies]]
+name = "nas"                # 唯一标识，不能和服务器端其他配置重名
+type = "https"              # https协议
+localIP = "192.168.1.1"     # 群晖内网IP.
+localPort = 443             # 需路由器端口转发 HTTPS 
+customDomains = ["nas.xxx.com"]   # 填写你的域名
 ```
 
 启动镜像，勾选使用高权限执行容器；高级设置，添加文件指定到你  frpc.ini 所在的位置。勾选使用与Docker Host相同的网络。完成。
