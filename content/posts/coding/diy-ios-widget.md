@@ -9,6 +9,11 @@ feature: https://r2.immmmm.com/2024/11/Scriptable-2.jpg.webp
 
 <!--more-->
 
+### 更多预览
+
+![](https://r2.immmmm.com/2024/11/Picsew_20241127001215.jpg.webp)
+![](https://r2.immmmm.com/2024/11/Picsew_20241127001227.jpg.webp)
+
 ### 简要步骤
 
 iPhone 上下载 [Scriptable](https://apps.apple.com/cn/app/scriptable/id1405459188) App（需 iOS14+）.
@@ -33,34 +38,85 @@ https://me.edui.fun/api/v1/memo?creatorId=101&limit=1&offset=3
 修改前两行的个人信息。
 
 ```javascript
-var memosUrl = "https://me.edui.fun/api/v1/memo"
-var memosUserID = "101"
+//v2024.11.27 更新图片显示
 
-const memosData = await getData()
+let memosUrl = "https://me.edui.fun"
+let memosUserID = "101"
+
 const widget = await createWidget()
-widget.setPadding(10, 10, 10, 10)
-
-//const gradient = new LinearGradient();
-//gradient.locations = [0, 1];
-//gradient.colors = [new Color("#121212", 0.7), new Color("#212A37", 0.8)];
-//widget.backgroundGradient = gradient;
-
-const img = await new Request('https://bing.ee123.net/img/?&size=800x480').loadImage();
-widget.backgroundImage = await shadowImage(img)
+widget.setPadding(5, 5, 5, 5)
 
 Script.setWidget(widget)
 Script.complete()
 
 async function createWidget() {
-  let w = new ListWidget()
+  let widget = new ListWidget()
+  const memosData = await getData()
+  let memoOne = memosData[0];
+  const wrap = widget.addStack()
+  wrap.layoutHorizontally()
+  wrap.topAlignContent()
+
+  if (memoOne.resourceList && memoOne.resourceList.length > 0 && 
+config.widgetFamily != 'small') {
+    wrap.spacing = 5
+
+    const gradient = new LinearGradient();
+    gradient.locations = [0, 1];
+    gradient.colors = [new Color("#121212", 0.7), new Color("#212A37", 0.8)];
+    widget.backgroundGradient = gradient;
+    const column0 = wrap.addStack()
+    column0.layoutVertically()
+
+      let resourceList = memoOne.resourceList;
+      let imgUrl = '',imgLink = '', fileId = '';
+      let restype = resourceList[0].type.slice(0, 5);
+      let resexlink = resourceList[0].externalLink;
+      if (resexlink) {
+        imgLink = resexlink
+      } else {
+        fileId = resourceList[0].id;
+        if(resourceList[0].uid !== undefined){
+          fileId = resourceList[0].uid
+        }else if(resourceList[0].name !== undefined){
+          fileId = resourceList[0].name+"?thumbnail=1"
+        }
+        imgLink = `${memosUrl}o/r/${fileId}`;
+      }
+      if (restype == 'image') {
+          imgUrl = imgLink;
+      }
+      if (imgUrl) {
+        let ImgStack = column0.addStack()
+        const memoIMG = await new Request(imgUrl).loadImage();
+        let imgCover = ImgStack.addImage(memoIMG)
+        imgCover.leftAlignImage()
+        imgCover.containerRelativeShape = true
+        imgCover.applyFittingContentMode()
+      }
+  }else{
+    wrap.setPadding(10, 10, 10, 10)
+    wrap.spacing = 15
+
+    const img = await new Request('https://api.dujin.org/bing/1366.php').loadImage();
+    widget.backgroundImage = await shadowImage(img)
+    
+  }
+
+  const column1 = wrap.addStack()
+  column1.layoutVertically()
+
+  let TimeStack = column1.addStack()
+  TimeStack.layoutVertically()
 
   let memoTime = new Date(memosData[0].createdTs * 1000 - 5 ).toLocaleString()
-  let time = w.addText(memoTime)
+  let time = TimeStack.addText(memoTime)
   time.textColor = new Color("#ffffff")
   time.textOpacity = 0.7
   time.font = Font.lightSystemFont(14);
+  time.font = Font.italicSystemFont(14);
 
-  w.addSpacer();
+  column1.addSpacer(5)
 
   let TAG_REG = /#([^#\s!.,;:?"'()]+)(?= )/g, 
     IMG_REG = /\!\[(.*?)\]\((.*?)\)/g,
@@ -75,25 +131,21 @@ async function createWidget() {
     addContent = addContent.slice(0,140)+"..."
   }
 
-  let heading = w.addText(addContent);
-  heading.font = Font.lightSystemFont(16)
-  heading.textColor = new Color("#ffffff")
-  heading.leftAlignText()
-  heading.textOpacity = 0.88
-  heading.minimumScaleFactor = 0.5
+  let ContentStack = column1.addStack()
+  ContentStack.layoutVertically()
 
-  w.addSpacer();
+  let content = ContentStack.addText(addContent);
+  content.font = Font.lightSystemFont(18)
+  content.textColor = new Color("#ffffff")
+  content.leftAlignText()
+  //content.textOpacity = 0.88
+  content.minimumScaleFactor = 0.8
 
-  const footerStack = w.addStack();
-  footerStack.bottomAlignContent();
+  column1.addSpacer(5)
 
-  const profileStack = footerStack.addStack();
-  profileStack.topAlignContent();
-
-  profileStack.addSpacer(10);
-
-  const nameStack = profileStack.addStack();
-  nameStack.layoutVertically();
+  let TagsStack = column1.addStack()
+  TagsStack.layoutVertically()
+  TagsStack.bottomAlignContent()
 
   let tagArr = memosData[0].content.match(TAG_REG);
   let memosTag = '';
@@ -105,24 +157,21 @@ async function createWidget() {
       memosTag = `#动态`;
   }
 
-  const memostag = nameStack.addText(memosTag);
+  let memostag = TagsStack.addText(memosTag)
   memostag.textColor = new Color("#ffffff")
   memostag.textOpacity = 0.7
   memostag.font = Font.lightSystemFont(14);
   memostag.lineLimit = 1
 
-  footerStack.addSpacer();
-
-
-  return w
+  return widget
 }
 
 async function getData(source) {
   var memosData
-  let memosLength = `${memosUrl}/stats?creatorId=${memosUserID}`
+  let memosLength = `${memosUrl}/api/v1/memo/stats?creatorId=${memosUserID}`
   let memosDataLength = await new Request(memosLength).loadJSON()
   let randomNum = Math.floor(Math.random() * (memosDataLength.length - 1 ) )
-  let memosapi = `${memosUrl}?creatorId=${memosUserID}&limit=1&offset=${randomNum}`
+  let memosapi = `${memosUrl}/api/v1/memo?creatorId=${memosUserID}&limit=1&offset=${randomNum}`
   try {
       memosData = await new Request(memosapi).loadJSON()
   } catch (error) {
@@ -136,8 +185,9 @@ async function shadowImage (img) {
   let ctx = new DrawContext()
   ctx.size = img.size
   ctx.drawImageInRect(img, new Rect(0, 0, img.size['width'], img.size['height']))
-  ctx.setFillColor(new Color('#000000', 0.4))
+  ctx.setFillColor(new Color('#212A37', 0.8))
   ctx.fillRect(new Rect(0, 0, img.size['width'], img.size['height']))
   return await ctx.getImage()
 }
+
 ```
