@@ -11,8 +11,9 @@ feature: https://r2.immmmm.com/2024/11/Scriptable-2.jpg.webp
 
 ### 更多预览
 
-![](https://r2.immmmm.com/2024/11/Picsew_20241127001215.jpg.webp)
-![](https://r2.immmmm.com/2024/11/Picsew_20241127001227.jpg.webp)
+![](https://r2.immmmm.com/2024/11/Picsew_20241127210242.jpg.webp)
+![](https://r2.immmmm.com/2024/11/Picsew_20241127210258.jpg.webp)
+![](https://r2.immmmm.com/2024/11/Picsew_20241127210232.jpg.webp)
 
 ### 简要步骤
 
@@ -38,13 +39,16 @@ https://me.edui.fun/api/v1/memo?creatorId=101&limit=1&offset=3
 修改前两行的个人信息。
 
 ```javascript
-//v2024.11.27 更新图片显示
+//v2024.11.27晚 点击主体文字，跳转到 Memos 单条网页
 
 let memosUrl = "https://me.edui.fun"
 let memosUserID = "101"
 
+// 刷新间隔时间，默认 60 分钟
+const refreshInterval = 60
 const widget = await createWidget()
-widget.setPadding(5, 5, 5, 5)
+let nextRefresh = Date.now() + 1000 * 60 * parseInt(refreshInterval)
+widget.refreshAfterDate = new Date(nextRefresh)
 
 Script.setWidget(widget)
 Script.complete()
@@ -54,17 +58,19 @@ async function createWidget() {
   const memosData = await getData()
   let memoOne = memosData[0];
   const wrap = widget.addStack()
-  wrap.layoutHorizontally()
+  wrap.spacing = 5
   wrap.topAlignContent()
 
   if (memoOne.resourceList && memoOne.resourceList.length > 0 && 
 config.widgetFamily != 'small') {
-    wrap.spacing = 5
+    wrap.layoutHorizontally()
+    widget.setPadding(10, 10, 10, 10)
 
     const gradient = new LinearGradient();
     gradient.locations = [0, 1];
     gradient.colors = [new Color("#121212", 0.7), new Color("#212A37", 0.8)];
     widget.backgroundGradient = gradient;
+
     const column0 = wrap.addStack()
     column0.layoutVertically()
 
@@ -95,8 +101,7 @@ config.widgetFamily != 'small') {
         imgCover.applyFittingContentMode()
       }
   }else{
-    wrap.setPadding(10, 10, 10, 10)
-    wrap.spacing = 15
+    wrap.setPadding(5, 0, 5, 0)
 
     const img = await new Request('https://api.dujin.org/bing/1366.php').loadImage();
     widget.backgroundImage = await shadowImage(img)
@@ -107,32 +112,38 @@ config.widgetFamily != 'small') {
   column1.layoutVertically()
 
   let TimeStack = column1.addStack()
-  TimeStack.layoutVertically()
+  TimeStack.topAlignContent()
 
   let memoTime = new Date(memosData[0].createdTs * 1000 - 5 ).toLocaleString()
+  memoTime = memoTime.replace(/.{3}$/, '')
   let time = TimeStack.addText(memoTime)
+
   time.textColor = new Color("#ffffff")
   time.textOpacity = 0.7
   time.font = Font.lightSystemFont(14);
   time.font = Font.italicSystemFont(14);
 
-  column1.addSpacer(5)
+  column1.addSpacer()
 
   let TAG_REG = /#([^#\s!.,;:?"'()]+)(?= )/g, 
     IMG_REG = /\!\[(.*?)\]\((.*?)\)/g,
     LINK_REG = /(?<!!)\[(.*?)\]\((.*?)\)/g,
+    MD_LINK_REG = /\[([^\]]+)\]\(([^)]+)\)/g,
     LINE_REG = /\n/g;
 
+  let openUrl = memosUrl+'/m/'+(memosData[0].uid || memosData[0].name || memosData[0].id)
   let addContent = memosData[0].content
     .replace(TAG_REG, "")
-    .replace(IMG_REG, "");
+    .replace(IMG_REG, "")
+    .replace(MD_LINK_REG, "$1");
 
-  if(addContent.length > 140){
-    addContent = addContent.slice(0,140)+"..."
+  if(addContent.length > 100){
+    addContent = addContent.slice(0,100)+"..."
   }
 
   let ContentStack = column1.addStack()
-  ContentStack.layoutVertically()
+  ContentStack.centerAlignContent()
+  ContentStack.url = openUrl
 
   let content = ContentStack.addText(addContent);
   content.font = Font.lightSystemFont(18)
@@ -141,10 +152,9 @@ config.widgetFamily != 'small') {
   //content.textOpacity = 0.88
   content.minimumScaleFactor = 0.8
 
-  column1.addSpacer(5)
+  column1.addSpacer()
 
   let TagsStack = column1.addStack()
-  TagsStack.layoutVertically()
   TagsStack.bottomAlignContent()
 
   let tagArr = memosData[0].content.match(TAG_REG);
