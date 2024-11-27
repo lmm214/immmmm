@@ -201,3 +201,9 @@ async function shadowImage (img) {
 }
 
 ```
+
+### 教程推荐
+
+- [Scriptable Docs 官方手册](https://docs.scriptable.app/)
+- [Scriptable 神器实战](https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzI5NTIwMDQxOA%3D%3D&action=getalbum&album_id=1546917207903928321&scene=173&subscene=&sessionid=svr_252e8048102&enterid=1732717471&from_msgid=2247484425&from_itemidx=1&count=3&nolastread=1#wechat_redirect)
+- [Nicolasking007/Scriptable 仓库](https://github.com/Nicolasking007/Scriptable)
