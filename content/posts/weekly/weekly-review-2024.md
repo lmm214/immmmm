@@ -19,7 +19,7 @@ feature: https://r2.immmmm.com/2024/11/SCR-20241123-peou.png.webp
 ![wk19-miss-1](https://r2.immmmm.com/2024/03/wk19-miss-1.jpg)
 ![wk19-miss-2](https://r2.immmmm.com/2024/03/wk19-miss-2.jpg)
 
-24年3月（via [@大大的小蜗牛](https://memos.eallion.com/m/6238)）
+24年3月（via [@大大的小蜗牛](https://memos.eallion.com/m/86cdeaf66f31251a)）
 
 ### 走过
 
