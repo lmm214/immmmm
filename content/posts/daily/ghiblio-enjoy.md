@@ -19,7 +19,11 @@ feature: https://r2.immmmm.com/2025/04/gpl-1.png
 
  <https://ghiblio.art/?utm_source=P9ZKx72A8v4z>
 
-### 生得开心
+### 沉溺其中
+
+生图小体验：有人，多人，神情或动作丰富；照片本身颜色、层次丰富。
+
+小朋友自带奶萌奶萌，满满温情爆棚；小姐姐小哥哥立马帅气、魅力十足；中年嘛，装个可爱也不是不行。老年，有种返老还童之感。
 
 ![](https://r2.immmmm.com/2025/04/gpl-2.png)
 ![](https://r2.immmmm.com/2025/04/gpl-7.png)
