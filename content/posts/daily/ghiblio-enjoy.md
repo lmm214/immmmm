@@ -2,7 +2,7 @@
 title: "沉迷“吉卜力”中……"
 date: 2025-04-12T07:59:32+0800
 tags: [日常]
-feature: https://r2.immmmm.com/2025/04/gpl-1.png
+feature: https://r2.immmmm.com/2025/04/gpl-1.webp
 ---
 
 苦于官方网络、数量、版权等限制，4o 生图只能眼巴巴看别人分享。
@@ -25,21 +25,22 @@ feature: https://r2.immmmm.com/2025/04/gpl-1.png
 
 小朋友自带奶萌奶萌，满满温情爆棚；小姐姐小哥哥立马帅气、魅力十足；中年嘛，装个可爱也不是不行。老年，有种返老还童之感。
 
-![](https://r2.immmmm.com/2025/04/gpl-2.png)
-![](https://r2.immmmm.com/2025/04/gpl-7.png)
-![](https://r2.immmmm.com/2025/04/gpl-11.PNG)
+![](https://r2.immmmm.com/2025/04/gpl-2.webp)
+![](https://r2.immmmm.com/2025/04/gpl-14.webp)
+![](https://r2.immmmm.com/2025/04/gpl-4.webp)
 
-![](https://r2.immmmm.com/2025/04/gpl-8.PNG)
+![](https://r2.immmmm.com/2025/04/gpl-8.webp)
 
-![](https://r2.immmmm.com/2025/04/gpl-3.png)
-![](https://r2.immmmm.com/2025/04/gpl-13.png)
+![](https://r2.immmmm.com/2025/04/gpl-3.webp)
+![](https://r2.immmmm.com/2025/04/gpl-13.webp)
 
-![](https://r2.immmmm.com/2025/04/gpl-4.PNG)
-![](https://r2.immmmm.com/2025/04/gpl-5.PNG)
-![](https://r2.immmmm.com/2025/04/gpl-6.PNG)
 
-![](https://r2.immmmm.com/2025/04/gpl-9.png)
-![](https://r2.immmmm.com/2025/04/gpl-10.PNG)
+![](https://r2.immmmm.com/2025/04/gpl-5.webp)
+![](https://r2.immmmm.com/2025/04/gpl-11.webp)
+![](https://r2.immmmm.com/2025/04/gpl-6.webp)
 
-![](https://r2.immmmm.com/2025/04/gpl-12.PNG)
+![](https://r2.immmmm.com/2025/04/gpl-9.webp)
+![](https://r2.immmmm.com/2025/04/gpl-10.webp)
+
+![](https://r2.immmmm.com/2025/04/gpl-12.webp)
 
