@@ -1,6 +1,12 @@
 {
     "good": [
         {
+            "image": "/goods/mxkeys.webp",
+            "jiage": "¥458 (25-05)",
+            "title": "罗技 MX Keys Mini",
+            "link": "",
+            "note": "颜值在线，手感舒适，静音首选"
+        },        {
             "image": "/goods/mijia-zmfs.webp",
             "jiage": "¥129 (24-06)",
             "title": "米家桌面移动风扇",
