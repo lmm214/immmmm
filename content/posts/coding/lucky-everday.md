@@ -38,4 +38,8 @@ feature: https://r2.immmmm.com/2025/05/dzp-1.webp
 
 *随心搭配，换着玩儿～*
 
+### 致谢
+
+[抽奖组件 lucky-canvas 素材大全](https://taoshu.in/web/lucky-canvas.html#%E8%80%81%E8%99%8E%E6%9C%BA)
+
 🎉
