@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>幸运大转盘</title>
+    <script src="src/lucky-canvas.umd.js"></script>
+    <script src="src/jsconfetti.js"></script>
+    <style>
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        @keyframes scaleIn {
+          from { transform: scale(0); }
+          to { transform: scale(1); }
+        }
+        @keyframes fadeOut {
+          from { opacity: 1; }
+          to { opacity: 0; }
+        }
+        @keyframes scaleOut {
+          from { transform: scale(1); }
+          to { transform: scale(0); }
+        }
+        .prize-modal {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.7);
+          display: none;
+          justify-content: center;
+          align-items: center;
+          z-index: 1000;
+        }
+        .prize-modal.show {
+          display: flex;
+          animation: fadeIn 0.5s ease;
+        }
+        .prize-modal-content {
+          background: url('src/922.png') no-repeat;
+          background-size: contain;
+          background-position: center top;
+          width: 420px;
+          height: 350px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transform: scale(0);
+          font-family: 'Aa年度最可爱奖';
+        }
+        .prize-modal.show .prize-modal-content {
+          animation: scaleIn 0.5s ease forwards;
+        }
+        .prize-modal-text {
+          width:260px;
+          text-align: center;
+          font-weight: normal;
+          font-size: 50px;
+          color: #fff;
+          margin-top: -30px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .prize-modal.hide {
+          animation: fadeOut 0.3s ease forwards;
+        }
+        .prize-modal.hide .prize-modal-content {
+          animation: scaleOut 0.3s ease forwards;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+            background-image: url('src/bg.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .container {
+            width: 700px;
+            height: 700px;
+            position: relative;
+        }
+
+        #my-lucky {
+            width: 100%;
+            height: 100%;
+        }
+        .fullscreen-btn,.settings-btn {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        .fullscreen-btn:hover,.settings-btn:hover {
+            transform: scale(1.1);
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        .fullscreen-icon {
+            width: 24px;
+            height: 24px;
+            fill: #333;
+        }
+        .settings-panel {
+            position: fixed;
+            right: 20px;
+            top: 70px;
+            background: rgba(255,255,255,0.88);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1001;
+            display: none;
+            max-height: 80vh;
+            overflow-y: auto;
+            width: 560px;
+        }
+        .prize-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 4px;
+            gap: 10px;
+        }
+        .prize-item input {
+            width: 120px;
+            font-size: 18px;
+            padding: 3px 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .prize-item button {
+            padding: 5px 10px;
+            background: #ff4d4f;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .button-all {
+            display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 10px;
+        }
+        .add-prize-btn,.replace-btn,.upload-btn,.reset-btn {
+            font-size: 16px;
+            margin-top: 10px;
+            width: 100%;
+            padding: 10px;
+            background: #1890ff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+            cursor: pointer;
+        }
+        .replace-btn {background: #52c41a;}
+        .settings-btn {
+            top: 20px;
+        }
+        .upload-btn{background: #722ed1;}
+        .reset-btn{background: #faad14;}
+        .tips,.tips a{color: #1890ff; font-size: 14px;}
+        p.tips{margin:1rem 0;}
+        .tips a{font-family: "Aa年度最可爱奖";font-size: 18px;}
+        .tips a.txt{font-size: 15px;}
+        .block-bg-select, .color-scheme-select {
+            margin: 10px 0;
+        }
+        .block-bg-select h4, .color-scheme-select h4 {
+            margin: 5px 0;
+            font-size: 16px;
+            color: #333;
+        }
+        .color-options {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 5px;
+        }
+        .color-option {
+            cursor: pointer;
+            text-align: center;
+            border: 2px solid transparent;
+            border-radius: 4px;
+            padding: 5px;
+        }
+        .color-option:hover {
+            transform: translateY(-2px);
+        }
+        .color-option.selected {
+            border-color: #1890ff;
+        }
+        .color-preview {
+            width: 100%;
+            height: 30px;
+            border-radius: 6px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .bg-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        .bg-option {
+            cursor: pointer;
+            border: 2px solid transparent;
+            border-radius: 4px;
+            padding: 5px;
+            text-align: center;
+        }
+        .bg-option.selected {
+            border-color: #1890ff;
+        }
+        .bg-option img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+        .main-container {
+            display: flex;
+            gap: 40px;
+        }
+        .config-section {
+            flex: 1;
+        }
+        .style-section {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="my-lucky"></div>
+    </div>
+    <div class="prize-modal" id="prizeModal">
+        <div class="prize-modal-content">
+            <h1 class="prize-modal-text" id="prizeText"></h1>
+        </div>
+    </div>
+    <div class="settings-btn" onclick="toggleSettings()">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+            <path fill="#444" d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.07-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.74,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.07,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 c0.05,0.24,0.24,0.41,0.48,0.41h3.84c0.24,0,0.44-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.47-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/>
+        </svg>
+    </div>
+    <div class="settings-panel" id="settingsPanel">
+        <div class="main-container">
+            <div class="config-section">
+                <div id="prizeList"></div>
+                <input type="file" id="configFile" accept=".txt" style="display: none;" onchange="handleFileUpload(event)">
+                <input type="file" id="bgFile" accept="image/*" style="display: none;" onchange="handleBgUpload(event)">
+                <div class="button-all">
+                    <button class="add-prize-btn" onclick="addPrize()">添加奖品</button>
+                    <button class="replace-btn" onclick="document.getElementById('bgFile').click()">替换背景</button>
+                    <button class="upload-btn" onclick="document.getElementById('configFile').click()">上传配置</button>
+                    <button class="reset-btn" onclick="resetPrizes()">重置默认</button>
+                </div>
+                <p class="tips">需下载并安装 <a href="https://www.fonts.net.cn/font-44677169109.html" target="_blank">Aa年度最可爱奖</a> 字体</p>
+                <p class="tips text"><a class="txt" href="list.txt" target="_blank">配置文件示例（名称+空格+中奖率）.txt</a></p>
+                
+            </div>
+
+            <div class="style-section">
+                <div class="color-scheme-select">
+                    <h4>转盘配色：</h4>
+                    <div class="color-options" id="innerColorOptions"></div>
+                </div>
+                <div class="block-bg-select">
+            <h4>指针选择：</h4>
+            <div class="bg-options" id="centerBgOptions">
+                <div class="bg-option" data-value="946">
+                    <img src="src/946.png">
+                </div>
+                <div class="bg-option" data-value="938" data-imgtop="-68%">
+                    <img src="src/938.png">
+                </div>
+                <div class="bg-option" data-value="937" data-text="" data-imgtop="-60%">
+                    <img src="src/937.png">
+                </div>
+            </div>
+            <h4>外层背景：</h4>
+            <div class="bg-options" id="innerBgOptions">
+                <div class="bg-option" data-value="902">
+                    <img src="src/902.png">
+                </div>
+                <div class="bg-option" data-value="903">
+                    <img src="src/903.png">
+                </div>
+                <div class="bg-option" data-value="904">
+                    <img src="src/904.png">
+                </div>
+                <div class="bg-option" data-value="947">
+                    <img src="src/947.png">
+                </div>
+                <div class="bg-option" data-value="932">
+                    <img src="src/932.png">
+                </div>
+                <div class="bg-option" data-value="668">
+                    <img src="src/668.png">
+                </div>
+            </div>
+            <h4>内层背景：</h4>
+            <div class="bg-options" id="outerBgOptions">
+                <div class="bg-option" data-value="902">
+                    <img src="src/902.png">
+                </div>
+                <div class="bg-option" data-value="903">
+                    <img src="src/903.png">
+                </div>
+                <div class="bg-option" data-value="904">
+                    <img src="src/904.png">
+                </div>
+                <div class="bg-option" data-value="947">
+                    <img src="src/947.png">
+                </div>
+                <div class="bg-option" data-value="932">
+                    <img src="src/932.png">
+                </div>
+                <div class="bg-option" data-value="668">
+                    <img src="src/668.png">
+                </div>
+            </div>
+        </div>
+            </div>
+        </div>
+    </div>
+    <div class="fullscreen-btn" onclick="toggleFullScreen()">
+        <svg class="fullscreen-icon" viewBox="0 0 24 24">
+            <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
+        </svg>
+    </div>
+    <script>
+        // 弹窗控制对象
+        const prizeModal = {
+            show(text) {
+                const modal = document.getElementById('prizeModal');
+                const prizeText = document.getElementById('prizeText');
+                prizeText.textContent = text;
+                modal.classList.add('show');
+                
+                // 点击关闭弹窗
+                modal.onclick = this.hide;
+            },
+            hide() {
+                const modal = document.getElementById('prizeModal');
+                modal.classList.add('hide');
+                modal.classList.remove('show');
+                setTimeout(() => {
+                    modal.classList.remove('hide');
+                }, 300);
+            }
+        };
+
+        const confetti = new JSConfetti();
+        function showConfetti() {
+            confetti.addConfetti({
+                confettiNumber: 500
+            })
+        }
+
+        // 加载保存的奖品数据
+        function loadSavedPrizes() {
+            const savedPrizes = localStorage.getItem('luckyWheelPrizes');
+            if (savedPrizes) {
+                myLucky.prizes = JSON.parse(savedPrizes);
+                myLucky.init();
+            }
+        }
+
+        // 初始化设置面板
+        function initSettingsPanel() {
+            const prizeList = document.getElementById('prizeList');
+            prizeList.innerHTML = '';
+            myLucky.prizes.forEach((prize, index) => {
+                const div = document.createElement('div');
+                div.className = 'prize-item';
+                div.innerHTML = `
+                    <input type="text" value="${prize.fonts[0].text}" onchange="updatePrizeName(${index}, this.value)" placeholder="奖品名称">
+                    <input type="number" value="${prize.range}" onchange="updatePrizeRange(${index}, this.value)" placeholder="概率" style="width:50px">
+                    <button onclick="removePrize(${index})">删</button>
+                `;
+                prizeList.appendChild(div);
+            });
+        }
+
+        // 切换设置面板显示
+        function toggleSettings() {
+            const panel = document.getElementById('settingsPanel');
+            panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+            if (panel.style.display === 'block') {
+                initSettingsPanel();
+            }
+        }
+
+        // 根据奖品数量和文字长度动态调整字体大小
+        function calculateFontSize(text, prizeCount) {
+            const baseSize = 36; // 基础字号
+            const minSize = 12;   // 最小字号
+            
+            // 根据奖品数量计算缩放因子（奖品越多，字号越小）
+            let countFactor = 1;
+            if (prizeCount > 10) {
+                countFactor = Math.max(0.6, 1 - (prizeCount - 10) * 0.04);
+            }
+            
+            // 根据文字长度计算缩放因子（文字越长，字号越小）
+            let textFactor = 1;
+            if (text.length > 4) {
+                textFactor = Math.max(0.6, 4 / text.length);
+            }
+            
+            // 动态调整 lengthLimit（默认 80）
+            const baseLengthLimit = 80;
+            const limitFactor = Math.min(countFactor, textFactor);
+            const lengthLimit = Math.floor(baseLengthLimit * (limitFactor * limitFactor));
+            // 综合考虑所有因素
+            const finalSize = Math.floor(baseSize * Math.min(countFactor, textFactor));
+            return {
+                fontSize: Math.max(minSize, finalSize),
+                lengthLimit: `${lengthLimit}%`
+            };
+        }
+
+        // 更新奖品名称
+        function updatePrizeName(index, name) {
+            const { fontSize } = calculateFontSize(name, myLucky.prizes.length);
+            myLucky.prizes[index].fonts[0].text = name;
+            myLucky.prizes[index].fonts[0].fontSize = fontSize + 'px';
+            myLucky.init();
+            savePrizesAuto();
+        }
+
+        // 更新奖品概率
+        function updatePrizeRange(index, range) {
+            myLucky.prizes[index].range = parseInt(range);
+            myLucky.init();
+            savePrizesAuto();
+        }
+
+        // 删除奖品
+        function removePrize(index) {
+            myLucky.prizes.splice(index, 1);
+            initSettingsPanel();
+            myLucky.init();
+            savePrizesAuto();
+        }
+
+        // 添加奖品
+        function addPrize() {
+            // 获取当前选中的配色方案
+            const savedSchemeIndex = localStorage.getItem('luckyWheelScheme') || 0;
+            const scheme = colorSchemes[savedSchemeIndex];
+            // 根据新奖品的索引位置决定颜色
+            const isEven = myLucky.prizes.length % 2 === 0;
+            // 计算新奖品的字体大小（考虑添加后的总数）
+            const defaultText = '新奖品';
+            const { fontSize } = calculateFontSize(defaultText, myLucky.prizes.length + 1);
+            myLucky.prizes.push({
+                range: 10,
+                background: isEven ? scheme.innerColor : scheme.outerColor,
+                fonts: [{ 
+                    top: '32%', 
+                    text: defaultText,
+                    fontColor: isEven ? scheme.textDark : scheme.textLight,
+                    fontSize: fontSize + 'px'
+                }]
+            });
+            initSettingsPanel();
+            myLucky.init();
+            savePrizesAuto();
+        }
+
+        // 自动保存奖品设置
+        function savePrizesAuto() {
+            // 重新设置所有奖品的背景色和字体大小
+            const savedSchemeIndex = localStorage.getItem('luckyWheelScheme') || 0;
+            const scheme = colorSchemes[savedSchemeIndex];
+            const totalPrizes = myLucky.prizes.length;
+            
+            myLucky.prizes.forEach((prize, index) => {
+                const isEven = index % 2 === 0;
+                prize.background = isEven ? scheme.innerColor : scheme.outerColor;
+                prize.fonts[0].fontColor = isEven ? scheme.textDark : scheme.textLight;
+                // 重新计算字体大小
+                const { fontSize } = calculateFontSize(prize.fonts[0].text, totalPrizes);
+                prize.fonts[0].fontSize = fontSize + 'px';
+            });
+            myLucky.init();
+            localStorage.setItem('luckyWheelPrizes', JSON.stringify(myLucky.prizes));
+        }
+
+        // 处理配置文件上传
+        function handleFileUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const text = e.target.result;
+                    const lines = text.split('\n');
+                    const savedSchemeIndex = localStorage.getItem('luckyWheelScheme') || 0;
+                    const scheme = colorSchemes[savedSchemeIndex];
+                    // 使用全局的字体大小计算函数
+                    const filteredLines = lines.filter(line => line.trim());
+                    const newPrizes = filteredLines.map((line, index) => {
+                        const [name, range] = line.split(' ');
+                        const trimmedName = name.trim();
+                        const isEven = index % 2 === 0;
+                        const { fontSize } = calculateFontSize(trimmedName, filteredLines.length);
+                        return {
+                            range: parseInt(range) || 10,
+                            background: isEven ? scheme.innerColor : scheme.outerColor,
+                            fonts: [{ 
+                                top: '32%', 
+                                text: trimmedName,
+                                fontColor: isEven ? scheme.textDark : scheme.textLight,
+                                fontSize: fontSize + 'px'
+                            }]
+                        };
+                    });
+                    if (newPrizes.length > 0) {
+                        myLucky.prizes = newPrizes;
+                        myLucky.init();
+                        initSettingsPanel();
+                        savePrizesAuto();
+                        alert('配置导入成功！');
+                    }
+                };
+                reader.readAsText(file);
+            }
+            event.target.value = '';
+        }
+
+        // 配色方案
+        const colorSchemes = [
+            {
+                name: '热情红',
+                innerColor: '#FF6B6B',
+                outerColor: '#FFE5E5',
+                textLight: '#FF4040',
+                textDark: '#FFE5E5'
+            },
+            {
+                name: '活力橙',
+                innerColor: '#FFA500',
+                outerColor: '#FFE4B5',
+                textLight: '#FF8C00',
+                textDark: '#FFE4B5'
+            },
+            {
+                name: '霓虹紫',
+                innerColor: '#9932CC',
+                outerColor: '#E6E6FA',
+                textLight: '#BA55D3',
+                textDark: '#E6E6FA'
+            },
+            {
+                name: '翡翠绿',
+                innerColor: '#00FF7F',
+                outerColor: '#F0FFF0',
+                textLight: '#32CD32',
+                textDark: '#F0FFF0'
+            },
+            {
+                name: '深邃蓝',
+                innerColor: '#1E90FF',
+                outerColor: '#F0F8FF',
+                textLight: '#00BFFF',
+                textDark: '#F0F8FF'
+            },
+            {
+                name: '柠檬橙',
+                innerColor: '#FFE4B5',
+                outerColor: '#FFFAF0',
+                textLight: '#FF8C00',
+                textDark: '#FF4500'
+            },
+            {
+                name: '彩虹糖',
+                innerColor: '#FFD6E7',
+                outerColor: '#FFF8FB',
+                textLight: '#FF1493',
+                textDark: '#DA70D6'
+            },
+            {
+                name: '海洋风',
+                innerColor: '#CCF2FF',
+                outerColor: '#F5FFFF',
+                textLight: '#00BFFF',
+                textDark: '#4169E1'
+            },
+            {
+                name: '薄荷绿',
+                innerColor: '#E0FFC9',
+                outerColor: '#F5FFF5',
+                textLight: '#32CD32',
+                textDark: '#2ECC71'
+            },
+            {
+                name: '糖果紫',
+                innerColor: '#F0B3FF',
+                outerColor: '#FFF0FF',
+                textLight: '#DA70D6',
+                textDark: '#8B008B'
+            }
+        ];
+
+        // 默认奖品配置
+        const defaultPrizes = (() => {
+            const defaultScheme = colorSchemes[0];
+            const prizes = [
+                { range: 10, text: '小本子' },
+                { range: 10, text: '盲盒笔' },
+                { range: 10, text: '小扇子' },
+                { range: 10, text: '巧克力' },
+                { range: 10, text: '零食任选' },
+                { range: 10, text: '贴纸' },
+                { range: 15, text: '棒棒糖' },
+                { range: 10, text: 'AD钙奶' },
+                { range: 10, text: '礼物任选' },
+                { range: 5, text: '再来一次' }
+            ];
+            
+            // 更新奖品的字体大小
+            const { fontSize: defaultFontSize } = calculateFontSize('默认文字', prizes.length);
+            
+            return prizes.map((prize, index) => {
+                const isEven = index % 2 === 0;
+                const { fontSize } = calculateFontSize(prize.text, prizes.length);
+                return {
+                    range: prize.range,
+                    background: isEven ? defaultScheme.inner : defaultScheme.outer,
+                    fonts: [{ 
+                        top: '32%', 
+                        text: prize.text,
+                        fontColor: isEven ? defaultScheme.textDark : defaultScheme.textLight,
+                        fontSize: `${fontSize}px`
+                    }]
+                };
+            });
+        })();
+
+        // 重置为默认配置
+        function resetPrizes() {
+            if (confirm('确定要重置为默认配置吗？')) {
+                // 重置奖品配置
+                myLucky.prizes = JSON.parse(JSON.stringify(defaultPrizes));
+                myLucky.init();
+                initSettingsPanel();
+                savePrizesAuto();
+                // 重置背景图片
+                document.body.style.backgroundImage = 'url(src/bg.png)';
+                localStorage.removeItem('luckyWheelBg');
+                // 重置内外层和指针背景
+                localStorage.removeItem('luckyWheelInnerBg');
+                localStorage.removeItem('luckyWheelOuterBg');
+                localStorage.removeItem('luckyWheelPointerBg');
+                // 重置颜色配置
+                localStorage.removeItem('luckyWheelColors');
+                document.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
+                document.querySelectorAll('.bg-option').forEach(opt => opt.classList.remove('selected'));
+                initColorSchemeSelection();
+                location.reload();
+            }
+        }
+
+        // 处理背景图片上传
+        function handleBgUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.body.style.backgroundImage = `url(${e.target.result})`;
+                    localStorage.setItem('luckyWheelBg', e.target.result);
+                };
+                reader.readAsDataURL(file);
+            }
+            event.target.value = '';
+        }
+
+        // 更新转盘背景
+        function updateBlockBg(value, isOuter) {
+            const blockIndex = isOuter ? 1 : 0;
+            if (value) {
+                myLucky.blocks[blockIndex].imgs = [{
+                    src: `src/${value}.png`,
+                    width: '100%',
+                    height: '100%'
+                }];
+                localStorage.setItem(isOuter ? 'luckyWheelOuterBg' : 'luckyWheelInnerBg', value);
+            } else {
+                // 取消选择背景时移除图片
+                myLucky.blocks[blockIndex].imgs = [];
+                localStorage.removeItem(isOuter ? 'luckyWheelOuterBg' : 'luckyWheelInnerBg');
+            }
+            myLucky.init();
+        }
+
+        // 初始化颜色选择
+        function initColorSchemeSelection() {
+            const container = document.getElementById('innerColorOptions');
+            container.innerHTML = '';
+            
+            // 加载保存的颜色方案
+            const savedSchemeIndex = localStorage.getItem('luckyWheelScheme') || 0;
+            
+            // 创建颜色方案选项
+            colorSchemes.forEach((scheme, index) => {
+                const div = document.createElement('div');
+                div.className = 'color-option';
+                if (index === parseInt(savedSchemeIndex)) div.classList.add('selected');
+                
+                div.innerHTML = `
+                    <div class="color-preview" style="background: linear-gradient(45deg, ${scheme.innerColor} 0%, ${scheme.outerColor} 100%)"></div>`;
+                
+                div.addEventListener('click', () => {
+                    document.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
+                    div.classList.add('selected');
+                    updateColorScheme(index);
+                });
+                
+                container.appendChild(div);
+            });
+            
+            // 应用保存的颜色方案
+            updateColorScheme(parseInt(savedSchemeIndex));
+        }
+
+        // 更新颜色方案
+        function updateColorScheme(schemeIndex) {
+            const scheme = colorSchemes[schemeIndex];
+            if (!scheme) return;
+            
+            // 保存当前方案索引
+            localStorage.setItem('luckyWheelScheme', schemeIndex);
+            
+            // 应用颜色到转盘
+            myLucky.prizes.forEach((prize, index) => {
+                const isEven = index % 2 === 0;
+                prize.background = isEven ? scheme.innerColor : scheme.outerColor;
+                prize.fonts = prize.fonts.map(font => ({
+                    ...font,
+                    fontColor: isEven ? scheme.textDark : scheme.textLight
+                }));
+            });
+            
+            myLucky.init();
+        }
+
+        // 更新指针图片
+        function updatePointerBg(element) {
+            if (element) {
+                const value = element.dataset.value;
+                const imgtop = element.dataset.imgtop || '-50%';
+                const text = element.dataset.text !== undefined ? element.dataset.text : 'GO';
+                
+                myLucky.buttons[0].imgs = [{
+                    src: `src/${value}.png`,
+                    width: '50%',
+                    top: imgtop
+                }];
+                
+                myLucky.buttons[0].fonts = [{
+                    text: text,
+                    top: '-10px',
+                    fontSize: '24px',
+                    fontColor: '#fff'
+                }];
+                
+                localStorage.setItem('luckyWheelPointerBg', JSON.stringify({
+                    value: value,
+                    imgtop: imgtop,
+                    text: text
+                }));
+            } else {
+                myLucky.buttons[0].imgs = [];
+                myLucky.buttons[0].fonts = [{
+                    text: 'GO',
+                    top: '-10px',
+                    fontSize: '24px',
+                    fontColor: '#fff'
+                }];
+                localStorage.removeItem('luckyWheelPointerBg');
+            }
+            myLucky.init();
+        }
+
+        // 初始化背景选择
+        function initBlockBgSelection() {
+            const innerBg = localStorage.getItem('luckyWheelInnerBg') || '902';
+            const outerBg = localStorage.getItem('luckyWheelOuterBg') || '932';
+            const savedPointerBg = localStorage.getItem('luckyWheelPointerBg');
+            let pointerBgValue = '946';
+            
+            // 设置选中状态
+            document.querySelector(`#innerBgOptions .bg-option[data-value="${innerBg}"]`).classList.add('selected');
+            document.querySelector(`#outerBgOptions .bg-option[data-value="${outerBg}"]`).classList.add('selected');
+            
+            // 更新转盘背景
+            updateBlockBg(innerBg, false);
+            updateBlockBg(outerBg, true);
+            
+            // 恢复指针设置
+            if (savedPointerBg) {
+                try {
+                    const pointerConfig = JSON.parse(savedPointerBg);
+                    pointerBgValue = pointerConfig.value;
+                    const pointerElement = document.querySelector(`#centerBgOptions .bg-option[data-value="${pointerBgValue}"]`);
+                    if (pointerElement) {
+                        // 恢复保存的 imgtop 和 text 属性
+                        if (pointerConfig.imgtop) {
+                            pointerElement.dataset.imgtop = pointerConfig.imgtop;
+                        }
+                        if (pointerConfig.text !== undefined) {
+                            pointerElement.dataset.text = pointerConfig.text;
+                        }
+                        pointerElement.classList.add('selected');
+                        updatePointerBg(pointerElement);
+                    }
+                } catch (e) {
+                    // 如果解析失败，使用默认值
+                    const defaultPointer = document.querySelector('#centerBgOptions .bg-option[data-value="946"]');
+                    if (defaultPointer) {
+                        defaultPointer.classList.add('selected');
+                        updatePointerBg(defaultPointer);
+                    }
+                }
+            } else {
+                // 使用默认指针
+                const defaultPointer = document.querySelector('#centerBgOptions .bg-option[data-value="946"]');
+                if (defaultPointer) {
+                    defaultPointer.classList.add('selected');
+                    updatePointerBg(defaultPointer);
+                }
+            }
+
+            // 添加点击事件
+            function setupBgOptionEvents(selector, isOuter, isPointer) {
+                document.querySelectorAll(selector).forEach(option => {
+                    option.addEventListener('click', () => {
+                        const wasSelected = option.classList.contains('selected');
+                        document.querySelectorAll(selector).forEach(opt => opt.classList.remove('selected'));
+                        if (!wasSelected) {
+                            option.classList.add('selected');
+                            if (isPointer) {
+                                updatePointerBg(option);
+                            } else {
+                                updateBlockBg(option.dataset.value, isOuter);
+                            }
+                        } else {
+                            if (isPointer) {
+                                updatePointerBg(null);
+                            } else {
+                                updateBlockBg(null, isOuter);
+                            }
+                        }
+                    });
+                });
+            }
+
+            setupBgOptionEvents('#innerBgOptions .bg-option', false, false);
+            setupBgOptionEvents('#outerBgOptions .bg-option', true, false);
+            setupBgOptionEvents('#centerBgOptions .bg-option', false, true);
+        }
+
+
+
+        // 页面加载完成后初始化
+        window.addEventListener('load', () => {
+            loadSavedPrizes();
+            // 加载保存的背景图片
+            const savedBg = localStorage.getItem('luckyWheelBg');
+            if (savedBg) {
+                document.body.style.backgroundImage = `url(${savedBg})`;
+            }
+            initBlockBgSelection();
+             initColorSchemeSelection();
+
+             // 初始化颜色方案
+             const savedSchemeIndex = parseInt(localStorage.getItem('luckyWheelScheme') || '0');
+             const scheme = colorSchemes[savedSchemeIndex];
+             
+             // 应用保存的颜色方案到转盘
+             myLucky.prizes.forEach((prize, index) => {
+                 const isEven = index % 2 === 0;
+                 prize.background = isEven ? scheme.innerColor : scheme.outerColor;
+                 prize.fonts[0].color = isEven ? scheme.textDark : scheme.textLight;
+             });
+             myLucky.init();
+             
+             document.getElementById('settingsPanel').style.display = 'none';
+        });
+
+        function toggleFullScreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
+          const myLucky = new LuckyCanvas.LuckyWheel('#my-lucky', {
+            width: '700px',
+            height: '700px',
+            blocks: [
+                {
+                    padding: '40px',
+                    imgs: [{
+                      src: 'src/947.png',
+                      width: '100%',
+                      height: '100%'
+                    }]
+                  },
+                  {
+                    padding: '60px',
+                    imgs: [{
+                      src: 'src/932.png',
+                      width: '100%',
+                      height: '100%'
+                    }]
+                  }
+            ],
+            prizes: defaultPrizes,
+            buttons: [
+                {
+                    radius: '45%',
+                    fonts: [{ text: 'GO', top: '-10px', fontSize: '24px', fontColor: '#fff' }],
+                    imgs: [{
+                      src: 'src/946.png',
+                      width: '50%',
+                      top: '-50%'
+                    }]
+                  }
+            ],
+            defaultConfig: {
+                accelerationTime: 1000
+            },
+            defaultStyle: {
+                fontColor: '#913229',
+                fontSize: '36px',
+                fontStyle: 'Aa年度最可爱奖',
+                lengthLimit: '80%'
+            },
+            start: function () {
+              myLucky.play()
+              setTimeout(() => {
+                myLucky.stop()
+              }, 1000)
+            },
+            end: function (prize) {
+              //prize.fonts[0].text
+              showConfetti()
+              setTimeout(() => {
+                showConfetti()
+                setTimeout(() => {
+                    showConfetti()
+                }, 800)
+              }, 600)
+              
+              // 显示中奖弹窗
+              prizeModal.show(prize.fonts[0].text);
+            }
+          })
+    </script>
+</body>
+</html>

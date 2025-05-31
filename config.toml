@@ -15,11 +15,6 @@ rssLimit = 5
 timeout = '10m'
 ignoreErrors = ["error-remote-getjson","error-remote-getcsv"]
 
-[caches]
-  [caches.getjson]
-    dir = ":cacheDir/:project"
-    maxAge = "10s"
-
 [permalinks]
   posts = "/:filename/"
   tags = "/tags/:slug/"
